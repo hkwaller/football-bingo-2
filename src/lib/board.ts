@@ -1,36 +1,87 @@
-import { categories } from '@/data/categories'
 import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
+import {
+  type BoardConfig,
+  boardConfigKey,
+  categoriesRequired,
+  categoryPoolForConfig,
+  cellCountForConfig,
+  DEFAULT_BOARD_CONFIG,
+} from '@/lib/boardConfig'
 
+export type { BoardConfig } from '@/lib/boardConfig'
+export {
+  DEFAULT_BOARD_CONFIG,
+  boardConfigKey,
+  categoryPoolForConfig,
+  cellCountForConfig,
+  categoriesRequired,
+  isBoardConfigViable,
+  parseBoardConfig,
+} from '@/lib/boardConfig'
+
+/** @deprecated use cellCountForConfig */
 export const BOARD_SIZE = 5
+/** @deprecated use freeSquareIndex(5) */
 export const FREE_INDEX = 12
 
 export type BoardCell =
   | { kind: 'free' }
   | { kind: 'category'; label: string }
 
-export const BINGO_LINES: readonly (readonly number[])[] = [
-  [0, 1, 2, 3, 4],
-  [5, 6, 7, 8, 9],
-  [10, 11, 12, 13, 14],
-  [15, 16, 17, 18, 19],
-  [20, 21, 22, 23, 24],
-  [0, 5, 10, 15, 20],
-  [1, 6, 11, 16, 21],
-  [2, 7, 12, 17, 22],
-  [3, 8, 13, 18, 23],
-  [4, 9, 14, 19, 24],
-  [0, 6, 12, 18, 24],
-  [4, 8, 12, 16, 20],
-]
+/** Odd n: geometric center. Even n: top-left of central 2×2 block. */
+export function freeSquareIndex(n: number): number {
+  if (n % 2 === 1) return (n * n - 1) / 2
+  const half = n / 2
+  return (half - 1) * n + (half - 1)
+}
 
-export function generateBoard(seed: string): BoardCell[] {
-  const rand = mulberry32(hashSeed(seed))
-  const pool = shuffle(categories, rand)
-  const picked = pool.slice(0, 24)
+export function buildBingoLines(n: number): number[][] {
+  const lines: number[][] = []
+  for (let r = 0; r < n; r++) {
+    lines.push(Array.from({ length: n }, (_, c) => r * n + c))
+  }
+  for (let c = 0; c < n; c++) {
+    lines.push(Array.from({ length: n }, (_, r) => r * n + c))
+  }
+  lines.push(Array.from({ length: n }, (_, i) => i * n + i))
+  lines.push(Array.from({ length: n }, (_, i) => i * n + (n - 1 - i)))
+  return lines
+}
+
+export function bingoLinesForConfig(
+  config: BoardConfig,
+): readonly (readonly number[])[] {
+  return buildBingoLines(config.size)
+}
+
+export function freeIndexForConfig(config: BoardConfig): number {
+  return freeSquareIndex(config.size)
+}
+
+/** Legacy 5×5 lines; prefer bingoLinesForConfig */
+export const BINGO_LINES: readonly (readonly number[])[] = buildBingoLines(5)
+
+export function generateBoard(
+  seed: string,
+  config: BoardConfig = DEFAULT_BOARD_CONFIG,
+): BoardCell[] {
+  const pool = categoryPoolForConfig(config)
+  const need = categoriesRequired(config)
+  if (pool.length < need) {
+    throw new Error('Not enough categories for board config')
+  }
+  const rand = mulberry32(
+    hashSeed(`board|${seed}|${boardConfigKey(config)}`),
+  )
+  const shuffled = shuffle(pool, rand)
+  const picked = shuffled.slice(0, need)
+  const n = config.size
+  const total = n * n
+  const freeAt = freeSquareIndex(n)
   const cells: BoardCell[] = []
   let p = 0
-  for (let i = 0; i < 25; i++) {
-    if (i === FREE_INDEX) cells.push({ kind: 'free' })
+  for (let i = 0; i < total; i++) {
+    if (i === freeAt) cells.push({ kind: 'free' })
     else {
       const label = picked[p++]
       if (!label) throw new Error('Not enough categories for board')
@@ -46,14 +97,27 @@ export function cellCategory(cells: BoardCell[], index: number): string | null {
   return c.label
 }
 
-export function completedLineIndices(solved: Set<number>): number[] {
+export function completedLineIndices(
+  solved: Set<number>,
+  lines: readonly (readonly number[])[],
+): number[] {
   const done: number[] = []
-  BINGO_LINES.forEach((line, lineIdx) => {
+  lines.forEach((line, lineIdx) => {
     if (line.every((i) => solved.has(i))) done.push(lineIdx)
   })
   return done
 }
 
-export function hasBingo(solved: Set<number>): boolean {
-  return completedLineIndices(solved).length > 0
+export function hasBingo(
+  solved: Set<number>,
+  lines: readonly (readonly number[])[],
+): boolean {
+  return completedLineIndices(solved, lines).length > 0
+}
+
+export function hasBingoForConfig(
+  solved: Set<number>,
+  config: BoardConfig,
+): boolean {
+  return hasBingo(solved, bingoLinesForConfig(config))
 }

@@ -3,11 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0f0c;
-  --foreground: #f4f1de;
+  --background: #06060a;
+  --foreground: #f4f4f5;
+  --fb-accent-lime: #d4ff00;
+  --fb-accent-magenta: #ff3d9a;
+  --fb-accent-cyan: #22d3ee;
+  --fb-accent-yellow: #fde047;
+  --fb-accent-mint: #4ade80;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 120% 90% at 50% -35%, rgba(212, 255, 0, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 55% at 100% 20%, rgba(255, 61, 154, 0.1), transparent 50%),
+    radial-gradient(ellipse 55% 45% at 0% 75%, rgba(34, 211, 238, 0.08), transparent 45%);
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  .fb-panel {
+    @apply backdrop-blur-sm;
+  }
 }

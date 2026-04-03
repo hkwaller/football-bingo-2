@@ -1,4 +1,13 @@
-import { cellCategory, generateBoard } from '@/lib/board'
+import {
+  cellCategory,
+  generateBoard,
+  cellCountForConfig,
+} from '@/lib/board'
+import {
+  isBoardConfigViable,
+  parseBoardConfig,
+  DEFAULT_BOARD_CONFIG,
+} from '@/lib/boardConfig'
 import { validateCellAnswer } from '@/lib/validation'
 
 export const runtime = 'nodejs'
@@ -15,7 +24,10 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Invalid body' }, { status: 400 })
   }
 
-  const { seed, cellIndex, playerId } = body as Record<string, unknown>
+  const { seed, cellIndex, playerId, boardConfig: rawConfig } = body as Record<
+    string,
+    unknown
+  >
 
   if (typeof seed !== 'string' || seed.length === 0) {
     return Response.json({ error: 'Missing seed' }, { status: 400 })
@@ -27,11 +39,27 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Missing playerId' }, { status: 400 })
   }
 
-  if (cellIndex < 0 || cellIndex > 24) {
+  const boardConfig =
+    rawConfig !== undefined ? parseBoardConfig(rawConfig) : DEFAULT_BOARD_CONFIG
+  if (!boardConfig) {
+    return Response.json({ error: 'Invalid boardConfig' }, { status: 400 })
+  }
+  if (!isBoardConfigViable(boardConfig)) {
+    return Response.json({ error: 'boardConfig has too few categories' }, { status: 400 })
+  }
+
+  const maxIndex = cellCountForConfig(boardConfig) - 1
+  if (cellIndex < 0 || cellIndex > maxIndex) {
     return Response.json({ error: 'cellIndex out of range' }, { status: 400 })
   }
 
-  const cells = generateBoard(seed)
+  let cells
+  try {
+    cells = generateBoard(seed, boardConfig)
+  } catch {
+    return Response.json({ error: 'Could not build board' }, { status: 500 })
+  }
+
   const category = cellCategory(cells, cellIndex)
   if (category === null) {
     return Response.json({ error: 'This is the free square' }, { status: 400 })

@@ -1,8 +1,23 @@
 'use client'
 
-import { createClient } from '@liveblocks/client'
+import {
+  type BaseUserMeta,
+  createClient,
+  type Lson,
+  LiveMap,
+} from '@liveblocks/client'
 import { createRoomContext } from '@liveblocks/react'
+import type { CellPick } from '@/lib/cellPick'
+import type { DraftPolicy } from '@/lib/draftPolicy'
 import type { PlayMode } from '@/lib/playMode'
+
+export type DraftVote =
+  | { type: 'skip' }
+  | { type: 'square'; cellIndex: number }
+
+export type RoomEvent =
+  | { type: 'draft_place'; cellIndex: number; pick: CellPick }
+  | { type: 'draft_skip' }
 
 export type GameStorage = {
   phase: 'lobby' | 'playing' | 'finished'
@@ -10,6 +25,16 @@ export type GameStorage = {
   startedAt: number | null
   supabaseGameId: string | null
   playMode: PlayMode
+  hostConnectionId: number | null
+  boardSize: 3 | 4 | 5
+  categoryNationalities: boolean
+  categoryClubs: boolean
+  categoryAchievements: boolean
+  boardLayout: 'shared' | 'individual'
+  draftPolicy: DraftPolicy
+  draftRound: number
+  draftVotes: LiveMap<string, DraftVote>
+  sharedSolved: LiveMap<string, CellPick>
 }
 
 export type GamePresence = {
@@ -40,4 +65,34 @@ export const {
   useMyPresence,
   useStatus,
   useErrorListener,
-} = createRoomContext<GamePresence, GameStorage>(client)
+  useSelf,
+  useBroadcastEvent,
+  useEventListener,
+} = createRoomContext<GamePresence, GameStorage, BaseUserMeta, RoomEvent>(client)
+
+/** LiveMap has no `clear()` in typings; delete keys explicitly. */
+export function liveMapStringKeysClear(m: LiveMap<string, Lson>) {
+  for (const k of [...m.keys()]) {
+    m.delete(k)
+  }
+}
+
+export function createInitialGameStorage(): GameStorage {
+  return {
+    phase: 'lobby',
+    seed: '',
+    startedAt: null,
+    supabaseGameId: null,
+    playMode: 'draft',
+    hostConnectionId: null,
+    boardSize: 5,
+    categoryNationalities: true,
+    categoryClubs: true,
+    categoryAchievements: true,
+    boardLayout: 'individual',
+    draftPolicy: 'open',
+    draftRound: 0,
+    draftVotes: new LiveMap(),
+    sharedSolved: new LiveMap(),
+  }
+}

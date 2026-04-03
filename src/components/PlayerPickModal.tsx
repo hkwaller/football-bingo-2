@@ -88,7 +88,7 @@ export function PlayerPickModal({
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -96,14 +96,16 @@ export function PlayerPickModal({
       role="presentation"
     >
       <motion.div
-        className="max-h-[85vh] w-full max-w-md overflow-hidden rounded-xl border border-white/15 bg-pitch-dark shadow-xl"
+        className="max-h-[85vh] w-full max-w-md overflow-hidden rounded-2xl border border-white/15 bg-[#0c1018] shadow-2xl shadow-[var(--fb-accent-magenta)]/10"
         initial={{ scale: 0.96, y: 8 }}
         animate={{ scale: 1, y: 0 }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="border-b border-white/10 px-4 py-3">
-          <h2 className="text-base font-semibold text-chalk">{title}</h2>
-          <p className="mt-1 text-xs text-chalk/60">
+        <div className="border-b border-white/10 px-5 py-4">
+          <h2 className="font-display text-xl font-bold tracking-wide text-chalk">
+            {title}
+          </h2>
+          <p className="mt-1 text-sm text-chalk/60">
             Search players — pick someone who fits the square.
           </p>
         </div>
@@ -113,7 +115,7 @@ export function PlayerPickModal({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Type a name…"
-            className="mb-3 w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2 text-sm text-chalk placeholder:text-chalk/40 focus:border-emerald-500/50 focus:outline-none"
+            className="mb-3 w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-base text-chalk placeholder:text-chalk/40 focus:border-[var(--fb-accent-lime)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--fb-accent-lime)]/25"
           />
           {error ? (
             <p className="mb-2 text-sm text-red-300" role="alert">
@@ -132,34 +134,34 @@ export function PlayerPickModal({
                     type="button"
                     disabled={submitting || Date.now() < blockedUntil}
                     onClick={() => tryPick(p.playerId)}
-                    className="flex w-full items-center gap-3 rounded-lg px-2 py-2 text-left hover:bg-white/10 disabled:opacity-50"
+                    className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left hover:bg-white/10 disabled:opacity-50"
                   >
                     {p.imageUrl ? (
                       <Image
                         src={p.imageUrl}
                         alt=""
-                        width={36}
-                        height={36}
+                        width={40}
+                        height={40}
                         className="rounded-full object-cover"
                         unoptimized
                       />
                     ) : (
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-xs text-chalk/60">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xs text-chalk/60">
                         ?
                       </span>
                     )}
-                    <span className="text-sm text-chalk">{p.name}</span>
+                    <span className="text-base font-medium text-chalk">{p.name}</span>
                   </button>
                 </li>
               ))
             )}
           </ul>
         </div>
-        <div className="flex justify-end border-t border-white/10 px-4 py-3">
+        <div className="flex justify-end border-t border-white/10 px-5 py-3">
           <button
             type="button"
             onClick={onClose}
-            className="text-sm text-chalk/70 hover:text-chalk"
+            className="text-sm font-semibold text-chalk/70 hover:text-chalk"
           >
             Cancel
           </button>
