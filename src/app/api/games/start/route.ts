@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import { getSupabaseAdmin } from '@/lib/supabase/admin'
 import { isClerkConfigured } from '@/lib/env'
+import { FB_TABLES } from '@/lib/supabase/tables'
 
 export const runtime = 'nodejs'
 
@@ -25,7 +26,7 @@ export async function POST(request: Request) {
     ? (await auth()).userId ?? null
     : null
   const { data, error } = await admin
-    .from('games')
+    .from(FB_TABLES.games)
     .insert({
       seed: body.seed,
       liveblocks_room_id: body.liveblocksRoomId ?? null,

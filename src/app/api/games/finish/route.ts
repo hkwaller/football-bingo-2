@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import { getSupabaseAdmin } from '@/lib/supabase/admin'
 import { isClerkConfigured } from '@/lib/env'
+import { FB_TABLES } from '@/lib/supabase/tables'
 
 export const runtime = 'nodejs'
 
@@ -33,7 +34,7 @@ export async function POST(request: Request) {
       ? body.displayName
       : 'Player'
 
-  const { error: pErr } = await admin.from('game_participants').insert({
+  const { error: pErr } = await admin.from(FB_TABLES.gameParticipants).insert({
     game_id: body.gameId,
     clerk_user_id: userId ?? null,
     display_name: displayName,
@@ -46,7 +47,7 @@ export async function POST(request: Request) {
   }
 
   await admin
-    .from('games')
+    .from(FB_TABLES.games)
     .update({ ended_at: new Date().toISOString() })
     .eq('id', body.gameId)
     .is('ended_at', null)
