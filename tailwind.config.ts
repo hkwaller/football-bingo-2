@@ -10,14 +10,14 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        mono: ['var(--font-space-mono)', 'var(--font-geist-mono)', 'monospace'],
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
       },
       colors: {
         pitch: {
-          dark: '#0a0f14',
-          DEFAULT: '#121a22',
-          light: '#1e2d3d',
+          dark: '#050505',
+          DEFAULT: '#09090b',
+          light: '#18181b',
         },
         chalk: '#f4f4f5',
         line: '#e9ecef',
@@ -29,6 +29,23 @@ const config: Config = {
           mint: 'var(--fb-accent-mint)',
         },
       },
+      boxShadow: {
+        'brutal-sm': '2px 2px 0px 0px rgba(0,0,0,1)',
+        'brutal': '4px 4px 0px 0px rgba(0,0,0,1)',
+        'brutal-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
+        'brutal-lime': '4px 4px 0px 0px var(--fb-accent-lime)',
+        'brutal-magenta': '4px 4px 0px 0px var(--fb-accent-magenta)',
+        'brutal-cyan': '4px 4px 0px 0px var(--fb-accent-cyan)',
+      },
+      animation: {
+        'marquee': 'marquee 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      }
     },
   },
   plugins: [],

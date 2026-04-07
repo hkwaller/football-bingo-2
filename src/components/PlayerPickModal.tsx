@@ -88,7 +88,7 @@ export function PlayerPickModal({
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -96,37 +96,37 @@ export function PlayerPickModal({
       role="presentation"
     >
       <motion.div
-        className="max-h-[85vh] w-full max-w-md overflow-hidden rounded-2xl border border-white/15 bg-[#0c1018] shadow-2xl shadow-[var(--fb-accent-magenta)]/10"
+        className="max-h-[85vh] w-full max-w-md overflow-hidden border-4 border-white bg-black shadow-brutal-lg"
         initial={{ scale: 0.96, y: 8 }}
         animate={{ scale: 1, y: 0 }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="border-b border-white/10 px-5 py-4">
-          <h2 className="font-display text-xl font-bold tracking-wide text-chalk">
+        <div className="border-b-4 border-white bg-[var(--fb-accent-lime)] px-5 py-4">
+          <h2 className="font-display text-4xl font-black uppercase text-black">
             {title}
           </h2>
-          <p className="mt-1 text-sm text-chalk/60">
-            Search players — pick someone who fits the square.
+          <p className="mt-1 font-mono text-xs font-bold text-black/80">
+            &gt; SEARCH PLAYERS — PICK A MATCH.
           </p>
         </div>
-        <div className="p-4">
+        <div className="p-4 bg-black">
           <input
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Type a name…"
-            className="mb-3 w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-base text-chalk placeholder:text-chalk/40 focus:border-[var(--fb-accent-lime)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--fb-accent-lime)]/25"
+            placeholder="TYPE A NAME..."
+            className="mb-3 w-full border-2 border-white bg-black px-4 py-3 font-mono text-base font-bold text-white uppercase placeholder:text-white/40 focus:border-[var(--fb-accent-cyan)] focus:outline-none focus:ring-0 shadow-brutal-sm"
           />
           {error ? (
-            <p className="mb-2 text-sm text-red-300" role="alert">
-              {error}
+            <p className="mb-3 border-2 border-[var(--fb-accent-magenta)] bg-black p-2 font-mono text-sm font-bold text-[var(--fb-accent-magenta)]" role="alert">
+              ERROR: {error}
             </p>
           ) : null}
-          <ul className="max-h-[45vh] space-y-1 overflow-y-auto pr-1">
+          <ul className="max-h-[45vh] space-y-2 overflow-y-auto pr-2 custom-scrollbar">
             {loading ? (
-              <li className="py-6 text-center text-sm text-chalk/50">Searching…</li>
+              <li className="py-6 text-center font-mono text-sm font-bold text-white">SEARCHING...</li>
             ) : results.length === 0 && query.trim().length >= 1 ? (
-              <li className="py-6 text-center text-sm text-chalk/50">No matches</li>
+              <li className="py-6 text-center font-mono text-sm font-bold text-[var(--fb-accent-yellow)]">NO MATCHES FOUND</li>
             ) : (
               results.map((p) => (
                 <li key={p.playerId}>
@@ -134,7 +134,7 @@ export function PlayerPickModal({
                     type="button"
                     disabled={submitting || Date.now() < blockedUntil}
                     onClick={() => tryPick(p.playerId)}
-                    className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left hover:bg-white/10 disabled:opacity-50"
+                    className="flex w-full items-center gap-3 border-2 border-white/50 bg-[#111] px-3 py-2.5 text-left transition-all hover:-translate-y-1 hover:border-[var(--fb-accent-lime)] hover:shadow-brutal-lime disabled:opacity-50 disabled:grayscale"
                   >
                     {p.imageUrl ? (
                       <Image
@@ -142,26 +142,26 @@ export function PlayerPickModal({
                         alt=""
                         width={40}
                         height={40}
-                        className="rounded-full object-cover"
+                        className="border-2 border-white object-cover grayscale contrast-125"
                         unoptimized
                       />
                     ) : (
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xs text-chalk/60">
+                      <span className="flex h-10 w-10 items-center justify-center border-2 border-white bg-black font-display text-xl text-white">
                         ?
                       </span>
                     )}
-                    <span className="text-base font-medium text-chalk">{p.name}</span>
+                    <span className="font-display text-2xl font-bold uppercase text-white">{p.name}</span>
                   </button>
                 </li>
               ))
             )}
           </ul>
         </div>
-        <div className="flex justify-end border-t border-white/10 px-5 py-3">
+        <div className="flex justify-end border-t-4 border-white bg-black px-5 py-3">
           <button
             type="button"
             onClick={onClose}
-            className="text-sm font-semibold text-chalk/70 hover:text-chalk"
+            className="border-2 border-transparent px-4 py-2 font-mono text-sm font-bold uppercase text-white hover:border-white transition-colors"
           >
             Cancel
           </button>

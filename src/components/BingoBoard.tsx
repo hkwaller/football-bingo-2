@@ -30,12 +30,12 @@ type BingoBoardProps = {
 function categoryBadge(label: string) {
   const kind = getCategoryKind(label)
   const base =
-    'inline-block rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider'
+    'inline-block font-mono border-2 border-black px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-[2px_2px_0px_#000]'
   if (kind === 'nationality')
-    return `${base} bg-[var(--fb-accent-cyan)]/25 text-[var(--fb-accent-cyan)]`
+    return `${base} bg-[var(--fb-accent-cyan)] text-black`
   if (kind === 'club')
-    return `${base} bg-[var(--fb-accent-mint)]/25 text-[var(--fb-accent-mint)]`
-  return `${base} bg-[var(--fb-accent-yellow)]/20 text-[var(--fb-accent-yellow)]`
+    return `${base} bg-[var(--fb-accent-mint)] text-black`
+  return `${base} bg-[var(--fb-accent-yellow)] text-black`
 }
 
 export function BingoBoard({
@@ -62,7 +62,7 @@ export function BingoBoard({
 
   return (
     <div
-      className="grid gap-2 p-2"
+      className="grid gap-3 p-2 bg-black border-4 border-white shadow-brutal-lg"
       style={{
         gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))`,
       }}
@@ -92,34 +92,39 @@ export function BingoBoard({
               scale:
                 reduceMotion || !(isWinLine && solvedHere)
                   ? 1
-                  : [1, 1.03, 1],
+                  : [1, 1.05, 1],
               boxShadow:
                 isWinLine && solvedHere
-                  ? '0 0 0 2px rgba(250, 204, 21, 0.6)'
+                  ? '4px 4px 0px 0px var(--fb-accent-yellow)'
                   : voteHi
-                    ? '0 0 0 2px rgba(34, 211, 238, 0.65)'
+                    ? '4px 4px 0px 0px var(--fb-accent-cyan)'
                     : targetHi
-                      ? '0 0 0 2px rgba(212, 255, 0, 0.45)'
-                      : '0 0 0 0 transparent',
+                      ? '4px 4px 0px 0px var(--fb-accent-lime)'
+                      : (isFree || solvedHere) 
+                        ? '3px 3px 0px 0px #000'
+                        : '3px 3px 0px 0px #fff',
             }}
-            transition={{ duration: reduceMotion ? 0 : 0.35 }}
+            transition={{ duration: reduceMotion ? 0 : 0.3 }}
             disabled={isFree || !!pick || (restricted && !allowed)}
             onClick={() =>
               !isFree && !pick && allowed && onCellClick(index)
             }
-            className={`relative flex min-h-[72px] flex-col items-center justify-center rounded-xl border p-2 text-center text-sm transition-colors sm:min-h-[100px] md:min-h-[118px] ${
+            className={`relative flex min-h-[80px] flex-col items-center justify-center border-4 text-center text-sm transition-all sm:min-h-[110px] md:min-h-[130px] ${
               isFree
-                ? 'cursor-default border-[var(--fb-accent-yellow)]/50 bg-[var(--fb-accent-yellow)]/12'
+                ? 'cursor-default border-black bg-striped-yellow text-black shadow-brutal active:shadow-none'
                 : solvedHere
-                  ? 'cursor-not-allowed border-[var(--fb-accent-mint)]/55 bg-[var(--fb-accent-mint)]/15'
+                  ? 'cursor-not-allowed border-black bg-[var(--fb-accent-mint)] text-black'
                   : restricted && !allowed
-                    ? 'cursor-not-allowed border-white/10 bg-black/20 opacity-45'
+                    ? 'cursor-not-allowed border-white/20 bg-[#111] opacity-70 grayscale'
                     : voteHi
-                      ? 'border-cyan-400/50 bg-cyan-500/10 hover:border-cyan-400/70'
+                      ? 'border-[var(--fb-accent-cyan)] bg-cyan-950'
                       : targetHi
-                        ? 'border-[var(--fb-accent-lime)]/40 bg-[var(--fb-accent-lime)]/10 hover:border-[var(--fb-accent-lime)]/60'
-                        : 'border-white/15 bg-white/5 hover:border-white/30 hover:bg-white/10'
+                        ? 'border-[var(--fb-accent-lime)] bg-lime-950'
+                        : 'border-white bg-[#09090b] hover:border-[var(--fb-accent-magenta)] hover:bg-[#1a001a] hover:-translate-y-1 hover:shadow-[4px_6px_0px_var(--fb-accent-magenta)]'
             }`}
+            style={{
+              backgroundImage: isFree ? 'repeating-linear-gradient(45deg, var(--fb-accent-yellow) 0px, var(--fb-accent-yellow) 10px, #000 10px, #000 20px)' : undefined
+            }}
           >
             <AnimatePresence mode="wait">
               {isFree ? (
@@ -127,7 +132,7 @@ export function BingoBoard({
                   key="free"
                   initial={{ opacity: 0, rotateY: 90 }}
                   animate={{ opacity: 1, rotateY: 0 }}
-                  className="font-display text-lg font-bold tracking-wide text-[var(--fb-accent-yellow)]"
+                  className="font-display text-3xl font-black tracking-widest text-[#fff] px-2 py-1 bg-black border-2 border-white rotate-[-5deg]"
                 >
                   FREE
                 </motion.span>
@@ -143,13 +148,13 @@ export function BingoBoard({
                     <Image
                       src={pick.imageUrl}
                       alt=""
-                      width={40}
-                      height={40}
-                      className="rounded-full object-cover"
+                      width={50}
+                      height={50}
+                      className="border-2 border-black object-cover shadow-brutal-sm"
                       unoptimized
                     />
                   ) : null}
-                  <span className="line-clamp-2 text-xs font-medium leading-tight text-chalk">
+                  <span className="line-clamp-2 text-xs font-black leading-tight text-black font-mono bg-[var(--fb-accent-mint)] px-1">
                     {pick.name}
                   </span>
                 </motion.div>
@@ -158,12 +163,12 @@ export function BingoBoard({
                   key="cat"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex flex-col gap-1"
+                  className="flex flex-col gap-2 p-1"
                 >
                   <span className={categoryBadge(label)}>
                     {getCategoryKind(label) ?? 'square'}
                   </span>
-                  <span className="line-clamp-3 text-xs font-semibold text-chalk/95 sm:text-sm">
+                  <span className="line-clamp-3 text-xs font-bold font-mono text-chalk/95 sm:text-sm uppercase bg-black px-1 mx-1 border border-white/30">
                     {displayCategory(label)}
                   </span>
                 </motion.div>

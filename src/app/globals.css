@@ -3,27 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --background: #06060a;
-  --foreground: #f4f4f5;
-  --fb-accent-lime: #d4ff00;
-  --fb-accent-magenta: #ff3d9a;
-  --fb-accent-cyan: #22d3ee;
-  --fb-accent-yellow: #fde047;
-  --fb-accent-mint: #4ade80;
+  --background: #050505;
+  --foreground: #ffffff;
+  --fb-accent-lime: #e2ff00;
+  --fb-accent-magenta: #ff00cc;
+  --fb-accent-cyan: #00f0ff;
+  --fb-accent-yellow: #fffa00;
+  --fb-accent-mint: #00ff73;
 }
 
 body {
   color: var(--foreground);
   background-color: var(--background);
-  background-image:
-    radial-gradient(ellipse 120% 90% at 50% -35%, rgba(212, 255, 0, 0.14), transparent 55%),
-    radial-gradient(ellipse 70% 55% at 100% 20%, rgba(255, 61, 154, 0.1), transparent 50%),
-    radial-gradient(ellipse 55% 45% at 0% 75%, rgba(34, 211, 238, 0.08), transparent 45%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
   background-attachment: fixed;
 }
 
 @layer utilities {
+  .fb-brutal-btn {
+    @apply bg-[var(--fb-accent-lime)] text-black font-bold uppercase tracking-widest border-2 border-black shadow-brutal transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+  }
+  
   .fb-panel {
-    @apply backdrop-blur-sm;
+    @apply bg-pitch-dark border-4 border-white/90 shadow-brutal-lg;
   }
 }

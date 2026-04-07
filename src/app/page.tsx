@@ -1,66 +1,93 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { motion } from 'framer-motion'
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
-    <div className="relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(255, 61, 154, 0.2), transparent), radial-gradient(ellipse 50% 40% at 90% 40%, rgba(212, 255, 0, 0.12), transparent)',
-        }}
-      />
-      <div className="relative mx-auto max-w-3xl px-4 py-24 text-center md:py-28">
-        <motion.p
-          className="font-display text-sm font-bold uppercase tracking-[0.35em] text-[var(--fb-accent-lime)]"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+    <div className="relative min-h-[85vh] overflow-hidden flex flex-col items-center justify-center">
+      {/* Background Marquee element */}
+      <div className="pointer-events-none absolute inset-y-0 flex w-max flex-col justify-between opacity-15 overflow-hidden">
+        {[...Array(4)].map((_, i) => (
+          <div
+            key={i}
+            className="flex flex-nowrap shrink-0 whitespace-nowrap overflow-hidden"
+          >
+            <span className="font-display text-[15vmax] leading-none tracking-tight text-[var(--fb-accent-magenta)] mr-8 animate-marquee">
+              FOOTBALL BINGO • KICKOFF • DRAFT • PLAY •
+            </span>
+            <span
+              className="font-display text-[15vmax] leading-none tracking-tight text-[var(--fb-accent-magenta)] mr-8 animate-marquee"
+              aria-hidden="true"
+            >
+              FOOTBALL BINGO • KICKOFF • DRAFT • PLAY •
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 text-center">
+        <motion.div
+          className="inline-block border-4 border-white bg-black px-6 py-2 shadow-brutal-lime -rotate-2"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1, rotate: -2 }}
+          transition={{ duration: 0.4, type: "spring" }}
         >
-          Matchday energy
-        </motion.p>
+          <p className="font-mono text-lg font-bold uppercase tracking-[0.2em] text-[var(--fb-accent-lime)]">
+            Matchday syntax
+          </p>
+        </motion.div>
+
         <motion.h1
-          className="font-display mt-4 text-6xl font-bold leading-[0.92] tracking-tight text-chalk sm:text-7xl md:text-8xl"
-          initial={{ opacity: 0, y: 14 }}
+          className="font-display mt-8 text-[12vw] font-black leading-[0.85] tracking-[0.05em] text-white drop-shadow-2xl md:text-[10vw]"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          style={{ textShadow: "6px 6px 0px var(--fb-accent-magenta)" }}
         >
-          <span className="text-[var(--fb-accent-lime)]">FOOTBALL</span>
+          <span
+            className="text-[var(--fb-accent-lime)]"
+            style={{ textShadow: "6px 6px 0px var(--fb-accent-cyan)" }}
+          >
+            FOOTBALL
+          </span>
           <br />
           BINGO
         </motion.h1>
+
         <motion.p
-          className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-chalk/70 md:text-xl"
+          className="mx-auto mt-12 max-w-2xl bg-black border-2 border-white p-6 font-mono text-lg leading-relaxed text-chalk shadow-brutal font-bold"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.12, duration: 0.45 }}
+          transition={{ delay: 0.2, duration: 0.45 }}
         >
-          Draft random players onto your board, or use free mode to pick a square
-          and search. Nationalities, clubs, and achievements — solo or race online.
+          &gt; INITIALIZING DRAFT SEQUENCE... <br />
+          &gt; SELECT PLAYERS.
+          <br />
+          &gt; MATCH SQUARES.
+          <br />
+          &gt; SURVIVE THE RACE.
         </motion.p>
         <motion.div
-          className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
-          initial={{ opacity: 0, y: 10 }}
+          className="mt-14 flex flex-col items-center justify-center gap-8 sm:flex-row"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
         >
           <Link
             href="/play/setup"
-            className="inline-flex min-w-[220px] items-center justify-center rounded-2xl bg-[var(--fb-accent-lime)] px-10 py-4 text-lg font-bold text-black shadow-lg shadow-lime-900/25 transition hover:brightness-105"
+            className="fb-brutal-btn min-w-[240px] px-8 py-5 text-2xl -rotate-1"
           >
             Play solo
           </Link>
           <Link
             href="/room/new"
-            className="inline-flex min-w-[220px] items-center justify-center rounded-2xl border-2 border-[var(--fb-accent-magenta)] bg-[var(--fb-accent-magenta)]/15 px-10 py-4 text-lg font-bold text-chalk backdrop-blur transition hover:bg-[var(--fb-accent-magenta)]/25"
+            className="fb-brutal-btn min-w-[240px] px-8 py-5 text-2xl rotate-1 bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
           >
-            Multiplayer room
+            Multiplayer
           </Link>
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

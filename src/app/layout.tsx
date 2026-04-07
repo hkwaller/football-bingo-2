@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Geist, Geist_Mono } from 'next/font/google'
+import { Bebas_Neue, Geist, Geist_Mono, Space_Mono } from 'next/font/google'
 import { AppShell } from '@/components/AppShell'
 import './globals.css'
 
@@ -19,6 +19,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
+  subsets: ['latin'],
+})
+
 export const metadata: Metadata = {
   title: 'Football Bingo',
   description: 'Bingo with football player trivia',
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${display.variable} ${geistSans.variable} ${geistMono.variable} min-h-screen bg-[var(--background)] font-sans antialiased text-chalk`}
+        className={`${display.variable} ${geistSans.variable} ${geistMono.variable} ${spaceMono.variable} min-h-screen bg-[var(--background)] font-sans antialiased text-chalk`}
       >
         <AppShell>{children}</AppShell>
       </body>
