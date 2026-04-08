@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "verify:data": "tsx scripts/verify-categories.ts"
+    "verify:data": "tsx scripts/verify-categories.ts",
+    "enrich": "tsx scripts/enrichPlayers.ts",
+    "parse": "tsx scripts/parsePlayers.ts",
+    "write-players": "tsx scripts/writePlayers.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.0",

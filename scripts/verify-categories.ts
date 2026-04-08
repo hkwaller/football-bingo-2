@@ -1,5 +1,5 @@
 import { clubs } from '../src/data/categories'
-import { toBackendClubName } from '../src/data/clubMapping'
+import { getCanonicalName } from '../src/data/clubs'
 import { enrichedFootballPlayers } from '../src/data/players'
 
 const playerClubSet = new Set<string>()
@@ -8,10 +8,10 @@ for (const p of enrichedFootballPlayers) {
   for (const c of p.youthClubs ?? []) playerClubSet.add(c)
 }
 
-const missing: { category: string; backend: string }[] = []
+const missing: { category: string; canonical: string }[] = []
 for (const c of clubs) {
-  const backend = toBackendClubName(c)
-  if (!playerClubSet.has(backend)) missing.push({ category: c, backend })
+  const canonical = getCanonicalName(c)
+  if (!playerClubSet.has(canonical)) missing.push({ category: c, canonical })
 }
 
 if (missing.length) {

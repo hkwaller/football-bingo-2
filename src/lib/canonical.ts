@@ -1,7 +1,4 @@
-import {
-  toBackendClubName,
-  toFrontendClubName,
-} from '@/data/clubMapping'
+import { getCanonicalName, getDisplayName } from '@/data/clubs'
 import { achievements, clubs, nationalities } from '@/data/categories'
 
 const nationalitySet = new Set(nationalities)
@@ -20,13 +17,13 @@ export function getCategoryKind(label: string): CategoryKind | null {
 /** Backend/canonical form for matching against player rows */
 export function canonicalizeCategory(label: string): string {
   const kind = getCategoryKind(label)
-  if (kind === 'club') return toBackendClubName(label)
+  if (kind === 'club') return getCanonicalName(label)
   return label
 }
 
 /** Short display label (e.g. frontend club nicknames) */
 export function displayCategory(label: string): string {
   const kind = getCategoryKind(label)
-  if (kind === 'club') return toFrontendClubName(label)
+  if (kind === 'club') return getDisplayName(label)
   return label
 }

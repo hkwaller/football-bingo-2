@@ -1,4 +1,4 @@
-import { toBackendClubName } from '@/data/clubMapping'
+import { getCanonicalName } from '@/data/clubs'
 import { enrichedFootballPlayers } from '@/data/players'
 import { getCategoryKind } from '@/lib/canonical'
 
@@ -9,12 +9,12 @@ export function findPlayerById(playerId: string): EnrichedPlayer | undefined {
 }
 
 function clubMatches(player: EnrichedPlayer, categoryLabel: string): boolean {
-  const target = toBackendClubName(categoryLabel)
+  const target = getCanonicalName(categoryLabel)
   const names = [
     ...(player.clubs ?? []),
     ...(player.youthClubs ?? []),
   ]
-  return names.some((c) => toBackendClubName(c) === target)
+  return names.some((c) => getCanonicalName(c) === target)
 }
 
 export function playerMatchesCategory(
