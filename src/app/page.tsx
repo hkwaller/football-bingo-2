@@ -29,8 +29,8 @@ export default function HomePage() {
       <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 text-center">
         <motion.div
           className="inline-block border-4 border-white bg-black px-6 py-2 shadow-brutal-lime -rotate-2"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1, rotate: -2 }}
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1, rotate: -2 }}
           transition={{ duration: 0.4, type: "spring" }}
         >
           <p className="font-mono text-lg font-bold uppercase tracking-[0.2em] text-[var(--fb-accent-lime)]">
@@ -40,8 +40,8 @@ export default function HomePage() {
 
         <motion.h1
           className="font-display mt-8 text-[12vw] font-black leading-[0.85] tracking-[0.05em] text-white drop-shadow-2xl md:text-[10vw]"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           style={{ textShadow: "6px 6px 0px var(--fb-accent-magenta)" }}
         >
@@ -57,8 +57,8 @@ export default function HomePage() {
 
         <motion.p
           className="mx-auto mt-12 max-w-2xl bg-black border-2 border-white p-6 font-mono text-lg leading-relaxed text-chalk shadow-brutal font-bold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.2, duration: 0.45 }}
         >
           &gt; INITIALIZING DRAFT SEQUENCE... <br />
@@ -70,8 +70,8 @@ export default function HomePage() {
         </motion.p>
         <motion.div
           className="mt-14 flex flex-col items-center justify-center gap-8 sm:flex-row"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.3, duration: 0.4 }}
         >
           <Link

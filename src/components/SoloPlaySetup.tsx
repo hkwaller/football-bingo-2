@@ -23,7 +23,6 @@ export function SoloPlaySetup() {
   const [boardConfig, setBoardConfig] = useState<BoardConfig>(DEFAULT_BOARD_CONFIG)
   const [lineHighlight, setLineHighlight] = useState(true)
   const [draftPolicy, setDraftPolicy] = useState<DraftPolicy>('open')
-  const [configSigAtLoad, setConfigSigAtLoad] = useState<string | null>(null)
   const [hydrated, setHydrated] = useState(false)
   const mounted = useRef(false)
 
@@ -35,9 +34,6 @@ export function SoloPlaySetup() {
       setBoardConfig(s.boardConfig ?? DEFAULT_BOARD_CONFIG)
       setLineHighlight(s.lineHighlight !== false)
       setDraftPolicy(s.draftPolicy === 'placeable' ? 'placeable' : 'open')
-      setConfigSigAtLoad(JSON.stringify(s.boardConfig ?? DEFAULT_BOARD_CONFIG))
-    } else {
-      setConfigSigAtLoad(JSON.stringify(DEFAULT_BOARD_CONFIG))
     }
     setHydrated(true)
   }, [])
@@ -48,31 +44,17 @@ export function SoloPlaySetup() {
 
   const persistAndPlay = () => {
     const prev = loadSolo()
-    const nextSig = JSON.stringify(boardConfig)
-    const configChanged = configSigAtLoad !== nextSig
     const playMode: PlayMode = prev?.playMode === 'free' ? 'free' : 'draft'
 
-    if (configChanged) {
-      saveSolo({
-        seed: crypto.randomUUID(),
-        solved: {},
-        playMode,
-        round: 0,
-        boardConfig,
-        lineHighlight,
-        draftPolicy,
-      })
-    } else {
-      saveSolo({
-        seed: prev?.seed ?? crypto.randomUUID(),
-        solved: prev?.solved ?? {},
-        playMode,
-        round: typeof prev?.round === 'number' ? prev.round : 0,
-        boardConfig,
-        lineHighlight,
-        draftPolicy,
-      })
-    }
+    saveSolo({
+      seed: crypto.randomUUID(),
+      solved: {},
+      playMode,
+      round: 0,
+      boardConfig,
+      lineHighlight,
+      draftPolicy,
+    })
     router.push('/play')
   }
 
