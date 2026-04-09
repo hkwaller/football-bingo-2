@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { BingoBoard } from '@/components/BingoBoard'
+import { BingoWinModal } from '@/components/BingoWinModal'
 import { DrawnPlayerPanel, type DrawnPlayer } from '@/components/DrawnPlayerPanel'
 import { PlayerPickModal } from '@/components/PlayerPickModal'
 import type { BoardConfig } from '@/lib/boardConfig'
@@ -395,17 +396,11 @@ export function SoloGame() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {won ? (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-4 rounded-xl border border-[var(--fb-accent-yellow)]/45 bg-[var(--fb-accent-yellow)]/12 px-4 py-3 text-center font-semibold text-[var(--fb-accent-yellow)]"
-          >
-            Bingo! You cleared a line.
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      <BingoWinModal
+        open={won}
+        onPlayAgain={resetBoard}
+        onClose={() => {}}
+      />
 
       <DrawnPlayerPanel
         mode={playMode}

@@ -54,7 +54,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
     if (revealedStagedCount >= stagedClues.length) return
     const timer = setInterval(() => {
       setRevealedStagedCount((n) => Math.min(n + 1, stagedClues.length))
-    }, 5000)
+    }, 1500)
     return () => clearInterval(timer)
   }, [answered, disabled, stagedClues.length, revealedStagedCount])
 

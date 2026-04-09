@@ -14,7 +14,6 @@ import {
 import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
 import type { PlayMode } from '@/lib/playMode'
-import { Switch } from '@/components/ui/switch'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 const containerVariants = {
@@ -227,21 +226,29 @@ export function SoloPlaySetup() {
                 ['clubs', 'Clubs', '⚽'],
                 ['achievements', 'Achievements', '🏆'],
               ] as const
-            ).map(([k, label, icon]) => (
-              <label
-                key={k}
-                className="flex cursor-pointer items-center justify-between rounded-xl border border-white/10 bg-black/20 px-4 py-3 transition-colors hover:bg-white/[0.04]"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-base">{icon}</span>
-                  <span className="font-mono text-sm font-semibold text-chalk">{label}</span>
-                </div>
-                <Switch
-                  checked={boardConfig.categoryKinds[k]}
-                  onCheckedChange={() => toggleKind(k)}
-                />
-              </label>
-            ))}
+            ).map(([k, label, icon]) => {
+              const active = boardConfig.categoryKinds[k]
+              return (
+                <button
+                  key={k}
+                  type="button"
+                  onClick={() => toggleKind(k)}
+                  className={`w-full flex items-center justify-between rounded-xl border-2 px-4 py-3 transition-all duration-150 text-left ${
+                    active
+                      ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)] text-black'
+                      : 'border-white/15 bg-white/5 text-chalk/40 hover:border-white/30 hover:text-chalk/60'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-base">{icon}</span>
+                    <span className="font-mono text-sm font-bold">{label}</span>
+                  </div>
+                  <span className="font-mono text-xs font-bold tracking-widest">
+                    {active ? 'ON' : 'OFF'}
+                  </span>
+                </button>
+              )
+            })}
           </div>
 
           <AnimatePresence>
@@ -306,20 +313,28 @@ export function SoloPlaySetup() {
           <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
             Display options
           </p>
-          <label className="flex cursor-pointer items-center justify-between rounded-xl border border-white/10 bg-black/20 px-4 py-3 transition-colors hover:bg-white/[0.04]">
+          <button
+            type="button"
+            onClick={() => setLineHighlight((v) => !v)}
+            className={`w-full flex items-center justify-between rounded-xl border-2 px-4 py-3 transition-all duration-150 text-left ${
+              lineHighlight
+                ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)] text-black'
+                : 'border-white/15 bg-white/5 text-chalk/40 hover:border-white/30 hover:text-chalk/60'
+            }`}
+          >
             <div className="flex items-center gap-3">
               <span className="text-base">✨</span>
               <div>
-                <p className="font-mono text-sm font-semibold text-chalk">
-                  Highlight winning lines
-                </p>
-                <p className="font-mono text-xs text-chalk/45">
+                <p className="font-mono text-sm font-bold">Highlight winning lines</p>
+                <p className={`font-mono text-xs ${lineHighlight ? 'text-black/60' : 'text-chalk/40'}`}>
                   Glow effect when you complete a row, column, or diagonal
                 </p>
               </div>
             </div>
-            <Switch checked={lineHighlight} onCheckedChange={() => setLineHighlight((v) => !v)} />
-          </label>
+            <span className="font-mono text-xs font-bold tracking-widest shrink-0">
+              {lineHighlight ? 'ON' : 'OFF'}
+            </span>
+          </button>
         </motion.div>
 
         {/* Footer actions */}
