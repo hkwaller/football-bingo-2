@@ -86,6 +86,12 @@ export default function HomePage() {
           >
             Multiplayer
           </Link>
+          <Link
+            href="/trivia/setup"
+            className="fb-brutal-btn min-w-[240px] px-8 py-5 text-2xl -rotate-1 bg-[var(--fb-accent-yellow)] !shadow-brutal-lime text-black"
+          >
+            Trivia
+          </Link>
         </motion.div>
       </div>
     </div>

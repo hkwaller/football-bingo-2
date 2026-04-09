@@ -17,10 +17,13 @@ export function SiteHeader() {
         </Link>
         <nav className="flex items-center gap-5 font-mono text-sm font-bold uppercase text-chalk">
           <Link href="/play/setup" className="hover:text-[var(--fb-accent-cyan)] hover:underline decoration-2 underline-offset-4">
-            Solo
+            Bingo
           </Link>
           <Link href="/room/new" className="hover:text-[var(--fb-accent-cyan)] hover:underline decoration-2 underline-offset-4">
             Multiplayer
+          </Link>
+          <Link href="/trivia/setup" className="hover:text-[var(--fb-accent-yellow)] hover:underline decoration-2 underline-offset-4">
+            Trivia
           </Link>
           {clerkOn ? (
             <>
