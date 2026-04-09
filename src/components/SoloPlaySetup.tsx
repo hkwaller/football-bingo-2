@@ -11,11 +11,7 @@ import {
   DEFAULT_BOARD_CONFIG,
   isBoardConfigViable,
 } from '@/lib/boardConfig'
-import {
-  DRAFT_POLICY_HELP,
-  DRAFT_POLICY_LABEL,
-  type DraftPolicy,
-} from '@/lib/draftPolicy'
+import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
 import type { PlayMode } from '@/lib/playMode'
 import { Switch } from '@/components/ui/switch'
@@ -32,15 +28,16 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: 'easeOut' as const },
+  },
 }
 
 function GridDots({ size }: { size: 3 | 4 | 5 }) {
   return (
-    <div
-      className="grid gap-[3px]"
-      style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}
-    >
+    <div className="grid gap-[3px]" style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}>
       {Array.from({ length: size * size }).map((_, i) => (
         <div key={i} className="size-[5px] rounded-full bg-current opacity-70" />
       ))}
@@ -137,7 +134,7 @@ export function SoloPlaySetup() {
             Solo Setup
           </h1>
           <p className="mt-2 max-w-xl font-mono text-sm text-chalk/50">
-            Configure your board. Every "Save &amp; play" starts a fresh game with a new seed.
+            Configure your board. Every &ldquo;Save &amp; play&rdquo; starts a fresh game with a new seed.
           </p>
         </div>
         <Link
@@ -156,7 +153,10 @@ export function SoloPlaySetup() {
         animate="show"
       >
         {/* Grid size */}
-        <motion.div variants={itemVariants} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+        <motion.div
+          variants={itemVariants}
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+        >
           <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
             Grid size
           </p>
@@ -177,12 +177,18 @@ export function SoloPlaySetup() {
                   }`}
                 >
                   <GridDots size={n} />
-                  <span>{n}×{n}</span>
+                  <span>
+                    {n}×{n}
+                  </span>
                   {active && (
                     <motion.span
                       layoutId="grid-active-ring"
                       className="absolute inset-0 rounded-xl border-2 border-[var(--fb-accent-lime)]"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </motion.button>
@@ -192,7 +198,10 @@ export function SoloPlaySetup() {
         </motion.div>
 
         {/* Categories */}
-        <motion.div variants={itemVariants} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+        <motion.div
+          variants={itemVariants}
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+        >
           <div className="mb-4 flex items-center justify-between">
             <p className="font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
               Categories
@@ -225,9 +234,7 @@ export function SoloPlaySetup() {
               >
                 <div className="flex items-center gap-3">
                   <span className="text-base">{icon}</span>
-                  <span className="font-mono text-sm font-semibold text-chalk">
-                    {label}
-                  </span>
+                  <span className="font-mono text-sm font-semibold text-chalk">{label}</span>
                 </div>
                 <Switch
                   checked={boardConfig.categoryKinds[k]}
@@ -245,14 +252,18 @@ export function SoloPlaySetup() {
                 exit={{ opacity: 0, height: 0 }}
                 className="mt-3 font-mono text-xs text-red-400"
               >
-                ⚠ Turn on more categories — need at least {needCount} clues for a {boardConfig.size}×{boardConfig.size} grid.
+                ⚠ Turn on more categories — need at least {needCount} clues for a {boardConfig.size}
+                ×{boardConfig.size} grid.
               </motion.p>
             )}
           </AnimatePresence>
         </motion.div>
 
         {/* Draft draws */}
-        <motion.div variants={itemVariants} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+        <motion.div
+          variants={itemVariants}
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+        >
           <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
             Draft draws
           </p>
@@ -274,12 +285,12 @@ export function SoloPlaySetup() {
                 >
                   <RadioGroupItem value={p} className="mt-0.5 shrink-0" />
                   <div>
-                    <p className={`font-mono text-sm font-bold ${active ? 'text-[var(--fb-accent-magenta)]' : 'text-chalk'}`}>
+                    <p
+                      className={`font-mono text-sm font-bold ${active ? 'text-[var(--fb-accent-magenta)]' : 'text-chalk'}`}
+                    >
                       {DRAFT_POLICY_LABEL[p]}
                     </p>
-                    <p className="mt-1 font-mono text-xs text-chalk/50">
-                      {DRAFT_POLICY_HELP[p]}
-                    </p>
+                    <p className="mt-1 font-mono text-xs text-chalk/50">{DRAFT_POLICY_HELP[p]}</p>
                   </div>
                 </label>
               )
@@ -288,7 +299,10 @@ export function SoloPlaySetup() {
         </motion.div>
 
         {/* Options row */}
-        <motion.div variants={itemVariants} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+        <motion.div
+          variants={itemVariants}
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+        >
           <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
             Display options
           </p>
@@ -304,18 +318,12 @@ export function SoloPlaySetup() {
                 </p>
               </div>
             </div>
-            <Switch
-              checked={lineHighlight}
-              onCheckedChange={() => setLineHighlight((v) => !v)}
-            />
+            <Switch checked={lineHighlight} onCheckedChange={() => setLineHighlight((v) => !v)} />
           </label>
         </motion.div>
 
         {/* Footer actions */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap gap-3 pt-2"
-        >
+        <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-2">
           <motion.button
             type="button"
             disabled={!configOk || launching}

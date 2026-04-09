@@ -17,18 +17,8 @@ import {
 import type { DraftPolicy } from '@/lib/draftPolicy'
 import { draftApiUrl } from '@/lib/draftQuery'
 import type { CellPick } from '@/lib/cellPick'
-import {
-  loadSolo,
-  mapToSolo,
-  saveSolo,
-  soloToMap,
-} from '@/lib/soloStorage'
-import {
-  cellCategory,
-  freeIndexForConfig,
-  generateBoard,
-  hasBingoForConfig,
-} from '@/lib/board'
+import { loadSolo, mapToSolo, saveSolo, soloToMap } from '@/lib/soloStorage'
+import { cellCategory, freeIndexForConfig, generateBoard, hasBingoForConfig } from '@/lib/board'
 import { displayCategory } from '@/lib/canonical'
 import type { PlayMode } from '@/lib/playMode'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
@@ -71,9 +61,7 @@ export function SoloGame() {
       setSeed(saved.seed)
       setSolved(soloToMap(saved.solved))
       setPlayMode(saved.playMode === 'draft' ? 'draft' : 'free')
-      setRound(
-        typeof saved.round === 'number' && saved.round >= 0 ? saved.round : 0,
-      )
+      setRound(typeof saved.round === 'number' && saved.round >= 0 ? saved.round : 0)
       setBoardConfig(saved.boardConfig ?? DEFAULT_BOARD_CONFIG)
       setLineHighlight(saved.lineHighlight !== false)
       setDraftPolicy(saved.draftPolicy === 'placeable' ? 'placeable' : 'open')
@@ -293,13 +281,7 @@ export function SoloGame() {
 
   const handleDraftCell = useCallback(
     async (cellIndex: number) => {
-      if (
-        playMode !== 'draft' ||
-        !drawn ||
-        draftLoading ||
-        won ||
-        Date.now() < cooldownUntil
-      ) {
+      if (playMode !== 'draft' || !drawn || draftLoading || won || Date.now() < cooldownUntil) {
         return
       }
       setDraftError(null)
@@ -343,16 +325,12 @@ export function SoloGame() {
       cooldownUntil,
       seed,
       boardConfig,
-      draftRestrictCells,
-      draftTargetCells,
     ],
   )
 
   if (!hydrated) {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center text-chalk/60">
-        Loading…
-      </div>
+      <div className="flex min-h-[40vh] items-center justify-center text-chalk/60">Loading…</div>
     )
   }
 

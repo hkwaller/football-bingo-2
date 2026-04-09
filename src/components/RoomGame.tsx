@@ -613,8 +613,6 @@ function RoomInner({ roomId }: { roomId: string }) {
       localBingo,
       phase,
       cooldownUntil,
-      draftRestrictCells,
-      draftTargetCells,
       submitDraftVote,
     ],
   )
