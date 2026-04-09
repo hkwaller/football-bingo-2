@@ -28,6 +28,14 @@ function getQuestionPrompt(q: TriviaQuestion): string {
   return ''
 }
 
+function getAnswerDisplay(q: TriviaQuestion, answerValue: string): string {
+  if (q.type === 'stat-comparison') {
+    if (answerValue === q.playerA.playerId) return q.playerA.name
+    if (answerValue === q.playerB.playerId) return q.playerB.name
+  }
+  return answerValue
+}
+
 function getCorrectAnswerDisplay(q: TriviaQuestion): string {
   if (q.type === 'multiple-choice') return q.correctAnswer
   if (q.type === 'stat-comparison') {
@@ -128,7 +136,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
               <p className="font-mono text-sm text-white">{getQuestionPrompt(q)}</p>
               <div className="flex gap-4 mt-1 text-xs font-mono">
                 <span className={answer.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}>
-                  You: {answer.answerValue || '(no answer)'}
+                  You: {answer.answerValue ? getAnswerDisplay(q, answer.answerValue) : '(no answer)'}
                 </span>
                 {!answer.correct && (
                   <span className="text-chalk/50">

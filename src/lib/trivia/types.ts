@@ -89,6 +89,7 @@ export interface TrueFalseQuestion extends BaseQuestion {
   playerId: string
   playerName: string
   playerImageUrl: string
+  detail?: string  // shown after answering, e.g. heights for comparison questions
 }
 
 export type TriviaQuestion =

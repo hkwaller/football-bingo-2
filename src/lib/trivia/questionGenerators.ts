@@ -1,5 +1,8 @@
 import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
-import { nationalities, clubs, achievements } from '@/data/categories'
+import { nationalities, achievements } from '@/data/categories'
+import { getClubDisplayNames } from '@/data/clubs'
+
+const clubs = getClubDisplayNames()
 import type { Player } from '@/types/player'
 import type {
   TriviaConfig,
@@ -22,12 +25,35 @@ const STAT_KEYS: StatKey[] = [
   'championsLeagueGames',
 ]
 
+// Stats where comparing a goalkeeper to an outfield player makes no sense
+const OUTFIELD_ONLY_STATS = new Set<StatKey>(['goals', 'assists', 'championsLeagueGoals'])
+
+function isGoalkeeper(player: Player): boolean {
+  return player.position.main === 'Goalkeeper'
+}
+
 const STAT_PROMPTS: Record<StatKey, string> = {
   goals: 'Who has scored more career goals?',
   appearances: 'Who has more career appearances?',
   assists: 'Who has more career assists?',
   championsLeagueGoals: 'Who has scored more Champions League goals?',
   championsLeagueGames: 'Who has played more Champions League games?',
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function isSeniorClub(name: string): boolean {
+  return !(
+    /Yth\.|Youth/i.test(name) ||
+    /\bSub-\d/i.test(name) ||
+    /\bU\d{2}\b/i.test(name) ||
+    /\bY\d{2}\b/.test(name) ||
+    / [BC]$/.test(name) ||
+    / II{1,2}$/.test(name) ||
+    /\bPrimavera\b/i.test(name) ||
+    /\bReserv/i.test(name) ||
+    /\bJV\b/.test(name)
+  )
 }
 
 // ── Seeded RNG helper ─────────────────────────────────────────────────────────
@@ -77,10 +103,11 @@ function clubTemplate(
   rand: () => number,
   id: string,
 ): MultipleChoiceQuestion | null {
-  if (!player.clubs.length) return null
-  const correctClub = pick(rand, player.clubs)
+  const seniorClubs = player.clubs.filter(isSeniorClub)
+  if (!seniorClubs.length) return null
+  const correctClub = pick(rand, seniorClubs)
   const distractors = shuffle(
-    clubs.filter((c) => !player.clubs.includes(c)),
+    clubs.filter((c) => !player.clubs.includes(c) && isSeniorClub(c)),
     rand,
   ).slice(0, 3)
   if (distractors.length < 3) return null
@@ -159,7 +186,9 @@ function generateStatComparison(
   rand: () => number,
   id: string,
 ): StatComparisonQuestion | null {
-  const shuffledKeys = shuffle(STAT_KEYS, rand)
+  const eitherIsGK = isGoalkeeper(playerA) || isGoalkeeper(playerB)
+  const eligibleKeys = STAT_KEYS.filter((k) => !(eitherIsGK && OUTFIELD_ONLY_STATS.has(k)))
+  const shuffledKeys = shuffle(eligibleKeys, rand)
   for (const statKey of shuffledKeys) {
     const valA = playerA.careerStats[statKey]
     const valB = playerB.careerStats[statKey]
@@ -201,17 +230,16 @@ function generateOpenText(
   clues.push({ kind: 'position', value: player.position.main })
   clues.push({ kind: 'nationality', value: player.nationality })
 
-  // Least-famous club (last in array tends to be earliest/least famous)
-  if (player.clubs.length > 1) {
-    clues.push({ kind: 'club', label: 'Former club', value: player.clubs[player.clubs.length - 1] })
-  }
-  // Most-famous club (first)
-  if (player.clubs.length > 0) {
-    clues.push({ kind: 'club', label: 'Known for playing at', value: player.clubs[0] })
+  const seniorClubs = player.clubs.filter(isSeniorClub)
+  // Pick up to 2 clubs as hints — shuffle so it's not always the same ones
+  const clubHints = shuffle(seniorClubs, rand).slice(0, 2)
+  for (const club of clubHints) {
+    clues.push({ kind: 'club', label: 'Club', value: club })
   }
 
-  // One career stat — pick at random
-  const statPick = pick(rand, STAT_KEYS)
+  // One career stat — pick at random, skip outfield-only stats for goalkeepers
+  const eligibleStatKeys = STAT_KEYS.filter((k) => !(isGoalkeeper(player) && OUTFIELD_ONLY_STATS.has(k)))
+  const statPick = pick(rand, eligibleStatKeys)
   const statVal = player.careerStats[statPick]
   clues.push({ kind: 'stat', label: STAT_PROMPTS[statPick].replace('Who has ', '').replace('?', ''), value: String(statVal) })
 
@@ -297,16 +325,19 @@ function generateTrueFalse(
       const isTrue = player.height > other.height
       if (player.height === other.height) return null
       const statement = `${player.name} is taller than ${other.name}`
-      return isTrue ? makeTrue(statement) : makeFalse(statement)
+      const detail = `${player.name}: ${player.height}cm — ${other.name}: ${other.height}cm`
+      const q = isTrue ? makeTrue(statement) : makeFalse(statement)
+      return { ...q, detail }
     },
     // Club history
     () => {
+      const seniorClubs = player.clubs.filter(isSeniorClub)
       const isTrue = rand() > 0.5
-      if (isTrue && player.clubs.length) {
-        const club = pick(rand, player.clubs)
+      if (isTrue && seniorClubs.length) {
+        const club = pick(rand, seniorClubs)
         return makeTrue(`${player.name} has played for ${club}`)
       }
-      const notPlayed = clubs.filter((c) => !player.clubs.includes(c))
+      const notPlayed = clubs.filter((c) => !player.clubs.includes(c) && isSeniorClub(c))
       if (!notPlayed.length) return null
       const club = pick(rand, notPlayed)
       return makeFalse(`${player.name} has played for ${club}`)

@@ -72,14 +72,19 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
       {/* Result feedback */}
       <AnimatePresence>
         {selected && lastResult && (
-          <motion.p
-            className={`font-mono font-bold uppercase tracking-widest text-lg ${lastResult.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}`}
+          <motion.div
+            className="flex flex-col items-center gap-1"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
           >
-            {lastResult.correct ? 'Correct!' : `Wrong — it's ${lastResult.correctAnswer === 'true' ? 'TRUE' : 'FALSE'}`}
-          </motion.p>
+            <p className={`font-mono font-bold uppercase tracking-widest text-lg ${lastResult.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}`}>
+              {lastResult.correct ? 'Correct!' : `Wrong — it's ${lastResult.correctAnswer === 'true' ? 'TRUE' : 'FALSE'}`}
+            </p>
+            {question.detail && (
+              <p className="font-mono text-xs text-chalk/50 tracking-wide">{question.detail}</p>
+            )}
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

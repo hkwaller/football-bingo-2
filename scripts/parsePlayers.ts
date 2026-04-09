@@ -169,6 +169,7 @@ function isYouthOrReserveClub(name: string): boolean {
     /Yth\.|Youth/i.test(name) ||          // "Barça Youth", "AS Cannes Yth."
     /\bSub-\d/i.test(name) ||             // "Sporting Sub-15"
     /\bU\d{2}\b/i.test(name) ||           // "Man City U21", "Arsenal U18"
+    /\bY\d{2}\b/.test(name) ||            // "Boavista Y19", "Porto Y17"
     / [BC]$/.test(name) ||                // "Barcelona B", "Barcelona C"
     / II{1,2}$/.test(name) ||             // "Real Madrid II", "Ajax III"
     /\bPrimavera\b/i.test(name) ||        // Italian youth "Roma Primavera"

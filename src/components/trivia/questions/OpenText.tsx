@@ -33,8 +33,13 @@ function clueValue(clue: OpenTextClue): string {
   return String(clue.value)
 }
 
+const IMMEDIATE_KINDS = new Set<OpenTextClue['kind']>(['era', 'height', 'position', 'nationality', 'club'])
+
 export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
-  const [revealedCount, setRevealedCount] = useState(1)
+  const immediateClues = question.clues.filter((c) => IMMEDIATE_KINDS.has(c.kind))
+  const stagedClues = question.clues.filter((c) => !IMMEDIATE_KINDS.has(c.kind))
+
+  const [revealedStagedCount, setRevealedStagedCount] = useState(0)
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<PlayerResult[]>([])
   const [searching, setSearching] = useState(false)
@@ -43,15 +48,15 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Reveal clues one by one every 4s
+  // Reveal staged clues (clubs, stats) one by one every 5s
   useEffect(() => {
     if (answered || disabled) return
-    if (revealedCount >= question.clues.length) return
+    if (revealedStagedCount >= stagedClues.length) return
     const timer = setInterval(() => {
-      setRevealedCount((n) => Math.min(n + 1, question.clues.length))
-    }, 4000)
+      setRevealedStagedCount((n) => Math.min(n + 1, stagedClues.length))
+    }, 5000)
     return () => clearInterval(timer)
-  }, [answered, disabled, question.clues.length, revealedCount])
+  }, [answered, disabled, stagedClues.length, revealedStagedCount])
 
   // Debounced player search
   const search = useCallback((q: string) => {
@@ -100,13 +105,14 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
 
       {/* Clues */}
       <div className="w-full flex flex-col gap-2">
-        {question.clues.slice(0, revealedCount).map((clue, i) => (
+        {/* Immediate clues — all shown at once */}
+        {immediateClues.map((clue, i) => (
           <motion.div
-            key={i}
+            key={clue.kind}
             className="flex items-center gap-4 border-2 border-white/20 bg-white/5 px-4 py-3"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, delay: i * 0.06 }}
           >
             <span className="font-mono text-xs uppercase tracking-widest text-chalk/40 w-32 shrink-0">
               {clueLabel(clue)}
@@ -114,7 +120,27 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
             <span className="font-mono font-bold text-white">{clueValue(clue)}</span>
           </motion.div>
         ))}
-        {revealedCount < question.clues.length && !answered && (
+
+        {/* Staged clues — clubs and stats revealed one by one */}
+        <AnimatePresence>
+          {stagedClues.slice(0, revealedStagedCount).map((clue, i) => (
+            <motion.div
+              key={`staged-${i}`}
+              className="flex items-center gap-4 border-2 border-[var(--fb-accent-cyan)]/40 bg-[var(--fb-accent-cyan)]/5 px-4 py-3"
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--fb-accent-cyan)]/60 w-32 shrink-0">
+                {clueLabel(clue)}
+              </span>
+              <span className="font-mono font-bold text-white">{clueValue(clue)}</span>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+
+        {revealedStagedCount < stagedClues.length && !answered && (
           <p className="font-mono text-xs text-chalk/30 text-center mt-1">
             Next clue in a few seconds…
           </p>

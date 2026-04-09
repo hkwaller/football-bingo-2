@@ -236,3 +236,7 @@ export function isKnownClub(name: string): boolean {
 export function getClubCanonicalNames(): string[] {
   return clubs.map((c) => c.canonicalName)
 }
+
+export function getClubDisplayNames(): string[] {
+  return clubs.map((c) => c.displayName)
+}
