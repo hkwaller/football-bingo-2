@@ -80,7 +80,6 @@ export function BingoBoard({
           !solvedHere &&
           !isFree
         const allowed = !restricted || draftTargetCells.has(index)
-        const targetHi = restricted && allowed && label
 
         return (
           <motion.button
@@ -98,9 +97,7 @@ export function BingoBoard({
                   ? '4px 4px 0px 0px var(--fb-accent-yellow)'
                   : voteHi
                     ? '4px 4px 0px 0px var(--fb-accent-cyan)'
-                    : targetHi
-                      ? '4px 4px 0px 0px var(--fb-accent-lime)'
-                      : (isFree || solvedHere) 
+                    : (isFree || solvedHere) 
                         ? '3px 3px 0px 0px #000'
                         : '3px 3px 0px 0px #fff',
             }}
@@ -118,9 +115,7 @@ export function BingoBoard({
                     ? 'cursor-not-allowed border-white/20 bg-[#111] opacity-70 grayscale'
                     : voteHi
                       ? 'border-[var(--fb-accent-cyan)] bg-cyan-950'
-                      : targetHi
-                        ? 'border-[var(--fb-accent-lime)] bg-lime-950'
-                        : 'border-white bg-[#09090b] hover:border-[var(--fb-accent-magenta)] hover:bg-[#1a001a] hover:-translate-y-1 hover:shadow-[4px_6px_0px_var(--fb-accent-magenta)]'
+                      : 'border-white bg-[#09090b] hover:border-[var(--fb-accent-magenta)] hover:bg-[#1a001a] hover:-translate-y-1 hover:shadow-[4px_6px_0px_var(--fb-accent-magenta)]'
             }`}
             style={{
               backgroundImage: isFree ? 'repeating-linear-gradient(45deg, var(--fb-accent-yellow) 0px, var(--fb-accent-yellow) 10px, #000 10px, #000 20px)' : undefined

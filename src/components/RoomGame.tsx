@@ -401,13 +401,6 @@ function RoomInner({ roomId }: { roomId: string }) {
   const isLeader =
     participantIds.length > 0 && self?.connectionId === participantIds[0]
 
-  const placementHint = useMemo(() => {
-    if (playMode !== 'draft' || !draftRestrictCells || !draftTargetCells)
-      return null
-    const n = draftTargetCells.size
-    if (n <= 1) return null
-    return `This player fits ${n} open squares — vote on one of the lime highlights.`
-  }, [playMode, draftRestrictCells, draftTargetCells])
 
   const modalLabel = useMemo(() => {
     if (modalCell === null || !activeSeed) return null
@@ -608,13 +601,6 @@ function RoomInner({ roomId }: { roomId: string }) {
         localBingo ||
         phase !== 'playing' ||
         Date.now() < cooldownUntil
-      ) {
-        return
-      }
-      if (
-        draftRestrictCells &&
-        draftTargetCells &&
-        !draftTargetCells.has(cellIndex)
       ) {
         return
       }
@@ -923,7 +909,6 @@ function RoomInner({ roomId }: { roomId: string }) {
             player={drawn}
             error={draftError}
             cooldownRemainingMs={cooldownRemainingMs}
-            placementHint={placementHint}
             draftWarning={draftFallbackNote}
             extraActions={
               playMode === 'draft' && phase === 'playing' && !localBingo ? (
@@ -944,7 +929,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             solved={solvedForDisplay}
             voteHighlightIndex={voteHighlightIndex}
             draftTargetCells={
-              playMode === 'draft' ? draftTargetCells : null
+              null
             }
             reduceMotion={reduceMotion}
             onCellClick={(i) => {

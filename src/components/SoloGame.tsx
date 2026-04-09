@@ -186,13 +186,6 @@ export function SoloGame() {
     return cellCategory(generateBoard(seed, boardConfig), modalCell)
   }, [modalCell, seed, boardConfig])
 
-  const placementHint = useMemo(() => {
-    if (playMode !== 'draft' || !draftRestrictCells || !draftTargetCells) return null
-    const n = draftTargetCells.size
-    if (n <= 1) return null
-    return `This player fits ${n} open squares — pick the one you want (highlighted in lime).`
-  }, [playMode, draftRestrictCells, draftTargetCells])
-
   const resetBoard = useCallback(() => {
     const s = crypto.randomUUID()
     setSeed(s)
@@ -306,13 +299,6 @@ export function SoloGame() {
         draftLoading ||
         won ||
         Date.now() < cooldownUntil
-      ) {
-        return
-      }
-      if (
-        draftRestrictCells &&
-        draftTargetCells &&
-        !draftTargetCells.has(cellIndex)
       ) {
         return
       }
@@ -452,7 +438,6 @@ export function SoloGame() {
         cooldownRemainingMs={cooldownRemainingMs}
         onSkip={playMode === 'draft' ? skipDraft : undefined}
         skipDisabled={won || draftLoading}
-        placementHint={placementHint}
         draftWarning={draftFallbackNote}
       />
 
@@ -463,7 +448,7 @@ export function SoloGame() {
           solved={solved}
           lineHighlight={lineHighlight}
           reduceMotion={reduceMotion}
-          draftTargetCells={playMode === 'draft' ? draftTargetCells : null}
+          draftTargetCells={null}
           onCellClick={(i) => {
             if (won || !configOk) return
             if (playMode === 'draft') void handleDraftCell(i)

@@ -22,7 +22,6 @@ type DrawnPlayerPanelProps = {
   skipDisabled?: boolean
   /** Extra actions (e.g. multiplayer Skip vote) shown next to solo Skip */
   extraActions?: ReactNode
-  placementHint?: string | null
   draftWarning?: string | null
 }
 
@@ -36,7 +35,6 @@ export function DrawnPlayerPanel({
   onSkip,
   skipDisabled,
   extraActions,
-  placementHint,
   draftWarning,
 }: DrawnPlayerPanelProps) {
   if (mode !== 'draft') return null
@@ -59,11 +57,6 @@ export function DrawnPlayerPanel({
           <p className="mt-1 font-display text-4xl text-[var(--fb-accent-cyan)] shadow-none">ROUND {round + 1}</p>
           {onSkip ? (
             <p className="mt-1 font-mono text-xs text-chalk/50">[SPACE] to skip</p>
-          ) : null}
-          {placementHint ? (
-            <p className="mt-2 text-sm font-bold text-[var(--fb-accent-lime)] bg-[#111] border border-[var(--fb-accent-lime)] p-2 rounded-none">
-              {placementHint}
-            </p>
           ) : null}
           {draftWarning ? (
             <p className="mt-2 text-xs font-mono font-bold text-[#fffa00] bg-black border border-[#fffa00] p-1" role="status">
