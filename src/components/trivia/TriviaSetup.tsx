@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import type {
   TriviaConfig,
@@ -12,8 +12,7 @@ import type {
 } from '@/lib/trivia/types'
 import { DEFAULT_TRIVIA_CONFIG } from '@/lib/trivia/types'
 import { DIFFICULTY_DESCRIPTIONS, DIFFICULTY_LABELS } from '@/lib/trivia/difficulty'
-import { loadTriviaConfig, saveTriviaConfig } from '@/lib/trivia/triviaStorage'
-import { clearTriviaSession } from '@/lib/trivia/triviaStorage'
+import { loadTriviaConfig, saveTriviaConfig, clearTriviaSession } from '@/lib/trivia/triviaStorage'
 
 const containerVariants = {
   hidden: {},
@@ -94,6 +93,12 @@ function NumberSelect({
 
 export function TriviaSetup() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const modeParam = searchParams.get('mode') as 'solo' | 'multiplayer' | null
+  // null = accessed directly (e.g. via header nav) → show both options
+  const isSolo = modeParam === 'solo'
+  const isMultiplayer = modeParam === 'multiplayer'
+
   const [config, setConfig] = useState<TriviaConfig>(DEFAULT_TRIVIA_CONFIG)
   const [hydrated, setHydrated] = useState(false)
 
@@ -144,6 +149,8 @@ export function TriviaSetup() {
     { value: 'turn-based', label: 'Turn-based', description: 'Players answer one at a time' },
   ]
 
+  const modeLabel = isSolo ? 'Solo' : isMultiplayer ? 'Multiplayer' : null
+
   return (
     <div className="w-full max-w-xl mx-auto px-4 py-12">
       <motion.div
@@ -156,7 +163,7 @@ export function TriviaSetup() {
         <motion.div variants={itemVariants}>
           <div className="inline-block border-4 border-white bg-black px-6 py-2 shadow-brutal-lime -rotate-1 mb-4">
             <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-[var(--fb-accent-lime)]">
-              Trivia Mode
+              Trivia{modeLabel ? ` — ${modeLabel}` : ''}
             </p>
           </div>
           <h1 className="font-display text-5xl md:text-6xl text-white tracking-wider" style={{ textShadow: '4px 4px 0 var(--fb-accent-magenta)' }}>
@@ -235,36 +242,44 @@ export function TriviaSetup() {
           </div>
         </Section>
 
-        {/* Multiplayer mechanic */}
-        <Section title="Multiplayer mechanic">
-          <div className="flex flex-col gap-2">
-            {MP_MECHANIC_OPTIONS.map((opt) => (
-              <OptionButton
-                key={opt.value}
-                active={config.multiplayerMechanic === opt.value}
-                onClick={() => update('multiplayerMechanic', opt.value)}
-                description={opt.description}
-              >
-                {opt.label}
-              </OptionButton>
-            ))}
-          </div>
-        </Section>
+        {/* Multiplayer mechanic — only shown when in multiplayer mode or unspecified */}
+        {!isSolo && (
+          <Section title="Multiplayer mechanic">
+            <div className="flex flex-col gap-2">
+              {MP_MECHANIC_OPTIONS.map((opt) => (
+                <OptionButton
+                  key={opt.value}
+                  active={config.multiplayerMechanic === opt.value}
+                  onClick={() => update('multiplayerMechanic', opt.value)}
+                  description={opt.description}
+                >
+                  {opt.label}
+                </OptionButton>
+              ))}
+            </div>
+          </Section>
+        )}
 
         {/* CTAs */}
         <motion.div variants={itemVariants} className="flex gap-4 flex-wrap pt-2">
-          <button
-            onClick={launchSolo}
-            className="fb-brutal-btn flex-1 px-6 py-4 text-xl min-w-[160px]"
-          >
-            Play solo
-          </button>
-          <button
-            onClick={launchMultiplayer}
-            className="fb-brutal-btn flex-1 px-6 py-4 text-xl min-w-[160px] bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
-          >
-            Multiplayer
-          </button>
+          {/* Show solo CTA unless explicitly in multiplayer mode */}
+          {!isMultiplayer && (
+            <button
+              onClick={launchSolo}
+              className="fb-brutal-btn flex-1 px-6 py-4 text-xl min-w-[160px]"
+            >
+              Play solo
+            </button>
+          )}
+          {/* Show multiplayer CTA unless explicitly in solo mode */}
+          {!isSolo && (
+            <button
+              onClick={launchMultiplayer}
+              className="fb-brutal-btn flex-1 px-6 py-4 text-xl min-w-[160px] bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
+            >
+              {isMultiplayer ? 'Create room' : 'Multiplayer'}
+            </button>
+          )}
         </motion.div>
       </motion.div>
     </div>

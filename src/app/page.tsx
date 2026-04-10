@@ -99,13 +99,13 @@ export default function HomePage() {
               🧠 Trivia
             </p>
             <Link
-              href="/trivia/setup"
+              href="/trivia/setup?mode=solo"
               className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-yellow)] !shadow-brutal-lime text-black"
             >
               Solo
             </Link>
             <Link
-              href="/trivia/room/new"
+              href="/trivia/setup?mode=multiplayer"
               className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
             >
               Multiplayer

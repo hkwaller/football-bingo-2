@@ -174,8 +174,12 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   }, [])
 
   // ── Initialization ────────────────────────────────────────────────────────
+  // Gate on phase being non-null — phase comes from useStorage, so it will be
+  // null until Liveblocks storage has fully loaded. Calling a mutation before
+  // storage loads throws "This mutation cannot be used until storage has been loaded".
 
   useEffect(() => {
+    if (phase === null || phase !== 'lobby') return
     const displayName =
       typeof window !== 'undefined'
         ? window.localStorage.getItem('fb_display_name') ?? `Player ${Math.floor(Math.random() * 1000)}`
@@ -183,7 +187,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     claimHost(displayName)
     updatePresence({ displayName, answeredCurrentQuestion: false, score: 0, streak: 0 })
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [phase])
 
   // Reset local answer when question changes
   useEffect(() => {

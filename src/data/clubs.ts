@@ -2,6 +2,8 @@ export interface Club {
   id: string
   canonicalName: string
   displayName: string
+  /** Extra name variants found in raw player data that should resolve to this club */
+  aliases?: string[]
 }
 
 export const clubs: Club[] = [
@@ -158,7 +160,8 @@ export const clubs: Club[] = [
   {
     "id": "15",
     "canonicalName": "Bayer 04 Leverkusen",
-    "displayName": "Bayer Leverkusen"
+    "displayName": "Bayer Leverkusen",
+    "aliases": ["Leverkusen", "Bayer Leverkusen", "B. Leverkusen"]
   },
   {
     "id": "368",
@@ -218,7 +221,16 @@ export const clubs: Club[] = [
 ]
 
 const canonicalToDisplay = new Map(clubs.map((c) => [c.canonicalName, c.displayName]))
-const displayToCanonical = new Map(clubs.map((c) => [c.displayName, c.canonicalName]))
+
+// Build display→canonical map, including aliases
+const displayToCanonical = new Map<string, string>()
+for (const c of clubs) {
+  displayToCanonical.set(c.displayName, c.canonicalName)
+  for (const alias of c.aliases ?? []) {
+    displayToCanonical.set(alias, c.canonicalName)
+  }
+}
+
 const canonicalSet = new Set(clubs.map((c) => c.canonicalName))
 
 export function getDisplayName(canonicalName: string): string {

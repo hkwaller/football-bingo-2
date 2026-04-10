@@ -692,11 +692,36 @@ function RoomInner({ roomId }: { roomId: string }) {
           animate={{ opacity: 1 }}
           className="fb-panel mb-8 space-y-6"
         >
+          {/* Non-host: simple waiting lobby — just name + player list */}
+          {!isHost ? (
+            <div className="space-y-6 rounded-2xl border border-white/12 bg-white/[0.05] p-6">
+              <div>
+                <p className="text-lg font-bold text-chalk">You&apos;re in the room!</p>
+                <p className="mt-1 text-sm text-chalk/55">
+                  The host is setting things up. You&apos;ll start automatically when they&apos;re ready.
+                </p>
+              </div>
+              <label className="block text-sm text-chalk/80">
+                Your name
+                <input
+                  value={nameDraft}
+                  onChange={(e) => setNameDraft(e.target.value)}
+                  onBlur={saveName}
+                  className="mt-1 w-full max-w-sm rounded-xl border border-white/15 bg-black/30 px-3 py-2 text-chalk"
+                  placeholder="Enter your name"
+                  autoFocus
+                />
+              </label>
+              <p className="text-sm text-chalk/50">
+                {others.length + 1} player{others.length === 0 ? '' : 's'} in room
+              </p>
+              <p className="text-sm text-chalk/40 animate-pulse">Waiting for host to start…</p>
+            </div>
+          ) : (
+            /* Host: full settings panel */
+            <>
           <RoomInvite roomId={roomId} />
           <div className="space-y-4 rounded-2xl border border-white/12 bg-white/[0.05] p-6">
-          {!canEditLobby ? (
-            <p className="text-sm text-chalk/55">Only the host can change setup.</p>
-          ) : null}
           <div>
             <p className="text-sm font-bold text-chalk/90">Play mode</p>
             <div className="mt-2 flex rounded-xl border border-white/15 p-0.5">
@@ -704,9 +729,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                 <button
                   key={m}
                   type="button"
-                  disabled={!canEditLobby}
                   onClick={() => setRoomPlayMode(m)}
-                  className={`rounded-lg px-3 py-2 text-sm font-semibold transition disabled:opacity-40 ${
+                  className={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
                     playMode === m
                       ? 'bg-[var(--fb-accent-lime)] text-black'
                       : 'text-chalk/70 hover:text-chalk'
@@ -733,9 +757,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                 <button
                   key={v}
                   type="button"
-                  disabled={!canEditLobby}
                   onClick={() => setBoardLayoutWithPolicy(v)}
-                  className={`rounded-xl border px-4 py-2 text-sm font-semibold transition disabled:opacity-40 ${
+                  className={`rounded-xl border px-4 py-2 text-sm font-semibold transition ${
                     boardLayout === v
                       ? 'border-[var(--fb-accent-magenta)] bg-[var(--fb-accent-magenta)]/25 text-chalk'
                       : 'border-white/20 bg-black/20 text-chalk/75 hover:bg-white/10'
@@ -765,10 +788,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                   <input
                     type="radio"
                     name="roomDraftPolicy"
-                    disabled={
-                      !canEditLobby ||
-                      (boardLayout === 'individual' && p === 'placeable')
-                    }
+                    disabled={boardLayout === 'individual' && p === 'placeable'}
                     checked={draftPolicyStorage === p}
                     onChange={() => setDraftPolicyInStorage(p)}
                     className="mt-1 h-4 w-4 border-white/30"
@@ -790,9 +810,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                 <button
                   key={n}
                   type="button"
-                  disabled={!canEditLobby}
                   onClick={() => setBoardSize(n)}
-                  className={`rounded-xl px-4 py-2 text-sm font-bold disabled:opacity-40 ${
+                  className={`rounded-xl px-4 py-2 text-sm font-bold ${
                     boardSize === n
                       ? 'bg-[var(--fb-accent-magenta)] text-white'
                       : 'border border-white/20 bg-black/20 text-chalk/80 hover:bg-white/10'
@@ -819,7 +838,6 @@ function RoomInner({ roomId }: { roomId: string }) {
                 >
                   <input
                     type="checkbox"
-                    disabled={!canEditLobby}
                     checked={Boolean(
                       k === 'categoryNationalities'
                         ? categoryNationalities
@@ -836,7 +854,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                             : categoryAchievements
                       setCategory(k, !cur)
                     }}
-                    className="h-4 w-4 rounded border-white/30 disabled:opacity-40"
+                    className="h-4 w-4 rounded border-white/30"
                   />
                   <span className="text-sm font-medium text-chalk">{label}</span>
                 </label>
@@ -863,6 +881,19 @@ function RoomInner({ roomId }: { roomId: string }) {
           <p className="text-sm text-chalk/50">
             {others.length + 1} player{others.length === 0 ? '' : 's'} in room
           </p>
+          <label className="block text-sm text-chalk/80">
+            Display name
+            <input
+              value={nameDraft}
+              onChange={(e) => setNameDraft(e.target.value)}
+              onBlur={saveName}
+              className="mt-1 w-full max-w-sm rounded-xl border border-white/15 bg-black/30 px-3 py-2 text-chalk"
+              placeholder="Your name"
+            />
+          </label>
+          <p className="text-sm text-chalk/50">
+            {others.length + 1} player{others.length === 0 ? '' : 's'} in room
+          </p>
           <button
             type="button"
             disabled={starting || !configOk}
@@ -875,6 +906,8 @@ function RoomInner({ roomId }: { roomId: string }) {
             {starting ? 'Starting…' : 'Start race'}
           </button>
           </div>
+            </>
+          )}
         </motion.div>
       ) : null}
 
