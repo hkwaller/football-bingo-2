@@ -69,29 +69,48 @@ export default function HomePage() {
           &gt; SURVIVE THE RACE.
         </motion.p>
         <motion.div
-          className="mt-14 flex flex-col items-center justify-center gap-8 sm:flex-row"
+          className="mt-14 flex flex-col items-center justify-center gap-6 sm:flex-row sm:items-stretch"
           initial={{ y: 20 }}
           animate={{ y: 0 }}
           transition={{ delay: 0.3, duration: 0.4 }}
         >
-          <Link
-            href="/play/setup"
-            className="fb-brutal-btn min-w-[240px] px-8 py-5 text-2xl -rotate-1"
-          >
-            Play solo
-          </Link>
-          <Link
-            href="/room/new"
-            className="fb-brutal-btn min-w-[240px] px-8 py-5 text-2xl rotate-1 bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
-          >
-            Multiplayer
-          </Link>
-          <Link
-            href="/trivia/setup"
-            className="fb-brutal-btn min-w-[240px] px-8 py-5 text-2xl -rotate-1 bg-[var(--fb-accent-yellow)] !shadow-brutal-lime text-black"
-          >
-            Trivia
-          </Link>
+          {/* Bingo card */}
+          <div className="border-4 border-white bg-black p-5 shadow-brutal -rotate-1 flex flex-col gap-3 min-w-[260px]">
+            <p className="font-display text-xs font-black uppercase tracking-[0.3em] text-[var(--fb-accent-lime)] mb-1">
+              ⚽ Bingo
+            </p>
+            <Link
+              href="/play/setup"
+              className="fb-brutal-btn w-full px-6 py-4 text-xl"
+            >
+              Solo
+            </Link>
+            <Link
+              href="/room/new"
+              className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
+            >
+              Multiplayer
+            </Link>
+          </div>
+
+          {/* Trivia card */}
+          <div className="border-4 border-white bg-black p-5 shadow-brutal-lime rotate-1 flex flex-col gap-3 min-w-[260px]">
+            <p className="font-display text-xs font-black uppercase tracking-[0.3em] text-[var(--fb-accent-yellow)] mb-1">
+              🧠 Trivia
+            </p>
+            <Link
+              href="/trivia/setup"
+              className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-yellow)] !shadow-brutal-lime text-black"
+            >
+              Solo
+            </Link>
+            <Link
+              href="/trivia/room/new"
+              className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
+            >
+              Multiplayer
+            </Link>
+          </div>
         </motion.div>
       </div>
     </div>
