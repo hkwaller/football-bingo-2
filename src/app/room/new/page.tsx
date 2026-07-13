@@ -11,8 +11,8 @@ export default function NewRoomPage() {
     router.replace(`/room/${id}`)
   }, [router])
   return (
-    <div className="flex min-h-[50vh] items-center justify-center gap-3 text-sm text-chalk-dim">
-      <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-turf shadow-glow-turf" />
+    <div className="flex min-h-[50vh] items-center justify-center gap-3 text-sm font-medium text-muted">
+      <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
       Creating room…
     </div>
   )

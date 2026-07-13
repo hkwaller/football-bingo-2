@@ -26,8 +26,8 @@ const itemVariants = {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <motion.div variants={itemVariants} className="flex flex-col gap-3">
-      <h3 className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">{title}</h3>
+    <motion.div variants={itemVariants} className="panel p-6">
+      <p className="eyebrow mb-3">{title}</p>
       {children}
     </motion.div>
   )
@@ -48,15 +48,17 @@ function OptionButton({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-xl border px-4 py-3 text-left transition-all duration-200 ${
+      className={`w-full rounded-[10px] px-4 py-3 text-left transition-all duration-200 ${
         active
-          ? 'border-[var(--turf)] bg-turf/10 text-chalk shadow-glow-turf'
-          : 'border-line bg-pitch-light text-chalk-dim hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter hover:text-chalk'
+          ? 'border-2 border-ink bg-panel-white'
+          : 'border-2 border-dashed border-line-strong hover:-translate-y-0.5'
       }`}
     >
-      <p className="text-sm font-semibold">{children}</p>
+      <p className={`font-display text-base uppercase leading-none ${active ? 'text-green' : 'text-muted'}`}>
+        {children}
+      </p>
       {description && (
-        <p className="mt-0.5 text-xs text-chalk-dim">{description}</p>
+        <p className="mt-1 text-[12.5px] font-medium leading-relaxed text-muted">{description}</p>
       )}
     </button>
   )
@@ -73,20 +75,24 @@ function NumberSelect({
 }) {
   return (
     <div className="flex gap-3">
-      {options.map((opt) => (
-        <button
-          key={opt}
-          type="button"
-          onClick={() => onChange(opt)}
-          className={`flex-1 rounded-xl border py-3 font-display text-2xl font-semibold tracking-wide transition-all duration-200 ${
-            value === opt
-              ? 'border-[var(--turf)] bg-turf/10 text-turf shadow-glow-turf'
-              : 'border-line bg-pitch-light text-chalk-dim hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter hover:text-chalk'
-          }`}
-        >
-          {opt}
-        </button>
-      ))}
+      {options.map((opt) => {
+        const active = value === opt
+        return (
+          <button
+            key={opt}
+            type="button"
+            onClick={() => onChange(opt)}
+            style={active ? { transform: 'rotate(-1deg)' } : undefined}
+            className={`flex-1 rounded-[10px] py-3.5 font-display text-2xl uppercase leading-none transition-all duration-200 ${
+              active
+                ? 'border-2 border-ink bg-panel-white text-green shadow-sticker'
+                : 'border-2 border-dashed border-line-strong text-muted hover:-translate-y-0.5 hover:text-ink'
+            }`}
+          >
+            {opt}
+          </button>
+        )
+      })}
     </div>
   )
 }
@@ -152,20 +158,17 @@ export function TriviaSetup() {
   const modeLabel = isSolo ? 'Solo' : isMultiplayer ? 'Multiplayer' : null
 
   return (
-    <div className="w-full max-w-xl mx-auto px-4 py-12">
+    <div className="mx-auto w-full max-w-[720px] px-6 py-8 md:px-9">
       <motion.div
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-[18px]"
         variants={containerVariants}
         initial="hidden"
         animate="show"
       >
         {/* Title */}
         <motion.div variants={itemVariants}>
-          <div className="chip mb-4">
-            <span className="h-1.5 w-1.5 rounded-full bg-turf" />
-            Trivia{modeLabel ? ` — ${modeLabel}` : ''}
-          </div>
-          <h1 className="font-display text-5xl font-bold uppercase tracking-wide text-chalk md:text-6xl">
+          <p className="eyebrow">Trivia{modeLabel ? ` — ${modeLabel}` : ''}</p>
+          <h1 className="mt-1.5 font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
             Setup
           </h1>
         </motion.div>
@@ -274,7 +277,7 @@ export function TriviaSetup() {
           {!isSolo && (
             <button
               onClick={launchMultiplayer}
-              className={`btn btn-lg min-w-[160px] flex-1 ${isMultiplayer ? 'btn-primary' : 'btn-secondary'}`}
+              className={`btn btn-lg min-w-[160px] flex-1 ${isMultiplayer ? 'btn-primary' : 'btn-outline'}`}
             >
               {isMultiplayer ? 'Create room' : 'Multiplayer'}
             </button>

@@ -10,6 +10,8 @@ interface Props {
   onClose: () => void
 }
 
+const FOIL_COLORS = ['#e8b93e', '#fdf0c0', '#d64533', '#1d3b2a']
+
 export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
   const firedRef = useRef(false)
 
@@ -18,17 +20,10 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
     firedRef.current = true
 
     const fire = (opts: confetti.Options) =>
-      confetti({ zIndex: 9999, ...opts })
+      confetti({ zIndex: 9999, colors: FOIL_COLORS, ...opts })
 
-    // Initial burst
-    fire({
-      particleCount: 120,
-      spread: 80,
-      origin: { y: 0.55 },
-      colors: ['#f4c65d', '#ffe3a1', '#3ce97e', '#e9f2ec'],
-    })
+    fire({ particleCount: 120, spread: 80, origin: { y: 0.55 } })
 
-    // Two side cannons
     setTimeout(() => {
       fire({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0, y: 0.65 } })
       fire({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1, y: 0.65 } })
@@ -39,7 +34,6 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
     }, 600)
   }, [open])
 
-  // Reset so confetti fires again on next win
   useEffect(() => {
     if (!open) firedRef.current = false
   }, [open])
@@ -48,9 +42,10 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop — dim + blur the board underneath */}
           <motion.div
-            className="fixed inset-0 z-40 bg-pitch-dark/80 backdrop-blur-sm"
+            className="fixed inset-0 z-40 backdrop-blur-[2px]"
+            style={{ backgroundColor: 'rgba(38,32,25,0.35)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -65,55 +60,50 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
             transition={{ type: 'spring', stiffness: 320, damping: 26 }}
           >
-            <div className="relative w-full max-w-sm rounded-2xl border border-gold/40 bg-pitch-light p-8 text-center shadow-glow-gold">
-              {/* Warm glow wash */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-gold/10 to-transparent" />
-
+            <div
+              className="w-[380px] max-w-full rounded-2xl bg-panel px-8 pb-7 pt-8 text-center"
+              style={{
+                transform: 'rotate(-0.6deg)',
+                boxShadow: '0 30px 70px -20px rgba(0,0,0,0.8), inset 0 0 0 3px #b8862c',
+              }}
+            >
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 18 }}
-                className="mb-4 text-6xl"
+                className="foil mx-auto mb-3.5 flex h-[76px] w-[76px] items-center justify-center rounded-full text-4xl shadow-sticker-lg"
               >
-                🏆
+                ★
               </motion.div>
 
               <motion.h2
                 initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.15 }}
-                className="font-display mb-2 text-5xl font-bold uppercase tracking-wide text-gold drop-shadow-[0_0_24px_rgba(244,198,93,0.35)]"
+                className="font-display text-[52px] uppercase leading-none text-green"
               >
-                BINGO!
+                Bingo!
               </motion.h2>
 
               <motion.p
                 initial={{ y: 8, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.22 }}
-                className="mb-8 text-sm text-chalk-dim"
+                className="mt-2 text-sm font-medium text-muted"
               >
-                You cleared a line. Legend.
+                You completed a line. Legend.
               </motion.p>
 
               <motion.div
                 initial={{ y: 8, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-col gap-3"
+                className="mt-6 flex flex-col gap-2.5"
               >
-                <button
-                  type="button"
-                  onClick={onPlayAgain}
-                  className="btn btn-primary btn-lg w-full"
-                >
+                <button type="button" onClick={onPlayAgain} className="btn btn-primary w-full">
                   Play again
                 </button>
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="btn btn-secondary w-full"
-                >
+                <button type="button" onClick={onClose} className="btn btn-outline w-full">
                   Keep board
                 </button>
               </motion.div>

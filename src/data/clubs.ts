@@ -1,3 +1,5 @@
+import { slugify } from '@/lib/slugify'
+
 export interface Club {
   id: string
   canonicalName: string
@@ -243,6 +245,17 @@ export function getCanonicalName(displayName: string): string {
 
 export function isKnownClub(name: string): boolean {
   return canonicalSet.has(name) || displayToCanonical.has(name)
+}
+
+/**
+ * Crest path in public/logos/clubs/ (from football-logos.cc, named by
+ * slugified display name). Regenerate with: npx tsx scripts/fetchLogos.ts
+ * Accepts canonical name, display name, or alias.
+ */
+export function getClubLogo(name: string): string | null {
+  const canonical = displayToCanonical.get(name) ?? name
+  if (!canonicalSet.has(canonical)) return null
+  return `/logos/clubs/${slugify(canonicalToDisplay.get(canonical)!)}.png`
 }
 
 export function getClubCanonicalNames(): string[] {

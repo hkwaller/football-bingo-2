@@ -10,7 +10,8 @@
     "verify:data": "tsx scripts/verify-categories.ts",
     "enrich": "tsx scripts/enrichPlayers.ts",
     "parse": "tsx scripts/parsePlayers.ts",
-    "write-players": "tsx scripts/writePlayers.ts"
+    "write-players": "tsx scripts/writePlayers.ts",
+    "fetch-logos": "tsx scripts/fetchLogos.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",

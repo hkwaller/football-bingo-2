@@ -30,30 +30,24 @@ export function RoomInvite({ roomId }: RoomInviteProps) {
   }, [joinUrl, roomId])
 
   return (
-    <div className="card p-5">
-      <p className="font-display text-2xl font-semibold uppercase tracking-wide text-chalk">
-        Invite players
-      </p>
-      <p className="mt-1 text-sm text-chalk-dim">
-        Scan the QR code or share the link. Everyone needs the same room to play
-        together.
-      </p>
-      <div className="mt-5 flex flex-col items-center gap-5 sm:flex-row sm:items-start">
-        <div className="rounded-xl border border-line bg-white p-3 shadow-soft">
+    <div className="panel p-6">
+      <p className="eyebrow mb-3">Room code</p>
+      <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
+        <div className="rounded-[10px] border-2 border-ink bg-panel-white p-3 shadow-sticker">
           <QRCodeSVG
             value={joinUrl}
-            size={168}
+            size={148}
             level="M"
             bgColor="#ffffff"
-            fgColor="#06060a"
+            fgColor="#262019"
           />
         </div>
         <div className="w-full flex-1 space-y-4">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-ink-soft">
               Room ID
             </p>
-            <code className="mt-1.5 block break-all rounded-xl border border-line bg-pitch px-3 py-2 font-mono text-sm text-turf">
+            <code className="mt-1.5 block break-all rounded-[8px] border-2 border-ink bg-panel-white px-3 py-2 font-mono text-sm text-green">
               {roomId}
             </code>
           </div>
@@ -61,14 +55,14 @@ export function RoomInvite({ roomId }: RoomInviteProps) {
             <button
               type="button"
               onClick={() => copy('link')}
-              className="btn btn-primary"
+              className="btn btn-outline btn-sm"
             >
               {copied === 'link' ? 'Copied link!' : 'Copy invite link'}
             </button>
             <button
               type="button"
               onClick={() => copy('id')}
-              className="btn btn-secondary"
+              className="btn btn-outline btn-sm"
             >
               {copied === 'id' ? 'Copied ID!' : 'Copy room ID'}
             </button>

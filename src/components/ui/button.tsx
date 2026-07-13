@@ -9,11 +9,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-b from-[#52ef8f] to-turf-deep text-[#06120b] shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_8px_20px_-8px_rgba(60,233,126,0.55)] hover:-translate-y-px hover:brightness-105 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_12px_26px_-8px_rgba(60,233,126,0.65)] active:brightness-95",
+          "bg-red text-white uppercase tracking-[0.06em] shadow-[0_10px_20px_-10px_rgba(214,69,51,0.7)] hover:-translate-y-px hover:bg-red-deep active:translate-y-0",
         outline:
-          "border-line-strong bg-transparent text-chalk hover:bg-pitch-light aria-expanded:bg-pitch-light",
+          "border-2 border-ink bg-panel text-ink uppercase tracking-[0.06em] hover:-translate-y-px hover:bg-panel-white",
         secondary:
-          "border-line-strong bg-pitch-light text-chalk shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] hover:-translate-y-px hover:bg-pitch-lighter aria-expanded:bg-pitch-lighter",
+          "border-2 border-ink bg-panel text-ink uppercase tracking-[0.06em] hover:-translate-y-px hover:bg-panel-white",
         ghost:
           "text-chalk-dim hover:bg-pitch-light hover:text-chalk aria-expanded:bg-pitch-light aria-expanded:text-chalk",
         destructive:

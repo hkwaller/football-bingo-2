@@ -94,9 +94,9 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
   }
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-2xl mx-auto">
+    <div className="flex flex-col items-center gap-6 w-full max-w-[720px] mx-auto">
       <motion.p
-        className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim"
+        className="eyebrow"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -109,15 +109,15 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
         {immediateClues.map((clue, i) => (
           <motion.div
             key={clue.kind}
-            className="flex items-center gap-4 rounded-xl border border-line bg-pitch-light px-4 py-3"
+            className="flex items-center gap-4 rounded-xl border-2 border-ink bg-panel-white px-4 py-3"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: i * 0.06 }}
           >
-            <span className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim w-32 shrink-0">
+            <span className="w-32 shrink-0 text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">
               {clueLabel(clue)}
             </span>
-            <span className="font-mono font-semibold text-chalk">{clueValue(clue)}</span>
+            <span className="font-mono font-bold text-ink">{clueValue(clue)}</span>
           </motion.div>
         ))}
 
@@ -126,22 +126,22 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           {stagedClues.slice(0, revealedStagedCount).map((clue, i) => (
             <motion.div
               key={`staged-${i}`}
-              className="flex items-center gap-4 rounded-xl border border-turf/30 bg-turf/5 px-4 py-3"
+              className="flex items-center gap-4 rounded-xl border-2 border-dashed border-green/50 bg-green/5 px-4 py-3"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
             >
-              <span className="text-xs font-medium uppercase tracking-[0.14em] text-turf/70 w-32 shrink-0">
+              <span className="w-32 shrink-0 text-[11px] font-extrabold uppercase tracking-[0.14em] text-green">
                 {clueLabel(clue)}
               </span>
-              <span className="font-mono font-semibold text-chalk">{clueValue(clue)}</span>
+              <span className="font-mono font-bold text-ink">{clueValue(clue)}</span>
             </motion.div>
           ))}
         </AnimatePresence>
 
         {revealedStagedCount < stagedClues.length && !answered && (
-          <p className="text-xs text-chalk-dim/70 text-center mt-1">
+          <p className="mt-1 text-center text-xs text-muted">
             Next clue in a few seconds…
           </p>
         )}
@@ -153,7 +153,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           {wrongGuesses.map((g) => (
             <span
               key={g}
-              className="rounded-full border border-flare/40 bg-flare/10 px-2.5 py-1 text-xs text-flare line-through"
+              className="rounded-full border-2 border-red/50 bg-panel-white px-2.5 py-1 text-xs font-semibold text-red line-through"
             >
               {g}
             </span>
@@ -174,7 +174,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
             autoComplete="off"
           />
           {searching && (
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-chalk-dim">
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-muted">
               …
             </span>
           )}
@@ -183,7 +183,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           <AnimatePresence>
             {results.length > 0 && (
               <motion.ul
-                className="absolute top-full left-0 right-0 z-50 mt-2 overflow-hidden rounded-xl border border-line bg-pitch-light shadow-soft"
+                className="absolute top-full left-0 right-0 z-50 mt-2 overflow-hidden rounded-xl border-2 border-ink bg-panel-white shadow-sticker"
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -192,14 +192,14 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
                   <li key={player.playerId}>
                     <button
                       type="button"
-                      className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-chalk hover:bg-pitch-lighter transition-colors text-left"
+                      className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-ink transition-colors hover:bg-panel text-left"
                       onClick={() => handleSelect(player)}
                     >
                       {player.imageUrl && (
                         <img
                           src={player.imageUrl}
                           alt={player.name}
-                          className="w-8 h-8 object-cover rounded-lg border border-line"
+                          className="w-8 h-8 object-cover rounded-[4px] border border-line"
                         />
                       )}
                       {player.name}
@@ -216,7 +216,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
       <AnimatePresence>
         {answered && lastResult && (
           <motion.p
-            className={`font-display text-lg font-semibold uppercase tracking-wide ${lastResult.correct ? 'text-turf' : 'text-flare'}`}
+            className={`font-display text-lg uppercase leading-none ${lastResult.correct ? 'text-green' : 'text-red'}`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

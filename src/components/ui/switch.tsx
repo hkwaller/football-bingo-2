@@ -20,12 +20,12 @@ function Switch({
         "after:absolute after:-inset-x-3 after:-inset-y-2",
         // size
         "data-[size=default]:h-6 data-[size=default]:w-10 data-[size=sm]:h-5 data-[size=sm]:w-8",
-        // unchecked track: recessed surface, brightens on hover
-        "data-[unchecked]:bg-pitch-lighter data-[unchecked]:hover:bg-line-strong data-[unchecked]:active:bg-line-strong",
-        // checked track: turf accent
-        "data-[checked]:bg-turf data-[checked]:shadow-glow-turf data-[checked]:hover:brightness-105 data-[checked]:active:brightness-95",
+        // unchecked track
+        "data-[unchecked]:bg-line-strong data-[unchecked]:hover:brightness-105",
+        // checked track: green
+        "data-[checked]:bg-green data-[checked]:hover:brightness-110 data-[checked]:active:brightness-95",
         // focus ring
-        "focus-visible:ring-2 focus-visible:ring-turf/60 focus-visible:ring-offset-2 focus-visible:ring-offset-pitch-dark",
+        "focus-visible:ring-2 focus-visible:ring-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
         // disabled
         "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40",
         className
@@ -40,10 +40,10 @@ function Switch({
           "group-data-[size=default]/switch:size-[18px] group-data-[size=sm]/switch:size-3.5",
           // unchecked position + colour
           "data-[unchecked]:translate-x-0",
-          "data-[unchecked]:bg-chalk-dim data-[unchecked]:hover:bg-chalk",
+          "data-[unchecked]:bg-cream data-[unchecked]:hover:bg-white",
           // checked position + colour
           "data-[checked]:translate-x-[calc(100%-2px)]",
-          "data-[checked]:bg-[#06120b]",
+          "data-[checked]:bg-cream",
           // subtle scale on press
           "group-active/switch:scale-90",
         )}

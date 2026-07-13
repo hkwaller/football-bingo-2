@@ -1,21 +1,22 @@
 import type { Metadata } from 'next'
-import { Barlow_Condensed, Instrument_Sans, Spline_Sans_Mono } from 'next/font/google'
+import { Anton, Libre_Franklin, Courier_Prime } from 'next/font/google'
 import { AppShell } from '@/components/AppShell'
 import './globals.css'
 
-const display = Barlow_Condensed({
-  weight: ['500', '600', '700'],
+const display = Anton({
+  weight: '400',
   variable: '--font-display',
   subsets: ['latin'],
 })
 
-const sans = Instrument_Sans({
+const sans = Libre_Franklin({
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-sans',
   subsets: ['latin'],
 })
 
-const mono = Spline_Sans_Mono({
-  weight: ['400', '500', '600'],
+const mono = Courier_Prime({
+  weight: ['400', '700'],
   variable: '--font-mono',
   subsets: ['latin'],
 })
@@ -33,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${display.variable} ${sans.variable} ${mono.variable} relative min-h-screen bg-pitch-dark font-sans antialiased text-chalk`}
+        className={`${display.variable} ${sans.variable} ${mono.variable} relative min-h-screen bg-paper font-sans antialiased text-ink`}
       >
         <AppShell>{children}</AppShell>
       </body>

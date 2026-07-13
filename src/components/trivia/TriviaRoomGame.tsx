@@ -299,7 +299,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   if (roomError) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center px-4">
-        <div className="card max-w-lg border-flare/40 p-6 text-sm text-flare">
+        <div className="panel max-w-lg border-2 border-red/40 p-6 text-sm font-semibold text-red">
           {roomError}
         </div>
       </div>
@@ -308,7 +308,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   if (status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-sm text-chalk-dim animate-pulse-soft">
+      <div className="flex min-h-[50vh] items-center justify-center text-sm text-muted animate-pulse-soft">
         Connecting…
       </div>
     )
@@ -365,7 +365,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   if (!currentQuestion) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-sm text-chalk-dim animate-pulse-soft">
+      <div className="flex min-h-[50vh] items-center justify-center text-sm text-muted animate-pulse-soft">
         Loading question…
       </div>
     )
@@ -380,7 +380,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   const answeredCount = allPlayerPresences.filter((p) => p.presence?.answeredCurrentQuestion).length
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4 py-8 flex flex-col">
+    <div className="mx-auto flex w-full max-w-[720px] flex-col px-6 py-8 md:px-9">
       <TriviaHUD
         currentIndex={currentQuestionIndex ?? 0}
         totalQuestions={
@@ -396,8 +396,8 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
         paused={!!localAnswer || showReview}
       />
 
-      <div className="flex justify-end mb-2">
-        <span className="font-mono text-xs text-chalk-dim tabular-nums">
+      <div className="flex justify-end mb-4">
+        <span className="font-mono text-xs font-bold text-muted tabular-nums">
           {answeredCount}/{allPlayerPresences.length} answered
         </span>
       </div>
@@ -428,7 +428,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
       {raceLocked && (
         <motion.p
-          className="mt-4 text-center text-sm text-chalk-dim"
+          className="mt-4 text-center text-sm font-medium text-muted"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

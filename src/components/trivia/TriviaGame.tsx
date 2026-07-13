@@ -173,7 +173,7 @@ export function TriviaGame() {
 
   if (!session) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-sm text-chalk-dim animate-pulse-soft">
+      <div className="flex min-h-[50vh] items-center justify-center text-sm text-muted animate-pulse-soft">
         Loading…
       </div>
     )
@@ -209,7 +209,7 @@ export function TriviaGame() {
       : null
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4 py-8 flex flex-col">
+    <div className="mx-auto flex w-full max-w-[720px] flex-col px-6 py-8 md:px-9">
       <TriviaHUD
         currentIndex={session.currentIndex}
         totalQuestions={totalQuestions}

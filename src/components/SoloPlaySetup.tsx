@@ -103,56 +103,55 @@ export function SoloPlaySetup() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <motion.div
-          className="flex items-center gap-3 text-sm text-chalk-dim"
+          className="flex items-center gap-3 text-sm font-medium text-muted"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <span className="inline-block size-2 rounded-full bg-turf animate-pulse" />
+          <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
           Loading config…
         </motion.div>
       </div>
     )
   }
 
+  const CATEGORIES = [
+    ['nationalities', 'Nations', 'bg-nation text-cream'],
+    ['clubs', 'Clubs', 'bg-green text-cream'],
+    ['achievements', 'Honours', 'bg-foil text-white'],
+  ] as const
+
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10">
+    <div className="mx-auto flex max-w-[760px] flex-col gap-[18px] px-6 py-8 md:px-9">
       {/* Header */}
       <motion.div
-        className="mb-10 flex flex-wrap items-start justify-between gap-4"
+        className="flex flex-wrap items-end justify-between gap-4"
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
         <div>
-          <div className="chip mb-3 text-turf">
-            <span className="size-1.5 rounded-full bg-turf animate-pulse" />
-            New game
-          </div>
-          <h1 className="font-display text-5xl font-bold uppercase tracking-tight text-chalk md:text-6xl">
-            Solo Setup
+          <h1 className="font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
+            Board setup
           </h1>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-chalk-dim">
-            Configure your board. Every &ldquo;Save &amp; play&rdquo; starts a fresh game with a new
-            seed.
+          <p className="mt-1.5 text-sm font-medium text-muted">
+            Every save starts a fresh game with a new board.
           </p>
         </div>
-        <Link href="/play" className="btn btn-secondary mt-1">
+        <Link href="/play" className="btn btn-outline">
           ← Back to game
         </Link>
       </motion.div>
 
       {/* Sections */}
       <motion.div
-        className="space-y-4"
+        className="flex flex-col gap-[18px]"
         variants={containerVariants}
         initial="hidden"
         animate="show"
       >
         {/* Grid size */}
-        <motion.div variants={itemVariants} className="card p-6">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-            Grid size
-          </p>
+        <motion.div variants={itemVariants} className="panel p-6">
+          <p className="eyebrow mb-3">Grid size</p>
           <div className="flex flex-wrap gap-3">
             {([3, 4, 5] as const).map((n) => {
               const active = boardConfig.size === n
@@ -163,27 +162,17 @@ export function SoloPlaySetup() {
                   onClick={() => setBoardConfig((c) => ({ ...c, size: n }))}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`relative flex flex-col items-center gap-3 rounded-xl border px-6 py-4 font-display text-lg font-semibold transition-all duration-200 ${
+                  style={active ? { transform: 'rotate(-1deg)' } : undefined}
+                  className={`flex flex-col items-center gap-2.5 rounded-[10px] px-6 py-3.5 font-display text-xl uppercase transition-all duration-200 ${
                     active
-                      ? 'border-transparent bg-turf/10 text-turf'
-                      : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
+                      ? 'border-2 border-ink bg-panel-white text-green shadow-sticker'
+                      : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
                   }`}
                 >
                   <GridDots size={n} />
                   <span>
                     {n}×{n}
                   </span>
-                  {active && (
-                    <motion.span
-                      layoutId="grid-active-ring"
-                      className="absolute inset-0 rounded-xl border border-turf/70 shadow-glow-turf"
-                      transition={{
-                        type: 'spring',
-                        stiffness: 400,
-                        damping: 30,
-                      }}
-                    />
-                  )}
                 </motion.button>
               )
             })}
@@ -191,50 +180,35 @@ export function SoloPlaySetup() {
         </motion.div>
 
         {/* Categories */}
-        <motion.div variants={itemVariants} className="card p-6">
-          <div className="mb-4 flex items-center justify-between">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-              Categories
-            </p>
+        <motion.div variants={itemVariants} className="panel p-6">
+          <div className="mb-3 flex items-baseline justify-between gap-3">
+            <p className="eyebrow">Categories</p>
             <motion.span
               key={poolCount}
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className={`chip font-mono ${configOk ? 'text-turf' : 'text-flare'}`}
+              className={`font-mono text-xs font-bold ${configOk ? 'text-muted' : 'text-red'}`}
             >
-              {poolCount} clues / need {needCount}
+              {poolCount} in pool · {needCount} needed {configOk ? '✓' : '✗'}
             </motion.span>
           </div>
 
-          <div className="space-y-2">
-            {(
-              [
-                ['nationalities', 'Nationalities', '🌍'],
-                ['clubs', 'Clubs', '⚽'],
-                ['achievements', 'Achievements', '🏆'],
-              ] as const
-            ).map(([k, label, icon]) => {
+          <div className="flex flex-wrap gap-2.5">
+            {CATEGORIES.map(([k, label, onClass]) => {
               const active = boardConfig.categoryKinds[k]
               return (
                 <button
                   key={k}
                   type="button"
                   onClick={() => toggleKind(k)}
-                  className={`w-full flex items-center justify-between rounded-xl border px-4 py-3 transition-all duration-200 text-left ${
+                  className={`inline-flex items-center gap-2 rounded-full px-[18px] py-2 text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-200 ${
                     active
-                      ? 'border-turf/60 bg-turf/10 text-chalk'
-                      : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
+                      ? onClass
+                      : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-base">{icon}</span>
-                    <span className="text-sm font-semibold">{label}</span>
-                  </div>
-                  <span
-                    className={`text-xs font-semibold ${active ? 'text-turf' : 'text-chalk-dim'}`}
-                  >
-                    {active ? 'On' : 'Off'}
-                  </span>
+                  {active ? '✓ ' : ''}
+                  {label}
                 </button>
               )
             })}
@@ -246,7 +220,7 @@ export function SoloPlaySetup() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-3 text-xs text-flare"
+                className="mt-3 text-xs font-semibold text-red"
               >
                 Turn on more categories — need at least {needCount} clues for a {boardConfig.size}×
                 {boardConfig.size} grid.
@@ -255,33 +229,33 @@ export function SoloPlaySetup() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Draft draws */}
-        <motion.div variants={itemVariants} className="card p-6">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-            Draft draws
-          </p>
+        {/* Draft rule */}
+        <motion.div variants={itemVariants} className="panel p-6">
+          <p className="eyebrow mb-3">Draft rule</p>
           <RadioGroup
             value={draftPolicy}
             onValueChange={(v) => setDraftPolicy(v as DraftPolicy)}
-            className="gap-3"
+            className="grid gap-3 sm:grid-cols-2"
           >
             {(['open', 'placeable'] as const).map((p) => {
               const active = draftPolicy === p
               return (
                 <label
                   key={p}
-                  className={`flex cursor-pointer items-start gap-4 rounded-xl border p-4 transition-all duration-200 ${
+                  className={`flex cursor-pointer items-start gap-3 rounded-[10px] p-4 transition-all duration-200 ${
                     active
-                      ? 'border-turf/60 bg-turf/5'
-                      : 'border-line bg-pitch hover:border-line-strong'
+                      ? 'border-2 border-ink bg-panel-white'
+                      : 'border-2 border-dashed border-line-strong'
                   }`}
                 >
-                  <RadioGroupItem value={p} className="mt-0.5 shrink-0" />
+                  <RadioGroupItem value={p} className="mt-1 shrink-0" />
                   <div>
-                    <p className={`text-sm font-semibold ${active ? 'text-turf' : 'text-chalk'}`}>
+                    <p
+                      className={`font-display text-base uppercase ${active ? 'text-green' : 'text-muted'}`}
+                    >
                       {DRAFT_POLICY_LABEL[p]}
                     </p>
-                    <p className="mt-1 text-xs leading-relaxed text-chalk-dim">
+                    <p className="mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
                       {DRAFT_POLICY_HELP[p]}
                     </p>
                   </div>
@@ -291,51 +265,38 @@ export function SoloPlaySetup() {
           </RadioGroup>
         </motion.div>
 
-        {/* Options row */}
-        <motion.div variants={itemVariants} className="card p-6">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-            Display options
-          </p>
+        {/* Footer actions */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap items-center justify-between gap-4"
+        >
           <button
             type="button"
             onClick={() => setLineHighlight((v) => !v)}
-            className={`w-full flex items-center justify-between gap-4 rounded-xl border px-4 py-3 transition-all duration-200 text-left ${
-              lineHighlight
-                ? 'border-turf/60 bg-turf/10 text-chalk'
-                : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
-            }`}
+            className="inline-flex items-center gap-2.5 text-[13.5px] font-semibold text-ink-soft"
           >
-            <div className="flex items-center gap-3">
-              <span className="text-base">✨</span>
-              <div>
-                <p className="text-sm font-semibold">Highlight winning lines</p>
-                <p className="text-xs leading-relaxed text-chalk-dim">
-                  Glow effect when you complete a row, column, or diagonal
-                </p>
-              </div>
-            </div>
             <span
-              className={`shrink-0 text-xs font-semibold ${lineHighlight ? 'text-turf' : 'text-chalk-dim'}`}
+              className={`relative inline-block h-[22px] w-10 rounded-full transition-colors ${
+                lineHighlight ? 'bg-green' : 'bg-line-strong'
+              }`}
             >
-              {lineHighlight ? 'On' : 'Off'}
+              <span
+                className={`absolute top-[3px] h-4 w-4 rounded-full bg-cream transition-all ${
+                  lineHighlight ? 'right-[3px]' : 'left-[3px]'
+                }`}
+              />
             </span>
+            Highlight my best line
           </button>
-        </motion.div>
-
-        {/* Footer actions */}
-        <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-2">
           <motion.button
             type="button"
             disabled={!configOk || launching}
             onClick={persistAndPlay}
             whileTap={configOk ? { scale: 0.98 } : {}}
-            className="btn btn-primary btn-lg min-w-[180px]"
+            className="btn btn-primary btn-lg"
           >
             {launching ? 'Launching…' : 'Save & play'}
           </motion.button>
-          <Link href="/" className="btn btn-secondary btn-lg">
-            Home
-          </Link>
         </motion.div>
       </motion.div>
     </div>

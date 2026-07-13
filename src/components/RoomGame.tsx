@@ -47,7 +47,11 @@ import type { PlayMode } from '@/lib/playMode'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 
-const DRAFT_COOLDOWN_MS = 2500
+const ROUNDEL_COLORS = [
+  'bg-green text-cream',
+  'bg-nation text-cream',
+  'bg-red text-white',
+] as const
 
 function RoomInner({ roomId }: { roomId: string }) {
   const status = useStatus()
@@ -231,8 +235,6 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const [draftLoading, setDraftLoading] = useState(false)
   const [draftError, setDraftError] = useState<string | null>(null)
-  const [cooldownUntil, setCooldownUntil] = useState(0)
-  const [nowTick, setNowTick] = useState(0)
   const [reduceMotion, setReduceMotion] = useState(false)
   const isResolvingRef = useRef(false)
   const [drawn, setDrawn] = useState<DrawnPlayer | null>(null)
@@ -273,16 +275,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     bingoRecordedRef.current = false
     setModalCell(null)
     setDraftError(null)
-    setCooldownUntil(0)
   }, [seed])
-
-  useEffect(() => {
-    if (cooldownUntil <= Date.now()) return
-    const t = window.setInterval(() => setNowTick(Date.now()), 200)
-    return () => window.clearInterval(t)
-  }, [cooldownUntil])
-
-  const cooldownRemainingMs = Math.max(0, cooldownUntil - nowTick)
 
   const activeSeed = phase === 'playing' && seed ? seed : ''
 
@@ -600,22 +593,13 @@ function RoomInner({ roomId }: { roomId: string }) {
         !drawn ||
         draftLoading ||
         localBingo ||
-        phase !== 'playing' ||
-        Date.now() < cooldownUntil
+        phase !== 'playing'
       ) {
         return
       }
       submitDraftVote({ type: 'square', cellIndex })
     },
-    [
-      playMode,
-      drawn,
-      draftLoading,
-      localBingo,
-      phase,
-      cooldownUntil,
-      submitDraftVote,
-    ],
+    [playMode, drawn, draftLoading, localBingo, phase, submitDraftVote],
   )
 
   const handleStart = async () => {
@@ -649,8 +633,8 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   if (phase === null || status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center gap-2 text-chalk-dim">
-        <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-turf" />
+      <div className="flex min-h-[40vh] items-center justify-center gap-3 text-sm font-medium text-muted">
+        <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
         Connecting to room…
       </div>
     )
@@ -658,9 +642,9 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   if (roomError) {
     return (
-      <div className="mx-auto max-w-lg px-4 py-16 text-center">
-        <p className="text-flare">{roomError}</p>
-        <Link href="/" className="mt-4 inline-block text-turf hover:underline">
+      <div className="mx-auto max-w-lg px-6 py-16 text-center">
+        <p className="text-sm font-semibold text-red">{roomError}</p>
+        <Link href="/" className="mt-4 inline-block font-bold text-green underline">
           Home
         </Link>
       </div>
@@ -668,19 +652,19 @@ function RoomInner({ roomId }: { roomId: string }) {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8">
-      <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
+    <div className="mx-auto max-w-5xl px-6 py-8 md:px-9">
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-display text-4xl font-bold uppercase tracking-wide text-chalk md:text-5xl">
-            Race room
+          <h1 className="font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
+            {phase === 'lobby' ? 'Waiting for players' : 'Race room'}
           </h1>
-          <p className="mt-1 font-mono text-xs text-chalk-dim">{roomId}</p>
-          <p className="mt-2 text-base text-chalk-dim">
-            Same clues for everyone — draft uses votes + skip. Host sets the board
-            before start.
+          <p className="mt-1.5 text-sm font-medium text-muted">
+            {phase === 'lobby'
+              ? "Share the room code. The host starts the match when everyone's in."
+              : 'Same clues for everyone — draft uses votes + skip.'}
           </p>
         </div>
-        <Link href="/" className="btn btn-secondary btn-sm">
+        <Link href="/" className="btn btn-outline btn-sm">
           Home
         </Link>
       </div>
@@ -694,16 +678,17 @@ function RoomInner({ roomId }: { roomId: string }) {
         >
           {/* Non-host: simple waiting lobby — just name + player list */}
           {!isHost ? (
-            <div className="card space-y-6 p-6">
+            <div className="panel space-y-6 p-6">
               <div>
-                <p className="font-display text-2xl font-semibold uppercase tracking-wide text-chalk">
+                <p className="eyebrow mb-2">In the room</p>
+                <p className="font-display text-[28px] uppercase leading-none text-green">
                   You&apos;re in the room
                 </p>
-                <p className="mt-1 text-sm text-chalk-dim">
+                <p className="mt-1.5 text-sm font-medium text-muted">
                   The host is setting things up. You&apos;ll start automatically when they&apos;re ready.
                 </p>
               </div>
-              <label className="block text-sm font-medium text-chalk">
+              <label className="block text-sm font-bold text-ink">
                 Your name
                 <input
                   value={nameDraft}
@@ -718,205 +703,272 @@ function RoomInner({ roomId }: { roomId: string }) {
                 <span className="chip">
                   {others.length + 1} player{others.length === 0 ? '' : 's'} in room
                 </span>
-                <span className="flex items-center gap-2 text-sm text-chalk-dim">
-                  <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-turf" />
+                <span className="flex items-center gap-2 text-sm font-medium text-muted">
+                  <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
                   Waiting for host to start…
                 </span>
               </div>
             </div>
           ) : (
             /* Host: full settings panel */
-            <>
-          <RoomInvite roomId={roomId} />
-          <div className="card space-y-6 p-6">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-              Play mode
-            </p>
-            <div className="mt-2 inline-flex rounded-full border border-line bg-pitch p-1">
-              {(['draft', 'free'] as const).map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  onClick={() => setRoomPlayMode(m)}
-                  className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-200 ${
-                    playMode === m
-                      ? 'bg-turf/15 text-turf'
-                      : 'text-chalk-dim hover:text-chalk'
-                  }`}
-                >
-                  {PLAY_MODE_LABEL[m]}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-              Board
-            </p>
-            <p className="mt-1 text-xs text-chalk-dim">
-              One shared card everyone fills together, or each player keeps their own
-              progress.
-            </p>
-            <div className="mt-2.5 flex flex-wrap gap-2">
-              {(
-                [
-                  ['shared', 'One board for everyone'],
-                  ['individual', 'Each player has their own card'],
-                ] as const
-              ).map(([v, label]) => (
-                <button
-                  key={v}
-                  type="button"
-                  onClick={() => setBoardLayoutWithPolicy(v)}
-                  className={`rounded-xl border px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
-                    boardLayout === v
-                      ? 'border-turf/60 bg-turf/10 text-turf'
-                      : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-              Draft draws
-            </p>
-            <p className="mt-1 text-xs text-chalk-dim">
-              Placeable drafts need one shared board so everyone uses the same open
-              squares.
-            </p>
-            <div className="mt-2.5 space-y-2">
-              {(['open', 'placeable'] as const).map((p) => (
-                <label
-                  key={p}
-                  className={`flex gap-3 rounded-xl border p-3 transition-colors duration-200 ${
-                    draftPolicyStorage === p
-                      ? 'border-turf/40 bg-turf/5'
-                      : 'border-line bg-pitch'
-                  } ${
-                    boardLayout === 'individual' && p === 'placeable'
-                      ? 'opacity-40'
-                      : ''
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="roomDraftPolicy"
-                    disabled={boardLayout === 'individual' && p === 'placeable'}
-                    checked={draftPolicyStorage === p}
-                    onChange={() => setDraftPolicyInStorage(p)}
-                    className="mt-1 h-4 w-4 accent-[var(--turf)]"
-                  />
-                  <div>
-                    <p className="text-sm font-semibold text-chalk">
-                      {DRAFT_POLICY_LABEL[p]}
-                    </p>
-                    <p className="text-xs text-chalk-dim">{DRAFT_POLICY_HELP[p]}</p>
+            <div className="grid gap-5 md:grid-cols-[1fr_1.2fr] md:items-start">
+              {/* Left column */}
+              <div className="flex flex-col gap-5">
+                <RoomInvite roomId={roomId} />
+
+                {/* In the room */}
+                <div className="panel p-6">
+                  <p className="eyebrow mb-4">In the room · {others.length + 1}</p>
+                  <ul className="flex flex-col gap-3">
+                    {[
+                      {
+                        id: self?.connectionId ?? -1,
+                        name: (presence?.displayName || nameDraft).trim() || 'You',
+                        host: isHost,
+                      },
+                      ...others.map((o) => ({
+                        id: o.connectionId,
+                        name: (o.presence?.displayName ?? '').trim() || 'Guest',
+                        host: hostConnectionId === o.connectionId,
+                      })),
+                    ].map((p, i) => {
+                      const ready = p.name !== 'Guest'
+                      return (
+                        <li key={p.id} className="flex items-center gap-3">
+                          <span
+                            className={`flex h-9 w-9 items-center justify-center rounded-full font-display text-[15px] uppercase ${
+                              ROUNDEL_COLORS[i % ROUNDEL_COLORS.length]
+                            }`}
+                          >
+                            {p.name.charAt(0) || '?'}
+                          </span>
+                          <span className="text-sm font-bold text-ink">{p.name}</span>
+                          {p.host ? (
+                            <span className="ml-auto rounded-[3px] bg-foil px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-white">
+                              Host
+                            </span>
+                          ) : (
+                            <span
+                              className={`ml-auto text-xs font-semibold ${
+                                ready ? 'text-green' : 'text-muted'
+                              }`}
+                            >
+                              {ready ? 'Ready' : 'Joining…'}
+                            </span>
+                          )}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Right column */}
+              <div className="flex flex-col gap-5">
+                <div className="panel flex flex-col gap-4 p-6">
+                  <p className="eyebrow">
+                    Match settings{' '}
+                    <span className="font-semibold normal-case tracking-[0.06em] text-muted">
+                      — host only
+                    </span>
+                  </p>
+
+                  {/* Mode */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                      Mode
+                    </span>
+                    {(['draft', 'free'] as const).map((m) => {
+                      const active = playMode === m
+                      return (
+                        <button
+                          key={m}
+                          type="button"
+                          onClick={() => setRoomPlayMode(m)}
+                          className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
+                            active
+                              ? 'border-2 border-ink bg-panel-white text-ink'
+                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                          }`}
+                        >
+                          {PLAY_MODE_LABEL[m]}
+                        </button>
+                      )
+                    })}
                   </div>
-                </label>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-              Grid size
-            </p>
-            <div className="mt-2.5 flex flex-wrap gap-2">
-              {([3, 4, 5] as const).map((n) => (
-                <button
-                  key={n}
-                  type="button"
-                  onClick={() => setBoardSize(n)}
-                  className={`rounded-xl border px-4 py-2 font-display text-base font-semibold transition-colors duration-200 ${
-                    boardSize === n
-                      ? 'border-turf/60 bg-turf/10 text-turf'
-                      : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
-                  }`}
-                >
-                  {n}×{n}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-              Categories
-            </p>
-            <div className="mt-2.5 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              {(
-                [
-                  ['categoryNationalities', 'Nationalities'],
-                  ['categoryClubs', 'Clubs'],
-                  ['categoryAchievements', 'Achievements'],
-                ] as const
-              ).map(([k, label]) => (
-                <label
-                  key={k}
-                  className="flex cursor-pointer items-center gap-2 rounded-xl border border-line bg-pitch px-3 py-2 transition-colors duration-200 hover:border-line-strong"
-                >
-                  <input
-                    type="checkbox"
-                    checked={Boolean(
-                      k === 'categoryNationalities'
-                        ? categoryNationalities
-                        : k === 'categoryClubs'
-                          ? categoryClubs
-                          : categoryAchievements,
-                    )}
-                    onChange={() => {
-                      const cur =
+
+                  {/* Boards */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                      Boards
+                    </span>
+                    {(
+                      [
+                        ['individual', 'Individual'],
+                        ['shared', 'Shared'],
+                      ] as const
+                    ).map(([v, label]) => {
+                      const active = boardLayout === v
+                      return (
+                        <button
+                          key={v}
+                          type="button"
+                          onClick={() => setBoardLayoutWithPolicy(v)}
+                          className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
+                            active
+                              ? 'border-2 border-ink bg-panel-white text-ink'
+                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  {/* Draft rule */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                      Draft
+                    </span>
+                    {(['open', 'placeable'] as const).map((p) => {
+                      const active = draftPolicyStorage === p
+                      const disabled =
+                        boardLayout === 'individual' && p === 'placeable'
+                      return (
+                        <button
+                          key={p}
+                          type="button"
+                          disabled={disabled}
+                          onClick={() => setDraftPolicyInStorage(p)}
+                          className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 disabled:opacity-40 ${
+                            active
+                              ? 'border-2 border-ink bg-panel-white text-ink'
+                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                          }`}
+                        >
+                          {DRAFT_POLICY_LABEL[p]}
+                        </button>
+                      )
+                    })}
+                  </div>
+                  <p className="-mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
+                    {DRAFT_POLICY_HELP[effectiveDraftPolicy]}
+                  </p>
+
+                  {/* Grid */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                      Grid
+                    </span>
+                    {([3, 4, 5] as const).map((n) => {
+                      const active = boardSize === n
+                      return (
+                        <button
+                          key={n}
+                          type="button"
+                          onClick={() => setBoardSize(n)}
+                          className={`rounded-full px-4 py-1.5 font-display text-[14px] uppercase transition-colors duration-200 ${
+                            active
+                              ? 'border-2 border-ink bg-panel-white text-green'
+                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                          }`}
+                        >
+                          {n}×{n}
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  {/* Categories */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                      Categories
+                    </span>
+                    {(
+                      [
+                        ['categoryNationalities', 'Nations', 'bg-nation text-cream'],
+                        ['categoryClubs', 'Clubs', 'bg-green text-cream'],
+                        ['categoryAchievements', 'Honours', 'bg-foil text-white'],
+                      ] as const
+                    ).map(([k, label, onClass]) => {
+                      const active = Boolean(
                         k === 'categoryNationalities'
                           ? categoryNationalities
                           : k === 'categoryClubs'
                             ? categoryClubs
-                            : categoryAchievements
-                      setCategory(k, !cur)
+                            : categoryAchievements,
+                      )
+                      return (
+                        <button
+                          key={k}
+                          type="button"
+                          onClick={() => {
+                            const cur =
+                              k === 'categoryNationalities'
+                                ? categoryNationalities
+                                : k === 'categoryClubs'
+                                  ? categoryClubs
+                                  : categoryAchievements
+                            setCategory(k, !cur)
+                          }}
+                          className={`inline-flex items-center gap-1 rounded-full px-[14px] py-[5px] text-[11.5px] font-bold uppercase tracking-[0.04em] transition-all duration-200 ${
+                            active
+                              ? onClass
+                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                          }`}
+                        >
+                          {active ? '✓ ' : ''}
+                          {label}
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  <p
+                    className={`font-mono text-xs font-bold ${
+                      configOk ? 'text-muted' : 'text-red'
+                    }`}
+                  >
+                    {configOk
+                      ? `${poolCount} in pool · ${needCount} needed ✓`
+                      : `Need at least ${needCount} clues — enable more categories.`}
+                  </p>
+
+                  {/* Display name */}
+                  <label className="block text-sm font-bold text-ink">
+                    Display name
+                    <input
+                      value={nameDraft}
+                      onChange={(e) => setNameDraft(e.target.value)}
+                      onBlur={saveName}
+                      className="input mt-1.5 max-w-sm"
+                      placeholder="Your name"
+                    />
+                  </label>
+                </div>
+
+                {/* Footer strip */}
+                <div className="flex flex-wrap items-center justify-between gap-4 rounded-[14px] border-2 border-dashed border-line-strong p-5">
+                  <span className="text-[13.5px] font-medium text-muted">
+                    {boardLayout === 'shared'
+                      ? 'One shared board for the room. First full line wins the match.'
+                      : 'Everyone gets their own board. First full line wins the match.'}
+                  </span>
+                  <button
+                    type="button"
+                    disabled={starting || !configOk}
+                    onClick={() => {
+                      saveName()
+                      void handleStart()
                     }}
-                    className="h-4 w-4 rounded accent-[var(--turf)]"
-                  />
-                  <span className="text-sm font-medium text-chalk">{label}</span>
-                </label>
-              ))}
+                    className="btn btn-primary"
+                  >
+                    {starting ? 'Starting…' : 'Start match'}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-          <p
-            className={`text-sm ${configOk ? 'text-chalk-dim' : 'text-flare'}`}
-          >
-            {configOk
-              ? `${poolCount} clues in pool — need ${needCount} for this grid.`
-              : `Need at least ${needCount} clues — enable more categories.`}
-          </p>
-          <label className="block text-sm font-medium text-chalk">
-            Display name
-            <input
-              value={nameDraft}
-              onChange={(e) => setNameDraft(e.target.value)}
-              onBlur={saveName}
-              className="input mt-1.5 max-w-sm"
-              placeholder="Your name"
-            />
-          </label>
-          <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
-            <span className="chip">
-              {others.length + 1} player{others.length === 0 ? '' : 's'} in room
-            </span>
-            <button
-              type="button"
-              disabled={starting || !configOk}
-              onClick={() => {
-                saveName()
-                void handleStart()
-              }}
-              className="btn btn-primary btn-lg"
-            >
-              {starting ? 'Starting…' : 'Start race'}
-            </button>
-          </div>
-          </div>
-            </>
           )}
         </motion.div>
       ) : null}
@@ -937,10 +989,10 @@ function RoomInner({ roomId }: { roomId: string }) {
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className={`mb-4 rounded-xl border px-4 py-3 text-center font-semibold ${
+                className={`mb-4 rounded-[14px] px-4 py-3 text-center font-display text-lg uppercase leading-none ${
                   localBingo
-                    ? 'border-gold/50 bg-gold/10 text-gold shadow-glow-gold'
-                    : 'border-turf/40 bg-turf/10 text-turf'
+                    ? 'foil border-2 border-foil'
+                    : 'border-2 border-ink bg-panel-white text-green'
                 }`}
               >
                 {localBingo
@@ -955,7 +1007,6 @@ function RoomInner({ roomId }: { roomId: string }) {
             loading={draftLoading}
             player={drawn}
             error={draftError}
-            cooldownRemainingMs={cooldownRemainingMs}
             draftWarning={draftFallbackNote}
             extraActions={
               playMode === 'draft' && phase === 'playing' && !localBingo ? (
@@ -963,7 +1014,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                   type="button"
                   disabled={draftLoading}
                   onClick={() => submitDraftVote({ type: 'skip' })}
-                  className="btn btn-secondary"
+                  className="btn btn-outline btn-sm"
                 >
                   Skip
                 </button>
@@ -987,7 +1038,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             lineHighlight={phase === 'playing' || localBingo}
           />
           {playMode === 'draft' && phase === 'playing' && !localBingo ? (
-            <p className="mb-4 text-center text-xs text-chalk-dim">
+            <p className="mb-4 text-center text-xs font-medium text-muted">
               Tap a square to vote · everyone must agree (or all skip) to advance
             </p>
           ) : null}
@@ -1004,31 +1055,38 @@ function RoomInner({ roomId }: { roomId: string }) {
             title={`Pick a player: ${displayCategory(modalLabel)}`}
             onClose={() => setModalCell(null)}
             onPick={handleFreePick}
-            cooldownMs={DRAFT_COOLDOWN_MS}
           />
         ) : null}
       </AnimatePresence>
 
-      <div className="card mt-8 p-5">
-        <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-          Others
-        </p>
-        <ul className="mt-3 divide-y divide-line">
-          {others.map((o) => (
-            <li
-              key={o.connectionId}
-              className="flex items-center justify-between gap-3 rounded-lg py-2.5 text-sm"
-            >
-              <span className="flex items-center gap-2.5 text-chalk">
-                <span
-                  className={`h-1.5 w-1.5 rounded-full ${
-                    o.presence?.bingoAt != null ? 'bg-gold' : 'bg-turf/70'
-                  }`}
-                />
-                {o.presence?.displayName || 'Guest'}
+      <div className="panel mt-8 p-6">
+        <p className="eyebrow mb-4">In the room · {others.length + 1}</p>
+        <ul className="flex flex-col gap-3">
+          {[
+            {
+              id: self?.connectionId ?? -1,
+              name: (presence?.displayName || nameDraft).trim() || 'You',
+              bingo: presence?.bingoAt != null,
+            },
+            ...others.map((o) => ({
+              id: o.connectionId,
+              name: (o.presence?.displayName ?? '').trim() || 'Guest',
+              bingo: o.presence?.bingoAt != null,
+            })),
+          ].map((p, i) => (
+            <li key={p.id} className="flex items-center gap-3">
+              <span
+                className={`flex h-9 w-9 items-center justify-center rounded-full font-display text-[15px] uppercase ${
+                  ROUNDEL_COLORS[i % ROUNDEL_COLORS.length]
+                }`}
+              >
+                {p.name.charAt(0) || '?'}
               </span>
-              {o.presence?.bingoAt != null ? (
-                <span className="chip text-gold">Bingo</span>
+              <span className="text-sm font-bold text-ink">{p.name}</span>
+              {p.bingo ? (
+                <span className="foil ml-auto rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.06em]">
+                  Bingo
+                </span>
               ) : null}
             </li>
           ))}
@@ -1050,8 +1108,8 @@ export function RoomGame({ roomId }: { roomId: string }) {
 
   if (!ready) {
     return (
-      <div className="flex min-h-[30vh] items-center justify-center gap-2 text-chalk-dim">
-        <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-turf" />
+      <div className="flex min-h-[30vh] items-center justify-center gap-3 text-sm font-medium text-muted">
+        <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
         Preparing…
       </div>
     )

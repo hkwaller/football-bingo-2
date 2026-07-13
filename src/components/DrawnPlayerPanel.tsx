@@ -1,9 +1,9 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { PlayMode } from '@/lib/playMode'
+import { Sticker } from '@/components/Sticker'
 
 export type DrawnPlayer = {
   playerId: string
@@ -17,7 +17,6 @@ type DrawnPlayerPanelProps = {
   loading: boolean
   player: DrawnPlayer | null
   error?: string | null
-  cooldownRemainingMs?: number
   onSkip?: () => void
   skipDisabled?: boolean
   /** Extra actions (e.g. multiplayer Skip vote) shown next to solo Skip */
@@ -31,7 +30,6 @@ export function DrawnPlayerPanel({
   loading,
   player,
   error,
-  cooldownRemainingMs = 0,
   onSkip,
   skipDisabled,
   extraActions,
@@ -42,91 +40,77 @@ export function DrawnPlayerPanel({
   return (
     <motion.section
       layout
-      className="card mb-6 p-5"
+      className="panel mb-6 p-4 sm:px-6"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.14em] text-turf">
-            Active player
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+        {/* Sticker of the drawn player */}
+        <div className="shrink-0">
+          {loading ? (
+            <div className="h-[120px] w-[108px] animate-pulse rounded-[6px] bg-panel-white shadow-sticker" />
+          ) : (
+            <Sticker
+              key={player?.playerId ?? `round-${round}`}
+              name={player?.name ?? '—'}
+              imageUrl={player?.imageUrl}
+              rotate={-2}
+              width={108}
+              showName={false}
+            />
+          )}
+        </div>
+
+        {/* Copy */}
+        <div className="flex-1">
+          <p className="eyebrow">Round {round + 1}</p>
+          <p className="mt-1 font-display text-[32px] uppercase leading-none text-green">
+            {loading ? 'Drawing…' : (player?.name ?? 'No player')}
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-chalk-dim">
-            Place this player on the square that matches them.
+          <p className="mt-1.5 text-[13.5px] font-medium text-muted">
+            Place them on a matching square — club, country or honour.
+            {onSkip ? (
+              <>
+                {' '}
+                Press <span className="font-mono font-bold text-ink">Space</span> to skip.
+              </>
+            ) : null}
           </p>
-          <p className="mt-1 font-display text-4xl font-semibold uppercase tracking-wide text-chalk">
-            Round {round + 1}
-          </p>
-          {onSkip ? (
-            <p className="mt-1 text-xs text-chalk-dim">
-              Press <span className="font-mono text-chalk">Space</span> to skip
-            </p>
-          ) : null}
           {draftWarning ? (
             <p
-              className="mt-2 inline-flex rounded-lg border border-line bg-pitch px-2.5 py-1.5 text-xs text-chalk-dim"
+              className="mt-2 inline-flex rounded-lg border border-line bg-panel-white px-2.5 py-1.5 text-xs text-muted"
               role="status"
             >
               {draftWarning}
             </p>
           ) : null}
         </div>
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="flex items-center gap-4 rounded-xl border border-line bg-pitch p-3">
-            {loading ? (
-              <div className="h-20 w-20 animate-pulse rounded-xl bg-pitch-lighter" />
-            ) : player ? (
-              <>
-                {player.imageUrl ? (
-                  <Image
-                    src={player.imageUrl}
-                    alt=""
-                    width={80}
-                    height={80}
-                    className="rounded-xl border border-line object-cover"
-                    unoptimized
-                  />
-                ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-line bg-pitch-lighter font-display text-4xl text-chalk-dim">
-                    ?
-                  </div>
-                )}
-                <div>
-                  <p className="font-display text-3xl font-semibold text-chalk">{player.name}</p>
-                  <p className="mt-1 text-xs font-medium text-turf">Awaiting action</p>
-                </div>
-              </>
+
+        {/* Actions */}
+        {onSkip || extraActions ? (
+          <div className="flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center">
+            {onSkip ? (
+              <button
+                type="button"
+                disabled={skipDisabled}
+                onClick={onSkip}
+                className="btn btn-outline btn-sm"
+              >
+                Skip
+              </button>
             ) : null}
+            {extraActions}
           </div>
-          {onSkip || extraActions ? (
-            <div className="flex flex-col items-stretch gap-2">
-              {onSkip ? (
-                <button
-                  type="button"
-                  disabled={skipDisabled}
-                  onClick={onSkip}
-                  className="btn btn-secondary btn-sm"
-                >
-                  Skip
-                </button>
-              ) : null}
-              {extraActions}
-            </div>
-          ) : null}
-        </div>
+        ) : null}
       </div>
+
       {error ? (
         <p
-          className="mt-4 rounded-xl border border-flare/30 bg-flare/10 px-3 py-2 text-sm text-flare"
+          className="mt-4 rounded-xl border-2 border-red/40 bg-red/10 px-3 py-2 text-sm font-semibold text-red"
           role="alert"
         >
           {error}
-        </p>
-      ) : null}
-      {cooldownRemainingMs > 0 ? (
-        <p className="mt-2 font-mono text-xs text-chalk-dim">
-          Cooldown: {Math.ceil(cooldownRemainingMs / 1000)}s
         </p>
       ) : null}
     </motion.section>

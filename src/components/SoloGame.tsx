@@ -25,8 +25,6 @@ import type { PlayMode } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 
-const DRAFT_COOLDOWN_MS = 2500
-
 export function SoloGame() {
   const [hydrated, setHydrated] = useState(false)
   const [seed, setSeed] = useState('')
@@ -46,8 +44,6 @@ export function SoloGame() {
   const [drawn, setDrawn] = useState<DrawnPlayer | null>(null)
   const [draftLoading, setDraftLoading] = useState(false)
   const [draftError, setDraftError] = useState<string | null>(null)
-  const [cooldownUntil, setCooldownUntil] = useState(0)
-  const [nowTick, setNowTick] = useState(0)
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -153,14 +149,6 @@ export function SoloGame() {
     }
   }, [playMode, seed, round, hydrated, draftPolicy, boardConfig, occupiedIndices])
 
-  useEffect(() => {
-    if (cooldownUntil <= Date.now()) return
-    const t = window.setInterval(() => setNowTick(Date.now()), 200)
-    return () => window.clearInterval(t)
-  }, [cooldownUntil])
-
-  const cooldownRemainingMs = Math.max(0, cooldownUntil - nowTick)
-
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
   const configOk = isBoardConfigViable(boardConfig)
@@ -183,7 +171,6 @@ export function SoloGame() {
     setRound(0)
     setModalCell(null)
     setDraftError(null)
-    setCooldownUntil(0)
     saveSolo({
       seed: s,
       solved: {},
@@ -200,7 +187,6 @@ export function SoloGame() {
     setPlayMode(m)
     setModalCell(null)
     setDraftError(null)
-    setCooldownUntil(0)
     const s = randomUUID()
     setSeed(s)
     setSolved(new Map())
@@ -219,7 +205,6 @@ export function SoloGame() {
   const skipDraft = useCallback(() => {
     if (playMode !== 'draft' || won || draftLoading) return
     setDraftError(null)
-    setCooldownUntil(0)
     setRound((r) => r + 1)
   }, [playMode, won, draftLoading])
 
@@ -283,7 +268,7 @@ export function SoloGame() {
 
   const handleDraftCell = useCallback(
     async (cellIndex: number) => {
-      if (playMode !== 'draft' || !drawn || draftLoading || won || Date.now() < cooldownUntil) {
+      if (playMode !== 'draft' || !drawn || draftLoading || won) {
         return
       }
       setDraftError(null)
@@ -304,7 +289,6 @@ export function SoloGame() {
       }
       if (!j.ok || !j.player) {
         setDraftError(j.reason ?? 'That square does not match this player.')
-        setCooldownUntil(Date.now() + DRAFT_COOLDOWN_MS)
         return
       }
       const pick: CellPick = {
@@ -319,73 +303,59 @@ export function SoloGame() {
       })
       setRound((r) => r + 1)
     },
-    [
-      playMode,
-      drawn,
-      draftLoading,
-      won,
-      cooldownUntil,
-      seed,
-      boardConfig,
-    ],
+    [playMode, drawn, draftLoading, won, seed, boardConfig],
   )
 
   if (!hydrated) {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center text-sm text-chalk-dim">
+      <div className="flex min-h-[40vh] items-center justify-center text-sm font-medium text-muted">
         Loading…
       </div>
     )
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8">
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+    <div className="mx-auto max-w-5xl px-6 py-8 md:px-9">
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-chalk md:text-5xl">
-            Solo
+          <h1 className="font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
+            Solo game
           </h1>
-          <p className="mt-2 text-base leading-relaxed text-chalk-dim">
+          <p className="mt-1.5 text-sm font-medium text-muted">
             {playMode === 'draft'
-              ? 'Each round you get a player — place them on the right square.'
+              ? 'Place the drawn player on a square that matches. Complete a line to win.'
               : 'Pick a square, then search for a player who fits that clue.'}
           </p>
           {!configOk ? (
-            <p className="mt-2 text-sm text-flare">
-              Your saved board needs at least {needCount} clues (currently {poolCount}
-              ).{' '}
-              <Link href="/play/setup" className="underline hover:text-chalk">
+            <p className="mt-2 text-sm font-semibold text-red">
+              Your saved board needs at least {needCount} clues (currently {poolCount}).{' '}
+              <Link href="/play/setup" className="underline">
                 Fix in setup
               </Link>
             </p>
           ) : null}
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="flex rounded-full border border-line bg-pitch p-1">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex rounded-full border-2 border-ink bg-panel p-1">
             {(['draft', 'free'] as const).map((m) => (
               <button
                 key={m}
                 type="button"
                 onClick={() => switchMode(m)}
-                className={`rounded-full px-3.5 py-1.5 text-sm font-semibold transition-colors duration-200 ${
-                  playMode === m
-                    ? 'bg-turf/15 text-turf'
-                    : 'text-chalk-dim hover:text-chalk'
+                className={`rounded-full px-4 py-1.5 text-[13px] font-bold uppercase tracking-[0.06em] transition-colors duration-200 ${
+                  playMode === m ? 'bg-red text-white' : 'text-muted hover:text-ink'
                 }`}
               >
                 {PLAY_MODE_LABEL[m]}
               </button>
             ))}
           </div>
-          <Link href="/play/setup" className="btn btn-secondary">
+          <Link href="/play/setup" className="btn btn-outline">
             Board setup
           </Link>
-          <button type="button" onClick={resetBoard} className="btn btn-secondary">
+          <button type="button" onClick={resetBoard} className="btn btn-outline">
             New board
           </button>
-          <Link href="/" className="btn btn-ghost">
-            Home
-          </Link>
         </div>
       </div>
 
@@ -401,7 +371,6 @@ export function SoloGame() {
         loading={draftLoading}
         player={drawn}
         error={draftError}
-        cooldownRemainingMs={cooldownRemainingMs}
         onSkip={playMode === 'draft' ? skipDraft : undefined}
         skipDisabled={won || draftLoading}
         draftWarning={draftFallbackNote}
@@ -430,7 +399,6 @@ export function SoloGame() {
             title={`Pick a player: ${displayCategory(modalLabel)}`}
             onClose={() => setModalCell(null)}
             onPick={handleFreePick}
-            cooldownMs={DRAFT_COOLDOWN_MS}
           />
         ) : null}
       </AnimatePresence>

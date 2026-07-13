@@ -28,30 +28,27 @@ export function TriviaHUD({
 }: Props) {
   const showTotal = sessionType === 'fixed' || sessionType === 'category'
   const label = showTotal && totalQuestions
-    ? `Q ${currentIndex + 1} / ${totalQuestions}`
+    ? `Question ${currentIndex + 1} of ${totalQuestions}`
     : sessionType === 'survival'
-    ? `Q ${currentIndex + 1} • Survival`
-    : `Q ${currentIndex + 1}`
+    ? `Question ${currentIndex + 1} · Survival`
+    : `Question ${currentIndex + 1}`
 
   return (
-    <div className="w-full flex flex-col gap-2.5 mb-6">
-      <div className="flex items-center justify-between gap-4">
-        {/* Question counter */}
-        <span className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-          {label}
-        </span>
-
-        {/* Score */}
-        <div className="flex items-center gap-3">
-          {streak >= 3 && (
-            <span className="chip text-turf">
-              🔥 ×{streak}
-            </span>
-          )}
-          <span className="font-display text-2xl font-semibold tracking-wide text-chalk tabular-nums">
-            {score.toLocaleString()}
-          </span>
+    <div className="w-full flex flex-col gap-3 mb-6">
+      <div className="flex items-end justify-between gap-4">
+        {/* Question counter + title */}
+        <div>
+          <p className="eyebrow">{label}</p>
+          <h1 className="mt-1 font-display text-[32px] uppercase leading-none text-green md:text-[36px]">
+            Quick fire
+          </h1>
         </div>
+
+        {/* Score / streak */}
+        <p className="shrink-0 text-right font-mono text-sm font-bold text-ink-soft tabular-nums">
+          Score {score.toLocaleString()}
+          {streak >= 2 && <span> · Streak ×{streak}</span>}
+        </p>
       </div>
 
       <TriviaProgressBar

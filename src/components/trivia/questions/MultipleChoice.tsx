@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { MultipleChoiceQuestion } from '@/lib/trivia/types'
+import { Sticker } from '@/components/Sticker'
 
 interface Props {
   question: MultipleChoiceQuestion
@@ -22,63 +23,81 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
 
   function optionClass(option: string) {
     const base =
-      'w-full rounded-xl border px-4 py-3.5 text-left text-sm font-semibold transition-all duration-200'
+      'flex items-center gap-3 rounded-xl px-4 py-4 text-left text-base font-bold transition-all duration-200'
     if (!selected) {
-      return `${base} border-line bg-pitch-light text-chalk hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter cursor-pointer`
+      return `${base} border-2 border-ink bg-panel-white text-ink hover:-translate-y-0.5 cursor-pointer`
     }
     const isCorrect = option === question.correctAnswer
     const wasChosen = option === selected
-    if (isCorrect) return `${base} border-turf bg-turf/15 text-turf shadow-glow-turf`
-    if (wasChosen) return `${base} border-flare bg-flare/10 text-flare`
-    return `${base} border-line bg-pitch-light text-chalk-dim opacity-40`
+    if (isCorrect) return `${base} bg-green text-cream shadow-sticker`
+    if (wasChosen) return `${base} border-2 border-red bg-panel-white text-red`
+    return `${base} border-2 border-[rgba(38,32,25,0.3)] text-muted`
+  }
+
+  function letterClass(option: string) {
+    if (!selected) return 'text-red'
+    const isCorrect = option === question.correctAnswer
+    const wasChosen = option === selected
+    if (isCorrect) return 'text-link'
+    if (wasChosen) return 'text-red'
+    return 'text-muted'
   }
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-2xl mx-auto">
-      {/* Player card */}
+    <div className="flex flex-col gap-6 w-full max-w-[720px] mx-auto">
+      {/* Question */}
       <motion.div
-        className="flex flex-col items-center gap-4"
+        className="flex flex-col items-center gap-5"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
         {question.playerImageUrl && (
-          <div className="w-24 h-24 rounded-xl border border-line bg-pitch-light shadow-soft overflow-hidden">
-            <img
-              src={question.playerImageUrl}
-              alt={question.playerName}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Sticker
+            name={question.playerName}
+            imageUrl={question.playerImageUrl}
+            rotate={-2}
+            width={108}
+            nameSize={11.5}
+          />
         )}
-        <p className="font-display text-3xl md:text-4xl font-semibold text-chalk text-center leading-tight tracking-wide">
-          {question.prompt}
-        </p>
+        <div className="panel w-full p-7">
+          <p className="font-display text-[28px] leading-[1.2] text-ink">
+            {question.prompt}
+          </p>
+        </div>
       </motion.div>
 
       {/* Options */}
-      <div className="flex flex-col gap-3 w-full">
-        {question.options.map((option, i) => (
-          <motion.button
-            key={option}
-            className={optionClass(option)}
-            onClick={() => handlePick(option)}
-            disabled={disabled || !!selected}
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: i * 0.06, duration: 0.25 }}
-          >
-            <span className="mr-3 font-mono text-xs text-chalk-dim">{String.fromCharCode(65 + i)}</span>
-            {option}
-          </motion.button>
-        ))}
+      <div className="grid grid-cols-2 gap-3">
+        {question.options.map((option, i) => {
+          const isCorrect = !!selected && option === question.correctAnswer
+          return (
+            <motion.button
+              key={option}
+              className={optionClass(option)}
+              onClick={() => handlePick(option)}
+              disabled={disabled || !!selected}
+              style={isCorrect ? { transform: 'rotate(-0.8deg)' } : undefined}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: i * 0.06, duration: 0.25 }}
+            >
+              <span className={`font-display text-lg uppercase leading-none ${letterClass(option)}`}>
+                {String.fromCharCode(65 + i)}
+              </span>
+              <span className="flex-1">{option}</span>
+              {isCorrect && <span aria-hidden>✓</span>}
+            </motion.button>
+          )
+        })}
       </div>
 
       {/* Result feedback */}
       <AnimatePresence>
         {selected && lastResult && (
           <motion.p
-            className={`font-display text-lg font-semibold uppercase tracking-wide ${lastResult.correct ? 'text-turf' : 'text-flare'}`}
+            className={`text-center font-display text-lg uppercase leading-none ${lastResult.correct ? 'text-green' : 'text-red'}`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

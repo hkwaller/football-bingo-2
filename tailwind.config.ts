@@ -14,33 +14,62 @@ const config: Config = {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
       },
       colors: {
-        pitch: {
-          dark: '#070d09',
-          DEFAULT: '#0d1510',
-          light: '#141f17',
-          lighter: '#1c2b20',
+        /* ── Sticker Album palette ─────────────────────────────────────── */
+        paper: '#ece0c8',
+        panel: {
+          DEFAULT: '#f7efdd',
+          white: '#ffffff',
         },
-        chalk: {
-          DEFAULT: '#e9f2ec',
-          dim: '#8fa697',
+        ink: {
+          DEFAULT: '#262019',
+          soft: '#4c4638',
         },
-        turf: {
-          DEFAULT: '#3ce97e',
-          deep: '#14b85c',
+        muted: {
+          DEFAULT: '#6b5f4c',
+          foreground: 'var(--muted-foreground)',
         },
-        gold: '#f4c65d',
-        flare: '#ff6b5e',
+        green: {
+          DEFAULT: '#1d3b2a',
+          deep: '#16301f',
+        },
+        red: {
+          DEFAULT: '#d64533',
+          deep: '#b8382a',
+        },
+        cream: {
+          DEFAULT: '#f2e8d5',
+          dim: '#c9b98f',
+        },
+        nation: '#14264f',
+        foil: '#b8862c',
+        gold: '#b8862c',
+        link: {
+          DEFAULT: '#e8c15a',
+          hover: '#f3d78a',
+        },
         line: {
           DEFAULT: 'var(--line)',
           strong: 'var(--line-strong)',
         },
-        fb: {
-          lime: 'var(--fb-accent-lime)',
-          magenta: 'var(--fb-accent-magenta)',
-          cyan: 'var(--fb-accent-cyan)',
-          yellow: 'var(--fb-accent-yellow)',
-          mint: 'var(--fb-accent-mint)',
+
+        /* ── Legacy Floodlit names, remapped ───────────────────────────── */
+        pitch: {
+          dark: 'var(--paper)',
+          DEFAULT: 'var(--panel-white)',
+          light: 'var(--panel)',
+          lighter: '#fbf5e8',
         },
+        chalk: {
+          DEFAULT: 'var(--ink)',
+          dim: 'var(--muted)',
+        },
+        turf: {
+          DEFAULT: 'var(--red)',
+          deep: 'var(--red-deep)',
+        },
+        flare: 'var(--red)',
+
+        /* shadcn plumbing */
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         card: {
@@ -59,10 +88,6 @@ const config: Config = {
           DEFAULT: 'var(--secondary)',
           foreground: 'var(--secondary-foreground)',
         },
-        muted: {
-          DEFAULT: 'var(--muted)',
-          foreground: 'var(--muted-foreground)',
-        },
         accent: {
           DEFAULT: 'var(--accent)',
           foreground: 'var(--accent-foreground)',
@@ -73,16 +98,21 @@ const config: Config = {
         ring: 'var(--ring)',
       },
       boxShadow: {
-        soft: '0 1px 2px rgba(0,0,0,0.35), 0 12px 32px -12px rgba(0,0,0,0.55)',
-        'glow-turf': '0 0 0 1px rgba(60,233,126,0.4), 0 0 28px -6px rgba(60,233,126,0.5)',
-        'glow-gold': '0 0 0 1px rgba(244,198,93,0.45), 0 0 30px -6px rgba(244,198,93,0.55)',
+        soft: '0 10px 24px -18px rgba(0,0,0,0.5)',
+        sticker: '0 6px 14px -6px rgba(0,0,0,0.4)',
+        'sticker-lg': '0 8px 18px -8px rgba(0,0,0,0.45)',
+        panel: '0 10px 24px -18px rgba(0,0,0,0.5)',
+        'foil-ring': 'inset 0 0 0 3px #b8862c',
         // Legacy aliases so unconverted components degrade gracefully
-        'brutal-sm': '0 4px 12px -4px rgba(0,0,0,0.5)',
-        brutal: '0 8px 24px -8px rgba(0,0,0,0.55)',
-        'brutal-lg': '0 16px 40px -12px rgba(0,0,0,0.6)',
-        'brutal-lime': '0 0 24px -6px rgba(60,233,126,0.45)',
-        'brutal-magenta': '0 0 24px -6px rgba(244,198,93,0.45)',
-        'brutal-cyan': '0 0 24px -6px rgba(159,216,255,0.45)',
+        'glow-turf': '0 8px 18px -8px rgba(214,69,51,0.45)',
+        'glow-gold': '0 6px 14px -6px rgba(184,134,44,0.5)',
+        'brutal-sm': '0 4px 10px -4px rgba(0,0,0,0.35)',
+        brutal: '0 6px 14px -6px rgba(0,0,0,0.4)',
+        'brutal-lg': '0 10px 24px -12px rgba(0,0,0,0.5)',
+      },
+      backgroundImage: {
+        foil: 'linear-gradient(130deg,#f6d87c,#e8b93e 45%,#fdf0c0 60%,#d9a730)',
+        'paper-dots': 'radial-gradient(rgba(120,90,40,0.06) 1px, transparent 1px)',
       },
       animation: {
         marquee: 'marquee 25s linear infinite',

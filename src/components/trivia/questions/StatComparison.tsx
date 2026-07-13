@@ -23,73 +23,79 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
 
   function cardClass(playerId: string) {
     const base =
-      'flex-1 flex flex-col items-center gap-4 p-6 rounded-xl border transition-all duration-200 cursor-pointer min-h-[200px] justify-center'
+      'flex-1 flex flex-col items-center gap-4 p-6 rounded-xl transition-all duration-200 cursor-pointer min-h-[220px] justify-center'
     if (!selected) {
-      return `${base} border-line bg-pitch-light text-chalk hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter`
+      return `${base} border-2 border-ink bg-panel-white text-ink hover:-translate-y-0.5`
     }
     const isCorrect = playerId === question.correctPlayerId
     const wasChosen = playerId === selected
-    if (isCorrect) return `${base} border-turf bg-turf/15 text-turf shadow-glow-turf`
-    if (wasChosen) return `${base} border-flare bg-flare/10 text-flare`
-    return `${base} border-line bg-pitch-light text-chalk-dim opacity-40`
+    if (isCorrect) return `${base} bg-green text-cream shadow-sticker`
+    if (wasChosen) return `${base} border-2 border-red bg-panel-white text-red`
+    return `${base} border-2 border-[rgba(38,32,25,0.3)] text-muted`
   }
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-3xl mx-auto">
+    <div className="flex flex-col gap-6 w-full max-w-[720px] mx-auto">
       {/* Prompt */}
-      <motion.p
-        className="font-display text-3xl md:text-4xl font-semibold text-chalk text-center leading-tight tracking-wide"
+      <motion.div
+        className="panel p-7"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        {question.prompt}
-      </motion.p>
+        <p className="font-display text-[28px] leading-[1.2] text-ink">
+          {question.prompt}
+        </p>
+      </motion.div>
 
       {/* Player cards */}
-      <div className="flex gap-6 w-full">
-        {([question.playerA, question.playerB] as const).map((player, i) => (
-          <motion.button
-            key={player.playerId}
-            className={cardClass(player.playerId)}
-            onClick={() => handlePick(player.playerId)}
-            disabled={disabled || !!selected}
-            initial={{ x: i === 0 ? -30 : 30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: i * 0.1, duration: 0.3 }}
-          >
-            <div className="w-20 h-20 rounded-xl border border-line bg-pitch overflow-hidden">
-              <img
-                src={player.imageUrl}
-                alt={player.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <p className="font-display text-xl font-semibold tracking-wide text-center leading-tight">
-              {player.name}
-            </p>
-            {/* Show stat after answer */}
-            {selected && lastResult?.statValues && (
-              <p className="font-mono text-sm font-semibold">
-                {lastResult.statValues[player.playerId] ?? '?'} {STAT_KEY_LABELS[question.statKey]}
+      <div className="relative flex items-center gap-4">
+        {([question.playerA, question.playerB] as const).map((player, i) => {
+          const isCorrect = !!selected && player.playerId === question.correctPlayerId
+          return (
+            <motion.button
+              key={player.playerId}
+              className={cardClass(player.playerId)}
+              onClick={() => handlePick(player.playerId)}
+              disabled={disabled || !!selected}
+              style={isCorrect ? { transform: 'rotate(-0.8deg)' } : undefined}
+              initial={{ x: i === 0 ? -30 : 30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: i * 0.1, duration: 0.3 }}
+            >
+              <div className="w-20 h-20 overflow-hidden rounded-[6px] border-2 border-ink bg-panel-white p-[3px] shadow-sticker">
+                <img
+                  src={player.imageUrl}
+                  alt={player.name}
+                  className="h-full w-full rounded-[3px] object-cover"
+                />
+              </div>
+              <p className="font-display text-xl uppercase leading-none text-center">
+                {player.name}
               </p>
-            )}
-          </motion.button>
-        ))}
-      </div>
+              {/* Show stat after answer */}
+              {selected && lastResult?.statValues && (
+                <p className="font-mono text-sm font-bold">
+                  {lastResult.statValues[player.playerId] ?? '?'} {STAT_KEY_LABELS[question.statKey]}
+                </p>
+              )}
+            </motion.button>
+          )
+        })}
 
-      {/* VS divider */}
-      {!selected && (
-        <div className="absolute pointer-events-none">
-          <span className="font-display text-2xl font-semibold text-chalk-dim/50 tracking-wide">VS</span>
-        </div>
-      )}
+        {/* VS divider */}
+        {!selected && (
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <span className="font-display text-2xl uppercase leading-none text-red">VS</span>
+          </div>
+        )}
+      </div>
 
       {/* Result */}
       <AnimatePresence>
         {selected && lastResult && (
           <motion.p
-            className={`font-display text-lg font-semibold uppercase tracking-wide ${lastResult.correct ? 'text-turf' : 'text-flare'}`}
+            className={`text-center font-display text-lg uppercase leading-none ${lastResult.correct ? 'text-green' : 'text-red'}`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

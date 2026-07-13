@@ -11,8 +11,8 @@ export default function NewTriviaRoomPage() {
     router.replace(`/trivia/room/${id}`)
   }, [router])
   return (
-    <div className="flex min-h-[50vh] items-center justify-center gap-3 text-sm text-chalk-dim">
-      <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-turf shadow-glow-turf" />
+    <div className="flex min-h-[50vh] items-center justify-center gap-3 text-sm font-medium text-muted">
+      <span className="h-2 w-2 animate-pulse-soft rounded-full bg-red" />
       Creating trivia room…
     </div>
   )

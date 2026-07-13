@@ -1,4 +1,5 @@
-import { getCanonicalName, getDisplayName } from '@/data/clubs'
+import { getCanonicalName, getClubLogo, getDisplayName } from '@/data/clubs'
+import { getCountryLogo } from '@/data/countries'
 import { achievements, clubs, nationalities } from '@/data/categories'
 
 const nationalitySet = new Set(nationalities)
@@ -19,6 +20,14 @@ export function canonicalizeCategory(label: string): string {
   const kind = getCategoryKind(label)
   if (kind === 'club') return getCanonicalName(label)
   return label
+}
+
+/** Club crest or national-team logo for a category label, if it has one */
+export function categoryLogo(label: string): string | null {
+  const kind = getCategoryKind(label)
+  if (kind === 'club') return getClubLogo(label)
+  if (kind === 'nationality') return getCountryLogo(label)
+  return null
 }
 
 /** Short display label (e.g. frontend club nicknames) */

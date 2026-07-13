@@ -11,8 +11,9 @@ import {
   freeIndexForConfig,
   generateBoard,
 } from '@/lib/board'
-import { displayCategory, getCategoryKind } from '@/lib/canonical'
+import { categoryLogo, displayCategory, getCategoryKind } from '@/lib/canonical'
 import type { CellPick } from '@/lib/cellPick'
+import { Sticker } from '@/components/Sticker'
 
 type BingoBoardProps = {
   seed: string
@@ -27,15 +28,22 @@ type BingoBoardProps = {
   reduceMotion?: boolean
 }
 
-function categoryBadge(label: string) {
-  const kind = getCategoryKind(label)
-  const base =
-    'inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em]'
-  if (kind === 'nationality')
-    return `${base} bg-[#9fd8ff]/10 text-[#9fd8ff]`
-  if (kind === 'club') return `${base} bg-turf/10 text-turf`
-  return `${base} bg-gold/10 text-gold`
+const KIND_SHORT: Record<string, string> = {
+  nationality: 'Nation',
+  club: 'Club',
+  achievement: 'Honour',
 }
+
+function kindTabClass(kind: string | null) {
+  const base =
+    'inline-flex items-center rounded-[3px] px-2 py-0.5 text-[9.5px] font-extrabold uppercase leading-none tracking-[0.14em]'
+  if (kind === 'nationality') return `${base} bg-nation text-cream`
+  if (kind === 'club') return `${base} bg-green text-cream`
+  return `${base} bg-foil text-white`
+}
+
+/** deterministic tilt, matches the design's ((i*7)%5 - 2) * 0.9 */
+const rotFor = (i: number) => (((i * 7) % 5) - 2) * 0.9
 
 export function BingoBoard({
   seed,
@@ -61,14 +69,14 @@ export function BingoBoard({
 
   return (
     <div
-      className="grid gap-2 rounded-3xl border border-line bg-pitch p-2.5 shadow-soft sm:gap-2.5 sm:p-3"
-      style={{
-        gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))`,
-      }}
+      className="grid gap-2.5 rounded-2xl bg-panel p-4 shadow-[inset_0_0_0_1px_rgba(38,32,25,0.18),inset_0_2px_12px_rgba(120,90,40,0.12)] sm:gap-3.5 sm:p-[22px]"
+      style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}
     >
       {cells.map((cell, index) => {
         const isFree = cell.kind === 'free'
         const label = cell.kind === 'category' ? cell.label : null
+        const kind = label ? getCategoryKind(label) : null
+        const logo = label ? categoryLogo(label) : null
         const pick = solved.get(index)
         const solvedHere = isFree || pick !== undefined
         const isWinLine = winningCells.has(index)
@@ -87,24 +95,21 @@ export function BingoBoard({
             layout
             initial={false}
             animate={{
-              scale:
-                reduceMotion || !(isWinLine && solvedHere) ? 1 : [1, 1.04, 1],
+              scale: reduceMotion || !(isWinLine && solvedHere) ? 1 : [1, 1.05, 1],
             }}
-            transition={{ duration: reduceMotion ? 0 : 0.3 }}
+            transition={{ duration: reduceMotion ? 0 : 0.35 }}
             disabled={isFree || !!pick || (restricted && !allowed)}
             onClick={() => !isFree && !pick && allowed && onCellClick(index)}
-            className={`relative flex min-h-[80px] flex-col items-center justify-center rounded-xl border text-center text-sm transition-all duration-200 sm:min-h-[110px] md:min-h-[130px] ${
-              isFree
-                ? 'cursor-default border-turf/30 bg-turf/10 text-turf'
-                : solvedHere
-                  ? isWinLine
-                    ? 'cursor-not-allowed border-gold/50 bg-gradient-to-b from-gold/25 to-gold/10 shadow-glow-gold'
-                    : 'cursor-not-allowed border-turf/40 bg-gradient-to-b from-turf/20 to-turf/5'
-                  : restricted && !allowed
-                    ? 'cursor-not-allowed border-line bg-pitch opacity-40'
-                    : voteHi
-                      ? 'border-turf bg-turf/10 shadow-glow-turf'
-                      : 'border-line bg-pitch-light hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter'
+            className={`relative flex min-h-[120px] flex-col items-center justify-center rounded-[6px] p-2 text-center transition-all duration-200 sm:min-h-[150px] ${
+              pick
+                ? 'cursor-not-allowed'
+                : isFree
+                  ? 'foil cursor-default shadow-sticker'
+                  : voteHi
+                    ? 'border-2 border-red bg-panel-white ring-2 ring-red/40'
+                    : restricted && !allowed
+                      ? 'cursor-not-allowed border-2 border-dashed border-line bg-white/30 opacity-40'
+                      : 'border-2 border-dashed border-line bg-white/35 hover:-translate-y-0.5 hover:border-line-strong hover:bg-white/60'
             }`}
           >
             <AnimatePresence mode="wait">
@@ -113,52 +118,53 @@ export function BingoBoard({
                   key="free"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center gap-1"
+                  className="flex flex-col items-center"
                 >
-                  <span className="text-xl">⚽</span>
-                  <span className="font-display text-lg font-semibold uppercase tracking-[0.18em]">
+                  <span className="text-3xl leading-none">★</span>
+                  <span className="mt-1.5 font-display text-[15px] uppercase tracking-[0.12em]">
                     Free
                   </span>
                 </motion.span>
               ) : pick ? (
                 <motion.div
                   key="picked"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.85, rotate: rotFor(index) - 4 }}
+                  animate={{ opacity: 1, scale: 1, rotate: rotFor(index) }}
                   exit={{ opacity: 0 }}
-                  className="flex w-full flex-col items-center gap-1.5 px-1"
+                  transition={reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 320, damping: 20 }}
+                  className="w-full"
                 >
-                  {pick.imageUrl ? (
-                    <Image
-                      src={pick.imageUrl}
-                      alt=""
-                      width={44}
-                      height={44}
-                      className={`rounded-full border object-cover ${
-                        isWinLine ? 'border-gold/60' : 'border-turf/50'
-                      }`}
-                      unoptimized
-                    />
-                  ) : null}
-                  <span
-                    className={`line-clamp-2 text-xs font-semibold leading-tight ${
-                      isWinLine ? 'text-gold' : 'text-chalk'
-                    }`}
-                  >
-                    {pick.name}
-                  </span>
+                  <Sticker
+                    name={pick.name}
+                    imageUrl={pick.imageUrl}
+                    nameSize={12}
+                    win={isWinLine}
+                  />
                 </motion.div>
               ) : label ? (
                 <motion.div
                   key="cat"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex flex-col items-center gap-1.5 p-1.5"
+                  className="flex flex-col items-center gap-1"
                 >
-                  <span className={categoryBadge(label)}>
-                    {getCategoryKind(label) ?? 'square'}
-                  </span>
-                  <span className="line-clamp-3 px-1 text-xs font-medium leading-snug text-chalk sm:text-sm">
+                  {logo ? (
+                    <Image
+                      src={logo}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="h-9 w-9 object-contain opacity-90"
+                      unoptimized
+                    />
+                  ) : (
+                    <svg width="40" height="40" viewBox="0 0 44 44" aria-hidden className="opacity-[0.28]">
+                      <circle cx="22" cy="15" r="9" fill="#262019" />
+                      <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#262019" />
+                    </svg>
+                  )}
+                  <span className={kindTabClass(kind)}>{KIND_SHORT[kind ?? ''] ?? 'Square'}</span>
+                  <span className="mt-1 line-clamp-3 px-0.5 text-[12.5px] font-bold uppercase leading-tight tracking-[0.02em] text-ink-soft">
                     {displayCategory(label)}
                   </span>
                 </motion.div>

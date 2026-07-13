@@ -52,37 +52,42 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
     : 0
 
   return (
-    <div className="w-full max-w-2xl mx-auto flex flex-col gap-8 py-8 px-4">
+    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-8 px-6 py-8 md:px-9">
       {/* Header */}
       <motion.div
-        className="text-center flex flex-col items-center gap-4"
+        className="text-center flex flex-col items-center gap-3"
         initial={{ y: 12, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
       >
-        <div className="chip">
-          <span className="h-1.5 w-1.5 rounded-full bg-turf" />
-          Full time
-        </div>
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 18 }}
+          className="foil flex h-[76px] w-[76px] items-center justify-center rounded-full text-4xl shadow-sticker-lg"
+        >
+          ★
+        </motion.div>
+        <p className="eyebrow">Full time</p>
         <div>
-          <h1 className="font-display text-7xl font-bold uppercase leading-none tracking-wide text-turf drop-shadow-[0_0_28px_rgba(60,233,126,0.3)] tabular-nums">
+          <h1 className="font-display text-[64px] uppercase leading-none text-green tabular-nums">
             {scoreState.score.toLocaleString()}
           </h1>
-          <p className="mt-1 text-sm text-chalk-dim">points</p>
+          <p className="mt-1 text-sm font-medium text-muted">points</p>
         </div>
 
-        <div className="card flex w-full max-w-sm items-stretch justify-center divide-x divide-[var(--line)] px-2 py-4">
+        <div className="panel flex w-full max-w-sm items-stretch justify-center divide-x divide-[var(--line)] px-2 py-4">
           <div className="flex-1 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Accuracy</p>
-            <p className="font-display text-2xl font-semibold text-chalk tabular-nums">{accuracy}%</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">Accuracy</p>
+            <p className="font-display text-2xl uppercase leading-none text-ink tabular-nums">{accuracy}%</p>
           </div>
           <div className="flex-1 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Best streak</p>
-            <p className="font-display text-2xl font-semibold text-gold tabular-nums">{scoreState.bestStreak}x</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">Best streak</p>
+            <p className="font-display text-2xl uppercase leading-none text-gold tabular-nums">{scoreState.bestStreak}x</p>
           </div>
           <div className="flex-1 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Answered</p>
-            <p className="font-display text-2xl font-semibold text-chalk tabular-nums">{answers.length}</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">Answered</p>
+            <p className="font-display text-2xl uppercase leading-none text-ink tabular-nums">{answers.length}</p>
           </div>
         </div>
       </motion.div>
@@ -95,31 +100,31 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="font-display text-2xl font-semibold uppercase tracking-wide text-chalk">Leaderboard</h2>
+          <h2 className="font-display text-2xl uppercase leading-none text-green">Leaderboard</h2>
           {leaderboard
             .sort((a, b) => b.score - a.score)
             .map((entry, i) => (
               <div
                 key={entry.displayName}
-                className={`card flex items-center gap-4 rounded-xl px-4 py-3 ${
+                className={`panel flex items-center gap-4 px-4 py-3 ${
                   i === 0
-                    ? 'border-gold/40 shadow-glow-gold'
+                    ? 'border-2 border-foil shadow-sticker'
                     : entry.isMe
-                    ? 'border-turf/40'
+                    ? 'border-2 border-green'
                     : ''
                 }`}
               >
-                <span className={`font-display text-2xl font-semibold w-8 tabular-nums ${i === 0 ? 'text-gold' : 'text-chalk-dim'}`}>
+                <span className={`font-display text-2xl uppercase leading-none w-8 tabular-nums ${i === 0 ? 'text-gold' : 'text-muted'}`}>
                   {i + 1}
                 </span>
-                <span className="flex-1 text-sm font-semibold text-chalk">
+                <span className="flex-1 text-sm font-bold text-ink">
                   {i === 0 && <span aria-hidden className="mr-1.5">🏆</span>}
                   {entry.displayName}{entry.isMe && ' (you)'}
                 </span>
-                <span className="font-mono text-sm text-chalk-dim tabular-nums">
+                <span className="font-mono text-sm font-bold text-muted tabular-nums">
                   {entry.correctCount}/{entry.totalAnswered}
                 </span>
-                <span className={`font-display text-xl font-semibold tabular-nums ${i === 0 ? 'text-gold' : 'text-chalk'}`}>
+                <span className={`font-display text-xl uppercase leading-none tabular-nums ${i === 0 ? 'text-gold' : 'text-ink'}`}>
                   {entry.score.toLocaleString()}
                 </span>
               </div>
@@ -134,27 +139,27 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <h2 className="font-display text-2xl font-semibold uppercase tracking-wide text-chalk">Review</h2>
+        <h2 className="font-display text-2xl uppercase leading-none text-green">Review</h2>
         {questions.map((q, i) => {
           const answer = answers[i]
           if (!answer) return null
           return (
             <div
               key={q.id}
-              className={`card flex flex-col gap-1 rounded-xl border-l-2 px-4 py-3 ${
-                answer.correct ? 'border-l-turf' : 'border-l-flare'
+              className={`panel flex flex-col gap-1 border-l-4 px-4 py-3 ${
+                answer.correct ? 'border-l-green' : 'border-l-red'
               }`}
             >
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
-                Q{i + 1} • {q.type.replace('-', ' ')} • {answer.pointsEarned > 0 ? `+${answer.pointsEarned}` : '0'} pts
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">
+                Q{i + 1} · {q.type.replace('-', ' ')} · {answer.pointsEarned > 0 ? `+${answer.pointsEarned}` : '0'} pts
               </p>
-              <p className="text-sm text-chalk">{getQuestionPrompt(q)}</p>
-              <div className="flex gap-4 mt-1 text-xs">
-                <span className={answer.correct ? 'text-turf' : 'text-flare'}>
+              <p className="text-sm font-medium text-ink">{getQuestionPrompt(q)}</p>
+              <div className="flex gap-4 mt-1 text-xs font-semibold">
+                <span className={answer.correct ? 'text-green' : 'text-red'}>
                   You: {answer.answerValue ? getAnswerDisplay(q, answer.answerValue) : '(no answer)'}
                 </span>
                 {!answer.correct && (
-                  <span className="text-chalk-dim">
+                  <span className="text-muted">
                     Correct: {getCorrectAnswerDisplay(q)}
                   </span>
                 )}
@@ -171,7 +176,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
             Play again
           </button>
         )}
-        <Link href="/trivia/setup" className="btn btn-secondary btn-lg">
+        <Link href="/trivia/setup" className="btn btn-outline btn-lg">
           Change setup
         </Link>
         <Link href="/" className="btn btn-ghost btn-lg">
