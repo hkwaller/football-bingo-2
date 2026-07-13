@@ -96,7 +96,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
   return (
     <div className="flex flex-col items-center gap-6 w-full max-w-2xl mx-auto">
       <motion.p
-        className="font-mono text-chalk/70 text-sm uppercase tracking-widest"
+        className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -109,15 +109,15 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
         {immediateClues.map((clue, i) => (
           <motion.div
             key={clue.kind}
-            className="flex items-center gap-4 border-2 border-white/20 bg-white/5 px-4 py-3"
+            className="flex items-center gap-4 rounded-xl border border-line bg-pitch-light px-4 py-3"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: i * 0.06 }}
           >
-            <span className="font-mono text-xs uppercase tracking-widest text-chalk/40 w-32 shrink-0">
+            <span className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim w-32 shrink-0">
               {clueLabel(clue)}
             </span>
-            <span className="font-mono font-bold text-white">{clueValue(clue)}</span>
+            <span className="font-mono font-semibold text-chalk">{clueValue(clue)}</span>
           </motion.div>
         ))}
 
@@ -126,22 +126,22 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           {stagedClues.slice(0, revealedStagedCount).map((clue, i) => (
             <motion.div
               key={`staged-${i}`}
-              className="flex items-center gap-4 border-2 border-[var(--fb-accent-cyan)]/40 bg-[var(--fb-accent-cyan)]/5 px-4 py-3"
+              className="flex items-center gap-4 rounded-xl border border-turf/30 bg-turf/5 px-4 py-3"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
             >
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--fb-accent-cyan)]/60 w-32 shrink-0">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-turf/70 w-32 shrink-0">
                 {clueLabel(clue)}
               </span>
-              <span className="font-mono font-bold text-white">{clueValue(clue)}</span>
+              <span className="font-mono font-semibold text-chalk">{clueValue(clue)}</span>
             </motion.div>
           ))}
         </AnimatePresence>
 
         {revealedStagedCount < stagedClues.length && !answered && (
-          <p className="font-mono text-xs text-chalk/30 text-center mt-1">
+          <p className="text-xs text-chalk-dim/70 text-center mt-1">
             Next clue in a few seconds…
           </p>
         )}
@@ -153,7 +153,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           {wrongGuesses.map((g) => (
             <span
               key={g}
-              className="font-mono text-xs px-2 py-1 border-2 border-[var(--fb-accent-magenta)] text-[var(--fb-accent-magenta)] line-through"
+              className="rounded-full border border-flare/40 bg-flare/10 px-2.5 py-1 text-xs text-flare line-through"
             >
               {g}
             </span>
@@ -170,11 +170,11 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
             value={query}
             onChange={(e) => { setQuery(e.target.value); search(e.target.value) }}
             placeholder="Type a player name…"
-            className="w-full bg-black border-4 border-white text-white font-mono px-4 py-3 text-base focus:outline-none focus:border-[var(--fb-accent-cyan)] placeholder:text-chalk/30"
+            className="input w-full"
             autoComplete="off"
           />
           {searching && (
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-xs text-chalk/40">
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-chalk-dim">
               …
             </span>
           )}
@@ -183,7 +183,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           <AnimatePresence>
             {results.length > 0 && (
               <motion.ul
-                className="absolute top-full left-0 right-0 z-50 border-4 border-t-0 border-white bg-black"
+                className="absolute top-full left-0 right-0 z-50 mt-2 overflow-hidden rounded-xl border border-line bg-pitch-light shadow-soft"
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -192,14 +192,14 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
                   <li key={player.playerId}>
                     <button
                       type="button"
-                      className="w-full flex items-center gap-3 px-4 py-3 font-mono text-sm text-white hover:bg-white hover:text-black transition-colors text-left"
+                      className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-chalk hover:bg-pitch-lighter transition-colors text-left"
                       onClick={() => handleSelect(player)}
                     >
                       {player.imageUrl && (
                         <img
                           src={player.imageUrl}
                           alt={player.name}
-                          className="w-8 h-8 object-cover border-2 border-white/40 rounded-sm"
+                          className="w-8 h-8 object-cover rounded-lg border border-line"
                         />
                       )}
                       {player.name}
@@ -216,7 +216,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
       <AnimatePresence>
         {answered && lastResult && (
           <motion.p
-            className={`font-mono font-bold uppercase tracking-widest text-lg ${lastResult.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}`}
+            className={`font-display text-lg font-semibold uppercase tracking-wide ${lastResult.correct ? 'text-turf' : 'text-flare'}`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

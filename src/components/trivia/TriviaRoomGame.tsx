@@ -15,6 +15,7 @@ import {
   parseQuestionsJson,
   parseConfigJson,
 } from '@/lib/trivia/liveblocksTrivia'
+import { randomUUID } from '@/lib/randomUUID'
 import { loadTriviaConfig } from '@/lib/trivia/triviaStorage'
 import { generateQuestions } from '@/lib/trivia/questionGenerators'
 import { computePoints } from '@/lib/trivia/sessionEngine'
@@ -94,7 +95,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   const startGame = useTriviaM(({ storage }) => {
     const savedConfig = loadTriviaConfig()
-    const newSessionId = crypto.randomUUID()
+    const newSessionId = randomUUID()
     const count =
       savedConfig.sessionType === 'fixed' || savedConfig.sessionType === 'category'
         ? savedConfig.questionCount
@@ -298,7 +299,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   if (roomError) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center px-4">
-        <div className="border-4 border-[var(--fb-accent-magenta)] p-6 text-[var(--fb-accent-magenta)] font-mono text-sm max-w-lg">
+        <div className="card max-w-lg border-flare/40 p-6 text-sm text-flare">
           {roomError}
         </div>
       </div>
@@ -307,7 +308,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   if (status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-chalk/50 font-mono">
+      <div className="flex min-h-[50vh] items-center justify-center text-sm text-chalk-dim animate-pulse-soft">
         Connecting…
       </div>
     )
@@ -364,7 +365,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   if (!currentQuestion) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-chalk/50 font-mono">
+      <div className="flex min-h-[50vh] items-center justify-center text-sm text-chalk-dim animate-pulse-soft">
         Loading question…
       </div>
     )
@@ -396,7 +397,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       />
 
       <div className="flex justify-end mb-2">
-        <span className="font-mono text-xs text-chalk/40">
+        <span className="font-mono text-xs text-chalk-dim tabular-nums">
           {answeredCount}/{allPlayerPresences.length} answered
         </span>
       </div>
@@ -427,7 +428,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
       {raceLocked && (
         <motion.p
-          className="text-center font-mono text-sm text-chalk/50 mt-4"
+          className="mt-4 text-center text-sm text-chalk-dim"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

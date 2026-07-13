@@ -27,7 +27,7 @@ const itemVariants = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <motion.div variants={itemVariants} className="flex flex-col gap-3">
-      <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-chalk/50">{title}</h3>
+      <h3 className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">{title}</h3>
       {children}
     </motion.div>
   )
@@ -48,15 +48,15 @@ function OptionButton({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full border-4 px-4 py-3 text-left transition-all duration-100 ${
+      className={`w-full rounded-xl border px-4 py-3 text-left transition-all duration-200 ${
         active
-          ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)]/10 text-white shadow-brutal-lime'
-          : 'border-white/20 text-chalk/70 hover:border-white/50 hover:text-white'
+          ? 'border-[var(--turf)] bg-turf/10 text-chalk shadow-glow-turf'
+          : 'border-line bg-pitch-light text-chalk-dim hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter hover:text-chalk'
       }`}
     >
-      <p className="font-mono font-bold uppercase tracking-wide text-sm">{children}</p>
+      <p className="text-sm font-semibold">{children}</p>
       {description && (
-        <p className="font-mono text-xs text-chalk/50 mt-0.5">{description}</p>
+        <p className="mt-0.5 text-xs text-chalk-dim">{description}</p>
       )}
     </button>
   )
@@ -78,10 +78,10 @@ function NumberSelect({
           key={opt}
           type="button"
           onClick={() => onChange(opt)}
-          className={`flex-1 border-4 py-3 font-display text-2xl tracking-wide transition-all duration-100 ${
+          className={`flex-1 rounded-xl border py-3 font-display text-2xl font-semibold tracking-wide transition-all duration-200 ${
             value === opt
-              ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)]/10 text-[var(--fb-accent-lime)] shadow-brutal-lime'
-              : 'border-white/20 text-chalk/50 hover:border-white/50 hover:text-white'
+              ? 'border-[var(--turf)] bg-turf/10 text-turf shadow-glow-turf'
+              : 'border-line bg-pitch-light text-chalk-dim hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter hover:text-chalk'
           }`}
         >
           {opt}
@@ -161,13 +161,12 @@ export function TriviaSetup() {
       >
         {/* Title */}
         <motion.div variants={itemVariants}>
-          <div className="inline-block border-4 border-white bg-black px-6 py-2 shadow-brutal-lime -rotate-1 mb-4">
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-[var(--fb-accent-lime)]">
-              Trivia{modeLabel ? ` — ${modeLabel}` : ''}
-            </p>
+          <div className="chip mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-turf" />
+            Trivia{modeLabel ? ` — ${modeLabel}` : ''}
           </div>
-          <h1 className="font-display text-5xl md:text-6xl text-white tracking-wider" style={{ textShadow: '4px 4px 0 var(--fb-accent-magenta)' }}>
-            SETUP
+          <h1 className="font-display text-5xl font-bold uppercase tracking-wide text-chalk md:text-6xl">
+            Setup
           </h1>
         </motion.div>
 
@@ -261,12 +260,12 @@ export function TriviaSetup() {
         )}
 
         {/* CTAs */}
-        <motion.div variants={itemVariants} className="flex gap-4 flex-wrap pt-2">
+        <motion.div variants={itemVariants} className="flex gap-3 flex-wrap pt-2">
           {/* Show solo CTA unless explicitly in multiplayer mode */}
           {!isMultiplayer && (
             <button
               onClick={launchSolo}
-              className="fb-brutal-btn flex-1 px-6 py-4 text-xl min-w-[160px]"
+              className="btn btn-primary btn-lg min-w-[160px] flex-1"
             >
               Play solo
             </button>
@@ -275,7 +274,7 @@ export function TriviaSetup() {
           {!isSolo && (
             <button
               onClick={launchMultiplayer}
-              className="fb-brutal-btn flex-1 px-6 py-4 text-xl min-w-[160px] bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
+              className={`btn btn-lg min-w-[160px] flex-1 ${isMultiplayer ? 'btn-primary' : 'btn-secondary'}`}
             >
               {isMultiplayer ? 'Create room' : 'Multiplayer'}
             </button>

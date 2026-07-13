@@ -23,22 +23,22 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
 
   function cardClass(playerId: string) {
     const base =
-      'flex-1 flex flex-col items-center gap-4 p-6 border-4 border-white shadow-brutal transition-all duration-150 cursor-pointer min-h-[200px] justify-center'
+      'flex-1 flex flex-col items-center gap-4 p-6 rounded-xl border transition-all duration-200 cursor-pointer min-h-[200px] justify-center'
     if (!selected) {
-      return `${base} bg-black text-white hover:scale-[1.03] hover:bg-white hover:text-black`
+      return `${base} border-line bg-pitch-light text-chalk hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter`
     }
     const isCorrect = playerId === question.correctPlayerId
     const wasChosen = playerId === selected
-    if (isCorrect) return `${base} bg-[var(--fb-accent-lime)] text-black border-[var(--fb-accent-lime)]`
-    if (wasChosen) return `${base} bg-[var(--fb-accent-magenta)] text-black border-[var(--fb-accent-magenta)] opacity-80`
-    return `${base} bg-black text-white opacity-30`
+    if (isCorrect) return `${base} border-turf bg-turf/15 text-turf shadow-glow-turf`
+    if (wasChosen) return `${base} border-flare bg-flare/10 text-flare`
+    return `${base} border-line bg-pitch-light text-chalk-dim opacity-40`
   }
 
   return (
     <div className="flex flex-col items-center gap-8 w-full max-w-3xl mx-auto">
       {/* Prompt */}
       <motion.p
-        className="font-display text-3xl md:text-4xl text-white text-center leading-tight tracking-wide"
+        className="font-display text-3xl md:text-4xl font-semibold text-chalk text-center leading-tight tracking-wide"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
@@ -58,19 +58,19 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.1, duration: 0.3 }}
           >
-            <div className="w-20 h-20 border-4 border-current shadow-brutal overflow-hidden rounded-sm">
+            <div className="w-20 h-20 rounded-xl border border-line bg-pitch overflow-hidden">
               <img
                 src={player.imageUrl}
                 alt={player.name}
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="font-display text-xl tracking-wide text-center leading-tight">
+            <p className="font-display text-xl font-semibold tracking-wide text-center leading-tight">
               {player.name}
             </p>
             {/* Show stat after answer */}
             {selected && lastResult?.statValues && (
-              <p className="font-mono text-sm font-bold">
+              <p className="font-mono text-sm font-semibold">
                 {lastResult.statValues[player.playerId] ?? '?'} {STAT_KEY_LABELS[question.statKey]}
               </p>
             )}
@@ -81,7 +81,7 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
       {/* VS divider */}
       {!selected && (
         <div className="absolute pointer-events-none">
-          <span className="font-display text-2xl text-chalk/30 tracking-widest">VS</span>
+          <span className="font-display text-2xl font-semibold text-chalk-dim/50 tracking-wide">VS</span>
         </div>
       )}
 
@@ -89,7 +89,7 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
       <AnimatePresence>
         {selected && lastResult && (
           <motion.p
-            className={`font-mono font-bold uppercase tracking-widest text-lg ${lastResult.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}`}
+            className={`font-display text-lg font-semibold uppercase tracking-wide ${lastResult.correct ? 'text-turf' : 'text-flare'}`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

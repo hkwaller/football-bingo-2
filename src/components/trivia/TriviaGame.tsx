@@ -10,6 +10,7 @@ import {
   saveTriviaSession,
   clearTriviaSession,
 } from '@/lib/trivia/triviaStorage'
+import { randomUUID } from '@/lib/randomUUID'
 import type { TriviaQuestion, TriviaSessionState } from '@/lib/trivia/types'
 import { TriviaHUD } from './TriviaHUD'
 import { TriviaQuestion as TriviaQuestionComp } from './TriviaQuestion'
@@ -21,7 +22,7 @@ const ADVANCE_DELAY_MS = 1800  // time to show result before advancing
 
 function buildInitialSession(): TriviaSessionState {
   const config = loadTriviaConfig()
-  const sessionId = crypto.randomUUID()
+  const sessionId = randomUUID()
   const count =
     config.sessionType === 'fixed' || config.sessionType === 'category'
       ? config.questionCount
@@ -172,7 +173,7 @@ export function TriviaGame() {
 
   if (!session) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-chalk/50 font-mono">
+      <div className="flex min-h-[50vh] items-center justify-center text-sm text-chalk-dim animate-pulse-soft">
         Loading…
       </div>
     )

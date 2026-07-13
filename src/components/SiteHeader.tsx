@@ -7,41 +7,41 @@ const clerkOn = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
 export function SiteHeader() {
   return (
-    <header className="border-b-4 border-white bg-black">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4">
+    <header className="sticky top-0 z-40 border-b border-line bg-pitch-dark/80 backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3.5">
         <Link
           href="/"
-          className="font-display text-3xl font-black tracking-widest text-[#e2ff00] transition hover:text-[#ff00cc] md:text-4xl shadow-none"
+          className="font-display flex items-center gap-2 text-2xl font-bold uppercase tracking-wide text-chalk transition-colors hover:text-turf"
         >
-          FOOTBALL BINGO
+          Football Bingo
+          <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-turf" />
         </Link>
-        <nav className="flex items-center gap-5 font-mono text-sm font-bold uppercase text-chalk">
-          <Link href="/play/setup" className="hover:text-[var(--fb-accent-cyan)] hover:underline decoration-2 underline-offset-4">
+        <nav className="flex items-center gap-1 text-sm font-medium">
+          <Link href="/play/setup" className="rounded-full px-3.5 py-1.5 text-chalk-dim transition-colors hover:bg-pitch-light hover:text-chalk">
             Bingo
           </Link>
-          <Link href="/room/new" className="hover:text-[var(--fb-accent-cyan)] hover:underline decoration-2 underline-offset-4">
+          <Link href="/room/new" className="rounded-full px-3.5 py-1.5 text-chalk-dim transition-colors hover:bg-pitch-light hover:text-chalk">
             Multiplayer
           </Link>
-          <Link href="/trivia/setup" className="hover:text-[var(--fb-accent-yellow)] hover:underline decoration-2 underline-offset-4">
+          <Link href="/trivia/setup" className="rounded-full px-3.5 py-1.5 text-chalk-dim transition-colors hover:bg-pitch-light hover:text-chalk">
             Trivia
           </Link>
           {clerkOn ? (
             <>
               <SignedOut>
                 <SignInButton mode="modal">
-                  <button
-                    type="button"
-                    className="border-2 border-white bg-[var(--fb-accent-magenta)] px-4 py-2 font-bold text-black shadow-brutal-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all uppercase"
-                  >
+                  <button type="button" className="btn btn-primary btn-sm ml-2">
                     Sign in
                   </button>
                 </SignInButton>
               </SignedOut>
               <SignedIn>
-                <Link href="/account" className="hover:text-[var(--fb-accent-cyan)] hover:underline decoration-2 underline-offset-4">
+                <Link href="/account" className="rounded-full px-3.5 py-1.5 text-chalk-dim transition-colors hover:bg-pitch-light hover:text-chalk">
                   Account
                 </Link>
-                <UserButton afterSignOutUrl="/" />
+                <span className="ml-2">
+                  <UserButton afterSignOutUrl="/" />
+                </span>
               </SignedIn>
             </>
           ) : null}

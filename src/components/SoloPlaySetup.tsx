@@ -12,6 +12,7 @@ import {
   isBoardConfigViable,
 } from '@/lib/boardConfig'
 import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
+import { randomUUID } from '@/lib/randomUUID'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
 import type { PlayMode } from '@/lib/playMode'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -74,7 +75,7 @@ export function SoloPlaySetup() {
     const playMode: PlayMode = prev?.playMode === 'free' ? 'free' : 'draft'
 
     saveSolo({
-      seed: crypto.randomUUID(),
+      seed: randomUUID(),
       solved: {},
       playMode,
       round: 0,
@@ -102,12 +103,12 @@ export function SoloPlaySetup() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <motion.div
-          className="flex items-center gap-3 font-mono text-sm text-chalk/40"
+          className="flex items-center gap-3 text-sm text-chalk-dim"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <span className="inline-block size-2 rounded-full bg-[var(--fb-accent-lime)] animate-pulse" />
-          LOADING CONFIG…
+          <span className="inline-block size-2 rounded-full bg-turf animate-pulse" />
+          Loading config…
         </motion.div>
       </div>
     )
@@ -123,23 +124,19 @@ export function SoloPlaySetup() {
         transition={{ duration: 0.4 }}
       >
         <div>
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--fb-accent-lime)]/30 bg-[var(--fb-accent-lime)]/10 px-3 py-1">
-            <span className="size-1.5 rounded-full bg-[var(--fb-accent-lime)] animate-pulse" />
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--fb-accent-lime)]">
-              New game
-            </span>
+          <div className="chip mb-3 text-turf">
+            <span className="size-1.5 rounded-full bg-turf animate-pulse" />
+            New game
           </div>
-          <h1 className="font-display text-5xl font-bold tracking-tight text-chalk md:text-6xl">
+          <h1 className="font-display text-5xl font-bold uppercase tracking-tight text-chalk md:text-6xl">
             Solo Setup
           </h1>
-          <p className="mt-2 max-w-xl font-mono text-sm text-chalk/50">
-            Configure your board. Every &ldquo;Save &amp; play&rdquo; starts a fresh game with a new seed.
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-chalk-dim">
+            Configure your board. Every &ldquo;Save &amp; play&rdquo; starts a fresh game with a new
+            seed.
           </p>
         </div>
-        <Link
-          href="/play"
-          className="mt-1 rounded-xl border border-white/20 px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-chalk/60 transition-colors hover:border-white/40 hover:text-chalk/90"
-        >
+        <Link href="/play" className="btn btn-secondary mt-1">
           ← Back to game
         </Link>
       </motion.div>
@@ -152,11 +149,8 @@ export function SoloPlaySetup() {
         animate="show"
       >
         {/* Grid size */}
-        <motion.div
-          variants={itemVariants}
-          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-        >
-          <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
+        <motion.div variants={itemVariants} className="card p-6">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
             Grid size
           </p>
           <div className="flex flex-wrap gap-3">
@@ -167,12 +161,12 @@ export function SoloPlaySetup() {
                   key={n}
                   type="button"
                   onClick={() => setBoardConfig((c) => ({ ...c, size: n }))}
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
-                  className={`relative flex flex-col items-center gap-3 rounded-xl border-2 px-6 py-4 font-mono text-sm font-bold transition-all ${
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`relative flex flex-col items-center gap-3 rounded-xl border px-6 py-4 font-display text-lg font-semibold transition-all duration-200 ${
                     active
-                      ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)]/10 text-[var(--fb-accent-lime)] shadow-[0_0_16px_rgba(226,255,0,0.15)]'
-                      : 'border-white/15 bg-black/20 text-chalk/60 hover:border-white/30 hover:text-chalk'
+                      ? 'border-transparent bg-turf/10 text-turf'
+                      : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
                   }`}
                 >
                   <GridDots size={n} />
@@ -182,7 +176,7 @@ export function SoloPlaySetup() {
                   {active && (
                     <motion.span
                       layoutId="grid-active-ring"
-                      className="absolute inset-0 rounded-xl border-2 border-[var(--fb-accent-lime)]"
+                      className="absolute inset-0 rounded-xl border border-turf/70 shadow-glow-turf"
                       transition={{
                         type: 'spring',
                         stiffness: 400,
@@ -197,23 +191,16 @@ export function SoloPlaySetup() {
         </motion.div>
 
         {/* Categories */}
-        <motion.div
-          variants={itemVariants}
-          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-        >
+        <motion.div variants={itemVariants} className="card p-6">
           <div className="mb-4 flex items-center justify-between">
-            <p className="font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
               Categories
             </p>
             <motion.span
               key={poolCount}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className={`rounded-full px-3 py-0.5 font-mono text-xs font-bold ${
-                configOk
-                  ? 'bg-[var(--fb-accent-lime)]/15 text-[var(--fb-accent-lime)]'
-                  : 'bg-red-500/15 text-red-400'
-              }`}
+              className={`chip font-mono ${configOk ? 'text-turf' : 'text-flare'}`}
             >
               {poolCount} clues / need {needCount}
             </motion.span>
@@ -233,18 +220,20 @@ export function SoloPlaySetup() {
                   key={k}
                   type="button"
                   onClick={() => toggleKind(k)}
-                  className={`w-full flex items-center justify-between rounded-xl border-2 px-4 py-3 transition-all duration-150 text-left ${
+                  className={`w-full flex items-center justify-between rounded-xl border px-4 py-3 transition-all duration-200 text-left ${
                     active
-                      ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)] text-black'
-                      : 'border-white/15 bg-white/5 text-chalk/40 hover:border-white/30 hover:text-chalk/60'
+                      ? 'border-turf/60 bg-turf/10 text-chalk'
+                      : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-base">{icon}</span>
-                    <span className="font-mono text-sm font-bold">{label}</span>
+                    <span className="text-sm font-semibold">{label}</span>
                   </div>
-                  <span className="font-mono text-xs font-bold tracking-widest">
-                    {active ? 'ON' : 'OFF'}
+                  <span
+                    className={`text-xs font-semibold ${active ? 'text-turf' : 'text-chalk-dim'}`}
+                  >
+                    {active ? 'On' : 'Off'}
                   </span>
                 </button>
               )
@@ -257,21 +246,18 @@ export function SoloPlaySetup() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-3 font-mono text-xs text-red-400"
+                className="mt-3 text-xs text-flare"
               >
-                ⚠ Turn on more categories — need at least {needCount} clues for a {boardConfig.size}
-                ×{boardConfig.size} grid.
+                Turn on more categories — need at least {needCount} clues for a {boardConfig.size}×
+                {boardConfig.size} grid.
               </motion.p>
             )}
           </AnimatePresence>
         </motion.div>
 
         {/* Draft draws */}
-        <motion.div
-          variants={itemVariants}
-          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-        >
-          <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
+        <motion.div variants={itemVariants} className="card p-6">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
             Draft draws
           </p>
           <RadioGroup
@@ -284,20 +270,20 @@ export function SoloPlaySetup() {
               return (
                 <label
                   key={p}
-                  className={`flex cursor-pointer items-start gap-4 rounded-xl border-2 p-4 transition-all ${
+                  className={`flex cursor-pointer items-start gap-4 rounded-xl border p-4 transition-all duration-200 ${
                     active
-                      ? 'border-[var(--fb-accent-magenta)] bg-[var(--fb-accent-magenta)]/8'
-                      : 'border-white/10 bg-black/20 hover:border-white/25'
+                      ? 'border-turf/60 bg-turf/5'
+                      : 'border-line bg-pitch hover:border-line-strong'
                   }`}
                 >
                   <RadioGroupItem value={p} className="mt-0.5 shrink-0" />
                   <div>
-                    <p
-                      className={`font-mono text-sm font-bold ${active ? 'text-[var(--fb-accent-magenta)]' : 'text-chalk'}`}
-                    >
+                    <p className={`text-sm font-semibold ${active ? 'text-turf' : 'text-chalk'}`}>
                       {DRAFT_POLICY_LABEL[p]}
                     </p>
-                    <p className="mt-1 font-mono text-xs text-chalk/50">{DRAFT_POLICY_HELP[p]}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-chalk-dim">
+                      {DRAFT_POLICY_HELP[p]}
+                    </p>
                   </div>
                 </label>
               )
@@ -306,33 +292,32 @@ export function SoloPlaySetup() {
         </motion.div>
 
         {/* Options row */}
-        <motion.div
-          variants={itemVariants}
-          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-        >
-          <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-chalk/40">
+        <motion.div variants={itemVariants} className="card p-6">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
             Display options
           </p>
           <button
             type="button"
             onClick={() => setLineHighlight((v) => !v)}
-            className={`w-full flex items-center justify-between rounded-xl border-2 px-4 py-3 transition-all duration-150 text-left ${
+            className={`w-full flex items-center justify-between gap-4 rounded-xl border px-4 py-3 transition-all duration-200 text-left ${
               lineHighlight
-                ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)] text-black'
-                : 'border-white/15 bg-white/5 text-chalk/40 hover:border-white/30 hover:text-chalk/60'
+                ? 'border-turf/60 bg-turf/10 text-chalk'
+                : 'border-line bg-pitch text-chalk-dim hover:border-line-strong hover:text-chalk'
             }`}
           >
             <div className="flex items-center gap-3">
               <span className="text-base">✨</span>
               <div>
-                <p className="font-mono text-sm font-bold">Highlight winning lines</p>
-                <p className={`font-mono text-xs ${lineHighlight ? 'text-black/60' : 'text-chalk/40'}`}>
+                <p className="text-sm font-semibold">Highlight winning lines</p>
+                <p className="text-xs leading-relaxed text-chalk-dim">
                   Glow effect when you complete a row, column, or diagonal
                 </p>
               </div>
             </div>
-            <span className="font-mono text-xs font-bold tracking-widest shrink-0">
-              {lineHighlight ? 'ON' : 'OFF'}
+            <span
+              className={`shrink-0 text-xs font-semibold ${lineHighlight ? 'text-turf' : 'text-chalk-dim'}`}
+            >
+              {lineHighlight ? 'On' : 'Off'}
             </span>
           </button>
         </motion.div>
@@ -343,16 +328,12 @@ export function SoloPlaySetup() {
             type="button"
             disabled={!configOk || launching}
             onClick={persistAndPlay}
-            whileHover={configOk ? { scale: 1.02 } : {}}
-            whileTap={configOk ? { scale: 0.97 } : {}}
-            className="fb-brutal-btn min-w-[180px] px-7 py-4 text-base disabled:opacity-40 disabled:cursor-not-allowed"
+            whileTap={configOk ? { scale: 0.98 } : {}}
+            className="btn btn-primary btn-lg min-w-[180px]"
           >
             {launching ? 'Launching…' : 'Save & play'}
           </motion.button>
-          <Link
-            href="/"
-            className="inline-flex items-center rounded-xl border border-white/20 px-6 py-4 font-mono text-sm font-bold uppercase tracking-widest text-chalk/60 transition-colors hover:border-white/40 hover:text-chalk"
-          >
+          <Link href="/" className="btn btn-secondary btn-lg">
             Home
           </Link>
         </motion.div>

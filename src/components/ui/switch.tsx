@@ -20,14 +20,14 @@ function Switch({
         "after:absolute after:-inset-x-3 after:-inset-y-2",
         // size
         "data-[size=default]:h-6 data-[size=default]:w-10 data-[size=sm]:h-5 data-[size=sm]:w-8",
-        // unchecked track: subtle white/10, brightens on hover
-        "data-unchecked:bg-white/10 data-unchecked:hover:bg-white/20 data-unchecked:active:bg-white/25",
-        // checked track: lime accent
-        "data-checked:bg-[var(--fb-accent-lime)] data-checked:hover:brightness-110 data-checked:active:brightness-95",
+        // unchecked track: recessed surface, brightens on hover
+        "data-[unchecked]:bg-pitch-lighter data-[unchecked]:hover:bg-line-strong data-[unchecked]:active:bg-line-strong",
+        // checked track: turf accent
+        "data-[checked]:bg-turf data-[checked]:shadow-glow-turf data-[checked]:hover:brightness-105 data-[checked]:active:brightness-95",
         // focus ring
-        "focus-visible:ring-2 focus-visible:ring-[var(--fb-accent-lime)]/60 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent",
+        "focus-visible:ring-2 focus-visible:ring-turf/60 focus-visible:ring-offset-2 focus-visible:ring-offset-pitch-dark",
         // disabled
-        "data-disabled:cursor-not-allowed data-disabled:opacity-40",
+        "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40",
         className
       )}
       {...props}
@@ -39,11 +39,11 @@ function Switch({
           // size
           "group-data-[size=default]/switch:size-[18px] group-data-[size=sm]/switch:size-3.5",
           // unchecked position + colour
-          "group-data-[size=default]/switch:data-unchecked:translate-x-0 group-data-[size=sm]/switch:data-unchecked:translate-x-0",
-          "data-unchecked:bg-white/50 group-data-[size=default]/switch:data-unchecked:hover:bg-white/70",
+          "data-[unchecked]:translate-x-0",
+          "data-[unchecked]:bg-chalk-dim data-[unchecked]:hover:bg-chalk",
           // checked position + colour
-          "group-data-[size=default]/switch:data-checked:translate-x-[calc(100%-2px)] group-data-[size=sm]/switch:data-checked:translate-x-[calc(100%-2px)]",
-          "data-checked:bg-black/80",
+          "data-[checked]:translate-x-[calc(100%-2px)]",
+          "data-[checked]:bg-[#06120b]",
           // subtle scale on press
           "group-active/switch:scale-90",
         )}

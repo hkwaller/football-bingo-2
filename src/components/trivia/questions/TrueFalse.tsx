@@ -22,17 +22,15 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
 
   function btnClass(value: string) {
     const base =
-      'relative flex-1 min-h-[120px] border-4 border-white text-3xl font-display tracking-widest uppercase transition-all duration-150 flex items-center justify-center shadow-brutal'
+      'relative flex-1 min-h-[120px] rounded-xl border font-display text-3xl font-semibold uppercase tracking-wide transition-all duration-200 flex items-center justify-center'
     if (!selected) {
-      return `${base} hover:scale-[1.03] cursor-pointer ${
-        value === 'true' ? 'bg-[var(--fb-accent-lime)] text-black' : 'bg-[var(--fb-accent-magenta)] text-black'
-      }`
+      return `${base} border-line bg-pitch-light text-chalk hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter cursor-pointer`
     }
     const isCorrect = value === String(question.correct)
     const wasChosen = value === selected
-    if (isCorrect) return `${base} bg-[var(--fb-accent-lime)] text-black ring-4 ring-white`
-    if (wasChosen && !isCorrect) return `${base} bg-[var(--fb-accent-magenta)] text-black opacity-70`
-    return `${base} opacity-30 ${value === 'true' ? 'bg-[var(--fb-accent-lime)] text-black' : 'bg-[var(--fb-accent-magenta)] text-black'}`
+    if (isCorrect) return `${base} border-turf bg-turf/15 text-turf shadow-glow-turf`
+    if (wasChosen && !isCorrect) return `${base} border-flare bg-flare/10 text-flare`
+    return `${base} border-line bg-pitch-light text-chalk-dim opacity-40`
   }
 
   return (
@@ -45,7 +43,7 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
         transition={{ duration: 0.3 }}
       >
         {question.playerImageUrl && (
-          <div className="w-24 h-24 border-4 border-white shadow-brutal overflow-hidden rounded-sm">
+          <div className="w-24 h-24 rounded-xl border border-line bg-pitch-light shadow-soft overflow-hidden">
             <img
               src={question.playerImageUrl}
               alt={question.playerName}
@@ -53,8 +51,8 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
             />
           </div>
         )}
-        <p className="font-mono text-chalk/70 text-sm uppercase tracking-widest">True or False?</p>
-        <p className="font-display text-3xl md:text-4xl text-white text-center leading-tight tracking-wide">
+        <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">True or False?</p>
+        <p className="font-display text-3xl md:text-4xl font-semibold text-chalk text-center leading-tight tracking-wide">
           {question.statement}
         </p>
       </motion.div>
@@ -78,11 +76,11 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
           >
-            <p className={`font-mono font-bold uppercase tracking-widest text-lg ${lastResult.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}`}>
+            <p className={`font-display text-lg font-semibold uppercase tracking-wide ${lastResult.correct ? 'text-turf' : 'text-flare'}`}>
               {lastResult.correct ? 'Correct!' : `Wrong — it's ${lastResult.correctAnswer === 'true' ? 'TRUE' : 'FALSE'}`}
             </p>
             {question.detail && (
-              <p className="font-mono text-xs text-chalk/50 tracking-wide">{question.detail}</p>
+              <p className="text-xs text-chalk-dim">{question.detail}</p>
             )}
           </motion.div>
         )}

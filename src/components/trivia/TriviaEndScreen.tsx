@@ -55,32 +55,34 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
     <div className="w-full max-w-2xl mx-auto flex flex-col gap-8 py-8 px-4">
       {/* Header */}
       <motion.div
-        className="text-center flex flex-col gap-4"
-        initial={{ y: -20, opacity: 0 }}
+        className="text-center flex flex-col items-center gap-4"
+        initial={{ y: 12, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
       >
-        <div className="inline-block border-4 border-white bg-black px-6 py-2 shadow-brutal-lime -rotate-1 mx-auto">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-[var(--fb-accent-lime)]">
-            Game over
-          </p>
+        <div className="chip">
+          <span className="h-1.5 w-1.5 rounded-full bg-turf" />
+          Full time
         </div>
-        <h1 className="font-display text-6xl text-white tracking-wider" style={{ textShadow: '4px 4px 0px var(--fb-accent-magenta)' }}>
-          {scoreState.score.toLocaleString()}
-        </h1>
-        <p className="font-mono text-chalk/60 text-sm">points</p>
+        <div>
+          <h1 className="font-display text-7xl font-bold uppercase leading-none tracking-wide text-turf drop-shadow-[0_0_28px_rgba(60,233,126,0.3)] tabular-nums">
+            {scoreState.score.toLocaleString()}
+          </h1>
+          <p className="mt-1 text-sm text-chalk-dim">points</p>
+        </div>
 
-        <div className="flex justify-center gap-8 font-mono text-sm">
-          <div className="text-center">
-            <p className="text-chalk/40 uppercase tracking-widest text-xs">Accuracy</p>
-            <p className="text-white font-bold text-lg">{accuracy}%</p>
+        <div className="card flex w-full max-w-sm items-stretch justify-center divide-x divide-[var(--line)] px-2 py-4">
+          <div className="flex-1 text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Accuracy</p>
+            <p className="font-display text-2xl font-semibold text-chalk tabular-nums">{accuracy}%</p>
           </div>
-          <div className="text-center">
-            <p className="text-chalk/40 uppercase tracking-widest text-xs">Best Streak</p>
-            <p className="text-[var(--fb-accent-yellow)] font-bold text-lg">{scoreState.bestStreak}x</p>
+          <div className="flex-1 text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Best streak</p>
+            <p className="font-display text-2xl font-semibold text-gold tabular-nums">{scoreState.bestStreak}x</p>
           </div>
-          <div className="text-center">
-            <p className="text-chalk/40 uppercase tracking-widest text-xs">Answered</p>
-            <p className="text-white font-bold text-lg">{answers.length}</p>
+          <div className="flex-1 text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Answered</p>
+            <p className="font-display text-2xl font-semibold text-chalk tabular-nums">{answers.length}</p>
           </div>
         </div>
       </motion.div>
@@ -93,20 +95,31 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="font-display text-2xl text-white uppercase tracking-widest">Leaderboard</h2>
+          <h2 className="font-display text-2xl font-semibold uppercase tracking-wide text-chalk">Leaderboard</h2>
           {leaderboard
             .sort((a, b) => b.score - a.score)
             .map((entry, i) => (
               <div
                 key={entry.displayName}
-                className={`flex items-center gap-4 border-4 px-4 py-3 ${entry.isMe ? 'border-[var(--fb-accent-lime)] bg-[var(--fb-accent-lime)]/10' : 'border-white/20'}`}
+                className={`card flex items-center gap-4 rounded-xl px-4 py-3 ${
+                  i === 0
+                    ? 'border-gold/40 shadow-glow-gold'
+                    : entry.isMe
+                    ? 'border-turf/40'
+                    : ''
+                }`}
               >
-                <span className="font-display text-2xl text-chalk/40 w-8">{i + 1}</span>
-                <span className="font-mono font-bold text-white flex-1">{entry.displayName}{entry.isMe && ' (you)'}</span>
-                <span className="font-mono text-sm text-chalk/60">
+                <span className={`font-display text-2xl font-semibold w-8 tabular-nums ${i === 0 ? 'text-gold' : 'text-chalk-dim'}`}>
+                  {i + 1}
+                </span>
+                <span className="flex-1 text-sm font-semibold text-chalk">
+                  {i === 0 && <span aria-hidden className="mr-1.5">🏆</span>}
+                  {entry.displayName}{entry.isMe && ' (you)'}
+                </span>
+                <span className="font-mono text-sm text-chalk-dim tabular-nums">
                   {entry.correctCount}/{entry.totalAnswered}
                 </span>
-                <span className="font-display text-xl text-[var(--fb-accent-lime)]">
+                <span className={`font-display text-xl font-semibold tabular-nums ${i === 0 ? 'text-gold' : 'text-chalk'}`}>
                   {entry.score.toLocaleString()}
                 </span>
               </div>
@@ -121,25 +134,27 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <h2 className="font-display text-2xl text-white uppercase tracking-widest">Review</h2>
+        <h2 className="font-display text-2xl font-semibold uppercase tracking-wide text-chalk">Review</h2>
         {questions.map((q, i) => {
           const answer = answers[i]
           if (!answer) return null
           return (
             <div
               key={q.id}
-              className={`border-4 px-4 py-3 flex flex-col gap-1 ${answer.correct ? 'border-[var(--fb-accent-lime)]/40' : 'border-[var(--fb-accent-magenta)]/40'}`}
+              className={`card flex flex-col gap-1 rounded-xl border-l-2 px-4 py-3 ${
+                answer.correct ? 'border-l-turf' : 'border-l-flare'
+              }`}
             >
-              <p className="font-mono text-xs text-chalk/40 uppercase tracking-widest">
+              <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
                 Q{i + 1} • {q.type.replace('-', ' ')} • {answer.pointsEarned > 0 ? `+${answer.pointsEarned}` : '0'} pts
               </p>
-              <p className="font-mono text-sm text-white">{getQuestionPrompt(q)}</p>
-              <div className="flex gap-4 mt-1 text-xs font-mono">
-                <span className={answer.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}>
+              <p className="text-sm text-chalk">{getQuestionPrompt(q)}</p>
+              <div className="flex gap-4 mt-1 text-xs">
+                <span className={answer.correct ? 'text-turf' : 'text-flare'}>
                   You: {answer.answerValue ? getAnswerDisplay(q, answer.answerValue) : '(no answer)'}
                 </span>
                 {!answer.correct && (
-                  <span className="text-chalk/50">
+                  <span className="text-chalk-dim">
                     Correct: {getCorrectAnswerDisplay(q)}
                   </span>
                 )}
@@ -150,19 +165,16 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
       </motion.div>
 
       {/* Actions */}
-      <div className="flex gap-4 flex-wrap justify-center">
+      <div className="flex gap-3 flex-wrap justify-center">
         {onPlayAgain && (
-          <button
-            onClick={onPlayAgain}
-            className="fb-brutal-btn px-6 py-3 text-lg"
-          >
+          <button onClick={onPlayAgain} className="btn btn-primary btn-lg">
             Play again
           </button>
         )}
-        <Link href="/trivia/setup" className="fb-brutal-btn px-6 py-3 text-lg bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta">
+        <Link href="/trivia/setup" className="btn btn-secondary btn-lg">
           Change setup
         </Link>
-        <Link href="/" className="fb-brutal-btn px-6 py-3 text-lg bg-black text-white border-white">
+        <Link href="/" className="btn btn-ghost btn-lg">
           Home
         </Link>
       </div>

@@ -22,15 +22,15 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
 
   function optionClass(option: string) {
     const base =
-      'w-full p-4 border-4 border-white text-left font-mono font-bold uppercase tracking-wide shadow-brutal transition-all duration-150 text-base'
+      'w-full rounded-xl border px-4 py-3.5 text-left text-sm font-semibold transition-all duration-200'
     if (!selected) {
-      return `${base} bg-black text-white hover:bg-white hover:text-black hover:scale-[1.01] cursor-pointer`
+      return `${base} border-line bg-pitch-light text-chalk hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter cursor-pointer`
     }
     const isCorrect = option === question.correctAnswer
     const wasChosen = option === selected
-    if (isCorrect) return `${base} bg-[var(--fb-accent-lime)] text-black border-[var(--fb-accent-lime)]`
-    if (wasChosen) return `${base} bg-[var(--fb-accent-magenta)] text-black border-[var(--fb-accent-magenta)] opacity-80`
-    return `${base} bg-black text-white opacity-30`
+    if (isCorrect) return `${base} border-turf bg-turf/15 text-turf shadow-glow-turf`
+    if (wasChosen) return `${base} border-flare bg-flare/10 text-flare`
+    return `${base} border-line bg-pitch-light text-chalk-dim opacity-40`
   }
 
   return (
@@ -43,7 +43,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
         transition={{ duration: 0.3 }}
       >
         {question.playerImageUrl && (
-          <div className="w-24 h-24 border-4 border-white shadow-brutal overflow-hidden rounded-sm">
+          <div className="w-24 h-24 rounded-xl border border-line bg-pitch-light shadow-soft overflow-hidden">
             <img
               src={question.playerImageUrl}
               alt={question.playerName}
@@ -51,7 +51,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
             />
           </div>
         )}
-        <p className="font-display text-3xl md:text-4xl text-white text-center leading-tight tracking-wide">
+        <p className="font-display text-3xl md:text-4xl font-semibold text-chalk text-center leading-tight tracking-wide">
           {question.prompt}
         </p>
       </motion.div>
@@ -68,7 +68,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.06, duration: 0.25 }}
           >
-            <span className="text-chalk/40 mr-3">{String.fromCharCode(65 + i)}.</span>
+            <span className="mr-3 font-mono text-xs text-chalk-dim">{String.fromCharCode(65 + i)}</span>
             {option}
           </motion.button>
         ))}
@@ -78,7 +78,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
       <AnimatePresence>
         {selected && lastResult && (
           <motion.p
-            className={`font-mono font-bold uppercase tracking-widest text-lg ${lastResult.correct ? 'text-[var(--fb-accent-lime)]' : 'text-[var(--fb-accent-magenta)]'}`}
+            className={`font-display text-lg font-semibold uppercase tracking-wide ${lastResult.correct ? 'text-turf' : 'text-flare'}`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

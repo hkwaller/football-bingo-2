@@ -3,113 +3,106 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const fadeUp = {
+  initial: { opacity: 0, y: 14 },
+  animate: { opacity: 1, y: 0 },
+};
+
 export default function HomePage() {
   return (
-    <div className="relative min-h-[85vh] overflow-hidden flex flex-col items-center justify-center">
-      {/* Background Marquee element */}
-      <div className="pointer-events-none absolute inset-y-0 flex w-max flex-col justify-between opacity-15 overflow-hidden">
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={i}
-            className="flex flex-nowrap shrink-0 whitespace-nowrap overflow-hidden"
-          >
-            <span className="font-display text-[15vmax] leading-none tracking-tight text-[var(--fb-accent-magenta)] mr-8 animate-marquee">
-              FOOTBALL BINGO • KICKOFF • DRAFT • PLAY •
-            </span>
-            <span
-              className="font-display text-[15vmax] leading-none tracking-tight text-[var(--fb-accent-magenta)] mr-8 animate-marquee"
-              aria-hidden="true"
-            >
-              FOOTBALL BINGO • KICKOFF • DRAFT • PLAY •
-            </span>
-          </div>
-        ))}
-      </div>
+    <div className="relative flex min-h-[calc(100vh-73px)] flex-col items-center justify-center overflow-hidden px-4 py-16">
+      {/* Pitch markings: center circle + halfway line, chalk on turf */}
+      <svg
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.07]"
+        width="1400"
+        height="1400"
+        viewBox="0 0 1400 1400"
+        fill="none"
+      >
+        <circle cx="700" cy="700" r="340" stroke="#e9f2ec" strokeWidth="3" />
+        <circle cx="700" cy="700" r="10" fill="#e9f2ec" />
+        <line x1="-200" y1="700" x2="1600" y2="700" stroke="#e9f2ec" strokeWidth="3" />
+      </svg>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 py-16 text-center">
+      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center">
         <motion.div
-          className="inline-block border-4 border-white bg-black px-6 py-2 shadow-brutal-lime -rotate-2"
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1, rotate: -2 }}
-          transition={{ duration: 0.4, type: "spring" }}
+          {...fadeUp}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="chip"
         >
-          <p className="font-mono text-lg font-bold uppercase tracking-[0.2em] text-[var(--fb-accent-lime)]">
-            Matchday syntax
-          </p>
+          <span className="h-1.5 w-1.5 rounded-full bg-turf shadow-glow-turf" />
+          Matchday is live
         </motion.div>
 
         <motion.h1
-          className="font-display mt-8 text-[12vw] font-black leading-[0.85] tracking-[0.05em] text-white drop-shadow-2xl md:text-[10vw]"
-          initial={{ y: 30 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          style={{ textShadow: "6px 6px 0px var(--fb-accent-magenta)" }}
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.06, ease: "easeOut" }}
+          className="font-display mt-6 text-[clamp(4.5rem,14vw,10rem)] font-bold uppercase leading-[0.86] tracking-tight text-chalk"
         >
-          <span
-            className="text-[var(--fb-accent-lime)]"
-            style={{ textShadow: "6px 6px 0px var(--fb-accent-cyan)" }}
-          >
-            FOOTBALL
-          </span>
+          Football
           <br />
-          BINGO
+          <span className="text-turf drop-shadow-[0_0_28px_rgba(60,233,126,0.35)]">
+            Bingo
+          </span>
         </motion.h1>
 
         <motion.p
-          className="mx-auto mt-12 max-w-2xl bg-black border-2 border-white p-6 font-mono text-lg leading-relaxed text-chalk shadow-brutal font-bold"
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.2, duration: 0.45 }}
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
+          className="mt-6 max-w-md text-balance text-base leading-relaxed text-chalk-dim"
         >
-          &gt; INITIALIZING DRAFT SEQUENCE... <br />
-          &gt; SELECT PLAYERS.
-          <br />
-          &gt; MATCH SQUARES.
-          <br />
-          &gt; SURVIVE THE RACE.
+          Draft players, match squares, and race your friends to a full line —
+          football knowledge is your only tactic.
         </motion.p>
+
         <motion.div
-          className="mt-14 flex flex-col items-center justify-center gap-6 sm:flex-row sm:items-stretch"
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4 }}
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="mt-12 grid w-full gap-4 sm:grid-cols-2"
         >
-          {/* Bingo card */}
-          <div className="border-4 border-white bg-black p-5 shadow-brutal -rotate-1 flex flex-col gap-3 min-w-[260px]">
-            <p className="font-display text-xs font-black uppercase tracking-[0.3em] text-[var(--fb-accent-lime)] mb-1">
-              ⚽ Bingo
+          {/* Bingo */}
+          <div className="card group relative overflow-hidden p-6 text-left transition-transform duration-200 hover:-translate-y-0.5">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-turf/10 opacity-70 blur-2xl transition-opacity group-hover:opacity-100" />
+            <p className="font-display text-3xl font-semibold uppercase tracking-wide text-chalk">
+              Bingo
             </p>
-            <Link
-              href="/play/setup"
-              className="fb-brutal-btn w-full px-6 py-4 text-xl"
-            >
-              Solo
-            </Link>
-            <Link
-              href="/room/new"
-              className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
-            >
-              Multiplayer
-            </Link>
+            <p className="mt-1 text-sm text-chalk-dim">
+              Fill your board with the players drawn.
+            </p>
+            <div className="mt-5 flex gap-2.5">
+              <Link href="/play/setup" className="btn btn-primary flex-1">
+                Solo
+              </Link>
+              <Link href="/room/new" className="btn btn-secondary flex-1">
+                Multiplayer
+              </Link>
+            </div>
           </div>
 
-          {/* Trivia card */}
-          <div className="border-4 border-white bg-black p-5 shadow-brutal-lime rotate-1 flex flex-col gap-3 min-w-[260px]">
-            <p className="font-display text-xs font-black uppercase tracking-[0.3em] text-[var(--fb-accent-yellow)] mb-1">
-              🧠 Trivia
+          {/* Trivia */}
+          <div className="card group relative overflow-hidden p-6 text-left transition-transform duration-200 hover:-translate-y-0.5">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-gold/10 blur-2xl" />
+            <p className="font-display text-3xl font-semibold uppercase tracking-wide text-chalk">
+              Trivia
             </p>
-            <Link
-              href="/trivia/setup?mode=solo"
-              className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-yellow)] !shadow-brutal-lime text-black"
-            >
-              Solo
-            </Link>
-            <Link
-              href="/trivia/setup?mode=multiplayer"
-              className="fb-brutal-btn w-full px-6 py-4 text-xl bg-[var(--fb-accent-cyan)] !shadow-brutal-magenta"
-            >
-              Multiplayer
-            </Link>
+            <p className="mt-1 text-sm text-chalk-dim">
+              Quick-fire questions, first to the whistle wins.
+            </p>
+            <div className="mt-5 flex gap-2.5">
+              <Link
+                href="/trivia/setup?mode=solo"
+                className="btn btn-primary flex-1"
+              >
+                Solo
+              </Link>
+              <Link
+                href="/trivia/setup?mode=multiplayer"
+                className="btn btn-secondary flex-1"
+              >
+                Multiplayer
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>

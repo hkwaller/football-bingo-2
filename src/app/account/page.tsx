@@ -10,14 +10,18 @@ export default async function AccountPage() {
 
   return (
     <div className="mx-auto max-w-lg px-4 py-16">
-      <h1 className="font-display text-4xl font-bold text-chalk">Account</h1>
-      <p className="mt-4 text-base leading-relaxed text-chalk/65">
-        You are signed in. Game history will attach to your account when Supabase
-        is configured.
-      </p>
+      <h1 className="font-display text-5xl font-semibold uppercase tracking-wide text-chalk">
+        Account
+      </h1>
+      <div className="card mt-6 p-6">
+        <p className="text-base leading-relaxed text-chalk-dim">
+          You are signed in. Game history will attach to your account when
+          Supabase is configured.
+        </p>
+      </div>
       <Link
         href="/"
-        className="mt-8 inline-block font-semibold text-[var(--fb-accent-lime)] hover:underline"
+        className="mt-8 inline-block text-sm font-semibold text-turf transition-colors hover:text-chalk"
       >
         Back home
       </Link>

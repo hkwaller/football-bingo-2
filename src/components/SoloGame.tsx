@@ -22,6 +22,7 @@ import { loadSolo, mapToSolo, saveSolo, soloToMap } from '@/lib/soloStorage'
 import { cellCategory, freeIndexForConfig, generateBoard, hasBingoForConfig } from '@/lib/board'
 import { displayCategory } from '@/lib/canonical'
 import type { PlayMode } from '@/lib/playMode'
+import { randomUUID } from '@/lib/randomUUID'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 
 const DRAFT_COOLDOWN_MS = 2500
@@ -67,7 +68,7 @@ export function SoloGame() {
       setLineHighlight(saved.lineHighlight !== false)
       setDraftPolicy(saved.draftPolicy === 'placeable' ? 'placeable' : 'open')
     } else {
-      setSeed(crypto.randomUUID())
+      setSeed(randomUUID())
     }
     setHydrated(true)
   }, [])
@@ -176,7 +177,7 @@ export function SoloGame() {
   }, [modalCell, seed, boardConfig])
 
   const resetBoard = useCallback(() => {
-    const s = crypto.randomUUID()
+    const s = randomUUID()
     setSeed(s)
     setSolved(new Map())
     setRound(0)
@@ -200,7 +201,7 @@ export function SoloGame() {
     setModalCell(null)
     setDraftError(null)
     setCooldownUntil(0)
-    const s = crypto.randomUUID()
+    const s = randomUUID()
     setSeed(s)
     setSolved(new Map())
     setRound(0)
@@ -331,7 +332,9 @@ export function SoloGame() {
 
   if (!hydrated) {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center text-chalk/60">Loading…</div>
+      <div className="flex min-h-[40vh] items-center justify-center text-sm text-chalk-dim">
+        Loading…
+      </div>
     )
   }
 
@@ -339,58 +342,48 @@ export function SoloGame() {
     <div className="mx-auto max-w-3xl px-4 py-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-display text-4xl font-bold tracking-tight text-chalk md:text-5xl">
+          <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-chalk md:text-5xl">
             Solo
           </h1>
-          <p className="mt-2 text-base text-chalk/65">
+          <p className="mt-2 text-base leading-relaxed text-chalk-dim">
             {playMode === 'draft'
               ? 'Each round you get a player — place them on the right square.'
               : 'Pick a square, then search for a player who fits that clue.'}
           </p>
           {!configOk ? (
-            <p className="mt-2 text-sm text-red-300">
+            <p className="mt-2 text-sm text-flare">
               Your saved board needs at least {needCount} clues (currently {poolCount}
               ).{' '}
-              <Link href="/play/setup" className="underline hover:text-red-200">
+              <Link href="/play/setup" className="underline hover:text-chalk">
                 Fix in setup
               </Link>
             </p>
           ) : null}
         </div>
-        <div className="flex flex-wrap gap-2">
-          <div className="flex rounded-xl border border-white/15 p-0.5">
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex rounded-full border border-line bg-pitch p-1">
             {(['draft', 'free'] as const).map((m) => (
               <button
                 key={m}
                 type="button"
                 onClick={() => switchMode(m)}
-                className={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
+                className={`rounded-full px-3.5 py-1.5 text-sm font-semibold transition-colors duration-200 ${
                   playMode === m
-                    ? 'bg-[var(--fb-accent-lime)] text-black'
-                    : 'text-chalk/70 hover:text-chalk'
+                    ? 'bg-turf/15 text-turf'
+                    : 'text-chalk-dim hover:text-chalk'
                 }`}
               >
                 {PLAY_MODE_LABEL[m]}
               </button>
             ))}
           </div>
-          <Link
-            href="/play/setup"
-            className="rounded-xl border border-white/25 px-4 py-2 text-sm font-semibold text-chalk hover:bg-white/10"
-          >
+          <Link href="/play/setup" className="btn btn-secondary">
             Board setup
           </Link>
-          <button
-            type="button"
-            onClick={resetBoard}
-            className="rounded-xl border border-white/25 px-4 py-2 text-sm font-semibold text-chalk hover:bg-white/10"
-          >
+          <button type="button" onClick={resetBoard} className="btn btn-secondary">
             New board
           </button>
-          <Link
-            href="/"
-            className="rounded-xl border border-white/25 px-4 py-2 text-sm font-semibold text-chalk/85 hover:bg-white/10"
-          >
+          <Link href="/" className="btn btn-ghost">
             Home
           </Link>
         </div>

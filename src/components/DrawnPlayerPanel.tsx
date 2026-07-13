@@ -42,32 +42,40 @@ export function DrawnPlayerPanel({
   return (
     <motion.section
       layout
-      className="mb-6 border-4 border-white bg-black p-4 sm:p-5 shadow-brutal shadow-[#00f0ff]"
-      initial={{ opacity: 0, y: 6 }}
+      className="card mb-6 p-5"
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="border-l-4 border-[var(--fb-accent-mint)] pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--fb-accent-mint)]">
-            &gt; Active player
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-turf">
+            Active player
           </p>
-          <p className="mt-2 font-mono text-sm text-chalk">
+          <p className="mt-2 text-sm leading-relaxed text-chalk-dim">
             Place this player on the square that matches them.
           </p>
-          <p className="mt-1 font-display text-4xl text-[var(--fb-accent-cyan)] shadow-none">ROUND {round + 1}</p>
+          <p className="mt-1 font-display text-4xl font-semibold uppercase tracking-wide text-chalk">
+            Round {round + 1}
+          </p>
           {onSkip ? (
-            <p className="mt-1 font-mono text-xs text-chalk/50">[SPACE] to skip</p>
+            <p className="mt-1 text-xs text-chalk-dim">
+              Press <span className="font-mono text-chalk">Space</span> to skip
+            </p>
           ) : null}
           {draftWarning ? (
-            <p className="mt-2 text-xs font-mono font-bold text-[#fffa00] bg-black border border-[#fffa00] p-1" role="status">
-              ! {draftWarning}
+            <p
+              className="mt-2 inline-flex rounded-lg border border-line bg-pitch px-2.5 py-1.5 text-xs text-chalk-dim"
+              role="status"
+            >
+              {draftWarning}
             </p>
           ) : null}
         </div>
         <div className="flex flex-wrap items-center gap-4">
-          <div className="flex items-center gap-4 bg-[#111] border-2 border-white p-3 shadow-brutal-sm">
+          <div className="flex items-center gap-4 rounded-xl border border-line bg-pitch p-3">
             {loading ? (
-              <div className="flex h-20 w-20 animate-pulse bg-white/20 border-2 border-white" />
+              <div className="h-20 w-20 animate-pulse rounded-xl bg-pitch-lighter" />
             ) : player ? (
               <>
                 {player.imageUrl ? (
@@ -76,17 +84,17 @@ export function DrawnPlayerPanel({
                     alt=""
                     width={80}
                     height={80}
-                    className="border-2 border-white object-cover grayscale contrast-125"
+                    className="rounded-xl border border-line object-cover"
                     unoptimized
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center border-2 border-white bg-black font-display text-4xl text-white">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-line bg-pitch-lighter font-display text-4xl text-chalk-dim">
                     ?
                   </div>
                 )}
                 <div>
-                  <p className="font-display text-3xl font-black text-white">{player.name}</p>
-                  <p className="font-mono text-xs font-bold uppercase text-[var(--fb-accent-yellow)]">&gt; Awaiting action</p>
+                  <p className="font-display text-3xl font-semibold text-chalk">{player.name}</p>
+                  <p className="mt-1 text-xs font-medium text-turf">Awaiting action</p>
                 </div>
               </>
             ) : null}
@@ -98,7 +106,7 @@ export function DrawnPlayerPanel({
                   type="button"
                   disabled={skipDisabled}
                   onClick={onSkip}
-                  className="border-2 border-white bg-black px-4 py-2 font-mono text-sm font-bold uppercase text-white shadow-brutal-sm hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none hover:bg-[var(--fb-accent-magenta)] hover:text-white transition-all disabled:cursor-not-allowed disabled:border-white/30 disabled:text-white/30 disabled:shadow-none"
+                  className="btn btn-secondary btn-sm"
                 >
                   Skip
                 </button>
@@ -109,13 +117,16 @@ export function DrawnPlayerPanel({
         </div>
       </div>
       {error ? (
-        <p className="mt-4 border-2 border-[var(--fb-accent-magenta)] bg-black p-2 font-mono text-sm font-bold text-[var(--fb-accent-magenta)]" role="alert">
-          ERROR: {error}
+        <p
+          className="mt-4 rounded-xl border border-flare/30 bg-flare/10 px-3 py-2 text-sm text-flare"
+          role="alert"
+        >
+          {error}
         </p>
       ) : null}
       {cooldownRemainingMs > 0 ? (
-        <p className="mt-2 font-mono text-xs font-bold text-[var(--fb-accent-yellow)]">
-          COOLDOWN: {Math.ceil(cooldownRemainingMs / 1000)}s
+        <p className="mt-2 font-mono text-xs text-chalk-dim">
+          Cooldown: {Math.ceil(cooldownRemainingMs / 1000)}s
         </p>
       ) : null}
     </motion.section>

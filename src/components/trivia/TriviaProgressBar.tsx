@@ -45,12 +45,12 @@ export function TriviaProgressBar({ durationMs, startedAt, paused, onExpire }: P
   }, [durationMs, startedAt, paused, onExpire])
 
   const dangerZone = progress < 0.25
-  const color = dangerZone ? 'var(--fb-accent-magenta)' : progress < 0.5 ? 'var(--fb-accent-yellow)' : 'var(--fb-accent-lime)'
+  const color = dangerZone ? 'var(--flare)' : progress < 0.5 ? 'var(--gold)' : 'var(--turf)'
 
   return (
-    <div className="w-full h-3 bg-white/10 border-2 border-white/20 overflow-hidden">
+    <div className="h-1.5 w-full overflow-hidden rounded-full bg-pitch-lighter">
       <motion.div
-        className="h-full transition-colors duration-300"
+        className="h-full rounded-full transition-colors duration-300"
         style={{ width: `${progress * 100}%`, backgroundColor: color }}
         animate={dangerZone ? { opacity: [1, 0.5, 1] } : { opacity: 1 }}
         transition={dangerZone ? { repeat: Infinity, duration: 0.5 } : {}}

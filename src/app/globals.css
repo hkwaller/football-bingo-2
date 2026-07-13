@@ -3,76 +3,144 @@
 @tailwind utilities;
 
 :root {
-  --fb-accent-lime: #e2ff00;
-  --fb-accent-magenta: #ff00cc;
-  --fb-accent-cyan: #00f0ff;
-  --fb-accent-yellow: #fffa00;
-  --fb-accent-mint: #00ff73;
+  /* Floodlit palette */
+  --pitch-dark: #070d09;
+  --pitch: #0d1510;
+  --pitch-light: #141f17;
+  --pitch-lighter: #1c2b20;
+  --chalk: #e9f2ec;
+  --chalk-dim: #8fa697;
+  --turf: #3ce97e;
+  --turf-deep: #14b85c;
+  --gold: #f4c65d;
+  --flare: #ff6b5e;
+  --line: rgba(226, 244, 232, 0.09);
+  --line-strong: rgba(226, 244, 232, 0.18);
+
+  /* Legacy accent vars remapped into the new palette so stragglers stay coherent */
+  --fb-accent-lime: var(--turf);
+  --fb-accent-magenta: var(--gold);
+  --fb-accent-cyan: #9fd8ff;
+  --fb-accent-yellow: var(--gold);
+  --fb-accent-mint: var(--turf);
 }
 
 body {
-  background-color: var(--background);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-color: var(--pitch-dark);
+  background-image:
+    radial-gradient(1100px 560px at 50% -12%, rgba(60, 233, 126, 0.11), transparent 62%),
+    radial-gradient(800px 480px at 88% 112%, rgba(60, 233, 126, 0.05), transparent 60%);
   background-attachment: fixed;
+  color: var(--chalk);
 }
 
-@layer utilities {
-  .fb-brutal-btn {
-    @apply bg-[var(--fb-accent-lime)] text-black font-bold uppercase tracking-widest border-2 border-black shadow-brutal transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+/* Faint film grain over everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--turf)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--pitch-dark)] disabled:pointer-events-none disabled:opacity-40;
   }
 
+  .btn-primary {
+    color: #06120b;
+    background-image: linear-gradient(180deg, #52ef8f, var(--turf-deep));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 8px 20px -8px rgba(60, 233, 126, 0.55);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 12px 26px -8px rgba(60, 233, 126, 0.65);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+    filter: brightness(0.97);
+  }
+
+  .btn-secondary {
+    @apply bg-pitch-light text-chalk border border-line-strong;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+  .btn-secondary:hover {
+    @apply bg-pitch-lighter border-line-strong -translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply text-chalk-dim;
+  }
+  .btn-ghost:hover {
+    @apply text-chalk bg-pitch-light;
+  }
+
+  .btn-lg {
+    @apply px-7 py-3.5 text-base;
+  }
+  .btn-sm {
+    @apply px-3.5 py-1.5 text-xs;
+  }
+
+  .card {
+    @apply bg-pitch-light border border-line rounded-2xl shadow-soft;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-pitch-lighter border border-line px-3 py-1 text-xs font-medium text-chalk-dim;
+  }
+
+  .input {
+    @apply w-full rounded-xl bg-pitch border border-line px-4 py-2.5 text-sm text-chalk transition-colors focus:border-[var(--turf)] focus:outline-none focus:ring-1 focus:ring-[var(--turf)];
+  }
+  .input::placeholder {
+    color: var(--chalk-dim);
+    opacity: 0.6;
+  }
+
+  /* Legacy class kept for any unconverted callers */
+  .fb-brutal-btn {
+    @apply btn btn-primary;
+  }
   .fb-panel {
-    @apply bg-pitch-dark border-4 border-white/90 shadow-brutal-lg;
+    @apply card;
   }
 }
 
 @layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
-  }
   :root {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    /* shadcn tokens, floodlit flavor */
+    --background: var(--pitch-dark);
+    --foreground: var(--chalk);
+    --card: var(--pitch-light);
+    --card-foreground: var(--chalk);
+    --popover: var(--pitch-light);
+    --popover-foreground: var(--chalk);
+    --primary: var(--turf);
+    --primary-foreground: #06120b;
+    --secondary: var(--pitch-lighter);
+    --secondary-foreground: var(--chalk);
+    --muted: var(--pitch-lighter);
+    --muted-foreground: var(--chalk-dim);
+    --accent: var(--pitch-lighter);
+    --accent-foreground: var(--chalk);
+    --destructive: var(--flare);
+    --border: var(--line);
+    --input: var(--line-strong);
+    --ring: var(--turf);
+    --radius: 1rem;
   }
   * {
     border-color: var(--border);
-  }
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
   }
   html {
     @apply font-sans;

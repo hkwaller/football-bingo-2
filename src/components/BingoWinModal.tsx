@@ -25,7 +25,7 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
       particleCount: 120,
       spread: 80,
       origin: { y: 0.55 },
-      colors: ['#e2ff00', '#ff00cc', '#00fff7', '#ffffff', '#ffcc00'],
+      colors: ['#f4c65d', '#ffe3a1', '#3ce97e', '#e9f2ec'],
     })
 
     // Two side cannons
@@ -50,7 +50,7 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-pitch-dark/80 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -65,9 +65,9 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
             transition={{ type: 'spring', stiffness: 320, damping: 26 }}
           >
-            <div className="relative w-full max-w-sm rounded-2xl border-2 border-[var(--fb-accent-lime)] bg-[#0a0a0a] p-8 shadow-[0_0_60px_rgba(226,255,0,0.25)] text-center">
-              {/* Glow ring */}
-              <div className="absolute inset-0 rounded-2xl bg-[var(--fb-accent-lime)]/5 pointer-events-none" />
+            <div className="relative w-full max-w-sm rounded-2xl border border-gold/40 bg-pitch-light p-8 text-center shadow-glow-gold">
+              {/* Warm glow wash */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-gold/10 to-transparent" />
 
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -75,14 +75,14 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
                 transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 18 }}
                 className="mb-4 text-6xl"
               >
-                🎉
+                🏆
               </motion.div>
 
               <motion.h2
                 initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.15 }}
-                className="font-display text-5xl font-bold tracking-tight text-[var(--fb-accent-lime)] mb-2"
+                className="font-display mb-2 text-5xl font-bold uppercase tracking-wide text-gold drop-shadow-[0_0_24px_rgba(244,198,93,0.35)]"
               >
                 BINGO!
               </motion.h2>
@@ -91,7 +91,7 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
                 initial={{ y: 8, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.22 }}
-                className="font-mono text-sm text-chalk/60 mb-8"
+                className="mb-8 text-sm text-chalk-dim"
               >
                 You cleared a line. Legend.
               </motion.p>
@@ -105,14 +105,14 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
                 <button
                   type="button"
                   onClick={onPlayAgain}
-                  className="w-full rounded-xl bg-[var(--fb-accent-lime)] px-6 py-3 font-display text-lg font-bold tracking-wide text-black transition hover:brightness-110 active:scale-95"
+                  className="btn btn-primary btn-lg w-full"
                 >
                   Play again
                 </button>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full rounded-xl border border-white/20 px-6 py-3 font-mono text-sm text-chalk/60 transition hover:border-white/40 hover:text-chalk"
+                  className="btn btn-secondary w-full"
                 >
                   Keep board
                 </button>

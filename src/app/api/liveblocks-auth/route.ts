@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import { Liveblocks } from '@liveblocks/node'
 import { isClerkConfigured } from '@/lib/env'
+import { randomUUID } from '@/lib/randomUUID'
 
 export const runtime = 'nodejs'
 
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
     ? (await auth()).userId ?? null
     : null
   const user =
-    userId ?? (anonId && anonId.length > 0 ? `anon:${anonId}` : `anon:${crypto.randomUUID()}`)
+    userId ?? (anonId && anonId.length > 0 ? `anon:${anonId}` : `anon:${randomUUID()}`)
 
   const liveblocks = new Liveblocks({ secret })
   const session = liveblocks.prepareSession(user, {

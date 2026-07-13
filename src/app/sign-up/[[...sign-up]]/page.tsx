@@ -5,9 +5,16 @@ import { isClerkConfigured } from '@/lib/env'
 export default function SignUpPage() {
   if (!isClerkConfigured()) {
     return (
-      <div className="mx-auto max-w-md px-4 py-16 text-center text-chalk/80">
-        <p>Clerk is not configured. Add NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY to your environment.</p>
-        <Link href="/" className="mt-4 inline-block text-emerald-400 hover:underline">
+      <div className="mx-auto max-w-md px-4 py-16 text-center">
+        <div className="card p-6">
+          <p className="text-sm leading-relaxed text-chalk-dim">
+            Clerk is not configured. Add NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY to your environment.
+          </p>
+        </div>
+        <Link
+          href="/"
+          className="mt-6 inline-block text-sm font-semibold text-turf transition-colors hover:text-chalk"
+        >
           Home
         </Link>
       </div>
@@ -15,7 +22,10 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="flex min-h-[70vh] items-center justify-center px-4">
+    <div className="flex min-h-[70vh] flex-col items-center justify-center gap-8 px-4 py-12">
+      <h1 className="font-display text-4xl font-semibold uppercase tracking-wide text-chalk">
+        Create account
+      </h1>
       <SignUp routing="path" path="/sign-up" signInUrl="/sign-in" />
     </div>
   )

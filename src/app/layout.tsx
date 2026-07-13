@@ -1,27 +1,22 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Geist, Geist_Mono, Space_Mono } from 'next/font/google'
+import { Barlow_Condensed, Instrument_Sans, Spline_Sans_Mono } from 'next/font/google'
 import { AppShell } from '@/components/AppShell'
 import './globals.css'
 
-const display = Bebas_Neue({
-  weight: '400',
+const display = Barlow_Condensed({
+  weight: ['500', '600', '700'],
   variable: '--font-display',
   subsets: ['latin'],
 })
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const sans = Instrument_Sans({
+  variable: '--font-sans',
   subsets: ['latin'],
 })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
-
-const spaceMono = Space_Mono({
-  weight: ['400', '700'],
-  variable: '--font-space-mono',
+const mono = Spline_Sans_Mono({
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
   subsets: ['latin'],
 })
 
@@ -38,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${display.variable} ${geistSans.variable} ${geistMono.variable} ${spaceMono.variable} min-h-screen bg-[var(--background)] font-sans antialiased text-chalk`}
+        className={`${display.variable} ${sans.variable} ${mono.variable} relative min-h-screen bg-pitch-dark font-sans antialiased text-chalk`}
       >
         <AppShell>{children}</AppShell>
       </body>

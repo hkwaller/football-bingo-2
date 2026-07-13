@@ -11850,7 +11850,7 @@ export const enrichedFootballPlayers: Player[] = [
     name: 'Stefan Savic',
     nationality: 'Montenegro',
     citizenship: ['Montenegro', 'Serbia'],
-    clubs: ['Atlético', 'Trabzonspor', 'Fiorentina', 'Man City', 'Partizan', 'BSK Borca'],
+    clubs: ['Atlético Madrid', 'Trabzonspor', 'Fiorentina', 'Man City', 'Partizan', 'BSK Borca'],
     youthClubs: ['FK Brskovo', 'BSK Borča (2007-2009)'],
     achievements: [
       'Premier League winner',

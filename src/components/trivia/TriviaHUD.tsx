@@ -34,21 +34,21 @@ export function TriviaHUD({
     : `Q ${currentIndex + 1}`
 
   return (
-    <div className="w-full flex flex-col gap-2 mb-6">
+    <div className="w-full flex flex-col gap-2.5 mb-6">
       <div className="flex items-center justify-between gap-4">
         {/* Question counter */}
-        <span className="font-mono text-sm font-bold uppercase tracking-widest text-chalk/70">
+        <span className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
           {label}
         </span>
 
         {/* Score */}
         <div className="flex items-center gap-3">
           {streak >= 3 && (
-            <span className="font-mono text-sm font-bold text-[var(--fb-accent-yellow)]">
+            <span className="chip text-turf">
               🔥 ×{streak}
             </span>
           )}
-          <span className="font-display text-2xl text-[var(--fb-accent-lime)] tracking-wider">
+          <span className="font-display text-2xl font-semibold tracking-wide text-chalk tabular-nums">
             {score.toLocaleString()}
           </span>
         </div>

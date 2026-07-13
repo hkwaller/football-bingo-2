@@ -55,52 +55,52 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
   return (
     <div className="w-full max-w-2xl mx-auto px-4 py-12 flex flex-col gap-8">
       <motion.div
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: 12, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
       >
-        <div className="inline-block border-4 border-white bg-black px-6 py-2 shadow-brutal-lime -rotate-1 mb-4">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-[var(--fb-accent-lime)]">
-            Trivia Room
-          </p>
+        <div className="chip mb-4">
+          <span className="h-1.5 w-1.5 rounded-full bg-turf" />
+          Trivia room
         </div>
-        <h1 className="font-display text-5xl text-white tracking-wider" style={{ textShadow: '4px 4px 0 var(--fb-accent-magenta)' }}>
-          LOBBY
+        <h1 className="font-display text-5xl font-bold uppercase tracking-wide text-chalk">
+          Lobby
         </h1>
       </motion.div>
 
       {/* Config summary */}
-      <div className="border-4 border-white/20 p-4 flex flex-col gap-2">
-        <p className="font-mono text-xs uppercase tracking-widest text-chalk/40">Game settings</p>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-sm">
-          <span className="text-chalk/50">Session</span>
-          <span className="text-white font-bold">{sessionLabel[config.sessionType] ?? config.sessionType}</span>
-          <span className="text-chalk/50">Difficulty</span>
-          <span className="text-white font-bold">{DIFFICULTY_LABELS[config.difficulty]}</span>
-          <span className="text-chalk/50">Mechanic</span>
-          <span className="text-white font-bold">{mechanicLabel[config.multiplayerMechanic] ?? config.multiplayerMechanic}</span>
+      <div className="card flex flex-col gap-3 p-5">
+        <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Game settings</p>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+          <span className="text-chalk-dim">Session</span>
+          <span className="font-medium text-chalk">{sessionLabel[config.sessionType] ?? config.sessionType}</span>
+          <span className="text-chalk-dim">Difficulty</span>
+          <span className="font-medium text-chalk">{DIFFICULTY_LABELS[config.difficulty]}</span>
+          <span className="text-chalk-dim">Mechanic</span>
+          <span className="font-medium text-chalk">{mechanicLabel[config.multiplayerMechanic] ?? config.multiplayerMechanic}</span>
         </div>
         {isHost && (
-          <a href="/trivia/setup" className="text-xs font-mono text-[var(--fb-accent-cyan)] hover:underline mt-1 w-fit">
+          <a href="/trivia/setup" className="mt-1 w-fit text-xs font-medium text-turf hover:underline">
             Change settings →
           </a>
         )}
       </div>
 
       {/* Invite */}
-      <div className="border-4 border-white/20 p-5">
-        <p className="font-mono text-xs uppercase tracking-widest text-chalk/40 mb-4">Invite players</p>
+      <div className="card p-5">
+        <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">Invite players</p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-          <div className="bg-white p-3 shrink-0">
-            <QRCodeSVG value={joinUrl} size={140} bgColor="#ffffff" fgColor="#06060a" />
+          <div className="shrink-0 rounded-xl bg-white p-3">
+            <QRCodeSVG value={joinUrl} size={140} bgColor="#ffffff" fgColor="#070d09" />
           </div>
           <div className="flex flex-col gap-3 flex-1">
-            <code className="block break-all border-2 border-white/20 bg-black/40 px-3 py-2 font-mono text-sm text-[var(--fb-accent-cyan)]">
+            <code className="block break-all rounded-xl border border-line bg-pitch px-3 py-2 font-mono text-sm text-turf">
               {roomId}
             </code>
             <button
               type="button"
               onClick={copy}
-              className="fb-brutal-btn px-4 py-2 text-sm w-fit"
+              className="btn btn-secondary btn-sm w-fit"
             >
               {copied ? 'Copied!' : 'Copy invite link'}
             </button>
@@ -109,21 +109,21 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
       </div>
 
       {/* Players */}
-      <div className="flex flex-col gap-3">
-        <p className="font-mono text-xs uppercase tracking-widest text-chalk/40">
+      <div className="flex flex-col gap-2.5">
+        <p className="text-xs font-medium uppercase tracking-[0.14em] text-chalk-dim">
           Players ({players.length})
         </p>
         {players.map((p) => (
           <div
             key={p.connectionId}
-            className="flex items-center gap-3 border-2 border-white/20 px-4 py-3"
+            className="card flex items-center gap-3 rounded-xl px-4 py-3"
           >
             <span
-              className={`w-2 h-2 rounded-full ${p.isHost ? 'bg-[var(--fb-accent-yellow)]' : 'bg-[var(--fb-accent-lime)]'}`}
+              className={`h-2 w-2 rounded-full ${p.isHost ? 'bg-gold' : 'bg-turf'}`}
             />
-            <span className="font-mono text-white font-bold flex-1">{p.displayName}</span>
+            <span className="flex-1 text-sm font-semibold text-chalk">{p.displayName}</span>
             {p.isHost && (
-              <span className="font-mono text-xs text-[var(--fb-accent-yellow)] uppercase tracking-widest">host</span>
+              <span className="chip text-gold">host</span>
             )}
           </div>
         ))}
@@ -134,12 +134,12 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
         <button
           onClick={onStart}
           disabled={players.length < 1}
-          className="fb-brutal-btn px-8 py-5 text-2xl disabled:opacity-40 disabled:cursor-not-allowed"
+          className="btn btn-primary btn-lg disabled:cursor-not-allowed"
         >
           Start game
         </button>
       ) : (
-        <p className="font-mono text-chalk/50 text-center">Waiting for host to start…</p>
+        <p className="text-center text-sm text-chalk-dim animate-pulse-soft">Waiting for host to start…</p>
       )}
     </div>
   )

@@ -30,12 +30,11 @@ type BingoBoardProps = {
 function categoryBadge(label: string) {
   const kind = getCategoryKind(label)
   const base =
-    'inline-block font-mono border-2 border-black px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-[2px_2px_0px_#000]'
+    'inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em]'
   if (kind === 'nationality')
-    return `${base} bg-[var(--fb-accent-cyan)] text-black`
-  if (kind === 'club')
-    return `${base} bg-[var(--fb-accent-mint)] text-black`
-  return `${base} bg-[var(--fb-accent-yellow)] text-black`
+    return `${base} bg-[#9fd8ff]/10 text-[#9fd8ff]`
+  if (kind === 'club') return `${base} bg-turf/10 text-turf`
+  return `${base} bg-gold/10 text-gold`
 }
 
 export function BingoBoard({
@@ -62,7 +61,7 @@ export function BingoBoard({
 
   return (
     <div
-      className="grid gap-3 p-2 bg-black border-4 border-white shadow-brutal-lg"
+      className="grid gap-2 rounded-3xl border border-line bg-pitch p-2.5 shadow-soft sm:gap-2.5 sm:p-3"
       style={{
         gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))`,
       }}
@@ -89,47 +88,37 @@ export function BingoBoard({
             initial={false}
             animate={{
               scale:
-                reduceMotion || !(isWinLine && solvedHere)
-                  ? 1
-                  : [1, 1.05, 1],
-              boxShadow:
-                isWinLine && solvedHere
-                  ? '4px 4px 0px 0px var(--fb-accent-yellow)'
-                  : voteHi
-                    ? '4px 4px 0px 0px var(--fb-accent-cyan)'
-                    : (isFree || solvedHere) 
-                        ? '3px 3px 0px 0px #000'
-                        : '3px 3px 0px 0px #fff',
+                reduceMotion || !(isWinLine && solvedHere) ? 1 : [1, 1.04, 1],
             }}
             transition={{ duration: reduceMotion ? 0 : 0.3 }}
             disabled={isFree || !!pick || (restricted && !allowed)}
-            onClick={() =>
-              !isFree && !pick && allowed && onCellClick(index)
-            }
-            className={`relative flex min-h-[80px] flex-col items-center justify-center border-4 text-center text-sm transition-all sm:min-h-[110px] md:min-h-[130px] ${
+            onClick={() => !isFree && !pick && allowed && onCellClick(index)}
+            className={`relative flex min-h-[80px] flex-col items-center justify-center rounded-xl border text-center text-sm transition-all duration-200 sm:min-h-[110px] md:min-h-[130px] ${
               isFree
-                ? 'cursor-default border-black bg-striped-yellow text-black shadow-brutal active:shadow-none'
+                ? 'cursor-default border-turf/30 bg-turf/10 text-turf'
                 : solvedHere
-                  ? 'cursor-not-allowed border-black bg-[var(--fb-accent-mint)] text-black'
+                  ? isWinLine
+                    ? 'cursor-not-allowed border-gold/50 bg-gradient-to-b from-gold/25 to-gold/10 shadow-glow-gold'
+                    : 'cursor-not-allowed border-turf/40 bg-gradient-to-b from-turf/20 to-turf/5'
                   : restricted && !allowed
-                    ? 'cursor-not-allowed border-white/20 bg-[#111] opacity-70 grayscale'
+                    ? 'cursor-not-allowed border-line bg-pitch opacity-40'
                     : voteHi
-                      ? 'border-[var(--fb-accent-cyan)] bg-cyan-950'
-                      : 'border-white bg-[#09090b] hover:border-[var(--fb-accent-magenta)] hover:bg-[#1a001a] hover:-translate-y-1 hover:shadow-[4px_6px_0px_var(--fb-accent-magenta)]'
+                      ? 'border-turf bg-turf/10 shadow-glow-turf'
+                      : 'border-line bg-pitch-light hover:-translate-y-0.5 hover:border-line-strong hover:bg-pitch-lighter'
             }`}
-            style={{
-              backgroundImage: isFree ? 'repeating-linear-gradient(45deg, var(--fb-accent-yellow) 0px, var(--fb-accent-yellow) 10px, #000 10px, #000 20px)' : undefined
-            }}
           >
             <AnimatePresence mode="wait">
               {isFree ? (
                 <motion.span
                   key="free"
-                  initial={{ opacity: 0, rotateY: 90 }}
-                  animate={{ opacity: 1, rotateY: 0 }}
-                  className="font-display text-3xl font-black tracking-widest text-[#fff] px-2 py-1 bg-black border-2 border-white rotate-[-5deg]"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center gap-1"
                 >
-                  FREE
+                  <span className="text-xl">⚽</span>
+                  <span className="font-display text-lg font-semibold uppercase tracking-[0.18em]">
+                    Free
+                  </span>
                 </motion.span>
               ) : pick ? (
                 <motion.div
@@ -137,19 +126,25 @@ export function BingoBoard({
                   initial={{ opacity: 0, scale: 0.85 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex w-full flex-col items-center gap-1"
+                  className="flex w-full flex-col items-center gap-1.5 px-1"
                 >
                   {pick.imageUrl ? (
                     <Image
                       src={pick.imageUrl}
                       alt=""
-                      width={50}
-                      height={50}
-                      className="border-2 border-black object-cover shadow-brutal-sm"
+                      width={44}
+                      height={44}
+                      className={`rounded-full border object-cover ${
+                        isWinLine ? 'border-gold/60' : 'border-turf/50'
+                      }`}
                       unoptimized
                     />
                   ) : null}
-                  <span className="line-clamp-2 text-xs font-black leading-tight text-black font-mono bg-[var(--fb-accent-mint)] px-1">
+                  <span
+                    className={`line-clamp-2 text-xs font-semibold leading-tight ${
+                      isWinLine ? 'text-gold' : 'text-chalk'
+                    }`}
+                  >
                     {pick.name}
                   </span>
                 </motion.div>
@@ -158,12 +153,12 @@ export function BingoBoard({
                   key="cat"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex flex-col gap-2 p-1"
+                  className="flex flex-col items-center gap-1.5 p-1.5"
                 >
                   <span className={categoryBadge(label)}>
                     {getCategoryKind(label) ?? 'square'}
                   </span>
-                  <span className="line-clamp-3 text-xs font-bold font-mono text-chalk/95 sm:text-sm uppercase bg-black px-1 mx-1 border border-white/30">
+                  <span className="line-clamp-3 px-1 text-xs font-medium leading-snug text-chalk sm:text-sm">
                     {displayCategory(label)}
                   </span>
                 </motion.div>
