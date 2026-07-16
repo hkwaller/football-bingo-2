@@ -315,7 +315,7 @@ export function SoloGame() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8 md:px-9">
+    <div className={`mx-auto max-w-5xl px-6 py-8 md:px-9 ${playMode === 'draft' ? 'pb-32' : ''}`}>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="font-display text-[40px] uppercase leading-none text-green md:text-[44px]">

@@ -1,6 +1,6 @@
 // Auto-generated — do not edit by hand.
 // Source: scripts/output/players.json (run "npm run enrich" then "npm run parse" to regenerate)
-// 726 players, last updated 2026-07-16
+// 641 players, last updated 2026-07-16
 import type { Player } from '@/types/player'
 
 export const enrichedFootballPlayers: Player[] = [
@@ -356,7 +356,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/28003-1771694720.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg"
+    },
     "height": 170,
     "dateOfBirth": "1987-06-24",
     "leftFooted": true,
@@ -650,7 +656,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/148455-1727337594.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_(cropped).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1992-06-15",
     "leftFooted": true,
@@ -916,7 +928,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/125781-1775233998.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Antoine_Griezmann_%2851100409504%29_%28cropped%29.jpg/500px-Antoine_Griezmann_%2851100409504%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Biser Todorov ( User:Biso ) from Sofia, Bulgaria",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Antoine_Griezmann_(51100409504)_(cropped).jpg"
+    },
     "height": 176,
     "dateOfBirth": "1991-03-21",
     "leftFooted": true,
@@ -1309,7 +1327,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/8198-1748102259.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1985-02-05",
     "leftFooted": false,
@@ -1672,7 +1696,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/132098-1700211169.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg/500px-Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Harry_Kane_England_v_Ghana_23_June_2026-219_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1993-07-28",
     "leftFooted": false,
@@ -1958,7 +1988,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/88755-1713391485.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/500px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1991-06-28",
     "leftFooted": false,
@@ -2222,7 +2258,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/200512-1767005854.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg/500px-Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg"
+    },
     "height": 174,
     "dateOfBirth": "1992-04-10",
     "leftFooted": false,
@@ -2531,7 +2573,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/50202-1665067742.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Eden_Hazard_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
+    "imageAttribution": {
+      "author": "Amir Hosseini",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eden_Hazard_at_Baku_before_2019_UEFA_Europe_League_Final.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1991-01-07",
     "leftFooted": false,
@@ -2818,7 +2866,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/342229-1682683695.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg/500px-Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1998-12-20",
     "leftFooted": false,
@@ -3092,7 +3146,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/80444-1746211175.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Coutinho_2018.jpg/500px-Coutinho_2018.jpg",
+    "imageAttribution": {
+      "author": "Oleg Bkhambri (Voltmetro)",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Coutinho_2018.jpg"
+    },
     "height": 172,
     "dateOfBirth": "1992-06-12",
     "leftFooted": false,
@@ -3290,7 +3350,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/371998-1761575144.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg/500px-Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_(cropped).jpg"
+    },
     "height": 176,
     "dateOfBirth": "2000-07-12",
     "leftFooted": false,
@@ -3600,7 +3666,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/38253-1760445524.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg/500px-Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Светлана Бекетова",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_2018,_JAP-POL_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1988-08-21",
     "leftFooted": false,
@@ -3891,7 +3963,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/32467-1688726103.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Ivan_Rakiti%C4%87_2020_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Пукалик",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ivan_Rakiti%C4%87_2020_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1988-03-10",
     "leftFooted": false,
@@ -4195,7 +4273,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/44352-1771695059.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Luis_Su%C3%A1rez_NE_Revolution_Inter_Miami_7.9.25-053_%28cropped%29.jpg/500px-Luis_Su%C3%A1rez_NE_Revolution_Inter_Miami_7.9.25-053_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Luis_Su%C3%A1rez_NE_Revolution_Inter_Miami_7.9.25-053_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1987-01-24",
     "leftFooted": false,
@@ -4476,7 +4560,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/406635-1668524492.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/2023-10-04_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2613%2C_Phil_Foden.jpg/500px-2023-10-04_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2613%2C_Phil_Foden.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2023-10-04_Fu%C3%9Fball,_M%C3%A4nner,_UEFA_Champions_League,_RB_Leipzig_-_Manchester_City_FC_1DX_2613,_Phil_Foden.jpg"
+    },
     "height": 171,
     "dateOfBirth": "2000-05-28",
     "leftFooted": true,
@@ -4708,7 +4798,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/418560-1709108116.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg/500px-Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg"
+    },
     "height": 195,
     "dateOfBirth": "2000-07-21",
     "leftFooted": true,
@@ -4969,7 +5065,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/241641-1684311533.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Bernardo_Silva_Croatia_v_Portugal_2_July_2026-238.jpg/500px-Bernardo_Silva_Croatia_v_Portugal_2_July_2026-238.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bernardo_Silva_Croatia_v_Portugal_2_July_2026-238.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1994-08-10",
     "leftFooted": true,
@@ -5172,7 +5274,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/357565-1682587890.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/RODRI_-_SWE_vs_ESP_-_UEFA_EURO_2020_QUALIFIERS_-_2019.10.15_%28cropped%29.jpg/500px-RODRI_-_SWE_vs_ESP_-_UEFA_EURO_2020_QUALIFIERS_-_2019.10.15_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Rolandhino1",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:RODRI_-_SWE_vs_ESP_-_UEFA_EURO_2020_QUALIFIERS_-_2019.10.15_(cropped).jpg"
+    },
     "height": 191,
     "dateOfBirth": "1996-06-22",
     "leftFooted": false,
@@ -5431,7 +5539,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/58358-1771861722.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Thomas_M%C3%BCller_2022_%28cropped%29.jpg/500px-Thomas_M%C3%BCller_2022_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Werner100359",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Thomas_M%C3%BCller_2022_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1989-09-13",
     "leftFooted": false,
@@ -5777,7 +5891,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/45320-1700648952.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/NIG-ARG_%285%29.jpg/500px-NIG-ARG_%285%29.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:NIG-ARG_(5).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1988-02-14",
     "leftFooted": true,
@@ -6055,7 +6175,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/139208-1702049837.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ailura",
+      "license": "CC BY-SA 3.0 at",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:20160604_AUT_NED_8876_(cropped).jpg"
+    },
     "height": 195,
     "dateOfBirth": "1991-07-08",
     "leftFooted": false,
@@ -6341,7 +6467,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7600-1685447666.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Andr%C3%A9s_Iniesta_%28cropped%29.jpg/500px-Andr%C3%A9s_Iniesta_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_(cropped).jpg"
+    },
     "height": 171,
     "dateOfBirth": "1984-05-11",
     "leftFooted": false,
@@ -6664,7 +6796,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7607-1476882942.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Xavi_13981129001173637176666027076571.jpg/500px-Xavi_13981129001173637176666027076571.jpg",
+    "imageAttribution": {
+      "author": "Mehdi Zare",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Xavi_13981129001173637176666027076571.jpg"
+    },
     "height": 170,
     "dateOfBirth": "1980-01-25",
     "leftFooted": false,
@@ -6948,7 +7086,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/31909-1700638741.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Toni_Kroos_Real_Madrid_2021.jpg/500px-Toni_Kroos_Real_Madrid_2021.jpg",
+    "imageAttribution": {
+      "author": "https://www.youtube.com/@realmadrid",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Toni_Kroos_Real_Madrid_2021.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1990-01-04",
     "leftFooted": false,
@@ -7276,7 +7420,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/134425-1684165974.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Raheem_Sterling_2018.jpg/500px-Raheem_Sterling_2018.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Raheem_Sterling_2018.jpg"
+    },
     "height": 170,
     "dateOfBirth": "1994-12-08",
     "leftFooted": false,
@@ -7602,7 +7752,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/58864-1762262625.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg/500px-1_Pierre-Emerick_Aubameyang_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Chensiyuan",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1_Pierre-Emerick_Aubameyang_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1989-06-18",
     "leftFooted": false,
@@ -7929,7 +8085,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/27992-1687776160.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg/500px-Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg"
+    },
     "height": 172,
     "dateOfBirth": "1985-09-09",
     "leftFooted": false,
@@ -8180,7 +8342,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/108390-1717280733.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Courtois_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Courtois_2018_(cropped).jpg"
+    },
     "height": 200,
     "dateOfBirth": "1992-05-11",
     "leftFooted": true,
@@ -8433,7 +8601,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/16306-1699018876.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg/500px-Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Casemiro_Brazil_V_Morocco_13_June_2026-76_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1992-02-23",
     "leftFooted": false,
@@ -8731,7 +8905,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/18922-1702414196.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Karim_Benzema_Pick.jpg/500px-Karim_Benzema_Pick.jpg",
+    "imageAttribution": {
+      "author": "Zack",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Karim_Benzema_Pick.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1987-12-19",
     "leftFooted": false,
@@ -9007,7 +9187,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/74857-1674465246.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Marc-Andre_Ter_Stegen_ACCI_FCBARCELONA_Turisme_Catalunya_gira_pretemporada_CATPRESS.jpg/500px-Marc-Andre_Ter_Stegen_ACCI_FCBARCELONA_Turisme_Catalunya_gira_pretemporada_CATPRESS.jpg",
+    "imageAttribution": {
+      "author": "Government of Catalonia",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Marc-Andre_Ter_Stegen_ACCI_FCBARCELONA_Turisme_Catalunya_gira_pretemporada_CATPRESS.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1992-04-30",
     "leftFooted": false,
@@ -9285,7 +9471,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/161056-1700039639.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Joshua_Kimmich_Ecuador_v_Germany_25_June_2026-149.jpg/500px-Joshua_Kimmich_Ecuador_v_Germany_25_June_2026-149.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Joshua_Kimmich_Ecuador_v_Germany_25_June_2026-149.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1995-02-08",
     "leftFooted": false,
@@ -9524,7 +9716,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/39153-1595579337.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Higua%C3%ADn_20180626.jpg/500px-Higua%C3%ADn_20180626.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Higua%C3%ADn_20180626.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1987-12-10",
     "leftFooted": false,
@@ -9765,7 +9963,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/288230-1684148641.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ousmane_Dembele_France_v_Senegal_16_June_2026-341_%28cropped%29.jpg/500px-Ousmane_Dembele_France_v_Senegal_16_June_2026-341_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ousmane_Dembele_France_v_Senegal_16_June_2026-341_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1997-05-15",
     "leftFooted": false,
@@ -9973,7 +10177,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/131789-1762261875.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg",
+    "imageAttribution": {
+      "author": "Granada",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Roberto_Firmino_850_1557.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1991-10-02",
     "leftFooted": false,
@@ -10259,7 +10469,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/192565-1694587968.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Leroy_Sane_Ecuador_v_Germany_25_June_2026-004.jpg/500px-Leroy_Sane_Ecuador_v_Germany_25_June_2026-004.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Leroy_Sane_Ecuador_v_Germany_25_June_2026-004.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1996-01-11",
     "leftFooted": true,
@@ -10559,7 +10775,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/69633-1718628122.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/20140904_-_Christian_Eriksen_%28cropped%29.jpg/500px-20140904_-_Christian_Eriksen_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Chris 0023 from Lyngby, Denmark",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20140904_-_Christian_Eriksen_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1992-02-14",
     "leftFooted": false,
@@ -10635,7 +10857,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/148928-1764256774.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Sa%C3%BAl_%C3%91%C3%ADguez_2019.jpg",
+    "imageAttribution": {
+      "author": "Anna Nessie",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sa%C3%BAl_%C3%91%C3%ADguez_2019.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1994-11-21",
     "leftFooted": true,
@@ -10944,7 +11172,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/26399-1580460866.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Ag%C3%BCero_in_2018.jpg/500px-Ag%C3%BCero_in_2018.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ag%C3%BCero_in_2018.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1988-06-02",
     "leftFooted": false,
@@ -11217,7 +11451,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/121483-1719350076.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Jan_Oblak_2019.jpg/500px-Jan_Oblak_2019.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jan_Oblak_2019.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1993-01-07",
     "leftFooted": false,
@@ -11510,7 +11750,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3332-1406462596.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wayne-Rooney-2015-10-21.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Голубович",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wayne-Rooney-2015-10-21.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1985-10-24",
     "leftFooted": false,
@@ -11757,7 +12003,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/80562-1563436073.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg",
+    "imageAttribution": {
+      "author": "Вячеслав Евдокимов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1986-07-25",
     "leftFooted": true,
@@ -12012,7 +12264,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/39381-1658665343.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_%2832%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "حسین ظهروند",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022_FIFA_World_Cup_United_States_1%E2%80%931_Wales_-_(32)_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1989-07-16",
     "leftFooted": true,
@@ -12197,7 +12455,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/406625-1695024988.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lautaro_Martinez_Argentina_v_Egypt_7_July_2026-041.jpg/500px-Lautaro_Martinez_Argentina_v_Egypt_7_July_2026-041.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lautaro_Martinez_Argentina_v_Egypt_7_July_2026-041.jpg"
+    },
     "height": 174,
     "dateOfBirth": "1997-08-22",
     "leftFooted": false,
@@ -12271,7 +12535,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/369081-1731018042.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Federico_Valverde_2021_%28cropped%29.jpg/500px-Federico_Valverde_2021_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Real Madrid",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Federico_Valverde_2021_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1998-07-22",
     "leftFooted": false,
@@ -12593,7 +12863,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/96341-1661780981.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Romelu_Lukaku_2021.jpg/500px-Romelu_Lukaku_2021.jpg",
+    "imageAttribution": {
+      "author": "Vyacheslav Evdokimov",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Romelu_Lukaku_2021.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1993-05-13",
     "leftFooted": true,
@@ -12857,7 +13133,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/122153-1764059298.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Paul_Pogba_at_the_2025_Cannes_Film_Festival_02.jpg/500px-Paul_Pogba_at_the_2025_Cannes_Film_Festival_02.jpg",
+    "imageAttribution": {
+      "author": "Gabriel Hutchinson",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paul_Pogba_at_the_2025_Cannes_Film_Festival_02.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1993-03-15",
     "leftFooted": false,
@@ -13171,7 +13453,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/40433-1759840737.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Alexis_Sanchez_Cobreloa20171.png",
+    "imageAttribution": {
+      "author": "Andre el gigante",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alexis_Sanchez_Cobreloa20171.png"
+    },
     "height": 169,
     "dateOfBirth": "1988-12-19",
     "leftFooted": false,
@@ -13480,7 +13768,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3163-1674475335.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Frank_Lampard_2019.jpg",
+    "imageAttribution": {
+      "author": "Mehdi Bolourian",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Frank_Lampard_2019.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1978-06-20",
     "leftFooted": false,
@@ -13782,7 +14076,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/25557-1694502812.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sergio_Ramos_Interview_2021_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Real Madrid",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sergio_Ramos_Interview_2021_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1986-03-30",
     "leftFooted": false,
@@ -14136,7 +14436,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3455-1579506060.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Zlatan_Ibrahimovi%C4%87_June_2018.jpg",
+    "imageAttribution": {
+      "author": "Meghdad Madadi",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zlatan_Ibrahimovi%C4%87_June_2018.jpg"
+    },
     "height": 195,
     "dateOfBirth": "1981-10-03",
     "leftFooted": false,
@@ -14516,7 +14822,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5023-1713425275.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Gianluigi_Buffon_%2831784615942%29_%28cropped%29.jpg/500px-Gianluigi_Buffon_%2831784615942%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Doha Stadium Plus Qatar from Doha, Qatar Derivative work: Alza08 Author",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gianluigi_Buffon_(31784615942)_(cropped).jpg"
+    },
     "height": 192,
     "dateOfBirth": "1978-01-28",
     "leftFooted": false,
@@ -14852,7 +15164,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/28396-1752151521.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/20150331_2026_AUT_BIH_2177_Edin_D%C5%BEeko_%28cropped%29.jpg/500px-20150331_2026_AUT_BIH_2177_Edin_D%C5%BEeko_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ailura",
+      "license": "CC BY-SA 3.0 at",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:20150331_2026_AUT_BIH_2177_Edin_D%C5%BEeko_(cropped).jpg"
+    },
     "height": 193,
     "dateOfBirth": "1986-03-17",
     "leftFooted": false,
@@ -15171,7 +15489,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/59016-1684921582.jpeg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_David_Alaba_850_1632.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_David_Alaba_850_1632.jpg",
+    "imageAttribution": {
+      "author": "Granada",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_David_Alaba_850_1632.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1992-06-24",
     "leftFooted": true,
@@ -15401,7 +15725,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/206050-1725530843.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Olga Shcherbytska",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81%C2%BB_0-2._20_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1153905_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1993-11-15",
     "leftFooted": true,
@@ -15710,7 +16040,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/17259-1762943283.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Manuel_Neuer_Ecuador_v_Germany_25_June_2026-148.jpg/500px-Manuel_Neuer_Ecuador_v_Germany_25_June_2026-148.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Manuel_Neuer_Ecuador_v_Germany_25_June_2026-148.jpg"
+    },
     "height": 193,
     "dateOfBirth": "1986-03-27",
     "leftFooted": false,
@@ -15982,7 +16318,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/181767-1672303747.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Marquinhos_Brazil_V_Morocco_13_June_2026-153_%28cropped%29.jpg/500px-Marquinhos_Brazil_V_Morocco_13_June_2026-153_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marquinhos_Brazil_V_Morocco_13_June_2026-153_(cropped).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1994-05-14",
     "leftFooted": false,
@@ -16228,7 +16570,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/225083-1770653003.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg/500px-N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:N%27Golo_Kante_France_v_Senegal_16_June_2026-397.jpg"
+    },
     "height": 168,
     "dateOfBirth": "1991-03-29",
     "leftFooted": false,
@@ -16529,7 +16877,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/8806-1614090062.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/2023_-_Cesc_Fabregas_%28cropped%29.jpg/500px-2023_-_Cesc_Fabregas_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2023_-_Cesc_Fabregas_(cropped).jpg"
+    },
     "height": 179,
     "dateOfBirth": "1987-05-04",
     "leftFooted": false,
@@ -16738,7 +17092,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/68863-1671105169.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Mauro_Icardi_en_2025.jpg/500px-Mauro_Icardi_en_2025.jpg",
+    "imageAttribution": {
+      "author": "Telefe",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mauro_Icardi_en_2025.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1993-02-19",
     "leftFooted": false,
@@ -16960,7 +17320,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/164770-1727257324.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Rapha%C3%ABl_Varane_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rapha%C3%ABl_Varane_2018_(cropped).jpg"
+    },
     "height": 191,
     "dateOfBirth": "1993-04-25",
     "leftFooted": false,
@@ -17273,7 +17639,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/48280-1739899618.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Edinson_Cavani_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Edinson_Cavani_2018_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1987-02-14",
     "leftFooted": false,
@@ -17544,7 +17916,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/296622-1765459707.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Marco_Asensio_2018.jpg/500px-Marco_Asensio_2018.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marco_Asensio_2018.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1996-01-21",
     "leftFooted": true,
@@ -17843,7 +18221,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3207-1683199668.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Thierry_Henry_%2851649035951%29_%28cropped%29.jpg/500px-Thierry_Henry_%2851649035951%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Thierry_Henry_(51649035951)_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1977-08-17",
     "leftFooted": false,
@@ -18118,7 +18502,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7767-1683642827.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Fernando_Torres_2017.jpg",
+    "imageAttribution": {
+      "author": "cristina cifuentes",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fernando_Torres_2017.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1984-03-20",
     "leftFooted": false,
@@ -18436,7 +18826,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15951-1635327520.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/07_07_2019_Final_da_Copa_Am%C3%A9rica_2019_%2848226649586%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Palácio do Planalto from Brasilia, Brasil",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:07_07_2019_Final_da_Copa_Am%C3%A9rica_2019_(48226649586)_(cropped).jpg"
+    },
     "height": 172,
     "dateOfBirth": "1983-05-06",
     "leftFooted": false,
@@ -18713,7 +19109,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/128223-1719989301.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/%C3%81lvaro_Morata.jpg/500px-%C3%81lvaro_Morata.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%C3%81lvaro_Morata.jpg"
+    },
     "height": 189,
     "dateOfBirth": "1992-10-23",
     "leftFooted": false,
@@ -18957,7 +19359,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3522-1570438190.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/%D0%90%D0%BD%D0%B4%D1%80%D1%96%D0%B9_%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%BE_2024_%28cropped%29.png",
+    "imageAttribution": {
+      "author": "Міністерство молоді та спорту України",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%D0%90%D0%BD%D0%B4%D1%80%D1%96%D0%B9_%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%BE_2024_(cropped).png"
+    },
     "height": 183,
     "dateOfBirth": "1976-09-29",
     "leftFooted": false,
@@ -19272,7 +19680,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3979-1684226777.jpeg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Iker_Casillas_2.jpg/500px-Iker_Casillas_2.jpg",
+    "imageAttribution": {
+      "author": "Зайцев Антон",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Iker_Casillas_2.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1981-05-20",
     "leftFooted": true,
@@ -19544,7 +19958,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7349-1570439548.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Raul_Gonzalez_2012_2.jpg/500px-Raul_Gonzalez_2012_2.jpg",
+    "imageAttribution": {
+      "author": "Doha Stadium Plus Qatar",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Raul_Gonzalez_2012_2.jpg"
+    },
     "height": 178,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -19795,7 +20215,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3366-1683638749.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Ricardo_Izecson_dos_Santos_Leite_%28Kak%C3%A1%29_01.jpg",
+    "imageAttribution": {
+      "author": "José Cruz/ABr (cropped by tales.ebner )",
+      "license": "CC BY 3.0 br",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Ricardo_Izecson_dos_Santos_Leite_(Kak%C3%A1)_01.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1982-04-22",
     "leftFooted": false,
@@ -20073,7 +20499,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/53622-1756980813.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/20180602_FIFA_Friendly_Match_Austria_vs._Germany_%C4%B0lkay_G%C3%BCndo%C4%9Fan_850_0728.jpg/500px-20180602_FIFA_Friendly_Match_Austria_vs._Germany_%C4%B0lkay_G%C3%BCndo%C4%9Fan_850_0728.jpg",
+    "imageAttribution": {
+      "author": "Granada",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_%C4%B0lkay_G%C3%BCndo%C4%9Fan_850_0728.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1990-10-24",
     "leftFooted": false,
@@ -20366,7 +20798,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/326330-1746041680.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0%C2%BB_0-1._2_%D0%BD%D0%BE%D1%8F%D0%B1%D1%80%D1%8F_2021_%D0%B3%D0%BE%D0%B4%D0%B0._II_%E2%80%94_1289671_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Yuliia Perekopaiko",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0%C2%BB_0-1._2_%D0%BD%D0%BE%D1%8F%D0%B1%D1%80%D1%8F_2021_%D0%B3%D0%BE%D0%B4%D0%B0._II_%E2%80%94_1289671_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1997-05-12",
     "leftFooted": false,
@@ -20652,7 +21090,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/29241-1661856081.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg",
+    "imageAttribution": {
+      "author": "Granada",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1984-09-22",
     "leftFooted": false,
@@ -21046,7 +21490,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/159471-1759909173.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/2019-06-11_Fu%C3%9Fball%2C_M%C3%A4nner%2C_L%C3%A4nderspiel%2C_Deutschland-Estland_StP_2075_LR10_by_Stepro.jpg/500px-2019-06-11_Fu%C3%9Fball%2C_M%C3%A4nner%2C_L%C3%A4nderspiel%2C_Deutschland-Estland_StP_2075_LR10_by_Stepro.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2019-06-11_Fu%C3%9Fball,_M%C3%A4nner,_L%C3%A4nderspiel,_Deutschland-Estland_StP_2075_LR10_by_Stepro.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1995-07-14",
     "leftFooted": false,
@@ -21337,7 +21787,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3406-1589198838.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ryan_Giggs_in_2008.jpg/500px-Ryan_Giggs_in_2008.jpg",
+    "imageAttribution": {
+      "author": "James Adams",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ryan_Giggs_in_2008.jpg"
+    },
     "height": 179,
     "dateOfBirth": "1973-11-29",
     "leftFooted": true,
@@ -21561,7 +22017,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/238223-1765380595.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Ederson_%28cropped%29.png",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ederson_(cropped).png"
+    },
     "height": 188,
     "dateOfBirth": "1993-08-17",
     "leftFooted": true,
@@ -21838,7 +22300,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/54781-1669835534.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Nicolas_Otamendi_Argentina_v_Egypt_7_July_2026-030.jpg/500px-Nicolas_Otamendi_Argentina_v_Egypt_7_July_2026-030.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nicolas_Otamendi_Argentina_v_Egypt_7_July_2026-030.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1988-02-12",
     "leftFooted": false,
@@ -22045,7 +22513,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/401923-1737730981.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Victor-osimhen-nigeria-2024-3-4.jpg/500px-Victor-osimhen-nigeria-2024-3-4.jpg",
+    "imageAttribution": {
+      "author": "Fédération Guinéenne Football",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Victor-osimhen-nigeria-2024-3-4.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1998-12-29",
     "leftFooted": false,
@@ -22327,7 +22801,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3373-1515762355.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2019_-_Press_conferences_-_Day_1_ENX_6950_(49019873887)_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1980-03-21",
     "leftFooted": false,
@@ -22654,7 +23134,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4257-1683640611.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Sammuel_Eto%27o_Fils_02.jpg/500px-Sammuel_Eto%27o_Fils_02.jpg",
+    "imageAttribution": {
+      "author": "BACHELOR45",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sammuel_Eto%27o_Fils_02.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1981-03-10",
     "leftFooted": false,
@@ -22875,7 +23361,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/102017-1682590896.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/2021_FIFA_Club_World_Cup_Final_-_01_%28Jorginho_com_a_medalha_do_Mundial_de_Clubes%29.jpg",
+    "imageAttribution": {
+      "author": "محمد امین انصاری",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021_FIFA_Club_World_Cup_Final_-_01_(Jorginho_com_a_medalha_do_Mundial_de_Clubes).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1991-12-20",
     "leftFooted": false,
@@ -23146,7 +23638,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5658-1464946835.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Petr_%C4%8Cech_Chelsea_2013.jpg/500px-Petr_%C4%8Cech_Chelsea_2013.jpg",
+    "imageAttribution": {
+      "author": "Warrenfish",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Petr_%C4%8Cech_Chelsea_2013.jpg"
+    },
     "height": 196,
     "dateOfBirth": "1982-05-20",
     "leftFooted": true,
@@ -23525,7 +24023,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/203460-1676499047.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/ManCity20240722-017_%28cropped%29.jpg/500px-ManCity20240722-017_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Hameltion",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:ManCity20240722-017_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1995-09-10",
     "leftFooted": false,
@@ -23796,7 +24300,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/153084-1700040179.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Leon_Goretzka_Ecuador_v_Germany_25_June_2026-159.jpg/500px-Leon_Goretzka_Ecuador_v_Germany_25_June_2026-159.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Leon_Goretzka_Ecuador_v_Germany_25_June_2026-159.jpg"
+    },
     "height": 189,
     "dateOfBirth": "1995-02-06",
     "leftFooted": false,
@@ -24060,7 +24570,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/176553-1685546335.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Aymeric_Laporte_2023_%28cropped%29_2.jpg",
+    "imageAttribution": {
+      "author": "Mohammadreza Abbasi",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aymeric_Laporte_2023_(cropped)_2.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1994-05-27",
     "leftFooted": true,
@@ -24310,7 +24826,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Right-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/138927-1721026790.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Dani_Carvajal_10_%28cropped%29.jpg/500px-UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Dani_Carvajal_10_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Rolandhino1",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Dani_Carvajal_10_(cropped).jpg"
+    },
     "height": 173,
     "dateOfBirth": "1992-01-11",
     "leftFooted": false,
@@ -24582,7 +25104,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/258004-1684921271.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Diogo_Costa_Ruben_Dias_Croatia_v_Portugal_2_July_2026-181_%28cropped%29.jpg/500px-Diogo_Costa_Ruben_Dias_Croatia_v_Portugal_2_July_2026-181_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Diogo_Costa_Ruben_Dias_Croatia_v_Portugal_2_July_2026-181_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1997-05-14",
     "leftFooted": false,
@@ -24835,7 +25363,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7518-1726487760.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/LS3_1288_%2853332367864%29_%28cropped%29.jpg/500px-LS3_1288_%2853332367864%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:LS3_1288_(53332367864)_(cropped).jpg"
+    },
     "height": 168,
     "dateOfBirth": "1973-04-10",
     "leftFooted": true,
@@ -25177,7 +25711,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5817-1454934952.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Andrea_Pirlo_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Clément Bucco-Lechat",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Andrea_Pirlo_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1979-05-19",
     "leftFooted": false,
@@ -25423,7 +25963,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/39728-1709560545.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93103_%28cropped%29.jpg/500px-2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93103_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Sandro Halank, Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_(DFB-Pokal_2023-24)_by_Sandro_Halank%E2%80%93103_(cropped).jpg"
+    },
     "height": 191,
     "dateOfBirth": "1988-12-16",
     "leftFooted": false,
@@ -25696,7 +26242,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/35664-1483519286.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg/500px-Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
+    "imageAttribution": {
+      "author": "Amir Hosseini",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mesut_%C3%96zil_at_Baku_before_2019_UEFA_Europe_League_Final.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1988-10-15",
     "leftFooted": true,
@@ -25992,7 +26544,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/88103-1771697730.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/James_al_natural_-_Series%2C_02.jpg/500px-James_al_natural_-_Series%2C_02.jpg",
+    "imageAttribution": {
+      "author": "Canal 10 Gold",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:James_al_natural_-_Series,_02.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1991-07-12",
     "leftFooted": true,
@@ -26256,7 +26814,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3160-1719152925.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/John_Terry_at_pro-am_Wentworth_golf_course_September_2023_%28cropped%29.jpg/500px-John_Terry_at_pro-am_Wentworth_golf_course_September_2023_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "ChristopherJClarke",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Terry_at_pro-am_Wentworth_golf_course_September_2023_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1980-12-07",
     "leftFooted": false,
@@ -26559,7 +27123,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/14132-1606396269.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Russia-Portugal_CC2017_%2811_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Садовников",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Russia-Portugal_CC2017_(11_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1983-02-26",
     "leftFooted": false,
@@ -26882,7 +27452,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3139-1746174990.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/David_Beckham_UNICEF_%28cropped%29.jpg/500px-David_Beckham_UNICEF_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Soccer Aid for Unicef",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:David_Beckham_UNICEF_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1975-05-02",
     "leftFooted": false,
@@ -27126,7 +27702,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/171424-1699948752.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Mahrez_2021.jpg/500px-Mahrez_2021.jpg",
+    "imageAttribution": {
+      "author": "Jeanpierrekepseu",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mahrez_2021.jpg"
+    },
     "height": 179,
     "dateOfBirth": "1991-02-21",
     "leftFooted": true,
@@ -27421,7 +28003,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/568177-1712320986.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Cole_Palmer_2025_FIFA_Club_World_Cup_Final.jpg",
+    "imageAttribution": {
+      "author": "The White House",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Cole_Palmer_2025_FIFA_Club_World_Cup_Final.jpg"
+    },
     "height": 185,
     "dateOfBirth": "2002-05-06",
     "leftFooted": true,
@@ -27630,7 +28218,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/581678-1748102891.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg/500px-Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jude_Bellingham_England_v_Ghana_23_June_2026-061_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "2003-06-29",
     "leftFooted": false,
@@ -27972,7 +28566,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/42460-1667991317.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Ivan_Perisic_Croatia_v_Portugal_2_July_2026-033.jpg/500px-Ivan_Perisic_Croatia_v_Portugal_2_July_2026-033.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ivan_Perisic_Croatia_v_Portugal_2_July_2026-033.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1989-02-02",
     "leftFooted": false,
@@ -28242,7 +28842,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/82442-1725258600.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Olivier_Giroud_2018.jpg/500px-Olivier_Giroud_2018.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivier_Giroud_2018.jpg"
+    },
     "height": 192,
     "dateOfBirth": "1986-09-30",
     "leftFooted": true,
@@ -28549,7 +29155,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/51471-1682668192.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mateo_Kovacic_Croatia_v_Portugal_2_July_2026-132.jpg/500px-Mateo_Kovacic_Croatia_v_Portugal_2_July_2026-132.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mateo_Kovacic_Croatia_v_Portugal_2_July_2026-132.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1994-05-06",
     "leftFooted": false,
@@ -28810,7 +29422,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/170527-1774652461.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3684_by_Stepro.jpg/500px-2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3684_by_Stepro.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2020-03-10_Fu%C3%9Fball,_M%C3%A4nner,_UEFA_Champions_League_Achtelfinale,_RB_Leipzig_-_Tottenham_Hotspur_1DX_3684_by_Stepro.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1996-03-06",
     "leftFooted": false,
@@ -29096,7 +29714,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/86202-1684484602.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Antonio_Rudiger_Ecuador_v_Germany_25_June_2026-055_%28cropped%29.jpg/500px-Antonio_Rudiger_Ecuador_v_Germany_25_June_2026-055_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Antonio_Rudiger_Ecuador_v_Germany_25_June_2026-055_(cropped).jpg"
+    },
     "height": 190,
     "dateOfBirth": "1993-03-03",
     "leftFooted": false,
@@ -29424,7 +30048,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/95424-1668090663.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Kyle_Walker.jpg/500px-Kyle_Walker.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kyle_Walker.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1990-05-28",
     "leftFooted": false,
@@ -29618,7 +30248,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/412363-1763041611.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Rodrygo_2023_%28cropped%29.jpg/500px-Rodrygo_2023_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Junta de Andalucía",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rodrygo_2023_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "2001-01-09",
     "leftFooted": false,
@@ -29854,7 +30490,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/398073-1672304327.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Achraf_Hakimi_Morocco_v_Norway_7_June_2026-16.jpg/500px-Achraf_Hakimi_Morocco_v_Norway_7_June_2026-16.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Achraf_Hakimi_Morocco_v_Norway_7_June_2026-16.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1998-11-04",
     "leftFooted": false,
@@ -30094,7 +30736,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/2514-1551256967.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Re-publica_23_-_Tag_3_%2852957826298%29_%28cropped%29.jpg/500px-Re-publica_23_-_Tag_3_%2852957826298%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Anne Barth / re:publica",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Re-publica_23_-_Tag_3_(52957826298)_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1984-08-01",
     "leftFooted": false,
@@ -30426,7 +31074,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_4168_537_2013_05_22_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Clarence_Seedorf_2021.jpg/500px-Clarence_Seedorf_2021.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clarence_Seedorf_2021.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1976-04-01",
     "leftFooted": false,
@@ -30733,7 +31387,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/182712-1675080937.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Jo%C3%A3o_Cancelo_USMNT_v_Portugal_Mar_31_2026-30_%28cropped%29.jpg/500px-Jo%C3%A3o_Cancelo_USMNT_v_Portugal_Mar_31_2026-30_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jo%C3%A3o_Cancelo_USMNT_v_Portugal_Mar_31_2026-30_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1994-05-27",
     "leftFooted": false,
@@ -30941,7 +31601,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/105470-1668522221.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Alisson_Becker_Brazil_V_Morocco_13_June_2026-117_%28cropped%29.jpg/500px-Alisson_Becker_Brazil_V_Morocco_13_June_2026-117_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alisson_Becker_Brazil_V_Morocco_13_June_2026-117_(cropped).jpg"
+    },
     "height": 193,
     "dateOfBirth": "1992-10-02",
     "leftFooted": false,
@@ -31234,7 +31900,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/39152-1721184791.JPG?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Radamel_Falcao_Garc%C3%ADa_%28cropped%29.jpg/500px-Radamel_Falcao_Garc%C3%ADa_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Gilzetbase",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Radamel_Falcao_Garc%C3%ADa_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1986-02-10",
     "leftFooted": false,
@@ -31476,7 +32148,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3924-1683633427.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Didier_Drogba_%282019%29_%28cropped%29.jpg/500px-Didier_Drogba_%282019%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Y.Leclercq©",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Didier_Drogba_(2019)_(cropped).jpg"
+    },
     "height": 189,
     "dateOfBirth": "1978-03-11",
     "leftFooted": false,
@@ -31728,7 +32406,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7476-1471439383.JPG?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Los_Caminos_del_f%C3%BAtbol._Xabi_Alonso_%2839666778464%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "DONOSTIA KULTURA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Los_Caminos_del_f%C3%BAtbol._Xabi_Alonso_(39666778464)_(cropped).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1981-11-25",
     "leftFooted": false,
@@ -32047,7 +32731,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5958-1448466835.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Francesco_Totti_Vicario_%28crop%29.jpg",
+    "imageAttribution": {
+      "author": "Photojournalist Roberto Vicario derivative work: Clarus The Dogcow ( talk )",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Francesco_Totti_Vicario_(crop).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1976-09-27",
     "leftFooted": false,
@@ -32307,7 +32997,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7980-1684165569.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Spain-Tahiti%2C_Confederations_Cup_2013_%2802%29_%28Villa_crop%29.jpg",
+    "imageAttribution": {
+      "author": "Tânia Rêgo/ABr",
+      "license": "CC BY 3.0 br",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Spain-Tahiti,_Confederations_Cup_2013_(02)_(Villa_crop).jpg"
+    },
     "height": 174,
     "dateOfBirth": "1981-12-03",
     "leftFooted": false,
@@ -32518,7 +33214,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/576024-1684920938.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Julian_Alvarez_Argentina_v_Egypt_7_July_2026-056.jpg/500px-Julian_Alvarez_Argentina_v_Egypt_7_July_2026-056.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Julian_Alvarez_Argentina_v_Egypt_7_July_2026-056.jpg"
+    },
     "height": 170,
     "dateOfBirth": "2000-01-31",
     "leftFooted": false,
@@ -32784,7 +33486,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5285-1416219199.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Patrice_Evra_%2852472689279%29_%28cropped%29.jpg/500px-Patrice_Evra_%2852472689279%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Patrice_Evra_(52472689279)_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "1981-05-15",
     "leftFooted": true,
@@ -32987,7 +33695,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/363205-1669711141.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Gabriel_Jesus_850_1688.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Gabriel_Jesus_850_1688.jpg",
+    "imageAttribution": {
+      "author": "Granada",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Gabriel_Jesus_850_1688.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1997-04-03",
     "leftFooted": false,
@@ -33247,7 +33961,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/1161-1463994546.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Metalist-Inter_%282%29.jpg/500px-Metalist-Inter_%282%29.jpg",
+    "imageAttribution": {
+      "author": "Илья Хохлов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Metalist-Inter_(2).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1973-08-10",
     "leftFooted": false,
@@ -33629,7 +34349,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5803-1570438594.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paolo_Maldini_press_conference_in_Tehran_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Foad Ashtari",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paolo_Maldini_press_conference_in_Tehran_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1968-06-26",
     "leftFooted": false,
@@ -33906,7 +34632,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/326031-1700659567.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Matthijs_de_Ligt_2018.jpg",
+    "imageAttribution": {
+      "author": "ОЛЕГ БАТРАК",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Matthijs_de_Ligt_2018.jpg"
+    },
     "height": 189,
     "dateOfBirth": "1999-08-12",
     "leftFooted": false,
@@ -34256,7 +34988,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4289-1683631011.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Alessandro_Del_Piero%2C_New_York_NY_2015.jpg/500px-Alessandro_Del_Piero%2C_New_York_NY_2015.jpg",
+    "imageAttribution": {
+      "author": "Retouched by Blackcat",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alessandro_Del_Piero,_New_York_NY_2015.jpg"
+    },
     "height": 173,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -34546,7 +35284,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4360-1719545379.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Arjen_Robben_2013.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Садовников",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arjen_Robben_2013.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1984-01-23",
     "leftFooted": true,
@@ -34706,7 +35450,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/683840-1744278342.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Pedri.jpg/500px-Pedri.jpg",
+    "imageAttribution": {
+      "author": "Biso",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pedri.jpg"
+    },
     "height": 174,
     "dateOfBirth": "2002-11-25",
     "leftFooted": false,
@@ -35003,7 +35753,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3446-1570440028.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/L._Figo_2017_%28cropped%29.jpg/500px-L._Figo_2017_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Biser Todorov",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:L._Figo_2017_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1972-11-04",
     "leftFooted": false,
@@ -35333,7 +36089,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4673-1684166804.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Wesley2012.JPG",
+    "imageAttribution": {
+      "author": "Dmitry Neimyrok",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wesley2012.JPG"
+    },
     "height": 170,
     "dateOfBirth": "1984-06-09",
     "leftFooted": false,
@@ -35549,7 +36311,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7594-1684225860.jpeg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Premios_Goya_2020_-_Carles_Pujol.jpg/500px-Premios_Goya_2020_-_Carles_Pujol.jpg",
+    "imageAttribution": {
+      "author": "Pedro J Pacheco",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Premios_Goya_2020_-_Carles_Pujol.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1978-04-13",
     "leftFooted": false,
@@ -35835,7 +36603,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/91845-1771690023.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/500px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ujishadow",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1992-07-08",
     "leftFooted": false,
@@ -36112,7 +36886,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/315858-1761076746.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Norway_Italy_-_June_2025_B_33_-_Gianluigi_Donnarumma_%28close-up%29.jpg/500px-Norway_Italy_-_June_2025_B_33_-_Gianluigi_Donnarumma_%28close-up%29.jpg",
+    "imageAttribution": {
+      "author": "Original: MichaelEmilio / Derivative work: Danyele",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_B_33_-_Gianluigi_Donnarumma_(close-up).jpg"
+    },
     "height": 196,
     "dateOfBirth": "1999-02-25",
     "leftFooted": false,
@@ -36391,7 +37171,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Left-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3182-1683297696.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/ACole.JPG",
+    "imageAttribution": {
+      "author": "Stanislav Vedmid",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:ACole.JPG"
+    },
     "height": 176,
     "dateOfBirth": "1980-12-20",
     "leftFooted": true,
@@ -36699,7 +37485,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/19981-1684312374.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Javier_Mascherano_NE_Revolution_Inter_Miami_7.9.25-040_%28cropped%29.jpg/500px-Javier_Mascherano_NE_Revolution_Inter_Miami_7.9.25-040_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Javier_Mascherano_NE_Revolution_Inter_Miami_7.9.25-040_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "1984-06-08",
     "leftFooted": false,
@@ -37016,7 +37808,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4171-1764952893.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Alessandro_Nesta_as_Miami_FC_Manager.jpg/500px-Alessandro_Nesta_as_Miami_FC_Manager.jpg",
+    "imageAttribution": {
+      "author": "Joerudi",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alessandro_Nesta_as_Miami_FC_Manager.jpg"
+    },
     "height": 187,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -37288,7 +38086,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3397-1595498527.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/P_Scholes.jpg/500px-P_Scholes.jpg",
+    "imageAttribution": {
+      "author": "James Adams",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:P_Scholes.jpg"
+    },
     "height": 168,
     "dateOfBirth": "1974-11-16",
     "leftFooted": false,
@@ -37582,7 +38386,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/243714-1700040256.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Kingsley_Coman_%282019%29_%28cropped%29.jpg/500px-Kingsley_Coman_%282019%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Sven Mandel",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kingsley_Coman_(2019)_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1996-06-13",
     "leftFooted": false,
@@ -37822,7 +38632,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/2219-1471439838.JPG?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Philipp_Lahm_auf_der_Berlinale_2024%2C_Ausschnitt.jpg/500px-Philipp_Lahm_auf_der_Berlinale_2024%2C_Ausschnitt.jpg",
+    "imageAttribution": {
+      "author": "Elena Ternovaja",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Philipp_Lahm_auf_der_Berlinale_2024,_Ausschnitt.jpg"
+    },
     "height": 170,
     "dateOfBirth": "1983-11-11",
     "leftFooted": false,
@@ -38165,7 +38981,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/167850-1668167349.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Memphis_Depay_2019.jpg",
+    "imageAttribution": {
+      "author": "Derivative work: Joe Sins",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Memphis_Depay_2019.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1994-02-13",
     "leftFooted": false,
@@ -38490,7 +39312,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4188-1730293194.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Ricardo_Quaresma_2017.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ricardo_Quaresma_2017.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1983-09-26",
     "leftFooted": false,
@@ -38780,7 +39608,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/44058-1744278078.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Wojciech_Szcz%C4%99sny.png/500px-Wojciech_Szcz%C4%99sny.png",
+    "imageAttribution": {
+      "author": "La Gazzetta dello Sport",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wojciech_Szcz%C4%99sny.png"
+    },
     "height": 195,
     "dateOfBirth": "1990-04-18",
     "leftFooted": false,
@@ -39033,7 +39867,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/204069-1765460153.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/SVK_vs._SMR_2024_Slovakia_Nr._14_Skriniar_%28cropped%29.jpg/500px-SVK_vs._SMR_2024_Slovakia_Nr._14_Skriniar_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Lukas Raich",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:SVK_vs._SMR_2024_Slovakia_Nr._14_Skriniar_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1995-02-11",
     "leftFooted": false,
@@ -39359,7 +40199,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/29260-1678025858.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sergio_Mattarella_meets_Italy_national_football_team_and_Matteo_Berrettini_%2812_July_2021%29_30_-_Chiellini_%28cropped%29.jpg/500px-Sergio_Mattarella_meets_Italy_national_football_team_and_Matteo_Berrettini_%2812_July_2021%29_30_-_Chiellini_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Presidenza della Repubblica Derivative work: Danyele",
+      "license": "Attribution",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Sergio_Mattarella_meets_Italy_national_football_team_and_Matteo_Berrettini_(12_July_2021)_30_-_Chiellini_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1984-08-14",
     "leftFooted": true,
@@ -39608,7 +40454,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/63-1461310873.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/10._Tag_der_Legenden_2014_69.jpg/500px-10._Tag_der_Legenden_2014_69.jpg",
+    "imageAttribution": {
+      "author": "Die Bildermacherei Cuxhaven, Kerstin Tietje",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:10._Tag_der_Legenden_2014_69.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1976-09-26",
     "leftFooted": false,
@@ -39845,7 +40697,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/206-1464084738.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3179_by_Stepro.jpg/500px-2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3179_by_Stepro.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022-07-30_Fu%C3%9Fball,_M%C3%A4nner,_DFL-Supercup,_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3179_by_Stepro.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1969-06-15",
     "leftFooted": false,
@@ -40177,7 +41035,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4276-1719495009.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg/500px-Carlos_Tevez_with_Argentina_November_2014_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Egghead06",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Carlos_Tevez_with_Argentina_November_2014_(cropped).jpg"
+    },
     "height": 171,
     "dateOfBirth": "1984-02-05",
     "leftFooted": false,
@@ -40419,7 +41283,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/13091-1719518647.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Yaya_Tour%C3%A9_%28cropped%29.jpg/500px-Yaya_Tour%C3%A9_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Puma",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yaya_Tour%C3%A9_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1983-05-13",
     "leftFooted": false,
@@ -40622,7 +41492,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/413112-1668500754.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Aurelien_Tchouameni_France_v_Senegal_16_June_2026-447_%28cropped%29.jpg/500px-Aurelien_Tchouameni_France_v_Senegal_16_June_2026-447_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aurelien_Tchouameni_France_v_Senegal_16_June_2026-447_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "2000-01-27",
     "leftFooted": false,
@@ -40910,7 +41786,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/111455-1689711080.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Granit_Xhaka_%28cropped%29.jpg/500px-Granit_Xhaka_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Granit_Xhaka_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1992-09-27",
     "leftFooted": true,
@@ -41199,7 +42081,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3183-1458213441.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Patrick_Vieira_NYCFC.JPG/500px-Patrick_Vieira_NYCFC.JPG",
+    "imageAttribution": {
+      "author": "Simon Heseltine",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Patrick_Vieira_NYCFC.JPG"
+    },
     "height": 192,
     "dateOfBirth": "1976-06-23",
     "leftFooted": false,
@@ -41471,7 +42359,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3408-1456484557.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/U10_Diego_Forl%C3%A1n_7524.jpg/500px-U10_Diego_Forl%C3%A1n_7524.jpg",
+    "imageAttribution": {
+      "author": "Ailura",
+      "license": "CC BY-SA 3.0 at",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:U10_Diego_Forl%C3%A1n_7524.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1979-05-19",
     "leftFooted": false,
@@ -41781,7 +42675,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/186590-1684764261.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/John_Stones_England_v_Ghana_23_June_2026-038.jpg/500px-John_Stones_England_v_Ghana_23_June_2026-038.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Stones_England_v_Ghana_23_June_2026-038.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1994-05-28",
     "leftFooted": false,
@@ -42074,7 +42974,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/281963-1667830435.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lucas_Hernandez_France_v_Senegal_16_June_2026-281.jpg/500px-Lucas_Hernandez_France_v_Senegal_16_June_2026-281.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lucas_Hernandez_France_v_Senegal_16_June_2026-281.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1996-02-14",
     "leftFooted": true,
@@ -42279,7 +43185,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/424204-1711745534.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Alphonso_Davies_Canada_v_Qatar_18_June_2026-007_%28cropped%29.jpg/500px-Alphonso_Davies_Canada_v_Qatar_18_June_2026-007_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alphonso_Davies_Canada_v_Qatar_18_June_2026-007_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "2000-11-02",
     "leftFooted": true,
@@ -42562,7 +43474,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Right-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/314353-1701680958.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Trent_Alexander-Arnold_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Trent_Alexander-Arnold_2018_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1998-10-07",
     "leftFooted": false,
@@ -42816,7 +43734,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/344381-1663686834.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3321_by_Stepro_%28cropped%29.jpg/500px-2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3321_by_Stepro_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022-07-30_Fu%C3%9Fball,_M%C3%A4nner,_DFL-Supercup,_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3321_by_Stepro_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1997-11-14",
     "leftFooted": false,
@@ -43115,7 +44039,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/55735-1664973670.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Henrikh_Mkhitaryan_2017.jpg/500px-Henrikh_Mkhitaryan_2017.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Голубович",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Henrikh_Mkhitaryan_2017.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1989-01-21",
     "leftFooted": false,
@@ -43437,7 +44367,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/349066-1680791339.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Alexander_Isak_-_Sweden_-_Greece21_%28cropped%29.jpg/500px-Alexander_Isak_-_Sweden_-_Greece21_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Mikael Hervestad",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alexander_Isak_-_Sweden_-_Greece21_(cropped).jpg"
+    },
     "height": 192,
     "dateOfBirth": "1999-09-21",
     "leftFooted": false,
@@ -43667,7 +44603,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3185-1586964073.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Robert_Pir%C3%A8s.jpg/500px-Robert_Pir%C3%A8s.jpg",
+    "imageAttribution": {
+      "author": "Zack",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Robert_Pir%C3%A8s.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1973-10-29",
     "leftFooted": false,
@@ -43887,7 +44829,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3407-1730121299.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ruud_van_Nistelrooy_2017.jpg/500px-Ruud_van_Nistelrooy_2017.jpg",
+    "imageAttribution": {
+      "author": "Ardfern",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ruud_van_Nistelrooy_2017.jpg"
+    },
     "height": 189,
     "dateOfBirth": "1976-07-01",
     "leftFooted": false,
@@ -44156,7 +45104,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3516-1719539293.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Edwin_van_der_Sar_side.jpg",
+    "imageAttribution": {
+      "author": "Paul Blank",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Edwin_van_der_Sar_side.jpg"
+    },
     "height": 199,
     "dateOfBirth": "1970-10-29",
     "leftFooted": false,
@@ -44432,7 +45386,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15511-1506092397.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Robinho061115-2_%28cropped%29.jpg/500px-Robinho061115-2_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Reto Stauffer, www.hopp-schwiiz.ch",
+      "license": "CC BY-SA 2.0 de",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Robinho061115-2_(cropped).jpg"
+    },
     "height": 172,
     "dateOfBirth": "1984-01-25",
     "leftFooted": false,
@@ -44658,7 +45618,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/640428-1668500874.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ofrenda_de_la_Liga_y_la_Champions-13-L.Mill%C3%A1n_%2852109790215%29_%28cropped%29.jpg/500px-Ofrenda_de_la_Liga_y_la_Champions-13-L.Mill%C3%A1n_%2852109790215%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Fotografías Archimadrid.es",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ofrenda_de_la_Liga_y_la_Champions-13-L.Mill%C3%A1n_(52109790215)_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "2002-11-10",
     "leftFooted": true,
@@ -44952,7 +45918,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/6288-1683668325.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Mario_gomez.jpg/500px-Mario_gomez.jpg",
+    "imageAttribution": {
+      "author": "Jeollo von VfB-exklusiv.de",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mario_gomez.jpg"
+    },
     "height": 189,
     "dateOfBirth": "1985-07-10",
     "leftFooted": false,
@@ -45203,7 +46175,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7531-1683669122.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Fernando_Morientes_2010.jpg/500px-Fernando_Morientes_2010.jpg",
+    "imageAttribution": {
+      "author": "Christophe95",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fernando_Morientes_2010.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1976-04-05",
     "leftFooted": false,
@@ -45477,7 +46455,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/182913-1681462009.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Adrien_Rabiot_France_v_Senegal_16_June_2026-371_%28cropped%29.jpg/500px-Adrien_Rabiot_France_v_Senegal_16_June_2026-371_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Adrien_Rabiot_France_v_Senegal_16_June_2026-371_(cropped).jpg"
+    },
     "height": 191,
     "dateOfBirth": "1995-04-03",
     "leftFooted": true,
@@ -45670,7 +46654,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/480692-1757938077.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/FC_RB_Salzburg_gegen_FC_Bayern_M%C3%BCnchen_%282026-01-06_Testspiel%29_40_%28Luiz_D%C3%ADaz%29.jpg/500px-FC_RB_Salzburg_gegen_FC_Bayern_M%C3%BCnchen_%282026-01-06_Testspiel%29_40_%28Luiz_D%C3%ADaz%29.jpg",
+    "imageAttribution": {
+      "author": "Werner100359",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:FC_RB_Salzburg_gegen_FC_Bayern_M%C3%BCnchen_(2026-01-06_Testspiel)_40_(Luiz_D%C3%ADaz).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1997-01-13",
     "leftFooted": false,
@@ -45913,7 +46903,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3111-1478769687.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg",
+    "imageAttribution": {
+      "author": "Hadi Abyar",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_by_Tasnim_03.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1972-06-23",
     "leftFooted": false,
@@ -46218,7 +47214,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/36139-1728391824.JPG?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Du%C5%A1an_Tadi%C4%87_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Екатерина Лаут",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Du%C5%A1an_Tadi%C4%87_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1988-11-20",
     "leftFooted": true,
@@ -46510,7 +47512,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/293385-1711546268.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dani_Olmo_2022.jpg/500px-Dani_Olmo_2022.jpg",
+    "imageAttribution": {
+      "author": "crop by M-B",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dani_Olmo_2022.jpg"
+    },
     "height": 179,
     "dateOfBirth": "1998-05-07",
     "leftFooted": false,
@@ -46765,7 +47773,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/36827-1572532635.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Branislav_Ivanovi%C4%87_2020.jpg",
+    "imageAttribution": {
+      "author": "Вячеслав Евдокимов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Branislav_Ivanovi%C4%87_2020.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1984-02-22",
     "leftFooted": false,
@@ -47020,7 +48034,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5588-1418303814.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Chelsea_Legends_1_Inter_Forever_4_%2828453496098%29_%28cropped%29.jpg/500px-Chelsea_Legends_1_Inter_Forever_4_%2828453496098%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chelsea_Legends_1_Inter_Forever_4_(28453496098)_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1982-12-03",
     "leftFooted": false,
@@ -47289,7 +48309,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3396-1570441538.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Roy_keane_2014.jpg/500px-Roy_keane_2014.jpg",
+    "imageAttribution": {
+      "author": "Irish Defence Forces from Ireland",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roy_keane_2014.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -47561,7 +48587,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3109_31_2013_01_16_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Steven_Gerrard_2018.jpg",
+    "imageAttribution": {
+      "author": "Эдгар Брещанов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Steven_Gerrard_2018.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1980-05-30",
     "leftFooted": false,
@@ -47839,7 +48871,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/258923-1674473054.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Marcus_Rashford_England_v_Panama_27_June_26-047.jpg/500px-Marcus_Rashford_England_v_Panama_27_June_26-047.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marcus_Rashford_England_v_Panama_27_June_26-047.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1997-10-31",
     "leftFooted": false,
@@ -48086,7 +49124,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3428-1461242093.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Dejan_Stankovi%C4%87_in_2025.jpg/500px-Dejan_Stankovi%C4%87_in_2025.jpg",
+    "imageAttribution": {
+      "author": "Вячеслав Евдокимов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dejan_Stankovi%C4%87_in_2025.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1978-09-11",
     "leftFooted": false,
@@ -48330,7 +49374,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/10-1448468291.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/2016209185719_2016-07-27_Champions_for_Charity_-_Sven_-_1D_X_-_0149_-_DV3P4742_mod.jpg/500px-2016209185719_2016-07-27_Champions_for_Charity_-_Sven_-_1D_X_-_0149_-_DV3P4742_mod.jpg",
+    "imageAttribution": {
+      "author": "Sven Mandel",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2016209185719_2016-07-27_Champions_for_Charity_-_Sven_-_1D_X_-_0149_-_DV3P4742_mod.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1978-06-09",
     "leftFooted": false,
@@ -48638,7 +49688,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4380-1707301752.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Loco-Fener_%2810%29.jpg",
+    "imageAttribution": {
+      "author": "Елена Рыбакова",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Loco-Fener_(10).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1983-08-06",
     "leftFooted": true,
@@ -48811,7 +49867,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/401530-1719653438.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Eder_Militao_2021.jpg/500px-Eder_Militao_2021.jpg",
+    "imageAttribution": {
+      "author": "Real Madrid",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eder_Militao_2021.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1998-01-18",
     "leftFooted": false,
@@ -49050,7 +50112,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/29401-1595418857.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/20180602_FIFA_Friendly_Match_Austria_vs._Germany_Sami_Khedira_850_0707.jpg/500px-20180602_FIFA_Friendly_Match_Austria_vs._Germany_Sami_Khedira_850_0707.jpg",
+    "imageAttribution": {
+      "author": "Granada",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Sami_Khedira_850_0707.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1987-04-04",
     "leftFooted": false,
@@ -49291,7 +50359,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3372-1588239928.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Rivaldo_bunyodkor_2010.jpg",
+    "imageAttribution": {
+      "author": "w:User:Nursultan12",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rivaldo_bunyodkor_2010.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1972-04-19",
     "leftFooted": true,
@@ -49520,7 +50594,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/234803-1709147379.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Andy_Robertson_Scotland_v_Bolivia_6_June_2026-43.jpg/500px-Andy_Robertson_Scotland_v_Bolivia_6_June_2026-43.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andy_Robertson_Scotland_v_Bolivia_6_June_2026-43.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1994-03-11",
     "leftFooted": true,
@@ -49796,7 +50876,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/102558-1725823830.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/2019-07-17_SG_Dynamo_Dresden_vs._Paris_Saint-Germain_by_Sandro_Halank%E2%80%93505_%28cropped%29.jpg/500px-2019-07-17_SG_Dynamo_Dresden_vs._Paris_Saint-Germain_by_Sandro_Halank%E2%80%93505_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Sandro Halank , Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2019-07-17_SG_Dynamo_Dresden_vs._Paris_Saint-Germain_by_Sandro_Halank%E2%80%93505_(cropped).jpg"
+    },
     "height": 165,
     "dateOfBirth": "1992-11-05",
     "leftFooted": false,
@@ -50037,7 +51123,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5354-1683633269.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Juninho_Pernambucano.JPG",
+    "imageAttribution": {
+      "author": "TV Brasil",
+      "license": "CC BY 3.0 br",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Juninho_Pernambucano.JPG"
+    },
     "height": 178,
     "dateOfBirth": "1975-01-30",
     "leftFooted": false,
@@ -50251,7 +51343,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/8564-1720495726.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Deco_21dec2006.jpg",
+    "imageAttribution": {
+      "author": "Darz Mol",
+      "license": "CC BY-SA 2.5 es",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/es/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Deco_21dec2006.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1977-08-27",
     "leftFooted": false,
@@ -50522,7 +51620,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/105521-1770718860.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Ciro_Immobile_1.jpg/500px-20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Ciro_Immobile_1.jpg",
+    "imageAttribution": {
+      "author": "Clément Bucco-Lechat",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Ciro_Immobile_1.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1990-02-20",
     "leftFooted": false,
@@ -50775,7 +51879,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/353366-1713819215.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Benjamin_Pavard_20180709.jpg/500px-Benjamin_Pavard_20180709.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Benjamin_Pavard_20180709.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1996-03-28",
     "leftFooted": false,
@@ -51096,7 +52206,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5775-1454933483.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fabio_Cannavaro_-_2024_%28cropped%29.jpg/500px-Fabio_Cannavaro_-_2024_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Mech867 / Derivative work: Danyele",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fabio_Cannavaro_-_2024_(cropped).jpg"
+    },
     "height": 176,
     "dateOfBirth": "1973-09-13",
     "leftFooted": false,
@@ -51366,7 +52482,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/59377-1667548362.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/David_de_Gea_2017.jpg/500px-David_de_Gea_2017.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:David_de_Gea_2017.jpg"
+    },
     "height": 192,
     "dateOfBirth": "1990-11-07",
     "leftFooted": false,
@@ -51646,7 +52768,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/86792-1723811199.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Xherdan_Shaqiri_2018.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Xherdan_Shaqiri_2018.jpg"
+    },
     "height": 169,
     "dateOfBirth": "1991-10-10",
     "leftFooted": true,
@@ -51838,7 +52966,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/34495-1538046358.JPG?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/DK-Beshiktash_%281%29.jpg",
+    "imageAttribution": {
+      "author": "Илья Хохолов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:DK-Beshiktash_(1).jpg"
+    },
     "height": 172,
     "dateOfBirth": "1984-10-26",
     "leftFooted": false,
@@ -52117,7 +53251,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4146-1491231443.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/David_Trezeguet_became_Save_the_Dream_Ambassador%2C_2017_%28cropped%29.jpg/500px-David_Trezeguet_became_Save_the_Dream_Ambassador%2C_2017_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Save the Dream from Doha, Qatar",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:David_Trezeguet_became_Save_the_Dream_Ambassador,_2017_(cropped).jpg"
+    },
     "height": 190,
     "dateOfBirth": "1977-10-15",
     "leftFooted": false,
@@ -52410,7 +53550,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/401173-1688564217.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Manchester_United_v_Liverpool%2C_22_August_2022_%2833%29_%28cropped%29.jpg/500px-Manchester_United_v_Liverpool%2C_22_August_2022_%2833%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ardfern",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Manchester_United_v_Liverpool,_22_August_2022_(33)_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "2000-03-25",
     "leftFooted": false,
@@ -52612,7 +53758,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/598577-1689710503.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg/500px-Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg"
+    },
     "height": 177,
     "dateOfBirth": "2003-05-03",
     "leftFooted": false,
@@ -52858,7 +54010,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3140-1489417571.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/051119SMcC0014.jpg/500px-051119SMcC0014.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:051119SMcC0014.jpg"
+    },
     "height": 183,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -53069,7 +54227,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/411975-1702502639.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jules_Kounde_France_v_Senegal_16_June_2026-449_%28cropped%29.jpg/500px-Jules_Kounde_France_v_Senegal_16_June_2026-449_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jules_Kounde_France_v_Senegal_16_June_2026-449_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1998-11-12",
     "leftFooted": false,
@@ -53291,7 +54455,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/398184-1699383547.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Ferran_Torres_2019.png/500px-Ferran_Torres_2019.png",
+    "imageAttribution": {
+      "author": "Valencia CF",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ferran_Torres_2019.png"
+    },
     "height": 182,
     "dateOfBirth": "2000-02-29",
     "leftFooted": false,
@@ -53544,7 +54714,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/462250-1668165358.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Joao_Felix_Croatia_v_Portugal_2_July_2026-007.jpg/500px-Joao_Felix_Croatia_v_Portugal_2_July_2026-007.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Joao_Felix_Croatia_v_Portugal_2_July_2026-007.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1999-11-10",
     "leftFooted": false,
@@ -53790,7 +54966,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3521-1671091844.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lilian_Thuram_-_F%C3%A9vrier_2013.jpg/500px-Lilian_Thuram_-_F%C3%A9vrier_2013.jpg",
+    "imageAttribution": {
+      "author": "English : This photo has been taken by Matthieu Riegler ( User:Kyro ) and released under the licenses stated below. You are free to use it for any purpose as long as you credit me as author, Wikimedia Commons as site and follow the terms of the licenses. Could you be kind enough to leave me a message on this page to inform me about your use of this picture. Example : © Matthieu Riegler , CC-BY Français : Cette photo a été prise par Matthieu Riegler ( User:Kyro ) et placée sous les licences ci-dessous. Vous êtes libre de la réutiliser, pour n'importe quelle utilisation, tant que vous me citez en tant qu'auteur, Wikimedia Commons en tant que site et suivez les instructions des licences. Pourriez-vous avoir l'amabilité de me laisser un message sur cette page pour m'informer de votre utilisation de cette image. Exemple : © Matthieu Riegler , CC-BY This file is licensed under the Creative Commons Attribution 3.0 Unported license. Attribution: Matthieu Riegler, CC-by You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. https://creativecommons.org/licenses/by/3.0 CC BY 3.0 Creative Commons Attribution 3.0 true true Vous souhaitez faire apparaitre cette photo sans crédit ? Contactez moi ! If you want to use the photo without credit, please contact me .",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lilian_Thuram_-_F%C3%A9vrier_2013.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1972-01-01",
     "leftFooted": false,
@@ -54041,7 +55223,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3188-1491232150.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Sylvain_Wiltord_Rennes_081229.jpg",
+    "imageAttribution": {
+      "author": "Pymouss44",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sylvain_Wiltord_Rennes_081229.jpg"
+    },
     "height": 174,
     "dateOfBirth": "1974-05-10",
     "leftFooted": false,
@@ -54285,7 +55473,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3603-1570438744.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Pavel_Nedv%C4%9Bd.jpg/500px-Pavel_Nedv%C4%9Bd.jpg",
+    "imageAttribution": {
+      "author": "Pavel Lebeda",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pavel_Nedv%C4%9Bd.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1972-08-30",
     "leftFooted": false,
@@ -54583,7 +55777,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5758-1590390814.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Edgar_Davids.jpg/500px-Edgar_Davids.jpg",
+    "imageAttribution": {
+      "author": "Paul Blank",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Edgar_Davids.jpg"
+    },
     "height": 169,
     "dateOfBirth": "",
     "leftFooted": true,
@@ -54780,7 +55980,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/648195-1669894717.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Enzo_Fernandez_Argentina_v_Egypt_7_July_2026-127_%28cropped%29.jpg/500px-Enzo_Fernandez_Argentina_v_Egypt_7_July_2026-127_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Enzo_Fernandez_Argentina_v_Egypt_7_July_2026-127_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "2001-01-17",
     "leftFooted": false,
@@ -55036,7 +56242,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3143-1482941253.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Sebasti%C3%A1n_Ver%C3%B3n.png/500px-Sebasti%C3%A1n_Ver%C3%B3n.png",
+    "imageAttribution": {
+      "author": "Agencia de Noticias ANDES",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sebasti%C3%A1n_Ver%C3%B3n.png"
+    },
     "height": 182,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -55300,7 +56512,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7109-1416219029.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Andrea_Barzagli_BGR-ITA_2012.jpg",
+    "imageAttribution": {
+      "author": "Biser Todorov (original picture), Mess (derivative work)",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andrea_Barzagli_BGR-ITA_2012.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1981-05-08",
     "leftFooted": false,
@@ -55556,7 +56774,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3410-1719458041.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Hern%C3%A1n_Crespo.png",
+    "imageAttribution": {
+      "author": "Omgosh30",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Hern%C3%A1n_Crespo.png"
+    },
     "height": 184,
     "dateOfBirth": "1975-07-05",
     "leftFooted": false,
@@ -55823,7 +57047,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/54928-1547721268.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Diego_God%C3%ADn_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Diego_God%C3%ADn_2018_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1986-02-16",
     "leftFooted": false,
@@ -56143,7 +57373,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/81785-1772817092.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Shinji_Kagawa_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Кагава Синдзи",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shinji_Kagawa_2018_(cropped).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1989-03-17",
     "leftFooted": false,
@@ -56370,7 +57606,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/234509-1769612568.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Andr%C3%A9_Onana.jpg/500px-Andr%C3%A9_Onana.jpg",
+    "imageAttribution": {
+      "author": "Franco237",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9_Onana.jpg"
+    },
     "height": 190,
     "dateOfBirth": "1996-04-02",
     "leftFooted": false,
@@ -56647,7 +57889,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Sweeper"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3235-1592469934.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Web_Summit_2015_-_Dublin%2C_Ireland_-_22183056474_%28cropped%29.jpg/500px-Web_Summit_2015_-_Dublin%2C_Ireland_-_22183056474_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Web_Summit_2015_-_Dublin,_Ireland_-_22183056474_(cropped).jpg"
+    },
     "height": 189,
     "dateOfBirth": "1978-11-07",
     "leftFooted": false,
@@ -56947,7 +58195,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/2904-1720390668.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Rafael_M%C3%A1rquez_2014.jpg/500px-Rafael_M%C3%A1rquez_2014.jpg",
+    "imageAttribution": {
+      "author": "Presidencia de la República Mexicana",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rafael_M%C3%A1rquez_2014.jpg"
+    },
     "height": 184,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -57216,7 +58470,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/294808-1749205138.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Franck_Kessie_Cote_D%27Ivoire_v_Ecuador_14_June_2026-15_%28cropped%29.jpg/500px-Franck_Kessie_Cote_D%27Ivoire_v_Ecuador_14_June_2026-15_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Franck_Kessie_Cote_D%27Ivoire_v_Ecuador_14_June_2026-15_(cropped).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1996-12-19",
     "leftFooted": false,
@@ -57613,7 +58873,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/177476-1666733797.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Yokohama_F._Marinos_-_Manchester_City_%283-5%29_-_53075276224_%28Nathan_Ake%29.jpg/500px-Yokohama_F._Marinos_-_Manchester_City_%283-5%29_-_53075276224_%28Nathan_Ake%29.jpg",
+    "imageAttribution": {
+      "author": "pantkiewicz",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yokohama_F._Marinos_-_Manchester_City_(3-5)_-_53075276224_(Nathan_Ake).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1995-02-18",
     "leftFooted": true,
@@ -57908,7 +59174,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Sweeper"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/1527-1448894024.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/2019_Lothar_Matth%C3%A4us.jpg/500px-2019_Lothar_Matth%C3%A4us.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2019_Lothar_Matth%C3%A4us.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1961-03-21",
     "leftFooted": false,
@@ -58090,7 +59362,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/89229-1454935011.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Dino_Zoff_-_1972_-_Juventus_FC_%28cropped%29.jpg/500px-Dino_Zoff_-_1972_-_Juventus_FC_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Unknown author Unknown author / Derivative work: Heiko Gerber",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Dino_Zoff_-_1972_-_Juventus_FC_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -58289,7 +59567,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3557_123_2012_12_27_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Jaap_Stam_met_fan_cropped.jpg/500px-Jaap_Stam_met_fan_cropped.jpg",
+    "imageAttribution": {
+      "author": "Original: Flovries Derivative work: PeeJay2K3",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jaap_Stam_met_fan_cropped.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1972-07-17",
     "leftFooted": false,
@@ -58484,7 +59768,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3194-1683295254.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/2021_-_Press_conferences_SM7_0168_%2851649502936%29_%28cropped%29.jpg/500px-2021_-_Press_conferences_SM7_0168_%2851649502936%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021_-_Press_conferences_SM7_0168_(51649502936)_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1976-10-07",
     "leftFooted": false,
@@ -58732,7 +60022,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/93720-1672830448.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Alexandre_Lacazette_at_Baku_before_2019_UEFA_Europe_League_Final.jpg",
+    "imageAttribution": {
+      "author": "Amir Hosseini",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alexandre_Lacazette_at_Baku_before_2019_UEFA_Europe_League_Final.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1991-05-28",
     "leftFooted": false,
@@ -59012,7 +60308,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/61651-1662621084.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Jordan_Henderson_England_v_Ghana_23_June_2026-029_%28cropped%29.jpg/500px-Jordan_Henderson_England_v_Ghana_23_June_2026-029_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jordan_Henderson_England_v_Ghana_23_June_2026-029_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1990-06-17",
     "leftFooted": false,
@@ -59205,7 +60507,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Left-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/291417-1701294025.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Ferland_Mendy%2C_June_2019.jpg",
+    "imageAttribution": {
+      "author": "Real Madrid",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ferland_Mendy,_June_2019.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1995-06-08",
     "leftFooted": true,
@@ -59483,7 +60791,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3514-1562138802.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Henrik_Larsson_2_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ricardo Alvarez",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Henrik_Larsson_2_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1971-09-20",
     "leftFooted": false,
@@ -59729,7 +61043,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4385-1495621412.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Patrick_Kluivert_at_Web_Summit_2024_%28cropped_2%29.jpg/500px-Patrick_Kluivert_at_Web_Summit_2024_%28cropped_2%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Patrick_Kluivert_at_Web_Summit_2024_(cropped_2).jpg"
+    },
     "height": 191,
     "dateOfBirth": "1976-07-01",
     "leftFooted": false,
@@ -59931,7 +61251,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5283-1528384866.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/%C3%89ric_Abidal_-_001.jpg/500px-%C3%89ric_Abidal_-_001.jpg",
+    "imageAttribution": {
+      "author": "Mutari 16:30, 5 March 2008 (UTC)",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:%C3%89ric_Abidal_-_001.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1979-09-11",
     "leftFooted": true,
@@ -60158,7 +61484,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/309400-1683903902.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Kai_Havertz_Ecuador_v_Germany_25_June_2026-118.jpg/500px-Kai_Havertz_Ecuador_v_Germany_25_June_2026-118.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kai_Havertz_Ecuador_v_Germany_25_June_2026-118.jpg"
+    },
     "height": 193,
     "dateOfBirth": "1999-06-11",
     "leftFooted": true,
@@ -60390,7 +61722,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/534033-1669835342.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Alexis_Mac_Allister_Argentina_v_Egypt_7_July_2026-182.jpg/500px-Alexis_Mac_Allister_Argentina_v_Egypt_7_July_2026-182.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alexis_Mac_Allister_Argentina_v_Egypt_7_July_2026-182.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1998-12-24",
     "leftFooted": false,
@@ -60671,7 +62009,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3187-1683297206.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Dennis_Bergkamp_2014_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Kieran Clarke",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dennis_Bergkamp_2014_(cropped).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1969-05-10",
     "leftFooted": false,
@@ -60886,7 +62230,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3202-1686582323.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kolo_Toure_8932.JPG/500px-Kolo_Toure_8932.JPG",
+    "imageAttribution": {
+      "author": "Ailura",
+      "license": "CC BY-SA 3.0 at",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Kolo_Toure_8932.JPG"
+    },
     "height": 178,
     "dateOfBirth": "1981-03-19",
     "leftFooted": false,
@@ -61114,7 +62464,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/93128-1697050549.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kalidou_Koulibaly_France_v_Senegal_16_June_2026-370_%28cropped%29.jpg/500px-Kalidou_Koulibaly_France_v_Senegal_16_June_2026-370_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kalidou_Koulibaly_France_v_Senegal_16_June_2026-370_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1991-06-20",
     "leftFooted": false,
@@ -61394,7 +62750,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/240306-1683882766.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bruno_Fernandes_USMNT_v_Portugal_Mar_31_2026-27_%28cropped%29.jpg/500px-Bruno_Fernandes_USMNT_v_Portugal_Mar_31_2026-27_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bruno_Fernandes_USMNT_v_Portugal_Mar_31_2026-27_(cropped).jpg"
+    },
     "height": 179,
     "dateOfBirth": "1994-09-08",
     "leftFooted": false,
@@ -61606,7 +62968,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3154-1590395368.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Marcel_Desailly_-_240422_192752-3_%28cropped%29.jpg/500px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Marcel_Desailly_-_240422_192752-3_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Barcex",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Marcel_Desailly_-_240422_192752-3_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1968-09-07",
     "leftFooted": false,
@@ -61850,7 +63218,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/1397-1476361136.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Michael_Owen.jpg/500px-Michael_Owen.jpg",
+    "imageAttribution": {
+      "author": "David Seow",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Michael_Owen.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1979-12-14",
     "leftFooted": false,
@@ -62072,7 +63446,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3238-1551429940.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Aeroflot_Manchester_United_Trophy_Tour_in_Tokyo_%2813047502155%29.jpg/500px-Aeroflot_Manchester_United_Trophy_Tour_in_Tokyo_%2813047502155%29.jpg",
+    "imageAttribution": {
+      "author": "Norio NAKAYAMA from saitama, japan",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aeroflot_Manchester_United_Trophy_Tour_in_Tokyo_(13047502155).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1971-10-15",
     "leftFooted": false,
@@ -62317,7 +63697,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/75553-1596456942.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Didier_Deschamps_France_v_Senegal_16_June_2026-519_%28cropped%29.jpg/500px-Didier_Deschamps_France_v_Senegal_16_June_2026-519_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Didier_Deschamps_France_v_Senegal_16_June_2026-519_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -62564,7 +63950,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/282041-1672304083.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Presnel_Kimpembe_2022.jpg/500px-Presnel_Kimpembe_2022.jpg",
+    "imageAttribution": {
+      "author": "Miroslav Lelas/PIXSELL",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Presnel_Kimpembe_2022.jpg"
+    },
     "height": 189,
     "dateOfBirth": "1995-08-13",
     "leftFooted": true,
@@ -62833,7 +64225,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/145743-1524842870.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Ian_Rush_in_Singapore.jpg",
+    "imageAttribution": {
+      "author": "AceKindred",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ian_Rush_in_Singapore.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1961-10-20",
     "leftFooted": false,
@@ -63049,7 +64447,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/205562-1686662075.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Thomas_Lemar.jpg/500px-Thomas_Lemar.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Thomas_Lemar.jpg"
+    },
     "height": 171,
     "dateOfBirth": "1995-11-12",
     "leftFooted": true,
@@ -63295,7 +64699,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5937-1590418733.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cafu_-_26.02.2026_-_Cerim%C3%B4nia_de_apresenta%C3%A7%C3%A3o_das_ta%C3%A7as_da_Copa_do_Mundo_de_2026.jpg/500px-Cafu_-_26.02.2026_-_Cerim%C3%B4nia_de_apresenta%C3%A7%C3%A3o_das_ta%C3%A7as_da_Copa_do_Mundo_de_2026.jpg",
+    "imageAttribution": {
+      "author": "Lula Oficial",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cafu_-_26.02.2026_-_Cerim%C3%B4nia_de_apresenta%C3%A7%C3%A3o_das_ta%C3%A7as_da_Copa_do_Mundo_de_2026.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1970-06-07",
     "leftFooted": false,
@@ -63459,7 +64869,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/89550-1434713976.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Sepp_Maier%2C_1978.jpg/500px-Sepp_Maier%2C_1978.jpg",
+    "imageAttribution": {
+      "author": "Original: Nationaal Archief, Den Haag, Rijksfotoarchief: Fotocollectie Algemeen Nederlands Fotopersbureau (ANEFO), 1945-1989 - negatiefstroken zwart/wit, nummer toegang 2.24.01.05, bestanddeelnummer 929-9831 / Derivative work: Danyele",
+      "license": "CC BY-SA 3.0 nl",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Sepp_Maier,_1978.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -63740,7 +65156,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/258027-1756943455.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/2019-03-09_Fu%C3%9Fball%2C_M%C3%A4nner%2C_1._Bundesliga%2C_FC_Bayern_M%C3%BCnchen_-_VfL_Wolfsburg_StP_2722_by_Stepro_%28cropped%29.jpg/500px-2019-03-09_Fu%C3%9Fball%2C_M%C3%A4nner%2C_1._Bundesliga%2C_FC_Bayern_M%C3%BCnchen_-_VfL_Wolfsburg_StP_2722_by_Stepro_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Steffen Prößdorf ; Derivative work: FMSky",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2019-03-09_Fu%C3%9Fball,_M%C3%A4nner,_1._Bundesliga,_FC_Bayern_M%C3%BCnchen_-_VfL_Wolfsburg_StP_2722_by_Stepro_(cropped).jpg"
+    },
     "height": 176,
     "dateOfBirth": "1997-08-18",
     "leftFooted": false,
@@ -64045,7 +65467,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4675-1683630540.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Jari_Litmanen_2015.jpg/500px-Jari_Litmanen_2015.jpg",
+    "imageAttribution": {
+      "author": "Soppakanuuna",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jari_Litmanen_2015.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1971-02-20",
     "leftFooted": false,
@@ -64068,6 +65496,296 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 2000000
     },
     "fameScore": 47.8
+  },
+  {
+    "playerId": "174874",
+    "name": "Bobby Charlton",
+    "nationality": "England",
+    "citizenship": [
+      "England"
+    ],
+    "clubs": [
+      "Blacktown City",
+      "Newcastle KB",
+      "Bangor City",
+      "Melb. Victory",
+      "Waterford Utd",
+      "Preston",
+      "Manchester United"
+    ],
+    "youthClubs": [
+      "Manchester United (1953-1956)"
+    ],
+    "achievements": [
+      "Ballon d'Or winner",
+      "World Cup winner",
+      "Champions League winner",
+      "Premier League winner",
+      "FA Cup winner",
+      "3+ domestic league titles",
+      "200+ career goals"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman",
+      "Fair Play Master"
+    ],
+    "tags": [
+      "Attacking Midfield",
+      "Wore #9",
+      "Wore #10",
+      "Man Utd Academy"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "72/73",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "72/73",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "72/73",
+        "club": "985",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "72/73",
+        "club": "985",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "71/72",
+        "club": "985",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "71/72",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "70/71",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "69/70",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "68/69",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "68/69",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "67/68",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "67/68",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "66/67",
+        "club": "985",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "66/67",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "66/67",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "65/66",
+        "club": "985",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "65/66",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "65/66",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "64/65",
+        "club": "985",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "64/65",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "63/64",
+        "club": "985",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "63/64",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "63/64",
+        "club": "985",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "62/63",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "62/63",
+        "club": "985",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "61/62",
+        "club": "985",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "61/62",
+        "club": "118100",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "60/61",
+        "club": "985",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "59/60",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "58/59",
+        "club": "985",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "58/59",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "57/58",
+        "club": "985",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "57/58",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "57/58",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "57/58",
+        "club": "985",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "56/57",
+        "club": "985",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "56/57",
+        "club": "985",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "69/70",
+        "club": "3299",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "67/68",
+        "club": "3299",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "66/67",
+        "club": "3299",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "65/66",
+        "club": "3299",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "61/62",
+        "club": "3299",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "60/61",
+        "club": "3299",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "57/58",
+        "club": "3299",
+        "jerseyNumber": 20
+      }
+    ],
+    "position": {
+      "main": "Attacking Midfield",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bobby_Charlton_en_1966_160.jpg",
+    "imageAttribution": {
+      "author": "Panini",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Bobby_Charlton_en_1966_160.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 747,
+      "goals": 245,
+      "assists": 77,
+      "yellowCards": 0,
+      "redCards": 1,
+      "minutesPlayed": 12920,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 47.7
   },
   {
     "playerId": "135269",
@@ -64262,7 +65980,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/135269-1595575902.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Kenny_Dalglish_2009_Singapore.jpg",
+    "imageAttribution": {
+      "author": "Saw from Singapore",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kenny_Dalglish_2009_Singapore.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1951-03-04",
     "leftFooted": false,
@@ -64499,7 +66223,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/255942-1725531625.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Nicol%C3%B2_Barella_in_2021.jpg/500px-Nicol%C3%B2_Barella_in_2021.jpg",
+    "imageAttribution": {
+      "author": "Biser Todorov",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nicol%C3%B2_Barella_in_2021.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1997-02-07",
     "leftFooted": false,
@@ -64732,7 +66462,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/181375-1745174015.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/S%C3%A9bastien_Haller_2.jpg/500px-S%C3%A9bastien_Haller_2.jpg",
+    "imageAttribution": {
+      "author": "Miensah02",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:S%C3%A9bastien_Haller_2.jpg"
+    },
     "height": 190,
     "dateOfBirth": "1994-06-22",
     "leftFooted": false,
@@ -65052,7 +66788,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/433177-1684155052.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg/500px-Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bukayo_Saka_England_v_Ghana_23_June_2026-057_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "2001-09-05",
     "leftFooted": true,
@@ -65300,7 +67042,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7971-1532355109.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Hertha_BSC_vs._West_Ham_United_20190731_%28044%29.jpg/500px-Hertha_BSC_vs._West_Ham_United_20190731_%28044%29.jpg",
+    "imageAttribution": {
+      "author": "-- Steindy ( talk ) 15:40, 29 August 2019 (UTC)",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hertha_BSC_vs._West_Ham_United_20190731_(044).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1985-08-05",
     "leftFooted": false,
@@ -65323,6 +67071,262 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 15000000
     },
     "fameScore": 47.1
+  },
+  {
+    "playerId": "8021",
+    "name": "Johan Cruyff",
+    "nationality": "Netherlands",
+    "citizenship": [
+      "Netherlands"
+    ],
+    "clubs": [
+      "Feyenoord Rotterdam",
+      "Ajax Amsterdam",
+      "Diplomats",
+      "Levante",
+      "LA Aztecs",
+      "FC Barcelona"
+    ],
+    "youthClubs": [
+      "Ajax Amsterdam (1959-1964)"
+    ],
+    "achievements": [
+      "Ballon d'Or winner",
+      "Champions League winner",
+      "La Liga winner",
+      "Copa del Rey winner",
+      "Eredivisie winner",
+      "Club World Cup winner",
+      "3+ domestic league titles",
+      "League title in multiple countries",
+      "Domestic double",
+      "Treble winner",
+      "200+ career goals",
+      "200+ career assists"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman",
+      "Prolific Scorer"
+    ],
+    "tags": [
+      "Attacking Midfield",
+      "Wore #10",
+      "Wore #9",
+      "Wore #7",
+      "Ajax Academy",
+      "Prolific Scorer"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "83/84",
+        "club": "234",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "82/83",
+        "club": "610",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "81/82",
+        "club": "610",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "77/78",
+        "club": "131",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "76/77",
+        "club": "131",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "75/76",
+        "club": "131",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "75/76",
+        "club": "131",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "74/75",
+        "club": "131",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "73/74",
+        "club": "131",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "73/74",
+        "club": "610",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "72/73",
+        "club": "610",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "71/72",
+        "club": "610",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "70/71",
+        "club": "610",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "70/71",
+        "club": "610",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "69/70",
+        "club": "610",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "69/70",
+        "club": "610",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "68/69",
+        "club": "610",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "68/69",
+        "club": "610",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "68/69",
+        "club": "610",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "67/68",
+        "club": "610",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "67/68",
+        "club": "610",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "67/68",
+        "club": "610",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "66/67",
+        "club": "610",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "66/67",
+        "club": "610",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "66/67",
+        "club": "610",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "65/66",
+        "club": "610",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "65/66",
+        "club": "610",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "75/76",
+        "club": "3379",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "75/76",
+        "club": "3379",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "74/75",
+        "club": "3379",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "74/75",
+        "club": "3379",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "73/74",
+        "club": "3379",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "72/73",
+        "club": "3379",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "70/71",
+        "club": "3379",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "68/69",
+        "club": "3379",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "66/67",
+        "club": "3379",
+        "jerseyNumber": 9
+      }
+    ],
+    "position": {
+      "main": "Attacking Midfield",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Johan_Cruijff_%281974%29.jpg/500px-Johan_Cruijff_%281974%29.jpg",
+    "imageAttribution": {
+      "author": "Rob Mieremet / Anefo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Johan_Cruijff_(1974).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 606,
+      "goals": 345,
+      "assists": 254,
+      "yellowCards": 32,
+      "redCards": 3,
+      "minutesPlayed": 15036,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 47
   },
   {
     "playerId": "187492",
@@ -65575,7 +67579,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/187492-1709560849.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93054_%28cropped%29.jpg/500px-2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93054_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Sandro Halank, Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_(DFB-Pokal_2023-24)_by_Sandro_Halank%E2%80%93054_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1996-05-02",
     "leftFooted": false,
@@ -65819,7 +67829,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/351749-1661978510.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Kalvin_Phillips_2022-11-21_1.jpg",
+    "imageAttribution": {
+      "author": "Hossein Zohrevand",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kalvin_Phillips_2022-11-21_1.jpg"
+    },
     "height": 179,
     "dateOfBirth": "1995-12-02",
     "leftFooted": false,
@@ -66101,7 +68117,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3223-1700221492.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Dwight_Yorke_in_Chennai.jpg/500px-Dwight_Yorke_in_Chennai.jpg",
+    "imageAttribution": {
+      "author": "Deepti Soni",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dwight_Yorke_in_Chennai.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1971-11-03",
     "leftFooted": false,
@@ -66368,7 +68390,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5797-1694511290.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Christian_Vieri%2C_2025_%28cropped%29.jpg/500px-Christian_Vieri%2C_2025_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Nehme1499",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Christian_Vieri,_2025_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "",
     "leftFooted": true,
@@ -66631,7 +68659,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/65-1683670068.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Mitko_Berbatov.jpg/500px-Mitko_Berbatov.jpg",
+    "imageAttribution": {
+      "author": "Biso",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mitko_Berbatov.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1981-01-30",
     "leftFooted": false,
@@ -66884,7 +68918,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Attacking Midfield",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3854-1719458349.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Juan_Rom%C3%A1n_Riquelme_-_2019.jpg",
+    "imageAttribution": {
+      "author": "Todo Noticias",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Juan_Rom%C3%A1n_Riquelme_-_2019.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1978-06-24",
     "leftFooted": false,
@@ -66906,6 +68946,174 @@ export const enrichedFootballPlayers: Player[] = [
       "clubName": "Villarreal CF",
       "marketValue": 18000000
     },
+    "fameScore": 46.4
+  },
+  {
+    "playerId": "72347",
+    "name": "Franz Beckenbauer",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "NY Cosmos",
+      "Hamburg",
+      "Bayern Munich"
+    ],
+    "youthClubs": [
+      "SC 1906 München",
+      "FC Bayern München (-1964)"
+    ],
+    "achievements": [
+      "Ballon d'Or winner",
+      "World Cup winner",
+      "Euro champion",
+      "Champions League winner",
+      "Bundesliga winner",
+      "DFB-Pokal winner",
+      "Club World Cup winner",
+      "3+ domestic league titles",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "International Journeyman",
+      "Fair Play Master"
+    ],
+    "tags": [],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "83/84",
+        "club": "4835",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "81/82",
+        "club": "41",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "76/77",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "76/77",
+        "club": "4835",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "75/76",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "74/75",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "73/74",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "72/73",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "71/72",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "70/71",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "66/67",
+        "club": "27",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "66/67",
+        "club": "27",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "66/67",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "75/76",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "74/75",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "73/74",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "71/72",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "70/71",
+        "club": "3262",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "69/70",
+        "club": "3262",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "66/67",
+        "club": "3262",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "65/66",
+        "club": "3262",
+        "jerseyNumber": 4
+      }
+    ],
+    "position": {
+      "main": "Sweeper",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Franz_Beckenbauer_%281975%29.jpg/500px-Franz_Beckenbauer_%281975%29.jpg",
+    "imageAttribution": {
+      "author": "Panini Group",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Franz_Beckenbauer_(1975).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 622,
+      "goals": 75,
+      "assists": 75,
+      "yellowCards": 5,
+      "redCards": 0,
+      "minutesPlayed": 16091,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
     "fameScore": 46.4
   },
   {
@@ -67097,7 +69305,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3465-1498486411.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Peter_Schmeichel_2012-01-25_001.jpg/500px-Peter_Schmeichel_2012-01-25_001.jpg",
+    "imageAttribution": {
+      "author": "Carlsberg",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Peter_Schmeichel_2012-01-25_001.jpg"
+    },
     "height": 196,
     "dateOfBirth": "1963-11-18",
     "leftFooted": false,
@@ -67369,7 +69583,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3624-1603456715.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Rui_Costa_2019.png",
+    "imageAttribution": {
+      "author": "Sport Lisboa e Benfica",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rui_Costa_2019.png"
+    },
     "height": 180,
     "dateOfBirth": "1972-03-29",
     "leftFooted": false,
@@ -67732,7 +69952,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/35047-1665067807.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Axel_Witsel_USMNT_v_Belgium_Mar_28_2026-34_%28cropped%29.jpg/500px-Axel_Witsel_USMNT_v_Belgium_Mar_28_2026-34_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Axel_Witsel_USMNT_v_Belgium_Mar_28_2026-34_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1989-01-12",
     "leftFooted": false,
@@ -67943,7 +70169,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/480762-1680681507.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Lisandro_Martinez_Argentina_v_Egypt_7_July_2026-343_%28cropped%29.jpg/500px-Lisandro_Martinez_Argentina_v_Egypt_7_July_2026-343_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lisandro_Martinez_Argentina_v_Egypt_7_July_2026-343_(cropped).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1998-01-18",
     "leftFooted": true,
@@ -68181,7 +70413,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/107010-1756296906.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Ros-che_25.jpg/500px-Ros-che_25.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Садовников",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ros-che_25.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1991-01-08",
     "leftFooted": false,
@@ -68351,7 +70589,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/82105-1702049783.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/2022-07-21_Fu%C3%9Fball%2C_M%C3%A4nner%2CFreundschaftsspiel%2C_RB_Leipzig_-_FC_Liverpool_1DX_2092_by_Stepro_%28cropped%29.jpg/500px-2022-07-21_Fu%C3%9Fball%2C_M%C3%A4nner%2CFreundschaftsspiel%2C_RB_Leipzig_-_FC_Liverpool_1DX_2092_by_Stepro_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022-07-21_Fu%C3%9Fball,_M%C3%A4nner,Freundschaftsspiel,_RB_Leipzig_-_FC_Liverpool_1DX_2092_by_Stepro_(cropped).jpg"
+    },
     "height": 195,
     "dateOfBirth": "1991-08-08",
     "leftFooted": false,
@@ -68374,6 +70618,158 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 40000000
     },
     "fameScore": 45.9
+  },
+  {
+    "playerId": "35604",
+    "name": "Gerd Müller",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "Smith Brothers",
+      "FL Strikers",
+      "Bayern Munich",
+      "Nördlingen"
+    ],
+    "youthClubs": [
+      "TSV Nördlingen (-1963)"
+    ],
+    "achievements": [
+      "Ballon d'Or winner",
+      "European Golden Boot winner",
+      "Bundesliga top scorer",
+      "Champions League top scorer",
+      "World Cup winner",
+      "Euro champion",
+      "Champions League winner",
+      "Bundesliga winner",
+      "DFB-Pokal winner",
+      "Club World Cup winner",
+      "3+ domestic league titles",
+      "Domestic double",
+      "500+ career goals"
+    ],
+    "randomAchievements": [
+      "International Journeyman",
+      "Fair Play Master",
+      "Prolific Scorer"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Wore #9",
+      "Prolific Scorer"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "78/79",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "77/78",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "76/77",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "75/76",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "74/75",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "73/74",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "72/73",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "71/72",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "70/71",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "68/69",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "66/67",
+        "club": "27",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "73/74",
+        "club": "3262",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "71/72",
+        "club": "3262",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "70/71",
+        "club": "3262",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "69/70",
+        "club": "3262",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "66/67",
+        "club": "3262",
+        "jerseyNumber": 9
+      }
+    ],
+    "position": {
+      "main": "Centre-Forward",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gerd_M%C3%BCller_c1973_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Gerd_M%C3%BCller_c1973_(cropped).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 613,
+      "goals": 570,
+      "assists": 107,
+      "yellowCards": 16,
+      "redCards": 1,
+      "minutesPlayed": 14665,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 45.8
   },
   {
     "playerId": "266302",
@@ -68570,7 +70966,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/266302-1697051652.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ser-Swi_%2840%29.jpg/500px-Ser-Swi_%2840%29.jpg",
+    "imageAttribution": {
+      "author": "Эдгар Брещанов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ser-Swi_(40).jpg"
+    },
     "height": 192,
     "dateOfBirth": "1995-02-27",
     "leftFooted": false,
@@ -68818,7 +71220,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/282411-1773182531.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Marcos_Llorente_2019.jpg/500px-Marcos_Llorente_2019.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marcos_Llorente_2019.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1995-01-30",
     "leftFooted": false,
@@ -69017,7 +71425,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/339808-1725532072.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Theo_Hernandez_France_v_Norway_26_June_26-122.jpg/500px-Theo_Hernandez_France_v_Norway_26_June_26-122.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Theo_Hernandez_France_v_Norway_26_June_26-122.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1997-10-06",
     "leftFooted": true,
@@ -69319,7 +71733,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/45026-1716296132.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Rui_Patr%C3%ADcio_2018.jpg/500px-Rui_Patr%C3%ADcio_2018.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rui_Patr%C3%ADcio_2018.jpg"
+    },
     "height": 190,
     "dateOfBirth": "1988-02-15",
     "leftFooted": true,
@@ -69530,7 +71950,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/145347-1461759844.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Gianni_Rivera_-_AC_Milan_%28San_Siro%2C_January_1971%29.jpg/500px-Gianni_Rivera_-_AC_Milan_%28San_Siro%2C_January_1971%29.jpg",
+    "imageAttribution": {
+      "author": "Rolls Press / Popperfoto / Getty Images",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Gianni_Rivera_-_AC_Milan_(San_Siro,_January_1971).jpg"
+    },
     "height": 175,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -69929,7 +72355,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5782-1725546986.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Emre_crop.jpg",
+    "imageAttribution": {
+      "author": "michael.kjaer",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Emre_crop.jpg"
+    },
     "height": 170,
     "dateOfBirth": "",
     "leftFooted": true,
@@ -70222,7 +72654,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/8023-1570439264.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Michael-Laudrup-Nov2008_%28cropped%29.jpg/500px-Michael-Laudrup-Nov2008_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Alexe Politov",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Michael-Laudrup-Nov2008_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -70525,7 +72963,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Sweeper"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_135638_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Willy_van_de_Kerkhof_1975.jpg/500px-Willy_van_de_Kerkhof_1975.jpg",
+    "imageAttribution": {
+      "author": "Bert Verhoeff for Anefo",
+      "license": "CC BY-SA 3.0 nl",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Willy_van_de_Kerkhof_1975.jpg"
+    },
     "height": 181,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -70757,7 +73201,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/9594-1454414462.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Vincent_Kompany_Bayern_Munich.jpg",
+    "imageAttribution": {
+      "author": "ManuluxWiki",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Vincent_Kompany_Bayern_Munich.jpg"
+    },
     "height": 190,
     "dateOfBirth": "1986-04-10",
     "leftFooted": false,
@@ -70984,7 +73434,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/72343-1662993469.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/2015-02-06_Rummenigge_0400.JPG/500px-2015-02-06_Rummenigge_0400.JPG",
+    "imageAttribution": {
+      "author": "Michael Lucan",
+      "license": "CC BY-SA 3.0 de",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:2015-02-06_Rummenigge_0400.JPG"
+    },
     "height": 182,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -71196,7 +73652,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/170986-1711745629.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Rapha%C3%ABl_Guerreiro_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rapha%C3%ABl_Guerreiro_(cropped).jpg"
+    },
     "height": 170,
     "dateOfBirth": "1993-12-22",
     "leftFooted": true,
@@ -71562,7 +74024,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/70667-1590396050.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Ajax_selectie_seizoen_1981_1982_nr._140a_E._Ophof_speler%2C_nr._15a_F._Rijka%2C_Bestanddeelnr_253-8568.jpg/500px-Ajax_selectie_seizoen_1981_1982_nr._140a_E._Ophof_speler%2C_nr._15a_F._Rijka%2C_Bestanddeelnr_253-8568.jpg",
+    "imageAttribution": {
+      "author": "Marcel Antonisse / Anefo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Ajax_selectie_seizoen_1981_1982_nr._140a_E._Ophof_speler,_nr._15a_F._Rijka,_Bestanddeelnr_253-8568.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -71752,7 +74220,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/315853-1742497518.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Norway_Italy_-_June_2025_A_36_%28cropped%29.jpg/500px-Norway_Italy_-_June_2025_A_36_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "MichaelEmilio",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_A_36_(cropped).jpg"
+    },
     "height": 190,
     "dateOfBirth": "1999-04-13",
     "leftFooted": true,
@@ -71991,7 +74465,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/344695-1701245272.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Dayot_Upamecano_France_v_Senegal_16_June_2026-402_%28cropped%29.jpg/500px-Dayot_Upamecano_France_v_Senegal_16_June_2026-402_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dayot_Upamecano_France_v_Senegal_16_June_2026-402_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1998-10-27",
     "leftFooted": false,
@@ -72176,7 +74656,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/602105-1758783018.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Antony_-_Betis_-_Partido_Betis_vs_Valencia.jpg/500px-Antony_-_Betis_-_Partido_Betis_vs_Valencia.jpg",
+    "imageAttribution": {
+      "author": "FotosLaLiga",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Antony_-_Betis_-_Partido_Betis_vs_Valencia.jpg"
+    },
     "height": 172,
     "dateOfBirth": "2000-02-24",
     "leftFooted": true,
@@ -72199,6 +74685,78 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 75000000
     },
     "fameScore": 45.1
+  },
+  {
+    "playerId": "135778",
+    "name": "Alfredo Di Stéfano",
+    "nationality": "Argentina",
+    "citizenship": [
+      "Argentina",
+      "Spain"
+    ],
+    "clubs": [
+      "Español",
+      "Real Madrid",
+      "CA River Plate",
+      "Millonarios",
+      "Huracán"
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "Ballon d'Or winner",
+      "Champions League top scorer",
+      "La Liga top scorer",
+      "Copa America champion",
+      "Champions League winner",
+      "La Liga winner",
+      "Copa del Rey winner",
+      "Club World Cup winner",
+      "3+ domestic league titles",
+      "League title in multiple countries",
+      "Domestic double",
+      "200+ career goals"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Multiple Citizenships",
+      "International Journeyman",
+      "Fair Play Master",
+      "Prolific Scorer"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Dual Nationality",
+      "Prolific Scorer"
+    ],
+    "managers": [],
+    "jerseyNumbers": [],
+    "position": {
+      "main": "Second Striker",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Di_stefano_argentina_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Di_stefano_argentina_(cropped).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 449,
+      "goals": 321,
+      "assists": 45,
+      "yellowCards": 0,
+      "redCards": 4,
+      "minutesPlayed": 10860,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 44.8
   },
   {
     "playerId": "88994",
@@ -72352,7 +74910,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/88994-1592212447.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Michel_Platini_2010_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Chancellery of the President of the Republic of Poland",
+      "license": "GFDL 1.2",
+      "licenseUrl": "https://gnu.org/licenses/old-licenses/fdl-1.2.html",
+      "source": "https://commons.wikimedia.org/wiki/File:Michel_Platini_2010_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1955-06-21",
     "leftFooted": false,
@@ -72559,7 +75123,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/17168-1546600583.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PapinJP1997_%28cropped%29.jpg/500px-PapinJP1997_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Leo Medvedev/Лев Леонидович Медведев",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:PapinJP1997_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -72841,7 +75411,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7942-1464018929.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Senadores_da_57%C2%AA_Legislatura_%2852689451805%29.jpg/500px-Senadores_da_57%C2%AA_Legislatura_%2852689451805%29.jpg",
+    "imageAttribution": {
+      "author": "Agência Senado from Brasilia, Brazil",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Senadores_da_57%C2%AA_Legislatura_(52689451805).jpg"
+    },
     "height": 169,
     "dateOfBirth": "1966-01-29",
     "leftFooted": false,
@@ -73118,7 +75694,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/42049-1672759049.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Franco_Baresi_2012.jpg/500px-Franco_Baresi_2012.jpg",
+    "imageAttribution": {
+      "author": "Kurt Schorrer",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Franco_Baresi_2012.jpg"
+    },
     "height": 176,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -73261,7 +75843,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/646740-1682685701.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Gavi_%28footballer%29.jpg/500px-Gavi_%28footballer%29.jpg",
+    "imageAttribution": {
+      "author": "TheSoccerBoy",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gavi_(footballer).jpg"
+    },
     "height": 173,
     "dateOfBirth": "2004-08-05",
     "leftFooted": false,
@@ -73449,7 +76037,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/85458-1493295915.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Kevin_keegan_panini_card_%28cropped%29.jpg/500px-Kevin_keegan_panini_card_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Kevin_keegan_panini_card_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -73674,7 +76268,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Left-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/44501-1603112392.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Marcelo_850_1622.jpg/500px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Marcelo_850_1622.jpg",
+    "imageAttribution": {
+      "author": "Granada",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Marcelo_850_1622.jpg"
+    },
     "height": 174,
     "dateOfBirth": "1988-12-05",
     "leftFooted": true,
@@ -73930,7 +76530,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/60444-1694703091.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Thiago_Alcantara_13_%28cropped%29.jpg/500px-UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Thiago_Alcantara_13_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Rolandhino1",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Thiago_Alcantara_13_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "1995-10-02",
     "leftFooted": false,
@@ -74170,7 +76776,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/117598-1492517171.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Emilio_Butrague%C3%B1o_-_240422_191751-2_%28cropped%29.jpg/500px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Emilio_Butrague%C3%B1o_-_240422_191751-2_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Barcex",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Emilio_Butrague%C3%B1o_-_240422_191751-2_(cropped).jpg"
+    },
     "height": 168,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -74412,7 +77024,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/16980-1457430706.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/J%C3%BCrgen_Klinsmann_14021113000678638425063004371092_64131.jpg/500px-J%C3%BCrgen_Klinsmann_14021113000678638425063004371092_64131.jpg",
+    "imageAttribution": {
+      "author": "M. Sadegh Nikgostar",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:J%C3%BCrgen_Klinsmann_14021113000678638425063004371092_64131.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1964-07-30",
     "leftFooted": false,
@@ -74673,7 +77291,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4153-1487345469.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/%D8%B1%D9%88%D8%A8%D8%B1%D8%AA%D9%88_%D8%A8%D8%A7%D8%AC%D9%88_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "AbolfaZl0990",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%D8%B1%D9%88%D8%A8%D8%B1%D8%AA%D9%88_%D8%A8%D8%A7%D8%AC%D9%88_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "1967-02-18",
     "leftFooted": false,
@@ -75004,7 +77628,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/101045-1570441290.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/25th_Laureus_World_Sports_Awards_-_Ruud_Gullit_-_240422_131911_%28cropped%29.jpg/500px-25th_Laureus_World_Sports_Awards_-_Ruud_Gullit_-_240422_131911_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Barcex",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Ruud_Gullit_-_240422_131911_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1962-09-01",
     "leftFooted": false,
@@ -75292,7 +77922,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/196357-1695367765.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Jonathan_Tah_Ecuador_v_Germany_25_June_2026-116.jpg/500px-Jonathan_Tah_Ecuador_v_Germany_25_June_2026-116.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jonathan_Tah_Ecuador_v_Germany_25_June_2026-116.jpg"
+    },
     "height": 195,
     "dateOfBirth": "1996-02-11",
     "leftFooted": false,
@@ -75457,7 +78093,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/13766-1505132962.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Paul_Breitner_2011.jpg",
+    "imageAttribution": {
+      "author": "Christophe95",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paul_Breitner_2011.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -75681,7 +78323,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/156617-1661352678.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Marcelo_Brozovi%C4%87_2021_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marcelo_Brozovi%C4%87_2021_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1992-11-16",
     "leftFooted": false,
@@ -75912,7 +78560,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4358-1541761826.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/MatejaKezman.jpg/500px-MatejaKezman.jpg",
+    "imageAttribution": {
+      "author": "psgmag.net",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:MatejaKezman.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1979-04-12",
     "leftFooted": false,
@@ -76082,7 +78736,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/84528-1415373216.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Hugo_S%C3%A1nchez_1988_%28cropped%29.jpg/500px-Hugo_S%C3%A1nchez_1988_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bogaerts, Rob / Anefo",
+      "license": "CC BY-SA 3.0 nl",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Hugo_S%C3%A1nchez_1988_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1958-07-11",
     "leftFooted": false,
@@ -76390,7 +79050,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/346483-1683291495.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mountbrightonoct3_2019_%28cropped%29.jpg/500px-Mountbrightonoct3_2019_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Brian Minkoff London-Pixels",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mountbrightonoct3_2019_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1999-01-10",
     "leftFooted": false,
@@ -76712,7 +79378,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/434675-1682690965.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Cody_Gakpo_06042025_%282%29_%28cropped%29.jpg/500px-Cody_Gakpo_06042025_%282%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Timmy96",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Cody_Gakpo_06042025_(2)_(cropped).jpg"
+    },
     "height": 193,
     "dateOfBirth": "1999-05-07",
     "leftFooted": false,
@@ -76959,7 +79631,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/338424-1716803831.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Miker_Merino_2018_%28cropped%29.jpg/500px-Miker_Merino_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Giovanni Batista Rodriguez from San Sebastian-Donostia, España",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Miker_Merino_2018_(cropped).jpg"
+    },
     "height": 189,
     "dateOfBirth": "1996-06-22",
     "leftFooted": true,
@@ -77178,7 +79856,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/203496-1653041152.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Fekir_2018_%28cropped%292.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fekir_2018_(cropped)2.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1993-07-18",
     "leftFooted": true,
@@ -77469,7 +80153,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4010-1719542679.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Dirk_Kuyt_2012.jpg",
+    "imageAttribution": {
+      "author": "Кондратенко Наталия",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dirk_Kuyt_2012.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1980-07-22",
     "leftFooted": false,
@@ -77663,7 +80353,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3166-1683298039.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Emmanuel_Petit.jpg",
+    "imageAttribution": {
+      "author": "Christophe95",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Emmanuel_Petit.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1970-09-22",
     "leftFooted": true,
@@ -77874,7 +80570,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/35207-1771691672.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93126.jpg/500px-2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93126.jpg",
+    "imageAttribution": {
+      "author": "Sandro Halank, Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_(DFB-Pokal_2023-24)_by_Sandro_Halank%E2%80%93126.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1989-05-31",
     "leftFooted": false,
@@ -78084,7 +80786,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/59561-1688725780.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Dani_Parejo.jpg/500px-Dani_Parejo.jpg",
+    "imageAttribution": {
+      "author": "Carla Cortés",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dani_Parejo.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1989-04-16",
     "leftFooted": false,
@@ -78367,7 +81075,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/484547-1689710682.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Jeremie_Frimpong_04012026_%283%29_%28cropped%29.jpg/500px-Jeremie_Frimpong_04012026_%283%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Timmy96",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Jeremie_Frimpong_04012026_(3)_(cropped).jpg"
+    },
     "height": 172,
     "dateOfBirth": "2000-12-10",
     "leftFooted": false,
@@ -78634,7 +81348,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7938-1461231110.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Stoichkov_in_2016.jpg/500px-Stoichkov_in_2016.jpg",
+    "imageAttribution": {
+      "author": "Biser Todorov",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stoichkov_in_2016.jpg"
+    },
     "height": 178,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -78831,7 +81551,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/44716-1557249476.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Claudio_Marchisio%2C_2019_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Vyacheslav Yevdokimov / Derivative work: Danyele",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Claudio_Marchisio,_2019_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1986-01-19",
     "leftFooted": false,
@@ -79062,7 +81788,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/182906-1681459155.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mike_Maignan_France_v_Norway_26_June_26-132_%28cropped%29.jpg/500px-Mike_Maignan_France_v_Norway_26_June_26-132_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mike_Maignan_France_v_Norway_26_June_26-132_(cropped).jpg"
+    },
     "height": 191,
     "dateOfBirth": "1995-07-03",
     "leftFooted": false,
@@ -79348,7 +82080,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/315969-1718626681.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Scott_McTominay_Scotland_v_Bolivia_6_June_2026-41.jpg/500px-Scott_McTominay_Scotland_v_Bolivia_6_June_2026-41.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Scott_McTominay_Scotland_v_Bolivia_6_June_2026-41.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1996-12-08",
     "leftFooted": false,
@@ -79563,7 +82301,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/475959-1713391602.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Josko_Gvardiol_Croatia_v_Portugal_2_July_2026-262.jpg/500px-Josko_Gvardiol_Croatia_v_Portugal_2_July_2026-262.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Josko_Gvardiol_Croatia_v_Portugal_2_July_2026-262.jpg"
+    },
     "height": 185,
     "dateOfBirth": "2002-01-23",
     "leftFooted": true,
@@ -79755,7 +82499,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5959-1570439708.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Gabriel_batistuta.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Gabriel_batistuta.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1969-02-01",
     "leftFooted": false,
@@ -79961,7 +82711,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/423440-1684149419.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Mart%C3%ADn_Zubimendi.jpg/500px-Mart%C3%ADn_Zubimendi.jpg",
+    "imageAttribution": {
+      "author": "Biso",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mart%C3%ADn_Zubimendi.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1999-02-02",
     "leftFooted": false,
@@ -80146,7 +82902,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/8542-1570439638.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/George_Weah_in_2019_%28cropped%29_mod-2.jpg/500px-George_Weah_in_2019_%28cropped%29_mod-2.jpg",
+    "imageAttribution": {
+      "author": "File:George Weah in 2019 (cropped).jpg : U.S. Embassy in Monrovia, Liberia derivative work: Boros.i",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:George_Weah_in_2019_(cropped)_mod-2.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -80423,7 +83185,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/357662-1687962936.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Declan_Rice_England_v_Ghana_23_June_2026-150.jpg/500px-Declan_Rice_England_v_Ghana_23_June_2026-150.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Declan_Rice_England_v_Ghana_23_June_2026-150.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1999-01-14",
     "leftFooted": false,
@@ -80625,7 +83393,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/19726-1719879562.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nemanja_Vidi%C4%87.jpg/500px-Nemanja_Vidi%C4%87.jpg",
+    "imageAttribution": {
+      "author": "Austin Osuide",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nemanja_Vidi%C4%87.jpg"
+    },
     "height": 190,
     "dateOfBirth": "1981-10-21",
     "leftFooted": false,
@@ -80647,6 +83421,211 @@ export const enrichedFootballPlayers: Player[] = [
       "clubName": "Manchester United",
       "marketValue": 37000000
     },
+    "fameScore": 41.6
+  },
+  {
+    "playerId": "135643",
+    "name": "Johan Neeskens",
+    "nationality": "Netherlands",
+    "citizenship": [
+      "Netherlands"
+    ],
+    "clubs": [
+      "FC Zug",
+      "FC Baar",
+      "Unknown",
+      "FL Strikers",
+      "Minn. Thunder",
+      "FC Groningen",
+      "NY Cosmos",
+      "FC Barcelona",
+      "Ajax Amsterdam",
+      "RCH"
+    ],
+    "youthClubs": [
+      "RCH Heemstede (-1970)"
+    ],
+    "achievements": [
+      "Champions League winner",
+      "Copa del Rey winner",
+      "Eredivisie winner",
+      "Club World Cup winner",
+      "Domestic double",
+      "Treble winner"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman"
+    ],
+    "tags": [
+      "Central Midfield",
+      "Wore #7",
+      "Wore #9"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "83/84",
+        "club": "4835",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "78/79",
+        "club": "131",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "77/78",
+        "club": "131",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "77/78",
+        "club": "131",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "76/77",
+        "club": "131",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "75/76",
+        "club": "131",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "75/76",
+        "club": "131",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "74/75",
+        "club": "131",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "73/74",
+        "club": "610",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "72/73",
+        "club": "610",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "72/73",
+        "club": "610",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "71/72",
+        "club": "610",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "70/71",
+        "club": "610",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "70/71",
+        "club": "610",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "70/71",
+        "club": "610",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "69/70",
+        "club": "28408",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "68/69",
+        "club": "28408",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "80/81",
+        "club": "3379",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "78/79",
+        "club": "3379",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "78/79",
+        "club": "3379",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "77/78",
+        "club": "3379",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "75/76",
+        "club": "3379",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "74/75",
+        "club": "3379",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "74/75",
+        "club": "3379",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "73/74",
+        "club": "3379",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "72/73",
+        "club": "3379",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "70/71",
+        "club": "3379",
+        "jerseyNumber": 4
+      }
+    ],
+    "position": {
+      "main": "Central Midfield",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Johan_Neeskens_1974.jpg/500px-Johan_Neeskens_1974.jpg",
+    "imageAttribution": {
+      "author": "Mieremet, Rob / Anefo",
+      "license": "CC BY-SA 3.0 nl",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Johan_Neeskens_1974.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 417,
+      "goals": 85,
+      "assists": 39,
+      "yellowCards": 36,
+      "redCards": 1,
+      "minutesPlayed": 8606,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
     "fameScore": 41.6
   },
   {
@@ -80867,7 +83846,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/146854-1761767151.jpeg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Wissam_Ben_Yedder_Monaco_2019_%28cropped%29.jpg/500px-Wissam_Ben_Yedder_Monaco_2019_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bigmatbasket",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wissam_Ben_Yedder_Monaco_2019_(cropped).jpg"
+    },
     "height": 170,
     "dateOfBirth": "1990-08-12",
     "leftFooted": false,
@@ -81072,7 +84057,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/12000-1464096559.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Eric_Cantona_Cannes_2009.jpg",
+    "imageAttribution": {
+      "author": "Georges Biard",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eric_Cantona_Cannes_2009.jpg"
+    },
     "height": 187,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -81359,7 +84350,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/126414-1709035146.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/AUT_vs._TUR_2016-03-29_%28342%29.jpg/500px-AUT_vs._TUR_2016-03-29_%28342%29.jpg",
+    "imageAttribution": {
+      "author": "Steindy ( talk ) 10:15, 11 April 2016 (UTC)",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:AUT_vs._TUR_2016-03-29_(342).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1994-02-08",
     "leftFooted": false,
@@ -81638,7 +84635,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7601-1519129048.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Luis_Enrique_2014.jpg/500px-Luis_Enrique_2014.jpg",
+    "imageAttribution": {
+      "author": "Lluís from Sabadell (Barcelona), España",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Luis_Enrique_2014.jpg"
+    },
     "height": 180,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -81898,7 +84901,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/47082-1538297993.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/LFC_Parade_2019_01_Daniel_Sturridge.jpg/500px-LFC_Parade_2019_01_Daniel_Sturridge.jpg",
+    "imageAttribution": {
+      "author": "Eric The Fish from UK",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:LFC_Parade_2019_01_Daniel_Sturridge.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1989-09-01",
     "leftFooted": true,
@@ -82142,7 +85151,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/487969-1718697120.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Randal_Kolo_Muani_2020.jpg/500px-Randal_Kolo_Muani_2020.jpg",
+    "imageAttribution": {
+      "author": "Supporterhéninois",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Randal_Kolo_Muani_2020.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1998-12-05",
     "leftFooted": false,
@@ -82512,7 +85527,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3363-1461241499.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Hakan.jpg",
+    "imageAttribution": {
+      "author": "Vulkahn at German Wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Hakan.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1971-09-01",
     "leftFooted": false,
@@ -82761,7 +85782,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/111196-1663572651.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/FC_Salzburg_gegen_Inter_Mailand_%28Testspiel_2023-08-09%29_67_-_Stefan_de_Vrij_%28cropped%29.jpg/500px-FC_Salzburg_gegen_Inter_Mailand_%28Testspiel_2023-08-09%29_67_-_Stefan_de_Vrij_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Werner100359 / Derivative work: Danyele",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_Inter_Mailand_(Testspiel_2023-08-09)_67_-_Stefan_de_Vrij_(cropped).jpg"
+    },
     "height": 189,
     "dateOfBirth": "1992-02-05",
     "leftFooted": false,
@@ -83049,7 +86076,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5757-1454935398.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Gianluca_Zambrotta_2019.jpg/500px-Gianluca_Zambrotta_2019.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gianluca_Zambrotta_2019.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1977-02-19",
     "leftFooted": false,
@@ -83364,7 +86397,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/472423-1683900849.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Reece_James_England_v_Ghana_23_June_2026-248_%28cropped%29.jpg/500px-Reece_James_England_v_Ghana_23_June_2026-248_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reece_James_England_v_Ghana_23_June_2026-248_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1999-12-08",
     "leftFooted": false,
@@ -83581,7 +86620,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/39667-1479802683.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Brian-Laudrup-Darren-Laver-Lars-Hogh_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Jonbear83",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Brian-Laudrup-Darren-Laver-Lars-Hogh_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -83824,7 +86869,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/74471-1590494247.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Marco_van_Basten_%28ca_2006%29.jpg",
+    "imageAttribution": {
+      "author": "Paul Blank - Postproduktie.nl",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Marco_van_Basten_(ca_2006).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1964-10-31",
     "leftFooted": false,
@@ -84132,7 +87183,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/49499-1686738263.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/20160604_AUT_NED_8839.jpg/500px-20160604_AUT_NED_8839.jpg",
+    "imageAttribution": {
+      "author": "Ailura",
+      "license": "CC BY-SA 3.0 at",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:20160604_AUT_NED_8839.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1995-10-02",
     "leftFooted": false,
@@ -84420,7 +87477,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/316264-1678877651.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Martin_Odegaard_Morocco_v_Norway_7_June_2026-56_%28cropped%29.jpg/500px-Martin_Odegaard_Morocco_v_Norway_7_June_2026-56_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Martin_Odegaard_Morocco_v_Norway_7_June_2026-56_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1998-12-17",
     "leftFooted": true,
@@ -84632,7 +87695,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/503482-1700208062.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/FC_Red_Bull_Salzburg_gegen_Bayern_M%C3%BCnchen_%282025-01-06_Testspiel%29_26.jpg/500px-FC_Red_Bull_Salzburg_gegen_Bayern_M%C3%BCnchen_%282025-01-06_Testspiel%29_26.jpg",
+    "imageAttribution": {
+      "author": "Werner100359",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:FC_Red_Bull_Salzburg_gegen_Bayern_M%C3%BCnchen_(2025-01-06_Testspiel)_26.jpg"
+    },
     "height": 190,
     "dateOfBirth": "1996-11-15",
     "leftFooted": false,
@@ -84872,7 +87941,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/341092-1663576975.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Federico_Chiesa_vs_Zenit_2021-10-20_%28cropped2%29.jpg/500px-Federico_Chiesa_vs_Zenit_2021-10-20_%28cropped2%29.jpg",
+    "imageAttribution": {
+      "author": "Kirill Venediktov",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Federico_Chiesa_vs_Zenit_2021-10-20_(cropped2).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1997-10-25",
     "leftFooted": false,
@@ -85153,7 +88228,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/8883-1565870134.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Adebayor-RealMadrid.jpg/500px-Adebayor-RealMadrid.jpg",
+    "imageAttribution": {
+      "author": "Jan S0L0",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Adebayor-RealMadrid.jpg"
+    },
     "height": 192,
     "dateOfBirth": "1984-02-26",
     "leftFooted": false,
@@ -85384,7 +88465,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/250845-1664970029.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Jos%C3%A9_Mar%C3%ADa_Gim%C3%A9nez_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Mar%C3%ADa_Gim%C3%A9nez_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1995-01-20",
     "leftFooted": false,
@@ -85677,7 +88764,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/487465-1763106447.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Pedro_Neto_Croatia_v_Portugal_2_July_2026-113.jpg/500px-Pedro_Neto_Croatia_v_Portugal_2_July_2026-113.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pedro_Neto_Croatia_v_Portugal_2_July_2026-113.jpg"
+    },
     "height": 174,
     "dateOfBirth": "2000-03-09",
     "leftFooted": true,
@@ -85700,6 +88793,118 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 60000000
     },
     "fameScore": 39.6
+  },
+  {
+    "playerId": "103092",
+    "name": "Ferenc Puskás",
+    "nationality": "Hungary",
+    "citizenship": [
+      "Hungary",
+      "Spain"
+    ],
+    "clubs": [
+      "Real Madrid",
+      "Ban",
+      "Honvéd SE",
+      "Kispesti FC"
+    ],
+    "youthClubs": [
+      "Kispesti AC (Budapest Honvéd FC)"
+    ],
+    "achievements": [
+      "La Liga top scorer",
+      "Champions League top scorer",
+      "Champions League winner",
+      "La Liga winner",
+      "Copa del Rey winner",
+      "Club World Cup winner",
+      "Olympic medalist",
+      "3+ domestic league titles",
+      "Domestic double",
+      "200+ career goals"
+    ],
+    "randomAchievements": [
+      "Multiple Citizenships",
+      "International Journeyman",
+      "Fair Play Master",
+      "Prolific Scorer"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Wore #10",
+      "Dual Nationality",
+      "Prolific Scorer"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "63/64",
+        "club": "418",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "61/62",
+        "club": "418",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "60/61",
+        "club": "418",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "59/60",
+        "club": "418",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "58/59",
+        "club": "418",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "56/57",
+        "club": "709",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "61/62",
+        "club": "3375",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "53/54",
+        "club": "3468",
+        "jerseyNumber": 10
+      }
+    ],
+    "position": {
+      "main": "Second Striker",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Puskas_%281971%29.tif/lossy-page1-500px-Puskas_%281971%29.tif.jpg",
+    "imageAttribution": {
+      "author": "Unknown",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Puskas_(1971).tif"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 268,
+      "goals": 246,
+      "assists": 28,
+      "yellowCards": 0,
+      "redCards": 2,
+      "minutesPlayed": 8600,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 39.5
   },
   {
     "playerId": "357164",
@@ -85939,7 +89144,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/357164-1730126553.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/RafaelLe%C3%A3oPortugal23.jpg",
+    "imageAttribution": {
+      "author": "Agência Lusa",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:RafaelLe%C3%A3oPortugal23.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1999-06-10",
     "leftFooted": false,
@@ -86156,7 +89367,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3700-1678198342.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Frederic_Kanoute_2008.jpg",
+    "imageAttribution": {
+      "author": "Fondo Andaluz de Municipios para la Solidaridad Internacional FAMSI",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Frederic_Kanoute_2008.jpg"
+    },
     "height": 192,
     "dateOfBirth": "1977-09-02",
     "leftFooted": false,
@@ -86468,7 +89685,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/44068-1671102342.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Zarya-MU_%2810%29.jpg",
+    "imageAttribution": {
+      "author": "Станислав Ведмидь",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zarya-MU_(10).jpg"
+    },
     "height": 170,
     "dateOfBirth": "1988-04-28",
     "leftFooted": true,
@@ -86733,7 +89956,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/203853-1688658681.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/2021-12-07_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2777_by_Stepro.jpg/500px-2021-12-07_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2777_by_Stepro.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2021-12-07_Fu%C3%9Fball,_M%C3%A4nner,_UEFA_Champions_League,_RB_Leipzig_-_Manchester_City_FC_1DX_2777_by_Stepro.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1996-12-15",
     "leftFooted": true,
@@ -86953,7 +90182,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/164771-1762258648.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Veretout_asse_ol_2425.png/500px-Veretout_asse_ol_2425.png",
+    "imageAttribution": {
+      "author": "Paté kroute",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Veretout_asse_ol_2425.png"
+    },
     "height": 177,
     "dateOfBirth": "1993-03-01",
     "leftFooted": false,
@@ -87255,7 +90490,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5947-1454935412.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Daniele_De_Rossi_BGR-ITA_2012.jpg",
+    "imageAttribution": {
+      "author": "Biser Todorov (original picture), Mess (derivative work)",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Daniele_De_Rossi_BGR-ITA_2012.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1983-07-24",
     "leftFooted": false,
@@ -87277,6 +90518,232 @@ export const enrichedFootballPlayers: Player[] = [
       "clubName": "AS Roma",
       "marketValue": 38000000
     },
+    "fameScore": 38.6
+  },
+  {
+    "playerId": "89230",
+    "name": "Eusébio",
+    "nationality": "Portugal",
+    "citizenship": [
+      "Portugal"
+    ],
+    "clubs": [
+      "NJ Americans",
+      "União de Tomar",
+      "LV Quicksilvers",
+      "Beira-Mar",
+      "Toronto Croatia",
+      "Monterrey",
+      "B. Minutemen",
+      "SL Benfica",
+      "L. Marques"
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "Ballon d'Or winner",
+      "European Golden Boot winner",
+      "Champions League top scorer",
+      "Champions League winner",
+      "3+ domestic league titles",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman",
+      "Fair Play Master",
+      "Prolific Scorer"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Prolific Scorer"
+    ],
+    "managers": [],
+    "jerseyNumbers": [],
+    "position": {
+      "main": "Centre-Forward",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Eusebio_en_1973.jpg/500px-Eusebio_en_1973.jpg",
+    "imageAttribution": {
+      "author": "Panini",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Eusebio_en_1973.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 108,
+      "goals": 90,
+      "assists": 12,
+      "yellowCards": 1,
+      "redCards": 0,
+      "minutesPlayed": 7459,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 38.6
+  },
+  {
+    "playerId": "116757",
+    "name": "Paolo Rossi",
+    "nationality": "Italy",
+    "citizenship": [
+      "Italy"
+    ],
+    "clubs": [
+      "Hellas Verona",
+      "AC Milan",
+      "Juventus FC",
+      "Vicenza",
+      "Perugia",
+      "Como",
+      "San Michele",
+      "Unknown",
+      "Santa Lucia"
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "Ballon d'Or winner",
+      "Serie A top scorer",
+      "World Cup winner",
+      "Champions League winner",
+      "Serie A winner",
+      "Coppa Italia winner"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman",
+      "Fair Play Master"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Wore #9",
+      "Wore #10",
+      "Wore #7"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "86/87",
+        "club": "276",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "85/86",
+        "club": "5",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "85/86",
+        "club": "5",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "84/85",
+        "club": "506",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "84/85",
+        "club": "506",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "83/84",
+        "club": "506",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "82/83",
+        "club": "506",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "81/82",
+        "club": "506",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "79/80",
+        "club": "839",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "76/77",
+        "club": "2655",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "75/76",
+        "club": "1047",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "75/76",
+        "club": "1047",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "86/87",
+        "club": "3376",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "85/86",
+        "club": "3376",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "82/83",
+        "club": "3376",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "82/83",
+        "club": "3376",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "81/82",
+        "club": "3376",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "77/78",
+        "club": "3376",
+        "jerseyNumber": 21
+      }
+    ],
+    "position": {
+      "main": "Centre-Forward",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Paolo_Rossi_Vicenza_%28cropped%29.jpg/500px-Paolo_Rossi_Vicenza_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "The original uploader was Snake90 at Italian Wikipedia .",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Paolo_Rossi_Vicenza_(cropped).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 340,
+      "goals": 134,
+      "assists": 33,
+      "yellowCards": 1,
+      "redCards": 0,
+      "minutesPlayed": 7894,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
     "fameScore": 38.6
   },
   {
@@ -87475,7 +90942,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/131075-1663572709.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Francesco_Acerbi_2021.jpg/500px-Francesco_Acerbi_2021.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Francesco_Acerbi_2021.jpg"
+    },
     "height": 192,
     "dateOfBirth": "1988-02-10",
     "leftFooted": true,
@@ -87670,7 +91143,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/378710-1665608231.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Richarlison_%C3%A9_homenageado_na_ALES_%2810.July.2019%29_08_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Assembleia Legislativa do Espírito Santo",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Richarlison_%C3%A9_homenageado_na_ALES_(10.July.2019)_08_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1997-05-10",
     "leftFooted": false,
@@ -87923,7 +91402,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/242086-1727378322.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Patrik_Schick_20180601_AUSCZE_3910_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ailura",
+      "license": "CC BY-SA 3.0 at",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Patrik_Schick_20180601_AUSCZE_3910_(cropped).jpg"
+    },
     "height": 191,
     "dateOfBirth": "1996-01-24",
     "leftFooted": true,
@@ -88161,7 +91646,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/318528-1746041509.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marcus_Thuram_France_v_Senegal_16_June_2026-261_%28cropped%29.jpg/500px-Marcus_Thuram_France_v_Senegal_16_June_2026-261_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marcus_Thuram_France_v_Senegal_16_June_2026-261_(cropped).jpg"
+    },
     "height": 192,
     "dateOfBirth": "1997-08-06",
     "leftFooted": false,
@@ -88385,7 +91876,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Defensive Midfield",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/257455-1684773447.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Joaopalhinha.jpg/500px-Joaopalhinha.jpg",
+    "imageAttribution": {
+      "author": "Agência Lusa",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Joaopalhinha.jpg"
+    },
     "height": 190,
     "dateOfBirth": "1995-07-09",
     "leftFooted": false,
@@ -88408,6 +91905,192 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 60000000
     },
     "fameScore": 38
+  },
+  {
+    "playerId": "8024",
+    "name": "Diego Maradona",
+    "nationality": "Argentina",
+    "citizenship": [
+      "Argentina"
+    ],
+    "clubs": [
+      "CA Boca Juniors",
+      "Newell's",
+      "Sevilla FC",
+      "SSC Napoli",
+      "FC Barcelona",
+      "Argentinos Jrs."
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "Serie A top scorer",
+      "World Cup winner",
+      "Serie A winner",
+      "UEFA Cup/Europa League winner",
+      "Copa del Rey winner",
+      "Coppa Italia winner",
+      "3+ domestic league titles",
+      "League title in multiple countries",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman"
+    ],
+    "tags": [
+      "Attacking Midfield",
+      "Wore #10"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "97/98",
+        "club": "189",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "96/97",
+        "club": "189",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "95/96",
+        "club": "189",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "90/91",
+        "club": "6195",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "90/91",
+        "club": "6195",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "89/90",
+        "club": "6195",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "89/90",
+        "club": "6195",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "88/89",
+        "club": "6195",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "88/89",
+        "club": "6195",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "87/88",
+        "club": "6195",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "86/87",
+        "club": "6195",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "85/86",
+        "club": "6195",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "84/85",
+        "club": "6195",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "83/84",
+        "club": "131",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "82/83",
+        "club": "131",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "93/94",
+        "club": "3437",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "92/93",
+        "club": "3437",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "89/90",
+        "club": "3437",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "88/89",
+        "club": "3437",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "86/87",
+        "club": "3437",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "85/86",
+        "club": "3437",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "81/82",
+        "club": "3437",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "78/79",
+        "club": "11940",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "78/79",
+        "club": "3437",
+        "jerseyNumber": 6
+      }
+    ],
+    "position": {
+      "main": "Attacking Midfield",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Maradona_1986_vs_italy.jpg/500px-Maradona_1986_vs_italy.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Maradona_1986_vs_italy.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 351,
+      "goals": 162,
+      "assists": 109,
+      "yellowCards": 20,
+      "redCards": 3,
+      "minutesPlayed": 7620,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 37.6
   },
   {
     "playerId": "655488",
@@ -88561,7 +92244,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/655488-1682689091.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Gabriel_Martinelli_Brazil_V_Morocco_13_June_2026-144.jpg/500px-Gabriel_Martinelli_Brazil_V_Morocco_13_June_2026-144.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gabriel_Martinelli_Brazil_V_Morocco_13_June_2026-144.jpg"
+    },
     "height": 178,
     "dateOfBirth": "2001-06-18",
     "leftFooted": false,
@@ -88752,7 +92441,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/129083-1605190647.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Iv%C3%A1n_Zamorano.jpg",
+    "imageAttribution": {
+      "author": "11-06-2013_Partido_Chile-Bolivia.jpg : tu Foto con el Presidente derivative work: Rec79",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Iv%C3%A1n_Zamorano.jpg"
+    },
     "height": 178,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -89014,7 +92709,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3177_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Zola_2018_%28cropped%29.jpg/500px-Zola_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zola_2018_(cropped).jpg"
+    },
     "height": 168,
     "dateOfBirth": "1966-07-05",
     "leftFooted": false,
@@ -89320,7 +93021,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/43250-1668080180.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jan_Vertonghen_Belgium.jpg/500px-Jan_Vertonghen_Belgium.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jan_Vertonghen_Belgium.jpg"
+    },
     "height": 189,
     "dateOfBirth": "1987-04-24",
     "leftFooted": true,
@@ -89503,7 +93210,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/197838-1683031278.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Jamie_Vardy_2018.jpg/500px-Jamie_Vardy_2018.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jamie_Vardy_2018.jpg"
+    },
     "height": 179,
     "dateOfBirth": "1987-01-11",
     "leftFooted": false,
@@ -89712,7 +93425,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/230784-1668430877.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Thomas_Partey_5_England_v_Ghana_at_2026_Fifa_World_Cup_by_YantsImages_02_%28cropped%29.jpg/500px-Thomas_Partey_5_England_v_Ghana_at_2026_Fifa_World_Cup_by_YantsImages_02_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "YantsImages",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Thomas_Partey_5_England_v_Ghana_at_2026_Fifa_World_Cup_by_YantsImages_02_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1993-06-13",
     "leftFooted": false,
@@ -89932,7 +93651,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/351478-1749415304.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_108_%28cropped%29.jpg/500px-UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_108_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Rolandhino1",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_108_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1997-04-21",
     "leftFooted": true,
@@ -90242,7 +93967,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/106987-1711745992.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Marcel_Sabitzer_2020_%28cropped%29.jpg/500px-Marcel_Sabitzer_2020_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marcel_Sabitzer_2020_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1994-03-17",
     "leftFooted": false,
@@ -90509,7 +94240,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/169880-1730126691.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Norway_Italy_-_June_2025_A_20_-_Giovanni_Di_Lorenzo.jpg/500px-Norway_Italy_-_June_2025_A_20_-_Giovanni_Di_Lorenzo.jpg",
+    "imageAttribution": {
+      "author": "MichaelEmilio",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_A_20_-_Giovanni_Di_Lorenzo.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1993-08-04",
     "leftFooted": false,
@@ -90678,7 +94415,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/355915-1665609429.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Cristian_Romero_Argentina_v_Egypt_7_July_2026-108.jpg/500px-Cristian_Romero_Argentina_v_Egypt_7_July_2026-108.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cristian_Romero_Argentina_v_Egypt_7_July_2026-108.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1998-04-27",
     "leftFooted": false,
@@ -90960,7 +94703,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Sweeper"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/107860-1588074566.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Giuseppe_Bergomi.jpg",
+    "imageAttribution": {
+      "author": "Christophe95",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Giuseppe_Bergomi.jpg"
+    },
     "height": 184,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -91184,7 +94933,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/348795-1726734706.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Giovani_Lo_Celso_Argentina_v_Egypt_7_July_2026-038.jpg/500px-Giovani_Lo_Celso_Argentina_v_Egypt_7_July_2026-038.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Giovani_Lo_Celso_Argentina_v_Egypt_7_July_2026-038.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1996-04-09",
     "leftFooted": true,
@@ -91414,7 +95169,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/31645-1447748712.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Anderson_2013.jpg",
+    "imageAttribution": {
+      "author": "Doha Stadium Plus Qatar",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Anderson_2013.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1988-04-13",
     "leftFooted": true,
@@ -91673,7 +95434,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7520-1462280899.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Esteban_Cambiasso_-_2011.jpg",
+    "imageAttribution": {
+      "author": "Ludovic Péron",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Esteban_Cambiasso_-_2011.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1980-08-18",
     "leftFooted": true,
@@ -91893,7 +95660,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/70-1771599506.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Emerson_2005.jpg",
+    "imageAttribution": {
+      "author": "Nicola Genati",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Emerson_2005.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1976-04-04",
     "leftFooted": false,
@@ -92156,7 +95929,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/33544-1484662583.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Antonio_Valencia_cropped.jpg",
+    "imageAttribution": {
+      "author": "Julia Novikova for Soccer.ru",
+      "license": "CC BY-SA 1.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/1.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Antonio_Valencia_cropped.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1985-08-04",
     "leftFooted": false,
@@ -92325,7 +96104,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/351809-1707948228.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Le_Normand_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Giovanni Batista Rodriguez from San Sebastian-Donostia, España",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Le_Normand_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1996-11-11",
     "leftFooted": false,
@@ -92466,7 +96251,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/6657-1517845078.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Abedi_Pele_2007.jpg",
+    "imageAttribution": {
+      "author": "Christophe95",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Abedi_Pele_2007.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -92756,7 +96547,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/14086-1700736434.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ashley_Young_2018-06-13_1.jpg/500px-Ashley_Young_2018-06-13_1.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ashley_Young_2018-06-13_1.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1985-09-07",
     "leftFooted": false,
@@ -93067,7 +96864,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3878-1666625002.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Michael_Carrick_12042025_%285%29_%28cropped%29.jpg/500px-Michael_Carrick_12042025_%285%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Timmy96",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Michael_Carrick_12042025_(5)_(cropped).jpg"
+    },
     "height": 189,
     "dateOfBirth": "1981-07-28",
     "leftFooted": false,
@@ -93331,7 +97134,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/198008-1724336978.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Andr%C3%A9_Silva_2021.jpg/500px-Andr%C3%A9_Silva_2021.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9_Silva_2021.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1995-11-06",
     "leftFooted": false,
@@ -93537,7 +97346,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/201-1592225585.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/O_Hargreaves.jpg/500px-O_Hargreaves.jpg",
+    "imageAttribution": {
+      "author": "Gordon Flood from Trim, Ireland",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:O_Hargreaves.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1981-01-20",
     "leftFooted": false,
@@ -93866,7 +97681,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/12282-1718096647.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Zarya-MU_%286%29_%E2%80%94_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg",
+    "imageAttribution": {
+      "author": "Станислав Ведмидь",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zarya-MU_(6)_%E2%80%94_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1990-09-03",
     "leftFooted": true,
@@ -93889,6 +97710,290 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 25000000
     },
     "fameScore": 35
+  },
+  {
+    "playerId": "77",
+    "name": "Lúcio",
+    "nationality": "Brazil",
+    "citizenship": [
+      "Brazil"
+    ],
+    "clubs": [
+      "Brasiliense-DF",
+      "SE Gama",
+      "FC Goa",
+      "Palmeiras",
+      "São Paulo",
+      "Juventus FC",
+      "Inter Milan",
+      "Bayern Munich",
+      "Bayer 04 Leverkusen",
+      "Internacional",
+      "Clube de Regatas Guará (DF)",
+      "Planaltina",
+      "Unknown"
+    ],
+    "youthClubs": [
+      "Planaltina EC (DF)",
+      "União São João (SP)"
+    ],
+    "achievements": [
+      "World Cup winner",
+      "Champions League winner",
+      "Bundesliga winner",
+      "Serie A winner",
+      "DFB-Pokal winner",
+      "Club World Cup winner",
+      "Coppa Italia winner",
+      "Confederations Cup winner",
+      "3+ domestic league titles",
+      "League title in multiple countries",
+      "Domestic double",
+      "Treble winner"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Centre-Back",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "2020s player"
+    ],
+    "managers": [
+      "Played under José Mourinho",
+      "Played under Antonio Conte",
+      "Played under Rafael Benítez",
+      "Played under Louis van Gaal"
+    ],
+    "jerseyNumbers": [
+      {
+        "season": "15/16",
+        "club": "45321",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "14/15",
+        "club": "45321",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "13/14",
+        "club": "1023",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "13/14",
+        "club": "1023",
+        "jerseyNumber": 33
+      },
+      {
+        "season": "12/13",
+        "club": "585",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "12/13",
+        "club": "585",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "12/13",
+        "club": "506",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "11/12",
+        "club": "46",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "11/12",
+        "club": "585",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "10/11",
+        "club": "46",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "09/10",
+        "club": "46",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "08/09",
+        "club": "27",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "07/08",
+        "club": "27",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "06/07",
+        "club": "27",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "05/06",
+        "club": "27",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "04/05",
+        "club": "27",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "03/04",
+        "club": "15",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "02/03",
+        "club": "15",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "01/02",
+        "club": "15",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "99/00",
+        "club": "6600",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "98/99",
+        "club": "6600",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "98/99",
+        "club": "6600",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "97/98",
+        "club": "6600",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "10/11",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "09/10",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "08/09",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "07/08",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "05/06",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "04/05",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "04/05",
+        "club": "3439",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "04/05",
+        "club": "3439",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "02/03",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "01/02",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "00/01",
+        "club": "3439",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "00/01",
+        "club": "3439",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "00/01",
+        "club": "3439",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "99/00",
+        "club": "53818",
+        "jerseyNumber": 14
+      }
+    ],
+    "position": {
+      "main": "Centre-Back",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Lucio_2019_%28cropped%29.jpg/500px-Lucio_2019_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Palácio do Planalto from Brasilia, Brasil",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lucio_2019_(cropped).jpg"
+    },
+    "height": 188,
+    "dateOfBirth": "1978-08-05",
+    "leftFooted": false,
+    "era": "1996-2020",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 27,
+      "date": "2006-09-01",
+      "clubId": "27",
+      "clubName": "Bayern Munich",
+      "marketValue": 24500000
+    },
+    "fameScore": 34.9
   },
   {
     "playerId": "249565",
@@ -94135,7 +98240,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/249565-1716886438.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Youri_Tielemans_USMNT_v_Belgium_Mar_28_2026-20_%28cropped%29.jpg/500px-Youri_Tielemans_USMNT_v_Belgium_Mar_28_2026-20_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Youri_Tielemans_USMNT_v_Belgium_Mar_28_2026-20_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1997-05-07",
     "leftFooted": false,
@@ -94389,7 +98500,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/198116-1725531769.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Norway_Italy_-_June_2025_A_26_%28cropped%29.jpg/500px-Norway_Italy_-_June_2025_A_26_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "MichaelEmilio",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_A_26_(cropped).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1997-11-10",
     "leftFooted": true,
@@ -94752,7 +98869,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/331726-1761563884.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/FC_Salzburg_gegen_AS_Roma_%28UEFA_Euroleague_play-off%2C_2023-02-16%29_39_%28cropped2%29.jpg/500px-FC_Salzburg_gegen_AS_Roma_%28UEFA_Euroleague_play-off%2C_2023-02-16%29_39_%28cropped2%29.jpg",
+    "imageAttribution": {
+      "author": "Werner100359",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_AS_Roma_(UEFA_Euroleague_play-off,_2023-02-16)_39_(cropped2).jpg"
+    },
     "height": 194,
     "dateOfBirth": "1997-10-02",
     "leftFooted": false,
@@ -95023,7 +99146,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/140776-1664969500.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Yannick_Ferreira_Carrasco_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Светлана Бекетова",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yannick_Ferreira_Carrasco_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1993-09-04",
     "leftFooted": false,
@@ -95225,7 +99354,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/294057-1687982662.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/James_Maddison_pre-match_training_%28cropped%29.jpg/500px-James_Maddison_pre-match_training_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "KrispyKrumpets",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:James_Maddison_pre-match_training_(cropped).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1996-11-23",
     "leftFooted": false,
@@ -95426,7 +99561,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7589-1725622537.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/V%C3%ADctor_Vald%C3%A9s_before_Euro_2012_vs_France_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Неймырок",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:V%C3%ADctor_Vald%C3%A9s_before_Euro_2012_vs_France_(cropped).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1982-01-14",
     "leftFooted": false,
@@ -95579,7 +99720,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/95378-1448456121.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Jean-Marie_Pfaff_at_Runa_Ralley_2007_cropped.jpg/500px-Jean-Marie_Pfaff_at_Runa_Ralley_2007_cropped.jpg",
+    "imageAttribution": {
+      "author": "Jean-Marie_Pfaff_at_Runa_Ralley_2007.jpg : Tim Dobbelaere from Ieper, Belgium derivative work: Huhbakker ( talk )",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jean-Marie_Pfaff_at_Runa_Ralley_2007_cropped.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -95855,7 +100002,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/149729-1757717410.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Loco-SportLis_%285%29.jpg",
+    "imageAttribution": {
+      "author": "Елена Рыбакова",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Loco-SportLis_(5).jpg"
+    },
     "height": 179,
     "dateOfBirth": "1993-01-19",
     "leftFooted": false,
@@ -96094,7 +100247,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5794-1511175376.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Obafemi_Martins.png",
+    "imageAttribution": {
+      "author": "michael.kjaer",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Obafemi_Martins.png"
+    },
     "height": 0,
     "dateOfBirth": "1984-10-28",
     "leftFooted": false,
@@ -96381,7 +100540,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/223967-1700659266.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/2022-07-21_Fu%C3%9Fball%2C_M%C3%A4nner%2CFreundschaftsspiel%2C_RB_Leipzig_-_FC_Liverpool_1DX_2137_by_Stepro_%28cropped%29.jpg/500px-2022-07-21_Fu%C3%9Fball%2C_M%C3%A4nner%2CFreundschaftsspiel%2C_RB_Leipzig_-_FC_Liverpool_1DX_2137_by_Stepro_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022-07-21_Fu%C3%9Fball,_M%C3%A4nner,Freundschaftsspiel,_RB_Leipzig_-_FC_Liverpool_1DX_2137_by_Stepro_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1997-05-27",
     "leftFooted": false,
@@ -96610,7 +100775,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4182-1542019034.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Claude_Mak%C3%A9l%C3%A9l%C3%A9_%2853557564951%29_%28cropped%29.jpg/500px-Claude_Mak%C3%A9l%C3%A9l%C3%A9_%2853557564951%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit Qatar",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Claude_Mak%C3%A9l%C3%A9l%C3%A9_(53557564951)_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "1973-02-18",
     "leftFooted": false,
@@ -96905,7 +101076,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3216-1578925365.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Milan_Baro%C5%A13%2C_FCB-SLAVIA_30092018.jpg/500px-Milan_Baro%C5%A13%2C_FCB-SLAVIA_30092018.jpg",
+    "imageAttribution": {
+      "author": "Tadeáš Bednarz",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Milan_Baro%C5%A13,_FCB-SLAVIA_30092018.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1981-10-28",
     "leftFooted": false,
@@ -97162,7 +101339,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/395516-1642608355.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Moussa_Diaby%2C_2022-07-31%2C_Saisoner%C3%B6ffnung_Bayer_04%2C_Leverkusen_%281%29.jpg/500px-Moussa_Diaby%2C_2022-07-31%2C_Saisoner%C3%B6ffnung_Bayer_04%2C_Leverkusen_%281%29.jpg",
+    "imageAttribution": {
+      "author": "Pyaet",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Moussa_Diaby,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1).jpg"
+    },
     "height": 170,
     "dateOfBirth": "1999-07-07",
     "leftFooted": true,
@@ -97389,7 +101572,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5555-1719457315.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gabriel_Heinze_en_Newell%27s_Old_Boys_%282022%29.jpg/500px-Gabriel_Heinze_en_Newell%27s_Old_Boys_%282022%29.jpg",
+    "imageAttribution": {
+      "author": "Newell's Old Boys",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gabriel_Heinze_en_Newell%27s_Old_Boys_(2022).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1978-04-19",
     "leftFooted": true,
@@ -97579,7 +101768,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3110-1485180006.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Alan_Shearer_2008.jpg",
+    "imageAttribution": {
+      "author": "Originally carltonreid ; retouched by DFS454",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alan_Shearer_2008.jpg"
+    },
     "height": 183,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -97859,7 +102054,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/46580-1755089885.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Andrej_Kramaric_Croatia_v_Portugal_2_July_2026-014.jpg/500px-Andrej_Kramaric_Croatia_v_Portugal_2_July_2026-014.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andrej_Kramaric_Croatia_v_Portugal_2_July_2026-014.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1991-06-19",
     "leftFooted": false,
@@ -98118,7 +102319,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/321528-1746042223.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Edison_ndreca_inter_egnati_%28cropped_Denzel_Dumfries%29.jpg",
+    "imageAttribution": {
+      "author": "Erjonallaraj",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Edison_ndreca_inter_egnati_(cropped_Denzel_Dumfries).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1996-04-18",
     "leftFooted": false,
@@ -98141,6 +102348,284 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 35000000
     },
     "fameScore": 33.1
+  },
+  {
+    "playerId": "89",
+    "name": "Zé Roberto",
+    "nationality": "Brazil",
+    "citizenship": [
+      "Brazil",
+      "Germany"
+    ],
+    "clubs": [
+      "Palmeiras",
+      "Grêmio",
+      "Al-Gharafa",
+      "Hamburg",
+      "Nacional",
+      "Bayern Munich",
+      "Santos",
+      "Bayer 04 Leverkusen",
+      "Real Madrid",
+      "Flamengo",
+      "Portuguesa"
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "Copa America champion",
+      "Champions League winner",
+      "Bundesliga winner",
+      "La Liga winner",
+      "DFB-Pokal winner",
+      "Confederations Cup winner",
+      "3+ domestic league titles",
+      "League title in multiple countries",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Multiple Citizenships",
+      "Multiple Positions",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Central Midfield",
+      "Full-Back",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "Wore #10",
+      "Wore #9",
+      "Dual Nationality"
+    ],
+    "managers": [
+      "Played under Fabio Capello",
+      "Played under Vicente del Bosque"
+    ],
+    "jerseyNumbers": [
+      {
+        "season": "16/17",
+        "club": "1023",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "15/16",
+        "club": "1023",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "14/15",
+        "club": "1023",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "13/14",
+        "club": "210",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "12/13",
+        "club": "210",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "11/12",
+        "club": "210",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "11/12",
+        "club": "6297",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "10/11",
+        "club": "41",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "09/10",
+        "club": "41",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "08/09",
+        "club": "27",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "07/08",
+        "club": "27",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "06/07",
+        "club": "221",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "05/06",
+        "club": "27",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "04/05",
+        "club": "27",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "03/04",
+        "club": "27",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "02/03",
+        "club": "27",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "01/02",
+        "club": "15",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "99/00",
+        "club": "15",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "98/99",
+        "club": "15",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "97/98",
+        "club": "418",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "96/97",
+        "club": "418",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "95/96",
+        "club": "10247",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "94/95",
+        "club": "10247",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "05/06",
+        "club": "3439",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "04/05",
+        "club": "3439",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "04/05",
+        "club": "3439",
+        "jerseyNumber": 17
+      },
+      {
+        "season": "00/01",
+        "club": "3439",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "00/01",
+        "club": "3439",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "00/01",
+        "club": "3439",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "00/01",
+        "club": "3439",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "98/99",
+        "club": "3439",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "98/99",
+        "club": "3439",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "97/98",
+        "club": "3439",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "96/97",
+        "club": "3439",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "96/97",
+        "club": "3439",
+        "jerseyNumber": 17
+      },
+      {
+        "season": "95/96",
+        "club": "3439",
+        "jerseyNumber": 15
+      }
+    ],
+    "position": {
+      "main": "Left Midfield",
+      "other": [
+        "Central Midfield",
+        "Left-Back"
+      ]
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/ZE_ROBERTO-PALMEIRAS_%2834911500143%29_%28cropped%29.jpg/500px-ZE_ROBERTO-PALMEIRAS_%2834911500143%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Agencia de Noticias ANDES",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:ZE_ROBERTO-PALMEIRAS_(34911500143)_(cropped).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "1974-06-07",
+    "leftFooted": false,
+    "era": "1994-2017",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 30,
+      "date": "2004-04-10",
+      "clubId": "27",
+      "clubName": "Bayern Munich",
+      "marketValue": 15000000
+    },
+    "fameScore": 33
   },
   {
     "playerId": "54906",
@@ -98368,7 +102853,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/54906-1695027410.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Matteo_Darmian_1.jpg/500px-20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Matteo_Darmian_1.jpg",
+    "imageAttribution": {
+      "author": "Clément Bucco-Lechat",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Matteo_Darmian_1.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1989-02-12",
     "leftFooted": false,
@@ -98637,7 +103128,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/74683-1655212906.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Nemanja_Mati%C4%87_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Екатерина Лаут",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nemanja_Mati%C4%87_2018_(cropped).jpg"
+    },
     "height": 194,
     "dateOfBirth": "1988-01-08",
     "leftFooted": true,
@@ -98939,7 +103436,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/143424-1771531871.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Alex_Oxlade-Chamberlain_%28cropped%29.jpg/500px-Alex_Oxlade-Chamberlain_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Beşiktaş JK",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alex_Oxlade-Chamberlain_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1990-11-11",
     "leftFooted": false,
@@ -99162,7 +103665,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7161-1689710421.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/2022128153308_2022-05-08_Fussball_Eintracht_Frankfurt_vs_Borussia_M%C3%B6nchengladbach_-_Sven_-_1D_X_MK_II_-_0729_-_B70I6840_%28cropped%29_%28cropped%29.jpg/500px-2022128153308_2022-05-08_Fussball_Eintracht_Frankfurt_vs_Borussia_M%C3%B6nchengladbach_-_Sven_-_1D_X_MK_II_-_0729_-_B70I6840_%28cropped%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Sven Mandel",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2022128153308_2022-05-08_Fussball_Eintracht_Frankfurt_vs_Borussia_M%C3%B6nchengladbach_-_Sven_-_1D_X_MK_II_-_0729_-_B70I6840_(cropped)_(cropped).jpg"
+    },
     "height": 176,
     "dateOfBirth": "1992-07-14",
     "leftFooted": false,
@@ -99409,7 +103918,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/397033-1688389270.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Norway_Italy_-_June_2025_B_03.jpg/500px-Norway_Italy_-_June_2025_B_03.jpg",
+    "imageAttribution": {
+      "author": "MichaelEmilio",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_B_03.jpg"
+    },
     "height": 181,
     "dateOfBirth": "2000-05-08",
     "leftFooted": false,
@@ -99653,7 +104168,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_4592_985_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Park_Ji-sung_G20_Seoul_Summit_Ambassador_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Korea.net / Korean Culture and Information Service",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Park_Ji-sung_G20_Seoul_Summit_Ambassador_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1981-02-25",
     "leftFooted": false,
@@ -99675,6 +104196,77 @@ export const enrichedFootballPlayers: Player[] = [
       "clubName": "Manchester United",
       "marketValue": 12500000
     },
+    "fameScore": 32.5
+  },
+  {
+    "playerId": "174986",
+    "name": "George Best",
+    "nationality": "Northern Ireland",
+    "citizenship": [
+      "Northern Ireland"
+    ],
+    "clubs": [
+      "Tobermore",
+      "Nuneaton",
+      "Brisbane Lions",
+      "Bournemouth",
+      "Rangers",
+      "SJ Earthquakes",
+      "Hibernian FC",
+      "FL Strikers",
+      "LA Aztecs",
+      "Fulham",
+      "Cork Celtic FC",
+      "Stockport",
+      "Jewish Guild",
+      "Dunstable",
+      "Manchester United"
+    ],
+    "youthClubs": [
+      "Cregagh Football Club"
+    ],
+    "achievements": [
+      "Ballon d'Or winner",
+      "Champions League winner",
+      "Premier League winner",
+      "FA Cup winner"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman",
+      "Fair Play Master"
+    ],
+    "tags": [
+      "Winger"
+    ],
+    "managers": [],
+    "jerseyNumbers": [],
+    "position": {
+      "main": "Right Winger",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/George_Best_%281976%29.jpg/500px-George_Best_%281976%29.jpg",
+    "imageAttribution": {
+      "author": "Hans Peters for Anefo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:George_Best_(1976).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 522,
+      "goals": 189,
+      "assists": 63,
+      "yellowCards": 3,
+      "redCards": 3,
+      "minutesPlayed": 11786,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
     "fameScore": 32.5
   },
   {
@@ -99941,7 +104533,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3374-1773832961.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Geremi_Njitap_Hull_City_v._Newcastle_United_1_%28cropped%29.png",
+    "imageAttribution": {
+      "author": "Mattythewhite",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Geremi_Njitap_Hull_City_v._Newcastle_United_1_(cropped).png"
+    },
     "height": 180,
     "dateOfBirth": "1978-12-20",
     "leftFooted": false,
@@ -100136,7 +104734,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/28260-1768293906.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/%C3%81lvaro_Arbeloa.jpg/500px-%C3%81lvaro_Arbeloa.jpg",
+    "imageAttribution": {
+      "author": "User:Steindy derivative work: Mario Žamić ( talk )",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%C3%81lvaro_Arbeloa.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1983-01-17",
     "leftFooted": false,
@@ -100365,7 +104969,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/66106-1653039158.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Real_Sociedad_-_Red_Bull_Salzburgo_52_%2839408621605%29_%28cropped%29_2.jpg",
+    "imageAttribution": {
+      "author": "Giovanni Batista Rodriguez from San Sebastian-Donostia, España",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Real_Sociedad_-_Red_Bull_Salzburgo_52_(39408621605)_(cropped)_2.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1991-02-16",
     "leftFooted": true,
@@ -100658,7 +105268,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/111873-1668180824.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Emiliano_Martinez_Argentina_v_Egypt_7_July_2026-093_%28cropped%29.jpg/500px-Emiliano_Martinez_Argentina_v_Egypt_7_July_2026-093_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Emiliano_Martinez_Argentina_v_Egypt_7_July_2026-093_(cropped).jpg"
+    },
     "height": 195,
     "dateOfBirth": "1992-09-02",
     "leftFooted": false,
@@ -100860,7 +105476,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Right Winger",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_135637_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ren%C3%A9_van_de_Kerkhof_1980.jpg/500px-Ren%C3%A9_van_de_Kerkhof_1980.jpg",
+    "imageAttribution": {
+      "author": "Hans van Dijk for Anefo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Ren%C3%A9_van_de_Kerkhof_1980.jpg"
+    },
     "height": 182,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -101159,7 +105781,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/33706-1779104952.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/New_Zealand-Portugal_Nani.jpg/500px-New_Zealand-Portugal_Nani.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:New_Zealand-Portugal_Nani.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1986-11-17",
     "leftFooted": false,
@@ -101387,7 +106015,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/444523-1695370009.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Lucas_Paqueta_Brazil_V_Morocco_13_June_2026-134_%28cropped%29.jpg/500px-Lucas_Paqueta_Brazil_V_Morocco_13_June_2026-134_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lucas_Paqueta_Brazil_V_Morocco_13_June_2026-134_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1997-08-27",
     "leftFooted": true,
@@ -101638,7 +106272,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Attacking Midfield",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/132-1464947592.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Arsenal_Vs_Burnley_%2824618630252%29.jpg/500px-Arsenal_Vs_Burnley_%2824618630252%29.jpg",
+    "imageAttribution": {
+      "author": "joshjdss",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arsenal_Vs_Burnley_(24618630252).jpg"
+    },
     "height": 179,
     "dateOfBirth": "1980-10-04",
     "leftFooted": false,
@@ -101824,7 +106464,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/128220-1737911284.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/DK-Lazio_%283%29.jpg",
+    "imageAttribution": {
+      "author": "Олег Батрак",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:DK-Lazio_(3).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1992-09-28",
     "leftFooted": false,
@@ -102050,7 +106696,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/255901-1771694448.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Rodrigo_De_Paul_Argentina_v_Egypt_7_July_2026-344_%28cropped%29.jpg/500px-Rodrigo_De_Paul_Argentina_v_Egypt_7_July_2026-344_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rodrigo_De_Paul_Argentina_v_Egypt_7_July_2026-344_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1994-05-24",
     "leftFooted": false,
@@ -102253,7 +106905,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_116072_123_2014_01_02_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Enzo_Francescoli_2011.jpg",
+    "imageAttribution": {
+      "author": "Christophe95",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Enzo_Francescoli_2011.jpg"
+    },
     "height": 181,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -102456,7 +107114,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/251664-1677676808.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ivan_Toney_England_v_Ghana_23_June_2026-051.jpg/500px-Ivan_Toney_England_v_Ghana_23_June_2026-051.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ivan_Toney_England_v_Ghana_23_June_2026-051.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1996-03-16",
     "leftFooted": false,
@@ -102726,7 +107390,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3405_985_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Brown_Manchester_-_Old_Trafford_-_Manchester_United_vs_Crawley_Town.jpg",
+    "imageAttribution": {
+      "author": "Andrea Sartorati",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Brown_Manchester_-_Old_Trafford_-_Manchester_United_vs_Crawley_Town.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1979-10-13",
     "leftFooted": false,
@@ -103010,7 +107680,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/192735-1661509021.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Stanislav_Lobotka_2021.jpg/500px-Stanislav_Lobotka_2021.jpg",
+    "imageAttribution": {
+      "author": "Антон Зайцев",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stanislav_Lobotka_2021.jpg"
+    },
     "height": 168,
     "dateOfBirth": "1994-11-25",
     "leftFooted": false,
@@ -103353,7 +108029,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/303254-1684856117.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/FC_Salzburg_vs._AC_Mailand_%28UEFA_Championsleague_2022-09-06%29_42.jpg/500px-FC_Salzburg_vs._AC_Mailand_%28UEFA_Championsleague_2022-09-06%29_42.jpg",
+    "imageAttribution": {
+      "author": "Werner100359",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_vs._AC_Mailand_(UEFA_Championsleague_2022-09-06)_42.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1997-12-19",
     "leftFooted": false,
@@ -103376,6 +108058,251 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 50000000
     },
     "fameScore": 31.8
+  },
+  {
+    "playerId": "7611",
+    "name": "Javier Saviola",
+    "nationality": "Argentina",
+    "citizenship": [
+      "Argentina",
+      "Spain"
+    ],
+    "clubs": [
+      "CA River Plate",
+      "Hellas Verona",
+      "Olympiacos",
+      "Málaga CF",
+      "SL Benfica",
+      "Real Madrid",
+      "FC Barcelona",
+      "Sevilla FC",
+      "AS Monaco"
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "La Liga winner",
+      "UEFA Cup/Europa League winner",
+      "Copa Libertadores winner",
+      "Olympic medalist",
+      "3+ domestic league titles",
+      "League title in multiple countries"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Multiple Citizenships",
+      "International Journeyman"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Wore #7",
+      "Wore #9",
+      "Dual Nationality"
+    ],
+    "managers": [
+      "Played under Louis van Gaal",
+      "Played under Frank Rijkaard",
+      "Played under Manuel Pellegrini"
+    ],
+    "jerseyNumbers": [
+      {
+        "season": "15/16",
+        "club": "209",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "14/15",
+        "club": "209",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "14/15",
+        "club": "209",
+        "jerseyNumber": 29
+      },
+      {
+        "season": "14/15",
+        "club": "276",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "14/15",
+        "club": "683",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "13/14",
+        "club": "683",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "12/13",
+        "club": "1084",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "12/13",
+        "club": "294",
+        "jerseyNumber": 30
+      },
+      {
+        "season": "11/12",
+        "club": "294",
+        "jerseyNumber": 30
+      },
+      {
+        "season": "10/11",
+        "club": "294",
+        "jerseyNumber": 30
+      },
+      {
+        "season": "09/10",
+        "club": "294",
+        "jerseyNumber": 30
+      },
+      {
+        "season": "08/09",
+        "club": "418",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "07/08",
+        "club": "418",
+        "jerseyNumber": 18
+      },
+      {
+        "season": "06/07",
+        "club": "131",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "05/06",
+        "club": "368",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "04/05",
+        "club": "162",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "03/04",
+        "club": "131",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "02/03",
+        "club": "131",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "01/02",
+        "club": "131",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "00/01",
+        "club": "209",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "99/00",
+        "club": "209",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "98/99",
+        "club": "209",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "08/09",
+        "club": "3437",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "05/06",
+        "club": "3437",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "04/05",
+        "club": "3437",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "04/05",
+        "club": "3437",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "04/05",
+        "club": "3437",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "03/04",
+        "club": "53819",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "03/04",
+        "club": "3437",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "00/01",
+        "club": "11940",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "00/01",
+        "club": "3437",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "00/01",
+        "club": "3437",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "99/00",
+        "club": "52540",
+        "jerseyNumber": 7
+      }
+    ],
+    "position": {
+      "main": "Second Striker",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Javier_Saviola_-_S.L._Benfica_player.jpg",
+    "imageAttribution": {
+      "author": "José Goulão /LUSA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Javier_Saviola_-_S.L._Benfica_player.jpg"
+    },
+    "height": 168,
+    "dateOfBirth": "1981-11-12",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 0,
+      "date": "",
+      "clubId": "",
+      "clubName": "FC Barcelona",
+      "marketValue": 8650000
+    },
+    "fameScore": 31.7
   },
   {
     "playerId": "520624",
@@ -103577,7 +108504,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/520624-1668522672.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Bruno_Guimaraes_Brazil_V_Morocco_13_June_2026-78_%28cropped%29.jpg/500px-Bruno_Guimaraes_Brazil_V_Morocco_13_June_2026-78_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bruno_Guimaraes_Brazil_V_Morocco_13_June_2026-78_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1997-11-16",
     "leftFooted": false,
@@ -103795,7 +108728,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3393-1542019112.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Stade_rennais_-_Le_Havre_AC_20150708_57.JPG/500px-Stade_rennais_-_Le_Havre_AC_20150708_57.JPG",
+    "imageAttribution": {
+      "author": "S. Plaine",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stade_rennais_-_Le_Havre_AC_20150708_57.JPG"
+    },
     "height": 0,
     "dateOfBirth": "1977-09-08",
     "leftFooted": false,
@@ -104086,7 +109025,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3543-1570703537.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Cropped_Butt_by_nyaa_birdies_perch.jpg",
+    "imageAttribution": {
+      "author": "nyaa_birdies_perch",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cropped_Butt_by_nyaa_birdies_perch.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1975-01-21",
     "leftFooted": false,
@@ -104298,7 +109243,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/357498-1683293071.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Dusan_Vlahovic_%28cropped%29.jpg/500px-Dusan_Vlahovic_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Dariuzzdigambassi / Derivative work: Danyele",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dusan_Vlahovic_(cropped).jpg"
+    },
     "height": 190,
     "dateOfBirth": "2000-01-28",
     "leftFooted": true,
@@ -104585,7 +109536,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3403-1702409192.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Gary_Neville_2014_%28cropped%29.jpg/500px-Gary_Neville_2014_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "University of Salford Press Office",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gary_Neville_2014_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1975-02-18",
     "leftFooted": false,
@@ -104781,7 +109738,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7527-1540834399.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Santiago_Solari_%28cropped%29.jpg/500px-Santiago_Solari_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Yeray1995",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Santiago_Solari_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1976-07-10",
     "leftFooted": true,
@@ -105079,7 +110042,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/360518-1707302998.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Teun_Koopmeiners_Manchester_United_v_Atalanta_BC%2C_20_October_2021_%2812%29_%28cropped%29.jpg/500px-Teun_Koopmeiners_Manchester_United_v_Atalanta_BC%2C_20_October_2021_%2812%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ardfern",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Teun_Koopmeiners_Manchester_United_v_Atalanta_BC,_20_October_2021_(12)_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1998-02-28",
     "leftFooted": true,
@@ -105314,7 +110283,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/431755-1684943454.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sweden-Slovenia_Nations_League_2022-09-27_17_Kulusevski_%28cropped%29.jpg/500px-Sweden-Slovenia_Nations_League_2022-09-27_17_Kulusevski_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Rolandhino1 / Derivative work: Danyele",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sweden-Slovenia_Nations_League_2022-09-27_17_Kulusevski_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "2000-04-25",
     "leftFooted": true,
@@ -105558,7 +110533,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/183288-1668500175.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Luke_Shaw%2C_Manchester_United_v_Newcastle_United%2C_11_September_2021_%2844%29_%28cropped%29.jpg/500px-Luke_Shaw%2C_Manchester_United_v_Newcastle_United%2C_11_September_2021_%2844%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ardfern",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Luke_Shaw,_Manchester_United_v_Newcastle_United,_11_September_2021_(44)_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "1995-07-12",
     "leftFooted": true,
@@ -105804,7 +110785,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/307058-1757716838.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Iran_-_Japan%2C_AFC_Asian_Cup_2019_42_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Parto Joghataee",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Iran_-_Japan,_AFC_Asian_Cup_2019_42_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1992-07-18",
     "leftFooted": false,
@@ -106094,7 +111081,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3404-1411478348.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Phil_Neville_Bohemians_V_Everton_%2843_of_51%29.jpg",
+    "imageAttribution": {
+      "author": "The Bohs",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Phil_Neville_Bohemians_V_Everton_(43_of_51).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1977-01-21",
     "leftFooted": false,
@@ -106339,7 +111332,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/29835-1670965927.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Jakub_B%C5%82aszczykowski_2019.jpg",
+    "imageAttribution": {
+      "author": "Kancelaria Premiera from Poland",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Jakub_B%C5%82aszczykowski_2019.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1985-12-14",
     "leftFooted": false,
@@ -106603,7 +111602,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/192-1464084336.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Markus_Babbel_%E2%80%93_Tag_der_Legenden_2016_01.jpg/500px-Markus_Babbel_%E2%80%93_Tag_der_Legenden_2016_01.jpg",
+    "imageAttribution": {
+      "author": "Frank Schwichtenberg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Markus_Babbel_%E2%80%93_Tag_der_Legenden_2016_01.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1972-08-09",
     "leftFooted": false,
@@ -106812,7 +111817,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3289-1414053325.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Fabien_Barthez_at_OM.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fabien_Barthez_at_OM.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1971-06-28",
     "leftFooted": true,
@@ -107089,7 +112100,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/286297-1692962972.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/FC_Salzburg_gegen_AS_Roma_Pellegrini.jpg/500px-FC_Salzburg_gegen_AS_Roma_Pellegrini.jpg",
+    "imageAttribution": {
+      "author": "Werner100359",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_AS_Roma_Pellegrini.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1996-06-19",
     "leftFooted": false,
@@ -107292,7 +112309,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3865_703_2013_09_26_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Greening%2C_Jonathan_2014.jpg",
+    "imageAttribution": {
+      "author": "Jonesy702",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Greening,_Jonathan_2014.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1979-02-01",
     "leftFooted": false,
@@ -107494,7 +112517,8 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_7279_123_2013_04_24_1.jpg?lm=1",
+    "imageUrl": "",
+    "imageAttribution": null,
     "height": 0,
     "dateOfBirth": "1974-12-06",
     "leftFooted": false,
@@ -107707,7 +112731,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3394-1595504030.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Ole_Gunnar_Solskjaer_Trondheim2011-1_crop.jpg",
+    "imageAttribution": {
+      "author": "Tor Atle Kleven",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ole_Gunnar_Solskjaer_Trondheim2011-1_crop.jpg"
+    },
     "height": 179,
     "dateOfBirth": "1973-02-26",
     "leftFooted": false,
@@ -107945,7 +112975,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/225161-1749068833.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Ruben_Neves_USMNT_v_Portugal_Mar_31_2026-25.jpg/500px-Ruben_Neves_USMNT_v_Portugal_Mar_31_2026-25.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ruben_Neves_USMNT_v_Portugal_Mar_31_2026-25.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1997-03-13",
     "leftFooted": false,
@@ -107968,6 +113004,242 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 50000000
     },
     "fameScore": 30.7
+  },
+  {
+    "playerId": "80",
+    "name": "Tom Starke",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "Bayern Munich",
+      "Hoffenheim",
+      "MSV Duisburg",
+      "SC Paderborn",
+      "Bayer 04 Leverkusen",
+      "Hamburg"
+    ],
+    "youthClubs": [
+      "FV Blau-Weiss Stahl Freital (09/1988-1989)",
+      "Dynamo Dresden (1989-1999)",
+      "Bayer 04 Leverkusen (1999-2000)"
+    ],
+    "achievements": [
+      "Champions League winner",
+      "Bundesliga winner",
+      "DFB-Pokal winner",
+      "Club World Cup winner",
+      "3+ domestic league titles",
+      "Domestic double",
+      "Treble winner"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "190cm+",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Goalkeeper",
+      "1980s player",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "Wore #1",
+      "190cm+",
+      "Football family",
+      "Became a manager"
+    ],
+    "managers": [
+      "Played under Pep Guardiola",
+      "Played under Carlo Ancelotti"
+    ],
+    "jerseyNumbers": [
+      {
+        "season": "17/18",
+        "club": "27",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "16/17",
+        "club": "27",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "16/17",
+        "club": "28",
+        "jerseyNumber": 18
+      },
+      {
+        "season": "15/16",
+        "club": "27",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "14/15",
+        "club": "27",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "13/14",
+        "club": "27",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "12/13",
+        "club": "27",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "11/12",
+        "club": "533",
+        "jerseyNumber": 33
+      },
+      {
+        "season": "10/11",
+        "club": "533",
+        "jerseyNumber": 33
+      },
+      {
+        "season": "09/10",
+        "club": "52",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "08/09",
+        "club": "52",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "07/08",
+        "club": "52",
+        "jerseyNumber": 27
+      },
+      {
+        "season": "06/07",
+        "club": "127",
+        "jerseyNumber": 33
+      },
+      {
+        "season": "05/06",
+        "club": "127",
+        "jerseyNumber": 33
+      },
+      {
+        "season": "05/06",
+        "club": "15",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "04/05",
+        "club": "15",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "03/04",
+        "club": "41",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "03/04",
+        "club": "41",
+        "jerseyNumber": 31
+      },
+      {
+        "season": "03/04",
+        "club": "41",
+        "jerseyNumber": 35
+      },
+      {
+        "season": "03/04",
+        "club": "41",
+        "jerseyNumber": 40
+      },
+      {
+        "season": "03/04",
+        "club": "41",
+        "jerseyNumber": 45
+      },
+      {
+        "season": "03/04",
+        "club": "15",
+        "jerseyNumber": 31
+      },
+      {
+        "season": "02/03",
+        "club": "15",
+        "jerseyNumber": 31
+      },
+      {
+        "season": "01/02",
+        "club": "15",
+        "jerseyNumber": 31
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 31
+      },
+      {
+        "season": "03/04",
+        "club": "3817",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "02/03",
+        "club": "3817",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "02/03",
+        "club": "3817",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "00/01",
+        "club": "5709",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "99/00",
+        "club": "9067",
+        "jerseyNumber": 1
+      }
+    ],
+    "position": {
+      "main": "Goalkeeper",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Tom_Starke_Training_2017-05_FC_Bayern_Muenchen-2_%28cropped%29.jpg/500px-Tom_Starke_Training_2017-05_FC_Bayern_Muenchen-2_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Rufus46",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tom_Starke_Training_2017-05_FC_Bayern_Muenchen-2_(cropped).jpg"
+    },
+    "height": 194,
+    "dateOfBirth": "1981-03-18",
+    "leftFooted": false,
+    "era": "1989-2018",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 30,
+      "date": "2011-06-29",
+      "clubId": "533",
+      "clubName": "TSG 1899 Hoffenheim",
+      "marketValue": 3000000
+    },
+    "fameScore": 30.6
   },
   {
     "playerId": "3541",
@@ -108157,7 +113429,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3541_123_2013_03_21_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Fortune%2C_Quinton.jpg",
+    "imageAttribution": {
+      "author": "Stew jones",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fortune,_Quinton.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1977-05-21",
     "leftFooted": true,
@@ -108372,7 +113650,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5352-1722415918.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Mahamadou_Diarra.JPG/500px-Mahamadou_Diarra.JPG",
+    "imageAttribution": {
+      "author": "Florian K",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Mahamadou_Diarra.JPG"
+    },
     "height": 182,
     "dateOfBirth": "1981-05-18",
     "leftFooted": false,
@@ -108651,7 +113935,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/916-1600354586.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Christian_Ziege.jpg",
+    "imageAttribution": {
+      "author": "CZ.jpg : The original uploader was VierscheJong at German Wikipedia . ( Original text: VierscheJong ) derivative work: DarkZippy ( talk )",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Christian_Ziege.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1972-01-02",
     "leftFooted": true,
@@ -108953,7 +114243,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3144-1764231783.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/2013_Robbie_Keane_%28cropped%29.jpg/500px-2013_Robbie_Keane_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Michael Kranewitter",
+      "license": "CC BY-SA 3.0 at",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:2013_Robbie_Keane_(cropped).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1980-07-08",
     "leftFooted": false,
@@ -109193,7 +114489,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/265088-1730125083.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/MANUEL_LOCATELLI_-_ZENIT_vs_JUVENTUS.jpg",
+    "imageAttribution": {
+      "author": "Kirill Venediktov",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:MANUEL_LOCATELLI_-_ZENIT_vs_JUVENTUS.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1998-01-08",
     "leftFooted": false,
@@ -109309,7 +114611,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/37264-1552559187.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Kempes_Valencia_CF.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Kempes_Valencia_CF.jpg"
+    },
     "height": 182,
     "dateOfBirth": "",
     "leftFooted": true,
@@ -109451,7 +114759,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3538-1547546424.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/May%2C_David.jpg/500px-May%2C_David.jpg",
+    "imageAttribution": {
+      "author": "Stew jones",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:May,_David.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1970-06-24",
     "leftFooted": false,
@@ -109631,7 +114945,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/546543-1681827179.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Darwin_N%C3%BA%C3%B1ez_%28cropped%29.jpg/500px-Darwin_N%C3%BA%C3%B1ez_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Darwin_N%C3%BA%C3%B1ez_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1999-06-24",
     "leftFooted": false,
@@ -109869,7 +115189,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3392-1602491976.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Teddy_Sheringham_2012.jpg",
+    "imageAttribution": {
+      "author": "Christophe95",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Teddy_Sheringham_2012.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1966-02-04",
     "leftFooted": false,
@@ -110195,7 +115521,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3578_123_2013_10_30_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ronny_Johnsen_%282017-07-29_img02%29.jpg/500px-Ronny_Johnsen_%282017-07-29_img02%29.jpg",
+    "imageAttribution": {
+      "author": "Kjetil Ree",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ronny_Johnsen_(2017-07-29_img02).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1969-10-06",
     "leftFooted": false,
@@ -110361,7 +115693,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3644_123_2013_09_05_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Raimond-van-der-gouw-1398447774.jpg/500px-Raimond-van-der-gouw-1398447774.jpg",
+    "imageAttribution": {
+      "author": "Patrique Janssen",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Raimond-van-der-gouw-1398447774.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1963-03-24",
     "leftFooted": false,
@@ -110653,7 +115991,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3823-1589528429.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Legia_tren_%282%29.jpg/500px-Legia_tren_%282%29.jpg",
+    "imageAttribution": {
+      "author": "Роман Шевчук",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Legia_tren_(2).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1969-01-09",
     "leftFooted": false,
@@ -110869,7 +116213,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4280-1492089201.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Denis_Irwin_%282017-07-29_img06%29_%28cropped%29.jpg/500px-Denis_Irwin_%282017-07-29_img06%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Kjetil Ree",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Denis_Irwin_(2017-07-29_img06)_(cropped).jpg"
+    },
     "height": 173,
     "dateOfBirth": "1965-10-31",
     "leftFooted": false,
@@ -111091,7 +116441,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Sweeper"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/120627-1415373071.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Un_sue%C3%B1ooooo_-_Sanch%C3%ADs_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Pimpcompton",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Un_sue%C3%B1ooooo_-_Sanch%C3%ADs_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1965-05-23",
     "leftFooted": false,
@@ -111268,7 +116624,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/709187-1709676169.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Spain_football_team_in_2025_%28Nico_Williams%29.jpg",
+    "imageAttribution": {
+      "author": "Biso",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Spain_football_team_in_2025_(Nico_Williams).jpg"
+    },
     "height": 181,
     "dateOfBirth": "2002-07-12",
     "leftFooted": false,
@@ -111471,7 +116833,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/533738-1760114012.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Jonathan_David_Canada_v_Qatar_18_June_2026-242_%28cropped%29.jpg/500px-Jonathan_David_Canada_v_Qatar_18_June_2026-242_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jonathan_David_Canada_v_Qatar_18_June_2026-242_(cropped).jpg"
+    },
     "height": 178,
     "dateOfBirth": "2000-01-14",
     "leftFooted": false,
@@ -111749,7 +117117,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/95810-1696454076.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Kieran_Trippier_2018-07-14_1.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kieran_Trippier_2018-07-14_1.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1990-09-19",
     "leftFooted": false,
@@ -112043,7 +117417,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3547-1470302082.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Darren_Fletcher_2017_%28cropped%29.jpg/500px-Darren_Fletcher_2017_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "@cfcunofficial (Chelsea Debs) London",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Darren_Fletcher_2017_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1984-01-02",
     "leftFooted": false,
@@ -112375,7 +117755,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7825-1724826388.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pepe_Reina_2017.jpg/500px-Pepe_Reina_2017.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pepe_Reina_2017.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1982-08-31",
     "leftFooted": false,
@@ -112635,7 +118021,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_38954_1049_2012_10_24_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Ricardo_Quaresma_%28L%29%2C_Fernando_Gago_%28R%29_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%281%29_%28cropped%29.jpg/500px-Ricardo_Quaresma_%28L%29%2C_Fernando_Gago_%28R%29_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%281%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Fanny Schertzer",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ricardo_Quaresma_(L),_Fernando_Gago_(R)_%E2%80%93_Portugal_vs._Argentina,_9th_February_2011_(1)_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1986-10-04",
     "leftFooted": false,
@@ -112828,7 +118220,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/1407-1570439160.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Football_against_poverty_2014_-_Davor_%C5%A0uker_%28cropped%29.jpg/500px-Football_against_poverty_2014_-_Davor_%C5%A0uker_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ludovic Péron",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Football_against_poverty_2014_-_Davor_%C5%A0uker_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1968-01-01",
     "leftFooted": false,
@@ -113166,7 +118564,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3333-1662621121.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/James_Milner_2022-07-21_Fu%C3%9Fball%2C_M%C3%A4nner%2CFreundschaftsspiel%2C_RB_Leipzig_-_FC_Liverpool_1DX_2223_by_Stepro_%28cropped%29.jpg/500px-James_Milner_2022-07-21_Fu%C3%9Fball%2C_M%C3%A4nner%2CFreundschaftsspiel%2C_RB_Leipzig_-_FC_Liverpool_1DX_2223_by_Stepro_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:James_Milner_2022-07-21_Fu%C3%9Fball,_M%C3%A4nner,Freundschaftsspiel,_RB_Leipzig_-_FC_Liverpool_1DX_2223_by_Stepro_(cropped).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1986-04-01",
     "leftFooted": false,
@@ -113448,7 +118852,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15378-1586197380.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Andrey_Arshavin_2021.jpg/500px-Andrey_Arshavin_2021.jpg",
+    "imageAttribution": {
+      "author": "Анна Мейер",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andrey_Arshavin_2021.jpg"
+    },
     "height": 172,
     "dateOfBirth": "1981-05-29",
     "leftFooted": false,
@@ -113733,7 +119143,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3626-1720496035.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Web_Summit_2016_-_SportsTrade_-_Nov_8_-_Day_1_ws_%2867_of_79%29_%2830860213285%29_%28cropped%29.jpg/500px-Web_Summit_2016_-_SportsTrade_-_Nov_8_-_Day_1_ws_%2867_of_79%29_%2830860213285%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Web_Summit_2016_-_SportsTrade_-_Nov_8_-_Day_1_ws_(67_of_79)_(30860213285)_(cropped).jpg"
+    },
     "height": 181,
     "dateOfBirth": "1976-07-05",
     "leftFooted": false,
@@ -113980,7 +119396,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/566931-1729778226.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/2023-10-04_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2672_%28Xavi_Simons%29.jpg/500px-2023-10-04_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2672_%28Xavi_Simons%29.jpg",
+    "imageAttribution": {
+      "author": "Original: Steffen Prößdorf ; Derivative work: SonoGrazy",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2023-10-04_Fu%C3%9Fball,_M%C3%A4nner,_UEFA_Champions_League,_RB_Leipzig_-_Manchester_City_FC_1DX_2672_(Xavi_Simons).jpg"
+    },
     "height": 179,
     "dateOfBirth": "2003-04-21",
     "leftFooted": false,
@@ -114220,7 +119642,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/6119-1487346533.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mohamed_Sissoko.jpg/500px-Mohamed_Sissoko.jpg",
+    "imageAttribution": {
+      "author": "Doha Stadium Plus Qatar",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mohamed_Sissoko.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1985-01-22",
     "leftFooted": false,
@@ -114390,7 +119818,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/26101-1444743108.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cicinho.JPG/500px-Cicinho.JPG",
+    "imageAttribution": {
+      "author": "Florian K",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Cicinho.JPG"
+    },
     "height": 171,
     "dateOfBirth": "1980-06-24",
     "leftFooted": false,
@@ -114657,7 +120091,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/42412-1699471667.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Jonny_Evans%2C_CZE-NIR_2019-10-14_%283%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Tadeáš Bednarz",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jonny_Evans,_CZE-NIR_2019-10-14_(3)_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1988-03-01",
     "leftFooted": false,
@@ -114860,7 +120300,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/61892-1563889964.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Rafael_Man_Utd_2011.jpg",
+    "imageAttribution": {
+      "author": "Andrea Sartorati",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rafael_Man_Utd_2011.jpg"
+    },
     "height": 172,
     "dateOfBirth": "1990-09-07",
     "leftFooted": false,
@@ -115142,7 +120588,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/351816-1663575089.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/BennacerLeB2022.jpg",
+    "imageAttribution": {
+      "author": "Werner100359",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:BennacerLeB2022.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1997-12-01",
     "leftFooted": true,
@@ -115315,7 +120767,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/177467-1726231623.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_138_%28cropped%29.jpg/500px-UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_138_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Rolandhino1",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_138_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1992-04-07",
     "leftFooted": true,
@@ -115509,7 +120967,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3623-1720492833.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Pauleta2011.JPG",
+    "imageAttribution": {
+      "author": "Dmitry Parshin",
+      "license": "CC BY-SA 1.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/1.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pauleta2011.JPG"
+    },
     "height": 180,
     "dateOfBirth": "1973-04-28",
     "leftFooted": false,
@@ -115688,7 +121152,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7514-1413446725.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Helguera.jpg",
+    "imageAttribution": {
+      "author": "hywell",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Helguera.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1975-03-28",
     "leftFooted": false,
@@ -115899,7 +121369,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Left-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/221322-1605193468.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Jose_Gaya_2015_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Carla Cortés",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jose_Gaya_2015_(cropped).jpg"
+    },
     "height": 172,
     "dateOfBirth": "1995-05-25",
     "leftFooted": true,
@@ -116290,7 +121766,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3875-1483634406.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Jermain-Defoe.jpg/500px-Jermain-Defoe.jpg",
+    "imageAttribution": {
+      "author": "Paulblank",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jermain-Defoe.jpg"
+    },
     "height": 171,
     "dateOfBirth": "1982-10-07",
     "leftFooted": false,
@@ -116469,7 +121951,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/447661-1696598670.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Douglas_Luiz_April_2026_%28cropped%29.jpg/500px-Douglas_Luiz_April_2026_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "MintyGel",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Douglas_Luiz_April_2026_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "1998-05-09",
     "leftFooted": false,
@@ -116676,7 +122164,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/306024-1685705768.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Dominic_Calvert-Lewin_2017.png/500px-Dominic_Calvert-Lewin_2017.png",
+    "imageAttribution": {
+      "author": "Everton Football Club",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dominic_Calvert-Lewin_2017.png"
+    },
     "height": 189,
     "dateOfBirth": "1997-03-16",
     "leftFooted": false,
@@ -116884,7 +122378,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/435338-1684162833.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Gabriel_Magalhaes_Brazil_V_Morocco_13_June_2026-132_%28cropped%29.jpg/500px-Gabriel_Magalhaes_Brazil_V_Morocco_13_June_2026-132_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gabriel_Magalhaes_Brazil_V_Morocco_13_June_2026-132_(cropped).jpg"
+    },
     "height": 190,
     "dateOfBirth": "1997-12-19",
     "leftFooted": true,
@@ -117202,7 +122702,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/919-1600084590.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Hamann%2C_Dietmar_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Jonesy702",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hamann,_Dietmar_(cropped).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1973-08-27",
     "leftFooted": false,
@@ -117475,7 +122981,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3259-1410962728.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/DDuff.JPG",
+    "imageAttribution": {
+      "author": "Mikhail Slain",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:DDuff.JPG"
+    },
     "height": 177,
     "dateOfBirth": "1979-03-02",
     "leftFooted": true,
@@ -117723,7 +123235,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/405398-1697110254.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Takefusa_Kubo_1053.jpg/500px-Takefusa_Kubo_1053.jpg",
+    "imageAttribution": {
+      "author": "Real Madrid",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Takefusa_Kubo_1053.jpg"
+    },
     "height": 173,
     "dateOfBirth": "2001-06-04",
     "leftFooted": true,
@@ -118032,7 +123550,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3540-1498839759.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Manchester_-_Old_Trafford_-_Manchester_United_vs_Crawley_Town.jpg/500px-Manchester_-_Old_Trafford_-_Manchester_United_vs_Crawley_Town.jpg",
+    "imageAttribution": {
+      "author": "Andrea Sartorati",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Manchester_-_Old_Trafford_-_Manchester_United_vs_Crawley_Town.jpg"
+    },
     "height": 192,
     "dateOfBirth": "1981-04-30",
     "leftFooted": false,
@@ -118217,7 +123741,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/399776-1765899002.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pau_Torres_April_2026_%28cropped%29.jpg/500px-Pau_Torres_April_2026_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "MintyGel",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Pau_Torres_April_2026_(cropped).jpg"
+    },
     "height": 192,
     "dateOfBirth": "1997-01-16",
     "leftFooted": true,
@@ -118427,7 +123957,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3209_123_2013_03_22_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jerzy_Dudek_%282%29_%28rotated%29.jpg/500px-Jerzy_Dudek_%282%29_%28rotated%29.jpg",
+    "imageAttribution": {
+      "author": "Ja Fryta from Strzegom",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jerzy_Dudek_(2)_(rotated).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1973-03-23",
     "leftFooted": true,
@@ -118610,7 +124146,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7976-1527677811.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Savio_1.jpg/500px-Savio_1.jpg",
+    "imageAttribution": {
+      "author": "jorge-11",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Savio_1.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1974-09-01",
     "leftFooted": true,
@@ -118901,7 +124443,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/68-1476299967.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/WikiLando_%28cropped%29.jpg/500px-WikiLando_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Regular Daddy",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:WikiLando_(cropped).jpg"
+    },
     "height": 173,
     "dateOfBirth": "1982-03-04",
     "leftFooted": false,
@@ -119088,7 +124636,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Defensive Midfield",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7521-1494324620.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Albert_Celades_cropped.jpg",
+    "imageAttribution": {
+      "author": "Picture taken by Shawn Smith from Astoria, NY, USA. Uploaded to Commons by Smokestack Basilisk",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Albert_Celades_cropped.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1975-09-29",
     "leftFooted": false,
@@ -119329,7 +124883,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/270541-1755989642.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Serhou_Guirassy_2024_%28cropped%29.jpg/500px-Serhou_Guirassy_2024_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "feguifoot",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Serhou_Guirassy_2024_(cropped).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1996-03-12",
     "leftFooted": false,
@@ -119560,7 +125120,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/479999-1761083931.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Eberechi_Eze_England_v_Ghana_23_June_2026-039.jpg/500px-Eberechi_Eze_England_v_Ghana_23_June_2026-039.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eberechi_Eze_England_v_Ghana_23_June_2026-039.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1998-06-29",
     "leftFooted": false,
@@ -119860,7 +125426,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/39679-1549036391.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Fellaini_2017-03-09.jpg/500px-Fellaini_2017-03-09.jpg",
+    "imageAttribution": {
+      "author": "Светлана Бекетова",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fellaini_2017-03-09.jpg"
+    },
     "height": 194,
     "dateOfBirth": "1987-11-22",
     "leftFooted": false,
@@ -119883,6 +125455,86 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 28000000
     },
     "fameScore": 25.6
+  },
+  {
+    "playerId": "151245",
+    "name": "Just Fontaine",
+    "nationality": "France",
+    "citizenship": [
+      "France"
+    ],
+    "clubs": [
+      "Stade Reims",
+      "Nice",
+      "USM Casablanca"
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "Champions League top scorer",
+      "Ligue 1 winner",
+      "3+ domestic league titles",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "International Journeyman",
+      "Fair Play Master",
+      "Prolific Scorer"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Wore #9",
+      "Prolific Scorer"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "60/61",
+        "club": "1421",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "58/59",
+        "club": "1421",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "58/59",
+        "club": "3377",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "57/58",
+        "club": "3377",
+        "jerseyNumber": 17
+      }
+    ],
+    "position": {
+      "main": "Centre-Forward",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Just_Fontaine_en_1958.jpg/500px-Just_Fontaine_en_1958.jpg",
+    "imageAttribution": {
+      "author": "Panini",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Just_Fontaine_en_1958.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 236,
+      "goals": 196,
+      "assists": 1,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 4573,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 25.5
   },
   {
     "playerId": "3920",
@@ -120000,7 +125652,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3920-1542193304.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Bernard_Diomede.jpg/500px-Bernard_Diomede.jpg",
+    "imageAttribution": {
+      "author": "Academie-diomede",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bernard_Diomede.jpg"
+    },
     "height": 170,
     "dateOfBirth": "1974-01-23",
     "leftFooted": true,
@@ -120175,7 +125833,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Left Midfield",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3095_123_2012_11_22_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Jesper_Blomqvist.jpg",
+    "imageAttribution": {
+      "author": "sv:User:Einarspetz",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Jesper_Blomqvist.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1974-05-02",
     "leftFooted": false,
@@ -120435,7 +126099,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7513-1595321701.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Fernando_Hierro_in_Spain-Iran_press_conference_2018-06-19.jpg",
+    "imageAttribution": {
+      "author": "Meghdad Madadi",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fernando_Hierro_in_Spain-Iran_press_conference_2018-06-19.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1968-03-23",
     "leftFooted": false,
@@ -120451,6 +126121,302 @@ export const enrichedFootballPlayers: Player[] = [
       "championsLeagueGoals": 0
     },
     "highestValue": null,
+    "fameScore": 25
+  },
+  {
+    "playerId": "181136",
+    "name": "Piotr Zielinski",
+    "nationality": "Poland",
+    "citizenship": [
+      "Poland",
+      "Italy"
+    ],
+    "clubs": [
+      "SSC Napoli",
+      "Inter Milan",
+      "Udinese",
+      "FC Empoli"
+    ],
+    "youthClubs": [
+      "Orzeł Ząbkowice Śląskie (2003-2007)",
+      "Zagłębie Lubin"
+    ],
+    "achievements": [
+      "Serie A winner",
+      "Coppa Italia winner",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "Multiple Citizenships",
+      "Multiple Positions",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Central Midfield",
+      "Attacking Midfield",
+      "Defensive Midfield",
+      "2010s player",
+      "2020s player",
+      "Wore #7",
+      "Wore #10",
+      "Wore #9",
+      "Dual Nationality",
+      "Football family"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "26/27",
+        "club": "46",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "25/26",
+        "club": "46",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "24/25",
+        "club": "46",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "23/24",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "22/23",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "21/22",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "20/21",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "19/20",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "18/19",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "17/18",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "16/17",
+        "club": "6195",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "15/16",
+        "club": "749",
+        "jerseyNumber": 17
+      },
+      {
+        "season": "14/15",
+        "club": "749",
+        "jerseyNumber": 27
+      },
+      {
+        "season": "14/15",
+        "club": "749",
+        "jerseyNumber": 94
+      },
+      {
+        "season": "14/15",
+        "club": "410",
+        "jerseyNumber": 94
+      },
+      {
+        "season": "13/14",
+        "club": "410",
+        "jerseyNumber": 94
+      },
+      {
+        "season": "12/13",
+        "club": "410",
+        "jerseyNumber": 94
+      },
+      {
+        "season": "12/13",
+        "club": "10959",
+        "jerseyNumber": 94
+      },
+      {
+        "season": "11/12",
+        "club": "410",
+        "jerseyNumber": 44
+      },
+      {
+        "season": "10/11",
+        "club": "8372",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "26/27",
+        "club": "3442",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "25/26",
+        "club": "3442",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "24/25",
+        "club": "3442",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "23/24",
+        "club": "3442",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "22/23",
+        "club": "3442",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "22/23",
+        "club": "3442",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "21/22",
+        "club": "3442",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "20/21",
+        "club": "3442",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "19/20",
+        "club": "3442",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "18/19",
+        "club": "3442",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "18/19",
+        "club": "3442",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "17/18",
+        "club": "3442",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "16/17",
+        "club": "3442",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "15/16",
+        "club": "3442",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "14/15",
+        "club": "3442",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "14/15",
+        "club": "3442",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "14/15",
+        "club": "3442",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "14/15",
+        "club": "16299",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "13/14",
+        "club": "9324",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "13/14",
+        "club": "9324",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "12/13",
+        "club": "3442",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "11/12",
+        "club": "16298",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "10/11",
+        "club": "16298",
+        "jerseyNumber": 18
+      }
+    ],
+    "position": {
+      "main": "Central Midfield",
+      "other": [
+        "Attacking Midfield",
+        "Defensive Midfield"
+      ]
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Piotr_Zielinski_2018_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Екатерина Лаут",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Piotr_Zielinski_2018_(cropped).jpg"
+    },
+    "height": 180,
+    "dateOfBirth": "1994-05-20",
+    "leftFooted": false,
+    "era": "2010-present",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 27,
+      "date": "2021-05-31",
+      "clubId": "6195",
+      "clubName": "SSC Napoli",
+      "marketValue": 50000000
+    },
     "fameScore": 25
   },
   {
@@ -120602,7 +126568,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/314875-1662362005.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/JarrodBowen2023_%28cropped%29.jpeg/500px-JarrodBowen2023_%28cropped%29.jpeg",
+    "imageAttribution": {
+      "author": "Egghead06",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:JarrodBowen2023_(cropped).jpeg"
+    },
     "height": 176,
     "dateOfBirth": "1996-12-20",
     "leftFooted": true,
@@ -120782,7 +126754,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/324358-1708341279.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Ollie_Watkins_England_v_Ghana_23_June_2026-035.jpg/500px-Ollie_Watkins_England_v_Ghana_23_June_2026-035.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ollie_Watkins_England_v_Ghana_23_June_2026-035.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1995-12-30",
     "leftFooted": false,
@@ -121000,7 +126978,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4329-1510571500.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Mido_%28Egyptian_Footballer%29.png/500px-Mido_%28Egyptian_Footballer%29.png",
+    "imageAttribution": {
+      "author": "FilGoal",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mido_(Egyptian_Footballer).png"
+    },
     "height": 188,
     "dateOfBirth": "1983-02-23",
     "leftFooted": false,
@@ -121286,7 +127270,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7939-1570438291.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Lansarea_candidaturii_Gabrielei_Szabo_pentru_Camera_Deputatilor%2C_Voluntari_-_04.05_%2848%29_%2814270956179%29_%28cropped%29.jpg/500px-Lansarea_candidaturii_Gabrielei_Szabo_pentru_Camera_Deputatilor%2C_Voluntari_-_04.05_%2848%29_%2814270956179%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Partidul Social Democrat from Romania",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lansarea_candidaturii_Gabrielei_Szabo_pentru_Camera_Deputatilor,_Voluntari_-_04.05_(48)_(14270956179)_(cropped).jpg"
+    },
     "height": 172,
     "dateOfBirth": "1965-02-05",
     "leftFooted": false,
@@ -121494,7 +127484,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/22256-1662992904.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Gary_Lineker_%28cropped%29.jpg/500px-Gary_Lineker_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Liton Ali",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gary_Lineker_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -121630,7 +127626,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/516716-1725531520.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Bremer_Brazil_V_Morocco_13_June_2026-143_%28cropped%29.jpg/500px-Bremer_Brazil_V_Morocco_13_June_2026-143_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bremer_Brazil_V_Morocco_13_June_2026-143_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1997-03-18",
     "leftFooted": false,
@@ -121756,7 +127758,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/117621-1465458411.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Paulo_Roberto_Falc%C3%A3o%2C_Roma_1983-84.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Paulo_Roberto_Falc%C3%A3o,_Roma_1983-84.jpg"
+    },
     "height": 183,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -122062,7 +128070,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3876-1719154696.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Joe_Cole_2011.jpg",
+    "imageAttribution": {
+      "author": "Владимир Майоров/Vladimir Mayorov/Władimir Majorow",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Joe_Cole_2011.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1981-08-11",
     "leftFooted": false,
@@ -122324,7 +128338,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/31095-1502448530.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Nuri_%C5%9Eahin_at_Antalyaspor_vs_Trabzonspor_20211211_%286%29_%28cropped%29.jpg/500px-Nuri_%C5%9Eahin_at_Antalyaspor_vs_Trabzonspor_20211211_%286%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Antalyaspor A.Ş.",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nuri_%C5%9Eahin_at_Antalyaspor_vs_Trabzonspor_20211211_(6)_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1988-05-09",
     "leftFooted": true,
@@ -122574,7 +128594,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/117996-1469631370.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Phil_Jones_-_July_2015_%28cropped%29.jpg/500px-Phil_Jones_-_July_2015_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Matt Janzer from Missoula, USA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Phil_Jones_-_July_2015_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1992-02-21",
     "leftFooted": false,
@@ -122824,7 +128850,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3708-1570440349.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Match_legends_2017_CC_%285%29.jpg/500px-Match_legends_2017_CC_%285%29.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Match_legends_2017_CC_(5).jpg"
+    },
     "height": 0,
     "dateOfBirth": "1973-08-14",
     "leftFooted": false,
@@ -123076,7 +129108,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4267-1587066706.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Tim_Howard_2023.jpg/500px-Tim_Howard_2023.jpg",
+    "imageAttribution": {
+      "author": "UKinUSA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tim_Howard_2023.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1979-03-06",
     "leftFooted": false,
@@ -123270,7 +129308,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7530-1761145794.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/JM_Guti.jpg/500px-JM_Guti.jpg",
+    "imageAttribution": {
+      "author": "Juan Fernández",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:JM_Guti.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1976-10-31",
     "leftFooted": false,
@@ -123499,7 +129543,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/16635-1447152729.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Juanfran_2012.jpg",
+    "imageAttribution": {
+      "author": "Iberia Airlines",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Juanfran_2012.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1985-09-01",
     "leftFooted": false,
@@ -123801,7 +129851,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/67063-1746437656.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Danny_Welbeck_2018-06-13_1.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Danny_Welbeck_2018-06-13_1.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1990-11-26",
     "leftFooted": false,
@@ -124010,7 +130066,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/82873-1746195832.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pascal_Gross_Ecuador_v_Germany_25_June_2026-065.jpg/500px-Pascal_Gross_Ecuador_v_Germany_25_June_2026-065.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pascal_Gross_Ecuador_v_Germany_25_June_2026-065.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1991-06-15",
     "leftFooted": false,
@@ -124174,7 +130236,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/413039-1769532496.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bryan_Mbeumo_00-02-31.18.png/500px-Bryan_Mbeumo_00-02-31.18.png",
+    "imageAttribution": {
+      "author": "AFC Bournemouth",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bryan_Mbeumo_00-02-31.18.png"
+    },
     "height": 171,
     "dateOfBirth": "1999-08-07",
     "leftFooted": true,
@@ -124424,7 +130492,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/361093-1683290679.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/RC_Lens_-_Lille_OSC_%2817-09-2021%29_65.jpg/500px-RC_Lens_-_Lille_OSC_%2817-09-2021%29_65.jpg",
+    "imageAttribution": {
+      "author": "Supporterhéninois",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:RC_Lens_-_Lille_OSC_(17-09-2021)_65.jpg"
+    },
     "height": 193,
     "dateOfBirth": "2000-01-12",
     "leftFooted": true,
@@ -124638,7 +130712,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/335721-1683275943.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ben_White_2018.jpg/500px-Ben_White_2018.jpg",
+    "imageAttribution": {
+      "author": "James Boyes from UK",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ben_White_2018.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1997-10-08",
     "leftFooted": false,
@@ -124881,7 +130961,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/368887-1713944805.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Lo%C3%AFs_Openda_USMNT_v_Belgium_Mar_28_2026-19_%28cropped%29.jpg/500px-Lo%C3%AFs_Openda_USMNT_v_Belgium_Mar_28_2026-19_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lo%C3%AFs_Openda_USMNT_v_Belgium_Mar_28_2026-19_(cropped).jpg"
+    },
     "height": 177,
     "dateOfBirth": "2000-02-16",
     "leftFooted": false,
@@ -125078,7 +131164,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3365-1414137490.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Jose_Kleberson.JPG/500px-Jose_Kleberson.JPG",
+    "imageAttribution": {
+      "author": "No machine-readable author provided. Math34 assumed (based on copyright claims).",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Jose_Kleberson.JPG"
+    },
     "height": 175,
     "dateOfBirth": "1979-06-19",
     "leftFooted": false,
@@ -125293,7 +131385,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Right-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_7515_123_2013_07_22_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/M%C3%ADchel_Salgado_2018.jpg/500px-M%C3%ADchel_Salgado_2018.jpg",
+    "imageAttribution": {
+      "author": "Екатерина Лаут",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:M%C3%ADchel_Salgado_2018.jpg"
+    },
     "height": 174,
     "dateOfBirth": "1975-10-22",
     "leftFooted": false,
@@ -125470,7 +131568,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_117229_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Boniek_Zbigniew.jpg/500px-Boniek_Zbigniew.jpg",
+    "imageAttribution": {
+      "author": "Sławek",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Boniek_Zbigniew.jpg"
+    },
     "height": 180,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -125487,6 +131591,212 @@ export const enrichedFootballPlayers: Player[] = [
     },
     "highestValue": null,
     "fameScore": 21.9
+  },
+  {
+    "playerId": "26",
+    "name": "Roman Weidenfeller",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "Borussia Dortmund",
+      "1.FC K'lautern"
+    ],
+    "youthClubs": [
+      "Sportfreunde Eisbachtal (1985-1996)",
+      "1.FC Kaiserslautern (1996-1998)"
+    ],
+    "achievements": [
+      "World Cup winner",
+      "Bundesliga winner",
+      "DFB-Pokal winner",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "Left Footed",
+      "190cm+",
+      "Long Career"
+    ],
+    "tags": [
+      "Goalkeeper",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "Wore #1",
+      "Left Footed",
+      "190cm+",
+      "Football family"
+    ],
+    "managers": [
+      "Played under Jürgen Klopp",
+      "Played under Thomas Tuchel"
+    ],
+    "jerseyNumbers": [
+      {
+        "season": "17/18",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "16/17",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "15/16",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "14/15",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "13/14",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "12/13",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "11/12",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "10/11",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "09/10",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "08/09",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "07/08",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "06/07",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "05/06",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "04/05",
+        "club": "17",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "04/05",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "03/04",
+        "club": "17",
+        "jerseyNumber": 26
+      },
+      {
+        "season": "03/04",
+        "club": "16",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "02/03",
+        "club": "17",
+        "jerseyNumber": 26
+      },
+      {
+        "season": "02/03",
+        "club": "16",
+        "jerseyNumber": 26
+      },
+      {
+        "season": "01/02",
+        "club": "151",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "01/02",
+        "club": "2",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "00/01",
+        "club": "2",
+        "jerseyNumber": 26
+      },
+      {
+        "season": "99/00",
+        "club": "151",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "14/15",
+        "club": "3262",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "13/14",
+        "club": "3262",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "96/97",
+        "club": "17662",
+        "jerseyNumber": 12
+      }
+    ],
+    "position": {
+      "main": "Goalkeeper",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Roman_Weidenfeller_2014_%28cropped%29.jpg/500px-Roman_Weidenfeller_2014_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Tim Reckmann from Hamm, Deutschland",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roman_Weidenfeller_2014_(cropped).jpg"
+    },
+    "height": 190,
+    "dateOfBirth": "1980-06-08",
+    "leftFooted": true,
+    "era": "1995-2018",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 26,
+      "date": "2007-01-15",
+      "clubId": "16",
+      "clubName": "Borussia Dortmund",
+      "marketValue": 8000000
+    },
+    "fameScore": 21.6
   },
   {
     "playerId": "4077",
@@ -125742,7 +132052,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4077-1598535656.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Rustu_Recber_2010.jpg",
+    "imageAttribution": {
+      "author": "Esteban869",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rustu_Recber_2010.jpg"
+    },
     "height": 187,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -125920,7 +132236,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/117623-1522143968.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Leovegildo_lins_da_gama_j%C3%BAnior.JPG/500px-Leovegildo_lins_da_gama_j%C3%BAnior.JPG",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Leovegildo_lins_da_gama_j%C3%BAnior.JPG"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -126160,7 +132482,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3217-1517305661.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Vladimir_Smicer.jpg/500px-Vladimir_Smicer.jpg",
+    "imageAttribution": {
+      "author": "TaraO",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Vladimir_Smicer.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1973-05-24",
     "leftFooted": false,
@@ -126183,6 +132511,227 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 7500000
     },
     "fameScore": 21.5
+  },
+  {
+    "playerId": "75",
+    "name": "Robert Kovac",
+    "nationality": "Croatia",
+    "citizenship": [
+      "Croatia"
+    ],
+    "clubs": [
+      "Dinamo Zagreb",
+      "Borussia Dortmund",
+      "Juventus FC",
+      "Bayern Munich",
+      "Bayer 04 Leverkusen",
+      "1.FC Nuremberg",
+      "H. Zehlendorf"
+    ],
+    "youthClubs": [
+      "SC Rapide Wedding (1980-1986)",
+      "FC Hertha 03 Zehlendorf (1986-1992)"
+    ],
+    "achievements": [
+      "Bundesliga winner",
+      "DFB-Pokal winner",
+      "Club World Cup winner",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Multiple Positions",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Centre-Back",
+      "Full-Back",
+      "1980s player",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "Wore #7",
+      "Football family",
+      "Became a manager"
+    ],
+    "managers": [
+      "Played under Jürgen Klopp",
+      "Played under Fabio Capello"
+    ],
+    "jerseyNumbers": [
+      {
+        "season": "09/10",
+        "club": "419",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "08/09",
+        "club": "419",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "08/09",
+        "club": "16",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "07/08",
+        "club": "16",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "06/07",
+        "club": "506",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "05/06",
+        "club": "506",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "04/05",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "03/04",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "02/03",
+        "club": "27",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "01/02",
+        "club": "27",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "00/01",
+        "club": "27",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "99/00",
+        "club": "15",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "98/99",
+        "club": "15",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "97/98",
+        "club": "15",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "96/97",
+        "club": "15",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "95/96",
+        "club": "4",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "08/09",
+        "club": "3556",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "07/08",
+        "club": "3556",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "05/06",
+        "club": "3556",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "04/05",
+        "club": "3556",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "04/05",
+        "club": "3556",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "03/04",
+        "club": "3556",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "02/03",
+        "club": "3556",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "01/02",
+        "club": "3556",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "00/01",
+        "club": "3556",
+        "jerseyNumber": 7
+      }
+    ],
+    "position": {
+      "main": "Centre-Back",
+      "other": [
+        "Right-Back",
+        "Left-Back"
+      ]
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Robert_Kovac.jpg/500px-Robert_Kovac.jpg",
+    "imageAttribution": {
+      "author": "Helmut S Otto",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Robert_Kovac.jpg"
+    },
+    "height": 182,
+    "dateOfBirth": "1974-06-04",
+    "leftFooted": false,
+    "era": "1988-2010",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 30,
+      "date": "2004-04-10",
+      "clubId": "27",
+      "clubName": "Bayern Munich",
+      "marketValue": 7000000
+    },
+    "fameScore": 21.4
   },
   {
     "playerId": "257814",
@@ -126415,7 +132964,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/257814-1709559904.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93090.jpg/500px-2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93090.jpg",
+    "imageAttribution": {
+      "author": "Sandro Halank, Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_(DFB-Pokal_2023-24)_by_Sandro_Halank%E2%80%93090.jpg"
+    },
     "height": 196,
     "dateOfBirth": "1997-12-06",
     "leftFooted": false,
@@ -126642,7 +133197,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/1320-1719111875.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tomasz_Kuszczak_2016.jpg/500px-Tomasz_Kuszczak_2016.jpg",
+    "imageAttribution": {
+      "author": "Birmingham City F.C.",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Tomasz_Kuszczak_2016.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1982-03-20",
     "leftFooted": false,
@@ -126665,6 +133226,98 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 4000000
     },
     "fameScore": 20.8
+  },
+  {
+    "playerId": "17121",
+    "name": "Pelé",
+    "nationality": "Brazil",
+    "citizenship": [
+      "Brazil"
+    ],
+    "clubs": [
+      "NY Cosmos",
+      "Santos"
+    ],
+    "youthClubs": [
+      "Bauru Atletico Clube (1952-1956)",
+      "FC Santos (1956-12/1956)"
+    ],
+    "achievements": [
+      "World Cup winner",
+      "Copa Libertadores winner",
+      "Club World Cup winner",
+      "3+ domestic league titles"
+    ],
+    "randomAchievements": [],
+    "tags": [
+      "Centre-Forward",
+      "Wore #10"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "76/77",
+        "club": "4835",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "61/62",
+        "club": "221",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "60/61",
+        "club": "221",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "69/70",
+        "club": "3439",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "65/66",
+        "club": "3439",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "61/62",
+        "club": "3439",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "57/58",
+        "club": "3439",
+        "jerseyNumber": 10
+      }
+    ],
+    "position": {
+      "main": "Centre-Forward",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Pele_con_brasil_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Pele_con_brasil_(cropped).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 18,
+      "goals": 24,
+      "assists": 7,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 1573,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 20.4
   },
   {
     "playerId": "24474",
@@ -126832,7 +133485,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/24474-1603371665.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/6640Bodo_Illgner.JPG/500px-6640Bodo_Illgner.JPG",
+    "imageAttribution": {
+      "author": "Udo Grimberg",
+      "license": "CC BY-SA 3.0 de",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:6640Bodo_Illgner.JPG"
+    },
     "height": 0,
     "dateOfBirth": "1967-07-04",
     "leftFooted": false,
@@ -127044,7 +133703,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/43530-1662663337.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Adam_Lallana_in_Bangkok_%2819721313015%29.jpg/500px-Adam_Lallana_in_Bangkok_%2819721313015%29.jpg",
+    "imageAttribution": {
+      "author": "PANNATHORN SUKMANONT",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Adam_Lallana_in_Bangkok_(19721313015).jpg"
+    },
     "height": 172,
     "dateOfBirth": "1988-10-05",
     "leftFooted": false,
@@ -127348,7 +134013,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/130164-1668499964.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Jordan_Pickford_England_v_Ghana_23_June_2026-049.jpg/500px-Jordan_Pickford_England_v_Ghana_23_June_2026-049.jpg",
+    "imageAttribution": {
+      "author": "Bryan Berlin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jordan_Pickford_England_v_Ghana_23_June_2026-049.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1994-03-07",
     "leftFooted": true,
@@ -127626,7 +134297,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/181579-1684751045.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/James_Ward-Prowse_in_2024.jpeg/500px-James_Ward-Prowse_in_2024.jpeg",
+    "imageAttribution": {
+      "author": "Egghead06",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:James_Ward-Prowse_in_2024.jpeg"
+    },
     "height": 177,
     "dateOfBirth": "1994-11-01",
     "leftFooted": false,
@@ -127770,7 +134447,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/333241-1674210135.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Joelinton_%28cropped%29.jpg/500px-Joelinton_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Silesia711",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Joelinton_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1996-08-14",
     "leftFooted": false,
@@ -128016,7 +134699,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_5875_123_2013_07_10_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Hidetoshi_Nakata_in_Okinawa.jpg/500px-Hidetoshi_Nakata_in_Okinawa.jpg",
+    "imageAttribution": {
+      "author": "norio nakayama",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hidetoshi_Nakata_in_Okinawa.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1977-01-22",
     "leftFooted": false,
@@ -128223,7 +134912,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_49655_180_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Rickie_Lambert_with_Liverpool.jpg/500px-Rickie_Lambert_with_Liverpool.jpg",
+    "imageAttribution": {
+      "author": "Egghead06",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rickie_Lambert_with_Liverpool.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1982-02-16",
     "leftFooted": false,
@@ -128416,7 +135111,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/410425-1665607355.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Bissouma_2018.jpg/500px-Bissouma_2018.jpg",
+    "imageAttribution": {
+      "author": "James Boyes from UK",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bissouma_2018.jpg"
+    },
     "height": 182,
     "dateOfBirth": "1996-08-30",
     "leftFooted": false,
@@ -128564,7 +135265,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/118147-1634033638.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Jan_Ceulemans.jpg/500px-Jan_Ceulemans.jpg",
+    "imageAttribution": {
+      "author": "Hans van Dijk for Anefo Nationaal Archief, Den Haag, Rijksfotoarchief Fotocollectie Algemeen Nederlands Fotopersbureau (ANEFO), 1945-1989 - negatiefstroken zwart/wit, nummer toegang 2.24.01.05, bestanddeelnummer 931-1525",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Jan_Ceulemans.jpg"
+    },
     "height": 188,
     "dateOfBirth": "",
     "leftFooted": true,
@@ -128804,7 +135511,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3597-1719155810.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Football_against_poverty_2014_-_Jamie_Carragher_%28cropped%29.jpg/500px-Football_against_poverty_2014_-_Jamie_Carragher_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Ludovic Péron",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Football_against_poverty_2014_-_Jamie_Carragher_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1978-01-28",
     "leftFooted": false,
@@ -129056,7 +135769,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_4015_398_2013_02_14_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Louis_Saha_%28cropped%29.jpg/500px-Louis_Saha_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Web Summit",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Louis_Saha_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1978-08-08",
     "leftFooted": true,
@@ -129379,7 +136098,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/16135-1731318319.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ryan-babel-6.jpg/500px-Ryan-babel-6.jpg",
+    "imageAttribution": {
+      "author": "Paul Blank",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Ryan-babel-6.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1986-12-19",
     "leftFooted": false,
@@ -129579,7 +136304,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/34370-1490690031.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Diego_L%C3%B3pez_-_RCD_Espanyol_-_WMES_04_%28cropped%29.jpg/500px-Diego_L%C3%B3pez_-_RCD_Espanyol_-_WMES_04_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Harpagornis",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Diego_L%C3%B3pez_-_RCD_Espanyol_-_WMES_04_(cropped).jpg"
+    },
     "height": 196,
     "dateOfBirth": "1981-03-11",
     "leftFooted": false,
@@ -129873,7 +136604,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3220-1465813573.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/John_Arne_Riise2.JPG/500px-John_Arne_Riise2.JPG",
+    "imageAttribution": {
+      "author": "Jarvin",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Arne_Riise2.JPG"
+    },
     "height": 0,
     "dateOfBirth": "1980-09-24",
     "leftFooted": false,
@@ -130123,7 +136860,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/13556-1470905467.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tim_Cahill%2C_New_York_Red_Bulls_vs_CD_FAS_2014.jpg/500px-Tim_Cahill%2C_New_York_Red_Bulls_vs_CD_FAS_2014.jpg",
+    "imageAttribution": {
+      "author": "billtnj",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tim_Cahill,_New_York_Red_Bulls_vs_CD_FAS_2014.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1979-12-06",
     "leftFooted": false,
@@ -130297,7 +137040,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/117619-1547817527.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Zico_2012.jpg/500px-Zico_2012.jpg",
+    "imageAttribution": {
+      "author": "Doha Stadium Plus",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zico_2012.jpg"
+    },
     "height": 172,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -130423,7 +137172,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_88989_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Milla2008cropped.jpg/500px-Milla2008cropped.jpg",
+    "imageAttribution": {
+      "author": "Jmex60",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Milla2008cropped.jpg"
+    },
     "height": 176,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -130656,7 +137411,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/96754-1665674567.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/FabioBoriniMilan_%28cropped%29.jpg/500px-FabioBoriniMilan_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Kiri1696",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:FabioBoriniMilan_(cropped).jpg"
+    },
     "height": 180,
     "dateOfBirth": "1991-03-29",
     "leftFooted": false,
@@ -130907,7 +137668,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4216-1448635837.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Florent_Sinama_Pongolle_2012.jpg",
+    "imageAttribution": {
+      "author": "Шуклин Евгений",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Florent_Sinama_Pongolle_2012.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1984-10-20",
     "leftFooted": false,
@@ -131115,7 +137882,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_15637_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Franky_Van_der_Elst_Lommel_United.JPG/500px-Franky_Van_der_Elst_Lommel_United.JPG",
+    "imageAttribution": {
+      "author": "Sjepolleke02",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Franky_Van_der_Elst_Lommel_United.JPG"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -131308,7 +138081,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3470-1588600026.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Sami_Hyypia_2012.jpg/500px-Sami_Hyypia_2012.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Неймырок/Dmitry Neymyrok/Dmitrij Nejmyrok",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sami_Hyypia_2012.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1973-07-10",
     "leftFooted": false,
@@ -131511,7 +138290,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/27486-1669365568.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kiko_Casilla_2013_Catalonia.jpg/500px-Kiko_Casilla_2013_Catalonia.jpg",
+    "imageAttribution": {
+      "author": "Xavier Rondón Medina",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kiko_Casilla_2013_Catalonia.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1986-02-10",
     "leftFooted": false,
@@ -131760,7 +138545,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3980-1476361518.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/1_steve_mcmanaman_2017_%28cropped%29.jpg/500px-1_steve_mcmanaman_2017_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Chensiyuan",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1_steve_mcmanaman_2017_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1972-11-02",
     "leftFooted": false,
@@ -131923,7 +138714,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3274-1736850926.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Ivan_Campo.jpg",
+    "imageAttribution": {
+      "author": "Pepito",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Ivan_Campo.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1974-02-21",
     "leftFooted": false,
@@ -132181,7 +138978,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3173_515_2012_11_22_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Zenden_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Mr. Phillip Chambers",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Zenden_(cropped).jpg"
+    },
     "height": 174,
     "dateOfBirth": "1976-08-15",
     "leftFooted": true,
@@ -132419,7 +139222,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Sweeper"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3210_123_2013_10_10_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/St%C3%A9phane_Henchoz_FC_Sion.jpg/500px-St%C3%A9phane_Henchoz_FC_Sion.jpg",
+    "imageAttribution": {
+      "author": "Espandero",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St%C3%A9phane_Henchoz_FC_Sion.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1974-07-09",
     "leftFooted": false,
@@ -132628,7 +139437,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3218-1466695326.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Patrik_Berger_-_53690895485.jpg/500px-Patrik_Berger_-_53690895485.jpg",
+    "imageAttribution": {
+      "author": "Chin Yu Chu",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Patrik_Berger_-_53690895485.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1973-10-11",
     "leftFooted": false,
@@ -132819,7 +139634,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/56818-1664978433.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Cskamu_50.jpg",
+    "imageAttribution": {
+      "author": "Дмитрий Голубович",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cskamu_50.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1989-08-11",
     "leftFooted": false,
@@ -132842,6 +139663,265 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 30000000
     },
     "fameScore": 16
+  },
+  {
+    "playerId": "76",
+    "name": "Diego Placente",
+    "nationality": "Argentina",
+    "citizenship": [
+      "Argentina",
+      "Italy"
+    ],
+    "clubs": [
+      "Argentinos Jrs.",
+      "Nacional",
+      "San Lorenzo",
+      "G. Bordeaux",
+      "Celta de Vigo",
+      "Bayer 04 Leverkusen",
+      "CA River Plate"
+    ],
+    "youthClubs": [
+      "Argentinos Juniors"
+    ],
+    "achievements": [
+      "Ligue 1 winner",
+      "3+ domestic league titles",
+      "League title in multiple countries"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Left Footed",
+      "Multiple Citizenships",
+      "Multiple Positions",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Full-Back",
+      "Central Midfield",
+      "Centre-Back",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "Left Footed",
+      "Dual Nationality",
+      "Became a manager"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "12/13",
+        "club": "1030",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "11/12",
+        "club": "866",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "10/11",
+        "club": "866",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "10/11",
+        "club": "1775",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "10/11",
+        "club": "1775",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "10/11",
+        "club": "1775",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "09/10",
+        "club": "40",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "08/09",
+        "club": "40",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "07/08",
+        "club": "1775",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "06/07",
+        "club": "940",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "05/06",
+        "club": "940",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "04/05",
+        "club": "15",
+        "jerseyNumber": 35
+      },
+      {
+        "season": "03/04",
+        "club": "15",
+        "jerseyNumber": 35
+      },
+      {
+        "season": "02/03",
+        "club": "15",
+        "jerseyNumber": 35
+      },
+      {
+        "season": "01/02",
+        "club": "15",
+        "jerseyNumber": 35
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 35
+      },
+      {
+        "season": "00/01",
+        "club": "209",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "99/00",
+        "club": "209",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "98/99",
+        "club": "209",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "98/99",
+        "club": "209",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "98/99",
+        "club": "209",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "97/98",
+        "club": "209",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "97/98",
+        "club": "209",
+        "jerseyNumber": 25
+      },
+      {
+        "season": "97/98",
+        "club": "1030",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "96/97",
+        "club": "209",
+        "jerseyNumber": 25
+      },
+      {
+        "season": "04/05",
+        "club": "3437",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "04/05",
+        "club": "3437",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "04/05",
+        "club": "3437",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "04/05",
+        "club": "3437",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "03/04",
+        "club": "3437",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "01/02",
+        "club": "3437",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "00/01",
+        "club": "3437",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "00/01",
+        "club": "3437",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "99/00",
+        "club": "52540",
+        "jerseyNumber": 3
+      },
+      {
+        "season": "96/97",
+        "club": "11940",
+        "jerseyNumber": 14
+      }
+    ],
+    "position": {
+      "main": "Left-Back",
+      "other": [
+        "Left Midfield",
+        "Centre-Back"
+      ]
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Seleccion_juvenil_Argentina.jpg/500px-Seleccion_juvenil_Argentina.jpg",
+    "imageAttribution": {
+      "author": "Diego muy argento",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Seleccion_juvenil_Argentina.jpg"
+    },
+    "height": 175,
+    "dateOfBirth": "1977-04-24",
+    "leftFooted": true,
+    "era": "1995-2013",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 27,
+      "date": "2004-04-10",
+      "clubId": "15",
+      "clubName": "Bayer 04 Leverkusen",
+      "marketValue": 4500000
+    },
+    "fameScore": 15.9
   },
   {
     "playerId": "27577",
@@ -133040,7 +140120,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/27577-1520798945.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Clint_Dempsey_%2826347615912%29_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Victor Araiza from Houston, TX, United States of America",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clint_Dempsey_(26347615912)_(cropped).jpg"
+    },
     "height": 185,
     "dateOfBirth": "1983-03-09",
     "leftFooted": false,
@@ -133161,7 +140247,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7517-1683038277.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Francisco_Pavon.jpg/500px-Francisco_Pavon.jpg",
+    "imageAttribution": {
+      "author": "Fundación Vencer el Cáncer",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Francisco_Pavon.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1980-09-01",
     "leftFooted": false,
@@ -133427,7 +140519,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/43261-1722694409.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Gabbyobertan.jpg/500px-Gabbyobertan.jpg",
+    "imageAttribution": {
+      "author": "Jon Candy",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gabbyobertan.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1989-02-26",
     "leftFooted": false,
@@ -133610,7 +140708,8 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3598-1417093568.jpg?lm=1",
+    "imageUrl": "",
+    "imageAttribution": null,
     "height": 191,
     "dateOfBirth": "1980-01-03",
     "leftFooted": true,
@@ -133632,6 +140731,170 @@ export const enrichedFootballPlayers: Player[] = [
       "clubName": "Portsmouth FC",
       "marketValue": 3200000
     },
+    "fameScore": 15.6
+  },
+  {
+    "playerId": "200627",
+    "name": "Gordon Banks",
+    "nationality": "England",
+    "citizenship": [
+      "England"
+    ],
+    "clubs": [
+      "manual"
+    ],
+    "youthClubs": [],
+    "achievements": [
+      "World Cup winner"
+    ],
+    "randomAchievements": [
+      "One Club Man",
+      "Fair Play Master"
+    ],
+    "tags": [
+      "Goalkeeper",
+      "Wore #1",
+      "One Club Man"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "77/78",
+        "club": "8670",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "72/73",
+        "club": "512",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "71/72",
+        "club": "512",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "70/71",
+        "club": "512",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "69/70",
+        "club": "512",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "68/69",
+        "club": "512",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "67/68",
+        "club": "512",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "66/67",
+        "club": "512",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "66/67",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "65/66",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "64/65",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "63/64",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "62/63",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "61/62",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "60/61",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "59/60",
+        "club": "1003",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "70/71",
+        "club": "3299",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "69/70",
+        "club": "3299",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "67/68",
+        "club": "3299",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "66/67",
+        "club": "3299",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "65/66",
+        "club": "3299",
+        "jerseyNumber": 1
+      },
+      {
+        "season": "61/62",
+        "club": "3299",
+        "jerseyNumber": 22
+      }
+    ],
+    "position": {
+      "main": "Goalkeeper",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Gordon_banks_figurita.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Gordon_banks_figurita.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
+    "leftFooted": false,
+    "era": "",
+    "careerStats": {
+      "appearances": 531,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 5136,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
     "fameScore": 15.6
   },
   {
@@ -133790,7 +141053,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7510-1682349584.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cesar_Sanchez_VCF.jpg/500px-Cesar_Sanchez_VCF.jpg",
+    "imageAttribution": {
+      "author": "Amarco90",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cesar_Sanchez_VCF.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1971-02-09",
     "leftFooted": false,
@@ -133975,7 +141244,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/504849-1731683095.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Kaoru_Mitoma_00-01-48.01.png/500px-Kaoru_Mitoma_00-01-48.01.png",
+    "imageAttribution": {
+      "author": "AFC Bournemouth",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kaoru_Mitoma_00-01-48.01.png"
+    },
     "height": 178,
     "dateOfBirth": "1997-05-20",
     "leftFooted": false,
@@ -133998,6 +141273,148 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 50000000
     },
     "fameScore": 15.4
+  },
+  {
+    "playerId": "67",
+    "name": "Markus Daun",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "Alem. Aachen",
+      "MSV Duisburg",
+      "1.FC Nuremberg",
+      "Bayer 04 Leverkusen",
+      "Werder Bremen"
+    ],
+    "youthClubs": [
+      "Germania Dürwiß (1992-1995)",
+      "Bayer 04 Leverkusen (1995-1999)"
+    ],
+    "achievements": [
+      "Bundesliga winner",
+      "DFB-Pokal winner",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Multiple Positions",
+      "International Journeyman"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "Winger",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "Wore #9",
+      "Football family"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "10/11",
+        "club": "8",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "09/10",
+        "club": "8",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "08/09",
+        "club": "8",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "07/08",
+        "club": "52",
+        "jerseyNumber": 17
+      },
+      {
+        "season": "06/07",
+        "club": "52",
+        "jerseyNumber": 17
+      },
+      {
+        "season": "05/06",
+        "club": "4",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "04/05",
+        "club": "4",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "03/04",
+        "club": "86",
+        "jerseyNumber": 18
+      },
+      {
+        "season": "02/03",
+        "club": "86",
+        "jerseyNumber": 18
+      },
+      {
+        "season": "01/02",
+        "club": "8",
+        "jerseyNumber": 34
+      },
+      {
+        "season": "01/02",
+        "club": "15",
+        "jerseyNumber": 30
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 30
+      },
+      {
+        "season": "99/00",
+        "club": "15",
+        "jerseyNumber": 30
+      },
+      {
+        "season": "00/01",
+        "club": "3817",
+        "jerseyNumber": 14
+      }
+    ],
+    "position": {
+      "main": "Centre-Forward",
+      "other": [
+        "Second Striker",
+        "Right Winger"
+      ]
+    },
+    "imageUrl": "",
+    "imageAttribution": null,
+    "height": 185,
+    "dateOfBirth": "1980-10-09",
+    "leftFooted": false,
+    "era": "1997-2011",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 24,
+      "date": "2004-04-10",
+      "clubId": "4",
+      "clubName": "1.FC Nuremberg",
+      "marketValue": 1500000
+    },
+    "fameScore": 15.3
   },
   {
     "playerId": "3839",
@@ -134331,7 +141748,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3839_123_2013_10_02_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Staunton%2C_Steve.jpg",
+    "imageAttribution": {
+      "author": "Jonesy702",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Staunton,_Steve.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1969-01-19",
     "leftFooted": false,
@@ -134428,6 +141851,7 @@ export const enrichedFootballPlayers: Player[] = [
       "other": []
     },
     "imageUrl": "",
+    "imageAttribution": null,
     "height": 175,
     "dateOfBirth": "1981-01-02",
     "leftFooted": false,
@@ -134450,6 +141874,226 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 1250000
     },
     "fameScore": 15.3
+  },
+  {
+    "playerId": "19",
+    "name": "Marco Reich",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "Villacher SV",
+      "A. Klagenfurt",
+      "WAC - St. Andrä",
+      "Jagiellonia",
+      "Walsall",
+      "K. Offenbach",
+      "Crystal Palace",
+      "Derby",
+      "Werder Bremen",
+      "1.FC Köln",
+      "1.FC K'lautern"
+    ],
+    "youthClubs": [
+      "Viktoria Merxheim (1984-1989)",
+      "SG Meisenheim/Odenbach (1989-1992)",
+      "1.FC Kaiserslautern (1992-1995)"
+    ],
+    "achievements": [
+      "Bundesliga winner",
+      "DFB-Pokal winner",
+      "Domestic double"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Multiple Positions",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Central Midfield",
+      "Centre-Forward",
+      "1990s player",
+      "2000s player",
+      "2010s player",
+      "Wore #9",
+      "Became a manager"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "17/18",
+        "club": "7257",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "16/17",
+        "club": "7257",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "12/13",
+        "club": "4480",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "11/12",
+        "club": "28760",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "10/11",
+        "club": "4441",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "09/10",
+        "club": "4441",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "09/10",
+        "club": "2300",
+        "jerseyNumber": 27
+      },
+      {
+        "season": "07/08",
+        "club": "107",
+        "jerseyNumber": 29
+      },
+      {
+        "season": "06/07",
+        "club": "107",
+        "jerseyNumber": 29
+      },
+      {
+        "season": "06/07",
+        "club": "873",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "05/06",
+        "club": "873",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "04/05",
+        "club": "22",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "03/04",
+        "club": "22",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "03/04",
+        "club": "87",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "03/04",
+        "club": "86",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "02/03",
+        "club": "86",
+        "jerseyNumber": 22
+      },
+      {
+        "season": "01/02",
+        "club": "3",
+        "jerseyNumber": 17
+      },
+      {
+        "season": "00/01",
+        "club": "2",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "99/00",
+        "club": "2",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "98/99",
+        "club": "2",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "97/98",
+        "club": "2",
+        "jerseyNumber": 27
+      },
+      {
+        "season": "96/97",
+        "club": "2",
+        "jerseyNumber": 27
+      },
+      {
+        "season": "96/97",
+        "club": "2",
+        "jerseyNumber": 28
+      },
+      {
+        "season": "95/96",
+        "club": "2",
+        "jerseyNumber": 27
+      },
+      {
+        "season": "98/99",
+        "club": "3817",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "96/97",
+        "club": "3817",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "93/94",
+        "club": "17368",
+        "jerseyNumber": 11
+      }
+    ],
+    "position": {
+      "main": "Left Midfield",
+      "other": [
+        "Centre-Forward",
+        "Right Midfield"
+      ]
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Marco_Reich_WAC.jpg/500px-Marco_Reich_WAC.jpg",
+    "imageAttribution": {
+      "author": "Radek182",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marco_Reich_WAC.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "1976-03-07",
+    "leftFooted": false,
+    "era": "1996-2013",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 26,
+      "date": "2004-11-13",
+      "clubId": "22",
+      "clubName": "Derby County",
+      "marketValue": 800000
+    },
+    "fameScore": 15.2
   },
   {
     "playerId": "128995",
@@ -134534,7 +142178,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/128995-1547818047.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Marius_Tr%C3%A9sor_en_1974.jpg/500px-Marius_Tr%C3%A9sor_en_1974.jpg",
+    "imageAttribution": {
+      "author": "Panini",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Marius_Tr%C3%A9sor_en_1974.jpg"
+    },
     "height": 180,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -134551,6 +142201,233 @@ export const enrichedFootballPlayers: Player[] = [
     },
     "highestValue": null,
     "fameScore": 15.2
+  },
+  {
+    "playerId": "56",
+    "name": "Oliver Bierhoff",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "Chievo Verona",
+      "AS Monaco",
+      "AC Milan",
+      "Udinese",
+      "Ascoli",
+      "Casino Salzburg",
+      "Mönchengladbach",
+      "Hamburg",
+      "Bayer 05"
+    ],
+    "youthClubs": [
+      "Essener SG 99/06 (1974-1978)",
+      "Schwarz-Weiß Essen (1978-1985)",
+      "Bayer 05 Uerdingen (1985-1986)"
+    ],
+    "achievements": [
+      "Serie A top scorer",
+      "Euro champion",
+      "Serie A winner"
+    ],
+    "randomAchievements": [
+      "5+ Clubs",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Centre-Forward",
+      "1980s player",
+      "1990s player",
+      "2000s player",
+      "Wore #9",
+      "Wore #7"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "02/03",
+        "club": "862",
+        "jerseyNumber": 21
+      },
+      {
+        "season": "01/02",
+        "club": "162",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "01/02",
+        "club": "5",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "00/01",
+        "club": "5",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "99/00",
+        "club": "5",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "98/99",
+        "club": "5",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "97/98",
+        "club": "410",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "96/97",
+        "club": "410",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "95/96",
+        "club": "410",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "91/92",
+        "club": "408",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "91/92",
+        "club": "408",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "91/92",
+        "club": "408",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "90/91",
+        "club": "409",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "89/90",
+        "club": "41",
+        "jerseyNumber": 12
+      },
+      {
+        "season": "89/90",
+        "club": "41",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "86/87",
+        "club": "95",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "01/02",
+        "club": "3262",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "01/02",
+        "club": "3262",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "00/01",
+        "club": "3262",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "00/01",
+        "club": "3262",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "99/00",
+        "club": "3262",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "98/99",
+        "club": "3262",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "98/99",
+        "club": "3262",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "97/98",
+        "club": "3262",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 13
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "95/96",
+        "club": "3262",
+        "jerseyNumber": 20
+      },
+      {
+        "season": "89/90",
+        "club": "3817",
+        "jerseyNumber": 13
+      }
+    ],
+    "position": {
+      "main": "Centre-Forward",
+      "other": []
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Oliver_Bierhoff%2C_Germany_national_football_team_%2803%29.jpg/500px-Oliver_Bierhoff%2C_Germany_national_football_team_%2803%29.jpg",
+    "imageAttribution": {
+      "author": "Steindy ( talk ) 10:07, 27 June 2011 (UTC)",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Oliver_Bierhoff,_Germany_national_football_team_(03).jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "1968-01-05",
+    "leftFooted": false,
+    "era": "1983-2003",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": null,
+    "fameScore": 15
   },
   {
     "playerId": "10032",
@@ -134744,7 +142621,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/10032-1587041297.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Gary_McAllister_in_Singapore%2C_2023.jpg/500px-Gary_McAllister_in_Singapore%2C_2023.jpg",
+    "imageAttribution": {
+      "author": "Pangalau",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gary_McAllister_in_Singapore,_2023.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1964-12-25",
     "leftFooted": false,
@@ -134862,7 +142745,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/116735-1544094883.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Daniel_passarella_en_1985.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Daniel_passarella_en_1985.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -135046,7 +142935,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/123682-1668090039.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Callum_Wilson_2023.png/500px-Callum_Wilson_2023.png",
+    "imageAttribution": {
+      "author": "TNT Sports",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Callum_Wilson_2023.png"
+    },
     "height": 180,
     "dateOfBirth": "1992-02-27",
     "leftFooted": false,
@@ -135281,7 +143176,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/335-1493298435.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/%D8%B9%D9%84%DB%8C_%D8%AF%D8%A7%DB%8C%DB%8C.jpg/500px-%D8%B9%D9%84%DB%8C_%D8%AF%D8%A7%DB%8C%DB%8C.jpg",
+    "imageAttribution": {
+      "author": "Enthekhabat-e Azad",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:%D8%B9%D9%84%DB%8C_%D8%AF%D8%A7%DB%8C%DB%8C.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1969-03-21",
     "leftFooted": false,
@@ -135509,7 +143410,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3241_25580_2014_03_26_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/HarryKewell.jpg/500px-HarryKewell.jpg",
+    "imageAttribution": {
+      "author": "Kevin Airs",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:HarryKewell.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1978-09-22",
     "leftFooted": true,
@@ -135761,7 +143668,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_36350_281_2012_10_25_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Gent-Zenit_%286%29.jpg/500px-Gent-Zenit_%286%29.jpg",
+    "imageAttribution": {
+      "author": "Вячеслав Евдокимов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gent-Zenit_(6).jpg"
+    },
     "height": 187,
     "dateOfBirth": "1987-08-02",
     "leftFooted": false,
@@ -136057,7 +143970,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/37838-1762636883.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Lovren_in_Zenit_%28cropped%29.jpg/500px-Lovren_in_Zenit_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Vyacheslav Yevdokimov",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lovren_in_Zenit_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1989-05-07",
     "leftFooted": false,
@@ -136248,7 +144167,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3242-1590497020.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Mark_Viduka_2005_WCQ.jpg",
+    "imageAttribution": {
+      "author": "David Luu from Sydney, Australia",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mark_Viduka_2005_WCQ.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1975-10-09",
     "leftFooted": false,
@@ -136465,7 +144390,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3881-1475583851.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Glen_Johnson_20111226_%28cropped%29.jpg/500px-Glen_Johnson_20111226_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Badudoy",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Glen_Johnson_20111226_(cropped).jpg"
+    },
     "height": 182,
     "dateOfBirth": "1984-08-23",
     "leftFooted": false,
@@ -136664,7 +144595,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7920-1419245820.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Luis_Garc%C3%ADa_Sanz_-_53690670543.jpg/500px-Luis_Garc%C3%ADa_Sanz_-_53690670543.jpg",
+    "imageAttribution": {
+      "author": "Chin Yu Chu",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Luis_Garc%C3%ADa_Sanz_-_53690670543.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1978-06-24",
     "leftFooted": false,
@@ -136889,7 +144826,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/28261-1490619777.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Jos%C3%A9_Manuel_Jurado_2013.jpg",
+    "imageAttribution": {
+      "author": "Садовников Дмитрий",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Manuel_Jurado_2013.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1986-06-29",
     "leftFooted": false,
@@ -137005,7 +144948,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Central Midfield",
       "other": []
     },
-    "imageUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/DeLaRed.jpg",
+    "imageAttribution": {
+      "author": "Dmitry Kiselev for Soccer.ru",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:DeLaRed.jpg"
+    },
     "height": 186,
     "dateOfBirth": "1985-05-06",
     "leftFooted": false,
@@ -137230,7 +145179,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/45599-1583574333.JPG?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/EmilianoInsua2.jpg/500px-EmilianoInsua2.jpg",
+    "imageAttribution": {
+      "author": "Silesia711",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:EmilianoInsua2.jpg"
+    },
     "height": 179,
     "dateOfBirth": "1989-07-01",
     "leftFooted": true,
@@ -137448,7 +145403,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Left-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3308_405_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Warnock.jpg",
+    "imageAttribution": {
+      "author": "Mr. Phillip Chambers",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Warnock.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1981-12-12",
     "leftFooted": true,
@@ -137634,7 +145595,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3548-1410950645.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Richardson%2C_Kieran.jpg",
+    "imageAttribution": {
+      "author": "Jonesy702 at English Wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Richardson,_Kieran.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1984-10-21",
     "leftFooted": true,
@@ -137834,7 +145801,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7570-1723138716.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/FabioAurelio.jpg",
+    "imageAttribution": {
+      "author": "Pepito",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:FabioAurelio.jpg"
+    },
     "height": 178,
     "dateOfBirth": "1979-09-24",
     "leftFooted": true,
@@ -138136,7 +146109,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3142-1489581402.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Emile_Heskey_as_a_player_of_England_national_football_team.jpg/500px-Emile_Heskey_as_a_player_of_England_national_football_team.jpg",
+    "imageAttribution": {
+      "author": "Ilya Khokhlov",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Emile_Heskey_as_a_player_of_England_national_football_team.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1978-11-01",
     "leftFooted": false,
@@ -138317,7 +146296,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3600_512_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Sali_Diao_Arsenal_v_Stoke_City_FC.jpg/500px-Sali_Diao_Arsenal_v_Stoke_City_FC.jpg",
+    "imageAttribution": {
+      "author": "Ronnie Macdonald",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sali_Diao_Arsenal_v_Stoke_City_FC.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1977-10-02",
     "leftFooted": false,
@@ -138479,7 +146464,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4549-1719608267.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jan_Kromkamp.jpg/500px-Jan_Kromkamp.jpg",
+    "imageAttribution": {
+      "author": "Paul Blank",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Jan_Kromkamp.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1980-08-17",
     "leftFooted": false,
@@ -138719,7 +146710,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_1419_123_2013_03_21_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Rigobert_Song_2008.jpg/500px-Rigobert_Song_2008.jpg",
+    "imageAttribution": {
+      "author": "Jake Brown",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rigobert_Song_2008.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1976-01-07",
     "leftFooted": false,
@@ -138886,7 +146883,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3115_40_2012_2.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/David_Bellion.jpg/500px-David_Bellion.jpg",
+    "imageAttribution": {
+      "author": "Fcgb260",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:David_Bellion.jpg"
+    },
     "height": 181,
     "dateOfBirth": "1982-11-27",
     "leftFooted": false,
@@ -139055,7 +147058,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3601-1587109241.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Igor_Biscan_2021.jpg/500px-Igor_Biscan_2021.jpg",
+    "imageAttribution": {
+      "author": "PIXSELL",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Igor_Biscan_2021.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1978-04-05",
     "leftFooted": false,
@@ -139279,7 +147288,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5509-1419247582.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Eric_Djemba-Djemba_-_53690895590.jpg/500px-Eric_Djemba-Djemba_-_53690895590.jpg",
+    "imageAttribution": {
+      "author": "Chin Yu Chu",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eric_Djemba-Djemba_-_53690895590.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1981-04-05",
     "leftFooted": false,
@@ -139457,7 +147472,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7864-1655387457.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Pedro_Munitis_2013.jpg/500px-Pedro_Munitis_2013.jpg",
+    "imageAttribution": {
+      "author": "PB84",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pedro_Munitis_2013.jpg"
+    },
     "height": 167,
     "dateOfBirth": "1975-06-19",
     "leftFooted": false,
@@ -139707,7 +147728,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3225-1588597730.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Fowler%2C_Robbie.jpg",
+    "imageAttribution": {
+      "author": "Jonesy702",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fowler,_Robbie.jpg"
+    },
     "height": 175,
     "dateOfBirth": "1975-09-04",
     "leftFooted": true,
@@ -139884,7 +147911,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_4038_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Finnan.jpg",
+    "imageAttribution": {
+      "author": "Alii h at English Wikipedia",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Finnan.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1976-04-24",
     "leftFooted": false,
@@ -140065,7 +148098,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3221_931_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Danny_Murphy_Fulham.jpg",
+    "imageAttribution": {
+      "author": "Nick",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Danny_Murphy_Fulham.jpg"
+    },
     "height": 177,
     "dateOfBirth": "1977-03-18",
     "leftFooted": false,
@@ -140253,7 +148292,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4126-1587109535.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Stephen_Wright_2010.jpg/500px-Stephen_Wright_2010.jpg",
+    "imageAttribution": {
+      "author": "Helen Bromley",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stephen_Wright_2010.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1980-08-02",
     "leftFooted": false,
@@ -140435,7 +148480,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/24635-1407503951.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Chris_Eagles_-_1.jpg",
+    "imageAttribution": {
+      "author": "Jon Candy from Cardiff, Wales",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chris_Eagles_-_1.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1985-11-19",
     "leftFooted": false,
@@ -140639,7 +148690,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Right-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/37442-1469615760.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Danny_simpson.jpg",
+    "imageAttribution": {
+      "author": "CrackersTeam",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Danny_simpson.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1987-04-01",
     "leftFooted": false,
@@ -140797,7 +148854,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7532-1729675008.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Javier_Portillo.jpg/500px-Javier_Portillo.jpg",
+    "imageAttribution": {
+      "author": "mckyoshan",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Javier_Portillo.jpg"
+    },
     "height": 183,
     "dateOfBirth": "1982-03-30",
     "leftFooted": true,
@@ -140820,1097 +148883,6 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 5000000
     },
     "fameScore": 11
-  },
-  {
-    "playerId": "3427",
-    "name": "Sander Westerveld",
-    "nationality": "Netherlands",
-    "citizenship": [
-      "Netherlands"
-    ],
-    "clubs": [
-      "Ajax Cape Town",
-      "Monza",
-      "Sparta R.",
-      "UD Almería",
-      "Portsmouth",
-      "Everton FC",
-      "Real Sociedad",
-      "RCD Mallorca",
-      "Liverpool FC",
-      "Vitesse",
-      "FC Twente",
-      "De Tubanters"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "UEFA Cup/Europa League winner",
-      "FA Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1980s player",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #1",
-      "190cm+",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "12/13",
-        "club": "2926",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "2926",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "10/11",
-        "club": "2919",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "07/08",
-        "club": "468",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "06/07",
-        "club": "3302",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "05/06",
-        "club": "29",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "05/06",
-        "club": "1020",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "237",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "03/04",
-        "club": "681",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "02/03",
-        "club": "681",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "01/02",
-        "club": "681",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "01/02",
-        "club": "31",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "99/00",
-        "club": "31",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "98/99",
-        "club": "499",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "97/98",
-        "club": "499",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "96/97",
-        "club": "499",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "93/94",
-        "club": "317",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "04/05",
-        "club": "3379",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "03/04",
-        "club": "3379",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "02/03",
-        "club": "3379",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "00/01",
-        "club": "3379",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "99/00",
-        "club": "3379",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "94/95",
-        "club": "11944",
-        "jerseyNumber": 16
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3427_123_2013_08_09_1.jpg?lm=1",
-    "height": 193,
-    "dateOfBirth": "1974-10-23",
-    "leftFooted": false,
-    "era": "1988-2013",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 29,
-      "date": "2004-04-10",
-      "clubId": "237",
-      "clubName": "RCD Mallorca",
-      "marketValue": 4500000
-    },
-    "fameScore": 10.9
-  },
-  {
-    "playerId": "4217",
-    "name": "Anthony Le Tallec",
-    "nationality": "France",
-    "citizenship": [
-      "France"
-    ],
-    "clubs": [
-      "FC Annecy",
-      "US Orléans",
-      "Astra Giurgiu",
-      "Atromitos",
-      "Valenciennes FC",
-      "AJ Auxerre",
-      "Le Mans FC",
-      "Liverpool FC",
-      "Le Mans UC 72",
-      "FC Sochaux",
-      "Sunderland",
-      "Saint-Étienne",
-      "Le Havre AC"
-    ],
-    "youthClubs": [
-      "AC Le Havre (01/1992-2002)"
-    ],
-    "achievements": [
-      "Champions League winner",
-      "World Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "Attacking Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #10",
-      "Wore #9",
-      "Wore #7",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "20/21",
-        "club": "30204",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "20/21",
-        "club": "30204",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "19/20",
-        "club": "30204",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "19/20",
-        "club": "30204",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "19/20",
-        "club": "30204",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "19/20",
-        "club": "30204",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "19/20",
-        "club": "30204",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "19/20",
-        "club": "10868",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "18/19",
-        "club": "10868",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "18/19",
-        "club": "10868",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "17/18",
-        "club": "10868",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "17/18",
-        "club": "13499",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "16/17",
-        "club": "3060",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "15/16",
-        "club": "3060",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "14/15",
-        "club": "1423",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "13/14",
-        "club": "1423",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "12/13",
-        "club": "1423",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "12/13",
-        "club": "290",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "11/12",
-        "club": "290",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "290",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "09/10",
-        "club": "1164",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "08/09",
-        "club": "1164",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "07/08",
-        "club": "1164",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "07/08",
-        "club": "1164",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "06/07",
-        "club": "750",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "05/06",
-        "club": "289",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "05/06",
-        "club": "31",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "04/05",
-        "club": "618",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "02/03",
-        "club": "738",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "01/02",
-        "club": "738",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "9323",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "06/07",
-        "club": "9323",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "05/06",
-        "club": "9323",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "04/05",
-        "club": "9323",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "04/05",
-        "club": "9323",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "03/04",
-        "club": "9323",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "00/01",
-        "club": "10831",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "00/01",
-        "club": "10844",
-        "jerseyNumber": 7
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": [
-        "Attacking Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4217-1731451083.jpg?lm=1",
-    "height": 185,
-    "dateOfBirth": "1984-03-10",
-    "leftFooted": false,
-    "era": "1999-2021",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2010-01-08",
-      "clubId": "290",
-      "clubName": "AJ Auxerre",
-      "marketValue": 4500000
-    },
-    "fameScore": 10.9
-  },
-  {
-    "playerId": "3771",
-    "name": "Raúl Bravo",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Unknown",
-      "Pego CF",
-      "CF Gandía",
-      "Aris Saloniki",
-      "Veria",
-      "Córdoba CF",
-      "Beerschot AC",
-      "Rayo Vallecano",
-      "Olympiacos",
-      "CD Numancia",
-      "Real Madrid",
-      "Leeds"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Champions League winner",
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "Full-Back",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Left Footed",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Fabio Capello",
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "16/17",
-        "club": "605",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "15/16",
-        "club": "2079",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "14/15",
-        "club": "2079",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "13/14",
-        "club": "993",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "12/13",
-        "club": "566",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "11/12",
-        "club": "367",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "10/11",
-        "club": "683",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "09/10",
-        "club": "683",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "08/09",
-        "club": "2296",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "08/09",
-        "club": "683",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "07/08",
-        "club": "683",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "06/07",
-        "club": "418",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "05/06",
-        "club": "418",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "418",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "02/03",
-        "club": "399",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "02/03",
-        "club": "418",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "01/02",
-        "club": "418",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "04/05",
-        "club": "3375",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "03/04",
-        "club": "3375",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "02/03",
-        "club": "3375",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "97/98",
-        "club": "33775",
-        "jerseyNumber": 8
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": [
-        "Left-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3771-1701858485.jpg?lm=1",
-    "height": 181,
-    "dateOfBirth": "1981-04-14",
-    "leftFooted": true,
-    "era": "2001-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 29,
-      "date": "2010-05-10",
-      "clubId": "683",
-      "clubName": "Olympiacos Piraeus",
-      "marketValue": 4000000
-    },
-    "fameScore": 10.8
-  },
-  {
-    "playerId": "7619",
-    "name": "Aitor Karanka",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Colorado",
-      "Athletic Club",
-      "Real Madrid"
-    ],
-    "youthClubs": [
-      "Corazonistas"
-    ],
-    "achievements": [
-      "Champions League winner",
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "1990s player",
-      "2000s player",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Fabio Capello",
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "06/07",
-        "club": "1247",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "05/06",
-        "club": "621",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "04/05",
-        "club": "621",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "03/04",
-        "club": "621",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "02/03",
-        "club": "621",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "01/02",
-        "club": "418",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "99/00",
-        "club": "418",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "98/99",
-        "club": "418",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "97/98",
-        "club": "418",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "97/98",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "96/97",
-        "club": "621",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "95/96",
-        "club": "621",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "94/95",
-        "club": "621",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "94/95",
-        "club": "621",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "93/94",
-        "club": "621",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "93/94",
-        "club": "621",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "95/96",
-        "club": "53824",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "95/96",
-        "club": "9567",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "93/94",
-        "club": "9567",
-        "jerseyNumber": 5
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7619-1672433729.jpg?lm=1",
-    "height": 184,
-    "dateOfBirth": "1973-09-18",
-    "leftFooted": false,
-    "era": "1991-2007",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 31,
-      "date": "2004-04-10",
-      "clubId": "621",
-      "clubName": "Athletic Bilbao",
-      "marketValue": 4000000
-    },
-    "fameScore": 10.8
-  },
-  {
-    "playerId": "42413",
-    "name": "Darron Gibson",
-    "nationality": "Ireland",
-    "citizenship": [
-      "Ireland",
-      "Northern Ireland"
-    ],
-    "clubs": [
-      "Wythenshawe AFC",
-      "Salford",
-      "Wigan",
-      "Sunderland",
-      "Everton FC",
-      "Manchester United",
-      "Man Utd Res.",
-      "Wolves",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [
-      "Maiden City",
-      "Institute FC"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "Club World Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Dual Nationality"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson",
-      "Played under Ronald Koeman"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "20/21",
-        "club": "34888",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "19/20",
-        "club": "34888",
-        "jerseyNumber": 43
-      },
-      {
-        "season": "18/19",
-        "club": "1071",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "17/18",
-        "club": "289",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "16/17",
-        "club": "289",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "16/17",
-        "club": "9261",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "16/17",
-        "club": "29",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "15/16",
-        "club": "29",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "15/16",
-        "club": "9261",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "14/15",
-        "club": "29",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "13/14",
-        "club": "29",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "9261",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "12/13",
-        "club": "29",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "29",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "09/10",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "07/08",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "06/07",
-        "club": "1096",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "05/06",
-        "club": "985",
-        "jerseyNumber": 50
-      },
-      {
-        "season": "15/16",
-        "club": "3509",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "14/15",
-        "club": "3509",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "14/15",
-        "club": "3509",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "14/15",
-        "club": "3509",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "14/15",
-        "club": "3509",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "12/13",
-        "club": "3509",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "11/12",
-        "club": "3509",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "10/11",
-        "club": "3509",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "10/11",
-        "club": "3509",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "09/10",
-        "club": "3509",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "09/10",
-        "club": "3509",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "08/09",
-        "club": "3509",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "07/08",
-        "club": "21103",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "3509",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "04/05",
-        "club": "23102",
-        "jerseyNumber": 12
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/42413-1485793578.jpg?lm=1",
-    "height": 183,
-    "dateOfBirth": "1987-10-25",
-    "leftFooted": false,
-    "era": "2005-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2013-02-07",
-      "clubId": "29",
-      "clubName": "Everton FC",
-      "marketValue": 4000000
-    },
-    "fameScore": 10.8
   },
   {
     "playerId": "117377",
@@ -142039,7 +149011,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_117377_123_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Rinat_Dasayev_2008.JPG",
+    "imageAttribution": {
+      "author": "Elena Rybakova",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rinat_Dasayev_2008.JPG"
+    },
     "height": 188,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -142056,2914 +149034,6 @@ export const enrichedFootballPlayers: Player[] = [
     },
     "highestValue": null,
     "fameScore": 10.8
-  },
-  {
-    "playerId": "14021",
-    "name": "David Healy",
-    "nationality": "Northern Ireland",
-    "citizenship": [
-      "Northern Ireland"
-    ],
-    "clubs": [
-      "Bury",
-      "Rangers FC",
-      "Sunderland",
-      "Doncaster",
-      "Ipswich",
-      "Fulham",
-      "Leeds",
-      "Preston",
-      "Norwich",
-      "Manchester United",
-      "Port Vale"
-    ],
-    "youthClubs": [
-      "Lisburn Youth and Down Academy High School",
-      "Manchester United"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "League title in multiple countries"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #9",
-      "Wore #10",
-      "Man Utd Academy",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "12/13",
-        "club": "2413",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "11/12",
-        "club": "124",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "10/11",
-        "club": "124",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "10/11",
-        "club": "2454",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "10/11",
-        "club": "9264",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "09/10",
-        "club": "677",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "09/10",
-        "club": "289",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "08/09",
-        "club": "289",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "07/08",
-        "club": "931",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "06/07",
-        "club": "399",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "05/06",
-        "club": "399",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "04/05",
-        "club": "399",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "04/05",
-        "club": "466",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "03/04",
-        "club": "466",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "01/02",
-        "club": "466",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "00/01",
-        "club": "466",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "12/13",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "10/11",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "09/10",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "08/09",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "07/08",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "04/05",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "02/03",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "00/01",
-        "club": "5674",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "98/99",
-        "club": "17621",
-        "jerseyNumber": 10
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_14021_289_2009_1.jpg?lm=1",
-    "height": 173,
-    "dateOfBirth": "1979-05-08",
-    "leftFooted": false,
-    "era": "1997-2013",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2008-01-21",
-      "clubId": "931",
-      "clubName": "Fulham FC",
-      "marketValue": 3500000
-    },
-    "fameScore": 10.7
-  },
-  {
-    "playerId": "3246",
-    "name": "Michael Stewart",
-    "nationality": "Scotland",
-    "citizenship": [
-      "Scotland"
-    ],
-    "clubs": [
-      "Charlton",
-      "Genclerbirligi",
-      "Heart of Midl.",
-      "Hibernian FC",
-      "Manchester United",
-      "Nott'm Forest",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [
-      "Hutchison Vale BC"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "3+ domestic league titles"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Wore #7"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "10/11",
-        "club": "358",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "09/10",
-        "club": "43",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "08/09",
-        "club": "43",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "07/08",
-        "club": "43",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "06/07",
-        "club": "903",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "05/06",
-        "club": "903",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "04/05",
-        "club": "43",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "03/04",
-        "club": "703",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "01/02",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "03/04",
-        "club": "16868",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "02/03",
-        "club": "16868",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "00/01",
-        "club": "16868",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "00/01",
-        "club": "16868",
-        "jerseyNumber": 15
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 180,
-    "dateOfBirth": "1981-02-26",
-    "leftFooted": false,
-    "era": "1997-2011",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2008-10-27",
-      "clubId": "43",
-      "clubName": "Heart of Midlothian FC",
-      "marketValue": 3000000
-    },
-    "fameScore": 10.6
-  },
-  {
-    "playerId": "53231",
-    "name": "Diego Cavalieri",
-    "nationality": "Brazil",
-    "citizenship": [
-      "Brazil",
-      "Italy"
-    ],
-    "clubs": [
-      "Botafogo",
-      "Crystal Palace",
-      "Fluminense",
-      "Cesena",
-      "Liverpool FC",
-      "Palmeiras"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "World Cup winner",
-      "Confederations Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Citizenships",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #1",
-      "Wore #10",
-      "Left Footed",
-      "Dual Nationality"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "537",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "19/20",
-        "club": "537",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "19/20",
-        "club": "537",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "18/19",
-        "club": "537",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "18/19",
-        "club": "537",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "18/19",
-        "club": "537",
-        "jerseyNumber": 121
-      },
-      {
-        "season": "17/18",
-        "club": "873",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "16/17",
-        "club": "2462",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "15/16",
-        "club": "2462",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "14/15",
-        "club": "2462",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "13/14",
-        "club": "2462",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "12/13",
-        "club": "2462",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "11/12",
-        "club": "2462",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "10/11",
-        "club": "2462",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "10/11",
-        "club": "2462",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "10/11",
-        "club": "1429",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "08/09",
-        "club": "31",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "1023",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "3439",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "98/99",
-        "club": "23130",
-        "jerseyNumber": 12
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/53231-1520609565.jpg?lm=1",
-    "height": 189,
-    "dateOfBirth": "1982-01-12",
-    "leftFooted": true,
-    "era": "2000-2021",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 30,
-      "date": "2012-05-12",
-      "clubId": "2462",
-      "clubName": "Fluminense Football Club",
-      "marketValue": 3000000
-    },
-    "fameScore": 10.6
-  },
-  {
-    "playerId": "3534",
-    "name": "Roy Carroll",
-    "nationality": "Northern Ireland",
-    "citizenship": [
-      "Northern Ireland"
-    ],
-    "clubs": [
-      "Ballinamallard",
-      "Dungannon",
-      "Mindwell",
-      "Linfield",
-      "Notts County",
-      "Olympiacos",
-      "OFI Crete",
-      "Odense BK",
-      "Derby",
-      "Rangers FC",
-      "West Ham United",
-      "Manchester United",
-      "Wigan",
-      "Hull City"
-    ],
-    "youthClubs": [
-      "Fivemiletown United",
-      "Ballinamallard United"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "FA Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #1",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "20/21",
-        "club": "21515",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "18/19",
-        "club": "3471",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "17/18",
-        "club": "3471",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "16/17",
-        "club": "3471",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "15/16",
-        "club": "1045",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "1045",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "13/14",
-        "club": "683",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "683",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "683",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "653",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "10/11",
-        "club": "173",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "173",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "173",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "08/09",
-        "club": "22",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "22",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "07/08",
-        "club": "124",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "06/07",
-        "club": "379",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "05/06",
-        "club": "379",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "985",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "01/02",
-        "club": "985",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "17/18",
-        "club": "5674",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "16/17",
-        "club": "5674",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "15/16",
-        "club": "5674",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "14/15",
-        "club": "5674",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "5674",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "13/14",
-        "club": "5674",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "5674",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "5674",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "08/09",
-        "club": "5674",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "07/08",
-        "club": "5674",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "5674",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "04/05",
-        "club": "5674",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "5674",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "02/03",
-        "club": "5674",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "00/01",
-        "club": "5674",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "00/01",
-        "club": "5674",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "98/99",
-        "club": "17621",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "96/97",
-        "club": "5674",
-        "jerseyNumber": 12
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3534-1464948583.jpg?lm=1",
-    "height": 189,
-    "dateOfBirth": "1977-09-30",
-    "leftFooted": false,
-    "era": "1995-2023",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2006-02-13",
-      "clubId": "379",
-      "clubName": "West Ham United",
-      "marketValue": 2700000
-    },
-    "fameScore": 10.5
-  },
-  {
-    "playerId": "3327",
-    "name": "Mark Wilson",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Doncaster",
-      "Gainsborough",
-      "Oxford United",
-      "Walsall",
-      "Tranmere",
-      "Dallas",
-      "Middlesbrough",
-      "Livingston FC",
-      "Sheff Wed",
-      "Swansea",
-      "Manchester United",
-      "Wrexham"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Champions League winner",
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #10"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "12/13",
-        "club": "2454",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "988",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "11/12",
-        "club": "899",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "11/12",
-        "club": "2454",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "10/11",
-        "club": "2454",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "09/10",
-        "club": "2454",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "08/09",
-        "club": "2454",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "07/08",
-        "club": "2454",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "06/07",
-        "club": "2454",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "05/06",
-        "club": "8816",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "1241",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "04/05",
-        "club": "641",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "04/05",
-        "club": "2454",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "03/04",
-        "club": "1035",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "03/04",
-        "club": "2288",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "03/04",
-        "club": "641",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "02/03",
-        "club": "641",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "01/02",
-        "club": "641",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "98/99",
-        "club": "985",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "01/02",
-        "club": "9565",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "00/01",
-        "club": "9565",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "00/01",
-        "club": "9565",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "00/01",
-        "club": "9565",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "00/01",
-        "club": "9565",
-        "jerseyNumber": 17
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 183,
-    "dateOfBirth": "1979-09-02",
-    "leftFooted": false,
-    "era": "1997-2013",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2004-04-10",
-      "clubId": "641",
-      "clubName": "Middlesbrough FC",
-      "marketValue": 1750000
-    },
-    "fameScore": 10.4
-  },
-  {
-    "playerId": "3546",
-    "name": "Danny Pugh",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Hanley Town",
-      "Port Vale",
-      "Blackpool",
-      "Bury",
-      "Coventry",
-      "Leeds",
-      "Sheff Wed",
-      "Stoke City",
-      "Preston",
-      "Manchester United",
-      "Man Utd Res."
-    ],
-    "youthClubs": [
-      "Manchester United (1992-2002)"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "FA Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "Central Midfield",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Man Utd Academy",
-      "Left Footed",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "1211",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "18/19",
-        "club": "1211",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "17/18",
-        "club": "1211",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "16/17",
-        "club": "1211",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "16/17",
-        "club": "1181",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "15/16",
-        "club": "2413",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "14/15",
-        "club": "990",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "13/14",
-        "club": "399",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "12/13",
-        "club": "1035",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "12/13",
-        "club": "399",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "11/12",
-        "club": "399",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "11/12",
-        "club": "512",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "10/11",
-        "club": "466",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "10/11",
-        "club": "512",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "09/10",
-        "club": "512",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "08/09",
-        "club": "512",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "512",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "466",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "06/07",
-        "club": "466",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "05/06",
-        "club": "399",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "04/05",
-        "club": "399",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 26
-      }
-    ],
-    "position": {
-      "main": "Left-Back",
-      "other": [
-        "Left Midfield",
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3546_512_2009_1.jpg?lm=1",
-    "height": 183,
-    "dateOfBirth": "1982-10-19",
-    "leftFooted": true,
-    "era": "2000-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2008-04-07",
-      "clubId": "512",
-      "clubName": "Stoke City",
-      "marketValue": 2000000
-    },
-    "fameScore": 10.4
-  },
-  {
-    "playerId": "4755",
-    "name": "Grégory Vignal",
-    "nationality": "France",
-    "citizenship": [
-      "France"
-    ],
-    "clubs": [
-      "AS Béziers",
-      "Dundee United",
-      "Atromitos",
-      "Birmingham",
-      "Lens",
-      "Southampton FC",
-      "1.FC K'lautern",
-      "Portsmouth",
-      "Liverpool FC",
-      "Rangers FC",
-      "Espanyol",
-      "Stade Rennais",
-      "SC Bastia",
-      "Montpellier"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "UEFA Cup/Europa League winner",
-      "FA Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Left Footed",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "12/13",
-        "club": "1519",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "10/11",
-        "club": "3060",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "09/10",
-        "club": "337",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "08/09",
-        "club": "826",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "07/08",
-        "club": "826",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "06/07",
-        "club": "2",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "06/07",
-        "club": "826",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "05/06",
-        "club": "1020",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "04/05",
-        "club": "124",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "03/04",
-        "club": "714",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "03/04",
-        "club": "273",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "01/02",
-        "club": "31",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "00/01",
-        "club": "23658",
-        "jerseyNumber": 3
-      }
-    ],
-    "position": {
-      "main": "Left-Back",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4755-1587109571.jpg?lm=1",
-    "height": 180,
-    "dateOfBirth": "1981-07-19",
-    "leftFooted": true,
-    "era": "1999-2014",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 24,
-      "date": "2006-04-17",
-      "clubId": "1020",
-      "clubName": "Portsmouth FC",
-      "marketValue": 2000000
-    },
-    "fameScore": 10.4
-  },
-  {
-    "playerId": "7519",
-    "name": "Rubén González",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Coruxo FC",
-      "Delhi Dynamos",
-      "Real Zaragoza",
-      "FC Baku",
-      "CA Osasuna",
-      "RCD Mallorca",
-      "Celta de Vigo",
-      "Racing",
-      "Real Madrid",
-      "Albacete",
-      "Mönchengladbach"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Champions League winner",
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "Full-Back",
-      "2000s player",
-      "2010s player"
-    ],
-    "managers": [
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "15/16",
-        "club": "45080",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "15/16",
-        "club": "142",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "14/15",
-        "club": "142",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "13/14",
-        "club": "10693",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "13/14",
-        "club": "10693",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "12/13",
-        "club": "331",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "11/12",
-        "club": "331",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "10/11",
-        "club": "237",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "09/10",
-        "club": "237",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "08/09",
-        "club": "940",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "07/08",
-        "club": "940",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "06/07",
-        "club": "630",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "05/06",
-        "club": "418",
-        "jerseyNumber": 43
-      },
-      {
-        "season": "05/06",
-        "club": "6767",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "04/05",
-        "club": "1532",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "03/04",
-        "club": "18",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "02/03",
-        "club": "418",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "01/02",
-        "club": "418",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "98/99",
-        "club": "12395",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "98/99",
-        "club": "33775",
-        "jerseyNumber": 6
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": [
-        "Left-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_7519_331_2012_2.jpg?lm=1",
-    "height": 0,
-    "dateOfBirth": "1982-01-29",
-    "leftFooted": false,
-    "era": "2001-2017",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2007-02-28",
-      "clubId": "630",
-      "clubName": "Racing Santander",
-      "marketValue": 2200000
-    },
-    "fameScore": 10.4
-  },
-  {
-    "playerId": "3222",
-    "name": "Nick Barmby",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Hull City",
-      "Leeds",
-      "Nott'm Forest",
-      "Liverpool FC",
-      "Everton FC",
-      "Middlesbrough",
-      "Tottenham Hotspur"
-    ],
-    "youthClubs": [
-      "Tottenham Hotspurs"
-    ],
-    "achievements": [
-      "UEFA Cup/Europa League winner",
-      "FA Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Centre-Forward",
-      "Attacking Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Wore #10",
-      "Wore #9",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "3008",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "10/11",
-        "club": "3008",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "09/10",
-        "club": "3008",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "3008",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "3008",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "05/06",
-        "club": "3008",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "04/05",
-        "club": "3008",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "03/04",
-        "club": "703",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "03/04",
-        "club": "399",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "02/03",
-        "club": "399",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "01/02",
-        "club": "31",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "99/00",
-        "club": "29",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "98/99",
-        "club": "29",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "97/98",
-        "club": "29",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "96/97",
-        "club": "29",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "96/97",
-        "club": "641",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "95/96",
-        "club": "641",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "94/95",
-        "club": "148",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "93/94",
-        "club": "148",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "92/93",
-        "club": "148",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "92/93",
-        "club": "148",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "92/93",
-        "club": "148",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "00/01",
-        "club": "3299",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "99/00",
-        "club": "3299",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "96/97",
-        "club": "3299",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "96/97",
-        "club": "3299",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "95/96",
-        "club": "3299",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "92/93",
-        "club": "22907",
-        "jerseyNumber": 9
-      }
-    ],
-    "position": {
-      "main": "Left Midfield",
-      "other": [
-        "Centre-Forward",
-        "Attacking Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3222_3008_2009_1.jpg?lm=1",
-    "height": 0,
-    "dateOfBirth": "1974-11-02",
-    "leftFooted": false,
-    "era": "1991-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 30,
-      "date": "2004-04-10",
-      "clubId": "3008",
-      "clubName": "Hull City",
-      "marketValue": 1250000
-    },
-    "fameScore": 10.3
-  },
-  {
-    "playerId": "3305",
-    "name": "Ronnie Wallwork",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Sheff Wed",
-      "West Brom",
-      "Huddersfield",
-      "Barnsley",
-      "Bradford",
-      "Manchester United",
-      "Royal Antwerp",
-      "Stockport",
-      "Carlisle United"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Premier League winner",
-      "Club World Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Centre-Back",
-      "1990s player",
-      "2000s player",
-      "Wore #7",
-      "Left Footed"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "07/08",
-        "club": "1035",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "06/07",
-        "club": "349",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "06/07",
-        "club": "984",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "05/06",
-        "club": "984",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "04/05",
-        "club": "984",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "03/04",
-        "club": "1027",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "03/04",
-        "club": "984",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "02/03",
-        "club": "984",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "02/03",
-        "club": "984",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "01/02",
-        "club": "985",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "98/99",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "96/97",
-        "club": "22907",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "95/96",
-        "club": "31269",
-        "jerseyNumber": 6
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Centre-Back"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1977-10-09",
-    "leftFooted": true,
-    "era": "1994-2008",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2006-01-06",
-      "clubId": "984",
-      "clubName": "West Bromwich Albion",
-      "marketValue": 900000
-    },
-    "fameScore": 10.2
-  },
-  {
-    "playerId": "3659",
-    "name": "Bojan Djordjic",
-    "nationality": "Sweden",
-    "citizenship": [
-      "Sweden",
-      "Serbia"
-    ],
-    "clubs": [
-      "Chennaiyin FC",
-      "Vasalunds IF",
-      "Brommapojkarna",
-      "Royal Antwerp",
-      "Blackpool",
-      "Videoton FC",
-      "AIK",
-      "Plymouth",
-      "Rangers FC",
-      "Manchester United",
-      "Red Star",
-      "Aarhus GF",
-      "Sheff Wed"
-    ],
-    "youthClubs": [
-      "Vasalunds IF (bis 1997)"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "League title in multiple countries"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Winger",
-      "Central Midfield",
-      "Attacking Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Wore #7",
-      "Left Footed",
-      "Dual Nationality",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "13/14",
-        "club": "45299",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "13/14",
-        "club": "2283",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "13/14",
-        "club": "2283",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "13/14",
-        "club": "2283",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "12/13",
-        "club": "1092",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "11/12",
-        "club": "1092",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "11/12",
-        "club": "1096",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "1181",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "10/11",
-        "club": "11107",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "09/10",
-        "club": "272",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "08/09",
-        "club": "272",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "07/08",
-        "club": "272",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "2262",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "05/06",
-        "club": "2262",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "04/05",
-        "club": "124",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "03/04",
-        "club": "159",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "02/03",
-        "club": "678",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "01/02",
-        "club": "1035",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "01/02",
-        "club": "985",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "02/03",
-        "club": "8595",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "00/01",
-        "club": "8595",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "00/01",
-        "club": "8595",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "98/99",
-        "club": "41525",
-        "jerseyNumber": 14
-      }
-    ],
-    "position": {
-      "main": "Left Winger",
-      "other": [
-        "Central Midfield",
-        "Attacking Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3659_11107_2010_1.jpg?lm=1",
-    "height": 183,
-    "dateOfBirth": "1982-06-02",
-    "leftFooted": true,
-    "era": "1998-2015",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 22,
-      "date": "2004-04-10",
-      "clubId": "985",
-      "clubName": "Manchester United",
-      "marketValue": 1000000
-    },
-    "fameScore": 10.2
-  },
-  {
-    "playerId": "15832",
-    "name": "Fangzhuo Dong",
-    "nationality": "China",
-    "citizenship": [
-      "China"
-    ],
-    "clubs": [
-      "HB CFFC",
-      "HN Billows",
-      "HB Zhongji",
-      "MIKA Ashtarak",
-      "Portimonense",
-      "Legia Warszawa",
-      "DL Shide",
-      "Manchester United",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [
-      "Dalian Shide"
-    ],
-    "achievements": [
-      "Champions League winner",
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "2000s player",
-      "2010s player",
-      "Wore #9"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "13/14",
-        "club": "36630",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "11/12",
-        "club": "28377",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "11/12",
-        "club": "10639",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "10639",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "7378",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "09/10",
-        "club": "255",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "08/09",
-        "club": "3178",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "07/08",
-        "club": "3178",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "07/08",
-        "club": "985",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "06/07",
-        "club": "1096",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "05/06",
-        "club": "1096",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "05/06",
-        "club": "1096",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "03/04",
-        "club": "1096",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "08/09",
-        "club": "5598",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "08/09",
-        "club": "53844",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "07/08",
-        "club": "53844",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "07/08",
-        "club": "5598",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "06/07",
-        "club": "5598",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "05/06",
-        "club": "5598",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "04/05",
-        "club": "7689",
-        "jerseyNumber": 9
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15832-1704205429.jpg?lm=1",
-    "height": 185,
-    "dateOfBirth": "1985-01-23",
-    "leftFooted": false,
-    "era": "2004-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2004-04-10",
-      "clubId": "1096",
-      "clubName": "Royal Antwerp FC",
-      "marketValue": 1000000
-    },
-    "fameScore": 10.2
-  },
-  {
-    "playerId": "50439",
-    "name": "Kieran Lee",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Bolton",
-      "Sheff Wed",
-      "Oldham Athletic",
-      "Man Utd Res.",
-      "QPR"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Champions League winner",
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Full-Back",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "22/23",
-        "club": "355",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "21/22",
-        "club": "355",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "20/21",
-        "club": "355",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "19/20",
-        "club": "1035",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "18/19",
-        "club": "1035",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "17/18",
-        "club": "1035",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "16/17",
-        "club": "1035",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "15/16",
-        "club": "1035",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "14/15",
-        "club": "1035",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "13/14",
-        "club": "1035",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "12/13",
-        "club": "1035",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "11/12",
-        "club": "1078",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "10/11",
-        "club": "1078",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "09/10",
-        "club": "1078",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "08/09",
-        "club": "1078",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "07/08",
-        "club": "1039",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "07/08",
-        "club": "985",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 35
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Right-Back",
-        "Right Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/50439-1643291990.png?lm=1",
-    "height": 185,
-    "dateOfBirth": "1988-06-22",
-    "leftFooted": false,
-    "era": "2006-2023",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2016-01-09",
-      "clubId": "1035",
-      "clubName": "Sheffield Wednesday",
-      "marketValue": 750000
-    },
-    "fameScore": 10.2
-  },
-  {
-    "playerId": "73552",
-    "name": "Rodrigo Possebon",
-    "nationality": "Italy",
-    "citizenship": [
-      "Italy",
-      "Brazil"
-    ],
-    "clubs": [
-      "HCMC FC",
-      "UR Trabalhadore",
-      "Al-Riffa SC",
-      "Mirassol-SP",
-      "EC São José",
-      "Criciúma",
-      "Vicenza",
-      "Santos",
-      "Manchester United",
-      "Braga"
-    ],
-    "youthClubs": [
-      "Sport Club Internacional"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "Copa Libertadores winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Dual Nationality"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "16/17",
-        "club": "22690",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "16/17",
-        "club": "22690",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "11/12",
-        "club": "2655",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "221",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "09/10",
-        "club": "1075",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "09/10",
-        "club": "985",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 34
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_73552_221_2010_2.jpg?lm=1",
-    "height": 183,
-    "dateOfBirth": "1989-02-13",
-    "leftFooted": false,
-    "era": "2008-2018",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 20,
-      "date": "2009-06-29",
-      "clubId": "985",
-      "clubName": "Manchester United",
-      "marketValue": 800000
-    },
-    "fameScore": 10.2
-  },
-  {
-    "playerId": "3282",
-    "name": "Pegguy Arphexad",
-    "nationality": "France",
-    "citizenship": [
-      "France",
-      "Guadeloupe"
-    ],
-    "clubs": [
-      "Olympique Marseille",
-      "Coventry",
-      "Notts County",
-      "Liverpool FC",
-      "Stockport",
-      "Leicester City",
-      "Lille",
-      "Lens",
-      "Brest Armorique",
-      "L'Etoile"
-    ],
-    "youthClubs": [
-      "Stade Brest",
-      "OSC Lille"
-    ],
-    "achievements": [
-      "UEFA Cup/Europa League winner",
-      "FA Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "Multiple Citizenships",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1980s player",
-      "1990s player",
-      "2000s player",
-      "Wore #1",
-      "Dual Nationality",
-      "190cm+"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "04/05",
-        "club": "244",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "03/04",
-        "club": "1045",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "03/04",
-        "club": "990",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "01/02",
-        "club": "31",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "99/00",
-        "club": "1003",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "98/99",
-        "club": "1003",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "97/98",
-        "club": "1003",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "95/96",
-        "club": "826",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "92/93",
-        "club": "826",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "94/95",
-        "club": "9323",
-        "jerseyNumber": 16
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3282-1587109667.jpg?lm=1",
-    "height": 190,
-    "dateOfBirth": "1973-05-18",
-    "leftFooted": false,
-    "era": "1989-2005",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 31,
-      "date": "2004-04-10",
-      "clubId": "244",
-      "clubName": "Olympique Marseille",
-      "marketValue": 500000
-    },
-    "fameScore": 10.1
-  },
-  {
-    "playerId": "3249",
-    "name": "Mark Bosnich",
-    "nationality": "Australia",
-    "citizenship": [
-      "Australia",
-      "Croatia"
-    ],
-    "clubs": [
-      "Sydney Olympic",
-      "Central Coast",
-      "Chelsea FC",
-      "Manchester United",
-      "Aston Villa",
-      "Sydney United"
-    ],
-    "youthClubs": [
-      "Sydney Croatia (1988-1989)",
-      "Manchester United (1989-1990)"
-    ],
-    "achievements": [
-      "Premier League winner",
-      "Club World Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Citizenships",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1980s player",
-      "1990s player",
-      "2000s player",
-      "Wore #1",
-      "Man Utd Academy",
-      "Left Footed",
-      "Dual Nationality"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "10/11",
-        "club": "3747",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "09/10",
-        "club": "3747",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "08/09",
-        "club": "6954",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "01/02",
-        "club": "631",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "00/01",
-        "club": "631",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "98/99",
-        "club": "985",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "98/99",
-        "club": "405",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "97/98",
-        "club": "405",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "96/97",
-        "club": "405",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "95/96",
-        "club": "405",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "94/95",
-        "club": "405",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "94/95",
-        "club": "405",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "93/94",
-        "club": "405",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "93/94",
-        "club": "405",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "92/93",
-        "club": "405",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "92/93",
-        "club": "405",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "90/91",
-        "club": "985",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "97/98",
-        "club": "3433",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "96/97",
-        "club": "3433",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "93/94",
-        "club": "3433",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "92/93",
-        "club": "53845",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "91/92",
-        "club": "53845",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "90/91",
-        "club": "22976",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "86/87",
-        "club": "32269",
-        "jerseyNumber": 18
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3249_123_2012_12_27_1.jpg?lm=1",
-    "height": 188,
-    "dateOfBirth": "1972-01-13",
-    "leftFooted": true,
-    "era": "1989-2009",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 10
   },
   {
     "playerId": "91059",
@@ -145280,7 +149350,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/91059-1696447644.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/King_asse_tfc_2425.png/500px-King_asse_tfc_2425.png",
+    "imageAttribution": {
+      "author": "Paté kroute",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:King_asse_tfc_2425.png"
+    },
     "height": 180,
     "dateOfBirth": "1992-01-15",
     "leftFooted": false,
@@ -145555,7 +149631,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/47713-1663771708.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Mamadou_Sakho_2014.jpg/500px-Mamadou_Sakho_2014.jpg",
+    "imageAttribution": {
+      "author": "Jon Candy from Cardiff, Wales",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mamadou_Sakho_2014.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1990-02-13",
     "leftFooted": true,
@@ -145797,7 +149879,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/5957-1445432761.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Sterling%2C_Spearing%2C_Eccleston%2C_Aquilani%2C_Enrique%2C_Shelvey_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "md.faisalzaman from Worcester, MA",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sterling,_Spearing,_Eccleston,_Aquilani,_Enrique,_Shelvey_(cropped).jpg"
+    },
     "height": 186,
     "dateOfBirth": "1984-07-07",
     "leftFooted": false,
@@ -146060,7 +150148,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/24180-1565254163.jpeg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Martin_%C5%A0krtel_2019.jpg/500px-Martin_%C5%A0krtel_2019.jpg",
+    "imageAttribution": {
+      "author": "Кирилл Венедиктов",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Martin_%C5%A0krtel_2019.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1984-12-15",
     "leftFooted": false,
@@ -146270,7 +150364,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/41414-1620821429.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Lazio_team_line-up_before_the_Europa_League_match_v_Dynamo_Kyiv_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Олег Батрак",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lazio_team_line-up_before_the_Europa_League_match_v_Dynamo_Kyiv_(cropped).jpg"
+    },
     "height": 179,
     "dateOfBirth": "1987-09-01",
     "leftFooted": false,
@@ -146482,7 +150582,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_7373_141_2013_09_05_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ALBERTR%C4%B0ERAORTEGA.JPG/500px-ALBERTR%C4%B0ERAORTEGA.JPG",
+    "imageAttribution": {
+      "author": "Ultraslansi",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:ALBERTR%C4%B0ERAORTEGA.JPG"
+    },
     "height": 188,
     "dateOfBirth": "1982-04-15",
     "leftFooted": true,
@@ -146804,7 +150910,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/57071-1719214600.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3666_by_Stepro.jpg/500px-2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3666_by_Stepro.jpg",
+    "imageAttribution": {
+      "author": "Steffen Prößdorf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2020-03-10_Fu%C3%9Fball,_M%C3%A4nner,_UEFA_Champions_League_Achtelfinale,_RB_Leipzig_-_Tottenham_Hotspur_1DX_3666_by_Stepro.jpg"
+    },
     "height": 193,
     "dateOfBirth": "1990-06-05",
     "leftFooted": false,
@@ -147027,7 +151139,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3604-1414136710.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Diouf_cropped.jpg/500px-Diouf_cropped.jpg",
+    "imageAttribution": {
+      "author": "Botham1983",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Diouf_cropped.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1981-01-15",
     "leftFooted": false,
@@ -147317,7 +151435,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4072-1719156908.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Chelsea_3_Stoke_0_%2813677350585%29_-_Peter_Crouch_%28cropped%29.jpg/500px-Chelsea_3_Stoke_0_%2813677350585%29_-_Peter_Crouch_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Original: CFC Unofficial (Debs) / Derivative work: Danyele",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chelsea_3_Stoke_0_(13677350585)_-_Peter_Crouch_(cropped).jpg"
+    },
     "height": 201,
     "dateOfBirth": "1981-01-30",
     "leftFooted": false,
@@ -147626,7 +151750,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_7858_631_2013_04_25_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Benayoun_Haifa_%282a%29.jpg/500px-Benayoun_Haifa_%282a%29.jpg",
+    "imageAttribution": {
+      "author": "User:Botend",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Benayoun_Haifa_(2a).jpg"
+    },
     "height": 175,
     "dateOfBirth": "1980-05-05",
     "leftFooted": false,
@@ -147894,7 +152024,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3195_512_2013_03_08_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Jermaine_Pennant_-_53690895530.jpg/500px-Jermaine_Pennant_-_53690895530.jpg",
+    "imageAttribution": {
+      "author": "Chin Yu Chu",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jermaine_Pennant_-_53690895530.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1983-01-15",
     "leftFooted": false,
@@ -148127,7 +152263,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Forward"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3768_762_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Rsz_Alansmith_20040727.jpg",
+    "imageAttribution": {
+      "author": "Toni Marsh",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rsz_Alansmith_20040727.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1980-10-28",
     "leftFooted": false,
@@ -148424,7 +152566,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/46180-1620991703.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Zoran_To%C5%A1i%C4%87_7333.jpg",
+    "imageAttribution": {
+      "author": "Amarhgil",
+      "license": "Attribution",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Zoran_To%C5%A1i%C4%87_7333.jpg"
+    },
     "height": 171,
     "dateOfBirth": "1987-04-28",
     "leftFooted": true,
@@ -148620,7 +152768,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_21863_458_2013_01_11_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Andrea_Dossena.jpg",
+    "imageAttribution": {
+      "author": "Claudio Cascone ( User:Devil90 )",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Andrea_Dossena.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1981-11-09",
     "leftFooted": true,
@@ -148847,7 +153001,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/61891-1471013794.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Fabio_Pereira_da_Silva_2014.jpg/500px-Fabio_Pereira_da_Silva_2014.jpg",
+    "imageAttribution": {
+      "author": "Jon Candy from Cardiff, Wales",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fabio_Pereira_da_Silva_2014.jpg"
+    },
     "height": 172,
     "dateOfBirth": "1990-09-07",
     "leftFooted": false,
@@ -149001,7 +153161,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Central Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/88998-1570439934.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Pibe_Valderrama_2022.jpg",
+    "imageAttribution": {
+      "author": "Maritza Ariza Periodista",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pibe_Valderrama_2022.jpg"
+    },
     "height": 177,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -149242,7 +153408,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/21750-1517578180.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mark_Gonz%C3%A1lez_11.jpg/500px-Mark_Gonz%C3%A1lez_11.jpg",
+    "imageAttribution": {
+      "author": "Майоров Владимир",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mark_Gonz%C3%A1lez_11.jpg"
+    },
     "height": 176,
     "dateOfBirth": "1984-10-07",
     "leftFooted": true,
@@ -149265,108 +153437,6 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 7000000
     },
     "fameScore": 6.4
-  },
-  {
-    "playerId": "133753",
-    "name": "Teófilo Cubillas",
-    "nationality": "Peru",
-    "citizenship": [
-      "Peru"
-    ],
-    "clubs": [
-      "Miami Freedom",
-      "FL Strikers",
-      "Alianza Lima",
-      "Unknown",
-      "FC Porto",
-      "Basel"
-    ],
-    "youthClubs": [
-      "Huracán Boys",
-      "Alianza Lima"
-    ],
-    "achievements": [
-      "Copa America champion"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Attacking Midfield",
-      "Centre-Forward",
-      "Winger",
-      "1960s player",
-      "1970s player",
-      "1980s player",
-      "1990s player",
-      "Wore #10",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "76/77",
-        "club": "720",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "75/76",
-        "club": "720",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "74/75",
-        "club": "720",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "82/83",
-        "club": "3584",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "81/82",
-        "club": "3584",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "77/78",
-        "club": "3584",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "69/70",
-        "club": "3584",
-        "jerseyNumber": 10
-      }
-    ],
-    "position": {
-      "main": "Attacking Midfield",
-      "other": [
-        "Centre-Forward",
-        "Right Winger"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/133753-1690237906.jpg?lm=1",
-    "height": 173,
-    "dateOfBirth": "",
-    "leftFooted": false,
-    "era": "1966-1990",
-    "careerStats": {
-      "appearances": 44,
-      "goals": 27,
-      "assists": 1,
-      "yellowCards": 1,
-      "redCards": 0,
-      "minutesPlayed": 3645,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 6.3
   },
   {
     "playerId": "3424",
@@ -149606,7 +153676,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3424-1406205145.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Redknapp%2C_Jamie_%28crop%29.jpg",
+    "imageAttribution": {
+      "author": "Will Palmer from Leeds, United Kingdom",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Redknapp,_Jamie_(crop).jpg"
+    },
     "height": 183,
     "dateOfBirth": "1973-06-25",
     "leftFooted": false,
@@ -149835,7 +153911,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15773-1520607738.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Phil_Bardsley.jpg/500px-Phil_Bardsley.jpg",
+    "imageAttribution": {
+      "author": "Rach from Tadcaster, York, England",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Phil_Bardsley.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1985-06-28",
     "leftFooted": false,
@@ -149986,7 +154068,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/45305-1447239583.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Miguel_Torres_-_240422_190037_%28cropped%29.jpg/500px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Miguel_Torres_-_240422_190037_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Barcex",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Miguel_Torres_-_240422_190037_(cropped).jpg"
+    },
     "height": 184,
     "dateOfBirth": "1986-01-28",
     "leftFooted": false,
@@ -150201,7 +154289,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3219_1071_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Chris_Kirkland.jpg/500px-Chris_Kirkland.jpg",
+    "imageAttribution": {
+      "author": "Dan Farrimond",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chris_Kirkland.jpg"
+    },
     "height": 198,
     "dateOfBirth": "1981-02-05",
     "leftFooted": false,
@@ -150426,7 +154520,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/13572-1681399137.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ben_Foster_Manchester_United_v_West_Bromwich_Albion_2017.jpg/500px-Ben_Foster_Manchester_United_v_West_Bromwich_Albion_2017.jpg",
+    "imageAttribution": {
+      "author": "Ardfern",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ben_Foster_Manchester_United_v_West_Bromwich_Albion_2017.jpg"
+    },
     "height": 193,
     "dateOfBirth": "1983-03-04",
     "leftFooted": true,
@@ -150449,4708 +154549,6 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 5500000
     },
     "fameScore": 6.1
-  },
-  {
-    "playerId": "2943",
-    "name": "Júlio César",
-    "nationality": "Brazil",
-    "citizenship": [
-      "Brazil",
-      "Spain"
-    ],
-    "clubs": [
-      "Parrillas One",
-      "Toronto",
-      "Kansas City",
-      "Marítimo",
-      "Gaziantepspor",
-      "FC Dinamo",
-      "Olympiacos",
-      "Tigres UANL",
-      "Bolton",
-      "Real Valladolid",
-      "Austria Vienna",
-      "SL Benfica",
-      "Real Madrid",
-      "Real Sociedad",
-      "AC Milan",
-      "Marathón"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Champions League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Dual Nationality"
-    ],
-    "managers": [
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "4284",
-        "jerseyNumber": 55
-      },
-      {
-        "season": "10/11",
-        "club": "4284",
-        "jerseyNumber": 55
-      },
-      {
-        "season": "09/10",
-        "club": "524",
-        "jerseyNumber": 55
-      },
-      {
-        "season": "08/09",
-        "club": "524",
-        "jerseyNumber": 55
-      },
-      {
-        "season": "08/09",
-        "club": "312",
-        "jerseyNumber": 55
-      },
-      {
-        "season": "07/08",
-        "club": "683",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "06/07",
-        "club": "683",
-        "jerseyNumber": 55
-      },
-      {
-        "season": "05/06",
-        "club": "7055",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "04/05",
-        "club": "355",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "03/04",
-        "club": "366",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "02/03",
-        "club": "14",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "01/02",
-        "club": "294",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "00/01",
-        "club": "681",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "00/01",
-        "club": "5",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "99/00",
-        "club": "418",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "98/99",
-        "club": "366",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "97/98",
-        "club": "366",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "96/97",
-        "club": "366",
-        "jerseyNumber": 12
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/2943-1706695030.jpg?lm=1",
-    "height": 185,
-    "dateOfBirth": "1978-11-18",
-    "leftFooted": false,
-    "era": "1996-2015",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2004-04-10",
-      "clubId": "355",
-      "clubName": "Bolton Wanderers",
-      "marketValue": 4000000
-    },
-    "fameScore": 5.8
-  },
-  {
-    "playerId": "7535",
-    "name": "Tote",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Hércules CF",
-      "Real Valladolid",
-      "Real Betis",
-      "Málaga CF",
-      "Real Madrid",
-      "SL Benfica",
-      "RM Castilla"
-    ],
-    "youthClubs": [
-      "Los Yébenes",
-      "Atlético de Madrid",
-      "Real Madrid"
-    ],
-    "achievements": [
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Attacking Midfield",
-      "Winger",
-      "Centre-Forward",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Wore #7",
-      "Wore #9",
-      "Real Madrid Academy",
-      "Left Footed"
-    ],
-    "managers": [
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "7971",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "7971",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "09/10",
-        "club": "7971",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "08/09",
-        "club": "7971",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "07/08",
-        "club": "7971",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "7971",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "05/06",
-        "club": "366",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "04/05",
-        "club": "1084",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "03/04",
-        "club": "150",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "02/03",
-        "club": "418",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "01/02",
-        "club": "366",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "99/00",
-        "club": "294",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "99/00",
-        "club": "294",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "98/99",
-        "club": "418",
-        "jerseyNumber": 31
-      }
-    ],
-    "position": {
-      "main": "Attacking Midfield",
-      "other": [
-        "Right Winger",
-        "Second Striker"
-      ]
-    },
-    "imageUrl": "",
-    "height": 177,
-    "dateOfBirth": "1978-11-23",
-    "leftFooted": true,
-    "era": "1997-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2004-04-10",
-      "clubId": "150",
-      "clubName": "Real Betis Balompié",
-      "marketValue": 3500000
-    },
-    "fameScore": 5.7
-  },
-  {
-    "playerId": "61887",
-    "name": "Federico Macheda",
-    "nationality": "Italy",
-    "citizenship": [
-      "Italy"
-    ],
-    "clubs": [
-      "Asteras Aktor",
-      "Ankaragücü",
-      "APOEL Nicosia",
-      "Panathinaikos",
-      "Novara",
-      "Cardiff",
-      "Nott'm Forest",
-      "Manchester United",
-      "Birmingham",
-      "Doncaster",
-      "Stuttgart",
-      "QPR",
-      "Sampdoria"
-    ],
-    "youthClubs": [
-      "Atletico Prenestino (1998-2001)",
-      "Lazio Rom (2001-2007)",
-      "Manchester United (2007-2008)"
-    ],
-    "achievements": [
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "Winger",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #9",
-      "Wore #10",
-      "Man Utd Academy"
-    ],
-    "managers": [
-      "Played under José Mourinho",
-      "Played under Sir Alex Ferguson",
-      "Played under Louis van Gaal"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "6676",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "25/26",
-        "club": "6676",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "24/25",
-        "club": "6676",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "23/24",
-        "club": "868",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "22/23",
-        "club": "2784",
-        "jerseyNumber": 91
-      },
-      {
-        "season": "22/23",
-        "club": "868",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "21/22",
-        "club": "265",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "20/21",
-        "club": "265",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "19/20",
-        "club": "265",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "18/19",
-        "club": "265",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "17/18",
-        "club": "6692",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "16/17",
-        "club": "6692",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "15/16",
-        "club": "703",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "15/16",
-        "club": "603",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "14/15",
-        "club": "603",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "13/14",
-        "club": "337",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "13/14",
-        "club": "9251",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "13/14",
-        "club": "2454",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "12/13",
-        "club": "79",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "12/13",
-        "club": "79",
-        "jerseyNumber": 93
-      },
-      {
-        "season": "12/13",
-        "club": "985",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "12/13",
-        "club": "9251",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "12/13",
-        "club": "9251",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "11/12",
-        "club": "1039",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "11/12",
-        "club": "985",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "1038",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "10/11",
-        "club": "985",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "09/10",
-        "club": "985",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 41
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": [
-        "Second Striker",
-        "Left Winger"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/61887-1762633309.png?lm=1",
-    "height": 185,
-    "dateOfBirth": "1991-08-22",
-    "leftFooted": false,
-    "era": "2007-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2011-08-02",
-      "clubId": "1038",
-      "clubName": "UC Sampdoria",
-      "marketValue": 3500000
-    },
-    "fameScore": 5.7
-  },
-  {
-    "playerId": "23306",
-    "name": "Alberto Rivera",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Elche CF",
-      "Sporting Gijón",
-      "Real Betis",
-      "Levante",
-      "Real Madrid",
-      "Olympique Marseille",
-      "CD Numancia",
-      "RM Castilla"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Wore #10",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "13/14",
-        "club": "1531",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "12/13",
-        "club": "1531",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "11/12",
-        "club": "2448",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "10/11",
-        "club": "2448",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "09/10",
-        "club": "2448",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "08/09",
-        "club": "150",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "07/08",
-        "club": "150",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "06/07",
-        "club": "150",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "05/06",
-        "club": "150",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "04/05",
-        "club": "3368",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "03/04",
-        "club": "3368",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "02/03",
-        "club": "3368",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "01/02",
-        "club": "244",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "01/02",
-        "club": "418",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "99/00",
-        "club": "2296",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "98/99",
-        "club": "418",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "96/97",
-        "club": "6767",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "05/06",
-        "club": "3375",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "96/97",
-        "club": "20911",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "95/96",
-        "club": "20947",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "93/94",
-        "club": "33775",
-        "jerseyNumber": 15
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/23306-1595317686.jpg?lm=1",
-    "height": 167,
-    "dateOfBirth": "1978-02-16",
-    "leftFooted": false,
-    "era": "1995-2014",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 30,
-      "date": "2008-07-20",
-      "clubId": "150",
-      "clubName": "Real Betis Balompié",
-      "marketValue": 3000000
-    },
-    "fameScore": 5.6
-  },
-  {
-    "playerId": "15466",
-    "name": "Antonio Núñez",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Recr. Huelva",
-      "Dep. La Coruña",
-      "SD Huesca",
-      "Apol. Limassol",
-      "Real Murcia",
-      "Celta de Vigo",
-      "Liverpool FC",
-      "Real Madrid",
-      "Las Rozas CF"
-    ],
-    "youthClubs": [
-      "C.D. Las Rozas"
-    ],
-    "achievements": [
-      "Champions League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Winger",
-      "2000s player",
-      "2010s player",
-      "Wore #7"
-    ],
-    "managers": [
-      "Played under Rafael Benítez",
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "14/15",
-        "club": "2867",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "13/14",
-        "club": "897",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "12/13",
-        "club": "5358",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "11/12",
-        "club": "5358",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "11/12",
-        "club": "429",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "10/11",
-        "club": "429",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "09/10",
-        "club": "429",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "08/09",
-        "club": "171",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "07/08",
-        "club": "940",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "940",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "05/06",
-        "club": "940",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 27
-      }
-    ],
-    "position": {
-      "main": "Right Winger",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15466-1762268583.jpg?lm=1",
-    "height": 185,
-    "dateOfBirth": "1979-01-15",
-    "leftFooted": false,
-    "era": "2001-2018",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 29,
-      "date": "2008-08-08",
-      "clubId": "171",
-      "clubName": "Real Murcia CF",
-      "marketValue": 2400000
-    },
-    "fameScore": 5.5
-  },
-  {
-    "playerId": "16634",
-    "name": "Álvaro Mejía",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Al-Shahania SC",
-      "Ergotelis",
-      "UD Almería",
-      "Konyaspor",
-      "AC Arles-Avignon",
-      "Real Murcia",
-      "Real Madrid"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Fabio Capello",
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "34694",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "18/19",
-        "club": "34694",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "17/18",
-        "club": "34694",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "16/17",
-        "club": "34694",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "15/16",
-        "club": "34694",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "14/15",
-        "club": "34694",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "13/14",
-        "club": "5220",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "12/13",
-        "club": "3302",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "11/12",
-        "club": "2293",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "10/11",
-        "club": "2293",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "10/11",
-        "club": "11300",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "09/10",
-        "club": "171",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "08/09",
-        "club": "171",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "171",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "06/07",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "05/06",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "04/05",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 33
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/16634-1683038409.jpg?lm=1",
-    "height": 182,
-    "dateOfBirth": "1982-01-18",
-    "leftFooted": false,
-    "era": "2001-2020",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 26,
-      "date": "2008-08-08",
-      "clubId": "171",
-      "clubName": "Real Murcia CF",
-      "marketValue": 2400000
-    },
-    "fameScore": 5.5
-  },
-  {
-    "playerId": "24634",
-    "name": "David Jones",
-    "nationality": "England",
-    "citizenship": [
-      "England",
-      "Wales"
-    ],
-    "clubs": [
-      "Wrexham",
-      "Oldham Athletic",
-      "Sheff Wed",
-      "Burnley",
-      "Wigan",
-      "Blackburn Rovers",
-      "Wolves",
-      "Derby",
-      "Manchester United",
-      "NEC Nijmegen",
-      "Preston",
-      "Man Utd Res."
-    ],
-    "youthClubs": [
-      "Wrexham (1994-1995)",
-      "Manchester United (1995-2003)"
-    ],
-    "achievements": [
-      "FA Cup winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #7",
-      "Man Utd Academy",
-      "Left Footed",
-      "Dual Nationality",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "21/22",
-        "club": "1112",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "19/20",
-        "club": "1078",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "18/19",
-        "club": "1035",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "17/18",
-        "club": "1035",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "16/17",
-        "club": "1035",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "16/17",
-        "club": "1132",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "15/16",
-        "club": "1132",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "14/15",
-        "club": "1132",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "13/14",
-        "club": "1132",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "12/13",
-        "club": "164",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "12/13",
-        "club": "1071",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "12/13",
-        "club": "1071",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "11/12",
-        "club": "1071",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "10/11",
-        "club": "24226",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "543",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "09/10",
-        "club": "543",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "08/09",
-        "club": "543",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "22",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "22",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "05/06",
-        "club": "467",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "05/06",
-        "club": "466",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "04/05",
-        "club": "985",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 31
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield",
-        "Left Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/24634-1471347183.jpg?lm=1",
-    "height": 183,
-    "dateOfBirth": "1984-04-11",
-    "leftFooted": true,
-    "era": "2003-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 26,
-      "date": "2011-01-02",
-      "clubId": "543",
-      "clubName": "Wolverhampton Wanderers",
-      "marketValue": 2500000
-    },
-    "fameScore": 5.5
-  },
-  {
-    "playerId": "55687",
-    "name": "Ritchie De Laet",
-    "nationality": "Belgium",
-    "citizenship": [
-      "Belgium"
-    ],
-    "clubs": [
-      "Royal Antwerp",
-      "Aston Villa",
-      "Melbourne City",
-      "Leicester City",
-      "Middlesbrough",
-      "Manchester United",
-      "Norwich",
-      "Portsmouth",
-      "Preston",
-      "Sheff Utd",
-      "Stoke City",
-      "Wrexham"
-    ],
-    "youthClubs": [
-      "SK Hoboken (1994-1998)",
-      "KV Mechelen (1998-1999)",
-      "SK Hoboken (1999-2004)",
-      "KFCO Wilrijk (2004-2005)",
-      "R Antwerp FC (2005-2006)"
-    ],
-    "achievements": [
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "Centre-Back",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson",
-      "Played under Unai Emery"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "23/24",
-        "club": "1096",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "22/23",
-        "club": "1096",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "21/22",
-        "club": "1096",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "20/21",
-        "club": "1096",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "19/20",
-        "club": "1096",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "18/19",
-        "club": "25580",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "18/19",
-        "club": "405",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "17/18",
-        "club": "25580",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "17/18",
-        "club": "1096",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "17/18",
-        "club": "12124",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "17/18",
-        "club": "405",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "16/17",
-        "club": "405",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "16/17",
-        "club": "39341",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "15/16",
-        "club": "641",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "15/16",
-        "club": "1003",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "14/15",
-        "club": "1003",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "13/14",
-        "club": "1003",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "12/13",
-        "club": "1003",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "11/12",
-        "club": "1123",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "11/12",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "10/11",
-        "club": "1020",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "10/11",
-        "club": "466",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "10/11",
-        "club": "350",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "10/11",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "09/10",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "07/08",
-        "club": "512",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "06/07",
-        "club": "1096",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "09/10",
-        "club": "9315",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "09/10",
-        "club": "9315",
-        "jerseyNumber": 17
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": [
-        "Centre-Back",
-        "Left-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/55687-1704873434.jpg?lm=1",
-    "height": 184,
-    "dateOfBirth": "1988-11-28",
-    "leftFooted": false,
-    "era": "2006-2024",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2014-12-08",
-      "clubId": "1003",
-      "clubName": "Leicester City",
-      "marketValue": 2500000
-    },
-    "fameScore": 5.5
-  },
-  {
-    "playerId": "15463",
-    "name": "Jordi López",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "CE Sabadell",
-      "UE Llagostera",
-      "Goverla",
-      "OFI Crete",
-      "Vitesse",
-      "Swansea",
-      "QPR",
-      "RCD Mallorca",
-      "Racing",
-      "Sevilla FC",
-      "Real Madrid"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "UEFA Cup/Europa League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Attacking Midfield",
-      "Defensive Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "15/16",
-        "club": "26132",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "14/15",
-        "club": "26132",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "6996",
-        "jerseyNumber": 88
-      },
-      {
-        "season": "11/12",
-        "club": "653",
-        "jerseyNumber": 88
-      },
-      {
-        "season": "10/11",
-        "club": "499",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "10/11",
-        "club": "2288",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "09/10",
-        "club": "2288",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "08/09",
-        "club": "1039",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "07/08",
-        "club": "630",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "06/07",
-        "club": "237",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "05/06",
-        "club": "368",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "04/05",
-        "club": "368",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 31
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Attacking Midfield",
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15463-1756253128.png?lm=1",
-    "height": 182,
-    "dateOfBirth": "1981-02-28",
-    "leftFooted": false,
-    "era": "1999-2017",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 26,
-      "date": "2008-04-02",
-      "clubId": "630",
-      "clubName": "Racing Santander",
-      "marketValue": 2000000
-    },
-    "fameScore": 5.4
-  },
-  {
-    "playerId": "27807",
-    "name": "Daniele Padelli",
-    "nationality": "Italy",
-    "citizenship": [
-      "Italy"
-    ],
-    "clubs": [
-      "Inter Milan",
-      "Udinese",
-      "Torino",
-      "Sampdoria",
-      "Bari",
-      "Avellino",
-      "AC Pisa",
-      "Liverpool FC",
-      "FC Crotone",
-      "AS Pizzighettone"
-    ],
-    "youthClubs": [
-      "Selenio (?-2001)"
-    ],
-    "achievements": [
-      "Serie A winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #1",
-      "190cm+"
-    ],
-    "managers": [
-      "Played under Antonio Conte",
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "410",
-        "jerseyNumber": 93
-      },
-      {
-        "season": "25/26",
-        "club": "410",
-        "jerseyNumber": 93
-      },
-      {
-        "season": "24/25",
-        "club": "410",
-        "jerseyNumber": 93
-      },
-      {
-        "season": "23/24",
-        "club": "410",
-        "jerseyNumber": 93
-      },
-      {
-        "season": "22/23",
-        "club": "410",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "21/22",
-        "club": "410",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "20/21",
-        "club": "46",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "19/20",
-        "club": "46",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "18/19",
-        "club": "46",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "17/18",
-        "club": "46",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "16/17",
-        "club": "416",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "15/16",
-        "club": "416",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "416",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "13/14",
-        "club": "416",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "12/13",
-        "club": "410",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "12/13",
-        "club": "1038",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "11/12",
-        "club": "410",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "11/12",
-        "club": "1038",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "10/11",
-        "club": "332",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "09/10",
-        "club": "332",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "08/09",
-        "club": "2331",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "07/08",
-        "club": "4172",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "06/07",
-        "club": "4083",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "1038",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "14/15",
-        "club": "3376",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "14/15",
-        "club": "3376",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "04/05",
-        "club": "21100",
-        "jerseyNumber": 21
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/27807-1630653305.jpg?lm=1",
-    "height": 191,
-    "dateOfBirth": "1985-10-25",
-    "leftFooted": false,
-    "era": "2002-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2014-01-07",
-      "clubId": "416",
-      "clubName": "Torino FC",
-      "marketValue": 2000000
-    },
-    "fameScore": 5.4
-  },
-  {
-    "playerId": "35462",
-    "name": "Jordi Codina",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "CD Móstoles",
-      "CF Fuenlabrada",
-      "Reus Deportiu",
-      "APOEL Nicosia",
-      "Pafos",
-      "Getafe",
-      "Real Madrid",
-      "RM Castilla"
-    ],
-    "youthClubs": [
-      "CF Damm (1998-2000)"
-    ],
-    "achievements": [
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "2000s player",
-      "2010s player",
-      "Wore #1",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Fabio Capello"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "17/18",
-        "club": "16486",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "17/18",
-        "club": "16486",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "16/17",
-        "club": "13225",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "15/16",
-        "club": "45457",
-        "jerseyNumber": 46
-      },
-      {
-        "season": "15/16",
-        "club": "2784",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "3709",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "13/14",
-        "club": "3709",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "12/13",
-        "club": "3709",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "11/12",
-        "club": "3709",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "10/11",
-        "club": "3709",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "09/10",
-        "club": "3709",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "08/09",
-        "club": "418",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "07/08",
-        "club": "418",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "06/07",
-        "club": "6767",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "05/06",
-        "club": "418",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "05/06",
-        "club": "6767",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 30
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_35462_3709_2013_10_17_1.jpg?lm=1",
-    "height": 189,
-    "dateOfBirth": "1982-04-27",
-    "leftFooted": false,
-    "era": "2001-2019",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2010-08-27",
-      "clubId": "3709",
-      "clubName": "Getafe CF",
-      "marketValue": 2000000
-    },
-    "fameScore": 5.4
-  },
-  {
-    "playerId": "118216",
-    "name": "Julio Cesar Romero",
-    "nationality": "Paraguay",
-    "citizenship": [
-      "Paraguay"
-    ],
-    "clubs": [
-      "Luqueño",
-      "La Serena",
-      "Cerro Corá",
-      "Olimpia",
-      "Puebla FC",
-      "FC Barcelona",
-      "Fluminense",
-      "NY Cosmos"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Copa America champion"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Attacking Midfield",
-      "Central Midfield",
-      "1970s player",
-      "1980s player",
-      "1990s player",
-      "Wore #7",
-      "Wore #10",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "89/90",
-        "club": "3581",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "86/87",
-        "club": "3581",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "86/87",
-        "club": "3581",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "85/86",
-        "club": "3581",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "78/79",
-        "club": "3581",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "78/79",
-        "club": "22982",
-        "jerseyNumber": 10
-      }
-    ],
-    "position": {
-      "main": "Attacking Midfield",
-      "other": [
-        "Central Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 173,
-    "dateOfBirth": "",
-    "leftFooted": false,
-    "era": "1979-1998",
-    "careerStats": {
-      "appearances": 20,
-      "goals": 4,
-      "assists": 0,
-      "yellowCards": 1,
-      "redCards": 0,
-      "minutesPlayed": 1523,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 5.4
-  },
-  {
-    "playerId": "3605",
-    "name": "Neil Mellor",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Preston",
-      "Sheff Wed",
-      "Liverpool FC",
-      "Wigan",
-      "West Ham United"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Champions League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "2000s player",
-      "2010s player",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "466",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "10/11",
-        "club": "1035",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "10/11",
-        "club": "466",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "09/10",
-        "club": "466",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "08/09",
-        "club": "466",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "07/08",
-        "club": "466",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "06/07",
-        "club": "466",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "05/06",
-        "club": "1071",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "03/04",
-        "club": "379",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 33
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3605-1484643182.jpg?lm=1",
-    "height": 184,
-    "dateOfBirth": "1982-04-11",
-    "leftFooted": false,
-    "era": "2002-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 21,
-      "date": "2004-04-10",
-      "clubId": "31",
-      "clubName": "Liverpool FC",
-      "marketValue": 1500000
-    },
-    "fameScore": 5.3
-  },
-  {
-    "playerId": "8511",
-    "name": "Frode Kippe",
-    "nationality": "Norway",
-    "citizenship": [
-      "Norway"
-    ],
-    "clubs": [
-      "Kolbotn IL",
-      "Lillestrøm SK",
-      "Liverpool FC",
-      "Stoke City"
-    ],
-    "youthClubs": [
-      "Kolbotn IL"
-    ],
-    "achievements": [
-      "UEFA Cup/Europa League winner"
-    ],
-    "randomAchievements": [
-      "Left Footed",
-      "190cm+",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #7",
-      "Left Footed",
-      "190cm+",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "22/23",
-        "club": "35021",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "22/23",
-        "club": "35021",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "19/20",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "18/19",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "17/18",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "16/17",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "15/16",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "14/15",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "13/14",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "12/13",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "11/12",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "10/11",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "09/10",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "08/09",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "07/08",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "06/07",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "05/06",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "04/05",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "03/04",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "02/03",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "01/02",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "99/00",
-        "club": "31",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "97/98",
-        "club": "353",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "96/97",
-        "club": "353",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "07/08",
-        "club": "3440",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "98/99",
-        "club": "16854",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "98/99",
-        "club": "16854",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "97/98",
-        "club": "16854",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "96/97",
-        "club": "16854",
-        "jerseyNumber": 4
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 194,
-    "dateOfBirth": "1978-01-17",
-    "leftFooted": true,
-    "era": "1997-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 32,
-      "date": "2010-03-12",
-      "clubId": "353",
-      "clubName": "Lillestrøm SK",
-      "marketValue": 1400000
-    },
-    "fameScore": 5.3
-  },
-  {
-    "playerId": "15449",
-    "name": "Lee Martin",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Ramsgate",
-      "Ashford Utd",
-      "Dover Athletic",
-      "Ebbsfleet",
-      "Exeter City",
-      "Gillingham",
-      "Millwall",
-      "Northampton",
-      "Ipswich",
-      "Charlton",
-      "Manchester United",
-      "Nott'm Forest",
-      "Sheff Utd",
-      "Plymouth",
-      "Stoke City",
-      "Rangers FC",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [
-      "Wimbledon FC (-2003)",
-      "Manchester United (2003-2005)"
-    ],
-    "achievements": [
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Attacking Midfield",
-      "Winger",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #7",
-      "Wore #10",
-      "Man Utd Academy",
-      "Left Footed",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "23/24",
-        "club": "20416",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "22/23",
-        "club": "3936",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "21/22",
-        "club": "2797",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "19/20",
-        "club": "6699",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "18/19",
-        "club": "6699",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "17/18",
-        "club": "2814",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "16/17",
-        "club": "2814",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "15/16",
-        "club": "1302",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "15/16",
-        "club": "1028",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "14/15",
-        "club": "1028",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "13/14",
-        "club": "1028",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "12/13",
-        "club": "677",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "11/12",
-        "club": "677",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "677",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "358",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "09/10",
-        "club": "677",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "07/08",
-        "club": "350",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "07/08",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "06/07",
-        "club": "124",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "05/06",
-        "club": "985",
-        "jerseyNumber": 46
-      }
-    ],
-    "position": {
-      "main": "Attacking Midfield",
-      "other": [
-        "Left Winger",
-        "Right Winger"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_15449_677_2009_1.jpg?lm=1",
-    "height": 180,
-    "dateOfBirth": "1987-09-02",
-    "leftFooted": true,
-    "era": "2004-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 17,
-      "date": "2004-04-10",
-      "clubId": "5242",
-      "clubName": "Manchester United U18",
-      "marketValue": 1250000
-    },
-    "fameScore": 5.3
-  },
-  {
-    "playerId": "1470",
-    "name": "Perica Ognjenovic",
-    "nationality": "Serbia",
-    "citizenship": [
-      "Serbia"
-    ],
-    "clubs": [
-      "Jagodina",
-      "Kallithea",
-      "Ethn. Piraeus",
-      "Ergotelis",
-      "MPPJ Selangor",
-      "Angers SCO",
-      "Dynamo Kyiv",
-      "DL Shide",
-      "1.FC K'lautern",
-      "Real Madrid",
-      "Red Star",
-      "Mladost SP"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Champions League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Winger",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #9",
-      "Wore #7",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "10/11",
-        "club": "12132",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "09/10",
-        "club": "12132",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "08/09",
-        "club": "3062",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "07/08",
-        "club": "5220",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "06/07",
-        "club": "5220",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "04/05",
-        "club": "1420",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "01/02",
-        "club": "2",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "99/00",
-        "club": "418",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "98/99",
-        "club": "418",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "98/99",
-        "club": "159",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "97/98",
-        "club": "159",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "96/97",
-        "club": "159",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "95/96",
-        "club": "159",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "98/99",
-        "club": "23115",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "97/98",
-        "club": "17335",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "96/97",
-        "club": "23115",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "96/97",
-        "club": "23115",
-        "jerseyNumber": 11
-      }
-    ],
-    "position": {
-      "main": "Right Winger",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/1470-1675074883.jpg?lm=1",
-    "height": 171,
-    "dateOfBirth": "1977-02-24",
-    "leftFooted": false,
-    "era": "1993-2011",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2004-04-10",
-      "clubId": "338",
-      "clubName": "Dynamo Kyiv",
-      "marketValue": 1000000
-    },
-    "fameScore": 5.2
-  },
-  {
-    "playerId": "3595",
-    "name": "Patrice Luzi",
-    "nationality": "France",
-    "citizenship": [
-      "France"
-    ],
-    "clubs": [
-      "Stade Rennais",
-      "R Charleroi SC",
-      "Exc. Mouscron",
-      "Liverpool FC",
-      "AC Ajaccio",
-      "AS Monaco"
-    ],
-    "youthClubs": [
-      "Gazélec Ajaccio"
-    ],
-    "achievements": [
-      "Ligue 1 winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #1",
-      "190cm+"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "09/10",
-        "club": "273",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "08/09",
-        "club": "273",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "07/08",
-        "club": "273",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "07/08",
-        "club": "273",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "06/07",
-        "club": "172",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "05/06",
-        "club": "1433",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "01/02",
-        "club": "1147",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "00/01",
-        "club": "162",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "99/00",
-        "club": "162",
-        "jerseyNumber": 40
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3595-1652199476.jpg?lm=1",
-    "height": 192,
-    "dateOfBirth": "1980-08-07",
-    "leftFooted": false,
-    "era": "1999-2010",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2008-05-05",
-      "clubId": "273",
-      "clubName": "Stade Rennais FC",
-      "marketValue": 1000000
-    },
-    "fameScore": 5.2
-  },
-  {
-    "playerId": "4098",
-    "name": "Paul Rachubka",
-    "nationality": "England",
-    "citizenship": [
-      "England",
-      "United States"
-    ],
-    "clubs": [
-      "Kerala Blasters",
-      "Bury",
-      "Bolton",
-      "Crewe Alexandra",
-      "Oldham Athletic",
-      "Leeds",
-      "Accrington",
-      "Leyton Orient",
-      "Tranmere",
-      "Blackpool",
-      "Huddersfield",
-      "Peterborough",
-      "Charlton",
-      "Northampton",
-      "MK Dons",
-      "Burnley",
-      "Man Utd Res.",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #1",
-      "Dual Nationality"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "17/18",
-        "club": "45277",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "16/17",
-        "club": "2413",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "15/16",
-        "club": "355",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "14/15",
-        "club": "1042",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "14/15",
-        "club": "1078",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "13/14",
-        "club": "1078",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "13/14",
-        "club": "1078",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "12/13",
-        "club": "3688",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "399",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "11/12",
-        "club": "1150",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "11/12",
-        "club": "1074",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "11/12",
-        "club": "399",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "10/11",
-        "club": "29982",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "10/11",
-        "club": "29982",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "10/11",
-        "club": "1181",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "1181",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "08/09",
-        "club": "1181",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "1181",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "06/07",
-        "club": "1181",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "06/07",
-        "club": "1072",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "06/07",
-        "club": "1110",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "05/06",
-        "club": "1110",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "1110",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "04/05",
-        "club": "1302",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "03/04",
-        "club": "1132",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "03/04",
-        "club": "1132",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "02/03",
-        "club": "358",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "01/02",
-        "club": "1096",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "98/99",
-        "club": "22907",
-        "jerseyNumber": 13
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 185,
-    "dateOfBirth": "1981-05-21",
-    "leftFooted": false,
-    "era": "1999-2018",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2004-04-10",
-      "clubId": "1302",
-      "clubName": "Northampton Town",
-      "marketValue": 1000000
-    },
-    "fameScore": 5.2
-  },
-  {
-    "playerId": "22231",
-    "name": "Darren Potter",
-    "nationality": "Ireland",
-    "citizenship": [
-      "Ireland",
-      "England"
-    ],
-    "clubs": [
-      "Altrincham",
-      "Tranmere",
-      "Rotherham",
-      "MK Dons",
-      "Sheff Wed",
-      "Wolves",
-      "Liverpool FC",
-      "Southampton FC"
-    ],
-    "youthClubs": [
-      "1995-1999 Everton"
-    ],
-    "achievements": [
-      "Champions League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #10",
-      "Dual Nationality",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "1074",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "18/19",
-        "club": "1194",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "17/18",
-        "club": "1194",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "16/17",
-        "club": "991",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "15/16",
-        "club": "991",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "14/15",
-        "club": "991",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "13/14",
-        "club": "991",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "12/13",
-        "club": "991",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "11/12",
-        "club": "991",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "1035",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "09/10",
-        "club": "1035",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "08/09",
-        "club": "1035",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "07/08",
-        "club": "543",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "06/07",
-        "club": "543",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "05/06",
-        "club": "180",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "05/06",
-        "club": "31",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "07/08",
-        "club": "3509",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "21103",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "03/04",
-        "club": "41203",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "02/03",
-        "club": "41203",
-        "jerseyNumber": 14
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_22231_991_2013_09_24_1.jpg?lm=1",
-    "height": 185,
-    "dateOfBirth": "1984-12-21",
-    "leftFooted": false,
-    "era": "1999-2020",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 24,
-      "date": "2009-08-01",
-      "clubId": "1035",
-      "clubName": "Sheffield Wednesday",
-      "marketValue": 1000000
-    },
-    "fameScore": 5.2
-  },
-  {
-    "playerId": "73472",
-    "name": "Ben Amos",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Port Vale",
-      "Wigan",
-      "Charlton",
-      "Bolton",
-      "Millwall",
-      "Cardiff",
-      "Manchester United",
-      "Carlisle United",
-      "Hull City",
-      "Man Utd Res.",
-      "Oldham Athletic",
-      "Molde FK",
-      "Peterborough"
-    ],
-    "youthClubs": [
-      "Crewe Alexandra (1993-2000)",
-      "Bollington United (2000-2001)",
-      "Manchester United (2001-2008)"
-    ],
-    "achievements": [
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #1",
-      "Man Utd Academy",
-      "190cm+"
-    ],
-    "managers": [
-      "Played under José Mourinho",
-      "Played under Sir Alex Ferguson",
-      "Played under Louis van Gaal"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "25/26",
-        "club": "1211",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "24/25",
-        "club": "1211",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "23/24",
-        "club": "1071",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "22/23",
-        "club": "1071",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "21/22",
-        "club": "1071",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "20/21",
-        "club": "358",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "19/20",
-        "club": "358",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "18/19",
-        "club": "1028",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "17/18",
-        "club": "358",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "16/17",
-        "club": "603",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "16/17",
-        "club": "355",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "15/16",
-        "club": "355",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "9259",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "355",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "14/15",
-        "club": "9251",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "13/14",
-        "club": "1220",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "13/14",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "13/14",
-        "club": "9251",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "9251",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "12/13",
-        "club": "3008",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "11/12",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "10/11",
-        "club": "1078",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "10/11",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "09/10",
-        "club": "687",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "09/10",
-        "club": "1072",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "09/10",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "08/09",
-        "club": "9251",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "12/13",
-        "club": "9565",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "11/12",
-        "club": "9565",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "9565",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "08/09",
-        "club": "21340",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "06/07",
-        "club": "23260",
-        "jerseyNumber": 1
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/73472-1720613317.jpg?lm=1",
-    "height": 193,
-    "dateOfBirth": "1990-10-04",
-    "leftFooted": false,
-    "era": "2006-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2013-02-07",
-      "clubId": "985",
-      "clubName": "Manchester United",
-      "marketValue": 1000000
-    },
-    "fameScore": 5.2
-  },
-  {
-    "playerId": "710",
-    "name": "Erik Meijer",
-    "nationality": "Netherlands",
-    "citizenship": [
-      "Netherlands"
-    ],
-    "clubs": [
-      "Alem. Aachen",
-      "Hamburg",
-      "Liverpool FC",
-      "Preston",
-      "Bayer 04 Leverkusen",
-      "KFC Uerdingen",
-      "PSV Eindhoven",
-      "MVV Maastricht",
-      "Fortuna Sittard",
-      "Eindhoven",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [
-      "SV Meerssen (-1985)",
-      "MVV (1985-1986)",
-      "Fortuna Sittard (1986-1988)"
-    ],
-    "achievements": [
-      "UEFA Cup/Europa League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "1980s player",
-      "1990s player",
-      "2000s player",
-      "Wore #7",
-      "Wore #9",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "05/06",
-        "club": "8",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "04/05",
-        "club": "8",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "03/04",
-        "club": "8",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "02/03",
-        "club": "41",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "01/02",
-        "club": "41",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "00/01",
-        "club": "41",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "00/01",
-        "club": "466",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "99/00",
-        "club": "31",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "98/99",
-        "club": "15",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "97/98",
-        "club": "15",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "96/97",
-        "club": "15",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "95/96",
-        "club": "95",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "94/95",
-        "club": "383",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "94/95",
-        "club": "383",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "94/95",
-        "club": "383",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "94/95",
-        "club": "383",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "93/94",
-        "club": "383",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "93/94",
-        "club": "383",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "93/94",
-        "club": "383",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "93/94",
-        "club": "383",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "93/94",
-        "club": "383",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "93/94",
-        "club": "383",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "90/91",
-        "club": "385",
-        "jerseyNumber": 14
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/710-1461223529.jpg?lm=1",
-    "height": 0,
-    "dateOfBirth": "1969-02-08",
-    "leftFooted": false,
-    "era": "1985-2006",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 35,
-      "date": "2004-04-10",
-      "clubId": "8",
-      "clubName": "Alemannia Aachen",
-      "marketValue": 500000
-    },
-    "fameScore": 5.1
-  },
-  {
-    "playerId": "3313",
-    "name": "John Welsh",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Stafford",
-      "Atherton Collieries",
-      "Grimsby Town",
-      "Preston",
-      "Tranmere",
-      "Hull City",
-      "Bury",
-      "Carlisle United",
-      "Chester City",
-      "Liverpool FC",
-      "Liverpool Res."
-    ],
-    "youthClubs": [
-      "Liverpool FC (1994-2001);"
-    ],
-    "achievements": [
-      "Champions League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "18/19",
-        "club": "1034",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "17/18",
-        "club": "466",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "16/17",
-        "club": "466",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "15/16",
-        "club": "466",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "14/15",
-        "club": "466",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "13/14",
-        "club": "466",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "12/13",
-        "club": "466",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "11/12",
-        "club": "1074",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "1074",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "09/10",
-        "club": "1074",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "08/09",
-        "club": "2413",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "08/09",
-        "club": "1220",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "08/09",
-        "club": "3008",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "07/08",
-        "club": "3008",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "07/08",
-        "club": "3613",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "05/06",
-        "club": "3008",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "06/07",
-        "club": "9565",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "04/05",
-        "club": "9565",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "04/05",
-        "club": "9565",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "04/05",
-        "club": "9565",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "9565",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "04/05",
-        "club": "9565",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "03/04",
-        "club": "22907",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "02/03",
-        "club": "22907",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "02/03",
-        "club": "21340",
-        "jerseyNumber": 4
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 170,
-    "dateOfBirth": "1984-10-01",
-    "leftFooted": false,
-    "era": "1999-2021",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 21,
-      "date": "2005-03-27",
-      "clubId": "31",
-      "clubName": "Liverpool FC",
-      "marketValue": 250000
-    },
-    "fameScore": 5.1
-  },
-  {
-    "playerId": "3606",
-    "name": "Richie Partridge",
-    "nationality": "Ireland",
-    "citizenship": [
-      "Ireland"
-    ],
-    "clubs": [
-      "Airbus UK",
-      "The New Saints",
-      "Stockport",
-      "MK Dons",
-      "Kettering",
-      "Chester City",
-      "Rotherham",
-      "Sheff Utd",
-      "Liverpool FC",
-      "Sheff Wed",
-      "Coventry",
-      "Liverpool Res.",
-      "Bristol Rovers",
-      "Stella Maris"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "UEFA Cup/Europa League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "Wore #9",
-      "Wore #10",
-      "Wore #7"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "10734",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "10/11",
-        "club": "10734",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "10734",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "10/11",
-        "club": "10734",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "10734",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "10/11",
-        "club": "10734",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "10734",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "1098",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "09/10",
-        "club": "1098",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "09/10",
-        "club": "991",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "08/09",
-        "club": "3613",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "07/08",
-        "club": "3613",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "1194",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "05/06",
-        "club": "1035",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "02/03",
-        "club": "990",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "01/02",
-        "club": "31",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "00/01",
-        "club": "21103",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "98/99",
-        "club": "37709",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "97/98",
-        "club": "37709",
-        "jerseyNumber": 17
-      }
-    ],
-    "position": {
-      "main": "Right Midfield",
-      "other": [
-        "Left Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 173,
-    "dateOfBirth": "1980-12-09",
-    "leftFooted": false,
-    "era": "2000-2015",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 24,
-      "date": "2004-12-10",
-      "clubId": "31",
-      "clubName": "Liverpool FC",
-      "marketValue": 300000
-    },
-    "fameScore": 5.1
-  },
-  {
-    "playerId": "3658",
-    "name": "Luke Chadwick",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Soham Rangers",
-      "Cambridge Utd.",
-      "MK Dons",
-      "Norwich",
-      "Stoke City",
-      "West Ham United",
-      "Manchester United",
-      "Burnley",
-      "Reading",
-      "Royal Antwerp",
-      "Man Utd Res."
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "Premier League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Attacking Midfield",
-      "Central Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Wore #7",
-      "Wore #9",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "14/15",
-        "club": "986",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "13/14",
-        "club": "986",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "13/14",
-        "club": "991",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "12/13",
-        "club": "991",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "11/12",
-        "club": "991",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "10/11",
-        "club": "991",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "09/10",
-        "club": "991",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "08/09",
-        "club": "991",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "07/08",
-        "club": "1123",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "05/06",
-        "club": "512",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "05/06",
-        "club": "512",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "04/05",
-        "club": "379",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "03/04",
-        "club": "1132",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "01/02",
-        "club": "985",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "00/01",
-        "club": "1096",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "00/01",
-        "club": "1096",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "01/02",
-        "club": "9565",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "00/01",
-        "club": "9565",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "99/00",
-        "club": "9565",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "98/99",
-        "club": "9565",
-        "jerseyNumber": 8
-      }
-    ],
-    "position": {
-      "main": "Attacking Midfield",
-      "other": [
-        "Right Midfield",
-        "Left Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3658_991_2013_09_24_1.jpg?lm=1",
-    "height": 180,
-    "dateOfBirth": "1980-11-18",
-    "leftFooted": false,
-    "era": "1999-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 26,
-      "date": "2007-04-01",
-      "clubId": "1123",
-      "clubName": "Norwich City",
-      "marketValue": 300000
-    },
-    "fameScore": 5.1
-  },
-  {
-    "playerId": "49711",
-    "name": "Alan Navarro",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Swindon Town",
-      "Brighton",
-      "MK Dons",
-      "Macclesfield",
-      "Accrington",
-      "Tranmere",
-      "Chester City",
-      "Liverpool FC",
-      "Crewe Alexandra"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "UEFA Cup/Europa League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "Wore #7"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "14/15",
-        "club": "352",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "13/14",
-        "club": "352",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "12/13",
-        "club": "352",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "11/12",
-        "club": "1237",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "1237",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "09/10",
-        "club": "1237",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "991",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "07/08",
-        "club": "991",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "06/07",
-        "club": "2436",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "04/05",
-        "club": "2436",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "03/04",
-        "club": "1074",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "01/02",
-        "club": "1074",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "01/02",
-        "club": "1042",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 33
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Central Midfield",
-        "Left Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1981-05-31",
-    "leftFooted": false,
-    "era": "2000-2014",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 31,
-      "date": "2012-06-22",
-      "clubId": "1237",
-      "clubName": "Brighton & Hove Albion",
-      "marketValue": 500000
-    },
-    "fameScore": 5.1
-  },
-  {
-    "playerId": "3596",
-    "name": "Vegard Heggem",
-    "nationality": "Norway",
-    "citizenship": [
-      "Norway"
-    ],
-    "clubs": [
-      "Liverpool FC",
-      "Rosenborg BK"
-    ],
-    "youthClubs": [
-      "Rennebu IL (1982-1991)",
-      "Orkdal IL (1992-1994)"
-    ],
-    "achievements": [
-      "UEFA Cup/Europa League winner"
-    ],
-    "randomAchievements": [
-      "Multiple Positions"
-    ],
-    "tags": [
-      "Full-Back",
-      "Central Midfield",
-      "1990s player",
-      "2000s player",
-      "Wore #7",
-      "Wore #9"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "01/02",
-        "club": "31",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "99/00",
-        "club": "31",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "98/99",
-        "club": "31",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "97/98",
-        "club": "195",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "96/97",
-        "club": "195",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "95/96",
-        "club": "195",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "95/96",
-        "club": "195",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "94/95",
-        "club": "195",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "99/00",
-        "club": "3440",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "98/99",
-        "club": "3440",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "98/99",
-        "club": "3440",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "98/99",
-        "club": "3440",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "97/98",
-        "club": "3440",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "97/98",
-        "club": "16854",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "96/97",
-        "club": "16854",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "96/97",
-        "club": "16854",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "96/97",
-        "club": "16854",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "96/97",
-        "club": "16854",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "96/97",
-        "club": "16854",
-        "jerseyNumber": 15
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": [
-        "Right Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3596-1721052450.jpg?lm=1",
-    "height": 179,
-    "dateOfBirth": "1975-07-13",
-    "leftFooted": false,
-    "era": "1995-2003",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 5
   },
   {
     "playerId": "7895",
@@ -155379,7 +154777,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7895-1719513978.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Suisse_vs_Argentine_-_Maximiliano_Rodriguez_%28cropped2%29.jpg/500px-Suisse_vs_Argentine_-_Maximiliano_Rodriguez_%28cropped2%29.jpg",
+    "imageAttribution": {
+      "author": "Ludovic Péron",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Suisse_vs_Argentine_-_Maximiliano_Rodriguez_(cropped2).jpg"
+    },
     "height": 173,
     "dateOfBirth": "1981-02-01",
     "leftFooted": false,
@@ -155464,7 +154868,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/10201-1554713649.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Rivelino_brasil_figurita.jpg/500px-Rivelino_brasil_figurita.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Rivelino_brasil_figurita.jpg"
+    },
     "height": 0,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -155483,226 +154893,269 @@ export const enrichedFootballPlayers: Player[] = [
     "fameScore": 5
   },
   {
-    "playerId": "23085",
-    "name": "Jørgen Nielsen",
-    "nationality": "Denmark",
+    "playerId": "50935",
+    "name": "Javier Hernández",
+    "nationality": "Mexico",
     "citizenship": [
-      "Denmark"
+      "Mexico"
     ],
     "clubs": [
-      "BK Frem",
-      "Hellerup IK",
-      "FB (FCN II)",
-      "Liverpool FC",
-      "Farum BK",
-      "Wolves",
-      "Ikast FS",
-      "Hvidovre",
-      "Ölstykke FC",
-      "Naestved IF",
-      "Helsingör IF",
-      "Nakskov BK"
+      "Chivas",
+      "Los Angeles Galaxy",
+      "Sevilla FC",
+      "West Ham United",
+      "Bayer 04 Leverkusen",
+      "Manchester United",
+      "Real Madrid",
+      "Chivas Jgd."
     ],
     "youthClubs": [
-      "Nakskov Boldklub"
+      "Deportivo Guadalajara (1997-2006)"
     ],
-    "achievements": [
-      "FA Cup winner"
-    ],
+    "achievements": [],
     "randomAchievements": [
       "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1980s player",
-      "1990s player",
-      "2000s player",
-      "Wore #1",
-      "Wore #10"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "07/08",
-        "club": "444",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "03/04",
-        "club": "444",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "02/03",
-        "club": "896",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "01/02",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "99/00",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "98/99",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "97/98",
-        "club": "31",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "97/98",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "93/94",
-        "club": "5091",
-        "jerseyNumber": 1
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 186,
-    "dateOfBirth": "1971-06-05",
-    "leftFooted": false,
-    "era": "1987-2008",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 5
-  },
-  {
-    "playerId": "106847",
-    "name": "Titi Camara",
-    "nationality": "Guinea",
-    "citizenship": [
-      "Guinea"
-    ],
-    "clubs": [
-      "Amiens SC",
-      "Al-Sailiya SC",
-      "West Ham United",
-      "Al-Ittihad",
-      "Liverpool FC",
-      "Olympique Marseille",
-      "Lens",
-      "Saint-Étienne",
-      "Kaloum"
-    ],
-    "youthClubs": [],
-    "achievements": [
-      "UEFA Cup/Europa League winner"
-    ],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
+      "International Journeyman"
     ],
     "tags": [
       "Centre-Forward",
-      "Winger",
-      "1990s player",
-      "2000s player",
-      "Wore #7",
-      "Wore #10"
+      "Wore #9",
+      "Wore #7"
     ],
-    "managers": [],
+    "managers": [
+      "Played under Sir Alex Ferguson",
+      "Played under Carlo Ancelotti",
+      "Played under Rafael Benítez",
+      "Played under Louis van Gaal",
+      "Played under Manuel Pellegrini"
+    ],
     "jerseyNumbers": [
       {
-        "season": "04/05",
-        "club": "1416",
-        "jerseyNumber": 32
+        "season": "25/26",
+        "club": "6711",
+        "jerseyNumber": 14
       },
       {
-        "season": "02/03",
+        "season": "24/25",
+        "club": "6711",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "23/24",
+        "club": "6711",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "22/23",
+        "club": "1061",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "21/22",
+        "club": "1061",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "20/21",
+        "club": "1061",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "19/20",
+        "club": "1061",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "19/20",
+        "club": "368",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "19/20",
         "club": "379",
-        "jerseyNumber": 29
+        "jerseyNumber": 9
       },
       {
-        "season": "00/01",
+        "season": "19/20",
         "club": "379",
-        "jerseyNumber": 29
+        "jerseyNumber": 17
       },
       {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 22
+        "season": "18/19",
+        "club": "379",
+        "jerseyNumber": 17
       },
       {
-        "season": "99/00",
-        "club": "31",
-        "jerseyNumber": 22
+        "season": "17/18",
+        "club": "379",
+        "jerseyNumber": 17
       },
       {
-        "season": "98/99",
-        "club": "244",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "97/98",
-        "club": "244",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "95/96",
-        "club": "826",
+        "season": "16/17",
+        "club": "15",
         "jerseyNumber": 7
       },
       {
-        "season": "95/96",
-        "club": "826",
-        "jerseyNumber": 8
+        "season": "15/16",
+        "club": "15",
+        "jerseyNumber": 7
       },
       {
-        "season": "03/04",
-        "club": "3856",
-        "jerseyNumber": 10
+        "season": "15/16",
+        "club": "985",
+        "jerseyNumber": 14
       },
       {
-        "season": "97/98",
-        "club": "3856",
-        "jerseyNumber": 10
+        "season": "14/15",
+        "club": "418",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "14/15",
+        "club": "985",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "13/14",
+        "club": "985",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "12/13",
+        "club": "985",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "11/12",
+        "club": "985",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "10/11",
+        "club": "985",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "09/10",
+        "club": "6711",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "08/09",
+        "club": "6711",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "08/09",
+        "club": "13362",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "07/08",
+        "club": "6711",
+        "jerseyNumber": 25
+      },
+      {
+        "season": "07/08",
+        "club": "13362",
+        "jerseyNumber": 25
+      },
+      {
+        "season": "06/07",
+        "club": "6711",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "06/07",
+        "club": "6711",
+        "jerseyNumber": 25
+      },
+      {
+        "season": "06/07",
+        "club": "6711",
+        "jerseyNumber": 45
+      },
+      {
+        "season": "06/07",
+        "club": "13362",
+        "jerseyNumber": 45
+      },
+      {
+        "season": "05/06",
+        "club": "13362",
+        "jerseyNumber": 83
+      },
+      {
+        "season": "17/18",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "16/17",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "15/16",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "14/15",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "13/14",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "12/13",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "11/12",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "10/11",
+        "club": "6303",
+        "jerseyNumber": 9
+      },
+      {
+        "season": "09/10",
+        "club": "6303",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "07/08",
+        "club": "26092",
+        "jerseyNumber": 11
+      },
+      {
+        "season": "06/07",
+        "club": "26092",
+        "jerseyNumber": 11
       }
     ],
     "position": {
       "main": "Centre-Forward",
-      "other": [
-        "Left Winger",
-        "Right Winger"
-      ]
+      "other": []
     },
-    "imageUrl": "",
-    "height": 184,
-    "dateOfBirth": "1972-11-17",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hertha_BSC_vs._West_Ham_United_20190731_%28139%29.jpg/500px-Hertha_BSC_vs._West_Ham_United_20190731_%28139%29.jpg",
+    "imageAttribution": {
+      "author": "-- Steindy ( talk ) 16:03, 29 August 2019 (UTC)",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hertha_BSC_vs._West_Ham_United_20190731_(139).jpg"
+    },
+    "height": 175,
+    "dateOfBirth": "1988-01-06",
     "leftFooted": false,
-    "era": "1990-2006",
+    "era": "",
     "careerStats": {
       "appearances": 0,
       "goals": 0,
@@ -155713,217 +155166,69 @@ export const enrichedFootballPlayers: Player[] = [
       "championsLeagueGames": 0,
       "championsLeagueGoals": 0
     },
-    "highestValue": null,
+    "highestValue": {
+      "age": 28,
+      "date": "2016-10-13",
+      "clubId": "15",
+      "clubName": "Bayer 04 Leverkusen",
+      "marketValue": 25000000
+    },
     "fameScore": 5
   },
   {
-    "playerId": "106894",
-    "name": "Michael Clegg",
-    "nationality": "England",
+    "playerId": "229662",
+    "name": "Carlos Alberto Torres",
+    "nationality": "Brazil",
     "citizenship": [
-      "England"
+      "Brazil"
     ],
     "clubs": [
-      "Oldham Athletic",
-      "Manchester United",
-      "Wigan",
-      "Ipswich"
+      "NY Cosmos",
+      "California Surf",
+      "Flamengo",
+      "Fluminense",
+      "Santos",
+      "Botafogo"
     ],
     "youthClubs": [],
     "achievements": [
-      "Premier League winner"
+      "World Cup winner"
     ],
     "randomAchievements": [
-      "Multiple Positions",
+      "5+ Clubs",
       "International Journeyman"
     ],
     "tags": [
-      "Full-Back",
-      "Centre-Back",
-      "1990s player",
-      "2000s player",
-      "Football family",
-      "Became a manager"
+      "Full-Back"
     ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
+    "managers": [],
     "jerseyNumbers": [
       {
-        "season": "03/04",
-        "club": "1078",
-        "jerseyNumber": 14
+        "season": "76/77",
+        "club": "4835",
+        "jerseyNumber": 25
       },
       {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "98/99",
-        "club": "985",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "97/98",
-        "club": "985",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "97/98",
-        "club": "985",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "96/97",
-        "club": "985",
-        "jerseyNumber": 32
+        "season": "69/70",
+        "club": "3439",
+        "jerseyNumber": 4
       }
     ],
     "position": {
       "main": "Right-Back",
-      "other": [
-        "Centre-Back"
-      ]
+      "other": []
     },
-    "imageUrl": "",
-    "height": 173,
-    "dateOfBirth": "1977-03-07",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Carlos_alberto_cosmos.jpg/500px-Carlos_alberto_cosmos.jpg",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Carlos_alberto_cosmos.jpg"
+    },
+    "height": 0,
+    "dateOfBirth": "",
     "leftFooted": false,
-    "era": "1995-2004",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 5
-  },
-  {
-    "playerId": "187796",
-    "name": "Álvaro Benito",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Getafe",
-      "Real Madrid",
-      "CD Tenerife"
-    ],
-    "youthClubs": [
-      "Real Ávila CF (?- 1991)"
-    ],
-    "achievements": [
-      "La Liga winner"
-    ],
-    "randomAchievements": [
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Winger",
-      "Centre-Forward",
-      "1990s player",
-      "2000s player",
-      "Left Footed",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Fabio Capello",
-      "Played under Vicente del Bosque"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "02/03",
-        "club": "3709",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "99/00",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "98/99",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "97/98",
-        "club": "648",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "97/98",
-        "club": "418",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "96/97",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "95/96",
-        "club": "418",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "95/96",
-        "club": "418",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "95/96",
-        "club": "418",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "95/96",
-        "club": "6767",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "96/97",
-        "club": "9567",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "92/93",
-        "club": "33775",
-        "jerseyNumber": 12
-      }
-    ],
-    "position": {
-      "main": "Left Midfield",
-      "other": [
-        "Left Winger",
-        "Centre-Forward"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1976-10-12",
-    "leftFooted": true,
-    "era": "1994-2003",
+    "era": "",
     "careerStats": {
       "appearances": 0,
       "goals": 0,
@@ -156109,7 +155414,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3224_148_2009_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jonathan_Woodgate_2014.jpg/500px-Jonathan_Woodgate_2014.jpg",
+    "imageAttribution": {
+      "author": "Jake from Manchester, UK",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jonathan_Woodgate_2014.jpg"
+    },
     "height": 188,
     "dateOfBirth": "1980-01-22",
     "leftFooted": false,
@@ -156246,7 +155557,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_131754_716_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/RaulPolloGonzalez.jpg/500px-RaulPolloGonzalez.jpg",
+    "imageAttribution": {
+      "author": "Natisoto15",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:RaulPolloGonzalez.jpg"
+    },
     "height": 171,
     "dateOfBirth": "",
     "leftFooted": false,
@@ -156505,7 +155822,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/48066-1488467838.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/AndyCarrollSeptember2015.JPG/500px-AndyCarrollSeptember2015.JPG",
+    "imageAttribution": {
+      "author": "Egghead06",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:AndyCarrollSeptember2015.JPG"
+    },
     "height": 194,
     "dateOfBirth": "1989-06-01",
     "leftFooted": true,
@@ -156708,7 +156031,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/22832-1465468212.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Daniel_Agger_20120613.jpg",
+    "imageAttribution": {
+      "author": "Ilya Khokhlov",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Daniel_Agger_20120613.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1984-12-12",
     "leftFooted": true,
@@ -156973,7 +156302,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4063-1719156645.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Stewart_Downing_2016.jpg/500px-Stewart_Downing_2016.jpg",
+    "imageAttribution": {
+      "author": "Egghead06",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stewart_Downing_2016.jpg"
+    },
     "height": 180,
     "dateOfBirth": "1984-07-22",
     "leftFooted": true,
@@ -157131,7 +156466,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Centre-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/35571-1459258303.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Jos%C3%A9_Enrique.jpg/500px-Jos%C3%A9_Enrique.jpg",
+    "imageAttribution": {
+      "author": "Badudoy",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Enrique.jpg"
+    },
     "height": 184,
     "dateOfBirth": "1986-01-23",
     "leftFooted": true,
@@ -157152,132 +156493,6 @@ export const enrichedFootballPlayers: Player[] = [
       "clubId": "31",
       "clubName": "Liverpool FC",
       "marketValue": 14000000
-    },
-    "fameScore": 2.8
-  },
-  {
-    "playerId": "421727",
-    "name": "Ronaldo Córdoba",
-    "nationality": "Panama",
-    "citizenship": [
-      "Panama"
-    ],
-    "clubs": [
-      "Herrera FC",
-      "AD 9 de Octubre",
-      "Tauro FC",
-      "FC Desamparados",
-      "San Miguelito",
-      "Costa del Este",
-      "Santa Gema",
-      "Chepo FC"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "Attacking Midfield",
-      "2010s player",
-      "2020s player",
-      "Wore #9",
-      "Wore #10",
-      "Wore #7"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "23/24",
-        "club": "55384",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "22/23",
-        "club": "19101",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "22/23",
-        "club": "55384",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "22/23",
-        "club": "12371",
-        "jerseyNumber": 99
-      },
-      {
-        "season": "21/22",
-        "club": "12371",
-        "jerseyNumber": 99
-      },
-      {
-        "season": "21/22",
-        "club": "55384",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "18/19",
-        "club": "1708",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "17/18",
-        "club": "49970",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "17/18",
-        "club": "1708",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "16/17",
-        "club": "12371",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "16/17",
-        "club": "29432",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "14/15",
-        "club": "32652",
-        "jerseyNumber": 9
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": [
-        "Attacking Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 176,
-    "dateOfBirth": "",
-    "leftFooted": false,
-    "era": "2016-present",
-    "careerStats": {
-      "appearances": 136,
-      "goals": 45,
-      "assists": 17,
-      "yellowCards": 23,
-      "redCards": 1,
-      "minutesPlayed": 5853,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2023-06-21",
-      "clubId": "55384",
-      "clubName": "Herrera FC",
-      "marketValue": 275000
     },
     "fameScore": 2.8
   },
@@ -157504,7 +156719,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Second Striker"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3297-1481635425.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Craig_Bellamy_2014.jpg/500px-Craig_Bellamy_2014.jpg",
+    "imageAttribution": {
+      "author": "Jon Candy from Cardiff, Wales",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Craig_Bellamy_2014.jpg"
+    },
     "height": 173,
     "dateOfBirth": "1979-07-13",
     "leftFooted": false,
@@ -157525,112 +156746,6 @@ export const enrichedFootballPlayers: Player[] = [
       "clubId": "281",
       "clubName": "Manchester City",
       "marketValue": 13000000
-    },
-    "fameScore": 2.6
-  },
-  {
-    "playerId": "719927",
-    "name": "Javier Hernández",
-    "nationality": "Mexico",
-    "citizenship": [
-      "Mexico"
-    ],
-    "clubs": [
-      "Jaguares FC",
-      "Tlaxcala",
-      "Tepatitlán",
-      "Valle de Bravo",
-      "Toluca Jgd."
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "2010s player",
-      "2020s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "4774",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "25/26",
-        "club": "4774",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "24/25",
-        "club": "42781",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "23/24",
-        "club": "42781",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "22/23",
-        "club": "42781",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "21/22",
-        "club": "1804",
-        "jerseyNumber": 209
-      },
-      {
-        "season": "21/22",
-        "club": "25781",
-        "jerseyNumber": 209
-      },
-      {
-        "season": "20/21",
-        "club": "64345",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "19/20",
-        "club": "25781",
-        "jerseyNumber": 202
-      },
-      {
-        "season": "19/20",
-        "club": "1804",
-        "jerseyNumber": 202
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/719927-1684208427.jpg?lm=1",
-    "height": 173,
-    "dateOfBirth": "",
-    "leftFooted": false,
-    "era": "2015-present",
-    "careerStats": {
-      "appearances": 127,
-      "goals": 20,
-      "assists": 0,
-      "yellowCards": 17,
-      "redCards": 1,
-      "minutesPlayed": 5537,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 22,
-      "date": "2022-11-17",
-      "clubId": "42781",
-      "clubName": "Tlaxcala FC",
-      "marketValue": 350000
     },
     "fameScore": 2.6
   },
@@ -157785,7 +156900,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/45861-1630760277.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Ryan_Shawcross_2015.jpg/500px-Ryan_Shawcross_2015.jpg",
+    "imageAttribution": {
+      "author": "@cfcunofficial (Chelsea Debs) London",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ryan_Shawcross_2015.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1987-04-10",
     "leftFooted": false,
@@ -158047,7 +157168,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/62049-1692188668.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Mame_Biram_Diouf.jpg",
+    "imageAttribution": {
+      "author": "Екатерина Лаут",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mame_Biram_Diouf.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1987-12-16",
     "leftFooted": false,
@@ -158278,7 +157405,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/30767-1663658907.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/AC_Monza_2022_Serie_A_celebration_30_%28Paletta%29.jpg/500px-AC_Monza_2022_Serie_A_celebration_30_%28Paletta%29.jpg",
+    "imageAttribution": {
+      "author": "Nehme1499",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:AC_Monza_2022_Serie_A_celebration_30_(Paletta).jpg"
+    },
     "height": 190,
     "dateOfBirth": "1986-02-15",
     "leftFooted": false,
@@ -158303,113 +157436,197 @@ export const enrichedFootballPlayers: Player[] = [
     "fameScore": 2
   },
   {
-    "playerId": "528347",
-    "name": "Piotr Zielinski",
-    "nationality": "Poland",
+    "playerId": "90",
+    "name": "Bernd Schneider",
+    "nationality": "Germany",
     "citizenship": [
-      "Poland"
+      "Germany"
     ],
     "clubs": [
-      "Wisla Plock",
-      "Unia Swarzedz",
-      "Wisla Pulawy",
-      "Kasztelan Sierpc",
-      "Pogon Grodzisk"
+      "Bayer 04 Leverkusen",
+      "Frankfurt",
+      "Carl Zeiss Jena",
+      "FC Carl Zeiss Je"
     ],
-    "youthClubs": [],
+    "youthClubs": [
+      "BSG Aufbau Jena (1980-1983)",
+      "FC Carl Zeiss Jena (1983–1991)"
+    ],
     "achievements": [],
     "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "International Journeyman"
+      "Multiple Positions",
+      "International Journeyman",
+      "Long Career"
     ],
     "tags": [
-      "Goalkeeper",
-      "2010s player",
-      "2020s player",
-      "Wore #1",
-      "190cm+"
+      "Central Midfield",
+      "Winger",
+      "Attacking Midfield",
+      "1980s player",
+      "1990s player",
+      "2000s player",
+      "Wore #10",
+      "Wore #7"
     ],
     "managers": [],
     "jerseyNumbers": [
       {
-        "season": "25/26",
-        "club": "28946",
-        "jerseyNumber": 1
+        "season": "08/09",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "24/25",
-        "club": "20965",
-        "jerseyNumber": 1
+        "season": "07/08",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "24/25",
-        "club": "20965",
-        "jerseyNumber": 12
+        "season": "06/07",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "24/25",
-        "club": "2118",
-        "jerseyNumber": 98
+        "season": "05/06",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "23/24",
-        "club": "2118",
-        "jerseyNumber": 98
+        "season": "04/05",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "22/23",
-        "club": "29403",
-        "jerseyNumber": 1
+        "season": "03/04",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "22/23",
-        "club": "29403",
-        "jerseyNumber": 12
+        "season": "02/03",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "21/22",
-        "club": "2118",
-        "jerseyNumber": 98
+        "season": "01/02",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "20/21",
-        "club": "30998",
-        "jerseyNumber": 12
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 25
       },
       {
-        "season": "19/20",
-        "club": "30998",
-        "jerseyNumber": 12
+        "season": "99/00",
+        "club": "15",
+        "jerseyNumber": 25
+      },
+      {
+        "season": "98/99",
+        "club": "24",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "91/92",
+        "club": "113",
+        "jerseyNumber": 14
+      },
+      {
+        "season": "07/08",
+        "club": "3262",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "06/07",
+        "club": "3262",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "05/06",
+        "club": "3262",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "04/05",
+        "club": "3262",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "03/04",
+        "club": "3262",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "02/03",
+        "club": "3262",
+        "jerseyNumber": 10
+      },
+      {
+        "season": "01/02",
+        "club": "3262",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "01/02",
+        "club": "3262",
+        "jerseyNumber": 19
+      },
+      {
+        "season": "00/01",
+        "club": "3262",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "98/99",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "98/99",
+        "club": "3262",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "98/99",
+        "club": "3262",
+        "jerseyNumber": 16
       }
     ],
     "position": {
-      "main": "Goalkeeper",
-      "other": []
+      "main": "Right Midfield",
+      "other": [
+        "Right Winger",
+        "Attacking Midfield"
+      ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/528347-1765923982.jpg?lm=1",
-    "height": 190,
-    "dateOfBirth": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Bernd_Schneider_%28cropped%29.JPG/500px-Bernd_Schneider_%28cropped%29.JPG",
+    "imageAttribution": {
+      "author": "Unknown author",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Bernd_Schneider_(cropped).JPG"
+    },
+    "height": 0,
+    "dateOfBirth": "1973-11-17",
     "leftFooted": false,
-    "era": "2016-present",
+    "era": "1983-2009",
     "careerStats": {
-      "appearances": 97,
+      "appearances": 0,
       "goals": 0,
       "assists": 0,
-      "yellowCards": 2,
-      "redCards": 1,
-      "minutesPlayed": 2614,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
       "championsLeagueGames": 0,
       "championsLeagueGoals": 0
     },
     "highestValue": {
-      "age": 23,
-      "date": "2022-11-18",
-      "clubId": "29403",
-      "clubName": "Wisla Pulawy",
-      "marketValue": 50000
+      "age": 30,
+      "date": "2004-04-10",
+      "clubId": "15",
+      "clubName": "Bayer 04 Leverkusen",
+      "marketValue": 9000000
     },
-    "fameScore": 2
+    "fameScore": 1.8
   },
   {
     "playerId": "28990",
@@ -158644,7 +157861,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/28990-1596447146.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/1_charlie_adam_stoke_2015.jpg/500px-1_charlie_adam_stoke_2015.jpg",
+    "imageAttribution": {
+      "author": "Chensiyuan",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1_charlie_adam_stoke_2015.jpg"
+    },
     "height": 185,
     "dateOfBirth": "1985-10-12",
     "leftFooted": true,
@@ -158855,7 +158078,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/1075-1461328176.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Andriy_Voronin_2019.jpg/500px-Andriy_Voronin_2019.jpg",
+    "imageAttribution": {
+      "author": "Анна Нэсси",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andriy_Voronin_2019.jpg"
+    },
     "height": 0,
     "dateOfBirth": "1979-07-21",
     "leftFooted": false,
@@ -159057,7 +158286,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Back",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_9706_82_2012_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Sotirios_Kyrgiakos_2011.jpg",
+    "imageAttribution": {
+      "author": "mattythewhite",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sotirios_Kyrgiakos_2011.jpg"
+    },
     "height": 193,
     "dateOfBirth": "1979-07-23",
     "leftFooted": false,
@@ -159079,87 +158314,6 @@ export const enrichedFootballPlayers: Player[] = [
       "clubName": "Rangers FC",
       "marketValue": 7000000
     },
-    "fameScore": 1.4
-  },
-  {
-    "playerId": "132595",
-    "name": "Elías Figueroa",
-    "nationality": "Chile",
-    "citizenship": [
-      "Chile"
-    ],
-    "clubs": [
-      "Colo-Colo",
-      "FL Strikers",
-      "Palestino",
-      "Internacional",
-      "Peñarol",
-      "Wanderers",
-      "La Calera"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "1960s player",
-      "1970s player",
-      "1980s player",
-      "Wore #7",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "82/83",
-        "club": "3700",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "81/82",
-        "club": "3700",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "78/79",
-        "club": "3700",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "73/74",
-        "club": "3700",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "65/66",
-        "club": "3700",
-        "jerseyNumber": 7
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/132595-1650367377.jpg?lm=1",
-    "height": 0,
-    "dateOfBirth": "",
-    "leftFooted": false,
-    "era": "1962-1983",
-    "careerStats": {
-      "appearances": 70,
-      "goals": 1,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 3709,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
     "fameScore": 1.4
   },
   {
@@ -159300,7 +158454,8 @@ export const enrichedFootballPlayers: Player[] = [
         "Attacking Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3602_995_2010_4.jpg?lm=1",
+    "imageUrl": "",
+    "imageAttribution": null,
     "height": 185,
     "dateOfBirth": "1978-10-05",
     "leftFooted": true,
@@ -159421,7 +158576,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left Winger"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_23102_16795_2013_10_17_1.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Riki_-_Deporitvo_La_Coruna.jpg/500px-Riki_-_Deporitvo_La_Coruna.jpg",
+    "imageAttribution": {
+      "author": "Jose Luis Cernadas Iglesias",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Riki_-_Deporitvo_La_Coruna.jpg"
+    },
     "height": 187,
     "dateOfBirth": "1980-11-08",
     "leftFooted": true,
@@ -159692,7 +158853,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Goalkeeper",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/34130-1688121718.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Tom_Heaton_playing_for_Burnley_%28cropped%29.jpg/500px-Tom_Heaton_playing_for_Burnley_%28cropped%29.jpg",
+    "imageAttribution": {
+      "author": "Kelvin Stuttard",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tom_Heaton_playing_for_Burnley_(cropped).jpg"
+    },
     "height": 188,
     "dateOfBirth": "1986-04-15",
     "leftFooted": false,
@@ -159865,7 +159032,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Defensive Midfield"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/44069-1702510086.png?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Mosquera.png",
+    "imageAttribution": {
+      "author": "Zimbruggink",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mosquera.png"
+    },
     "height": 184,
     "dateOfBirth": "1988-04-21",
     "leftFooted": true,
@@ -159983,6 +159156,7 @@ export const enrichedFootballPlayers: Player[] = [
       "other": []
     },
     "imageUrl": "",
+    "imageAttribution": null,
     "height": 184,
     "dateOfBirth": "",
     "leftFooted": true,
@@ -160005,6 +159179,241 @@ export const enrichedFootballPlayers: Player[] = [
       "marketValue": 500000
     },
     "fameScore": 1.1
+  },
+  {
+    "playerId": "82",
+    "name": "Jens Nowotny",
+    "nationality": "Germany",
+    "citizenship": [
+      "Germany"
+    ],
+    "clubs": [
+      "Dinamo Zagreb",
+      "Bayer 04 Leverkusen",
+      "Karlsruher SC",
+      "Germ. F. Jgd.",
+      "Spielberg Jgd."
+    ],
+    "youthClubs": [
+      "SV Spielberg (1979-1985)",
+      "FC Germania Friedrichstal (1985-1990)",
+      "Karlsruher SC (1990-04/1992)"
+    ],
+    "achievements": [],
+    "randomAchievements": [
+      "5+ Clubs",
+      "Multiple Positions",
+      "International Journeyman",
+      "Long Career"
+    ],
+    "tags": [
+      "Centre-Back",
+      "Defensive Midfield",
+      "1980s player",
+      "1990s player",
+      "2000s player",
+      "Wore #7",
+      "Became a manager"
+    ],
+    "managers": [],
+    "jerseyNumbers": [
+      {
+        "season": "06/07",
+        "club": "419",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "05/06",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "04/05",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "03/04",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "02/03",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "01/02",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "00/01",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "99/00",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "98/99",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "97/98",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "96/97",
+        "club": "15",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "95/96",
+        "club": "48",
+        "jerseyNumber": 16
+      },
+      {
+        "season": "94/95",
+        "club": "48",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "94/95",
+        "club": "48",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "93/94",
+        "club": "48",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "92/93",
+        "club": "48",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "92/93",
+        "club": "48",
+        "jerseyNumber": 4
+      },
+      {
+        "season": "92/93",
+        "club": "48",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "92/93",
+        "club": "48",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "05/06",
+        "club": "3262",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "04/05",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "03/04",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "01/02",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "00/01",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "99/00",
+        "club": "3262",
+        "jerseyNumber": 6
+      },
+      {
+        "season": "98/99",
+        "club": "3262",
+        "jerseyNumber": 2
+      },
+      {
+        "season": "98/99",
+        "club": "3262",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 7
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 8
+      },
+      {
+        "season": "96/97",
+        "club": "3262",
+        "jerseyNumber": 15
+      },
+      {
+        "season": "94/95",
+        "club": "3817",
+        "jerseyNumber": 5
+      },
+      {
+        "season": "94/95",
+        "club": "3817",
+        "jerseyNumber": 6
+      }
+    ],
+    "position": {
+      "main": "Sweeper",
+      "other": [
+        "Centre-Back",
+        "Defensive Midfield"
+      ]
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Dorint_Charity_Sports_Night_2018-1676-crop.jpg/500px-Dorint_Charity_Sports_Night_2018-1676-crop.jpg",
+    "imageAttribution": {
+      "author": "Raimond Spekking",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dorint_Charity_Sports_Night_2018-1676-crop.jpg"
+    },
+    "height": 187,
+    "dateOfBirth": "1974-11-01",
+    "leftFooted": false,
+    "era": "1985-2007",
+    "careerStats": {
+      "appearances": 0,
+      "goals": 0,
+      "assists": 0,
+      "yellowCards": 0,
+      "redCards": 0,
+      "minutesPlayed": 0,
+      "championsLeagueGames": 0,
+      "championsLeagueGoals": 0
+    },
+    "highestValue": {
+      "age": 30,
+      "date": "2004-04-10",
+      "clubId": "15",
+      "clubName": "Bayer 04 Leverkusen",
+      "marketValue": 5000000
+    },
+    "fameScore": 1
   },
   {
     "playerId": "41242",
@@ -160185,7 +159594,13 @@ export const enrichedFootballPlayers: Player[] = [
       "main": "Centre-Forward",
       "other": []
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/41242-1583780199.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/David_N%27Gog_23-07-11_1.png/500px-David_N%27Gog_23-07-11_1.png",
+    "imageAttribution": {
+      "author": "Mattythewhite",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:David_N%27Gog_23-07-11_1.png"
+    },
     "height": 190,
     "dateOfBirth": "1989-01-04",
     "leftFooted": false,
@@ -160429,7 +159844,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Right-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/59606-1452002771.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Craig_Cathcart%2C_CZE-NIR_2019-10-14_%284%29.jpg/500px-Craig_Cathcart%2C_CZE-NIR_2019-10-14_%284%29.jpg",
+    "imageAttribution": {
+      "author": "Tadeáš Bednarz",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Craig_Cathcart,_CZE-NIR_2019-10-14_(4).jpg"
+    },
     "height": 189,
     "dateOfBirth": "1989-06-02",
     "leftFooted": false,
@@ -160658,7 +160079,13 @@ export const enrichedFootballPlayers: Player[] = [
         "Left-Back"
       ]
     },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/78959-1475584700.jpg?lm=1",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Martin_Kelly_17-12-2016_1.jpg/500px-Martin_Kelly_17-12-2016_1.jpg",
+    "imageAttribution": {
+      "author": "https://www.flickr.com/photos/cfcunofficial/",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Martin_Kelly_17-12-2016_1.jpg"
+    },
     "height": 191,
     "dateOfBirth": "1990-04-27",
     "leftFooted": false,
@@ -160683,9664 +160110,58 @@ export const enrichedFootballPlayers: Player[] = [
     "fameScore": 1
   },
   {
-    "playerId": "16716",
-    "name": "Danny Guthrie",
-    "nationality": "England",
+    "playerId": "117633",
+    "name": "Sócrates",
+    "nationality": "Brazil",
     "citizenship": [
-      "England"
+      "Brazil"
     ],
     "clubs": [
-      "Fram Reykjavík",
-      "Walsall",
-      "Mitra Kukar",
-      "Blackburn Rovers",
-      "Reading",
-      "Fulham",
-      "Newcastle United",
-      "Liverpool FC",
-      "Bolton",
-      "Southampton FC"
+      "Botafogo-SP",
+      "Santos",
+      "Flamengo",
+      "Fiorentina",
+      "Corinthians"
     ],
     "youthClubs": [
-      "Shrewsbury Town",
-      ""
+      "Botafogo FC (SP)"
     ],
     "achievements": [],
     "randomAchievements": [
       "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
+      "International Journeyman"
     ],
     "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "20/21",
-        "club": "3832",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "20/21",
-        "club": "899",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "19/20",
-        "club": "899",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "17/18",
-        "club": "31442",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "16/17",
-        "club": "164",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "15/16",
-        "club": "9258",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "15/16",
-        "club": "9258",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "15/16",
-        "club": "164",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "14/15",
-        "club": "931",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "14/15",
-        "club": "1032",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "13/14",
-        "club": "1032",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "12/13",
-        "club": "36123",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "12/13",
-        "club": "1032",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "11/12",
-        "club": "762",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "762",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "9253",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "09/10",
-        "club": "762",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "762",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "355",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "06/07",
-        "club": "180",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 35
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield",
-        "Right Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_16716_762_2009_1.jpg?lm=1",
-    "height": 176,
-    "dateOfBirth": "1987-04-18",
-    "leftFooted": false,
-    "era": "2006-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 21,
-      "date": "2009-02-23",
-      "clubId": "762",
-      "clubName": "Newcastle United",
-      "marketValue": 4700000
-    },
-    "fameScore": 0.9
-  },
-  {
-    "playerId": "25460",
-    "name": "Enrique Corrales",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "CD Badajoz",
-      "Sport Boys",
-      "SD Huesca",
-      "UD Las Palmas",
-      "RCD Mallorca",
-      "CA Osasuna",
-      "RM Castilla"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "2000s player",
-      "2010s player",
-      "Left Footed"
+      "Attacking Midfield"
     ],
     "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "13/14",
-        "club": "5358",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "13/14",
-        "club": "5358",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "12/13",
-        "club": "472",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "11/12",
-        "club": "472",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "10/11",
-        "club": "237",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "09/10",
-        "club": "237",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "08/09",
-        "club": "237",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "07/08",
-        "club": "331",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "06/07",
-        "club": "331",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "05/06",
-        "club": "331",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "04/05",
-        "club": "331",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "98/99",
-        "club": "12395",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "98/99",
-        "club": "33775",
-        "jerseyNumber": 3
-      }
-    ],
+    "jerseyNumbers": [],
     "position": {
-      "main": "Left-Back",
+      "main": "Attacking Midfield",
       "other": []
     },
-    "imageUrl": "",
-    "height": 177,
-    "dateOfBirth": "1982-01-03",
-    "leftFooted": true,
-    "era": "2000-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Socrates87660.jpg/500px-Socrates87660.jpg",
+    "imageAttribution": {
+      "author": "Foto U. Dettmar/ABr.",
+      "license": "CC BY 3.0 br",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Socrates87660.jpg"
     },
-    "highestValue": {
-      "age": 25,
-      "date": "2008-04-02",
-      "clubId": "331",
-      "clubName": "CA Osasuna",
-      "marketValue": 4600000
-    },
-    "fameScore": 0.9
-  },
-  {
-    "playerId": "2895",
-    "name": "Philipp Degen",
-    "nationality": "Switzerland",
-    "citizenship": [
-      "Switzerland"
-    ],
-    "clubs": [
-      "Basel",
-      "Liverpool FC",
-      "Stuttgart",
-      "Borussia Dortmund"
-    ],
-    "youthClubs": [
-      "FC Oberdorf"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "15/16",
-        "club": "26",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "14/15",
-        "club": "26",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "13/14",
-        "club": "26",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "26",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "26",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "10/11",
-        "club": "79",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "08/09",
-        "club": "31",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "07/08",
-        "club": "16",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "06/07",
-        "club": "16",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "05/06",
-        "club": "16",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "04/05",
-        "club": "26",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "03/04",
-        "club": "26",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "02/03",
-        "club": "26",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "01/02",
-        "club": "26",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "07/08",
-        "club": "3384",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "05/06",
-        "club": "3384",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "05/06",
-        "club": "3384",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "04/05",
-        "club": "3384",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "03/04",
-        "club": "9534",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "02/03",
-        "club": "9534",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "01/02",
-        "club": "19429",
-        "jerseyNumber": 18
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": [
-        "Right Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/2895-1629882781.jpg?lm=1",
     "height": 0,
-    "dateOfBirth": "1983-02-15",
-    "leftFooted": false,
-    "era": "2000-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2006-07-15",
-      "clubId": "16",
-      "clubName": "Borussia Dortmund",
-      "marketValue": 4000000
-    },
-    "fameScore": 0.8
-  },
-  {
-    "playerId": "8060",
-    "name": "Carl Medjani",
-    "nationality": "Algeria",
-    "citizenship": [
-      "Algeria",
-      "France"
-    ],
-    "clubs": [
-      "Salaise Rhodia",
-      "Salaise",
-      "Ohod Club",
-      "Sivasspor",
-      "Trabzonspor",
-      "CD Leganés",
-      "Levante",
-      "AS Monaco",
-      "Valenciennes FC",
-      "Olympiacos",
-      "AC Ajaccio",
-      "FC Lorient",
-      "Liverpool FC",
-      "FC Metz"
-    ],
-    "youthClubs": [
-      "Olympique Salaise Rhodia (1992-1994)",
-      "ES Roussillonaise (1994-1998)",
-      "AS Saint-Étienne (1998-2002)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Dual Nationality"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "18/19",
-        "club": "26587",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "18/19",
-        "club": "2381",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "17/18",
-        "club": "2381",
-        "jerseyNumber": 85
-      },
-      {
-        "season": "16/17",
-        "club": "449",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "16/17",
-        "club": "1244",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "15/16",
-        "club": "3368",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "15/16",
-        "club": "449",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "14/15",
-        "club": "449",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "13/14",
-        "club": "1423",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "13/14",
-        "club": "683",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "12/13",
-        "club": "162",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "1147",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "11/12",
-        "club": "1147",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "10/11",
-        "club": "1147",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "09/10",
-        "club": "1147",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "08/09",
-        "club": "1147",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "07/08",
-        "club": "1147",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "1158",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "05/06",
-        "club": "347",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "05/06",
-        "club": "31",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "04/05",
-        "club": "1158",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "17/18",
-        "club": "3614",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "16/17",
-        "club": "3614",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "15/16",
-        "club": "3614",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "14/15",
-        "club": "3614",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "13/14",
-        "club": "3614",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "12/13",
-        "club": "3614",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "11/12",
-        "club": "3614",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "10/11",
-        "club": "3614",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "10/11",
-        "club": "3614",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "09/10",
-        "club": "3614",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "01/02",
-        "club": "10831",
-        "jerseyNumber": 4
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/8060-1546172376.jpg?lm=1",
-    "height": 184,
-    "dateOfBirth": "1985-05-15",
-    "leftFooted": false,
-    "era": "2000-2025",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 29,
-      "date": "2015-01-26",
-      "clubId": "449",
-      "clubName": "Trabzonspor",
-      "marketValue": 4000000
-    },
-    "fameScore": 0.8
-  },
-  {
-    "playerId": "78966",
-    "name": "Daniel Ayala",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Potters Bar",
-      "Rotherham",
-      "Blackburn Rovers",
-      "Middlesbrough",
-      "Norwich",
-      "Nott'm Forest",
-      "Liverpool Res.",
-      "Derby",
-      "Hull City"
-    ],
-    "youthClubs": [
-      "Sevilla FC (2000-2007)",
-      "Liverpool FC (2007-2009)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "190cm+"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "23/24",
-        "club": "1194",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "22/23",
-        "club": "9258",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "22/23",
-        "club": "164",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "21/22",
-        "club": "164",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "20/21",
-        "club": "164",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "20/21",
-        "club": "9258",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "20/21",
-        "club": "9258",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "19/20",
-        "club": "641",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "18/19",
-        "club": "641",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "17/18",
-        "club": "641",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "16/17",
-        "club": "641",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "16/17",
-        "club": "9256",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "15/16",
-        "club": "641",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "14/15",
-        "club": "641",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "13/14",
-        "club": "641",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "13/14",
-        "club": "33614",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "12/13",
-        "club": "703",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "11/12",
-        "club": "1123",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "11/12",
-        "club": "33614",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "11/12",
-        "club": "33614",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "10/11",
-        "club": "22",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "10/11",
-        "club": "3008",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "08/09",
-        "club": "6922",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "08/09",
-        "club": "6922",
-        "jerseyNumber": 58
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_78966_703_2013_07_08_1.jpg?lm=1",
-    "height": 190,
-    "dateOfBirth": "1990-07-11",
-    "leftFooted": false,
-    "era": "2007-2024",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2019-02-27",
-      "clubId": "641",
-      "clubName": "Middlesbrough FC",
-      "marketValue": 4000000
-    },
-    "fameScore": 0.8
-  },
-  {
-    "playerId": "7512",
-    "name": "Borja Fernández",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Real Valladolid",
-      "UD Almería",
-      "Atl. Kolkata",
-      "SD Eibar",
-      "Getafe",
-      "Dep. La Coruña",
-      "Real Madrid",
-      "RCD Mallorca"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Fabio Capello",
-      "Played under Vicente del Bosque",
-      "Played under Manuel Pellegrini"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "18/19",
-        "club": "366",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "17/18",
-        "club": "366",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "16/17",
-        "club": "3302",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "15/16",
-        "club": "45278",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "15/16",
-        "club": "366",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "14/15",
-        "club": "45278",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "14/15",
-        "club": "1533",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "13/14",
-        "club": "45278",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "13/14",
-        "club": "3709",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "12/13",
-        "club": "3709",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "11/12",
-        "club": "897",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "11/12",
-        "club": "897",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "10/11",
-        "club": "3709",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "09/10",
-        "club": "366",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "08/09",
-        "club": "366",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "07/08",
-        "club": "366",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "366",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "05/06",
-        "club": "237",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "04/05",
-        "club": "418",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "02/03",
-        "club": "418",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "01/02",
-        "club": "418",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "97/98",
-        "club": "33775",
-        "jerseyNumber": 5
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Central Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/7512-1541147789.jpg?lm=1",
-    "height": 189,
-    "dateOfBirth": "1981-01-14",
-    "leftFooted": false,
-    "era": "2000-2019",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2008-07-22",
-      "clubId": "366",
-      "clubName": "Real Valladolid CF",
-      "marketValue": 3000000
-    },
-    "fameScore": 0.6
-  },
-  {
-    "playerId": "37917",
-    "name": "Nabil El Zhar",
-    "nationality": "Morocco",
-    "citizenship": [
-      "Morocco",
-      "France"
-    ],
-    "clubs": [
-      "Muaither SC",
-      "Al-Ahli SC",
-      "CD Leganés",
-      "UD Las Palmas",
-      "Levante",
-      "Liverpool FC",
-      "PAOK",
-      "Olympique Alès"
-    ],
-    "youthClubs": [
-      "Olympique Alès"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Winger",
-      "Attacking Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #10",
-      "Wore #7",
-      "Dual Nationality",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "22/23",
-        "club": "34232",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "21/22",
-        "club": "34232",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "20/21",
-        "club": "3612",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "19/20",
-        "club": "3612",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "18/19",
-        "club": "1244",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "17/18",
-        "club": "1244",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "16/17",
-        "club": "1244",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "16/17",
-        "club": "472",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "15/16",
-        "club": "472",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "14/15",
-        "club": "3368",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "13/14",
-        "club": "3368",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "12/13",
-        "club": "3368",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "11/12",
-        "club": "3368",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "10/11",
-        "club": "1091",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "08/09",
-        "club": "31",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "08/09",
-        "club": "9252",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 42
-      },
-      {
-        "season": "07/08",
-        "club": "9252",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 42
-      },
-      {
-        "season": "09/10",
-        "club": "3575",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "3575",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "3575",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "04/05",
-        "club": "37630",
-        "jerseyNumber": 10
-      }
-    ],
-    "position": {
-      "main": "Right Winger",
-      "other": [
-        "Attacking Midfield",
-        "Left Winger"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/37917-1490622625.jpg?lm=1",
-    "height": 170,
-    "dateOfBirth": "1986-08-27",
-    "leftFooted": false,
-    "era": "1999-2023",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2014-07-19",
-      "clubId": "3368",
-      "clubName": "Levante UD",
-      "marketValue": 3000000
-    },
-    "fameScore": 0.6
-  },
-  {
-    "playerId": "52111",
-    "name": "Jay Spearing",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Tranmere",
-      "Blackpool",
-      "Bolton",
-      "Blackburn Rovers",
-      "Liverpool FC",
-      "Leicester City",
-      "Liverpool Res."
-    ],
-    "youthClubs": [
-      "Liverpool FC (1997-2009)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "9252",
-        "jerseyNumber": 71
-      },
-      {
-        "season": "25/26",
-        "club": "9252",
-        "jerseyNumber": 71
-      },
-      {
-        "season": "24/25",
-        "club": "9252",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "24/25",
-        "club": "9252",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "24/25",
-        "club": "9252",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "24/25",
-        "club": "9252",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "24/25",
-        "club": "9252",
-        "jerseyNumber": 71
-      },
-      {
-        "season": "23/24",
-        "club": "9252",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "23/24",
-        "club": "9252",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "23/24",
-        "club": "9252",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "23/24",
-        "club": "9252",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "23/24",
-        "club": "9252",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "23/24",
-        "club": "9252",
-        "jerseyNumber": 71
-      },
-      {
-        "season": "22/23",
-        "club": "9252",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "22/23",
-        "club": "9252",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "22/23",
-        "club": "9252",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "22/23",
-        "club": "9252",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "22/23",
-        "club": "9252",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "22/23",
-        "club": "9252",
-        "jerseyNumber": 71
-      },
-      {
-        "season": "21/22",
-        "club": "1074",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "20/21",
-        "club": "1074",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "19/20",
-        "club": "1181",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "18/19",
-        "club": "1181",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "17/18",
-        "club": "1181",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "16/17",
-        "club": "355",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "15/16",
-        "club": "355",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "14/15",
-        "club": "164",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "14/15",
-        "club": "9259",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "14/15",
-        "club": "355",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "13/14",
-        "club": "355",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "12/13",
-        "club": "355",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "12/13",
-        "club": "31",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "11/12",
-        "club": "31",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "09/10",
-        "club": "1003",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "08/09",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "06/07",
-        "club": "6922",
-        "jerseyNumber": 4
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Central Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/52111-1475577728.jpg?lm=1",
-    "height": 168,
-    "dateOfBirth": "1988-11-25",
-    "leftFooted": false,
-    "era": "2009-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2012-06-24",
-      "clubId": "31",
-      "clubName": "Liverpool FC",
-      "marketValue": 3000000
-    },
-    "fameScore": 0.6
-  },
-  {
-    "playerId": "24637",
-    "name": "Jonathan Spector",
-    "nationality": "United States",
-    "citizenship": [
-      "United States",
-      "Germany"
-    ],
-    "clubs": [
-      "Hibernian FC",
-      "Orlando",
-      "Birmingham",
-      "West Ham United",
-      "Manchester United",
-      "Charlton",
-      "Fire Academy",
-      "IMG Bradenton",
-      "Sockers FC"
-    ],
-    "youthClubs": [
-      "Chicago Sockers",
-      "Schwaben AC",
-      "St. Viator High School"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "Full-Back",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "Dual Nationality"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "18/19",
-        "club": "903",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "17/18",
-        "club": "45604",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "16/17",
-        "club": "45604",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "16/17",
-        "club": "337",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "15/16",
-        "club": "337",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "14/15",
-        "club": "337",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "13/14",
-        "club": "337",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "12/13",
-        "club": "337",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "11/12",
-        "club": "337",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "10/11",
-        "club": "9267",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "9267",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "10/11",
-        "club": "9267",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "379",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "09/10",
-        "club": "379",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "08/09",
-        "club": "379",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "07/08",
-        "club": "379",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "06/07",
-        "club": "379",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "05/06",
-        "club": "358",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "04/05",
-        "club": "985",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "15/16",
-        "club": "3505",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "11/12",
-        "club": "3505",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "3505",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "09/10",
-        "club": "3505",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "08/09",
-        "club": "3505",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "08/09",
-        "club": "3505",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "08/09",
-        "club": "3505",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "07/08",
-        "club": "35707",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "06/07",
-        "club": "3505",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "04/05",
-        "club": "3505",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "04/05",
-        "club": "3505",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "04/05",
-        "club": "11946",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "02/03",
-        "club": "25514",
-        "jerseyNumber": 3
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": [
-        "Right-Back",
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/24637-1520876373.jpg?lm=1",
-    "height": 183,
-    "dateOfBirth": "1986-01-03",
-    "leftFooted": false,
-    "era": "2002-2019",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 24,
-      "date": "2011-01-02",
-      "clubId": "379",
-      "clubName": "West Ham United",
-      "marketValue": 2500000
-    },
-    "fameScore": 0.5
-  },
-  {
-    "playerId": "35512",
-    "name": "Javier Paredes",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "CD Ebro",
-      "Albacete",
-      "Real Zaragoza",
-      "Getafe",
-      "RM Castilla",
-      "Real Oviedo"
-    ],
-    "youthClubs": [
-      "Ribadesella C.F."
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "Centre-Back",
-      "2000s player",
-      "2010s player",
-      "Left Footed"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "15/16",
-        "club": "1532",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "14/15",
-        "club": "1532",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "13/14",
-        "club": "142",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "12/13",
-        "club": "142",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "11/12",
-        "club": "142",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "10/11",
-        "club": "142",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "09/10",
-        "club": "142",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "08/09",
-        "club": "142",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "07/08",
-        "club": "142",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "06/07",
-        "club": "3709",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "05/06",
-        "club": "3709",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "418",
-        "jerseyNumber": 42
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "02/03",
-        "club": "2497",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "01/02",
-        "club": "2497",
-        "jerseyNumber": 32
-      }
-    ],
-    "position": {
-      "main": "Left-Back",
-      "other": [
-        "Centre-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_35512_142_2012_10_24_1.jpg?lm=1",
-    "height": 177,
-    "dateOfBirth": "1982-05-07",
-    "leftFooted": true,
-    "era": "2000-2017",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2009-07-22",
-      "clubId": "142",
-      "clubName": "Real Zaragoza",
-      "marketValue": 2400000
-    },
-    "fameScore": 0.5
-  },
-  {
-    "playerId": "54775",
-    "name": "Magnus Wolff Eikrem",
-    "nationality": "Norway",
-    "citizenship": [
-      "Norway"
-    ],
-    "clubs": [
-      "Molde FK",
-      "KFUM Oslo",
-      "Seattle",
-      "Malmö",
-      "Cardiff",
-      "Heerenveen",
-      "Man Utd Res."
-    ],
-    "youthClubs": [
-      "Molde FK (2002-2006)",
-      "Manchester United (2006-2009)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "Attacking Midfield",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #7",
-      "Wore #10",
-      "Man Utd Academy",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "23184",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "25/26",
-        "club": "23184",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "25/26",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "24/25",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "23/24",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "22/23",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "21/22",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "20/21",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "19/20",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "18/19",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "17/18",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "17/18",
-        "club": "9636",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "17/18",
-        "club": "496",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "16/17",
-        "club": "496",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "16/17",
-        "club": "496",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "15/16",
-        "club": "496",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "15/16",
-        "club": "496",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "14/15",
-        "club": "496",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "14/15",
-        "club": "603",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "13/14",
-        "club": "603",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "13/14",
-        "club": "306",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "12/13",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "11/12",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "687",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "985",
-        "jerseyNumber": 42
-      },
-      {
-        "season": "09/10",
-        "club": "9251",
-        "jerseyNumber": 42
-      },
-      {
-        "season": "16/17",
-        "club": "3440",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "14/15",
-        "club": "3440",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "12/13",
-        "club": "16854",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "12/13",
-        "club": "3440",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "12/13",
-        "club": "3440",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "11/12",
-        "club": "16854",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "26471",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "26471",
-        "jerseyNumber": 15
-      }
-    ],
-    "position": {
-      "main": "Second Striker",
-      "other": [
-        "Attacking Midfield",
-        "Central Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/54775-1712147253.jpg?lm=1",
-    "height": 173,
-    "dateOfBirth": "1990-08-08",
-    "leftFooted": false,
-    "era": "2006-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2014-01-15",
-      "clubId": "603",
-      "clubName": "Cardiff City",
-      "marketValue": 2500000
-    },
-    "fameScore": 0.5
-  },
-  {
-    "playerId": "73522",
-    "name": "Matty James",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Wrexham",
-      "Bristol City",
-      "Leicester City",
-      "Coventry",
-      "Barnsley",
-      "Preston",
-      "Man Utd Res."
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #10",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "1112",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "25/26",
-        "club": "1112",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "24/25",
-        "club": "1112",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "23/24",
-        "club": "698",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "22/23",
-        "club": "698",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "21/22",
-        "club": "698",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "20/21",
-        "club": "990",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "20/21",
-        "club": "349",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "19/20",
-        "club": "1003",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "19/20",
-        "club": "39341",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "19/20",
-        "club": "39341",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "18/19",
-        "club": "1003",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "18/19",
-        "club": "39341",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "17/18",
-        "club": "1003",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "16/17",
-        "club": "349",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "16/17",
-        "club": "1003",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "16/17",
-        "club": "39341",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "15/16",
-        "club": "1003",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "14/15",
-        "club": "1003",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "14/15",
-        "club": "39341",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "13/14",
-        "club": "1003",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "12/13",
-        "club": "1003",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "11/12",
-        "club": "9251",
-        "jerseyNumber": 43
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 43
-      },
-      {
-        "season": "10/11",
-        "club": "466",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "09/10",
-        "club": "466",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 47
-      },
-      {
-        "season": "06/07",
-        "club": "5242",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "09/10",
-        "club": "22907",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "08/09",
-        "club": "22907",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "08/09",
-        "club": "21340",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "07/08",
-        "club": "23260",
-        "jerseyNumber": 4
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/73522-1756666258.jpg?lm=1",
-    "height": 181,
-    "dateOfBirth": "1991-07-22",
-    "leftFooted": false,
-    "era": "2006-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2015-01-07",
-      "clubId": "1003",
-      "clubName": "Leicester City",
-      "marketValue": 2500000
-    },
-    "fameScore": 0.5
-  },
-  {
-    "playerId": "128909",
-    "name": "Jack Robinson",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Sheff Utd",
-      "Birmingham",
-      "Nott'm Forest",
-      "QPR",
-      "Huddersfield",
-      "Liverpool FC",
-      "Blackpool",
-      "Wolves",
-      "Liverpool Res."
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "Full-Back",
-      "2010s player",
-      "2020s player",
-      "Wore #9",
-      "Left Footed"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "337",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "25/26",
-        "club": "337",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "25/26",
-        "club": "350",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "24/25",
-        "club": "350",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "23/24",
-        "club": "350",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "22/23",
-        "club": "350",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "21/22",
-        "club": "350",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "20/21",
-        "club": "350",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "19/20",
-        "club": "350",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "19/20",
-        "club": "703",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "18/19",
-        "club": "703",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "17/18",
-        "club": "1039",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "16/17",
-        "club": "1039",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "15/16",
-        "club": "1039",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "14/15",
-        "club": "1110",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "13/14",
-        "club": "1181",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "13/14",
-        "club": "9252",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "12/13",
-        "club": "543",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "12/13",
-        "club": "31",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "11/12",
-        "club": "9252",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "11/12",
-        "club": "9252",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "11/12",
-        "club": "31",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "08/09",
-        "club": "6922",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "08/09",
-        "club": "6922",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "08/09",
-        "club": "6922",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "13/14",
-        "club": "9565",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "13/14",
-        "club": "9565",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "13/14",
-        "club": "9565",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "12/13",
-        "club": "9565",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "11/12",
-        "club": "21340",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "10/11",
-        "club": "21340",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "09/10",
-        "club": "23260",
-        "jerseyNumber": 12
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": [
-        "Left-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/128909-1700738070.jpg?lm=1",
-    "height": 180,
-    "dateOfBirth": "1993-01-09",
-    "leftFooted": true,
-    "era": "2010-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2019-06-28",
-      "clubId": "703",
-      "clubName": "Nottingham Forest",
-      "marketValue": 2500000
-    },
-    "fameScore": 0.5
-  },
-  {
-    "playerId": "3684",
-    "name": "Paul Jones",
-    "nationality": "Wales",
-    "citizenship": [
-      "Wales"
-    ],
-    "clubs": [
-      "Bognor Regis",
-      "QPR",
-      "Wolves",
-      "Millwall",
-      "Watford",
-      "Southampton FC",
-      "Liverpool FC",
-      "Stockport",
-      "Kidderminster",
-      "Bridgnorth Town FC"
-    ],
-    "youthClubs": [
-      "Oswestry Boys"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "190cm+",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1980s player",
-      "1990s player",
-      "2000s player",
-      "Wore #1",
-      "190cm+"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "06/07",
-        "club": "1039",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "05/06",
-        "club": "1039",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "05/06",
-        "club": "1028",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "05/06",
-        "club": "543",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "04/05",
-        "club": "1010",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "04/05",
-        "club": "543",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "03/04",
-        "club": "543",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "03/04",
-        "club": "180",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "02/03",
-        "club": "180",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "01/02",
-        "club": "180",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "00/01",
-        "club": "180",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "99/00",
-        "club": "180",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "98/99",
-        "club": "180",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "97/98",
-        "club": "180",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "3864",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "3864",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "3864",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "03/04",
-        "club": "3864",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "02/03",
-        "club": "3864",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "00/01",
-        "club": "3864",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "98/99",
-        "club": "3864",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "96/97",
-        "club": "3864",
-        "jerseyNumber": 21
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 191,
-    "dateOfBirth": "1967-04-18",
-    "leftFooted": false,
-    "era": "1983-2008",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 37,
-      "date": "2004-04-10",
-      "clubId": "543",
-      "clubName": "Wolverhampton Wanderers",
-      "marketValue": 2000000
-    },
-    "fameScore": 0.4
-  },
-  {
-    "playerId": "3957",
-    "name": "Daniel Sjölund",
-    "nationality": "Finland",
-    "citizenship": [
-      "Finland"
-    ],
-    "clubs": [
-      "FC Åland",
-      "IFK Mariehamn",
-      "Norrköping",
-      "Åtvidabergs FF",
-      "Djurgården",
-      "Liverpool FC",
-      "West Ham United",
-      "Brommapojkarna"
-    ],
-    "youthClubs": [
-      "IF Finströms Kamraterna"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Central Midfield",
-      "Attacking Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #10",
-      "Wore #9",
-      "Left Footed",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "22/23",
-        "club": "51477",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "18/19",
-        "club": "6017",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "17/18",
-        "club": "23271",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "17/18",
-        "club": "2844",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "16/17",
-        "club": "2844",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "15/16",
-        "club": "2844",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "14/15",
-        "club": "2844",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "13/14",
-        "club": "6139",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "12/13",
-        "club": "6139",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "11/12",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "09/10",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "08/09",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "07/08",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "06/07",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "05/06",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "04/05",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "03/04",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "02/03",
-        "club": "1044",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "00/01",
-        "club": "31",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "12/13",
-        "club": "3443",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "08/09",
-        "club": "3443",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "07/08",
-        "club": "3443",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "02/03",
-        "club": "20796",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "02/03",
-        "club": "20796",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "00/01",
-        "club": "20795",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "00/01",
-        "club": "20796",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "99/00",
-        "club": "20793",
-        "jerseyNumber": 11
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Central Midfield",
-        "Attacking Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1983-04-22",
-    "leftFooted": true,
-    "era": "1998-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 21,
-      "date": "2004-04-10",
-      "clubId": "1044",
-      "clubName": "Djurgårdens IF",
-      "marketValue": 2000000
-    },
-    "fameScore": 0.4
-  },
-  {
-    "playerId": "103819",
-    "name": "Danny Wilson",
-    "nationality": "Scotland",
-    "citizenship": [
-      "Scotland"
-    ],
-    "clubs": [
-      "Livingston FC",
-      "Queen's Park",
-      "Colorado",
-      "Rangers FC",
-      "Heart of Midl.",
-      "Liverpool FC",
-      "Bristol City",
-      "Blackpool"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "Full-Back",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Left Footed"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "25/26",
-        "club": "1241",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "24/25",
-        "club": "1241",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "24/25",
-        "club": "3031",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "23/24",
-        "club": "3031",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "22/23",
-        "club": "1247",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "21/22",
-        "club": "95335",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "21/22",
-        "club": "1247",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "20/21",
-        "club": "1247",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "19/20",
-        "club": "1247",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "18/19",
-        "club": "1247",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "17/18",
-        "club": "1247",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "17/18",
-        "club": "124",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "16/17",
-        "club": "124",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "15/16",
-        "club": "124",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "14/15",
-        "club": "43",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "13/14",
-        "club": "43",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "43",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "698",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "12/13",
-        "club": "31",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "11/12",
-        "club": "1181",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "11/12",
-        "club": "1181",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "11/12",
-        "club": "9252",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "11/12",
-        "club": "31",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "09/10",
-        "club": "124",
-        "jerseyNumber": 66
-      },
-      {
-        "season": "08/09",
-        "club": "124",
-        "jerseyNumber": 72
-      },
-      {
-        "season": "08/09",
-        "club": "12573",
-        "jerseyNumber": 72
-      },
-      {
-        "season": "11/12",
-        "club": "16868",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "08/09",
-        "club": "17622",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "07/08",
-        "club": "25791",
-        "jerseyNumber": 5
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": [
-        "Left-Back",
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/103819-1678128921.jpg?lm=1",
-    "height": 187,
-    "dateOfBirth": "1991-12-27",
-    "leftFooted": true,
-    "era": "2008-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2011-08-08",
-      "clubId": "31",
-      "clubName": "Liverpool FC",
-      "marketValue": 2000000
-    },
-    "fameScore": 0.4
-  },
-  {
-    "playerId": "3539",
-    "name": "Luke Steele",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Peterb Sports",
-      "Deeping",
-      "Notts County",
-      "Stamford",
-      "Nott'm Forest",
-      "Millwall",
-      "Bristol City",
-      "Panathinaikos",
-      "Barnsley",
-      "West Brom",
-      "Coventry",
-      "Manchester United",
-      "Peterborough"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "Centre-Forward",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #1",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "24/25",
-        "club": "68004",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "23/24",
-        "club": "68004",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "20/21",
-        "club": "1045",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "19/20",
-        "club": "1028",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "18/19",
-        "club": "703",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "17/18",
-        "club": "698",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "17/18",
-        "club": "265",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "16/17",
-        "club": "265",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "15/16",
-        "club": "265",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "14/15",
-        "club": "265",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "13/14",
-        "club": "349",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "349",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "349",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "10/11",
-        "club": "349",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "349",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "08/09",
-        "club": "349",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "07/08",
-        "club": "349",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "06/07",
-        "club": "984",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "06/07",
-        "club": "990",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "05/06",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "04/05",
-        "club": "990",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "04/05",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "03/04",
-        "club": "21340",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "02/03",
-        "club": "21340",
-        "jerseyNumber": 1
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": [
-        "Centre-Forward"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/3539-1541148394.JPG?lm=1",
-    "height": 188,
-    "dateOfBirth": "1984-09-24",
-    "leftFooted": false,
-    "era": "2001-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 20,
-      "date": "2004-04-10",
-      "clubId": "990",
-      "clubName": "Coventry City",
-      "marketValue": 1500000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "3551",
-    "name": "Danny Webber",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Salford",
-      "Accrington",
-      "Leeds",
-      "Portsmouth",
-      "Sheff Utd",
-      "Watford",
-      "Manchester United",
-      "Port Vale"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "Winger",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #9",
-      "Wore #10"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "15/16",
-        "club": "34888",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "13/14",
-        "club": "3688",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "11/12",
-        "club": "399",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "10/11",
-        "club": "1020",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "09/10",
-        "club": "1020",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "08/09",
-        "club": "350",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "07/08",
-        "club": "350",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "06/07",
-        "club": "350",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "05/06",
-        "club": "350",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "04/05",
-        "club": "350",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "04/05",
-        "club": "1010",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "03/04",
-        "club": "1010",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "01/02",
-        "club": "1010",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "01/02",
-        "club": "1211",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "00/01",
-        "club": "985",
-        "jerseyNumber": 37
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": [
-        "Left Winger",
-        "Right Winger"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1981-12-28",
-    "leftFooted": false,
-    "era": "1999-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2009-08-01",
-      "clubId": "350",
-      "clubName": "Sheffield United",
-      "marketValue": 1500000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "22230",
-    "name": "Zak Whitbread",
-    "nationality": "United States",
-    "citizenship": [
-      "United States",
-      "England"
-    ],
-    "clubs": [
-      "Shrewsbury",
-      "Derby",
-      "Leicester City",
-      "Norwich",
-      "Millwall",
-      "Liverpool FC",
-      "Liverpool Res."
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Citizenships",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Back",
-      "2000s player",
-      "2010s player",
-      "Left Footed",
-      "Dual Nationality",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "15/16",
-        "club": "3054",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "14/15",
-        "club": "39337",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "14/15",
-        "club": "22",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "13/14",
-        "club": "22",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "13/14",
-        "club": "1003",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "12/13",
-        "club": "1003",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "11/12",
-        "club": "1123",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "10/11",
-        "club": "1123",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "09/10",
-        "club": "1123",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "08/09",
-        "club": "1028",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "07/08",
-        "club": "1028",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "1028",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "05/06",
-        "club": "1028",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "05/06",
-        "club": "31",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "03/04",
-        "club": "35707",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "02/03",
-        "club": "11946",
-        "jerseyNumber": 2
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 188,
-    "dateOfBirth": "1984-10-01",
-    "leftFooted": true,
-    "era": "2003-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 28,
-      "date": "2012-06-24",
-      "clubId": "1123",
-      "clubName": "Norwich City",
-      "marketValue": 1500000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "28285",
-    "name": "Dani Pacheco",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Górnik Zabrze",
-      "Wisla Plock",
-      "Aris Limassol",
-      "UD Logroñés",
-      "Málaga CF",
-      "Getafe",
-      "Real Betis",
-      "Alavés",
-      "AD Alcorcón",
-      "Liverpool FC",
-      "SD Huesca",
-      "Atlético de Madrid",
-      "Rayo Vallecano",
-      "Norwich"
-    ],
-    "youthClubs": [
-      "Peña La Vega",
-      "Málaga C.F. (2001-2003)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Attacking Midfield",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #7",
-      "Wore #9",
-      "Wore #10"
-    ],
-    "managers": [
-      "Played under Diego Simeone",
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "26/27",
-        "club": "2118",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "25/26",
-        "club": "2118",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "24/25",
-        "club": "2118",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "23/24",
-        "club": "428",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "22/23",
-        "club": "428",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "21/22",
-        "club": "428",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "21/22",
-        "club": "10586",
-        "jerseyNumber": 47
-      },
-      {
-        "season": "20/21",
-        "club": "24420",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "19/20",
-        "club": "1084",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "18/19",
-        "club": "1084",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "17/18",
-        "club": "3709",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "16/17",
-        "club": "3709",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "15/16",
-        "club": "1108",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "14/15",
-        "club": "150",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "13/14",
-        "club": "11596",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "12/13",
-        "club": "5358",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "12/13",
-        "club": "31",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "11/12",
-        "club": "367",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "10/11",
-        "club": "1123",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 47
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 47
-      },
-      {
-        "season": "07/08",
-        "club": "6922",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "20911",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "09/10",
-        "club": "12609",
-        "jerseyNumber": 11
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Attacking Midfield",
-        "Central Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/28285-1753818408.jpg?lm=1",
-    "height": 170,
-    "dateOfBirth": "1991-05-01",
-    "leftFooted": false,
-    "era": "2007-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2014-04-08",
-      "clubId": "150",
-      "clubName": "Real Betis Balompié",
-      "marketValue": 1500000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "38094",
-    "name": "Lee Peltier",
-    "nationality": "England",
-    "citizenship": [
-      "England",
-      "Antigua and Barbuda"
-    ],
-    "clubs": [
-      "Rotherham",
-      "Middlesbrough",
-      "West Brom",
-      "Cardiff",
-      "Huddersfield",
-      "Leeds",
-      "Nott'm Forest",
-      "Leicester City",
-      "Yeovil Town",
-      "Liverpool Res.",
-      "Hull City"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "Centre-Back",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Dual Nationality"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "23/24",
-        "club": "1194",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "22/23",
-        "club": "1194",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "21/22",
-        "club": "641",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "20/21",
-        "club": "29990",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "20/21",
-        "club": "984",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "19/20",
-        "club": "984",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "19/20",
-        "club": "603",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "18/19",
-        "club": "603",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "17/18",
-        "club": "603",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "16/17",
-        "club": "603",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "15/16",
-        "club": "603",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "14/15",
-        "club": "603",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "14/15",
-        "club": "1110",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "13/14",
-        "club": "703",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "13/14",
-        "club": "399",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "12/13",
-        "club": "399",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "11/12",
-        "club": "1003",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "1110",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "09/10",
-        "club": "1110",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "08/09",
-        "club": "972",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "07/08",
-        "club": "972",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 37
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": [
-        "Centre-Back",
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/38094-1547736271.jpg?lm=1",
-    "height": 178,
-    "dateOfBirth": "1986-11-12",
-    "leftFooted": false,
-    "era": "2004-2024",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 26,
-      "date": "2013-12-07",
-      "clubId": "399",
-      "clubName": "Leeds United",
-      "marketValue": 1500000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "44072",
-    "name": "Marcos Tébar",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Odisha FC",
-      "Pune City",
-      "Delhi Dynamos",
-      "Reus Deportiu",
-      "UE Llagostera",
-      "Brentford",
-      "UD Almería",
-      "Girona",
-      "RM Castilla",
-      "Rayo Vallecano"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "45080",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "18/19",
-        "club": "45080",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "17/18",
-        "club": "45275",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "16/17",
-        "club": "13225",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "15/16",
-        "club": "45080",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "15/16",
-        "club": "26132",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "15/16",
-        "club": "1148",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "14/15",
-        "club": "1148",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "13/14",
-        "club": "3302",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "12/13",
-        "club": "12321",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "11/12",
-        "club": "12321",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "10/11",
-        "club": "12321",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "09/10",
-        "club": "12321",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "08/09",
-        "club": "6767",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "08/09",
-        "club": "6767",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "6767",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "06/07",
-        "club": "6767",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "418",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "05/06",
-        "club": "418",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "05/06",
-        "club": "6767",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "02/03",
-        "club": "12395",
-        "jerseyNumber": 6
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_44072_3302_2012_1.jpg?lm=1",
-    "height": 185,
-    "dateOfBirth": "1986-07-02",
-    "leftFooted": false,
-    "era": "2004-2020",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2013-05-13",
-      "clubId": "12321",
-      "clubName": "Girona FC",
-      "marketValue": 1500000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "58174",
-    "name": "Santos",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Ontinyent",
-      "Elche CF",
-      "CD Tenerife",
-      "UE Lleida",
-      "Hércules CF",
-      "RM Castilla"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Attacking Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "15447",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "10/11",
-        "club": "1531",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "09/10",
-        "club": "1531",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "08/09",
-        "club": "1531",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "07/08",
-        "club": "648",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "05/06",
-        "club": "3239",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "05/06",
-        "club": "33593",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "04/05",
-        "club": "3239",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "04/05",
-        "club": "33593",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 29
-      }
-    ],
-    "position": {
-      "main": "Left Midfield",
-      "other": [
-        "Attacking Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 172,
-    "dateOfBirth": "1980-01-19",
-    "leftFooted": false,
-    "era": "1999-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 29,
-      "date": "2009-11-23",
-      "clubId": "1531",
-      "clubName": "Elche CF",
-      "marketValue": 1600000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "73501",
-    "name": "Corry Evans",
-    "nationality": "Northern Ireland",
-    "citizenship": [
-      "Northern Ireland"
-    ],
-    "clubs": [
-      "Oldham Athletic",
-      "Bradford",
-      "Sunderland",
-      "Blackburn Rovers",
-      "Hull City",
-      "Man Utd Res.",
-      "Carlisle United"
-    ],
-    "youthClubs": [
-      "Greensland FC",
-      "Manchester United (2005-2009)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Defensive Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #10",
-      "Man Utd Academy",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "24/25",
-        "club": "1078",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "24/25",
-        "club": "1027",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "23/24",
-        "club": "289",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "23/24",
-        "club": "9264",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "22/23",
-        "club": "289",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "21/22",
-        "club": "289",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "20/21",
-        "club": "9258",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "20/21",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "19/20",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "18/19",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "17/18",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "16/17",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "16/17",
-        "club": "9258",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "15/16",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "14/15",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "13/14",
-        "club": "9258",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "13/14",
-        "club": "164",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "12/13",
-        "club": "3008",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "11/12",
-        "club": "3008",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "3008",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "10/11",
-        "club": "1220",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "10/11",
-        "club": "985",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "09/10",
-        "club": "9251",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 45
-      },
-      {
-        "season": "06/07",
-        "club": "5242",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "24/25",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "22/23",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "21/22",
-        "club": "5674",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "20/21",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "19/20",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "18/19",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "17/18",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "16/17",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "15/16",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "14/15",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "12/13",
-        "club": "5674",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "12/13",
-        "club": "5674",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "12/13",
-        "club": "5674",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "12/13",
-        "club": "5674",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "08/09",
-        "club": "28031",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "17621",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "28031",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "06/07",
-        "club": "25790",
-        "jerseyNumber": 8
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Defensive Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/73501-1464949219.jpg?lm=1",
-    "height": 180,
-    "dateOfBirth": "1990-07-30",
-    "leftFooted": false,
-    "era": "2009-2025",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 24,
-      "date": "2015-02-24",
-      "clubId": "164",
-      "clubName": "Blackburn Rovers",
-      "marketValue": 1250000
-    },
-    "fameScore": 0.3
-  },
-  {
-    "playerId": "3536",
-    "name": "Daniel Nardiello",
-    "nationality": "Wales",
-    "citizenship": [
-      "Wales",
-      "England"
-    ],
-    "clubs": [
-      "Bangor City",
-      "Bury",
-      "Plymouth",
-      "Rotherham",
-      "Exeter City",
-      "Blackpool",
-      "Oldham Athletic",
-      "Hartlepool",
-      "QPR",
-      "Barnsley",
-      "Manchester United",
-      "Swansea",
-      "Man Utd Res."
-    ],
-    "youthClubs": [
-      "Wolverhampton Wanderers"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "Winger",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #9",
-      "Wore #7",
-      "Wore #10",
-      "Dual Nationality",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "17/18",
-        "club": "3649",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "16/17",
-        "club": "3649",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "15/16",
-        "club": "2262",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "15/16",
-        "club": "2413",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "14/15",
-        "club": "2413",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "13/14",
-        "club": "2413",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "13/14",
-        "club": "1194",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "12/13",
-        "club": "1194",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "11/12",
-        "club": "6699",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "6699",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "09/10",
-        "club": "1078",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "09/10",
-        "club": "2413",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "09/10",
-        "club": "1181",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "07/08",
-        "club": "349",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "07/08",
-        "club": "1039",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "06/07",
-        "club": "349",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "05/06",
-        "club": "349",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "04/05",
-        "club": "349",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "03/04",
-        "club": "349",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "03/04",
-        "club": "2288",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 40
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": [
-        "Left Winger",
-        "Right Winger"
-      ]
-    },
-    "imageUrl": "",
-    "height": 180,
-    "dateOfBirth": "1982-10-22",
-    "leftFooted": false,
-    "era": "1999-2017",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 26,
-      "date": "2009-06-01",
-      "clubId": "1181",
-      "clubName": "Blackpool FC",
-      "marketValue": 750000
-    },
-    "fameScore": 0.2
-  },
-  {
-    "playerId": "3599",
-    "name": "Jon Otsemobor",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "MK Dons",
-      "Tranmere",
-      "Sheff Wed",
-      "Southampton FC",
-      "Norwich",
-      "Crewe Alexandra",
-      "Rotherham",
-      "Liverpool FC",
-      "Bolton",
-      "Hull City"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Full-Back",
-      "Centre-Back",
-      "2000s player",
-      "2010s player"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "13/14",
-        "club": "1074",
-        "jerseyNumber": 31
-      },
-      {
-        "season": "13/14",
-        "club": "991",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "12/13",
-        "club": "991",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "11/12",
-        "club": "1035",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "10/11",
-        "club": "1035",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "09/10",
-        "club": "180",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "08/09",
-        "club": "1123",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "07/08",
-        "club": "1123",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "06/07",
-        "club": "1042",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "05/06",
-        "club": "1042",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "05/06",
-        "club": "1194",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "04/05",
-        "club": "1042",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "03/04",
-        "club": "355",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 36
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": [
-        "Centre-Back"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1983-03-23",
-    "leftFooted": false,
-    "era": "2002-2014",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2009-07-01",
-      "clubId": "1123",
-      "clubName": "Norwich City",
-      "marketValue": 750000
-    },
-    "fameScore": 0.2
-  },
-  {
-    "playerId": "7509",
-    "name": "Carlos Sánchez",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Puerta Bonita",
-      "Castellón",
-      "Real Madrid",
-      "UD Almería",
-      "Poli Ejido",
-      "RM Castilla"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #1",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Fabio Capello",
-      "Played under Vicente del Bosque",
-      "Played under Manuel Pellegrini"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "09/10",
-        "club": "2502",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "08/09",
-        "club": "2502",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "07/08",
-        "club": "2502",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "06/07",
-        "club": "2502",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "05/06",
-        "club": "3302",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "04/05",
-        "club": "606",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "53283",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "02/03",
-        "club": "418",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "02/03",
-        "club": "418",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "01/02",
-        "club": "418",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "98/99",
-        "club": "1244",
-        "jerseyNumber": 25
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 184,
-    "dateOfBirth": "1978-01-19",
-    "leftFooted": false,
-    "era": "1999-2011",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 31,
-      "date": "2009-06-08",
-      "clubId": "2502",
-      "clubName": "CD Castellón",
-      "marketValue": 800000
-    },
-    "fameScore": 0.2
-  },
-  {
-    "playerId": "37393",
-    "name": "Paul Anderson",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Melton Town",
-      "Northampton",
-      "Plymouth",
-      "Mansfield Town",
-      "Bradford",
-      "Ipswich",
-      "Bristol City",
-      "Nott'm Forest",
-      "Liverpool Res.",
-      "Swansea"
-    ],
-    "youthClubs": [
-      "West Brom (-2002)",
-      "Hull City (2002-2005)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Full-Back",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #10",
-      "Wore #7"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "1302",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "18/19",
-        "club": "2262",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "17/18",
-        "club": "3820",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "16/17",
-        "club": "1302",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "16/17",
-        "club": "1027",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "15/16",
-        "club": "1027",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "14/15",
-        "club": "677",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "13/14",
-        "club": "677",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "12/13",
-        "club": "698",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "11/12",
-        "club": "703",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "703",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "09/10",
-        "club": "703",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "08/09",
-        "club": "703",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "07/08",
-        "club": "2288",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "05/06",
-        "club": "31",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "05/06",
-        "club": "3008",
-        "jerseyNumber": 32
-      }
-    ],
-    "position": {
-      "main": "Right Midfield",
-      "other": [
-        "Left Midfield",
-        "Right-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_37393_677_2013_10_18_1.jpg?lm=1",
-    "height": 175,
-    "dateOfBirth": "1988-07-23",
-    "leftFooted": false,
-    "era": "2006-2024",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 21,
-      "date": "2009-09-12",
-      "clubId": "703",
-      "clubName": "Nottingham Forest",
-      "marketValue": 1200000
-    },
-    "fameScore": 0.2
-  },
-  {
-    "playerId": "73566",
-    "name": "Cameron Stewart",
-    "nationality": "England",
-    "citizenship": [
-      "England",
-      "Scotland"
-    ],
-    "clubs": [
-      "Lincoln City",
-      "Ipswich",
-      "Doncaster",
-      "Barnsley",
-      "Hull City",
-      "Leeds",
-      "Charlton",
-      "Blackburn Rovers",
-      "Burnley",
-      "Man Utd Res.",
-      "Yeovil Town"
-    ],
-    "youthClubs": [
-      "Manchester United (2007-2010)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Winger",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Wore #10",
-      "Man Utd Academy",
-      "Dual Nationality"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "17/18",
-        "club": "1198",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "15/16",
-        "club": "2454",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "14/15",
-        "club": "349",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "14/15",
-        "club": "677",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "13/14",
-        "club": "399",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "13/14",
-        "club": "358",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "13/14",
-        "club": "3008",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "12/13",
-        "club": "164",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "12/13",
-        "club": "1132",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "12/13",
-        "club": "3008",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "11/12",
-        "club": "3008",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "3008",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "972",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "09/10",
-        "club": "9251",
-        "jerseyNumber": 46
-      },
-      {
-        "season": "09/10",
-        "club": "21340",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "07/08",
-        "club": "23260",
-        "jerseyNumber": 17
-      }
-    ],
-    "position": {
-      "main": "Left Winger",
-      "other": [
-        "Right Winger"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_73566_3008_2013_08_16_1.jpg?lm=1",
-    "height": 172,
-    "dateOfBirth": "1991-08-04",
-    "leftFooted": false,
-    "era": "2009-2018",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 21,
-      "date": "2012-06-22",
-      "clubId": "3008",
-      "clubName": "Hull City",
-      "marketValue": 750000
-    },
-    "fameScore": 0.2
-  },
-  {
-    "playerId": "3322",
-    "name": "Ben Williams",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Bolton",
-      "Blackpool",
-      "Bury",
-      "Bradford",
-      "Hibernian FC",
-      "Colchester Utd.",
-      "Carlisle United",
-      "Crewe Alexandra",
-      "Man Utd Res.",
-      "Altrincham",
-      "Chesterfield",
-      "Coventry"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "2000s player",
-      "2010s player",
-      "Wore #1",
-      "Left Footed",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "18/19",
-        "club": "355",
-        "jerseyNumber": 27
-      },
-      {
-        "season": "17/18",
-        "club": "1181",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "16/17",
-        "club": "2413",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "15/16",
-        "club": "1027",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "1027",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "13/14",
-        "club": "903",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "903",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "1060",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "10/11",
-        "club": "1060",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "1060",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "08/09",
-        "club": "1220",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "1042",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "06/07",
-        "club": "1042",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "05/06",
-        "club": "1042",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "1042",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "03/04",
-        "club": "1042",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 37
-      },
-      {
-        "season": "02/03",
-        "club": "990",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 30
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_3322_903_2013_08_08_1.jpg?lm=1",
-    "height": 188,
-    "dateOfBirth": "1982-08-27",
-    "leftFooted": true,
-    "era": "2001-2019",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 30,
-      "date": "2013-02-14",
-      "clubId": "903",
-      "clubName": "Hibernian FC",
-      "marketValue": 500000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "3537",
-    "name": "Mark Lynch",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Altrincham",
-      "Stockport",
-      "Rotherham",
-      "Yeovil Town",
-      "Hull City",
-      "Sunderland",
-      "Manchester United",
-      "St. Johnstone"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Full-Back",
-      "2000s player",
-      "2010s player"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "1098",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "1098",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "09/10",
-        "club": "1194",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "08/09",
-        "club": "1194",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "07/08",
-        "club": "972",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "06/07",
-        "club": "972",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "05/06",
-        "club": "3008",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "04/05",
-        "club": "289",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "01/02",
-        "club": "985",
-        "jerseyNumber": 38
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 180,
-    "dateOfBirth": "1981-02-09",
-    "leftFooted": false,
-    "era": "2001-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2004-04-10",
-      "clubId": "289",
-      "clubName": "Sunderland AFC",
-      "marketValue": 250000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "4218",
-    "name": "Floribert N'Galula",
-    "nationality": "Belgium",
-    "citizenship": [
-      "Belgium",
-      "DR Congo"
-    ],
-    "clubs": [
-      "BX Brussels",
-      "OH Leuven",
-      "TPS",
-      "Wedeler TSV",
-      "D.C. United",
-      "M. Petah Tikva",
-      "Sparta R.",
-      "Randers FC",
-      "Man Utd Res."
-    ],
-    "youthClubs": [
-      "RSC Anderlecht (1999-2003)",
-      "Manchester United (2003-2007)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Central Midfield",
-      "Centre-Back",
-      "2000s player",
-      "2010s player",
-      "Man Utd Academy",
-      "Dual Nationality",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "11/12",
-        "club": "2727",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "10/11",
-        "club": "2275",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "08/09",
-        "club": "468",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "04/05",
-        "club": "985",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "04/05",
-        "club": "16338",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "04/05",
-        "club": "16338",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "03/04",
-        "club": "23219",
-        "jerseyNumber": 3
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Right Midfield",
-        "Centre-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/4218-1617786472.jpg?lm=1",
-    "height": 187,
-    "dateOfBirth": "1987-07-03",
-    "leftFooted": false,
-    "era": "2002-2018",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 24,
-      "date": "2012-01-20",
-      "clubId": "2727",
-      "clubName": "Oud-Heverlee Leuven",
-      "marketValue": 500000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "15930",
-    "name": "David Martin",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Southend United",
-      "MK Dons",
-      "West Ham United",
-      "Millwall",
-      "Liverpool FC",
-      "Derby",
-      "Leeds",
-      "Tranmere",
-      "Leicester City",
-      "Accrington",
-      "Wimbledon FC"
-    ],
-    "youthClubs": [
-      "Tottenham Hotspur",
-      ""
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #1",
-      "Football family",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Jürgen Klopp",
-      "Played under Rafael Benítez",
-      "Played under Manuel Pellegrini"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "23/24",
-        "club": "2793",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "22/23",
-        "club": "991",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "21/22",
-        "club": "379",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "20/21",
-        "club": "379",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "19/20",
-        "club": "379",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "18/19",
-        "club": "1028",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "17/18",
-        "club": "1028",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "16/17",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "15/16",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "13/14",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "10/11",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "22",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "09/10",
-        "club": "399",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "09/10",
-        "club": "991",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "08/09",
-        "club": "1003",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "07/08",
-        "club": "9252",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "05/06",
-        "club": "991",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "05/06",
-        "club": "31",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "04/05",
-        "club": "991",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "03/04",
-        "club": "114309",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "05/06",
-        "club": "21340",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "04/05",
-        "club": "21340",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "02/03",
-        "club": "23260",
-        "jerseyNumber": 13
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/15930-1560936786.png?lm=1",
-    "height": 188,
-    "dateOfBirth": "1986-01-22",
-    "leftFooted": false,
-    "era": "2003-2024",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 30,
-      "date": "2016-04-20",
-      "clubId": "991",
-      "clubName": "Milton Keynes Dons",
-      "marketValue": 250000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "15997",
-    "name": "Eddie Johnson",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Portland",
-      "Austin Aztex",
-      "Chester City",
-      "Austin Aztex FC",
-      "Bradford",
-      "Manchester United",
-      "Crewe Alexandra",
-      "Coventry",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Wore #9",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "10/11",
-        "club": "4291",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "09/10",
-        "club": "28171",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "28171",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "3613",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "07/08",
-        "club": "1027",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "06/07",
-        "club": "1027",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "05/06",
-        "club": "1042",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "04/05",
-        "club": "990",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "03/04",
-        "club": "1096",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "03/04",
-        "club": "22907",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "02/03",
-        "club": "22907",
-        "jerseyNumber": 19
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1984-09-20",
-    "leftFooted": false,
-    "era": "2001-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 20,
-      "date": "2004-04-10",
-      "clubId": "990",
-      "clubName": "Coventry City",
-      "marketValue": 250000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "29933",
-    "name": "Stephen Darby",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Bolton",
-      "Bradford",
-      "Liverpool FC",
-      "Rochdale",
-      "Notts County",
-      "Swindon Town",
-      "Liverpool Res."
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Full-Back",
-      "2000s player",
-      "2010s player"
-    ],
-    "managers": [
-      "Played under Jürgen Klopp",
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "17/18",
-        "club": "355",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "16/17",
-        "club": "1027",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "15/16",
-        "club": "1027",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "14/15",
-        "club": "1027",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "13/14",
-        "club": "1027",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "12/13",
-        "club": "1027",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "11/12",
-        "club": "1088",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "1045",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "08/09",
-        "club": "31",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "06/07",
-        "club": "6922",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "06/07",
-        "club": "21340",
-        "jerseyNumber": 14
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": []
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_29933_9252_2009_1.jpg?lm=1",
-    "height": 174,
-    "dateOfBirth": "1988-06-10",
-    "leftFooted": false,
-    "era": "2007-2018",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 27,
-      "date": "2016-05-30",
-      "clubId": "1027",
-      "clubName": "Bradford City",
-      "marketValue": 300000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "35799",
-    "name": "Sergio Alejandro",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Real Avilés",
-      "Hércules CF",
-      "Gimnàstic",
-      "RM Castilla",
-      "Real Oviedo"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "190cm+",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Back",
-      "2000s player",
-      "2010s player",
-      "Left Footed",
-      "190cm+"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "12/13",
-        "club": "7971",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "7971",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "10/11",
-        "club": "5648",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "09/10",
-        "club": "7971",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "06/07",
-        "club": "418",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "06/07",
-        "club": "6767",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "05/06",
-        "club": "6767",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "02/03",
-        "club": "2497",
-        "jerseyNumber": 30
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 194,
-    "dateOfBirth": "1985-09-02",
-    "leftFooted": true,
-    "era": "2002-2013",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 26,
-      "date": "2011-08-22",
-      "clubId": "7971",
-      "clubName": "Hércules CF",
-      "marketValue": 600000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "37138",
-    "name": "Adam Eckersley",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Airdrieonians",
-      "St. Mirren",
-      "Forfar Athletic",
-      "FC Edmonton",
-      "Hibernian FC",
-      "Heart of Midl.",
-      "Aarhus GF",
-      "AC Horsens",
-      "Port Vale",
-      "Man Utd Res.",
-      "Barnsley",
-      "Bröndby IF",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [
-      "Manchester United (1994-2004)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Man Utd Academy",
-      "Left Footed",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "2802",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "18/19",
-        "club": "3016",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "18/19",
-        "club": "465",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "17/18",
-        "club": "465",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "16/17",
-        "club": "465",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "15/16",
-        "club": "28170",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "15/16",
-        "club": "903",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "14/15",
-        "club": "43",
-        "jerseyNumber": 44
-      },
-      {
-        "season": "13/14",
-        "club": "678",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "12/13",
-        "club": "678",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "11/12",
-        "club": "678",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "10/11",
-        "club": "678",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "09/10",
-        "club": "2414",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "08/09",
-        "club": "2414",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "07/08",
-        "club": "1211",
-        "jerseyNumber": 20
-      },
-      {
-        "season": "06/07",
-        "club": "349",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "06/07",
-        "club": "206",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "05/06",
-        "club": "985",
-        "jerseyNumber": 44
-      }
-    ],
-    "position": {
-      "main": "Left-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 180,
-    "dateOfBirth": "1985-07-09",
-    "leftFooted": true,
-    "era": "2003-2020",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2011-04-06",
-      "clubId": "678",
-      "clubName": "Aarhus GF",
-      "marketValue": 500000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "37140",
-    "name": "Ritchie Jones",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "FC Edmonton",
-      "Grimsby Town",
-      "Rochdale",
-      "Bradford",
-      "Oldham Athletic",
-      "Hartlepool",
-      "Manchester United",
-      "Yeovil Town",
-      "Barnsley",
-      "Colchester Utd.",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Full-Back",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Wore #10"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "14/15",
-        "club": "28170",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "13/14",
-        "club": "28170",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "13/14",
-        "club": "1034",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "12/13",
-        "club": "1088",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "12/13",
-        "club": "1027",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "11/12",
-        "club": "1027",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "10/11",
-        "club": "1078",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "09/10",
-        "club": "2577",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "2577",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "972",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "07/08",
-        "club": "9251",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "06/07",
-        "club": "349",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "06/07",
-        "club": "1060",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "05/06",
-        "club": "985",
-        "jerseyNumber": 49
-      },
-      {
-        "season": "05/06",
-        "club": "21340",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "04/05",
-        "club": "21340",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "21340",
-        "jerseyNumber": 16
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Right Midfield",
-        "Right-Back"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/37140-1613743613.jpg?lm=1",
-    "height": 183,
-    "dateOfBirth": "1986-09-26",
-    "leftFooted": false,
-    "era": "2005-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 20,
-      "date": "2007-09-07",
-      "clubId": "985",
-      "clubName": "Manchester United",
-      "marketValue": 250000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "37678",
-    "name": "David Gray",
-    "nationality": "Scotland",
-    "citizenship": [
-      "Scotland"
-    ],
-    "clubs": [
-      "Hibernian FC",
-      "Burton Albion",
-      "Stevenage",
-      "Preston",
-      "Manchester United",
-      "Plymouth",
-      "Crewe Alexandra",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [
-      "Heart of Midlothian FC (2000-2004)",
-      "Manchester United FC (2004-2006)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Man Utd Academy",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "20/21",
-        "club": "903",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "19/20",
-        "club": "903",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "18/19",
-        "club": "903",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "17/18",
-        "club": "903",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "16/17",
-        "club": "903",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "15/16",
-        "club": "903",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "14/15",
-        "club": "903",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "13/14",
-        "club": "2963",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "13/14",
-        "club": "3684",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "12/13",
-        "club": "3684",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "11/12",
-        "club": "466",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "10/11",
-        "club": "466",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "09/10",
-        "club": "2262",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "08/09",
-        "club": "2262",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "08/09",
-        "club": "985",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "07/08",
-        "club": "1042",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "07/08",
-        "club": "9251",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "06/07",
-        "club": "1096",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 36
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": [
-        "Right Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/37678-1624009171.jpg?lm=1",
-    "height": 180,
-    "dateOfBirth": "1988-04-05",
-    "leftFooted": false,
-    "era": "2003-2021",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 30,
-      "date": "2018-08-08",
-      "clubId": "903",
-      "clubName": "Hibernian FC",
-      "marketValue": 500000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "58364",
-    "name": "Damien Plessis",
-    "nationality": "France",
-    "citizenship": [
-      "France",
-      "Réunion"
-    ],
-    "clubs": [
-      "SS Capricorne",
-      "Örebro SK",
-      "Marítimo",
-      "LB Châteauroux",
-      "Lausanne-Sport",
-      "AC Arles-Avignon",
-      "Panathinaikos",
-      "Doncaster",
-      "Liverpool FC"
-    ],
-    "youthClubs": [
-      "Olympique Lyon",
-      "LB Châteauroux"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "190cm+",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Defensive Midfield",
-      "Centre-Back",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Left Footed",
-      "Dual Nationality",
-      "190cm+"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "17/18",
-        "club": "1056",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "16/17",
-        "club": "1056",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "16/17",
-        "club": "43455",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "15/16",
-        "club": "1301",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "15/16",
-        "club": "1175",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "14/15",
-        "club": "1175",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "13/14",
-        "club": "527",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "13/14",
-        "club": "11300",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "12/13",
-        "club": "11300",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "11/12",
-        "club": "2454",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "11/12",
-        "club": "265",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "10/11",
-        "club": "265",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "08/09",
-        "club": "31",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 47
-      },
-      {
-        "season": "07/08",
-        "club": "9323",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "06/07",
-        "club": "23101",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "10831",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "04/05",
-        "club": "10831",
-        "jerseyNumber": 15
-      }
-    ],
-    "position": {
-      "main": "Defensive Midfield",
-      "other": [
-        "Centre-Back",
-        "Central Midfield"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_58364_11300_2012_2.jpg?lm=1",
-    "height": 193,
-    "dateOfBirth": "1988-05-03",
-    "leftFooted": true,
-    "era": "2007-2018",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 20,
-      "date": "2009-02-23",
-      "clubId": "31",
-      "clubName": "Liverpool FC",
-      "marketValue": 500000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "88983",
-    "name": "Nathan Eccleston",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Nuneaton",
-      "Békéscsaba",
-      "Kilmarnock FC",
-      "Partick Thistle",
-      "Blackpool",
-      "Coventry",
-      "Carlisle United",
-      "Tranmere",
-      "Liverpool FC",
-      "Rochdale",
-      "Charlton",
-      "Huddersfield"
-    ],
-    "youthClubs": [
-      "FC Bury"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "Winger",
-      "2000s player",
-      "2010s player",
-      "Wore #9",
-      "Wore #7",
-      "Wore #10"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "15/16",
-        "club": "6049",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "14/15",
-        "club": "2553",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "14/15",
-        "club": "2760",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "13/14",
-        "club": "990",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "13/14",
-        "club": "1220",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "13/14",
-        "club": "1181",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "12/13",
-        "club": "1074",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "12/13",
-        "club": "1181",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "12/13",
-        "club": "1181",
-        "jerseyNumber": 41
-      },
-      {
-        "season": "12/13",
-        "club": "9252",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "11/12",
-        "club": "31",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "11/12",
-        "club": "1088",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "11/12",
-        "club": "9252",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "11/12",
-        "club": "9252",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "11/12",
-        "club": "9252",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "11/12",
-        "club": "9252",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "10/11",
-        "club": "358",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "10/11",
-        "club": "9252",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "10/11",
-        "club": "31",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "09/10",
-        "club": "9252",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "08/09",
-        "club": "6922",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "08/09",
-        "club": "6922",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "08/09",
-        "club": "9252",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "06/07",
-        "club": "6922",
-        "jerseyNumber": 16
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": [
-        "Right Winger",
-        "Left Winger"
-      ]
-    },
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/header/s_88983_9252_2009_1.jpg?lm=1",
-    "height": 178,
-    "dateOfBirth": "1990-12-30",
-    "leftFooted": false,
-    "era": "2008-2019",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 22,
-      "date": "2013-02-03",
-      "clubId": "1181",
-      "clubName": "Blackpool FC",
-      "marketValue": 250000
-    },
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "310484",
-    "name": "Rafael Márquez",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "CD Toledo",
-      "Gimnástica",
-      "CD Numancia",
-      "Racing",
-      "UD Sanse",
-      "Tomelloso",
-      "RSD Alcalá",
-      "Unknown"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "1990s player",
-      "2000s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "99/00",
-        "club": "2929",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "98/99",
-        "club": "2296",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "97/98",
-        "club": "630",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "95/96",
-        "club": "367",
-        "jerseyNumber": 23
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 178,
     "dateOfBirth": "",
     "leftFooted": false,
-    "era": "1992-2000",
+    "era": "",
     "careerStats": {
-      "appearances": 4,
-      "goals": 0,
+      "appearances": 33,
+      "goals": 9,
       "assists": 0,
       "yellowCards": 0,
       "redCards": 0,
-      "minutesPlayed": 306,
+      "minutesPlayed": 717,
       "championsLeagueGames": 0,
       "championsLeagueGoals": 0
     },
     "highestValue": null,
-    "fameScore": 0.1
-  },
-  {
-    "playerId": "3607",
-    "name": "Michael Foley-Sheridan",
-    "nationality": "Ireland",
-    "citizenship": [
-      "Ireland"
-    ],
-    "clubs": [
-      "Longford Town",
-      "Drogheda United",
-      "Waterford Utd",
-      "St. Pat's",
-      "Liverpool FC"
-    ],
-    "youthClubs": [
-      "Home Farm"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "Wore #10"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "08/09",
-        "club": "4287",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "08/09",
-        "club": "4287",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "08/09",
-        "club": "4287",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "08/09",
-        "club": "4287",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "1189",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "02/03",
-        "club": "31",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "03/04",
-        "club": "23102",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "03/04",
-        "club": "41203",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "02/03",
-        "club": "41203",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "01/02",
-        "club": "23102",
-        "jerseyNumber": 11
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 177,
-    "dateOfBirth": "1983-09-03",
-    "leftFooted": false,
-    "era": "2002-2011",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2006-04-15",
-      "clubId": "1189",
-      "clubName": "St. Patrick's Athletic",
-      "marketValue": 200000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "4231",
-    "name": "Paul Tierney",
-    "nationality": "Ireland",
-    "citizenship": [
-      "Ireland",
-      "England"
-    ],
-    "clubs": [
-      "Altrincham",
-      "Unknown",
-      "Blackpool",
-      "Stockport",
-      "Livingston FC",
-      "Manchester United",
-      "Bradford",
-      "Colchester Utd.",
-      "Crewe Alexandra"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Citizenships",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Full-Back",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Left Footed",
-      "Dual Nationality",
-      "Football family"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "07/08",
-        "club": "1098",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "07/08",
-        "club": "1181",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "06/07",
-        "club": "1181",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "05/06",
-        "club": "1241",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "1027",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "03/04",
-        "club": "1060",
-        "jerseyNumber": 26
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "02/03",
-        "club": "1042",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "02/03",
-        "club": "985",
-        "jerseyNumber": 39
-      },
-      {
-        "season": "02/03",
-        "club": "21103",
-        "jerseyNumber": 2
-      }
-    ],
-    "position": {
-      "main": "Left-Back",
-      "other": [
-        "Left Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1982-09-15",
-    "leftFooted": true,
-    "era": "2000-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 22,
-      "date": "2004-04-10",
-      "clubId": "985",
-      "clubName": "Manchester United",
-      "marketValue": 150000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "11320",
-    "name": "Neil Wood",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Bolehall",
-      "Atherstone",
-      "Zeljeznicar",
-      "Unknown",
-      "Oldham Athletic",
-      "Blackpool",
-      "Coventry",
-      "Manchester United",
-      "Burnley",
-      "Peterborough",
-      "Royal Antwerp"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "Wore #10",
-      "Left Footed",
-      "Became a manager"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "06/07",
-        "club": "1078",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "05/06",
-        "club": "1181",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "05/06",
-        "club": "990",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "04/05",
-        "club": "990",
-        "jerseyNumber": 18
-      },
-      {
-        "season": "03/04",
-        "club": "1132",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "03/04",
-        "club": "985",
-        "jerseyNumber": 35
-      },
-      {
-        "season": "03/04",
-        "club": "1072",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "01/02",
-        "club": "1096",
-        "jerseyNumber": 15
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Left Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 177,
-    "dateOfBirth": "1983-04-01",
-    "leftFooted": true,
-    "era": "2002-2011",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 21,
-      "date": "2004-04-10",
-      "clubId": "990",
-      "clubName": "Coventry City",
-      "marketValue": 125000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "11729",
-    "name": "Alex Notman",
-    "nationality": "Scotland",
-    "citizenship": [
-      "Scotland"
-    ],
-    "clubs": [
-      "Formartine",
-      "Unknown",
-      "King's Lynn",
-      "Norwich",
-      "Manchester United",
-      "Sheff Utd",
-      "Aberdeen FC"
-    ],
-    "youthClubs": [
-      "Sheffield United"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Winger",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #10"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "08/09",
-        "club": "3814",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "3814",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "06/07",
-        "club": "3814",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "03/04",
-        "club": "1123",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "01/02",
-        "club": "1123",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "00/01",
-        "club": "1123",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "98/99",
-        "club": "370",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "98/99",
-        "club": "985",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "98/99",
-        "club": "16868",
-        "jerseyNumber": 16
-      }
-    ],
-    "position": {
-      "main": "Right Winger",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 170,
-    "dateOfBirth": "1979-10-12",
-    "leftFooted": false,
-    "era": "1998-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 24,
-      "date": "2004-04-10",
-      "clubId": "2113",
-      "clubName": "Career break",
-      "marketValue": 50000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "12719",
-    "name": "Layton Maxwell",
-    "nationality": "Wales",
-    "citizenship": [
-      "Wales"
-    ],
-    "clubs": [
-      "Pontypridd",
-      "Barry",
-      "Maesteg Park",
-      "Aberaman",
-      "Caernarfon",
-      "Bangor City",
-      "Rhyl",
-      "Mansfield Town",
-      "Carmarthen",
-      "Swansea",
-      "Cardiff",
-      "Liverpool FC",
-      "Stockport",
-      "Liverpool Res."
-    ],
-    "youthClubs": [
-      "Liverpool FC"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #7",
-      "Wore #9",
-      "Wore #10"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "19/20",
-        "club": "92127",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "14/15",
-        "club": "3937",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "3937",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "09/10",
-        "club": "114296",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "08/09",
-        "club": "114296",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "07/08",
-        "club": "22461",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "07/08",
-        "club": "22461",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "07/08",
-        "club": "22461",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "07/08",
-        "club": "22461",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "07/08",
-        "club": "22461",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "07/08",
-        "club": "22461",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "07/08",
-        "club": "114296",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "22461",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "06/07",
-        "club": "22461",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "22461",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "22461",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "06/07",
-        "club": "22461",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "06/07",
-        "club": "22461",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "06/07",
-        "club": "22461",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "05/06",
-        "club": "3649",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "12566",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "04/05",
-        "club": "12566",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "04/05",
-        "club": "12566",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "04/05",
-        "club": "3716",
-        "jerseyNumber": 8
-      },
-      {
-        "season": "04/05",
-        "club": "6316",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "03/04",
-        "club": "2288",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "03/04",
-        "club": "1115",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "03/04",
-        "club": "603",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "02/03",
-        "club": "603",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "01/02",
-        "club": "603",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "00/01",
-        "club": "1098",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "99/00",
-        "club": "31",
-        "jerseyNumber": 33
-      },
-      {
-        "season": "00/01",
-        "club": "24966",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "98/99",
-        "club": "24966",
-        "jerseyNumber": 11
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 174,
-    "dateOfBirth": "1979-03-10",
-    "leftFooted": false,
-    "era": "1999-2012",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 25,
-      "date": "2004-04-10",
-      "clubId": "12566",
-      "clubName": "Carmarthen Town",
-      "marketValue": 50000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "22229",
-    "name": "Paul Harrison",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "The New Saints",
-      "Southport",
-      "Hereford Utd.",
-      "Chester City",
-      "Wolves",
-      "Liverpool FC",
-      "Leeds",
-      "Liverpool Res."
-    ],
-    "youthClubs": [
-      "Liverpool FC",
-      "Leeds United"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Goalkeeper",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #1"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "21/22",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "20/21",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "19/20",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "18/19",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "17/18",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "16/17",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "15/16",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "14/15",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "13/14",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "12/13",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "11/12",
-        "club": "10734",
-        "jerseyNumber": 21
-      },
-      {
-        "season": "10/11",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "09/10",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "08/09",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "10734",
-        "jerseyNumber": 1
-      },
-      {
-        "season": "07/08",
-        "club": "10734",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "07/08",
-        "club": "10734",
-        "jerseyNumber": 36
-      },
-      {
-        "season": "06/07",
-        "club": "3064",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "05/06",
-        "club": "543",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "04/05",
-        "club": "399",
-        "jerseyNumber": 13
-      },
-      {
-        "season": "04/05",
-        "club": "31",
-        "jerseyNumber": 40
-      },
-      {
-        "season": "03/04",
-        "club": "31",
-        "jerseyNumber": 40
-      }
-    ],
-    "position": {
-      "main": "Goalkeeper",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 183,
-    "dateOfBirth": "1984-12-18",
-    "leftFooted": false,
-    "era": "2004-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2004-04-10",
-      "clubId": "31",
-      "clubName": "Liverpool FC",
-      "marketValue": 125000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "38096",
-    "name": "James Smith",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Southport",
-      "Telford Utd",
-      "Altrincham",
-      "Stockport",
-      "Vauxhall Motors",
-      "Liverpool FC",
-      "Ross County"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Full-Back",
-      "2000s player",
-      "2010s player"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "13/14",
-        "club": "9829",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "12/13",
-        "club": "9829",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "11/12",
-        "club": "9829",
-        "jerseyNumber": 14
-      },
-      {
-        "season": "10/11",
-        "club": "2962",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "09/10",
-        "club": "2962",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "08/09",
-        "club": "2962",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "07/08",
-        "club": "1098",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "03/04",
-        "club": "371",
-        "jerseyNumber": 39
-      }
-    ],
-    "position": {
-      "main": "Right-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1985-10-17",
-    "leftFooted": false,
-    "era": "2004-2014",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 23,
-      "date": "2009-01-17",
-      "clubId": "2962",
-      "clubName": "Altrincham FC",
-      "marketValue": 25000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "45229",
-    "name": "Craig Lindfield",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Holywell",
-      "Bala",
-      "Colwyn Bay",
-      "Airbus UK",
-      "Runcorn Linnets",
-      "Marine FC",
-      "Radcliffe",
-      "Curzon Ashton",
-      "FC United",
-      "Trafford",
-      "Chester",
-      "Accrington",
-      "Kidderminster",
-      "Macclesfield",
-      "Liverpool Res.",
-      "Bournemouth",
-      "Chester City",
-      "Notts County"
-    ],
-    "youthClubs": [
-      "Liverpool FC (1996-2006)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Winger",
-      "Full-Back",
-      "Central Midfield",
-      "2000s player",
-      "2010s player",
-      "2020s player",
-      "Wore #9",
-      "Wore #10",
-      "Wore #7",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "25/26",
-        "club": "45417",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "25/26",
-        "club": "45417",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "24/25",
-        "club": "22546",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "23/24",
-        "club": "23088",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "23/24",
-        "club": "23088",
-        "jerseyNumber": 19
-      },
-      {
-        "season": "22/23",
-        "club": "22546",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "21/22",
-        "club": "22546",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "15/16",
-        "club": "20428",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "13/14",
-        "club": "31367",
-        "jerseyNumber": 11
-      },
-      {
-        "season": "12/13",
-        "club": "3688",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "11/12",
-        "club": "3688",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "10/11",
-        "club": "3688",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "09/10",
-        "club": "2436",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "08/09",
-        "club": "3688",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "08/09",
-        "club": "989",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "07/08",
-        "club": "3613",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "07/08",
-        "club": "1045",
-        "jerseyNumber": 24
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "06/07",
-        "club": "6922",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "06/07",
-        "club": "31",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "06/07",
-        "club": "21340",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "06/07",
-        "club": "21340",
-        "jerseyNumber": 16
-      }
-    ],
-    "position": {
-      "main": "Right Winger",
-      "other": [
-        "Right-Back",
-        "Right Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 183,
-    "dateOfBirth": "1988-07-09",
-    "leftFooted": false,
-    "era": "2006-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2008-04-02",
-      "clubId": "3613",
-      "clubName": "Chester City (- 2010)",
-      "marketValue": 100000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "45606",
-    "name": "Robbie Threlfall",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Marine FC",
-      "Morecambe FC",
-      "Bradford",
-      "Liverpool FC",
-      "Darlington",
-      "Northampton",
-      "Stockport",
-      "Hereford Utd."
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Full-Back",
-      "2000s player",
-      "2010s player",
-      "Left Footed"
-    ],
-    "managers": [
-      "Played under Rafael Benítez"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "13/14",
-        "club": "3697",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "12/13",
-        "club": "3697",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "11/12",
-        "club": "1027",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "10/11",
-        "club": "1027",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "09/10",
-        "club": "1027",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "09/10",
-        "club": "1302",
-        "jerseyNumber": 23
-      },
-      {
-        "season": "09/10",
-        "club": "31",
-        "jerseyNumber": 38
-      },
-      {
-        "season": "08/09",
-        "club": "1098",
-        "jerseyNumber": 22
-      },
-      {
-        "season": "07/08",
-        "club": "3064",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "07/08",
-        "club": "31",
-        "jerseyNumber": 16
-      },
-      {
-        "season": "06/07",
-        "club": "6922",
-        "jerseyNumber": 5
-      }
-    ],
-    "position": {
-      "main": "Left-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 183,
-    "dateOfBirth": "1988-11-28",
-    "leftFooted": true,
-    "era": "2007-2017",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2008-04-02",
-      "clubId": "3064",
-      "clubName": "Hereford United (- 2014)",
-      "marketValue": 100000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "47094",
-    "name": "Francis Durán",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "RSD Alcalá",
-      "Écija Balompié",
-      "Orihuela CF",
-      "Jagodina",
-      "Elche CF",
-      "Liverpool Res.",
-      "Málaga CF"
-    ],
-    "youthClubs": [
-      "U.D. Mortadelo"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Attacking Midfield",
-      "2000s player",
-      "2010s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "12/13",
-        "club": "4054",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "11/12",
-        "club": "4054",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "06/07",
-        "club": "1084",
-        "jerseyNumber": 52
-      }
-    ],
-    "position": {
-      "main": "Central Midfield",
-      "other": [
-        "Attacking Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 176,
-    "dateOfBirth": "1988-04-28",
-    "leftFooted": false,
-    "era": "2007-2014",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2007-07-29",
-      "clubId": "31",
-      "clubName": "Liverpool FC Reserves",
-      "marketValue": 200000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "59175",
-    "name": "Phil Marsh",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Clitheroe",
-      "Pilkington FC",
-      "Droylsden",
-      "Rhyl",
-      "Runcorn Town",
-      "Altrincham",
-      "Bala",
-      "Cefn Druids",
-      "Guiseley",
-      "Barrow",
-      "Stalybridge",
-      "Forest Green",
-      "Hereford Utd.",
-      "FC United",
-      "Leigh Genesis FC",
-      "Hyde United",
-      "Northwich Vic",
-      "Blackpool",
-      "Manchester United"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Forward",
-      "2000s player",
-      "2010s player",
-      "2020s player"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "17/18",
-        "club": "6316",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "16/17",
-        "club": "2962",
-        "jerseyNumber": 12
-      },
-      {
-        "season": "16/17",
-        "club": "27843",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "12/13",
-        "club": "3064",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "12/13",
-        "club": "3455",
-        "jerseyNumber": 17
-      },
-      {
-        "season": "07/08",
-        "club": "1181",
-        "jerseyNumber": 32
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 41
-      }
-    ],
-    "position": {
-      "main": "Centre-Forward",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1986-11-15",
-    "leftFooted": false,
-    "era": "2003-present",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 0
-  },
-  {
-    "playerId": "67250",
-    "name": "Michael Barnes",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Bamber Bridge",
-      "Fylde",
-      "Halifax Town",
-      "Southport",
-      "Northwich Vic",
-      "Manchester United",
-      "Shrewsbury",
-      "Chesterfield"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Central Midfield",
-      "Centre-Forward",
-      "2000s player",
-      "2010s player",
-      "Wore #10"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "14/15",
-        "club": "22672",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "12/13",
-        "club": "22672",
-        "jerseyNumber": 10
-      },
-      {
-        "season": "07/08",
-        "club": "3054",
-        "jerseyNumber": 25
-      },
-      {
-        "season": "06/07",
-        "club": "985",
-        "jerseyNumber": 42
-      }
-    ],
-    "position": {
-      "main": "Left Midfield",
-      "other": [
-        "Right Midfield",
-        "Centre-Forward"
-      ]
-    },
-    "imageUrl": "",
-    "height": 178,
-    "dateOfBirth": "1988-06-24",
-    "leftFooted": false,
-    "era": "2008-2016",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 0
-  },
-  {
-    "playerId": "67350",
-    "name": "Michael Twiss",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Altrincham",
-      "Stalybridge",
-      "Morecambe FC",
-      "Chester City",
-      "Leigh RMI",
-      "Port Vale",
-      "Manchester United",
-      "Sheff Utd",
-      "Man Utd Res."
-    ],
-    "youthClubs": [
-      "Manchester United (1994-1997)"
-    ],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Central Midfield",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Wore #9",
-      "Wore #7",
-      "Man Utd Academy"
-    ],
-    "managers": [
-      "Played under Sir Alex Ferguson"
-    ],
-    "jerseyNumbers": [
-      {
-        "season": "10/11",
-        "club": "2962",
-        "jerseyNumber": 9
-      },
-      {
-        "season": "09/10",
-        "club": "3697",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "08/09",
-        "club": "3697",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "07/08",
-        "club": "3697",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "06/07",
-        "club": "3697",
-        "jerseyNumber": 7
-      },
-      {
-        "season": "99/00",
-        "club": "985",
-        "jerseyNumber": 42
-      },
-      {
-        "season": "97/98",
-        "club": "985",
-        "jerseyNumber": 30
-      },
-      {
-        "season": "97/98",
-        "club": "985",
-        "jerseyNumber": 34
-      }
-    ],
-    "position": {
-      "main": "Right Midfield",
-      "other": [
-        "Central Midfield",
-        "Left Midfield"
-      ]
-    },
-    "imageUrl": "",
-    "height": 180,
-    "dateOfBirth": "1977-12-26",
-    "leftFooted": false,
-    "era": "1997-2014",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 32,
-      "date": "2010-08-04",
-      "clubId": "3647",
-      "clubName": "Stalybridge Celtic",
-      "marketValue": 25000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "72819",
-    "name": "Juanjo Olalla",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Unión Collado",
-      "Unknown",
-      "Aravaca CF",
-      "Las Rozas CF",
-      "Torrelodones CF",
-      "Carabanchel",
-      "Puerta Bonita",
-      "Navalcarnero",
-      "UD Ibiza-Eivissa",
-      "M. Vilajuïga",
-      "SE Eivissa-Ibiza",
-      "UE Figueres",
-      "M. Castelldefels",
-      "Rayo Vallecano",
-      "UE Lleida",
-      "RM Castilla"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Multiple Positions",
-      "International Journeyman",
-      "Long Career"
-    ],
-    "tags": [
-      "Centre-Back",
-      "Full-Back",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "2020s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "08/09",
-        "club": "13241",
-        "jerseyNumber": 15
-      },
-      {
-        "season": "04/05",
-        "club": "3239",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "04/05",
-        "club": "33593",
-        "jerseyNumber": 2
-      },
-      {
-        "season": "03/04",
-        "club": "418",
-        "jerseyNumber": 28
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": [
-        "Right-Back"
-      ]
-    },
-    "imageUrl": "",
-    "height": 182,
-    "dateOfBirth": "1980-01-13",
-    "leftFooted": false,
-    "era": "1999-2022",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 0
-  },
-  {
-    "playerId": "73506",
-    "name": "Oliver Gill",
-    "nationality": "England",
-    "citizenship": [
-      "England"
-    ],
-    "clubs": [
-      "Man Utd Res.",
-      "Bradford"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "Left Footed"
-    ],
-    "tags": [
-      "Centre-Back",
-      "2010s player",
-      "Left Footed",
-      "Football family"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 4
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 5
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 6
-      },
-      {
-        "season": "10/11",
-        "club": "9251",
-        "jerseyNumber": 45
-      },
-      {
-        "season": "10/11",
-        "club": "985",
-        "jerseyNumber": 45
-      },
-      {
-        "season": "10/11",
-        "club": "1027",
-        "jerseyNumber": 29
-      },
-      {
-        "season": "09/10",
-        "club": "985",
-        "jerseyNumber": 45
-      },
-      {
-        "season": "09/10",
-        "club": "9251",
-        "jerseyNumber": 45
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 185,
-    "dateOfBirth": "1990-09-15",
-    "leftFooted": true,
-    "era": "2010-2011",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": {
-      "age": 19,
-      "date": "2010-03-29",
-      "clubId": "75",
-      "clubName": "Unknown",
-      "marketValue": 50000
-    },
-    "fameScore": 0
-  },
-  {
-    "playerId": "93045",
-    "name": "Leo Bermejo",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "Sangonera",
-      "Lorca Deportiva",
-      "Sant Andreu",
-      "UD Puertollano",
-      "SD Huesca",
-      "CD Alcoyano",
-      "Pájara Playas",
-      "Real Jaén CF",
-      "CD Onda",
-      "RM Castilla"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "Left Footed",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Full-Back",
-      "1990s player",
-      "2000s player",
-      "2010s player",
-      "Left Footed"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 28
-      },
-      {
-        "season": "97/98",
-        "club": "20947",
-        "jerseyNumber": 3
-      },
-      {
-        "season": "94/95",
-        "club": "12395",
-        "jerseyNumber": 16
-      }
-    ],
-    "position": {
-      "main": "Left-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 177,
-    "dateOfBirth": "1979-08-24",
-    "leftFooted": true,
-    "era": "1999-2010",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 0
-  },
-  {
-    "playerId": "1233406",
-    "name": "Félix Robles",
-    "nationality": "Spain",
-    "citizenship": [
-      "Spain"
-    ],
-    "clubs": [
-      "CD Móstoles",
-      "Real Ávila",
-      "Palamós CF",
-      "CD Onda",
-      "RM Castilla"
-    ],
-    "youthClubs": [],
-    "achievements": [],
-    "randomAchievements": [
-      "5+ Clubs",
-      "International Journeyman"
-    ],
-    "tags": [
-      "Centre-Back",
-      "1990s player",
-      "2000s player"
-    ],
-    "managers": [],
-    "jerseyNumbers": [
-      {
-        "season": "00/01",
-        "club": "418",
-        "jerseyNumber": 34
-      },
-      {
-        "season": "97/98",
-        "club": "20947",
-        "jerseyNumber": 5
-      }
-    ],
-    "position": {
-      "main": "Centre-Back",
-      "other": []
-    },
-    "imageUrl": "",
-    "height": 180,
-    "dateOfBirth": "1979-03-15",
-    "leftFooted": false,
-    "era": "1998-2006",
-    "careerStats": {
-      "appearances": 0,
-      "goals": 0,
-      "assists": 0,
-      "yellowCards": 0,
-      "redCards": 0,
-      "minutesPlayed": 0,
-      "championsLeagueGames": 0,
-      "championsLeagueGoals": 0
-    },
-    "highestValue": null,
-    "fameScore": 0
+    "fameScore": 0.7
   }
 ]

@@ -23,6 +23,14 @@ export interface JerseyNumber {
   jerseyNumber: number
 }
 
+export interface PhotoAttribution {
+  author: string
+  license: string
+  licenseUrl: string
+  /** Commons file description page */
+  source: string
+}
+
 export interface Player {
   playerId: string
   name: string
@@ -39,6 +47,8 @@ export interface Player {
   jerseyNumbers: JerseyNumber[]
   position: { main: string; other: string[] }
   imageUrl: string
+  /** Photo credit when the image is from Wikimedia Commons; null for others */
+  imageAttribution: PhotoAttribution | null
   height: number
   dateOfBirth: string
   leftFooted: boolean

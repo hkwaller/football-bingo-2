@@ -4,11 +4,13 @@ import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import type { PlayMode } from '@/lib/playMode'
 import { Sticker } from '@/components/Sticker'
+import type { PhotoAttribution } from '@/types/player'
 
 export type DrawnPlayer = {
   playerId: string
   name: string
   imageUrl?: string
+  imageAttribution?: PhotoAttribution | null
 }
 
 type DrawnPlayerPanelProps = {
@@ -24,6 +26,12 @@ type DrawnPlayerPanelProps = {
   draftWarning?: string | null
 }
 
+/**
+ * Thin action bar fixed to the bottom of the viewport showing the drawn player:
+ * small portrait, name, and the Skip action. The photo credit lives in a
+ * hover tooltip on the portrait. Game pages add bottom padding so the board
+ * clears this bar.
+ */
 export function DrawnPlayerPanel({
   mode,
   round,
@@ -37,82 +45,90 @@ export function DrawnPlayerPanel({
 }: DrawnPlayerPanelProps) {
   if (mode !== 'draft') return null
 
+  const attr = player?.imageAttribution
+
   return (
     <motion.section
-      layout
-      className="panel mb-6 p-4 sm:px-6"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-panel-white/95 backdrop-blur-sm shadow-[0_-8px_28px_-18px_rgba(0,0,0,0.6)]"
+      initial={{ y: 32, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
     >
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-        {/* Sticker of the drawn player */}
-        <div className="shrink-0">
+      <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-2 md:px-9">
+        {/* Portrait + credit tooltip */}
+        <div className="group relative shrink-0">
           {loading ? (
-            <div className="h-[120px] w-[108px] animate-pulse rounded-[6px] bg-panel-white shadow-sticker" />
+            <div className="h-[46px] w-[46px] animate-pulse rounded-[5px] bg-panel shadow-sticker" />
           ) : (
             <Sticker
               key={player?.playerId ?? `round-${round}`}
               name={player?.name ?? '—'}
               imageUrl={player?.imageUrl}
-              rotate={-2}
-              width={108}
+              width={46}
               showName={false}
             />
           )}
-        </div>
-
-        {/* Copy */}
-        <div className="flex-1">
-          <p className="eyebrow">Round {round + 1}</p>
-          <p className="mt-1 font-display text-[32px] uppercase leading-none text-green">
-            {loading ? 'Drawing…' : (player?.name ?? 'No player')}
-          </p>
-          <p className="mt-1.5 text-[13.5px] font-medium text-muted">
-            Place them on a matching square — club, country or honour.
-            {onSkip ? (
-              <>
-                {' '}
-                Press <span className="font-mono font-bold text-ink">Space</span> to skip.
-              </>
-            ) : null}
-          </p>
-          {draftWarning ? (
-            <p
-              className="mt-2 inline-flex rounded-lg border border-line bg-panel-white px-2.5 py-1.5 text-xs text-muted"
-              role="status"
+          {attr ? (
+            <div
+              className="pointer-events-none absolute bottom-full left-0 z-50 mb-2 w-56 rounded-lg border-2 border-ink bg-panel-white px-3 py-2 text-[11px] leading-snug text-muted opacity-0 shadow-lg transition-opacity duration-150 group-hover:pointer-events-auto group-hover:opacity-100"
+              role="tooltip"
             >
-              {draftWarning}
-            </p>
+              📷 {attr.author}
+              <br />
+              {attr.licenseUrl ? (
+                <a href={attr.licenseUrl} target="_blank" rel="noreferrer" className="underline">
+                  {attr.license}
+                </a>
+              ) : (
+                attr.license
+              )}
+              {attr.source ? (
+                <>
+                  {' · '}
+                  <a href={attr.source} target="_blank" rel="noreferrer" className="underline">
+                    source
+                  </a>
+                </>
+              ) : null}
+            </div>
           ) : null}
         </div>
 
-        {/* Actions */}
-        {onSkip || extraActions ? (
-          <div className="flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center">
-            {onSkip ? (
-              <button
-                type="button"
-                disabled={skipDisabled}
-                onClick={onSkip}
-                className="btn btn-outline btn-sm"
-              >
-                Skip
-              </button>
-            ) : null}
-            {extraActions}
-          </div>
-        ) : null}
-      </div>
+        {/* Name */}
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-red">
+            Round {round + 1}
+            {draftWarning ? <span className="ml-2 font-medium normal-case text-muted">· {draftWarning}</span> : null}
+          </p>
+          <p className="truncate font-display text-[20px] uppercase leading-none text-green">
+            {loading ? 'Drawing…' : (player?.name ?? 'No player')}
+          </p>
+        </div>
 
-      {error ? (
-        <p
-          className="mt-4 rounded-xl border-2 border-red/40 bg-red/10 px-3 py-2 text-sm font-semibold text-red"
-          role="alert"
-        >
-          {error}
-        </p>
-      ) : null}
+        {/* Error (transient) */}
+        {error ? (
+          <span
+            className="hidden max-w-[220px] truncate rounded-lg border-2 border-red/40 bg-red/10 px-2.5 py-1 text-xs font-semibold text-red sm:inline"
+            role="alert"
+          >
+            {error}
+          </span>
+        ) : null}
+
+        {/* Actions */}
+        {onSkip ? (
+          <button
+            type="button"
+            disabled={skipDisabled}
+            onClick={onSkip}
+            className="btn btn-outline btn-sm shrink-0"
+            title="Skip (Space)"
+          >
+            Skip
+          </button>
+        ) : null}
+        {extraActions}
+      </div>
     </motion.section>
   )
 }

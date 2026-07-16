@@ -7,6 +7,7 @@
  */
 import { clubs as APP_CLUBS } from '../src/data/clubs'
 import { managers } from './data/managers'
+import { LEGEND_OVERRIDES } from './data/legendOverrides'
 
 // ─── Club canonicalisation (by Transfermarkt club ID) ────────────────────────
 // The transfers feed carries stable club IDs (t.clubFrom.id / t.clubTo.id).
@@ -468,8 +469,12 @@ function computeFameScore(p: any, intlCaps: number): number {
 // ─── Main per-player transform ────────────────────────────────────────────────
 
 export function processPlayer(raw: any, squadInfo?: any) {
-  const profile = raw.profile
-  if (!profile?.name) return null
+  // Legends whose /profile endpoint 500s: use hand-sourced fallback fields, but
+  // still build clubs/honours/stats from their working endpoints.
+  const override = LEGEND_OVERRIDES[raw.playerId as string]
+  const profile = raw.profile && typeof raw.profile === 'object' ? raw.profile : {}
+  const name = profile.name ?? override?.name
+  if (!name) return null
 
   const intl = computeIntlStats(raw)
   const achievements = mapAchievements(raw)
@@ -483,11 +488,15 @@ export function processPlayer(raw: any, squadInfo?: any) {
   const jerseyNumbers: { season: string; club: string; jerseyNumber: number }[] =
     raw.jerseyNumbers?.jerseyNumbers ?? []
 
+  const citizenship: string[] =
+    profile.citizenship ?? override?.citizenship ?? squadInfo?.nationality ?? []
   const p: any = {
     playerId: raw.playerId,
-    name: profile.name,
-    nationality: normNationality(profile.citizenship?.[0] ?? squadInfo?.nationality?.[0] ?? ''),
-    citizenship: (profile.citizenship ?? squadInfo?.nationality ?? []).map(normNationality),
+    name,
+    nationality: normNationality(
+      profile.citizenship?.[0] ?? override?.nationality ?? squadInfo?.nationality?.[0] ?? '',
+    ),
+    citizenship: citizenship.map(normNationality),
     clubs: clubs.length ? clubs : (raw.discoveredFromClubs?.filter((c: string) => c !== 'existing') ?? []),
     youthClubs,
     achievements,
@@ -495,8 +504,12 @@ export function processPlayer(raw: any, squadInfo?: any) {
     tags: [],
     managers: [],
     jerseyNumbers,
-    position: { main: profile.position?.main ?? squadInfo?.position ?? '', other: profile.position?.other ?? [] },
+    position: {
+      main: profile.position?.main ?? override?.position ?? squadInfo?.position ?? '',
+      other: profile.position?.other ?? [],
+    },
     imageUrl: profile.imageUrl ?? '',
+    imageAttribution: null,
     height: height > 100 ? height : (squadInfo?.height ?? 0),
     dateOfBirth: profile.dateOfBirth ?? squadInfo?.dateOfBirth ?? '',
     leftFooted: profile.foot === 'left' || squadInfo?.foot === 'left',
@@ -557,6 +570,56 @@ export function processPlayer(raw: any, squadInfo?: any) {
   p.fameScore = computeFameScore(p, intl.caps)
 
   return p
+}
+
+// ─── Popularity filter ────────────────────────────────────────────────────────
+// Squad discovery pulls in fringe/youth players (0 appearances, no honours).
+// Keep only players notable enough for a popularity-based game. Curated legends
+// (MANUAL_PLAYER_IDS) bypass this — see the filter call sites.
+const NOTABLE_FAME = 18
+const NOTABLE_MARKET_VALUE = 5_000_000
+const NOTABLE_APPEARANCES = 200
+const NOTABLE_ACHIEVEMENTS = 3
+
+export function isNotablePlayer(p: any): boolean {
+  return (
+    p.fameScore >= NOTABLE_FAME ||
+    (p.highestValue?.marketValue ?? 0) >= NOTABLE_MARKET_VALUE ||
+    (p.careerStats?.appearances ?? 0) >= NOTABLE_APPEARANCES ||
+    (p.achievements?.length ?? 0) >= NOTABLE_ACHIEVEMENTS
+  )
+}
+
+/**
+ * Overlay Commons images (scripts/output/images.json) onto processed players.
+ * A player keeps its existing (Transfermarkt) image only where no free Commons
+ * image was found. Mutates and returns the array.
+ */
+export function applyCommonsImages(players: any[], imagesFile: string): any[] {
+  let fs: typeof import('fs')
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    fs = require('fs')
+  } catch {
+    return players
+  }
+  if (!fs.existsSync(imagesFile)) return players
+  const images: Record<string, { imageUrl?: string; attribution?: any }> = JSON.parse(
+    fs.readFileSync(imagesFile, 'utf-8'),
+  )
+  for (const p of players) {
+    const rec = images[p.playerId]
+    if (rec?.imageUrl) {
+      p.imageUrl = rec.imageUrl
+      p.imageAttribution = rec.attribution ?? null
+    } else if (typeof p.imageUrl === 'string' && p.imageUrl.includes('transfermarkt')) {
+      // No free Commons image — drop the copyrighted Transfermarkt fallback so
+      // the app never hotlinks TM. The UI shows its placeholder instead.
+      p.imageUrl = ''
+      p.imageAttribution = null
+    }
+  }
+  return players
 }
 
 export function parseMarketValue(val: any): number | null {

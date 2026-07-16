@@ -9,7 +9,8 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import { enrichedFootballPlayers } from '../src/data/players'
-import { processPlayer } from './transform'
+import { processPlayer, isNotablePlayer, applyCommonsImages } from './transform'
+import { MANUAL_PLAYER_IDS } from './data/manualPlayers'
 
 const OUTPUT_DIR = path.join(__dirname, 'output')
 const CACHE_FILE = path.join(OUTPUT_DIR, 'player-cache.json')
@@ -42,19 +43,25 @@ function main() {
 
   const processed: any[] = []
   let failed = 0
+  let filtered = 0
 
   for (const raw of Object.values(cache)) {
-    if (!raw.profile || raw.profile === false) { failed++; continue }
     const squadInfo = squadCache[raw.playerId]
     const player = processPlayer(raw, squadInfo)
-    if (player?.name) {
-      processed.push(player)
-    } else {
-      failed++
+    if (!player?.name) { failed++; continue }
+    // Drop non-notable squad filler; always keep curated legends.
+    if (!isNotablePlayer(player) && !MANUAL_PLAYER_IDS.has(player.playerId)) {
+      filtered++
+      continue
     }
+    processed.push(player)
   }
 
-  console.log(`\nProcessed: ${processed.length} players (${failed} skipped — no profile data)`)
+  console.log(`\nProcessed: ${processed.length} players (${failed} skipped — no profile data, ${filtered} filtered as non-notable)`)
+
+  applyCommonsImages(processed, path.join(OUTPUT_DIR, 'images.json'))
+  const withCommons = processed.filter((p) => p.imageAttribution).length
+  console.log(`Commons images applied to ${withCommons}/${processed.length} players`)
 
   // Diff against existing players
   const existingMap = new Map(enrichedFootballPlayers.map((p) => [p.playerId, p]))

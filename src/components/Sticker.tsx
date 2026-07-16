@@ -49,7 +49,11 @@ export function Sticker({
             unoptimized
           />
         ) : (
-          <svg viewBox="0 0 44 44" aria-hidden className="absolute inset-0 h-full w-full opacity-30">
+          <svg
+            viewBox="0 0 44 44"
+            aria-hidden
+            className="absolute inset-0 h-full w-full opacity-30"
+          >
             <circle cx="22" cy="16" r="9" fill="#262019" />
             <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#262019" />
           </svg>

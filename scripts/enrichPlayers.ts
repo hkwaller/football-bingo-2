@@ -13,7 +13,12 @@
 import * as fs from "fs";
 import * as path from "path";
 import { enrichedFootballPlayers } from "../src/data/players";
-import { processPlayer, parseMarketValue } from "./transform";
+import {
+  processPlayer,
+  parseMarketValue,
+  isNotablePlayer,
+  applyCommonsImages,
+} from "./transform";
 
 const OUTPUT_DIR = path.join(__dirname, "output");
 const CLUBS_FILE = path.join(OUTPUT_DIR, "clubs.json");
@@ -42,133 +47,7 @@ const DISCOVERY_SEASONS = [
   "2025",
 ];
 
-// ─── Manual Players ──────────────────────────────────────────────────────────
-// Use this to override wrong IDs picked up by squad discovery, or to force-include
-// legendary players not found in any of our tracked club squads.
-const MANUAL_PLAYERS: { id: string; name: string }[] = [
-  // ── Corrections (wrong IDs from squad discovery) ──────────────────────────
-  { id: "3140", name: "Ronaldo Nazário (R9)" }, // was wrongly mapped to Ronaldo Córdoba (421727)
-  { id: "2904", name: "Rafael Márquez" }, // was wrongly mapped to lower-league player (310484)
-  { id: "50935", name: "Javier Hernández (Chicharito)" }, // was wrongly mapped to amateur player (719927)
-  { id: "7349", name: "Raúl González" }, // was wrongly mapped to Venezuelan Raúl (131754)
-  { id: "181136", name: "Piotr Zieliński" }, // was wrongly mapped to Polish GK (528347)
-
-  // ── FIFA 100 legends missing from squad discovery ─────────────────────────
-  // Argentina
-  { id: "135778", name: "Alfredo Di Stéfano" },
-  { id: "37264", name: "Mario Kempes" },
-  { id: "8024", name: "Diego Maradona" },
-  { id: "7611", name: "Javier Saviola" },
-  { id: "3143", name: "Juan Sebastián Verón" },
-  // Brazil
-  { id: "229662", name: "Carlos Alberto Torres" },
-  { id: "17121", name: "Pelé" },
-  { id: "10201", name: "Rivellino" },
-  { id: "117633", name: "Sócrates" },
-  { id: "117619", name: "Zico" },
-  // Bulgaria
-  { id: "7938", name: "Hristo Stoichkov" },
-  // Cameroon
-  { id: "88989", name: "Roger Milla" },
-  // Chile
-  { id: "129083", name: "Iván Zamorano" },
-  // Colombia
-  { id: "88998", name: "Carlos Valderrama" },
-  // Croatia
-  { id: "1407", name: "Davor Šuker" },
-  // Denmark
-  { id: "39667", name: "Brian Laudrup" },
-  { id: "8023", name: "Michael Laudrup" },
-  // England
-  { id: "200627", name: "Gordon Banks" },
-  { id: "174874", name: "Bobby Charlton" },
-  { id: "85458", name: "Kevin Keegan" },
-  { id: "22256", name: "Gary Lineker" },
-  { id: "3110", name: "Alan Shearer" },
-  // France
-  { id: "12000", name: "Éric Cantona" },
-  { id: "75553", name: "Didier Deschamps" },
-  { id: "151245", name: "Just Fontaine" },
-  { id: "17168", name: "Jean-Pierre Papin" },
-  // Germany
-  { id: "72347", name: "Franz Beckenbauer" },
-  { id: "89550", name: "Sepp Maier" },
-  { id: "35604", name: "Gerd Müller" },
-  { id: "72343", name: "Karl-Heinz Rummenigge" },
-  // Ghana
-  { id: "6657", name: "Abedi Pelé" },
-  // Hungary
-  { id: "103092", name: "Ferenc Puskás" },
-  // Italy
-  { id: "42049", name: "Franco Baresi" },
-  { id: "4289", name: "Alessandro Del Piero" },
-  { id: "4171", name: "Alessandro Nesta" },
-  { id: "116757", name: "Paolo Rossi" },
-  { id: "5797", name: "Christian Vieri" },
-  { id: "89229", name: "Dino Zoff" },
-  // Liberia
-  { id: "8542", name: "George Weah" },
-  // Netherlands
-  { id: "8021", name: "Johan Cruyff" },
-  { id: "5758", name: "Edgar Davids" },
-  { id: "135643", name: "Johan Neeskens" },
-  { id: "70667", name: "Frank Rijkaard" },
-  // Northern Ireland
-  { id: "174986", name: "George Best" },
-  // Poland
-  { id: "117229", name: "Zbigniew Boniek" },
-  // Portugal
-  { id: "89230", name: "Eusébio" },
-  // Republic of Ireland
-  { id: "3396", name: "Roy Keane" },
-  // Senegal
-  { id: "54432", name: "El Hadji Diouf" },
-  // Spain
-  { id: "117598", name: "Emilio Butragueño" },
-  { id: "7601", name: "Luis Enrique" },
-  // Turkey
-  { id: "4077", name: "Rüştü Reçber" },
-  { id: "5782", name: "Emre Belözoğlu" },
-  // Uruguay
-  { id: "116072", name: "Enzo Francescoli" },
-
-  // ── 1990s–2000s greats added to widen historical coverage (2026-07) ──
-  { id: "4153", name: "Roberto Baggio" },
-  { id: "7942", name: "Romário" },
-  { id: "5959", name: "Gabriel Batistuta" },
-  { id: "3187", name: "Dennis Bergkamp" },
-  { id: "3446", name: "Luís Figo" },
-  { id: "5958", name: "Francesco Totti" },
-  { id: "3522", name: "Andriy Shevchenko" },
-  { id: "3603", name: "Pavel Nedvěd" },
-  { id: "5775", name: "Fabio Cannavaro" },
-  { id: "5803", name: "Paolo Maldini" },
-  { id: "101045", name: "Ruud Gullit" },
-  { id: "74471", name: "Marco van Basten" },
-  { id: "1161", name: "Javier Zanetti" },
-  { id: "5817", name: "Andrea Pirlo" },
-  { id: "4168", name: "Clarence Seedorf" },
-  { id: "3366", name: "Kaká" },
-  { id: "3373", name: "Ronaldinho" },
-  { id: "7518", name: "Roberto Carlos" },
-  { id: "5937", name: "Cafu" },
-  { id: "3372", name: "Rivaldo" },
-  { id: "3207", name: "Thierry Henry" },
-  { id: "3183", name: "Patrick Vieira" },
-  { id: "1527", name: "Lothar Matthäus" },
-  { id: "16980", name: "Jürgen Klinsmann" },
-  { id: "206", name: "Oliver Kahn" },
-  { id: "10", name: "Miroslav Klose" },
-  { id: "7939", name: "Gheorghe Hagi" },
-  { id: "3708", name: "Jay-Jay Okocha" },
-  { id: "3410", name: "Hernán Crespo" },
-  { id: "3854", name: "Juan Román Riquelme" },
-  { id: "3624", name: "Rui Costa" },
-  { id: "5875", name: "Hidetoshi Nakata" },
-  { id: "4257", name: "Samuel Eto'o" },
-  { id: "3924", name: "Didier Drogba" },
-  { id: "63", name: "Michael Ballack" },
-];
+import { MANUAL_PLAYERS, MANUAL_PLAYER_IDS } from "./data/manualPlayers";
 
 // IDs to forcibly remove from cache (wrong entries replaced by MANUAL_PLAYERS above)
 const PURGE_IDS = new Set(["10201"]);
@@ -544,38 +423,34 @@ async function fetchPlayerData(
     id,
     mv: sp.marketValue ?? 0,
     earliestSeason: sp.earliestSeason,
+    manual: sp.fromClubs?.includes("manual") ?? false,
   }));
 
+  // Fetch buckets:
+  //   existing  – already in the shipped dataset (always refresh)
+  //   manual    – curated legends (always fetch, even with no market value)
+  //   valued    – newly discovered players above the market-value gate
+  // Everyone else (fringe squad/youth with sub-threshold value, any era) is
+  // skipped — this is what stops pre-2010 reserves from flooding the pool.
   const existing = all.filter((d) => existingIds.has(d.id));
-  const historical = all.filter(
-    (d) =>
-      !existingIds.has(d.id) && d.earliestSeason <= HISTORICAL_SEASON_CUTOFF,
-  );
-  const highValue = all.filter(
-    (d) =>
-      !existingIds.has(d.id) &&
-      d.earliestSeason > HISTORICAL_SEASON_CUTOFF &&
-      d.mv >= FULL_FETCH_THRESHOLD,
+  const manual = all.filter((d) => !existingIds.has(d.id) && d.manual);
+  const valued = all.filter(
+    (d) => !existingIds.has(d.id) && !d.manual && d.mv >= FULL_FETCH_THRESHOLD,
   );
   const skipLow = all.filter(
-    (d) =>
-      !existingIds.has(d.id) &&
-      d.earliestSeason > HISTORICAL_SEASON_CUTOFF &&
-      d.mv < FULL_FETCH_THRESHOLD,
+    (d) => !existingIds.has(d.id) && !d.manual && d.mv < FULL_FETCH_THRESHOLD,
   );
 
-  const toFetch = [...existing, ...historical, ...highValue];
+  const toFetch = [...existing, ...manual, ...valued];
 
   console.log(`    Existing:                        ${existing.length}`);
+  console.log(`    Manual (curated legends):        ${manual.length}`);
   console.log(
-    `    Historical era (pre-${HISTORICAL_SEASON_CUTOFF}):      ${historical.length}`,
-  );
-  console.log(
-    `    High-value modern (≥€${FULL_FETCH_THRESHOLD / 1_000_000}M): ${highValue.length}`,
+    `    Valued (≥€${FULL_FETCH_THRESHOLD / 1_000_000}M, discovered):    ${valued.length}`,
   );
   console.log(`    Will fetch full data for ${toFetch.length} players`);
   console.log(
-    `    Skipping ${skipLow.length} low-value modern players (squad data only)`,
+    `    Skipping ${skipLow.length} sub-threshold players (squad data only)`,
   );
 
   const fullyDone = toFetch.filter(
@@ -668,20 +543,27 @@ function parseAndWrite(
 
   const processed: any[] = [];
   let failed = 0;
+  let filtered = 0;
 
   for (const raw of Object.values(cache)) {
-    if (!raw.profile || raw.profile === false) {
+    const squadInfo = squadCache[raw.playerId];
+    const player = processPlayer(raw, squadInfo);
+    if (!player?.name) {
       failed++;
       continue;
     }
-    const squadInfo = squadCache[raw.playerId];
-    const player = processPlayer(raw, squadInfo);
-    if (player?.name) processed.push(player);
-    else failed++;
+    // Drop non-notable squad filler; always keep curated legends.
+    if (!isNotablePlayer(player) && !MANUAL_PLAYER_IDS.has(player.playerId)) {
+      filtered++;
+      continue;
+    }
+    processed.push(player);
   }
 
+  applyCommonsImages(processed, path.join(OUTPUT_DIR, "images.json"));
+
   console.log(
-    `\nProcessed: ${processed.length} players (${failed} skipped — no profile data)`,
+    `\nProcessed: ${processed.length} players (${failed} skipped — no profile data, ${filtered} filtered as non-notable)`,
   );
 
   const existingMap = new Map(

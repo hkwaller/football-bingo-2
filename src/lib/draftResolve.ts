@@ -7,7 +7,12 @@ import type { EnrichedPlayer } from '@/lib/validation'
 import { playerMatchesCategory } from '@/lib/validation'
 
 export type DraftResolveResult = {
-  player: { playerId: string; name: string; imageUrl?: string }
+  player: {
+    playerId: string
+    name: string
+    imageUrl?: string
+    imageAttribution?: import('@/types/player').PhotoAttribution | null
+  }
   /** Empty = client treats as no restriction (any empty category cell). */
   validSquares: number[]
   /** True when placeable pool was empty and full player list was used. */
@@ -54,6 +59,7 @@ function toPublic(p: EnrichedPlayer) {
     playerId: p.playerId,
     name: p.name,
     imageUrl: p.imageUrl,
+    imageAttribution: p.imageAttribution ?? null,
   }
 }
 

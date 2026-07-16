@@ -22,5 +22,5 @@ export const DIFFICULTY_LABELS: Record<TriviaDifficulty, string> = {
 export const DIFFICULTY_DESCRIPTIONS: Record<TriviaDifficulty, string> = {
   easy: 'Famous players only (Messi, Ronaldo, Salah…)',
   medium: 'Well-known players from top leagues',
-  hard: 'All 456 players — including the obscure ones',
+  hard: 'All 641 players — including the obscure ones',
 }

@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'img.a.transfermarkt.technology',
-        pathname: '/portrait/**',
+        hostname: 'upload.wikimedia.org',
+        pathname: '/wikipedia/commons/**',
       },
     ],
   },

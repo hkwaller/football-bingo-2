@@ -13,7 +13,6 @@ import {
 } from '@/lib/board'
 import { categoryLogo, displayCategory, getCategoryKind } from '@/lib/canonical'
 import type { CellPick } from '@/lib/cellPick'
-import { Sticker } from '@/components/Sticker'
 
 type BingoBoardProps = {
   seed: string
@@ -42,9 +41,6 @@ function kindTabClass(kind: string | null) {
   return `${base} bg-foil text-white`
 }
 
-/** deterministic tilt, matches the design's ((i*7)%5 - 2) * 0.9 */
-const rotFor = (i: number) => (((i * 7) % 5) - 2) * 0.9
-
 export function BingoBoard({
   seed,
   boardConfig = DEFAULT_BOARD_CONFIG,
@@ -69,7 +65,7 @@ export function BingoBoard({
 
   return (
     <div
-      className="grid gap-2.5 rounded-2xl bg-panel p-4 shadow-[inset_0_0_0_1px_rgba(38,32,25,0.18),inset_0_2px_12px_rgba(120,90,40,0.12)] sm:gap-3.5 sm:p-[22px]"
+      className="mx-auto grid w-full max-w-[720px] gap-2 rounded-2xl bg-panel p-3 shadow-[inset_0_0_0_1px_rgba(38,32,25,0.18),inset_0_2px_12px_rgba(120,90,40,0.12)] sm:gap-2.5 sm:p-4"
       style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}
     >
       {cells.map((cell, index) => {
@@ -82,10 +78,7 @@ export function BingoBoard({
         const isWinLine = winningCells.has(index)
         const voteHi = voteHighlightIndex === index
         const restricted =
-          draftTargetCells !== null &&
-          draftTargetCells.size > 0 &&
-          !solvedHere &&
-          !isFree
+          draftTargetCells !== null && draftTargetCells.size > 0 && !solvedHere && !isFree
         const allowed = !restricted || draftTargetCells.has(index)
 
         return (
@@ -100,7 +93,7 @@ export function BingoBoard({
             transition={{ duration: reduceMotion ? 0 : 0.35 }}
             disabled={isFree || !!pick || (restricted && !allowed)}
             onClick={() => !isFree && !pick && allowed && onCellClick(index)}
-            className={`relative flex min-h-[120px] flex-col items-center justify-center rounded-[6px] p-2 text-center transition-all duration-200 sm:min-h-[150px] ${
+            className={`relative flex aspect-square items-center justify-center overflow-hidden rounded-[6px] text-center transition-all duration-200 ${
               pick
                 ? 'cursor-not-allowed'
                 : isFree
@@ -120,51 +113,79 @@ export function BingoBoard({
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center"
                 >
-                  <span className="text-3xl leading-none">★</span>
-                  <span className="mt-1.5 font-display text-[15px] uppercase tracking-[0.12em]">
+                  <span className="text-2xl leading-none">★</span>
+                  <span className="mt-1 font-display text-[12px] uppercase tracking-[0.12em]">
                     Free
                   </span>
                 </motion.span>
               ) : pick ? (
                 <motion.div
                   key="picked"
-                  initial={{ opacity: 0, scale: 0.85, rotate: rotFor(index) - 4 }}
-                  animate={{ opacity: 1, scale: 1, rotate: rotFor(index) }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 320, damping: 20 }}
-                  className="w-full"
+                  transition={
+                    reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 320, damping: 22 }
+                  }
+                  className="absolute inset-0 bg-panel-white p-[3px]"
                 >
-                  <Sticker
-                    name={pick.name}
-                    imageUrl={pick.imageUrl}
-                    nameSize={12}
-                    win={isWinLine}
-                  />
+                  {/* full-bleed portrait filling the square, name bar overlaid */}
+                  <div className="relative h-full w-full overflow-hidden rounded-[3px] bg-[#e7ddc8]">
+                    {pick.imageUrl ? (
+                      <Image
+                        src={pick.imageUrl}
+                        alt=""
+                        fill
+                        sizes="150px"
+                        className="object-cover"
+                        style={{ objectPosition: '50% 16%' }}
+                        unoptimized
+                      />
+                    ) : (
+                      <svg viewBox="0 0 44 44" aria-hidden className="absolute inset-0 h-full w-full opacity-30">
+                        <circle cx="22" cy="16" r="9" fill="#262019" />
+                        <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#262019" />
+                      </svg>
+                    )}
+                    <span
+                      className={`absolute inset-x-0 bottom-0 truncate px-1 py-[3px] text-center font-display uppercase leading-tight tracking-[0.03em] text-[9.5px] ${
+                        isWinLine ? 'foil' : 'bg-red text-white'
+                      }`}
+                    >
+                      {pick.name}
+                    </span>
+                  </div>
                 </motion.div>
               ) : label ? (
                 <motion.div
                   key="cat"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex flex-col items-center gap-1"
+                  className="flex flex-col items-center gap-1 p-1.5"
                 >
                   {logo ? (
                     <Image
                       src={logo}
                       alt=""
-                      width={40}
-                      height={40}
-                      className="h-9 w-9 object-contain opacity-90"
+                      width={34}
+                      height={34}
+                      className="h-7 w-7 object-contain opacity-90 sm:h-8 sm:w-8"
                       unoptimized
                     />
                   ) : (
-                    <svg width="40" height="40" viewBox="0 0 44 44" aria-hidden className="opacity-[0.28]">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 44 44"
+                      aria-hidden
+                      className="h-7 w-7 opacity-[0.28] sm:h-8 sm:w-8"
+                    >
                       <circle cx="22" cy="15" r="9" fill="#262019" />
                       <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#262019" />
                     </svg>
                   )}
                   <span className={kindTabClass(kind)}>{KIND_SHORT[kind ?? ''] ?? 'Square'}</span>
-                  <span className="mt-1 line-clamp-3 px-0.5 text-[12.5px] font-bold uppercase leading-tight tracking-[0.02em] text-ink-soft">
+                  <span className="line-clamp-3 px-0.5 text-[10.5px] font-bold uppercase leading-tight tracking-[0.02em] text-ink-soft sm:text-[11.5px]">
                     {displayCategory(label)}
                   </span>
                 </motion.div>
