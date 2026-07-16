@@ -1,17 +1,21 @@
 import { getCanonicalName, getClubLogo, getDisplayName } from '@/data/clubs'
 import { getCountryLogo } from '@/data/countries'
-import { achievements, clubs, nationalities } from '@/data/categories'
+import { achievements, clubs, managers, nationalities, traits } from '@/data/categories'
 
 const nationalitySet = new Set(nationalities)
 const achievementSet = new Set(achievements)
 const clubSet = new Set(clubs)
+const traitSet = new Set(traits)
+const managerSet = new Set(managers)
 
-export type CategoryKind = 'nationality' | 'club' | 'achievement'
+export type CategoryKind = 'nationality' | 'club' | 'achievement' | 'trait' | 'manager'
 
 export function getCategoryKind(label: string): CategoryKind | null {
   if (nationalitySet.has(label)) return 'nationality'
   if (clubSet.has(label)) return 'club'
   if (achievementSet.has(label)) return 'achievement'
+  if (traitSet.has(label)) return 'trait'
+  if (managerSet.has(label)) return 'manager'
   return null
 }
 

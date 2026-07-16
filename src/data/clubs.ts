@@ -42,7 +42,8 @@ export const clubs: Club[] = [
   {
     "id": "281",
     "canonicalName": "Manchester City",
-    "displayName": "Manchester City"
+    "displayName": "Manchester City",
+    "aliases": ["Man City"]
   },
   {
     "id": "631",
@@ -77,7 +78,8 @@ export const clubs: Club[] = [
   {
     "id": "13",
     "canonicalName": "Atlético de Madrid",
-    "displayName": "Atletico Madrid"
+    "displayName": "Atletico Madrid",
+    "aliases": ["Atlético Madrid", "Atlético", "Atletico"]
   },
   {
     "id": "610",
@@ -235,12 +237,35 @@ for (const c of clubs) {
 
 const canonicalSet = new Set(clubs.map((c) => c.canonicalName))
 
+/** Lowercased, accent-stripped key so "Atlético" and "Atletico" collapse. */
+function normKey(s: string): string {
+  return s
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase()
+    .trim()
+}
+
+// Accent/case-insensitive fallback: canonical + display + alias names.
+const normToCanonical = new Map<string, string>()
+for (const c of clubs) {
+  normToCanonical.set(normKey(c.canonicalName), c.canonicalName)
+  normToCanonical.set(normKey(c.displayName), c.canonicalName)
+  for (const alias of c.aliases ?? []) {
+    normToCanonical.set(normKey(alias), c.canonicalName)
+  }
+}
+
 export function getDisplayName(canonicalName: string): string {
   return canonicalToDisplay.get(canonicalName) ?? canonicalName
 }
 
 export function getCanonicalName(displayName: string): string {
-  return displayToCanonical.get(displayName) ?? displayName
+  return (
+    displayToCanonical.get(displayName) ??
+    normToCanonical.get(normKey(displayName)) ??
+    displayName
+  )
 }
 
 export function isKnownClub(name: string): boolean {

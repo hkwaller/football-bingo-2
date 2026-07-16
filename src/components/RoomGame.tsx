@@ -78,6 +78,8 @@ function RoomInner({ roomId }: { roomId: string }) {
   const categoryClubs = useStorage((s) => s.categoryClubs) ?? true
   const categoryAchievements =
     useStorage((s) => s.categoryAchievements) ?? true
+  const categoryTraits = useStorage((s) => s.categoryTraits) ?? true
+  const categoryManagers = useStorage((s) => s.categoryManagers) ?? true
   const boardLayout = useStorage((s) => s.boardLayout) ?? 'individual'
   const draftPolicyStorage: DraftPolicy =
     useStorage((s) => s.draftPolicy) === 'placeable' ? 'placeable' : 'open'
@@ -96,8 +98,17 @@ function RoomInner({ roomId }: { roomId: string }) {
         categoryNationalities,
         categoryClubs,
         categoryAchievements,
+        categoryTraits,
+        categoryManagers,
       }),
-    [boardSize, categoryNationalities, categoryClubs, categoryAchievements],
+    [
+      boardSize,
+      categoryNationalities,
+      categoryClubs,
+      categoryAchievements,
+      categoryTraits,
+      categoryManagers,
+    ],
   )
 
   const configOk = isBoardConfigViable(boardConfig)
@@ -138,7 +149,12 @@ function RoomInner({ roomId }: { roomId: string }) {
   const setCategory = useMutation(
     (
       { storage },
-      key: 'categoryNationalities' | 'categoryClubs' | 'categoryAchievements',
+      key:
+        | 'categoryNationalities'
+        | 'categoryClubs'
+        | 'categoryAchievements'
+        | 'categoryTraits'
+        | 'categoryManagers',
       value: boolean,
     ) => {
       storage.set(key, value)
@@ -887,31 +903,19 @@ function RoomInner({ roomId }: { roomId: string }) {
                     </span>
                     {(
                       [
-                        ['categoryNationalities', 'Nations', 'bg-nation text-cream'],
-                        ['categoryClubs', 'Clubs', 'bg-green text-cream'],
-                        ['categoryAchievements', 'Honours', 'bg-foil text-white'],
+                        ['categoryNationalities', 'Nations', 'bg-nation text-cream', categoryNationalities],
+                        ['categoryClubs', 'Clubs', 'bg-green text-cream', categoryClubs],
+                        ['categoryAchievements', 'Honours', 'bg-foil text-white', categoryAchievements],
+                        ['categoryTraits', 'Traits', 'bg-ink text-cream', categoryTraits],
+                        ['categoryManagers', 'Managers', 'bg-red text-cream', categoryManagers],
                       ] as const
-                    ).map(([k, label, onClass]) => {
-                      const active = Boolean(
-                        k === 'categoryNationalities'
-                          ? categoryNationalities
-                          : k === 'categoryClubs'
-                            ? categoryClubs
-                            : categoryAchievements,
-                      )
+                    ).map(([k, label, onClass, cur]) => {
+                      const active = Boolean(cur)
                       return (
                         <button
                           key={k}
                           type="button"
-                          onClick={() => {
-                            const cur =
-                              k === 'categoryNationalities'
-                                ? categoryNationalities
-                                : k === 'categoryClubs'
-                                  ? categoryClubs
-                                  : categoryAchievements
-                            setCategory(k, !cur)
-                          }}
+                          onClick={() => setCategory(k, !cur)}
                           className={`inline-flex items-center gap-1 rounded-full px-[14px] py-[5px] text-[11.5px] font-bold uppercase tracking-[0.04em] transition-all duration-200 ${
                             active
                               ? onClass

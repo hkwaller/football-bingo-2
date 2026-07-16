@@ -30,6 +30,8 @@ export type GameStorage = {
   categoryNationalities: boolean
   categoryClubs: boolean
   categoryAchievements: boolean
+  categoryTraits: boolean
+  categoryManagers: boolean
   boardLayout: 'shared' | 'individual'
   draftPolicy: DraftPolicy
   draftRound: number
@@ -89,6 +91,8 @@ export function createInitialGameStorage(): GameStorage {
     categoryNationalities: true,
     categoryClubs: true,
     categoryAchievements: true,
+    categoryTraits: true,
+    categoryManagers: true,
     boardLayout: 'individual',
     draftPolicy: 'open',
     draftRound: 0,

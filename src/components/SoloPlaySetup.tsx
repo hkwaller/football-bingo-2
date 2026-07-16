@@ -118,6 +118,8 @@ export function SoloPlaySetup() {
     ['nationalities', 'Nations', 'bg-nation text-cream'],
     ['clubs', 'Clubs', 'bg-green text-cream'],
     ['achievements', 'Honours', 'bg-foil text-white'],
+    ['traits', 'Traits', 'bg-ink text-cream'],
+    ['managers', 'Managers', 'bg-red text-cream'],
   ] as const
 
   return (

@@ -1,13 +1,17 @@
 import {
   achievements,
   clubs,
+  managers,
   nationalities,
+  traits,
 } from '@/data/categories'
 
 export type BoardCategoryKinds = {
   nationalities: boolean
   clubs: boolean
   achievements: boolean
+  traits: boolean
+  managers: boolean
 }
 
 export type BoardConfig = {
@@ -21,6 +25,8 @@ export const DEFAULT_BOARD_CONFIG: BoardConfig = {
     nationalities: true,
     clubs: true,
     achievements: true,
+    traits: true,
+    managers: true,
   },
 }
 
@@ -29,6 +35,8 @@ export type StorageBoardFields = {
   categoryNationalities: boolean
   categoryClubs: boolean
   categoryAchievements: boolean
+  categoryTraits: boolean
+  categoryManagers: boolean
 }
 
 export function boardConfigFromStorageFields(f: StorageBoardFields): BoardConfig {
@@ -38,6 +46,8 @@ export function boardConfigFromStorageFields(f: StorageBoardFields): BoardConfig
       nationalities: f.categoryNationalities,
       clubs: f.categoryClubs,
       achievements: f.categoryAchievements,
+      traits: f.categoryTraits,
+      managers: f.categoryManagers,
     },
   }
 }
@@ -48,7 +58,9 @@ export function boardConfigKey(c: BoardConfig): string {
     categoryKinds: {
       achievements: c.categoryKinds.achievements,
       clubs: c.categoryKinds.clubs,
+      managers: c.categoryKinds.managers,
       nationalities: c.categoryKinds.nationalities,
+      traits: c.categoryKinds.traits,
     },
   })
 }
@@ -58,6 +70,8 @@ export function categoryPoolForConfig(config: BoardConfig): string[] {
   if (config.categoryKinds.nationalities) out.push(...nationalities)
   if (config.categoryKinds.clubs) out.push(...clubs)
   if (config.categoryKinds.achievements) out.push(...achievements)
+  if (config.categoryKinds.traits) out.push(...traits)
+  if (config.categoryKinds.managers) out.push(...managers)
   return out
 }
 
@@ -87,10 +101,12 @@ export function parseBoardConfig(raw: unknown): BoardConfig | null {
   const nationalities = ko.nationalities === true
   const clubs = ko.clubs === true
   const achievements = ko.achievements === true
-  if (!nationalities && !clubs && !achievements) return null
+  const traits = ko.traits === true
+  const managers = ko.managers === true
+  if (!nationalities && !clubs && !achievements && !traits && !managers) return null
   return {
     size: o.size,
-    categoryKinds: { nationalities, clubs, achievements },
+    categoryKinds: { nationalities, clubs, achievements, traits, managers },
   }
 }
 

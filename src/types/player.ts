@@ -17,6 +17,12 @@ export interface HighestValue {
   marketValue: number
 }
 
+export interface JerseyNumber {
+  season: string
+  club: string
+  jerseyNumber: number
+}
+
 export interface Player {
   playerId: string
   name: string
@@ -26,6 +32,11 @@ export interface Player {
   youthClubs: string[]
   achievements: string[]
   randomAchievements: string[]
+  /** Bingo "traits" axis: position / decade / shirt-number / trait / academy labels */
+  tags: string[]
+  /** "Played under <manager>" labels */
+  managers: string[]
+  jerseyNumbers: JerseyNumber[]
   position: { main: string; other: string[] }
   imageUrl: string
   height: number

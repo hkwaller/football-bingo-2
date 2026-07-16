@@ -29,6 +29,14 @@ export function playerMatchesCategory(
   if (kind === 'club') {
     return clubMatches(player, categoryLabel)
   }
+  if (kind === 'trait') {
+    const tags = player.tags as readonly string[] | undefined
+    return tags?.includes(categoryLabel) ?? false
+  }
+  if (kind === 'manager') {
+    const mgrs = player.managers as readonly string[] | undefined
+    return mgrs?.includes(categoryLabel) ?? false
+  }
   const ach = player.achievements as readonly string[] | undefined
   return ach?.includes(categoryLabel) ?? false
 }
