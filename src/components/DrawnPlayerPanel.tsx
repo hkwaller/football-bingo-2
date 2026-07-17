@@ -1,9 +1,9 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { AnimatePresence, motion } from 'framer-motion'
 import type { PlayMode } from '@/lib/playMode'
-import { Sticker } from '@/components/Sticker'
 import type { PhotoAttribution } from '@/types/player'
 
 export type DrawnPlayer = {
@@ -19,6 +19,8 @@ type DrawnPlayerPanelProps = {
   loading: boolean
   player: DrawnPlayer | null
   error?: string | null
+  /** Bumps on each rejected placement — flashes a pulsing red border on the bar. */
+  wrongNonce?: number | null
   onSkip?: () => void
   skipDisabled?: boolean
   /** Extra actions (e.g. multiplayer Skip vote) shown next to solo Skip */
@@ -27,10 +29,10 @@ type DrawnPlayerPanelProps = {
 }
 
 /**
- * The drawn-player card: a big white "prime time" card sitting above the board
- * with the drawn player mounted as a bobbing sticker (yellow outline), a pink
- * round tag, the name in Passion One, a Space-to-skip hint and the Skip action.
- * The photo credit lives in a hover tooltip on the portrait.
+ * The drawn-player HUD: a slim, fixed horizontal bar pinned to the bottom of the
+ * viewport showing the drawn player's portrait, name + round, and the Skip
+ * action. Stays visible while the board scrolls. The photo credit lives in a
+ * hover tooltip on the portrait.
  */
 export function DrawnPlayerPanel({
   mode,
@@ -38,6 +40,7 @@ export function DrawnPlayerPanel({
   loading,
   player,
   error,
+  wrongNonce,
   onSkip,
   skipDisabled,
   extraActions,
@@ -48,33 +51,53 @@ export function DrawnPlayerPanel({
   const attr = player?.imageAttribution
 
   return (
-    <motion.section
-      className="relative mb-6 rounded-[20px] bg-white p-5 shadow-[0_10px_0_rgba(0,0,0,0.22)] md:px-7"
-      style={{ transform: 'rotate(-0.5deg)' }}
-      initial={{ y: 18, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
-    >
-      <div className="flex flex-col items-center gap-5 sm:flex-row sm:gap-6">
+    <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30 flex justify-center px-4">
+      <motion.section
+        className="pointer-events-auto relative flex w-full max-w-[560px] items-center gap-3 rounded-[18px] bg-white p-2.5 pr-3.5 shadow-[0_8px_0_rgba(0,0,0,0.22)] sm:gap-4"
+        role="status"
+        initial={{ y: 24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+      >
+        {/* Rejected-placement flash */}
+        <AnimatePresence>
+          {wrongNonce ? (
+            <motion.div
+              key={`bar-wrong-${wrongNonce}`}
+              className="pointer-events-none absolute inset-0 z-10 rounded-[18px] border-[5px] border-live-red"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: [0, 1, 0.4, 1, 0],
+                transition: { duration: 0.6, ease: 'easeInOut' },
+              }}
+              exit={{ opacity: 0 }}
+              aria-hidden
+            />
+          ) : null}
+        </AnimatePresence>
         {/* Portrait + credit tooltip */}
         <div className="group relative shrink-0">
           {loading ? (
-            <div className="h-[112px] w-[104px] animate-pulse rounded-[8px] bg-card-tint shadow-sticker" />
+            <div className="h-[52px] w-[52px] animate-pulse rounded-[10px] bg-card-tint" />
           ) : (
-            <motion.div
-              animate={{ y: [0, -9, 0] }}
-              transition={{ duration: 4.6, ease: 'easeInOut', repeat: Infinity }}
-            >
-              <Sticker
-                key={player?.playerId ?? `round-${round}`}
-                name={player?.name ?? '—'}
-                imageUrl={player?.imageUrl}
-                width={104}
-                nameSize={11}
-                rotate={-4}
-                drawn
-              />
-            </motion.div>
+            <div className="relative h-[52px] w-[52px] overflow-hidden rounded-[10px] bg-[#dceee2] ring-2 ring-yellow">
+              {player?.imageUrl ? (
+                <Image
+                  src={player.imageUrl}
+                  alt=""
+                  fill
+                  sizes="52px"
+                  className="object-cover"
+                  style={{ objectPosition: '50% 16%' }}
+                  unoptimized
+                />
+              ) : (
+                <svg viewBox="0 0 44 44" aria-hidden className="absolute inset-0 h-full w-full opacity-25">
+                  <circle cx="22" cy="16" r="9" fill="#0a3d20" />
+                  <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a3d20" />
+                </svg>
+              )}
+            </div>
           )}
           {attr ? (
             <div
@@ -102,38 +125,29 @@ export function DrawnPlayerPanel({
           ) : null}
         </div>
 
-        {/* Name + hint */}
-        <div className="min-w-0 flex-1 text-center sm:text-left">
-          <span className="inline-block -rotate-[1.5deg] rounded-md bg-pink px-3 py-1.5 text-[11.5px] font-extrabold uppercase leading-none tracking-[0.14em] text-white">
-            Round {round + 1} · drawn
+        {/* Round + name (or error / warning) */}
+        <div className="min-w-0 flex-1">
+          <span className="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-pink-deep">
+            Round {round + 1}
           </span>
-          <p className="mt-2 truncate font-display text-[36px] font-black uppercase leading-none text-card-ink md:text-[40px]">
+          <p className="truncate font-display text-[22px] font-black uppercase leading-none text-card-ink sm:text-[26px]">
             {loading ? 'Drawing…' : (player?.name ?? 'No player')}
-          </p>
-          <p className="mt-1.5 text-[14px] font-semibold text-card-muted">
-            {draftWarning ? (
-              draftWarning
-            ) : (
-              <>
-                Slap him on a matching square — club, country or honour.
-                {onSkip ? (
-                  <>
-                    {' '}Press{' '}
-                    <span className="rounded bg-card-tint px-[7px] py-0.5 font-mono font-bold text-card-ink">
-                      Space
-                    </span>{' '}
-                    to skip.
-                  </>
-                ) : null}
-              </>
-            )}
           </p>
           {error ? (
             <span
-              className="mt-2 inline-block max-w-full truncate rounded-lg bg-pink/15 px-2.5 py-1 text-xs font-bold text-pink-deep"
+              className="mt-0.5 block truncate text-[12px] font-bold text-pink-deep"
               role="alert"
             >
               {error}
+            </span>
+          ) : draftWarning ? (
+            <span className="mt-0.5 block truncate text-[12px] font-semibold text-card-muted">
+              {draftWarning}
+            </span>
+          ) : null}
+          {wrongNonce ? (
+            <span key={`sr-wrong-${wrongNonce}`} role="alert" className="sr-only">
+              Player does not match this square
             </span>
           ) : null}
         </div>
@@ -153,7 +167,7 @@ export function DrawnPlayerPanel({
           ) : null}
           {extraActions}
         </div>
-      </div>
-    </motion.section>
+      </motion.section>
+    </div>
   )
 }

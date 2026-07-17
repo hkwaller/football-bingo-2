@@ -24,6 +24,8 @@ type BingoBoardProps = {
   voteHighlightIndex?: number | null
   /** Draft: only these empty cells accept clicks (placeable / multi-match). */
   draftTargetCells?: Set<number> | null
+  /** A rejected placement attempt — flashes a red pulse on that cell. `nonce` re-triggers the animation on repeats. */
+  wrongCell?: { cell: number; nonce: number } | null
   reduceMotion?: boolean
 }
 
@@ -49,6 +51,7 @@ export function BingoBoard({
   lineHighlight = true,
   voteHighlightIndex = null,
   draftTargetCells = null,
+  wrongCell = null,
   reduceMotion = false,
 }: BingoBoardProps) {
   const lines = bingoLinesForConfig(boardConfig)
@@ -80,6 +83,7 @@ export function BingoBoard({
         const solvedHere = isFree || pick !== undefined
         const isWinLine = winningCells.has(index)
         const voteHi = voteHighlightIndex === index
+        const isWrong = wrongCell?.cell === index
         const restricted =
           draftTargetCells !== null && draftTargetCells.size > 0 && !solvedHere && !isFree
         const allowed = !restricted || draftTargetCells.has(index)
@@ -109,6 +113,25 @@ export function BingoBoard({
                       : 'bg-white/[0.92] shadow-[0_5px_0_rgba(0,0,0,0.22)] hover:-translate-y-[3px] hover:bg-white'
             }`}
           >
+            <AnimatePresence>
+              {isWrong ? (
+                <motion.div
+                  key={`wrong-${wrongCell?.nonce}`}
+                  className="pointer-events-none absolute inset-0 z-20 rounded-[14px] border-[5px] border-live-red"
+                  initial={{ opacity: 0 }}
+                  animate={
+                    reduceMotion
+                      ? { opacity: [0, 1, 0], transition: { duration: 0.5 } }
+                      : {
+                          opacity: [0, 1, 0.4, 1, 0],
+                          x: [0, -5, 5, -3, 3, 0],
+                          transition: { duration: 0.6, ease: 'easeInOut' },
+                        }
+                  }
+                  exit={{ opacity: 0 }}
+                />
+              ) : null}
+            </AnimatePresence>
             <AnimatePresence mode="wait">
               {isFree ? (
                 <motion.span

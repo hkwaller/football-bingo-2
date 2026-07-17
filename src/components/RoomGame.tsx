@@ -251,12 +251,19 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const [draftLoading, setDraftLoading] = useState(false)
   const [draftError, setDraftError] = useState<string | null>(null)
+  const [wrongCell, setWrongCell] = useState<{ cell: number; nonce: number } | null>(null)
   const [reduceMotion, setReduceMotion] = useState(false)
   const isResolvingRef = useRef(false)
   const [drawn, setDrawn] = useState<DrawnPlayer | null>(null)
   const [draftTargetCells, setDraftTargetCells] = useState<Set<number> | null>(null)
   const [draftRestrictCells, setDraftRestrictCells] = useState(false)
   const [draftFallbackNote, setDraftFallbackNote] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!wrongCell) return
+    const t = window.setTimeout(() => setWrongCell(null), 700)
+    return () => window.clearTimeout(t)
+  }, [wrongCell])
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -565,7 +572,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         }
         if (!j.ok || !j.player) {
           clearDraftVotes()
-          setDraftError(j.reason ?? 'That square does not match.')
+          setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
           return
         }
         const pick: CellPick = {
@@ -1009,6 +1016,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             loading={draftLoading}
             player={drawn}
             error={draftError}
+            wrongNonce={wrongCell?.nonce ?? null}
             draftWarning={draftFallbackNote}
             extraActions={
               playMode === 'draft' && phase === 'playing' && !localBingo ? (
@@ -1031,6 +1039,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             draftTargetCells={
               null
             }
+            wrongCell={wrongCell}
             reduceMotion={reduceMotion}
             onCellClick={(i) => {
               if (phase !== 'playing' || localBingo || !configOk) return

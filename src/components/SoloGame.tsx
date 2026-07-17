@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { BingoBoard } from '@/components/BingoBoard'
@@ -44,6 +45,8 @@ export function SoloGame() {
   const [drawn, setDrawn] = useState<DrawnPlayer | null>(null)
   const [draftLoading, setDraftLoading] = useState(false)
   const [draftError, setDraftError] = useState<string | null>(null)
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const [wrongCell, setWrongCell] = useState<{ cell: number; nonce: number } | null>(null)
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -83,6 +86,12 @@ export function SoloGame() {
   }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy])
 
   const occupiedIndices = useMemo(() => [...solved.keys()], [solved])
+
+  useEffect(() => {
+    if (!wrongCell) return
+    const t = window.setTimeout(() => setWrongCell(null), 700)
+    return () => window.clearTimeout(t)
+  }, [wrongCell])
 
   useEffect(() => {
     if (playMode !== 'draft' || !seed || !hydrated) {
@@ -185,6 +194,7 @@ export function SoloGame() {
   const switchMode = (m: PlayMode) => {
     if (m === playMode) return
     setPlayMode(m)
+    setSettingsOpen(false)
     setModalCell(null)
     setDraftError(null)
     const s = randomUUID()
@@ -288,7 +298,7 @@ export function SoloGame() {
         player?: { playerId: string; name: string; imageUrl?: string }
       }
       if (!j.ok || !j.player) {
-        setDraftError(j.reason ?? 'That square does not match this player.')
+        setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
         return
       }
       const pick: CellPick = {
@@ -315,51 +325,126 @@ export function SoloGame() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8 pb-16 md:px-9">
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
-            Solo game
-          </h1>
-          <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
-            {playMode === 'draft'
-              ? 'Place the drawn player on a square that matches. Complete a line to win.'
-              : 'Pick a square, then search for a player who fits that clue.'}
-          </p>
-          {!configOk ? (
-            <p className="mt-2 text-sm font-bold text-yellow">
-              Your saved board needs at least {needCount} clues (currently {poolCount}).{' '}
-              <Link href="/play/setup" className="underline">
-                Fix in setup
-              </Link>
-            </p>
-          ) : null}
-        </div>
-        <div className="flex flex-wrap items-center gap-2.5">
-          <div className="flex rounded-full bg-black/25 p-[5px]">
-            {(['draft', 'free'] as const).map((m) => (
-              <button
-                key={m}
-                type="button"
-                onClick={() => switchMode(m)}
-                className={`rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
-                  playMode === m
-                    ? 'bg-yellow text-pitch-deep shadow-[0_3px_0_rgba(0,0,0,0.3)]'
-                    : 'text-on-green-dim hover:text-white'
-                }`}
-              >
-                {PLAY_MODE_LABEL[m]}
-              </button>
-            ))}
-          </div>
-          <Link href="/play/setup" className="btn btn-outline-light">
-            Board setup
-          </Link>
-          <button type="button" onClick={resetBoard} className="btn btn-outline-light">
+    <div className="mx-auto max-w-5xl px-6 py-8 pb-32 md:px-9">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <span className="chip -rotate-1 text-[12px] font-extrabold uppercase tracking-[0.08em] text-card-ink">
+          {PLAY_MODE_LABEL[playMode]}
+        </span>
+        <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={resetBoard}
+            className="btn btn-outline-light btn-sm"
+          >
             New board
+          </button>
+          <button
+            type="button"
+            onClick={() => setSettingsOpen(true)}
+            className="btn btn-outline-light btn-sm"
+            aria-haspopup="dialog"
+            aria-expanded={settingsOpen}
+          >
+            ⚙ Settings
           </button>
         </div>
       </div>
+
+      {!configOk ? (
+        <p className="mb-4 text-sm font-bold text-yellow">
+          Your saved board needs at least {needCount} clues (currently {poolCount}).{' '}
+          <Link href="/play/setup" className="underline">
+            Fix in setup
+          </Link>
+        </p>
+      ) : null}
+
+      {createPortal(
+        <AnimatePresence>
+          {settingsOpen ? (
+            <>
+              <motion.div
+                className="fixed inset-0 z-[90] bg-black/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSettingsOpen(false)}
+            />
+            <motion.aside
+              className="fixed right-0 top-0 z-[100] flex h-full w-[min(360px,90vw)] flex-col gap-6 overflow-y-auto bg-white p-6 shadow-[-10px_0_0_rgba(0,0,0,0.22)]"
+              role="dialog"
+              aria-label="Game settings"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 320, damping: 34 }}
+            >
+              <div className="flex items-center justify-between">
+                <h2 className="font-display text-[28px] font-black uppercase leading-none text-card-ink">
+                  Settings
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => setSettingsOpen(false)}
+                  className="btn btn-outline btn-sm"
+                  aria-label="Close settings"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div>
+                <p className="mb-2 text-[11.5px] font-extrabold uppercase tracking-[0.1em] text-card-muted-2">
+                  Game mode
+                </p>
+                <div className="flex rounded-full bg-card-tint p-[5px]">
+                  {(['draft', 'free'] as const).map((m) => (
+                    <button
+                      key={m}
+                      type="button"
+                      onClick={() => switchMode(m)}
+                      className={`flex-1 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
+                        playMode === m
+                          ? 'bg-yellow text-pitch-deep shadow-[0_3px_0_rgba(0,0,0,0.3)]'
+                          : 'text-card-muted hover:text-card-ink'
+                      }`}
+                    >
+                      {PLAY_MODE_LABEL[m]}
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-[13.5px] font-semibold text-card-muted">
+                  {playMode === 'draft'
+                    ? 'Place the drawn player on a square that matches. Complete a line to win.'
+                    : 'Pick a square, then search for a player who fits that clue.'}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                <Link
+                  href="/play/setup"
+                  className="btn btn-outline w-full"
+                  onClick={() => setSettingsOpen(false)}
+                >
+                  Board setup
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    resetBoard()
+                    setSettingsOpen(false)
+                  }}
+                  className="btn btn-outline w-full"
+                >
+                  New board
+                </button>
+              </div>
+            </motion.aside>
+            </>
+          ) : null}
+        </AnimatePresence>,
+        document.body,
+      )}
 
       <BingoWinModal
         open={won}
@@ -373,6 +458,7 @@ export function SoloGame() {
         loading={draftLoading}
         player={drawn}
         error={draftError}
+        wrongNonce={wrongCell?.nonce ?? null}
         onSkip={playMode === 'draft' ? skipDraft : undefined}
         skipDisabled={won || draftLoading}
         draftWarning={draftFallbackNote}
@@ -386,6 +472,7 @@ export function SoloGame() {
           lineHighlight={lineHighlight}
           reduceMotion={reduceMotion}
           draftTargetCells={null}
+          wrongCell={wrongCell}
           onCellClick={(i) => {
             if (won || !configOk) return
             if (playMode === 'draft') void handleDraftCell(i)
