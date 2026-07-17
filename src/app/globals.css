@@ -3,96 +3,133 @@
 @tailwind utilities;
 
 :root {
-  /* ── Sticker Album palette ───────────────────────────────────────────── */
-  --paper: #ece0c8; /* page background (album paper) */
-  --panel: #f7efdd; /* cards / panels */
-  --panel-white: #ffffff; /* sticker cards, selected tiles, inputs */
-  --ink: #262019; /* primary text + hard borders */
-  --ink-soft: #4c4638; /* labels */
-  --muted: #6b5f4c; /* secondary text */
-  --green: #1d3b2a; /* masthead, headings, primary dark */
-  --green-deep: #16301f;
-  --red: #d64533; /* primary action, sticker name bar */
-  --red-deep: #b8382a;
-  --cream: #f2e8d5; /* text on green */
-  --cream-dim: #c9b98f; /* inactive nav on green */
-  --nation: #14264f; /* Nation category */
-  --gold: #b8862c; /* Honour category, foil solid */
-  --foil-text: #5c4308;
-  --link: #e8c15a;
-  --link-hover: #f3d78a;
+  /* ── Prime Time Green palette ────────────────────────────────────────── */
+  --pitch: #0d7a3a; /* page base / mid gradient stop */
+  --pitch-bright: #1fae5a; /* gradient top-left */
+  --pitch-deep: #06592a; /* gradient bottom / dark text on yellow / name bars */
 
-  --line: rgba(38, 32, 25, 0.18); /* hairline borders */
-  --line-strong: rgba(38, 32, 25, 0.32);
-  --line-dashed: rgba(38, 32, 25, 0.32);
+  --card-ink: #0a3d20; /* headings / borders on white cards */
+  --card-muted: #3c6e4d; /* secondary text on cards */
+  --card-muted-2: #6f9c7f; /* tertiary text on cards */
+  --card-tint: #ecf7ef; /* inactive fills / input backgrounds */
 
-  /* Legacy Floodlit names remapped onto the sticker palette so any
-     un-migrated caller still renders coherently. */
-  --pitch-dark: var(--paper);
-  --pitch: var(--panel-white);
-  --pitch-light: var(--panel);
-  --pitch-lighter: #fbf5e8;
-  --chalk: var(--ink);
-  --chalk-dim: var(--muted);
-  --turf: var(--red);
-  --turf-deep: var(--red-deep);
-  --flare: var(--red);
+  --green-go: #22c55e; /* correct / active / Club */
+  --yellow: #ffe23a; /* THE action color */
+  --yellow-deep: #ffd000;
+  --pink: #ff4d8d; /* hot pop */
+  --pink-deep: #e63a76;
+  --sky: #4de1ff; /* cool pop */
+  --live-red: #e0301e; /* pulsing LIVE badge */
+
+  --on-green: #ffffff;
+  --on-green-soft: #d7f2df;
+  --on-green-dim: #b9e6c8;
+
+  --line: rgba(10, 61, 32, 0.18); /* hairline borders on cards */
+  --line-strong: rgba(10, 61, 32, 0.32);
+
+  /* ── Legacy names remapped so un-migrated callers stay coherent ──────── */
+  --paper: var(--pitch);
+  --panel: #ffffff;
+  --panel-white: #ffffff;
+  --ink: var(--card-ink);
+  --ink-soft: var(--card-muted);
+  --muted: var(--card-muted);
+  --green: var(--card-ink);
+  --green-deep: var(--pitch-deep);
+  --red: var(--pink);
+  --red-deep: var(--pink-deep);
+  --cream: #ffffff;
+  --cream-dim: var(--on-green-dim);
+  --nation: var(--sky);
+  --gold: var(--yellow);
+  --foil-text: var(--pitch-deep);
+  --link: var(--yellow);
+  --link-hover: #fff07a;
+  --line-dashed: rgba(255, 255, 255, 0.5);
+
+  /* Older Floodlit aliases */
+  --pitch-dark: var(--pitch-deep);
+  --pitch-light: var(--pitch-bright);
+  --pitch-lighter: var(--pitch-bright);
+  --chalk: var(--card-ink);
+  --chalk-dim: var(--card-muted);
+  --turf: var(--yellow);
+  --turf-deep: var(--yellow-deep);
+  --flare: var(--pink);
 }
 
 body {
-  background-color: var(--paper);
-  background-image: radial-gradient(rgba(120, 90, 40, 0.06) 1px, transparent 1px);
-  background-size: 5px 5px;
-  color: var(--ink);
+  background-color: var(--pitch);
+  background-image: linear-gradient(165deg, #1fae5a 0%, #0d7a3a 60%, #06592a 100%);
+  background-attachment: fixed;
+  color: var(--on-green);
 }
 
 @layer components {
   /* ── Buttons ──────────────────────────────────────────────────────────
-     Pill shape everywhere. Primary = solid red. Outline = 2px ink border. */
+     Pill shape, chunky, hard offset shadow that presses down on click.
+     Primary = solid yellow with deep-green text. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm font-bold uppercase tracking-[0.06em] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--red)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--paper)] disabled:pointer-events-none disabled:opacity-40;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm font-extrabold uppercase tracking-[0.06em] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--yellow)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--pitch)] disabled:pointer-events-none disabled:opacity-40;
   }
 
   .btn-primary {
-    color: #fff;
-    background-color: var(--red);
-    box-shadow: 0 10px 20px -10px rgba(214, 69, 51, 0.7);
+    color: var(--pitch-deep);
+    background-color: var(--yellow);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.28);
   }
   .btn-primary:hover {
-    background-color: var(--red-deep);
+    background-color: var(--yellow-deep);
     transform: translateY(-2px);
-    box-shadow: 0 14px 24px -10px rgba(214, 69, 51, 0.75);
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.3);
   }
   .btn-primary:active {
-    transform: translateY(0) scale(0.98);
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.28);
   }
 
-  /* The ubiquitous "outline pill": 2px ink border on panel/white. */
+  /* Outline pill on WHITE surfaces: 3px deep-green border. */
   .btn-secondary,
   .btn-outline {
-    color: var(--ink);
-    background-color: var(--panel);
-    border: 2px solid var(--ink);
+    color: var(--card-ink);
+    background-color: transparent;
+    border: 3px solid var(--card-ink);
   }
   .btn-secondary:hover,
   .btn-outline:hover {
-    background-color: var(--panel-white);
+    background-color: var(--card-tint);
     transform: translateY(-2px);
   }
   .btn-secondary:active,
   .btn-outline:active {
-    transform: translateY(0) scale(0.98);
+    transform: translateY(2px) scale(0.98);
+  }
+
+  /* Outline pill on the GREEN stage: 3px translucent-white border. */
+  .btn-outline-light {
+    color: var(--on-green);
+    background-color: transparent;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+  }
+  .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+  }
+  .btn-outline-light:active {
+    transform: translateY(2px) scale(0.98);
   }
 
   .btn-ghost {
-    color: var(--muted);
+    color: var(--on-green-soft);
     text-transform: none;
     letter-spacing: 0;
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: none;
   }
   .btn-ghost:hover {
-    color: var(--ink);
-    background-color: rgba(38, 32, 25, 0.06);
+    color: var(--on-green);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .btn-lg {
@@ -102,45 +139,59 @@ body {
     @apply px-4 py-2 text-xs;
   }
 
-  /* ── Surfaces ─────────────────────────────────────────────────────────── */
+  /* ── Surfaces ─────────────────────────────────────────────────────────
+     White cards with a hard offset shadow, generous radius. */
   .card,
   .panel {
-    background-color: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    box-shadow: 0 10px 24px -18px rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.22);
+    color: var(--card-ink);
   }
 
+  /* Solid eyebrow badge — the pink/sky/yellow rotated chip. Defaults pink. */
   .eyebrow {
-    @apply text-[11px] font-extrabold uppercase leading-none tracking-[0.2em];
-    color: var(--red);
+    @apply inline-block rounded-lg px-3 py-1.5 text-[11.5px] font-extrabold uppercase leading-none tracking-[0.14em];
+    background-color: var(--pink);
+    color: #ffffff;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    transform: rotate(-1.5deg);
+  }
+  .eyebrow-sky {
+    background-color: var(--sky);
+    color: var(--pitch-deep);
+  }
+  .eyebrow-yellow {
+    background-color: var(--yellow);
+    color: var(--pitch-deep);
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.06em];
-    background-color: var(--panel-white);
-    border: 2px solid var(--ink);
-    color: var(--ink);
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-[0.06em];
+    background-color: #ffffff;
+    color: var(--card-ink);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
   }
 
   .input {
-    @apply w-full rounded-xl px-4 py-2.5 text-sm transition-colors focus:outline-none;
-    background-color: var(--panel-white);
-    border: 2px solid var(--ink);
-    color: var(--ink);
+    @apply w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors focus:outline-none;
+    background-color: var(--card-tint);
+    border: 3px solid var(--card-ink);
+    color: var(--card-ink);
   }
   .input:focus {
-    box-shadow: 0 0 0 3px rgba(214, 69, 51, 0.25);
+    box-shadow: 0 0 0 3px rgba(255, 226, 58, 0.6);
   }
   .input::placeholder {
-    color: var(--muted);
-    opacity: 0.7;
+    color: var(--card-muted-2);
+    opacity: 0.9;
   }
 
-  /* Gold-foil fill for the free square, wins, honour flourishes. */
+  /* Solid yellow fill — the free square, honour flourishes, win moments. */
   .foil {
-    background-image: linear-gradient(130deg, #f6d87c, #e8b93e 45%, #fdf0c0 60%, #d9a730);
-    color: var(--foil-text);
+    background-image: none;
+    background-color: var(--yellow);
+    color: var(--pitch-deep);
   }
 
   /* Legacy classes kept for any unconverted callers */
@@ -152,28 +203,44 @@ body {
   }
 }
 
+@layer utilities {
+  /* Twinkle dots — stadium floodlight glints scattered at the edges. */
+  .twinkle-dot {
+    @apply pointer-events-none fixed z-0 rounded-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-twinkle,
+  .animate-bob,
+  .animate-marquee,
+  .animate-pulse-soft {
+    animation: none !important;
+  }
+}
+
 @layer base {
   :root {
-    /* shadcn tokens, sticker-album flavor (light) */
-    --background: var(--paper);
-    --foreground: var(--ink);
-    --card: var(--panel);
-    --card-foreground: var(--ink);
-    --popover: var(--panel);
-    --popover-foreground: var(--ink);
-    --primary: var(--red);
-    --primary-foreground: #ffffff;
-    --secondary: var(--panel-white);
-    --secondary-foreground: var(--ink);
-    --muted-tone: var(--panel);
-    --muted-foreground: var(--muted);
-    --accent: var(--panel-white);
-    --accent-foreground: var(--ink);
-    --destructive: var(--red);
+    /* shadcn tokens, Prime Time Green flavor */
+    --background: var(--pitch);
+    --foreground: var(--on-green);
+    --card: #ffffff;
+    --card-foreground: var(--card-ink);
+    --popover: #ffffff;
+    --popover-foreground: var(--card-ink);
+    --primary: var(--yellow);
+    --primary-foreground: var(--pitch-deep);
+    --secondary: #ffffff;
+    --secondary-foreground: var(--card-ink);
+    --muted-tone: var(--card-tint);
+    --muted-foreground: var(--card-muted);
+    --accent: var(--card-tint);
+    --accent-foreground: var(--card-ink);
+    --destructive: var(--pink);
     --border: var(--line);
-    --input: var(--ink);
-    --ring: var(--red);
-    --radius: 0.875rem;
+    --input: var(--card-ink);
+    --ring: var(--yellow);
+    --radius: 1.25rem;
   }
   * {
     border-color: var(--border);

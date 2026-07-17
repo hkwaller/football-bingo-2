@@ -48,17 +48,17 @@ function OptionButton({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-[10px] px-4 py-3 text-left transition-all duration-200 ${
+      className={`w-full rounded-[14px] px-4 py-3 text-left transition-all duration-200 ${
         active
-          ? 'border-2 border-ink bg-panel-white'
-          : 'border-2 border-dashed border-line-strong hover:-translate-y-0.5'
+          ? 'bg-card-tint ring-[3px] ring-inset ring-card-ink'
+          : 'bg-card-tint/50 hover:-translate-y-0.5 hover:bg-card-tint'
       }`}
     >
-      <p className={`font-display text-base uppercase leading-none ${active ? 'text-green' : 'text-muted'}`}>
+      <p className={`font-display text-lg font-black uppercase leading-none ${active ? 'text-card-ink' : 'text-card-muted'}`}>
         {children}
       </p>
       {description && (
-        <p className="mt-1 text-[12.5px] font-medium leading-relaxed text-muted">{description}</p>
+        <p className="mt-1 text-[12.5px] font-semibold leading-relaxed text-card-muted">{description}</p>
       )}
     </button>
   )
@@ -83,10 +83,10 @@ function NumberSelect({
             type="button"
             onClick={() => onChange(opt)}
             style={active ? { transform: 'rotate(-1deg)' } : undefined}
-            className={`flex-1 rounded-[10px] py-3.5 font-display text-2xl uppercase leading-none transition-all duration-200 ${
+            className={`flex-1 rounded-[14px] py-3.5 font-display text-2xl font-black uppercase leading-none transition-all duration-200 ${
               active
-                ? 'border-2 border-ink bg-panel-white text-green shadow-sticker'
-                : 'border-2 border-dashed border-line-strong text-muted hover:-translate-y-0.5 hover:text-ink'
+                ? 'bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.22)]'
+                : 'bg-card-tint text-card-muted hover:-translate-y-0.5 hover:text-card-ink'
             }`}
           >
             {opt}
@@ -167,8 +167,8 @@ export function TriviaSetup() {
       >
         {/* Title */}
         <motion.div variants={itemVariants}>
-          <p className="eyebrow">Trivia{modeLabel ? ` — ${modeLabel}` : ''}</p>
-          <h1 className="mt-1.5 font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
+          <span className="eyebrow">Trivia{modeLabel ? ` — ${modeLabel}` : ''}</span>
+          <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
             Setup
           </h1>
         </motion.div>
@@ -277,7 +277,7 @@ export function TriviaSetup() {
           {!isSolo && (
             <button
               onClick={launchMultiplayer}
-              className={`btn btn-lg min-w-[160px] flex-1 ${isMultiplayer ? 'btn-primary' : 'btn-outline'}`}
+              className={`btn btn-lg min-w-[160px] flex-1 ${isMultiplayer ? 'btn-primary' : 'btn-outline-light'}`}
             >
               {isMultiplayer ? 'Create room' : 'Multiplayer'}
             </button>

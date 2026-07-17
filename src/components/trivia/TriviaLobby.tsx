@@ -59,11 +59,11 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
       >
-        <p className="eyebrow">Trivia room</p>
-        <h1 className="mt-1.5 font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
-          Waiting for players
+        <span className="eyebrow">Pre-match · tunnel</span>
+        <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
+          The squad gathers
         </h1>
-        <p className="mt-1.5 text-sm font-medium text-muted">
+        <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
           Share the code below — everyone plays from their own device.
         </p>
       </motion.div>
@@ -90,11 +90,11 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
       <div className="panel p-6">
         <p className="eyebrow mb-4">Room code</p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-          <div className="shrink-0 rounded-[6px] border-2 border-ink bg-panel-white p-2 shadow-sticker">
-            <QRCodeSVG value={joinUrl} size={140} bgColor="#ffffff" fgColor="#262019" />
+          <div className="shrink-0 rounded-[12px] border-[3px] border-card-ink bg-white p-2">
+            <QRCodeSVG value={joinUrl} size={140} bgColor="#ffffff" fgColor="#0a3d20" />
           </div>
           <div className="flex flex-1 flex-col gap-3">
-            <code className="block break-all rounded-xl border-2 border-ink bg-panel-white px-3 py-2 font-mono text-sm font-bold text-green">
+            <code className="block break-all rounded-xl border-[3px] border-card-ink bg-card-tint px-3 py-2 font-mono text-sm font-bold text-card-ink">
               {roomId}
             </code>
             <button
@@ -116,13 +116,13 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
             key={p.connectionId}
             className="panel flex items-center gap-3 px-4 py-3"
           >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green font-display text-lg uppercase leading-none text-cream">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-go font-display text-lg font-black uppercase leading-none text-white">
               {p.displayName.charAt(0) || '?'}
             </span>
-            <span className="flex-1 text-sm font-bold text-ink">{p.displayName}</span>
+            <span className="flex-1 text-sm font-bold text-card-ink">{p.displayName}</span>
             {p.isHost && (
-              <span className="rounded-[3px] bg-foil px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-white">
-                Host
+              <span className="-rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-pitch-deep shadow-[0_2px_0_rgba(0,0,0,0.2)]">
+                Gaffer
               </span>
             )}
           </div>
@@ -139,7 +139,7 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
           Start match
         </button>
       ) : (
-        <p className="text-center text-sm font-medium text-muted animate-pulse-soft">Waiting for host to start…</p>
+        <p className="text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">In the tunnel — waiting for the gaffer…</p>
       )}
     </div>
   )

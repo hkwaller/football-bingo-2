@@ -48,9 +48,9 @@ import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 
 const ROUNDEL_COLORS = [
-  'bg-green text-cream',
-  'bg-nation text-cream',
-  'bg-red text-white',
+  'bg-green-go text-white',
+  'bg-sky text-pitch-deep',
+  'bg-pink text-white',
 ] as const
 
 function RoomInner({ roomId }: { roomId: string }) {
@@ -649,8 +649,8 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   if (phase === null || status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center gap-3 text-sm font-medium text-muted">
-        <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
+      <div className="flex min-h-[40vh] items-center justify-center gap-3 text-sm font-semibold text-on-green-dim">
+        <span className="inline-block size-2 animate-pulse rounded-full bg-yellow" />
         Connecting to room…
       </div>
     )
@@ -659,8 +659,8 @@ function RoomInner({ roomId }: { roomId: string }) {
   if (roomError) {
     return (
       <div className="mx-auto max-w-lg px-6 py-16 text-center">
-        <p className="text-sm font-semibold text-red">{roomError}</p>
-        <Link href="/" className="mt-4 inline-block font-bold text-green underline">
+        <p className="text-sm font-bold text-yellow">{roomError}</p>
+        <Link href="/" className="mt-4 inline-block font-bold text-white underline">
           Home
         </Link>
       </div>
@@ -668,19 +668,22 @@ function RoomInner({ roomId }: { roomId: string }) {
   }
 
   return (
-    <div className={`mx-auto max-w-5xl px-6 py-8 md:px-9 ${playMode === 'draft' ? 'pb-32' : ''}`}>
+    <div className={`mx-auto max-w-5xl px-6 py-8 md:px-9 ${playMode === 'draft' ? 'pb-16' : ''}`}>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
-            {phase === 'lobby' ? 'Waiting for players' : 'Race room'}
+          {phase === 'lobby' ? (
+            <span className="eyebrow mb-3">Pre-match · tunnel</span>
+          ) : null}
+          <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
+            {phase === 'lobby' ? 'The squad gathers' : 'Race room'}
           </h1>
-          <p className="mt-1.5 text-sm font-medium text-muted">
+          <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
             {phase === 'lobby'
-              ? "Share the room code. The host starts the match when everyone's in."
+              ? "Share the room code. The gaffer kicks off when everyone's in the tunnel."
               : 'Same clues for everyone — draft uses votes + skip.'}
           </p>
         </div>
-        <Link href="/" className="btn btn-outline btn-sm">
+        <Link href="/" className="btn btn-outline-light btn-sm">
           Home
         </Link>
       </div>
@@ -719,9 +722,9 @@ function RoomInner({ roomId }: { roomId: string }) {
                 <span className="chip">
                   {others.length + 1} player{others.length === 0 ? '' : 's'} in room
                 </span>
-                <span className="flex items-center gap-2 text-sm font-medium text-muted">
-                  <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
-                  Waiting for host to start…
+                <span className="flex items-center gap-2 text-sm font-semibold text-card-muted">
+                  <span className="inline-block size-2 animate-pulse rounded-full bg-pink" />
+                  In the tunnel…
                 </span>
               </div>
             </div>
@@ -734,7 +737,7 @@ function RoomInner({ roomId }: { roomId: string }) {
 
                 {/* In the room */}
                 <div className="panel p-6">
-                  <p className="eyebrow mb-4">In the room · {others.length + 1}</p>
+                  <p className="eyebrow eyebrow-sky mb-4">Starting XI · {others.length + 1}</p>
                   <ul className="flex flex-col gap-3">
                     {[
                       {
@@ -758,18 +761,18 @@ function RoomInner({ roomId }: { roomId: string }) {
                           >
                             {p.name.charAt(0) || '?'}
                           </span>
-                          <span className="text-sm font-bold text-ink">{p.name}</span>
+                          <span className="text-sm font-bold text-card-ink">{p.name}</span>
                           {p.host ? (
-                            <span className="ml-auto rounded-[3px] bg-foil px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-white">
-                              Host
+                            <span className="ml-auto -rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-pitch-deep shadow-[0_2px_0_rgba(0,0,0,0.2)]">
+                              Gaffer
                             </span>
                           ) : (
                             <span
-                              className={`ml-auto text-xs font-semibold ${
-                                ready ? 'text-green' : 'text-muted'
+                              className={`ml-auto text-xs font-bold ${
+                                ready ? 'text-green-go' : 'text-card-muted'
                               }`}
                             >
-                              {ready ? 'Ready' : 'Joining…'}
+                              {ready ? '✓ Ready' : 'In the tunnel…'}
                             </span>
                           )}
                         </li>
@@ -782,12 +785,7 @@ function RoomInner({ roomId }: { roomId: string }) {
               {/* Right column */}
               <div className="flex flex-col gap-5">
                 <div className="panel flex flex-col gap-4 p-6">
-                  <p className="eyebrow">
-                    Match settings{' '}
-                    <span className="font-semibold normal-case tracking-[0.06em] text-muted">
-                      — host only
-                    </span>
-                  </p>
+                  <p className="eyebrow eyebrow-sky">Tactics board · gaffer only</p>
 
                   {/* Mode */}
                   <div className="flex flex-wrap items-center gap-3">
@@ -803,8 +801,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                           onClick={() => setRoomPlayMode(m)}
                           className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
                             active
-                              ? 'border-2 border-ink bg-panel-white text-ink'
-                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+                              : 'bg-card-tint text-card-muted hover:text-card-ink'
                           }`}
                         >
                           {PLAY_MODE_LABEL[m]}
@@ -832,8 +830,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                           onClick={() => setBoardLayoutWithPolicy(v)}
                           className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
                             active
-                              ? 'border-2 border-ink bg-panel-white text-ink'
-                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+                              : 'bg-card-tint text-card-muted hover:text-card-ink'
                           }`}
                         >
                           {label}
@@ -859,8 +857,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                           onClick={() => setDraftPolicyInStorage(p)}
                           className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 disabled:opacity-40 ${
                             active
-                              ? 'border-2 border-ink bg-panel-white text-ink'
-                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+                              : 'bg-card-tint text-card-muted hover:text-card-ink'
                           }`}
                         >
                           {DRAFT_POLICY_LABEL[p]}
@@ -886,8 +884,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                           onClick={() => setBoardSize(n)}
                           className={`rounded-full px-4 py-1.5 font-display text-[14px] uppercase transition-colors duration-200 ${
                             active
-                              ? 'border-2 border-ink bg-panel-white text-green'
-                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+                              : 'bg-card-tint text-card-muted hover:text-card-ink'
                           }`}
                         >
                           {n}×{n}
@@ -903,11 +901,11 @@ function RoomInner({ roomId }: { roomId: string }) {
                     </span>
                     {(
                       [
-                        ['categoryNationalities', 'Nations', 'bg-nation text-cream', categoryNationalities],
-                        ['categoryClubs', 'Clubs', 'bg-green text-cream', categoryClubs],
-                        ['categoryAchievements', 'Honours', 'bg-foil text-white', categoryAchievements],
-                        ['categoryTraits', 'Traits', 'bg-ink text-cream', categoryTraits],
-                        ['categoryManagers', 'Managers', 'bg-red text-cream', categoryManagers],
+                        ['categoryNationalities', 'Nations', 'bg-sky text-pitch-deep', categoryNationalities],
+                        ['categoryClubs', 'Clubs', 'bg-green-go text-white', categoryClubs],
+                        ['categoryAchievements', 'Honours', 'bg-yellow text-pitch-deep', categoryAchievements],
+                        ['categoryTraits', 'Traits', 'bg-card-ink text-white', categoryTraits],
+                        ['categoryManagers', 'Managers', 'bg-pink text-white', categoryManagers],
                       ] as const
                     ).map(([k, label, onClass, cur]) => {
                       const active = Boolean(cur)
@@ -916,10 +914,10 @@ function RoomInner({ roomId }: { roomId: string }) {
                           key={k}
                           type="button"
                           onClick={() => setCategory(k, !cur)}
-                          className={`inline-flex items-center gap-1 rounded-full px-[14px] py-[5px] text-[11.5px] font-bold uppercase tracking-[0.04em] transition-all duration-200 ${
+                          className={`inline-flex items-center gap-1 rounded-full px-[14px] py-[5px] text-[11.5px] font-extrabold uppercase tracking-[0.04em] transition-all duration-200 ${
                             active
-                              ? onClass
-                              : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                              ? `${onClass} shadow-[0_3px_0_rgba(0,0,0,0.2)]`
+                              : 'bg-card-tint text-card-muted hover:text-card-ink'
                           }`}
                         >
                           {active ? '✓ ' : ''}
@@ -931,7 +929,7 @@ function RoomInner({ roomId }: { roomId: string }) {
 
                   <p
                     className={`font-mono text-xs font-bold ${
-                      configOk ? 'text-muted' : 'text-red'
+                      configOk ? 'text-card-muted' : 'text-pink'
                     }`}
                   >
                     {configOk
@@ -953,8 +951,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                 </div>
 
                 {/* Footer strip */}
-                <div className="flex flex-wrap items-center justify-between gap-4 rounded-[14px] border-2 border-dashed border-line-strong p-5">
-                  <span className="text-[13.5px] font-medium text-muted">
+                <div className="flex flex-wrap items-center justify-between gap-4 rounded-[16px] border-[3px] border-dashed border-white/40 p-5">
+                  <span className="text-[13.5px] font-semibold text-on-green-soft">
                     {boardLayout === 'shared'
                       ? 'One shared board for the room. First full line wins the match.'
                       : 'Everyone gets their own board. First full line wins the match.'}
@@ -968,7 +966,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                     }}
                     className="btn btn-primary"
                   >
-                    {starting ? 'Starting…' : 'Start match'}
+                    {starting ? 'Starting…' : '🏁 Kick off the match'}
                   </button>
                 </div>
               </div>

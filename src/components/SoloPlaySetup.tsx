@@ -103,11 +103,11 @@ export function SoloPlaySetup() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <motion.div
-          className="flex items-center gap-3 text-sm font-medium text-muted"
+          className="flex items-center gap-3 text-sm font-semibold text-on-green-dim"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
+          <span className="inline-block size-2 animate-pulse rounded-full bg-yellow" />
           Loading config…
         </motion.div>
       </div>
@@ -115,11 +115,11 @@ export function SoloPlaySetup() {
   }
 
   const CATEGORIES = [
-    ['nationalities', 'Nations', 'bg-nation text-cream'],
-    ['clubs', 'Clubs', 'bg-green text-cream'],
-    ['achievements', 'Honours', 'bg-foil text-white'],
-    ['traits', 'Traits', 'bg-ink text-cream'],
-    ['managers', 'Managers', 'bg-red text-cream'],
+    ['nationalities', 'Nations', 'bg-sky text-pitch-deep'],
+    ['clubs', 'Clubs', 'bg-green-go text-white'],
+    ['achievements', 'Honours', 'bg-yellow text-pitch-deep'],
+    ['traits', 'Traits', 'bg-card-ink text-white'],
+    ['managers', 'Managers', 'bg-pink text-white'],
   ] as const
 
   return (
@@ -132,14 +132,14 @@ export function SoloPlaySetup() {
         transition={{ duration: 0.4 }}
       >
         <div>
-          <h1 className="font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
-            Board setup
+          <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
+            Team talk
           </h1>
-          <p className="mt-1.5 text-sm font-medium text-muted">
-            Every save starts a fresh game with a new board.
+          <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
+            Set your tactics. Every save kicks off a fresh game with a new board.
           </p>
         </div>
-        <Link href="/play" className="btn btn-outline">
+        <Link href="/play" className="btn btn-outline-light">
           ← Back to game
         </Link>
       </motion.div>
@@ -164,11 +164,11 @@ export function SoloPlaySetup() {
                   onClick={() => setBoardConfig((c) => ({ ...c, size: n }))}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  style={active ? { transform: 'rotate(-1deg)' } : undefined}
-                  className={`flex flex-col items-center gap-2.5 rounded-[10px] px-6 py-3.5 font-display text-xl uppercase transition-all duration-200 ${
+                  style={active ? { transform: 'rotate(-1.5deg)' } : undefined}
+                  className={`flex flex-col items-center gap-2.5 rounded-[14px] px-7 py-4 font-display text-xl font-black uppercase transition-all duration-200 ${
                     active
-                      ? 'border-2 border-ink bg-panel-white text-green shadow-sticker'
-                      : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                      ? 'bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.22)]'
+                      : 'bg-card-tint text-card-muted hover:text-card-ink'
                   }`}
                 >
                   <GridDots size={n} />
@@ -189,7 +189,7 @@ export function SoloPlaySetup() {
               key={poolCount}
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className={`font-mono text-xs font-bold ${configOk ? 'text-muted' : 'text-red'}`}
+              className={`font-mono text-xs font-bold ${configOk ? 'text-card-muted' : 'text-pink'}`}
             >
               {poolCount} in pool · {needCount} needed {configOk ? '✓' : '✗'}
             </motion.span>
@@ -203,10 +203,10 @@ export function SoloPlaySetup() {
                   key={k}
                   type="button"
                   onClick={() => toggleKind(k)}
-                  className={`inline-flex items-center gap-2 rounded-full px-[18px] py-2 text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-200 ${
+                  className={`inline-flex items-center gap-2 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
                     active
-                      ? onClass
-                      : 'border-2 border-dashed border-line-strong text-muted hover:text-ink'
+                      ? `${onClass} shadow-[0_3px_0_rgba(0,0,0,0.2)]`
+                      : 'bg-card-tint text-card-muted hover:text-card-ink'
                   }`}
                 >
                   {active ? '✓ ' : ''}
@@ -222,7 +222,7 @@ export function SoloPlaySetup() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mt-3 text-xs font-semibold text-red"
+                className="mt-3 text-xs font-bold text-pink"
               >
                 Turn on more categories — need at least {needCount} clues for a {boardConfig.size}×
                 {boardConfig.size} grid.
@@ -244,20 +244,20 @@ export function SoloPlaySetup() {
               return (
                 <label
                   key={p}
-                  className={`flex cursor-pointer items-start gap-3 rounded-[10px] p-4 transition-all duration-200 ${
+                  className={`flex cursor-pointer items-start gap-3 rounded-[14px] p-4 transition-all duration-200 ${
                     active
-                      ? 'border-2 border-ink bg-panel-white'
-                      : 'border-2 border-dashed border-line-strong'
+                      ? 'border-[3px] border-card-ink bg-card-tint'
+                      : 'border-[3px] border-transparent bg-card-tint/50 hover:bg-card-tint'
                   }`}
                 >
                   <RadioGroupItem value={p} className="mt-1 shrink-0" />
                   <div>
                     <p
-                      className={`font-display text-base uppercase ${active ? 'text-green' : 'text-muted'}`}
+                      className={`font-display text-lg font-black uppercase ${active ? 'text-card-ink' : 'text-card-muted'}`}
                     >
                       {DRAFT_POLICY_LABEL[p]}
                     </p>
-                    <p className="mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
+                    <p className="mt-1 text-[12.5px] font-semibold leading-relaxed text-card-muted">
                       {DRAFT_POLICY_HELP[p]}
                     </p>
                   </div>
@@ -275,16 +275,16 @@ export function SoloPlaySetup() {
           <button
             type="button"
             onClick={() => setLineHighlight((v) => !v)}
-            className="inline-flex items-center gap-2.5 text-[13.5px] font-semibold text-ink-soft"
+            className="inline-flex items-center gap-2.5 text-[13.5px] font-bold text-white"
           >
             <span
-              className={`relative inline-block h-[22px] w-10 rounded-full transition-colors ${
-                lineHighlight ? 'bg-green' : 'bg-line-strong'
+              className={`relative inline-block h-[24px] w-11 rounded-full transition-colors ${
+                lineHighlight ? 'bg-yellow' : 'bg-black/25'
               }`}
             >
               <span
-                className={`absolute top-[3px] h-4 w-4 rounded-full bg-cream transition-all ${
-                  lineHighlight ? 'right-[3px]' : 'left-[3px]'
+                className={`absolute top-[3px] h-[18px] w-[18px] rounded-full transition-all ${
+                  lineHighlight ? 'right-[3px] bg-pitch-deep' : 'left-[3px] bg-white'
                 }`}
               />
             </span>
@@ -297,7 +297,7 @@ export function SoloPlaySetup() {
             whileTap={configOk ? { scale: 0.98 } : {}}
             className="btn btn-primary btn-lg"
           >
-            {launching ? 'Launching…' : 'Save & play'}
+            {launching ? 'Launching…' : 'Save & kick off ⚽'}
           </motion.button>
         </motion.div>
       </motion.div>

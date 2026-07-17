@@ -1,74 +1,88 @@
-# Football Bingo — "Sticker Album" design system
+# Football Bingo — "Prime Time Green" design system
 
-The aesthetic is a **retro football sticker album**: warm cream album paper, white sticker
-cards with red name bars, a deep-green masthead, and gold-foil reserved for wins. Confident and
-nostalgic, never neon or brutalist. No dark backgrounds, no hard neon accents — ink-brown text
-on warm paper, one red for action, green for structure, gold-foil for the win moment.
+The aesthetic is a **TV game-show on a bright turf-green stage**: a vivid diagonal green
+gradient, chunky white cards with hard offset (no-blur) shadows, hot yellow/pink/sky accents,
+twinkling floodlight dots, and playful rotated badges. The collectible-sticker motif is kept.
+Confident, loud, broadcast-energy — never muted, never dark-mode.
 
 ## Tokens (defined in globals.css / tailwind.config.ts)
 
 Colors (Tailwind classes):
-- `bg-paper` `#ece0c8` — page background (album paper, dotted texture already on body)
-- `bg-panel` `#f7efdd` — cards / panels; `bg-panel-white` `#fff` — sticker cards, inputs, selected tiles
-- `text-ink` `#262019` — primary text + hard 2px borders; `text-ink-soft` `#4c4638` — labels
-- `text-muted` `#6b5f4c` — secondary/body text
-- `green` `#1d3b2a` — masthead, headings, "correct/ready"; `green-deep` for depth
-- `red` `#d64533` — THE action color: primary buttons, eyebrows, progress fill; `red-deep` hover
-- `cream` `#f2e8d5` — text on green; `cream-dim` `#c9b98f` — inactive nav on green
-- `nation` `#14264f`, `foil`/`gold` `#b8862c` — category colors (Nation / Honour); Club uses `green`
-- `link` `#e8c15a` / `link-hover` `#f3d78a` — links in dark (on-green) contexts
-- `border-line` (rgba(38,32,25,0.18)) hairline; `border-line-strong` (0.32) for dashed/empty slots
+- `pitch` `#0d7a3a` / `pitch-bright` `#1fae5a` / `pitch-deep` `#06592a` — the green stage. Body is a
+  fixed `linear-gradient(165deg, #1fae5a 0%, #0d7a3a 60%, #06592a 100%)`. `pitch-deep` = dark text on
+  yellow + sticker name bars.
+- `card-ink` `#0a3d20` — headings/borders on white cards; `card-muted` `#3c6e4d` — secondary text;
+  `card-muted-2` `#6f9c7f` — tertiary; `card-tint` `#ecf7ef` — inactive fills / input backgrounds.
+- `yellow` `#ffe23a` — **THE action color**: primary CTAs, free square, highlights (`yellow-deep` hover).
+- `pink` `#ff4d8d` — hot pop: eyebrows, round tags, wrong answers, "Bingo!" (`pink-deep` hover).
+- `sky` `#4de1ff` — cool pop: "Nation" chips, section eyebrows.
+- `green-go` `#22c55e` — correct answers, active toggles/pills, "Club" chips, ✓ Ready.
+- `live-red` `#e0301e` — the pulsing LIVE badge only.
+- `on-green` `#fff` / `on-green-soft` `#d7f2df` / `on-green-dim` `#b9e6c8` — text on the green stage.
 
-Shadows: `shadow-soft`/`shadow-panel` (panels), `shadow-sticker`/`shadow-sticker-lg` (sticker cards),
-`shadow-foil-ring` (win modal inner ring). Backgrounds: `bg-foil` (gold-foil gradient), `bg-paper-dots`.
+Legacy Sticker-Album names (`paper`/`panel`/`ink`/`red`/`green`/`cream`/`nation`/`foil`/`gold`/`muted`)
+are **remapped** onto Prime Time Green so un-migrated callers stay coherent (`red`→pink, `foil`/`gold`→
+yellow, `nation`→sky, `green`→card-ink, `cream`→white, etc). Prefer the new names when you touch a file.
+
+Shadows: hard offset, no blur. `shadow-soft`/`shadow-panel`/`shadow-hard` = `0 8px 0 rgba(0,0,0,0.22)`;
+`shadow-btn` = `0 6px 0`; `shadow-chip` = `0 3px 0`; `shadow-sticker` = `0 5px 0`.
 
 ## Typography
-- `font-display` — **Anton**. Headlines, big numerals, sticker name bars, letter prefixes, room-code
-  tiles. Always `uppercase leading-none`. Single weight — never set `font-*` weight on it.
-- `font-sans` — **Libre Franklin**. All body copy, buttons, labels (weights 400–800).
-- `font-mono` — **Courier Prime**. Scores, streaks, counters, timers, room codes/seeds only.
-- Eyebrow labels: use `.eyebrow` (11px extrabold uppercase tracking-[0.2em], red).
+- `font-display` — **Passion One** (700/900). Headlines, big numerals, sticker name bars. Always
+  `uppercase font-black` (or `font-bold`), tight line-height (0.86–1.1).
+- `font-sans` — **Libre Franklin** (400–800). Body, buttons, labels — buttons/labels at 800.
+- `font-mono` — **Courier Prime**. Scores, room IDs, pool counts, timers only.
 
-## Components (prebuilt classes in globals.css — use these, don't reinvent)
-- `.btn` + `.btn-primary` — solid red pill, white uppercase bold text. Main CTA per view.
-- `.btn` + `.btn-outline` (or `.btn-secondary`) — the ubiquitous outline pill: 2px solid ink border,
-  panel bg, ink text. Secondary actions everywhere.
-- `.btn` + `.btn-ghost` — no border, muted text, subtle hover.
+## Components (prebuilt classes in globals.css — use these)
+- `.btn` + `.btn-primary` — solid **yellow** pill, `pitch-deep` text, `0 6px 0` shadow that presses
+  down on `:active`. The main CTA per view.
+- `.btn` + `.btn-outline` — 3px `card-ink` border pill, for **white** surfaces.
+- `.btn` + `.btn-outline-light` — 3px translucent-white border pill, for the **green stage**.
+- `.btn-ghost` — no border, `on-green-soft` text.
 - `.btn-lg` / `.btn-sm` size modifiers.
-- `.card` / `.panel` — `bg-panel`, hairline border, `rounded-[14px]`, soft shadow.
-- `.eyebrow` — small red section label.
-- `.chip` — white pill with 2px ink border.
-- `.input` — white field, 2px ink border, rounded-xl, red focus glow.
-- `.foil` — gold-foil gradient fill (free square, wins, ★ roundels).
-- `<Sticker>` (`@/components/Sticker`) — player portrait as a collectible sticker (white card, tilt,
-  red name bar; `win` → gold-foil bar). The signature motif; reused on home, board, drawn panel.
+- `.card` / `.panel` — white, `rounded-[20px]`, `0 8px 0` hard shadow, `card-ink` text.
+- `.eyebrow` — solid **pink** rounded chip, rotated `-1.5°`, `0 4px 0` shadow. Variants
+  `.eyebrow-sky` and `.eyebrow-yellow`.
+- `.chip` — white pill, `0 3px 0` shadow.
+- `.input` — `card-tint` bg, 3px `card-ink` border, yellow focus ring.
+- `.foil` — solid yellow fill (free square / win moments).
+- `<Sticker>` (`@/components/Sticker`) — player portrait as a collectible sticker: white card, tilt,
+  `pitch-deep` name bar with `yellow` text. `drawn` → yellow outline ring; `win` → yellow name bar;
+  `variant` `green`/`pink`/`yellow` for marquee alternation. The signature motif.
+- `<TwinkleDots>` — ambient fixed floodlight glints (yellow/pink/sky), added globally in AppShell.
 
-## Shape & spacing
-- Radii: panels `rounded-[14px]`, sticker cards/cells `rounded-[6px]`, tiles/options `rounded-xl`,
-  buttons/pills `rounded-full`.
-- Selected tiles: solid `border-2 border-ink` on `bg-panel-white`, small deterministic tilt + shadow.
-- Empty/inactive slots & toggles: `border-2 border-dashed border-line-strong`, `text-muted`.
-- Sticker rotation is deterministic: `((i*7)%5 - 2) * 0.9` deg. Hover = `-translate-y-0.5`.
-- Generous padding: panels `p-6`, board tray `p-[22px]` with `gap-3.5`, sections `gap-[18px]`.
+## Shape, spacing, rotation
+- Radii: cards `20px` (hero `24px`, win modal `26px`), board cells `14px`, option tiles `16px`,
+  pills `999px`, small badges `6–10px`.
+- **Rotation everywhere** (±0.3° to ±6°): cards, badges, eyebrow chips, letter tiles all get a small
+  deterministic rotation. Solved sticker tilt: `((i*7)%5 - 2) * 1.2` deg.
+- Hover: `translateY(-2 to -3px)`. Tap: press-down (shadow flattens) or `scale(0.97)`.
 
 ## Chrome
-- Masthead (`SiteHeader.tsx`): full-width green bar, `border-b-[5px] border-red`, ⚽ cream roundel +
-  "Football Bingo" in Anton 30px, nav pills (active = `bg-cream/[0.12] text-cream`, inactive
-  `text-cream-dim`), red "New game" CTA / cream-outline "Sign in".
+- Header (`SiteHeader.tsx`): **transparent**, sits on the gradient (no bg, no border). Logo = ⚽ on a
+  44px yellow rounded tile rotated `-6°`; wordmark Passion One 30px white; **LIVE** badge in `live-red`
+  rotated `4°`, pulsing. Nav pills: active = `bg-white/16` + white, idle `on-green-dim`; "New game" =
+  yellow pill with `pitch-deep` text.
+- On the green stage, page titles/headings are **white**; body is `on-green-soft`. Inside white cards,
+  headings are `card-ink`, body `card-muted`.
 
 ## Motion (framer-motion)
-- Entrances: fade-up (`opacity 0→1`, `y 12→0`), stagger children 0.05–0.08s, 0.35–0.5s easeOut.
-- Respect `reduceMotion` props. Board placement: sticker peel/drag/slap-down (spring).
-- Wins: gold-foil ★ roundel + confetti recolored to `#e8b93e, #fdf0c0, #d64533, #1d3b2a`.
+- Ambient: twinkle dots (opacity+scale, 2.2–3s, staggered); bob (`y:[0,-9,0]`, 3.4–5s) on drawn
+  sticker / "Bingo!" pill / roster tiles / trivia sticker; LIVE + "in the tunnel" pulse (1.6–1.8s);
+  marquee (translateX 0→-50%, 40s linear, list duplicated 2×). All skip under `prefers-reduced-motion`.
+- Entrances: fade-up (`opacity 0→1, y 12→0`, 0.35–0.5s easeOut, stagger 0.05–0.08s).
+- Board placement: spring slap-down (`scale 1.4→1, rotate tilt−10→tilt, y −40→0`, spring 320/18).
+- Win: modal pop (`scale 0.6→1.08→1`), canvas-confetti recolored `['#ffe23a','#ff4d8d','#4de1ff','#fff']`.
+- Trivia: shot clock is a `#ffe23a→#ff4d8d` gradient draining over 15s; correct tile → green-go pop;
+  result is a rotated pill ("GOOOAL! Correct!" yellow / "Off the post — X" pink).
 
 ## Semantics
-- Solved bingo cell = the player's Sticker; winning line = gold-foil name bar; free cell = gold-foil
-  ★ + "FREE"; vote target (multiplayer) = red ring; disabled = `opacity-40`.
-- Category tabs on empty cells: Nation `bg-nation`, Club `bg-green`, Honour `bg-foil`, cream/white text.
+- Solved bingo cell = the player's sticker (spring slap-down); winning line = yellow name bar; free
+  cell = solid yellow ★ "FREE"; vote target (multiplayer) = pink ring; disabled = `opacity-40`.
+- Category chips: Nation `sky`, Club `green-go`, Honour `yellow` (🏆 emoji when no logo).
 
-## Migration notes (from the old "Floodlit" dark theme)
-- Legacy Tailwind names `pitch`/`chalk`/`turf`/`gold`/`flare`/`shadow-glow-*` still exist but are
-  **remapped** onto the sticker palette so un-migrated callers stay coherent. Prefer the new names
-  above and replace legacy usage when you touch a file.
-- Keep all logic, props, handlers, Liveblocks storage, and accessibility attributes untouched —
-  the redesign is styling only.
+## Migration notes
+- This replaced the earlier "Sticker Album" (cream/red/ink) theme, which itself replaced "Floodlit"
+  (dark). All three generations' token names still resolve via the remaps above.
+- Keep all logic, props, handlers, Liveblocks storage, API calls and accessibility attributes
+  untouched — the redesign is styling + motion only.

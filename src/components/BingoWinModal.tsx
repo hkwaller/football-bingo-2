@@ -10,7 +10,7 @@ interface Props {
   onClose: () => void
 }
 
-const FOIL_COLORS = ['#e8b93e', '#fdf0c0', '#d64533', '#1d3b2a']
+const FOIL_COLORS = ['#ffe23a', '#ff4d8d', '#4de1ff', '#ffffff']
 
 export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
   const firedRef = useRef(false)
@@ -44,8 +44,8 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
         <>
           {/* Backdrop — dim + blur the board underneath */}
           <motion.div
-            className="fixed inset-0 z-40 backdrop-blur-[2px]"
-            style={{ backgroundColor: 'rgba(38,32,25,0.35)' }}
+            className="fixed inset-0 z-40 backdrop-blur-[3px]"
+            style={{ backgroundColor: 'rgba(4,40,20,0.55)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -55,53 +55,67 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
           {/* Modal */}
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            initial={{ opacity: 0, scale: 0.85, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.6, y: 24 }}
+            animate={{ opacity: 1, scale: [0.6, 1.08, 1], y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 26 }}
+            transition={{ duration: 0.5, ease: [0.2, 1.4, 0.4, 1] }}
           >
-            <div
-              className="w-[380px] max-w-full rounded-2xl bg-panel px-8 pb-7 pt-8 text-center"
-              style={{
-                transform: 'rotate(-0.6deg)',
-                boxShadow: '0 30px 70px -20px rgba(0,0,0,0.8), inset 0 0 0 3px #b8862c',
-              }}
-            >
-              <motion.div
+            <div className="w-[420px] max-w-full rounded-[26px] bg-white px-9 pb-7 pt-9 text-center shadow-[0_14px_0_rgba(0,0,0,0.3),0_40px_90px_rgba(0,0,0,0.5)]">
+              <motion.span
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 18 }}
-                className="foil mx-auto mb-3.5 flex h-[76px] w-[76px] items-center justify-center rounded-full text-4xl shadow-sticker-lg"
+                className="mb-1.5 inline-block -rotate-2 rounded-lg bg-pink px-4 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_4px_0_rgba(0,0,0,0.22)]"
               >
-                ★
-              </motion.div>
+                Full line
+              </motion.span>
 
               <motion.h2
                 initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.15 }}
-                className="font-display text-[52px] uppercase leading-none text-green"
+                className="mt-2.5 font-display text-[80px] font-black uppercase leading-[0.9] text-card-ink"
               >
-                Bingo!
+                Bin<span className="text-pink">go</span>!
               </motion.h2>
 
               <motion.p
                 initial={{ y: 8, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.22 }}
-                className="mt-2 text-sm font-medium text-muted"
+                className="mt-2.5 text-[15px] font-semibold text-card-muted"
               >
-                You completed a line. Legend.
+                You completed a line. The crowd goes wild. 🎉
               </motion.p>
 
               <motion.div
                 initial={{ y: 8, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="mt-6 flex flex-col gap-2.5"
+                transition={{ delay: 0.28 }}
+                className="mt-5 flex justify-center gap-2"
+              >
+                {[
+                  { e: '🤯', bg: 'bg-yellow' },
+                  { e: '🎉', bg: 'bg-sky' },
+                  { e: '🏆', bg: 'bg-pink' },
+                ].map((r) => (
+                  <span
+                    key={r.e}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full text-[18px] ${r.bg}`}
+                  >
+                    {r.e}
+                  </span>
+                ))}
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 8, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.34 }}
+                className="mt-6 flex flex-col gap-3"
               >
                 <button type="button" onClick={onPlayAgain} className="btn btn-primary w-full">
-                  Play again
+                  Run it back
                 </button>
                 <button type="button" onClick={onClose} className="btn btn-outline w-full">
                   Keep board

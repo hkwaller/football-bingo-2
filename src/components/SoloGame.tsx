@@ -308,26 +308,26 @@ export function SoloGame() {
 
   if (!hydrated) {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center text-sm font-medium text-muted">
+      <div className="flex min-h-[40vh] items-center justify-center text-sm font-semibold text-on-green-dim">
         Loading…
       </div>
     )
   }
 
   return (
-    <div className={`mx-auto max-w-5xl px-6 py-8 md:px-9 ${playMode === 'draft' ? 'pb-32' : ''}`}>
+    <div className="mx-auto max-w-5xl px-6 py-8 pb-16 md:px-9">
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-display text-[40px] uppercase leading-none text-green md:text-[44px]">
+          <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
             Solo game
           </h1>
-          <p className="mt-1.5 text-sm font-medium text-muted">
+          <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
             {playMode === 'draft'
               ? 'Place the drawn player on a square that matches. Complete a line to win.'
               : 'Pick a square, then search for a player who fits that clue.'}
           </p>
           {!configOk ? (
-            <p className="mt-2 text-sm font-semibold text-red">
+            <p className="mt-2 text-sm font-bold text-yellow">
               Your saved board needs at least {needCount} clues (currently {poolCount}).{' '}
               <Link href="/play/setup" className="underline">
                 Fix in setup
@@ -336,24 +336,26 @@ export function SoloGame() {
           ) : null}
         </div>
         <div className="flex flex-wrap items-center gap-2.5">
-          <div className="flex rounded-full border-2 border-ink bg-panel p-1">
+          <div className="flex rounded-full bg-black/25 p-[5px]">
             {(['draft', 'free'] as const).map((m) => (
               <button
                 key={m}
                 type="button"
                 onClick={() => switchMode(m)}
-                className={`rounded-full px-4 py-1.5 text-[13px] font-bold uppercase tracking-[0.06em] transition-colors duration-200 ${
-                  playMode === m ? 'bg-red text-white' : 'text-muted hover:text-ink'
+                className={`rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
+                  playMode === m
+                    ? 'bg-yellow text-pitch-deep shadow-[0_3px_0_rgba(0,0,0,0.3)]'
+                    : 'text-on-green-dim hover:text-white'
                 }`}
               >
                 {PLAY_MODE_LABEL[m]}
               </button>
             ))}
           </div>
-          <Link href="/play/setup" className="btn btn-outline">
+          <Link href="/play/setup" className="btn btn-outline-light">
             Board setup
           </Link>
-          <button type="button" onClick={resetBoard} className="btn btn-outline">
+          <button type="button" onClick={resetBoard} className="btn btn-outline-light">
             New board
           </button>
         </div>

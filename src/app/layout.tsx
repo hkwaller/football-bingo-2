@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Anton, Libre_Franklin, Courier_Prime } from 'next/font/google'
+import { Passion_One, Libre_Franklin, Courier_Prime } from 'next/font/google'
 import { AppShell } from '@/components/AppShell'
 import './globals.css'
 
-const display = Anton({
-  weight: '400',
+const display = Passion_One({
+  weight: ['400', '700', '900'],
   variable: '--font-display',
   subsets: ['latin'],
 })
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${display.variable} ${sans.variable} ${mono.variable} relative min-h-screen bg-paper font-sans antialiased text-ink`}
+        className={`${display.variable} ${sans.variable} ${mono.variable} relative min-h-screen font-sans antialiased text-on-green`}
       >
         <AppShell>{children}</AppShell>
       </body>

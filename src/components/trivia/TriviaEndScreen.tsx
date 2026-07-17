@@ -68,26 +68,26 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
         >
           ★
         </motion.div>
-        <p className="eyebrow">Full time</p>
+        <span className="eyebrow">Full time</span>
         <div>
-          <h1 className="font-display text-[64px] uppercase leading-none text-green tabular-nums">
+          <h1 className="font-display text-[72px] font-black uppercase leading-none text-white tabular-nums">
             {scoreState.score.toLocaleString()}
           </h1>
-          <p className="mt-1 text-sm font-medium text-muted">points</p>
+          <p className="mt-1 text-sm font-semibold text-on-green-soft">points</p>
         </div>
 
         <div className="panel flex w-full max-w-sm items-stretch justify-center divide-x divide-[var(--line)] px-2 py-4">
           <div className="flex-1 text-center">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">Accuracy</p>
-            <p className="font-display text-2xl uppercase leading-none text-ink tabular-nums">{accuracy}%</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-card-muted">Accuracy</p>
+            <p className="font-display text-2xl font-black uppercase leading-none text-card-ink tabular-nums">{accuracy}%</p>
           </div>
           <div className="flex-1 text-center">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">Best streak</p>
-            <p className="font-display text-2xl uppercase leading-none text-gold tabular-nums">{scoreState.bestStreak}x</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-card-muted">Best streak</p>
+            <p className="font-display text-2xl font-black uppercase leading-none text-pitch-deep tabular-nums">{scoreState.bestStreak}x</p>
           </div>
           <div className="flex-1 text-center">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-soft">Answered</p>
-            <p className="font-display text-2xl uppercase leading-none text-ink tabular-nums">{answers.length}</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-card-muted">Answered</p>
+            <p className="font-display text-2xl font-black uppercase leading-none text-card-ink tabular-nums">{answers.length}</p>
           </div>
         </div>
       </motion.div>
@@ -100,7 +100,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="font-display text-2xl uppercase leading-none text-green">Leaderboard</h2>
+          <h2 className="font-display text-2xl font-black uppercase leading-none text-white">Leaderboard</h2>
           {leaderboard
             .sort((a, b) => b.score - a.score)
             .map((entry, i) => (
@@ -139,7 +139,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <h2 className="font-display text-2xl uppercase leading-none text-green">Review</h2>
+        <h2 className="font-display text-2xl font-black uppercase leading-none text-white">Review</h2>
         {questions.map((q, i) => {
           const answer = answers[i]
           if (!answer) return null
@@ -176,7 +176,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
             Play again
           </button>
         )}
-        <Link href="/trivia/setup" className="btn btn-outline btn-lg">
+        <Link href="/trivia/setup" className="btn btn-outline-light btn-lg">
           Change setup
         </Link>
         <Link href="/" className="btn btn-ghost btn-lg">

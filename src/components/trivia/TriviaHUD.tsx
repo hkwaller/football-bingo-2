@@ -38,17 +38,23 @@ export function TriviaHUD({
       <div className="flex items-end justify-between gap-4">
         {/* Question counter + title */}
         <div>
-          <p className="eyebrow">{label}</p>
-          <h1 className="mt-1 font-display text-[32px] uppercase leading-none text-green md:text-[36px]">
-            Quick fire
+          <span className="eyebrow eyebrow-sky">{label}</span>
+          <h1 className="mt-2.5 font-display text-[40px] font-black uppercase leading-[0.9] text-white md:text-[52px]">
+            Quick fire ⚡
           </h1>
         </div>
 
         {/* Score / streak */}
-        <p className="shrink-0 text-right font-mono text-sm font-bold text-ink-soft tabular-nums">
-          Score {score.toLocaleString()}
-          {streak >= 2 && <span> · Streak ×{streak}</span>}
-        </p>
+        <div className="flex shrink-0 gap-2">
+          <span className="inline-flex items-center rounded-full bg-black/25 px-4 py-2 font-mono text-sm font-bold tabular-nums text-yellow">
+            {score.toLocaleString()} pts
+          </span>
+          {streak >= 2 && (
+            <span className="inline-flex items-center rounded-full bg-black/25 px-4 py-2 text-[13px] font-extrabold text-pink">
+              🔥 ×{streak}
+            </span>
+          )}
+        </div>
       </div>
 
       <TriviaProgressBar

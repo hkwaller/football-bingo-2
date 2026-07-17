@@ -33,93 +33,132 @@ const DECK: { name: string; imageUrl: string }[] = [
   { name: 'Zidane', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg' },
 ]
 
-/** deterministic tilt used across the album */
-const tilt = (i: number) => ((i * 7) % 5 - 2) * 0.9
+/** deterministic tilt used across the marquee */
+const tilt = (i: number) => ((i * 7) % 5 - 2) * 1.4
+const VARIANTS = ['green', 'pink', 'yellow'] as const
 
 export default function HomePage() {
   const reduceMotion = useReducedMotion()
+  const bob = (dur: number) =>
+    reduceMotion
+      ? {}
+      : {
+          animate: { y: [0, -9, 0] },
+          transition: { duration: dur, ease: 'easeInOut' as const, repeat: Infinity },
+        }
 
   return (
-    <div className="flex flex-col items-center gap-16 pb-24 md:gap-24">
+    <div className="flex flex-col gap-24 pb-0">
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative w-full overflow-hidden">
-        <div className="mx-auto flex max-w-6xl flex-col items-center px-6 pt-16 text-center md:px-9 md:pt-20">
-          {/* Fanned stickers flanking the title on desktop */}
-          <motion.div
-            initial={{ opacity: 0, rotate: -16, y: 12 }}
-            animate={{ opacity: 1, rotate: -8, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
-            className="pointer-events-none absolute left-2 top-24 hidden md:block lg:left-16 xl:left-28"
-          >
-            <Sticker name="Messi" imageUrl={DECK[0].imageUrl} width={112} nameSize={11} />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, rotate: 14, y: 12 }}
-            animate={{ opacity: 1, rotate: 7, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.22, ease: 'easeOut' }}
-            className="pointer-events-none absolute right-2 top-16 hidden md:block lg:right-16 xl:right-28"
-          >
-            <Sticker name="Haaland" imageUrl={DECK[3].imageUrl} width={112} nameSize={11} />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, rotate: 10, y: 12 }}
-            animate={{ opacity: 1, rotate: 5, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-            className="pointer-events-none absolute right-24 top-56 hidden lg:block xl:right-44"
-          >
-            <Sticker name="Mbappé" imageUrl={DECK[2].imageUrl} width={92} nameSize={9.5} />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, rotate: -12, y: 12 }}
-            animate={{ opacity: 1, rotate: -6, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.34, ease: 'easeOut' }}
-            className="pointer-events-none absolute left-24 top-60 hidden lg:block xl:left-44"
-          >
-            <Sticker name="Zidane" imageUrl={DECK[15].imageUrl} width={92} nameSize={9.5} />
-          </motion.div>
+        {/* decorative chalk center circle + halfway line */}
+        <div className="pointer-events-none absolute left-1/2 top-[-260px] h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-white/[0.18]" />
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-white/[0.08]" />
 
-          <motion.div {...fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }} className="relative z-10">
-            <p className="eyebrow mb-3">The football knowledge game</p>
-            <h1 className="font-display text-[clamp(3.5rem,14vw,108px)] uppercase leading-[0.9] text-green">
-              Football
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pb-12 pt-16 md:px-9 lg:grid-cols-[1.1fr_0.9fr]">
+          {/* Left column */}
+          <motion.div {...fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }}>
+            <span className="eyebrow">The football knowledge game</span>
+            <h1 className="mt-5 font-display text-[clamp(56px,9.5vw,108px)] font-black uppercase leading-[0.86] text-white">
+              Know ball?
               <br />
-              <span className="text-red">Bingo</span>
+              <span className="mt-2 inline-block -rotate-[1.5deg] bg-yellow px-[18px] text-pitch-deep shadow-[0_8px_0_rgba(0,0,0,0.3)]">
+                Prove it.
+              </span>
             </h1>
-            <p className="mx-auto mt-5 max-w-[500px] text-[16px] font-medium leading-relaxed text-muted">
-              A player is drawn. Does he fit one of your squares — right club, nation or honour? Fill a
-              line before anyone else. No luck, just football knowledge.
+            <p className="mt-7 max-w-[460px] text-[17px] font-semibold leading-relaxed text-on-green-soft">
+              A player is drawn, the room goes wild. Slap him on the right square — club, nation or
+              honour — and race to a line. No luck, just football knowledge.
             </p>
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-8 flex flex-wrap gap-3.5">
               <Link href="/play/setup" className="btn btn-primary btn-lg">
                 Play Bingo
               </Link>
-              <Link href="/trivia/setup?mode=solo" className="btn btn-outline btn-lg">
+              <Link href="/trivia/setup?mode=solo" className="btn btn-outline-light btn-lg">
                 Play Trivia
               </Link>
             </div>
-            <p className="mt-4 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
-              641 players · Solo or with friends · Free to play
-            </p>
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {['🃏 641 real players', '👥 Solo or full room', '🎉 Free to play'].map((s) => (
+                <span
+                  key={s}
+                  className="inline-flex items-center gap-2 rounded-full bg-black/20 px-4 py-2 text-[13px] font-bold text-on-green"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right column — vote card */}
+          <motion.div
+            initial={{ opacity: 0, y: 18, rotate: 5 }}
+            animate={{ opacity: 1, y: 0, rotate: 2 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+            className="relative mx-auto w-full max-w-[420px]"
+          >
+            <div className="relative rounded-[24px] bg-white p-[26px] shadow-[0_30px_60px_rgba(0,0,0,0.45)]">
+              <div className="flex items-center gap-4">
+                <motion.div {...bob(4.6)} className="w-[96px] shrink-0">
+                  <Sticker name="Salah" imageUrl={DECK[4].imageUrl} rotate={-4} nameSize={12} drawn />
+                </motion.div>
+                <div>
+                  <p className="text-[12px] font-extrabold uppercase leading-none tracking-[0.14em] text-pink">
+                    Round 7 · fresh from the pack
+                  </p>
+                  <p className="mt-1.5 font-display text-[32px] font-black uppercase leading-none text-card-ink">
+                    Where does he fit?
+                  </p>
+                </div>
+              </div>
+              <div className="mt-[18px] flex flex-col gap-2.5">
+                <div className="flex items-center justify-between rounded-xl bg-green-go px-4 py-3 text-[15px] font-extrabold text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]">
+                  <span>⚽ Liverpool</span>
+                  <span>✓ 71%</span>
+                </div>
+                <div className="flex items-center justify-between rounded-xl bg-card-tint px-4 py-3 text-[15px] font-extrabold text-card-muted">
+                  <span>🌍 Egypt</span>
+                  <span>22%</span>
+                </div>
+                <div className="flex items-center justify-between rounded-xl bg-card-tint px-4 py-3 text-[15px] font-extrabold text-card-muted">
+                  <span>🏆 Ballon d&apos;Or</span>
+                  <span>7%</span>
+                </div>
+              </div>
+              <div className="mt-4 flex items-center gap-2">
+                <span className="-rotate-2 rounded-lg bg-yellow px-2.5 py-1.5 text-[12px] font-extrabold text-pitch-deep">
+                  +250 pts
+                </span>
+                <span className="text-[12.5px] font-bold text-card-muted-2">
+                  Jonas: &quot;no way he misses this&quot; 💬
+                </span>
+              </div>
+            </div>
+            <motion.div
+              {...bob(3.4)}
+              className="absolute -right-3.5 -top-6 rotate-[8deg] rounded-full bg-pink px-[18px] py-3 font-display text-[22px] font-black uppercase text-white shadow-[0_6px_0_rgba(0,0,0,0.3)]"
+            >
+              Bingo!
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* ── Full-bleed sticker marquee — "the album" ─────────── */}
-        <div className="relative mt-12 w-full">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-paper to-transparent md:w-28" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-paper to-transparent md:w-28" />
+        {/* ── Full-bleed sticker marquee ─────────── */}
+        <div className="relative mt-6 w-full overflow-hidden border-y-[3px] border-white/35 bg-black/[0.14] py-[18px]">
           <motion.div
-            className="flex w-max gap-4 px-4"
+            className="flex w-max gap-[18px] px-[18px]"
             animate={reduceMotion ? undefined : { x: ['0%', '-50%'] }}
-            transition={{ duration: 44, ease: 'linear', repeat: Infinity }}
+            transition={{ duration: 40, ease: 'linear', repeat: Infinity }}
           >
             {[...DECK, ...DECK].map((p, i) => (
               <Sticker
                 key={i}
                 name={p.name}
                 imageUrl={p.imageUrl}
-                width={124}
-                nameSize={11}
+                width={118}
+                nameSize={12}
                 rotate={tilt(i)}
+                variant={VARIANTS[i % 3]}
               />
             ))}
           </motion.div>
@@ -128,65 +167,48 @@ export default function HomePage() {
 
       {/* ── How it plays ─────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="How it plays" title="Three squares from a win" />
-        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+        <SectionHead eyebrow="How it plays" tone="sky" title="Three squares from glory" />
+        <div className="mt-9 grid gap-5 sm:grid-cols-3">
           <StepCard
             step="1"
+            rot={-1}
+            tone="yellow"
             title="Build your board"
-            body="Fill a grid with categories — a club, a country, an achievement. Every square is a football fact you're betting on."
+            body="Fill a grid with clubs, countries and honours. Every square is a football fact you're betting on."
           />
           <StepCard
             step="2"
-            title="Players get drawn"
-            body="One by one, real players are dealt. Slot each one onto a square he genuinely fits. Guess wrong and the square stays empty."
+            rot={1}
+            tone="pink"
+            title="Stickers get drawn"
+            body="Real players, one by one. Slap each sticker on a square he genuinely fits — miss and it stays empty."
           />
           <StepCard
             step="3"
+            rot={-0.6}
+            tone="sky"
             title="Race to a line"
-            body="First to complete a full row, column or diagonal shouts bingo. Sharp recall beats slow scrolling every time."
-          />
-        </div>
-      </section>
-
-      {/* ── Selling points ───────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="Why you'll like it" title="Made for football brains" />
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <FeatureCard
-            icon="🧠"
-            title="Knowledge, not luck"
-            body="Every square rewards what you actually know — squads, transfers, trophies and eras."
-          />
-          <FeatureCard
-            icon="👥"
-            title="Solo or a full room"
-            body="Practise on your own, or start a live room and share a code with friends."
-          />
-          <FeatureCard
-            icon="🃏"
-            title="641 real players"
-            body="From all-time greats to today's stars, each with their real portrait, club and honours."
-          />
-          <FeatureCard
-            icon="⚡"
-            title="Trivia mode too"
-            body="Prefer quick-fire? Switch to rapid questions — first to the whistle takes it."
+            body="Row, column or diagonal — first to fill one shouts BINGO and takes the roar of the room."
           />
         </div>
       </section>
 
       {/* ── Mode cards ───────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="Pick your game" title="Two ways to play" />
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+        <SectionHead eyebrow="Pick your game" tone="pink" title="Two ways to play" />
+        <div className="mt-9 grid gap-5 sm:grid-cols-2">
           <ModeCard
             title="Bingo"
+            icon="⚽"
+            rot={-0.6}
             blurb="Fill your board with the players drawn and be first to a full line. The signature mode."
             soloHref="/play/setup"
             multiHref="/room/new"
           />
           <ModeCard
             title="Trivia"
+            icon="⚡"
+            rot={0.6}
             blurb="Quick-fire football questions where the fastest correct answer wins the round."
             soloHref="/trivia/setup?mode=solo"
             multiHref="/trivia/setup?mode=multiplayer"
@@ -195,32 +217,25 @@ export default function HomePage() {
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <div className="panel relative overflow-hidden px-8 py-12 text-center md:py-14">
-          <div className="mx-auto flex max-w-lg flex-wrap items-center justify-center gap-2">
-            {DECK.slice(4, 10).map((p, i) => (
-              <Sticker
-                key={p.name}
-                name={p.name}
-                imageUrl={p.imageUrl}
-                width={64}
-                nameSize={7.5}
-                rotate={tilt(i)}
-              />
-            ))}
-          </div>
-          <h2 className="mt-7 font-display text-[clamp(2rem,6vw,44px)] uppercase leading-none text-green">
-            Ready to fill a line?
+      <section className="relative w-full overflow-hidden border-t-[3px] border-white/35 bg-black/[0.16] px-6 py-20 md:px-9">
+        <div className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-white/[0.16]" />
+        <div className="relative mx-auto max-w-[640px] text-center">
+          <h2 className="font-display text-[clamp(2.5rem,8vw,60px)] font-black uppercase leading-[0.9] text-white">
+            Ready for
+            <br />
+            <span className="mt-1 inline-block -rotate-1 bg-yellow px-3.5 text-pitch-deep shadow-[0_6px_0_rgba(0,0,0,0.3)]">
+              kick-off?
+            </span>
           </h2>
-          <p className="mx-auto mt-3 max-w-[420px] text-[15px] font-medium text-muted">
-            No sign-up needed to start. Deal your first board and see how deep your football knowledge
-            really runs.
+          <p className="mx-auto mt-5 max-w-[420px] text-[15.5px] font-semibold leading-relaxed text-on-green-soft">
+            No sign-up needed. Deal your first board and see how deep your football knowledge really
+            runs.
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-7 flex flex-wrap justify-center gap-3.5">
             <Link href="/play/setup" className="btn btn-primary btn-lg">
               Start playing
             </Link>
-            <Link href="/room/new" className="btn btn-outline btn-lg">
+            <Link href="/room/new" className="btn btn-outline-light btn-lg">
               Start a room
             </Link>
           </div>
@@ -230,7 +245,16 @@ export default function HomePage() {
   )
 }
 
-function SectionHead({ eyebrow, title }: { eyebrow: string; title: string }) {
+function SectionHead({
+  eyebrow,
+  title,
+  tone,
+}: {
+  eyebrow: string
+  title: string
+  tone: 'pink' | 'sky' | 'yellow'
+}) {
+  const cls = tone === 'sky' ? 'eyebrow eyebrow-sky' : tone === 'yellow' ? 'eyebrow eyebrow-yellow' : 'eyebrow'
   return (
     <motion.div
       {...fadeUp}
@@ -240,54 +264,84 @@ function SectionHead({ eyebrow, title }: { eyebrow: string; title: string }) {
       transition={{ duration: 0.45, ease: 'easeOut' }}
       className="text-center"
     >
-      <p className="eyebrow mb-2">{eyebrow}</p>
-      <h2 className="font-display text-[clamp(1.8rem,5vw,40px)] uppercase leading-none text-green">
+      <span className={cls}>{eyebrow}</span>
+      <h2 className="mt-3 font-display text-[clamp(2rem,6vw,52px)] font-black uppercase leading-none text-white">
         {title}
       </h2>
     </motion.div>
   )
 }
 
-function StepCard({ step, title, body }: { step: string; title: string; body: string }) {
-  return (
-    <div className="panel flex flex-col gap-2 p-6">
-      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-red font-display text-[20px] leading-none text-white">
-        {step}
-      </span>
-      <p className="mt-1 font-display text-[22px] uppercase leading-none text-green">{title}</p>
-      <p className="text-[13.5px] font-medium leading-relaxed text-muted">{body}</p>
-    </div>
-  )
+const ROUNDEL: Record<'yellow' | 'pink' | 'sky', string> = {
+  yellow: 'bg-yellow text-pitch-deep',
+  pink: 'bg-pink text-white',
+  sky: 'bg-sky text-pitch-deep',
 }
 
-function FeatureCard({ icon, title, body }: { icon: string; title: string; body: string }) {
+function StepCard({
+  step,
+  title,
+  body,
+  rot,
+  tone,
+}: {
+  step: string
+  title: string
+  body: string
+  rot: number
+  tone: 'yellow' | 'pink' | 'sky'
+}) {
   return (
-    <div className="panel flex flex-col gap-2 p-6">
-      <span className="text-[26px] leading-none" aria-hidden>
-        {icon}
+    <motion.div
+      {...fadeUp}
+      viewport={{ once: true, margin: '-60px' }}
+      whileInView="animate"
+      initial="initial"
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="rounded-[20px] bg-white p-[26px] shadow-[0_10px_0_rgba(0,0,0,0.22)]"
+      style={{ transform: `rotate(${rot}deg)` }}
+    >
+      <span
+        className={`flex h-[46px] w-[46px] items-center justify-center rounded-full font-display text-[24px] font-black leading-none shadow-[0_4px_0_rgba(0,0,0,0.2)] ${ROUNDEL[tone]}`}
+      >
+        {step}
       </span>
-      <p className="mt-1 font-display text-[19px] uppercase leading-none text-green">{title}</p>
-      <p className="text-[13px] font-medium leading-relaxed text-muted">{body}</p>
-    </div>
+      <p className="mt-3.5 font-display text-[26px] font-black uppercase leading-none text-card-ink">{title}</p>
+      <p className="mt-2 text-[14px] font-semibold leading-relaxed text-card-muted">{body}</p>
+    </motion.div>
   )
 }
 
 function ModeCard({
   title,
+  icon,
   blurb,
   soloHref,
   multiHref,
+  rot,
 }: {
   title: string
+  icon: string
   blurb: string
   soloHref: string
   multiHref: string
+  rot: number
 }) {
   return (
-    <div className="panel flex flex-col gap-1.5 p-6">
-      <p className="font-display text-[28px] uppercase leading-none text-green">{title}</p>
-      <p className="text-[13.5px] font-medium leading-relaxed text-muted">{blurb}</p>
-      <div className="mt-4 flex gap-2.5">
+    <motion.div
+      {...fadeUp}
+      viewport={{ once: true, margin: '-60px' }}
+      whileInView="animate"
+      initial="initial"
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="rounded-[20px] bg-white p-7 shadow-[0_10px_0_rgba(0,0,0,0.22)]"
+      style={{ transform: `rotate(${rot}deg)` }}
+    >
+      <p className="font-display text-[34px] font-black uppercase leading-none text-card-ink">
+        {title} <span className="text-[20px]">{icon}</span>
+      </p>
+      <p className="mt-2 text-[14.5px] font-semibold leading-relaxed text-card-muted">{blurb}</p>
+      <div className="mt-[18px] flex gap-3">
         <Link href={soloHref} className="btn btn-primary flex-1">
           Solo
         </Link>
@@ -295,6 +349,6 @@ function ModeCard({
           Multiplayer
         </Link>
       </div>
-    </div>
+    </motion.div>
   )
 }

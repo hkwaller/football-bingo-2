@@ -88,7 +88,7 @@ export function PlayerPickModal({
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(38,32,25,0.35)] p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(4,40,20,0.55)] p-4 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -136,7 +136,7 @@ export function PlayerPickModal({
                     type="button"
                     disabled={submitting || Date.now() < blockedUntil}
                     onClick={() => tryPick(p.playerId)}
-                    className="flex w-full items-center gap-3 rounded-[10px] border-2 border-transparent px-3 py-2.5 text-left transition-all duration-150 hover:border-ink hover:bg-panel-white disabled:pointer-events-none disabled:opacity-40"
+                    className="flex w-full items-center gap-3 rounded-[10px] border-2 border-transparent px-3 py-2.5 text-left transition-all duration-150 hover:border-card-ink hover:bg-card-tint disabled:pointer-events-none disabled:opacity-40"
                   >
                     {p.imageUrl ? (
                       <Image
@@ -159,11 +159,11 @@ export function PlayerPickModal({
             )}
           </ul>
         </div>
-        <div className="flex justify-end border-t-2 border-ink px-5 py-3">
+        <div className="flex justify-end border-t-2 border-card-ink px-5 py-3">
           <button
             type="button"
             onClick={onClose}
-            className="btn btn-ghost btn-sm"
+            className="rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-[0.06em] text-card-muted transition-colors hover:bg-card-tint hover:text-card-ink"
           >
             Cancel
           </button>

@@ -38,15 +38,15 @@ export default function CreditsPage() {
   const rows = buildRows()
   return (
     <main className="mx-auto max-w-[860px] px-6 py-10">
-      <p className="eyebrow">Attribution</p>
-      <h1 className="mt-1.5 font-display text-[34px] uppercase leading-none text-green">
+      <span className="eyebrow">Attribution</span>
+      <h1 className="mt-2.5 font-display text-[34px] font-black uppercase leading-none text-white">
         Photo credits
       </h1>
-      <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-muted">
+      <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-on-green-soft">
         Player photographs are sourced from{' '}
         <a
           href="https://commons.wikimedia.org"
-          className="font-semibold text-ink underline"
+          className="font-semibold text-yellow underline"
           target="_blank"
           rel="noreferrer"
         >
@@ -57,11 +57,11 @@ export default function CreditsPage() {
         credited.
       </p>
 
-      <ul className="mt-6 divide-y divide-line">
+      <ul className="mt-6 divide-y divide-white/15">
         {rows.map((r) => (
           <li key={r.source || r.author} className="py-3 text-[13px]">
-            <div className="font-semibold text-ink">{r.players.join(', ')}</div>
-            <div className="mt-0.5 text-muted">
+            <div className="font-semibold text-white">{r.players.join(', ')}</div>
+            <div className="mt-0.5 text-on-green-dim">
               © {r.author} ·{' '}
               {r.licenseUrl ? (
                 <a href={r.licenseUrl} className="underline" target="_blank" rel="noreferrer">
@@ -84,7 +84,7 @@ export default function CreditsPage() {
       </ul>
 
       <div className="mt-8">
-        <Link href="/" className="btn btn-outline btn-sm">
+        <Link href="/" className="btn btn-outline-light btn-sm">
           ← Back
         </Link>
       </div>

@@ -25,13 +25,13 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
     const base =
       'flex-1 flex flex-col items-center gap-4 p-6 rounded-xl transition-all duration-200 cursor-pointer min-h-[220px] justify-center'
     if (!selected) {
-      return `${base} border-2 border-ink bg-panel-white text-ink hover:-translate-y-0.5`
+      return `${base} bg-white text-card-ink shadow-[0_5px_0_rgba(0,0,0,0.22)] hover:-translate-y-[3px]`
     }
     const isCorrect = playerId === question.correctPlayerId
     const wasChosen = playerId === selected
-    if (isCorrect) return `${base} bg-green text-cream shadow-sticker`
-    if (wasChosen) return `${base} border-2 border-red bg-panel-white text-red`
-    return `${base} border-2 border-[rgba(38,32,25,0.3)] text-muted`
+    if (isCorrect) return `${base} bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
+    if (wasChosen) return `${base} bg-pink text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
+    return `${base} bg-white/55 text-card-muted opacity-70`
   }
 
   return (
@@ -63,7 +63,7 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.1, duration: 0.3 }}
             >
-              <div className="w-20 h-20 overflow-hidden rounded-[6px] border-2 border-ink bg-panel-white p-[3px] shadow-sticker">
+              <div className="w-20 h-20 overflow-hidden rounded-[6px] border-2 border-card-ink bg-white p-[3px]">
                 <img
                   src={player.imageUrl}
                   alt={player.name}
@@ -86,7 +86,7 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
         {/* VS divider */}
         {!selected && (
           <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <span className="font-display text-2xl uppercase leading-none text-red">VS</span>
+            <span className="font-display text-2xl font-black uppercase leading-none text-pink">VS</span>
           </div>
         )}
       </div>
