@@ -19,12 +19,18 @@ interface Props {
 
 function clueLabel(clue: OpenTextClue): string {
   switch (clue.kind) {
-    case 'era': return 'Era'
-    case 'height': return 'Height'
-    case 'position': return 'Position'
-    case 'nationality': return 'Nationality'
-    case 'club': return clue.label
-    case 'stat': return clue.label
+    case 'era':
+      return 'Era'
+    case 'height':
+      return 'Height'
+    case 'position':
+      return 'Position'
+    case 'nationality':
+      return 'Nationality'
+    case 'club':
+      return clue.label
+    case 'stat':
+      return clue.label
   }
 }
 
@@ -33,7 +39,13 @@ function clueValue(clue: OpenTextClue): string {
   return String(clue.value)
 }
 
-const IMMEDIATE_KINDS = new Set<OpenTextClue['kind']>(['era', 'height', 'position', 'nationality', 'club'])
+const IMMEDIATE_KINDS = new Set<OpenTextClue['kind']>([
+  'era',
+  'height',
+  'position',
+  'nationality',
+  'club',
+])
 
 export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
   const immediateClues = question.clues.filter((c) => IMMEDIATE_KINDS.has(c.kind))
@@ -48,25 +60,28 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Reveal staged clues (clubs, stats) one by one every 5s
+  // Reveal staged clues (clubs, stats) one by one, quickly
   useEffect(() => {
     if (answered || disabled) return
     if (revealedStagedCount >= stagedClues.length) return
     const timer = setInterval(() => {
       setRevealedStagedCount((n) => Math.min(n + 1, stagedClues.length))
-    }, 1500)
+    }, 700)
     return () => clearInterval(timer)
   }, [answered, disabled, stagedClues.length, revealedStagedCount])
 
   // Debounced player search
   const search = useCallback((q: string) => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
-    if (!q.trim()) { setResults([]); return }
+    if (!q.trim()) {
+      setResults([])
+      return
+    }
     debounceRef.current = setTimeout(async () => {
       setSearching(true)
       try {
         const res = await fetch(`/api/players/search?q=${encodeURIComponent(q)}&limit=8`)
-        const data = await res.json() as { players: PlayerResult[] }
+        const data = (await res.json()) as { players: PlayerResult[] }
         setResults(data.players ?? [])
       } catch {
         setResults([])
@@ -95,11 +110,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
 
   return (
     <div className="flex flex-col items-center gap-6 w-full max-w-[720px] mx-auto">
-      <motion.p
-        className="eyebrow"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
+      <motion.p className="eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         Name the player
       </motion.p>
 
@@ -126,7 +137,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           {stagedClues.slice(0, revealedStagedCount).map((clue, i) => (
             <motion.div
               key={`staged-${i}`}
-              className="flex items-center gap-4 rounded-xl border-2 border-dashed border-green/50 bg-green/5 px-4 py-3"
+              className="flex items-center gap-4 rounded-xl border-2 border-solid bg-white px-4 py-3"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -141,9 +152,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
         </AnimatePresence>
 
         {revealedStagedCount < stagedClues.length && !answered && (
-          <p className="mt-1 text-center text-xs text-muted">
-            Next clue in a few seconds…
-          </p>
+          <p className="mt-1 text-center text-xs text-muted">Next clue in a few seconds…</p>
         )}
       </div>
 
@@ -168,15 +177,16 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
             ref={inputRef}
             type="text"
             value={query}
-            onChange={(e) => { setQuery(e.target.value); search(e.target.value) }}
+            onChange={(e) => {
+              setQuery(e.target.value)
+              search(e.target.value)
+            }}
             placeholder="Type a player name…"
             className="input w-full"
             autoComplete="off"
           />
           {searching && (
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-muted">
-              …
-            </span>
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-muted">…</span>
           )}
 
           {/* Autocomplete dropdown */}
@@ -212,16 +222,18 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
         </div>
       )}
 
-      {/* Result feedback */}
+      {/* Result feedback — also reveal the answer when the question ends (timeout) */}
       <AnimatePresence>
-        {answered && lastResult && (
+        {(answered || disabled) && (
           <motion.p
-            className={`font-display text-lg uppercase leading-none ${lastResult.correct ? 'text-green' : 'text-red'}`}
+            className={`font-display text-lg uppercase leading-none ${lastResult?.correct ? 'text-green' : 'text-red'}`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
           >
-            {lastResult.correct ? `Correct — ${question.correctPlayerName}!` : `It was ${question.correctPlayerName}`}
+            {lastResult?.correct
+              ? `Correct — ${question.correctPlayerName}!`
+              : `It was ${question.correctPlayerName}`}
           </motion.p>
         )}
       </AnimatePresence>

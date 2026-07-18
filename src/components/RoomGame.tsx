@@ -35,6 +35,7 @@ import {
   categoriesRequired,
   categoryPoolForConfig,
   isBoardConfigViable,
+  MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
 import { displayCategory } from '@/lib/canonical'
 import {
@@ -80,6 +81,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     useStorage((s) => s.categoryAchievements) ?? true
   const categoryTraits = useStorage((s) => s.categoryTraits) ?? true
   const categoryManagers = useStorage((s) => s.categoryManagers) ?? true
+  const minFameScore = useStorage((s) => s.minFameScore) ?? 0
   const boardLayout = useStorage((s) => s.boardLayout) ?? 'individual'
   const draftPolicyStorage: DraftPolicy =
     useStorage((s) => s.draftPolicy) === 'placeable' ? 'placeable' : 'open'
@@ -100,6 +102,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         categoryAchievements,
         categoryTraits,
         categoryManagers,
+        minFameScore,
       }),
     [
       boardSize,
@@ -108,6 +111,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       categoryAchievements,
       categoryTraits,
       categoryManagers,
+      minFameScore,
     ],
   )
 
@@ -161,6 +165,10 @@ function RoomInner({ roomId }: { roomId: string }) {
     },
     [],
   )
+
+  const setMinFameScore = useMutation(({ storage }, v: number) => {
+    storage.set('minFameScore', v)
+  }, [])
 
   const setBoardLayoutWithPolicy = useMutation(
     ({ storage }, layout: 'shared' | 'individual') => {
@@ -316,6 +324,10 @@ function RoomInner({ roomId }: { roomId: string }) {
     () => [...solvedForDisplay.keys()],
     [solvedForDisplay],
   )
+  const placedPlayerIdsForDraft = useMemo(
+    () => [...solvedForDisplay.values()].map((p) => p.playerId),
+    [solvedForDisplay],
+  )
 
   useEffect(() => {
     if (playMode !== 'draft' || !activeSeed || phase !== 'playing') {
@@ -335,6 +347,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       policy: effectiveDraftPolicy,
       boardConfig,
       occupiedIndices: occupiedForDraft,
+      placedPlayerIds: placedPlayerIdsForDraft,
     })
     void fetch(url)
       .then(async (res) => {
@@ -388,6 +401,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     effectiveDraftPolicy,
     boardConfig,
     occupiedForDraft,
+    placedPlayerIdsForDraft,
   ])
 
   const participantIds = useMemo(() => {
@@ -943,6 +957,32 @@ function RoomInner({ roomId }: { roomId: string }) {
                       ? `${poolCount} in pool · ${needCount} needed ✓`
                       : `Need at least ${needCount} clues — enable more categories.`}
                   </p>
+
+                  {/* Star quality */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                      Star quality
+                    </span>
+                    <div className="min-w-[180px] flex-1">
+                      <input
+                        type="range"
+                        min={0}
+                        max={MAX_FAME_SCORE}
+                        step={1}
+                        value={minFameScore}
+                        onChange={(e) => setMinFameScore(Number(e.target.value))}
+                        aria-label="Minimum fame score"
+                        className="h-2 w-full cursor-pointer appearance-none rounded-full bg-card-tint accent-green-go"
+                      />
+                      <div className="mt-1 flex items-center justify-between text-[11px] font-extrabold uppercase tracking-[0.05em] text-card-muted">
+                        <span>Anyone</span>
+                        <span className="font-mono text-card-ink">
+                          {minFameScore === 0 ? 'Off' : `≥ ${minFameScore}`}
+                        </span>
+                        <span>Legends</span>
+                      </div>
+                    </div>
+                  </div>
 
                   {/* Display name */}
                   <label className="block text-sm font-bold text-ink">

@@ -12,6 +12,14 @@ function parseOccupied(raw: string | null): number[] {
     .filter((n) => Number.isInteger(n) && n >= 0)
 }
 
+function parsePlaced(raw: string | null): string[] {
+  if (!raw || !raw.trim()) return []
+  return raw
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0)
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const seed = searchParams.get('seed') ?? ''
@@ -20,6 +28,7 @@ export async function GET(request: Request) {
   const policy = parseDraftPolicy(searchParams.get('policy'))
   const boardConfigRaw = searchParams.get('boardConfig')
   const occupied = parseOccupied(searchParams.get('occupied'))
+  const placed = parsePlaced(searchParams.get('placed'))
 
   if (!seed) {
     return Response.json({ error: 'Missing seed' }, { status: 400 })
@@ -44,6 +53,7 @@ export async function GET(request: Request) {
     policy,
     boardConfig,
     occupiedIndices: occupied,
+    placedPlayerIds: placed,
   })
 
   if (!result) {

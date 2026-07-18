@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -10,7 +10,9 @@ import {
   categoriesRequired,
   DEFAULT_BOARD_CONFIG,
   isBoardConfigViable,
+  MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
+import { enrichedFootballPlayers } from '@/data/players'
 import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { randomUUID } from '@/lib/randomUUID'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
@@ -69,6 +71,16 @@ export function SoloPlaySetup() {
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
   const configOk = isBoardConfigViable(boardConfig)
+
+  const minFameScore = boardConfig.minFameScore ?? 0
+  const eligiblePlayerCount = useMemo(
+    () =>
+      minFameScore <= 0
+        ? enrichedFootballPlayers.length
+        : enrichedFootballPlayers.filter((p) => (p.fameScore ?? 0) >= minFameScore)
+            .length,
+    [minFameScore],
+  )
 
   const persistAndPlay = () => {
     const prev = loadSolo()
@@ -229,6 +241,46 @@ export function SoloPlaySetup() {
               </motion.p>
             )}
           </AnimatePresence>
+        </motion.div>
+
+        {/* Star quality */}
+        <motion.div variants={itemVariants} className="panel p-6">
+          <div className="mb-3 flex items-baseline justify-between gap-3">
+            <p className="eyebrow">Star quality</p>
+            <motion.span
+              key={eligiblePlayerCount}
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className={`font-mono text-xs font-bold ${
+                eligiblePlayerCount === 0 ? 'text-pink' : 'text-card-muted'
+              }`}
+            >
+              {eligiblePlayerCount} players in play
+            </motion.span>
+          </div>
+          <p className="mb-4 text-[13.5px] font-semibold text-card-muted">
+            Drag right to keep the journeymen out. Only players at or above this
+            fame score get drawn.
+          </p>
+          <input
+            type="range"
+            min={0}
+            max={MAX_FAME_SCORE}
+            step={1}
+            value={minFameScore}
+            onChange={(e) =>
+              setBoardConfig((c) => ({ ...c, minFameScore: Number(e.target.value) }))
+            }
+            aria-label="Minimum fame score"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-card-tint accent-green-go"
+          />
+          <div className="mt-2 flex items-center justify-between text-[12px] font-extrabold uppercase tracking-[0.06em] text-card-muted-2">
+            <span>Anyone</span>
+            <span className="font-mono text-sm font-bold text-card-ink">
+              {minFameScore === 0 ? 'Off' : `≥ ${minFameScore}`}
+            </span>
+            <span>Legends only</span>
+          </div>
         </motion.div>
 
         {/* Draft rule */}

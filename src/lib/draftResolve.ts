@@ -65,12 +65,29 @@ function toPublic(p: EnrichedPlayer) {
 
 /** All players who match at least one empty category cell. */
 function placeablePool(
+  candidates: EnrichedPlayer[],
   cells: BoardCell[],
   emptyIndices: number[],
 ): EnrichedPlayer[] {
-  return enrichedFootballPlayers.filter(
+  return candidates.filter(
     (p) => validIndicesForPlayer(p, cells, emptyIndices).length > 0,
   )
+}
+
+/**
+ * Players eligible to be drawn: not already placed on the board, and clearing
+ * the minimum fame score. The fame floor is relaxed only if it would empty the
+ * pool, so a strict setting can never leave a game with no one to draw.
+ */
+function eligiblePlayers(
+  placedPlayerIds: string[],
+  minFameScore: number,
+): EnrichedPlayer[] {
+  const placed = new Set(placedPlayerIds)
+  const notPlaced = enrichedFootballPlayers.filter((p) => !placed.has(p.playerId))
+  if (minFameScore <= 0) return notPlaced
+  const famous = notPlaced.filter((p) => (p.fameScore ?? 0) >= minFameScore)
+  return famous.length > 0 ? famous : notPlaced
 }
 
 export function resolveDraftPlayer(params: {
@@ -79,18 +96,23 @@ export function resolveDraftPlayer(params: {
   policy: DraftPolicy
   boardConfig: BoardConfig
   occupiedIndices: number[]
+  placedPlayerIds?: string[]
 }): DraftResolveResult | null {
   const cells = generateBoard(params.seed, params.boardConfig)
   const occ = new Set(params.occupiedIndices)
   const emptyIdx = emptyCategoryCellIndices(cells, occ)
   const occKey = occupiedKey(params.occupiedIndices)
+  const candidates = eligiblePlayers(
+    params.placedPlayerIds ?? [],
+    params.boardConfig.minFameScore ?? 0,
+  )
 
   if (params.policy === 'open') {
-    const hashKey = `draft|${params.seed}|${params.round}`
-    const n = enrichedFootballPlayers.length
+    const hashKey = `draft|${params.seed}|${params.round}|${occKey}`
+    const n = candidates.length
     if (n === 0) return null
     const i = pickIndexFromPool(hashKey, n)
-    const p = enrichedFootballPlayers[i]
+    const p = candidates[i]
     if (!p) return null
     const vs = validIndicesForPlayer(p, cells, emptyIdx)
     return {
@@ -101,12 +123,13 @@ export function resolveDraftPlayer(params: {
     }
   }
 
-  let pool = placeablePool(cells, emptyIdx)
+  let pool = placeablePool(candidates, cells, emptyIdx)
   let usedOpenFallback = false
   if (pool.length === 0) {
-    pool = [...enrichedFootballPlayers]
+    pool = [...candidates]
     usedOpenFallback = true
   }
+  if (pool.length === 0) return null
 
   const hashKey = usedOpenFallback
     ? `placeable_fb|${params.seed}|${params.round}|${occKey}`

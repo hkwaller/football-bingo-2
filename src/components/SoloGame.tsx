@@ -86,6 +86,10 @@ export function SoloGame() {
   }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy])
 
   const occupiedIndices = useMemo(() => [...solved.keys()], [solved])
+  const placedPlayerIds = useMemo(
+    () => [...solved.values()].map((p) => p.playerId),
+    [solved],
+  )
 
   useEffect(() => {
     if (!wrongCell) return
@@ -111,6 +115,7 @@ export function SoloGame() {
       policy: draftPolicy,
       boardConfig,
       occupiedIndices,
+      placedPlayerIds,
     })
     void fetch(url)
       .then(async (res) => {
@@ -156,7 +161,7 @@ export function SoloGame() {
     return () => {
       cancelled = true
     }
-  }, [playMode, seed, round, hydrated, draftPolicy, boardConfig, occupiedIndices])
+  }, [playMode, seed, round, hydrated, draftPolicy, boardConfig, occupiedIndices, placedPlayerIds])
 
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
