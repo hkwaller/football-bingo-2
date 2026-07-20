@@ -116,7 +116,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
 
       {/* Clues */}
       <div className="w-full flex flex-col gap-2">
-        {/* Immediate clues — all shown at once */}
+        {/* Immediate clues - all shown at once */}
         {immediateClues.map((clue, i) => (
           <motion.div
             key={clue.kind}
@@ -132,7 +132,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           </motion.div>
         ))}
 
-        {/* Staged clues — clubs and stats revealed one by one */}
+        {/* Staged clues - clubs and stats revealed one by one */}
         <AnimatePresence>
           {stagedClues.slice(0, revealedStagedCount).map((clue, i) => (
             <motion.div
@@ -222,7 +222,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
         </div>
       )}
 
-      {/* Result feedback — also reveal the answer when the question ends (timeout) */}
+      {/* Result feedback - also reveal the answer when the question ends (timeout) */}
       <AnimatePresence>
         {(answered || disabled) && (
           <motion.p
@@ -232,7 +232,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
             exit={{ opacity: 0 }}
           >
             {lastResult?.correct
-              ? `Correct — ${question.correctPlayerName}!`
+              ? `Correct - ${question.correctPlayerName}!`
               : `It was ${question.correctPlayerName}`}
           </motion.p>
         )}

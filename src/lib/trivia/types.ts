@@ -11,8 +11,8 @@ export interface TriviaConfig {
   sessionType: TriviaSessionType
   difficulty: TriviaDifficulty
   category: TriviaCategory
-  questionCount: number // 5 | 10 | 20 — for 'fixed' and 'category'
-  timeLimitSeconds: number // 60 | 120 | 180 — for 'timed'
+  questionCount: number // 5 | 10 | 20 - for 'fixed' and 'category'
+  timeLimitSeconds: number // 60 | 120 | 180 - for 'timed'
   multiplayerMechanic: TriviaMultiplayerMechanic
 }
 

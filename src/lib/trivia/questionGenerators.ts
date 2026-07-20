@@ -225,13 +225,13 @@ function generateOpenText(player: Player, rand: () => number, id: string): OpenT
   clues.push({ kind: 'nationality', value: player.nationality })
 
   const seniorClubs = player.clubs.filter(isSeniorClub)
-  // Pick up to 2 clubs as hints — shuffle so it's not always the same ones
+  // Pick up to 2 clubs as hints - shuffle so it's not always the same ones
   const clubHints = shuffle(seniorClubs, rand).slice(0, 2)
   for (const club of clubHints) {
     clues.push({ kind: 'club', label: 'Club', value: club })
   }
 
-  // One career stat — pick at random, skip outfield-only stats for goalkeepers
+  // One career stat - pick at random, skip outfield-only stats for goalkeepers
   const eligibleStatKeys = STAT_KEYS.filter(
     (k) => !(isGoalkeeper(player) && OUTFIELD_ONLY_STATS.has(k)),
   )
@@ -330,7 +330,7 @@ function generateTrueFalse(
       const isTrue = player.height > other.height
       if (player.height === other.height) return null
       const statement = `${player.name} is taller than ${other.name}`
-      const detail = `${player.name}: ${player.height}cm — ${other.name}: ${other.height}cm`
+      const detail = `${player.name}: ${player.height}cm - ${other.name}: ${other.height}cm`
       const q = isTrue ? makeTrue(statement) : makeFalse(statement)
       return { ...q, detail }
     },

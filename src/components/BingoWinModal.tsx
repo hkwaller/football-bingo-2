@@ -42,7 +42,7 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop — dim + blur the board underneath */}
+          {/* Backdrop - dim + blur the board underneath */}
           <motion.div
             className="fixed inset-0 z-40 backdrop-blur-[3px]"
             style={{ backgroundColor: 'rgba(4,40,20,0.55)' }}

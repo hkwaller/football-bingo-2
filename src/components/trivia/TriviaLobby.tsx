@@ -36,7 +36,9 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
       await navigator.clipboard.writeText(joinUrl)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }, [joinUrl])
 
   const sessionLabel: Record<string, string> = {
@@ -47,8 +49,8 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
   }
 
   const mechanicLabel: Record<string, string> = {
-    race: 'Race — first correct wins',
-    simultaneous: 'Simultaneous — everyone answers',
+    race: 'Race - first correct wins',
+    simultaneous: 'Simultaneous - everyone answers',
     'turn-based': 'Turn-based',
   }
 
@@ -64,7 +66,7 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
           The squad gathers
         </h1>
         <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
-          Share the code below — everyone plays from their own device.
+          Share the code below - everyone plays from their own device.
         </p>
       </motion.div>
 
@@ -73,14 +75,21 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
         <p className="eyebrow">Game settings</p>
         <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
           <span className="text-muted">Session</span>
-          <span className="font-semibold text-ink">{sessionLabel[config.sessionType] ?? config.sessionType}</span>
+          <span className="font-semibold text-ink">
+            {sessionLabel[config.sessionType] ?? config.sessionType}
+          </span>
           <span className="text-muted">Difficulty</span>
           <span className="font-semibold text-ink">{DIFFICULTY_LABELS[config.difficulty]}</span>
           <span className="text-muted">Mechanic</span>
-          <span className="font-semibold text-ink">{mechanicLabel[config.multiplayerMechanic] ?? config.multiplayerMechanic}</span>
+          <span className="font-semibold text-ink">
+            {mechanicLabel[config.multiplayerMechanic] ?? config.multiplayerMechanic}
+          </span>
         </div>
         {isHost && (
-          <a href="/trivia/setup" className="mt-1 w-fit text-xs font-bold uppercase tracking-[0.06em] text-red hover:underline">
+          <a
+            href="/trivia/setup"
+            className="mt-1 w-fit text-xs font-bold uppercase tracking-[0.06em] text-red hover:underline"
+          >
             Change settings →
           </a>
         )}
@@ -97,11 +106,7 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
             <code className="block break-all rounded-xl border-[3px] border-card-ink bg-card-tint px-3 py-2 font-mono text-sm font-bold text-card-ink">
               {roomId}
             </code>
-            <button
-              type="button"
-              onClick={copy}
-              className="btn btn-outline btn-sm w-fit"
-            >
+            <button type="button" onClick={copy} className="btn btn-outline btn-sm w-fit">
               {copied ? 'Copied!' : 'Copy invite link'}
             </button>
           </div>
@@ -112,10 +117,7 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
       <div className="flex flex-col gap-2.5">
         <p className="eyebrow">In the room ({players.length})</p>
         {players.map((p) => (
-          <div
-            key={p.connectionId}
-            className="panel flex items-center gap-3 px-4 py-3"
-          >
+          <div key={p.connectionId} className="panel flex items-center gap-3 px-4 py-3">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-go font-display text-lg font-black uppercase leading-none text-white">
               {p.displayName.charAt(0) || '?'}
             </span>
@@ -139,7 +141,9 @@ export function TriviaLobby({ roomId, players, isHost, config, onStart }: Props)
           Start match
         </button>
       ) : (
-        <p className="text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">In the tunnel — waiting for the gaffer…</p>
+        <p className="text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">
+          In the tunnel - waiting for the gaffer…
+        </p>
       )}
     </div>
   )

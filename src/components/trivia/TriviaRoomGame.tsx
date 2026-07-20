@@ -83,15 +83,18 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   // ── Mutations ─────────────────────────────────────────────────────────────
 
-  const claimHost = useTriviaM(({ storage }, displayName: string) => {
-    if (!storage.get('hostConnectionId') && self?.connectionId) {
-      storage.set('hostConnectionId', self.connectionId)
-    }
-    const names = storage.get('playerNames')
-    if (self?.connectionId) {
-      names.set(String(self.connectionId), displayName)
-    }
-  }, [self?.connectionId])
+  const claimHost = useTriviaM(
+    ({ storage }, displayName: string) => {
+      if (!storage.get('hostConnectionId') && self?.connectionId) {
+        storage.set('hostConnectionId', self.connectionId)
+      }
+      const names = storage.get('playerNames')
+      if (self?.connectionId) {
+        names.set(String(self.connectionId), displayName)
+      }
+    },
+    [self?.connectionId],
+  )
 
   const startGame = useTriviaM(({ storage }) => {
     const savedConfig = loadTriviaConfig()
@@ -116,44 +119,52 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     for (const k of [...rw.keys()]) rw.delete(k)
   }, [])
 
-  const submitAnswer = useTriviaM(({ storage }, {
-    answerValue,
-    correct,
-    questionIndex,
-    questionStartedAt: qsAt,
-    myStreak,
-  }: {
-    answerValue: string
-    correct: boolean
-    questionIndex: number
-    questionStartedAt: number
-    myStreak: number
-  }) => {
-    if (!self?.connectionId) return
-    const connId = String(self.connectionId)
-    const elapsed = Date.now() - qsAt
-    const points = correct ? computePoints(elapsed, myStreak) : 0
+  const submitAnswer = useTriviaM(
+    (
+      { storage },
+      {
+        answerValue,
+        correct,
+        questionIndex,
+        questionStartedAt: qsAt,
+        myStreak,
+      }: {
+        answerValue: string
+        correct: boolean
+        questionIndex: number
+        questionStartedAt: number
+        myStreak: number
+      },
+    ) => {
+      if (!self?.connectionId) return
+      const connId = String(self.connectionId)
+      const elapsed = Date.now() - qsAt
+      const points = correct ? computePoints(elapsed, myStreak) : 0
 
-    const answer: TriviaPlayerAnswer = {
-      answeredAt: Date.now(),
-      questionStartedAt: qsAt,
-      correct,
-      pointsEarned: points,
-      answerValue,
-    }
-
-    const existing = storage.get('playerAnswers').get(connId)
-    const prev: TriviaPlayerAnswer[] = existing ? (JSON.parse(existing) as TriviaPlayerAnswer[]) : []
-    storage.get('playerAnswers').set(connId, JSON.stringify([...prev, answer]))
-
-    const mechanic = parseConfigJson(storage.get('configJson') ?? '{}').multiplayerMechanic
-    if (mechanic === 'race' && correct) {
-      const key = String(questionIndex)
-      if (!storage.get('raceWinner').get(key)) {
-        storage.get('raceWinner').set(key, connId)
+      const answer: TriviaPlayerAnswer = {
+        answeredAt: Date.now(),
+        questionStartedAt: qsAt,
+        correct,
+        pointsEarned: points,
+        answerValue,
       }
-    }
-  }, [self?.connectionId])
+
+      const existing = storage.get('playerAnswers').get(connId)
+      const prev: TriviaPlayerAnswer[] = existing
+        ? (JSON.parse(existing) as TriviaPlayerAnswer[])
+        : []
+      storage.get('playerAnswers').set(connId, JSON.stringify([...prev, answer]))
+
+      const mechanic = parseConfigJson(storage.get('configJson') ?? '{}').multiplayerMechanic
+      if (mechanic === 'race' && correct) {
+        const key = String(questionIndex)
+        if (!storage.get('raceWinner').get(key)) {
+          storage.get('raceWinner').set(key, connId)
+        }
+      }
+    },
+    [self?.connectionId],
+  )
 
   const advanceQuestion = useTriviaM(({ storage }) => {
     const idx = (storage.get('currentQuestionIndex') ?? 0) + 1
@@ -175,7 +186,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   }, [])
 
   // ── Initialization ────────────────────────────────────────────────────────
-  // Gate on phase being non-null — phase comes from useStorage, so it will be
+  // Gate on phase being non-null - phase comes from useStorage, so it will be
   // null until Liveblocks storage has fully loaded. Calling a mutation before
   // storage loads throws "This mutation cannot be used until storage has been loaded".
 
@@ -183,11 +194,12 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     if (phase === null || phase !== 'lobby') return
     const displayName =
       typeof window !== 'undefined'
-        ? window.localStorage.getItem('fb_display_name') ?? `Player ${Math.floor(Math.random() * 1000)}`
+        ? (window.localStorage.getItem('fb_display_name') ??
+          `Player ${Math.floor(Math.random() * 1000)}`)
         : 'Player'
     claimHost(displayName)
     updatePresence({ displayName, answeredCurrentQuestion: false, score: 0, streak: 0 })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase])
 
   // Reset local answer when question changes
@@ -196,11 +208,13 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     setShowReview(false)
     updatePresence({ answeredCurrentQuestion: false })
     if (reviewTimer.current) clearTimeout(reviewTimer.current)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentQuestionIndex])
 
   useEffect(() => {
-    return () => { if (reviewTimer.current) clearTimeout(reviewTimer.current) }
+    return () => {
+      if (reviewTimer.current) clearTimeout(reviewTimer.current)
+    }
   }, [])
 
   // ── Timer expiry (host controls) ──────────────────────────────────────────
@@ -232,7 +246,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
         advanceQuestion()
       }, REVIEW_DELAY_MS)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [others, presence.answeredCurrentQuestion])
 
   // Timed mode: host monitors elapsed time
@@ -246,7 +260,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       }
     }, 1000)
     return () => clearInterval(interval)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHost, config.sessionType, config.timeLimitSeconds, sessionStartedAt, phase])
 
   // ── Answer handler ────────────────────────────────────────────────────────
@@ -343,7 +357,9 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     })
 
     const myAnswersJson = playerAnswers?.get(String(self?.connectionId))
-    const myAnswers: TriviaPlayerAnswer[] = myAnswersJson ? (JSON.parse(myAnswersJson) as TriviaPlayerAnswer[]) : []
+    const myAnswers: TriviaPlayerAnswer[] = myAnswersJson
+      ? (JSON.parse(myAnswersJson) as TriviaPlayerAnswer[])
+      : []
 
     return (
       <TriviaEndScreen

@@ -30,7 +30,8 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
     const isCorrect = value === String(question.correct)
     const wasChosen = value === selected
     if (isCorrect) return `${base} bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    if (wasChosen && !isCorrect) return `${base} bg-pink text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
+    if (wasChosen && !isCorrect)
+      return `${base} bg-pink text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
     return `${base} bg-white/55 text-card-muted opacity-70`
   }
 
@@ -56,9 +57,7 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
         )}
         <div className="panel w-full p-7">
           <p className="eyebrow mb-2">True or false?</p>
-          <p className="font-display text-[28px] leading-[1.2] text-ink">
-            {question.statement}
-          </p>
+          <p className="font-display text-[28px] leading-[1.2] text-ink">{question.statement}</p>
         </div>
       </motion.div>
 
@@ -96,11 +95,11 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
                 lastResult.correct ? 'bg-yellow text-pitch-deep' : 'bg-pink text-white'
               }`}
             >
-              {lastResult.correct ? 'GOOOAL! Correct!' : `Off the post — ${lastResult.correctAnswer === 'true' ? 'TRUE' : 'FALSE'}`}
+              {lastResult.correct
+                ? 'GOOOAL! Correct!'
+                : `Off the post - ${lastResult.correctAnswer === 'true' ? 'TRUE' : 'FALSE'}`}
             </span>
-            {question.detail && (
-              <p className="mt-2 text-xs text-on-green-dim">{question.detail}</p>
-            )}
+            {question.detail && <p className="mt-2 text-xs text-on-green-dim">{question.detail}</p>}
           </motion.div>
         )}
       </AnimatePresence>

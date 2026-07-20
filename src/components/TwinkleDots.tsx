@@ -2,7 +2,7 @@
 
 /**
  * Ambient stadium-floodlight glints: a few fixed dots scattered at the
- * viewport edges, twinkling out of sync. Purely decorative — sits behind
+ * viewport edges, twinkling out of sync. Purely decorative - sits behind
  * all content and never intercepts pointer events. Animation is disabled
  * under prefers-reduced-motion (see globals.css).
  */

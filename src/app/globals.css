@@ -149,7 +149,7 @@ body {
     color: var(--card-ink);
   }
 
-  /* Solid eyebrow badge — the pink/sky/yellow rotated chip. Defaults pink. */
+  /* Solid eyebrow badge - the pink/sky/yellow rotated chip. Defaults pink. */
   .eyebrow {
     @apply inline-block rounded-lg px-3 py-1.5 text-[11.5px] font-extrabold uppercase leading-none tracking-[0.14em];
     background-color: var(--pink);
@@ -187,7 +187,7 @@ body {
     opacity: 0.9;
   }
 
-  /* Solid yellow fill — the free square, honour flourishes, win moments. */
+  /* Solid yellow fill - the free square, honour flourishes, win moments. */
   .foil {
     background-image: none;
     background-color: var(--yellow);
@@ -204,7 +204,7 @@ body {
 }
 
 @layer utilities {
-  /* Twinkle dots — stadium floodlight glints scattered at the edges. */
+  /* Twinkle dots - stadium floodlight glints scattered at the edges. */
   .twinkle-dot {
     @apply pointer-events-none fixed z-0 rounded-full;
   }

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { enrichedFootballPlayers } from '@/data/players'
 
 export const metadata = {
-  title: 'Photo credits — Football Bingo',
+  title: 'Photo credits - Football Bingo',
 }
 
 type Row = {
@@ -52,9 +52,8 @@ export default function CreditsPage() {
         >
           Wikimedia Commons
         </a>{' '}
-        and used under their respective free licences. Each photo, its author and
-        licence, and a link to the source file are listed below. {rows.length} photos
-        credited.
+        and used under their respective free licences. Each photo, its author and licence, and a
+        link to the source file are listed below. {rows.length} photos credited.
       </p>
 
       <ul className="mt-6 divide-y divide-white/15">

@@ -47,7 +47,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
 
   return (
     <div className="flex flex-col gap-[26px] w-full max-w-[760px] mx-auto">
-      {/* Question — sticker overlapping the prompt card */}
+      {/* Question - sticker overlapping the prompt card */}
       <div className="flex flex-col items-center">
         {question.playerImageUrl && (
           <motion.div
@@ -115,7 +115,9 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
                 lastResult.correct ? 'bg-yellow text-pitch-deep' : 'bg-pink text-white'
               }`}
             >
-              {lastResult.correct ? 'GOOOAL! Correct!' : `Off the post — ${lastResult.correctAnswer}`}
+              {lastResult.correct
+                ? 'GOOOAL! Correct!'
+                : `Off the post - ${lastResult.correctAnswer}`}
             </span>
           </motion.div>
         )}

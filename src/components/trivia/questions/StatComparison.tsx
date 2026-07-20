@@ -9,7 +9,11 @@ interface Props {
   question: StatComparisonQuestion
   onAnswer: (value: string) => void
   disabled: boolean
-  lastResult?: { correct: boolean; correctAnswer: string; statValues?: Record<string, number> } | null
+  lastResult?: {
+    correct: boolean
+    correctAnswer: string
+    statValues?: Record<string, number>
+  } | null
 }
 
 export function StatComparison({ question, onAnswer, disabled, lastResult }: Props) {
@@ -43,9 +47,7 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-display text-[28px] leading-[1.2] text-ink">
-          {question.prompt}
-        </p>
+        <p className="font-display text-[28px] leading-[1.2] text-ink">{question.prompt}</p>
       </motion.div>
 
       {/* Player cards */}
@@ -76,7 +78,8 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
               {/* Show stat after answer */}
               {selected && lastResult?.statValues && (
                 <p className="font-mono text-sm font-bold">
-                  {lastResult.statValues[player.playerId] ?? '?'} {STAT_KEY_LABELS[question.statKey]}
+                  {lastResult.statValues[player.playerId] ?? '?'}{' '}
+                  {STAT_KEY_LABELS[question.statKey]}
                 </p>
               )}
             </motion.button>
@@ -86,7 +89,9 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
         {/* VS divider */}
         {!selected && (
           <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <span className="font-display text-2xl font-black uppercase leading-none text-pink">VS</span>
+            <span className="font-display text-2xl font-black uppercase leading-none text-pink">
+              VS
+            </span>
           </div>
         )}
       </div>
@@ -100,7 +105,9 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
           >
-            {lastResult.correct ? 'Correct!' : `Wrong — ${question.correctPlayerId === question.playerA.playerId ? question.playerA.name : question.playerB.name} has more`}
+            {lastResult.correct
+              ? 'Correct!'
+              : `Wrong - ${question.correctPlayerId === question.playerA.playerId ? question.playerA.name : question.playerB.name} has more`}
           </motion.p>
         )}
       </AnimatePresence>

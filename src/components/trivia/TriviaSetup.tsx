@@ -54,11 +54,15 @@ function OptionButton({
           : 'bg-card-tint/50 hover:-translate-y-0.5 hover:bg-card-tint'
       }`}
     >
-      <p className={`font-display text-lg font-black uppercase leading-none ${active ? 'text-card-ink' : 'text-card-muted'}`}>
+      <p
+        className={`font-display text-lg font-black uppercase leading-none ${active ? 'text-card-ink' : 'text-card-muted'}`}
+      >
         {children}
       </p>
       {description && (
-        <p className="mt-1 text-[12.5px] font-semibold leading-relaxed text-card-muted">{description}</p>
+        <p className="mt-1 text-[12.5px] font-semibold leading-relaxed text-card-muted">
+          {description}
+        </p>
       )}
     </button>
   )
@@ -134,10 +138,22 @@ export function TriviaSetup() {
 
   if (!hydrated) return null
 
-  const SESSION_TYPE_OPTIONS: Array<{ value: TriviaSessionType; label: string; description: string }> = [
-    { value: 'fixed', label: 'Fixed rounds', description: `Answer ${config.questionCount} questions` },
+  const SESSION_TYPE_OPTIONS: Array<{
+    value: TriviaSessionType
+    label: string
+    description: string
+  }> = [
+    {
+      value: 'fixed',
+      label: 'Fixed rounds',
+      description: `Answer ${config.questionCount} questions`,
+    },
     { value: 'survival', label: 'Survival', description: 'One wrong answer ends the game' },
-    { value: 'timed', label: 'Timed', description: `Answer as many as possible in ${config.timeLimitSeconds}s` },
+    {
+      value: 'timed',
+      label: 'Timed',
+      description: `Answer as many as possible in ${config.timeLimitSeconds}s`,
+    },
     { value: 'category', label: 'Category', description: 'Focus on one topic' },
   ]
 
@@ -149,7 +165,11 @@ export function TriviaSetup() {
     { value: 'achievements', label: 'Achievements' },
     { value: 'nationalities', label: 'Nationalities' },
   ]
-  const MP_MECHANIC_OPTIONS: Array<{ value: TriviaMultiplayerMechanic; label: string; description: string }> = [
+  const MP_MECHANIC_OPTIONS: Array<{
+    value: TriviaMultiplayerMechanic
+    label: string
+    description: string
+  }> = [
     { value: 'simultaneous', label: 'Simultaneous', description: 'Everyone answers, then reveal' },
     { value: 'race', label: 'Race', description: 'First correct answer wins the round' },
     { value: 'turn-based', label: 'Turn-based', description: 'Players answer one at a time' },
@@ -167,7 +187,7 @@ export function TriviaSetup() {
       >
         {/* Title */}
         <motion.div variants={itemVariants}>
-          <span className="eyebrow">Trivia{modeLabel ? ` — ${modeLabel}` : ''}</span>
+          <span className="eyebrow">Trivia{modeLabel ? ` - ${modeLabel}` : ''}</span>
           <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
             Setup
           </h1>
@@ -189,7 +209,7 @@ export function TriviaSetup() {
           </div>
         </Section>
 
-        {/* Question count — shown for fixed + category */}
+        {/* Question count - shown for fixed + category */}
         {(config.sessionType === 'fixed' || config.sessionType === 'category') && (
           <Section title="Questions">
             <NumberSelect
@@ -200,7 +220,7 @@ export function TriviaSetup() {
           </Section>
         )}
 
-        {/* Time limit — shown for timed */}
+        {/* Time limit - shown for timed */}
         {config.sessionType === 'timed' && (
           <Section title="Time limit (seconds)">
             <NumberSelect
@@ -211,7 +231,7 @@ export function TriviaSetup() {
           </Section>
         )}
 
-        {/* Category — shown for category mode */}
+        {/* Category - shown for category mode */}
         {config.sessionType === 'category' && (
           <Section title="Category">
             <div className="flex flex-col gap-2">
@@ -244,7 +264,7 @@ export function TriviaSetup() {
           </div>
         </Section>
 
-        {/* Multiplayer mechanic — only shown when in multiplayer mode or unspecified */}
+        {/* Multiplayer mechanic - only shown when in multiplayer mode or unspecified */}
         {!isSolo && (
           <Section title="Multiplayer mechanic">
             <div className="flex flex-col gap-2">
@@ -266,10 +286,7 @@ export function TriviaSetup() {
         <motion.div variants={itemVariants} className="flex gap-3 flex-wrap pt-2">
           {/* Show solo CTA unless explicitly in multiplayer mode */}
           {!isMultiplayer && (
-            <button
-              onClick={launchSolo}
-              className="btn btn-primary btn-lg min-w-[160px] flex-1"
-            >
+            <button onClick={launchSolo} className="btn btn-primary btn-lg min-w-[160px] flex-1">
               Play solo
             </button>
           )}
