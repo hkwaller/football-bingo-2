@@ -10,31 +10,94 @@ const fadeUp = {
 }
 
 /**
- * Curated deck of real portraits — the album's headline stickers.
+ * Curated deck of real portraits - the album's headline stickers.
  * Images are Wikimedia Commons (free-licensed); credited on /credits along
  * with every other player photo.
  */
 const DECK: { name: string; imageUrl: string }[] = [
-  { name: 'Messi', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg' },
-  { name: 'Ronaldo', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg' },
-  { name: 'Mbappé', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg/500px-Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg' },
-  { name: 'Haaland', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg/500px-Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg' },
-  { name: 'Salah', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg' },
-  { name: 'De Bruyne', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/500px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg' },
-  { name: 'Vinícius', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg/500px-Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg' },
-  { name: 'Bellingham', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg/500px-Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg' },
-  { name: 'Lewandowski', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg/500px-Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg' },
-  { name: 'Modrić', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg/500px-Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg' },
-  { name: 'Van Dijk', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg' },
-  { name: 'Saka', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg/500px-Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg' },
-  { name: 'Wirtz', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg/500px-Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg' },
-  { name: 'Pedri', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Pedri.jpg/500px-Pedri.jpg' },
-  { name: 'Ronaldinho', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg' },
-  { name: 'Zidane', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg' },
+  {
+    name: 'Messi',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg',
+  },
+  {
+    name: 'Ronaldo',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg',
+  },
+  {
+    name: 'Mbappé',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg/500px-Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg',
+  },
+  {
+    name: 'Haaland',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg/500px-Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg',
+  },
+  {
+    name: 'Salah',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg',
+  },
+  {
+    name: 'De Bruyne',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/500px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg',
+  },
+  {
+    name: 'Vinícius',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg/500px-Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg',
+  },
+  {
+    name: 'Bellingham',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg/500px-Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg',
+  },
+  {
+    name: 'Lewandowski',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg/500px-Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg',
+  },
+  {
+    name: 'Modrić',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg/500px-Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg',
+  },
+  {
+    name: 'Van Dijk',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg',
+  },
+  {
+    name: 'Saka',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg/500px-Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg',
+  },
+  {
+    name: 'Wirtz',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg/500px-Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg',
+  },
+  {
+    name: 'Pedri',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Pedri.jpg/500px-Pedri.jpg',
+  },
+  {
+    name: 'Ronaldinho',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg',
+  },
+  {
+    name: 'Zidane',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg',
+  },
 ]
 
 /** deterministic tilt used across the marquee */
-const tilt = (i: number) => ((i * 7) % 5 - 2) * 1.4
+const tilt = (i: number) => (((i * 7) % 5) - 2) * 1.4
 const VARIANTS = ['green', 'pink', 'yellow'] as const
 
 export default function HomePage() {
@@ -67,8 +130,8 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="mt-7 max-w-[460px] text-[17px] font-semibold leading-relaxed text-on-green-soft">
-              A player is drawn, the room goes wild. Slap him on the right square — club, nation or
-              honour — and race to a line. No luck, just football knowledge.
+              A player is drawn, the room goes wild. Slap him on the right square - club, nation or
+              honour - and race to a line. No luck, just football knowledge.
             </p>
             <div className="mt-8 flex flex-wrap gap-3.5">
               <Link href="/play/setup" className="btn btn-primary btn-lg">
@@ -90,7 +153,7 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* Right column — vote card */}
+          {/* Right column - vote card */}
           <motion.div
             initial={{ opacity: 0, y: 18, rotate: 5 }}
             animate={{ opacity: 1, y: 0, rotate: 2 }}
@@ -100,7 +163,13 @@ export default function HomePage() {
             <div className="relative rounded-[24px] bg-white p-[26px] shadow-[0_30px_60px_rgba(0,0,0,0.45)]">
               <div className="flex items-center gap-4">
                 <motion.div {...bob(4.6)} className="w-[96px] shrink-0">
-                  <Sticker name="Salah" imageUrl={DECK[4].imageUrl} rotate={-4} nameSize={12} drawn />
+                  <Sticker
+                    name="Salah"
+                    imageUrl={DECK[4].imageUrl}
+                    rotate={-4}
+                    nameSize={12}
+                    drawn
+                  />
                 </motion.div>
                 <div>
                   <p className="text-[12px] font-extrabold uppercase leading-none tracking-[0.14em] text-pink">
@@ -181,14 +250,14 @@ export default function HomePage() {
             rot={1}
             tone="pink"
             title="Stickers get drawn"
-            body="Real players, one by one. Slap each sticker on a square he genuinely fits — miss and it stays empty."
+            body="Real players, one by one. Slap each sticker on a square he genuinely fits - miss and it stays empty."
           />
           <StepCard
             step="3"
             rot={-0.6}
             tone="sky"
             title="Race to a line"
-            body="Row, column or diagonal — first to fill one shouts BINGO and takes the roar of the room."
+            body="Row, column or diagonal - first to fill one shouts BINGO and takes the roar of the room."
           />
         </div>
       </section>
@@ -254,7 +323,12 @@ function SectionHead({
   title: string
   tone: 'pink' | 'sky' | 'yellow'
 }) {
-  const cls = tone === 'sky' ? 'eyebrow eyebrow-sky' : tone === 'yellow' ? 'eyebrow eyebrow-yellow' : 'eyebrow'
+  const cls =
+    tone === 'sky'
+      ? 'eyebrow eyebrow-sky'
+      : tone === 'yellow'
+        ? 'eyebrow eyebrow-yellow'
+        : 'eyebrow'
   return (
     <motion.div
       {...fadeUp}
@@ -306,7 +380,9 @@ function StepCard({
       >
         {step}
       </span>
-      <p className="mt-3.5 font-display text-[26px] font-black uppercase leading-none text-card-ink">{title}</p>
+      <p className="mt-3.5 font-display text-[26px] font-black uppercase leading-none text-card-ink">
+        {title}
+      </p>
       <p className="mt-2 text-[14px] font-semibold leading-relaxed text-card-muted">{body}</p>
     </motion.div>
   )

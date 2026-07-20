@@ -343,7 +343,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         setDraftRestrictCells(restrict)
         setDraftTargetCells(restrict ? new Set(vs) : null)
         setDraftFallbackNote(
-          j.usedOpenFallback ? 'No one matched an open square — random draw this round.' : null,
+          j.usedOpenFallback ? 'No one matched an open square - random draw this round.' : null,
         )
       })
       .catch(() => {
@@ -654,7 +654,7 @@ function RoomInner({ roomId }: { roomId: string }) {
           <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
             {phase === 'lobby'
               ? "Share the room code. The gaffer kicks off when everyone's in the tunnel."
-              : 'Same clues for everyone — draft uses votes + skip.'}
+              : 'Same clues for everyone - draft uses votes + skip.'}
           </p>
         </div>
         <Link href="/" className="btn btn-outline-light btn-sm">
@@ -669,7 +669,7 @@ function RoomInner({ roomId }: { roomId: string }) {
           transition={{ duration: 0.4, ease: 'easeOut' }}
           className="mb-8 space-y-6"
         >
-          {/* Non-host: simple waiting lobby — just name + player list */}
+          {/* Non-host: simple waiting lobby - just name + player list */}
           {!isHost ? (
             <div className="panel space-y-6 p-6">
               <div>
@@ -918,7 +918,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                   >
                     {configOk
                       ? `${poolCount} in pool · ${needCount} needed ✓`
-                      : `Need at least ${needCount} clues — enable more categories.`}
+                      : `Need at least ${needCount} clues - enable more categories.`}
                   </p>
 
                   {/* Star quality */}

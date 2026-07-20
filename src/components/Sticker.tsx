@@ -12,9 +12,9 @@ type StickerProps = {
   /** name-bar font size in px */
   nameSize?: number
   className?: string
-  /** highlight state — yellow name bar for a winning line */
+  /** highlight state - yellow name bar for a winning line */
   win?: boolean
-  /** the currently-drawn player — a yellow outline ring */
+  /** the currently-drawn player - a yellow outline ring */
   drawn?: boolean
   /** name-bar colorway (marquee alternation). default = deep-green bar + yellow text */
   variant?: 'green' | 'pink' | 'yellow'
@@ -30,7 +30,7 @@ const NAME_BAR: Record<'green' | 'pink' | 'yellow', string> = {
 
 /** A player portrait mounted like a collectible sticker: white card,
  *  slight tilt, deep-green name bar with yellow Passion One text. The
- *  signature motif — reused on home, board, drawn panel and trivia. The
+ *  signature motif - reused on home, board, drawn panel and trivia. The
  *  portrait is square with the crop biased toward the head. */
 export function Sticker({
   name,

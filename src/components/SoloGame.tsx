@@ -140,7 +140,7 @@ export function SoloGame() {
         setDraftTargetCells(restrict ? new Set(vs) : null)
         setDraftFallbackNote(
           j.usedOpenFallback
-            ? 'No one matched an open square — showing a random player this round.'
+            ? 'No one matched an open square - showing a random player this round.'
             : null,
         )
       })

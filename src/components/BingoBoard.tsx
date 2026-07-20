@@ -24,7 +24,7 @@ type BingoBoardProps = {
   voteHighlightIndex?: number | null
   /** Draft: only these empty cells accept clicks (placeable / multi-match). */
   draftTargetCells?: Set<number> | null
-  /** A rejected placement attempt — flashes a red pulse on that cell. `nonce` re-triggers the animation on repeats. */
+  /** A rejected placement attempt - flashes a red pulse on that cell. `nonce` re-triggers the animation on repeats. */
   wrongCell?: { cell: number; nonce: number } | null
   reduceMotion?: boolean
   /**
@@ -217,7 +217,7 @@ export function BingoBoard({
                             unoptimized
                           />
                         ) : (
-                          // Honours/squares have no crest — hide the trophy on mobile
+                          // Honours/squares have no crest - hide the trophy on mobile
                           // and let the text carry the clue.
                           <span
                             className="hidden text-[28px] leading-none sm:block sm:text-[30px]"

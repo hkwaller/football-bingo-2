@@ -119,7 +119,7 @@ const config: Config = {
         ring: 'var(--ring)',
       },
       boxShadow: {
-        /* Hard offset shadows, no blur — the Prime Time language */
+        /* Hard offset shadows, no blur - the Prime Time language */
         soft: '0 8px 0 rgba(0,0,0,0.22)',
         sticker: '0 5px 0 rgba(0,0,0,0.2)',
         'sticker-lg': '0 8px 0 rgba(0,0,0,0.22)',
@@ -140,8 +140,7 @@ const config: Config = {
       },
       backgroundImage: {
         foil: 'linear-gradient(90deg,#ffe23a,#ff4d8d)',
-        stage:
-          'linear-gradient(165deg, #1fae5a 0%, #0d7a3a 60%, #06592a 100%)',
+        stage: 'linear-gradient(165deg, #1fae5a 0%, #0d7a3a 60%, #06592a 100%)',
         'paper-dots': 'none',
       },
       animation: {

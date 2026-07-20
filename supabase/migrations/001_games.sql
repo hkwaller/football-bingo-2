@@ -1,4 +1,4 @@
--- Football Bingo — durable games (written from Next.js API with service role).
+-- Football Bingo - durable games (written from Next.js API with service role).
 -- All tables use the football_bingo_ prefix.
 -- Enable RLS; clients should not use the anon key for writes in v1.
 

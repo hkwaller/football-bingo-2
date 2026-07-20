@@ -5,10 +5,10 @@
  * hand-maintained. IMPORTANT: list a manager's FULL senior-club career, not
  * only the clubs in our bingo category set. A player's transfer history
  * contains every club they played for (tracked or not), and the join matches on
- * those real club IDs — so e.g. Bielsa's spell at Leeds (not one of our
+ * those real club IDs - so e.g. Bielsa's spell at Leeds (not one of our
  * categories) still correctly links to our players who were at Leeds under him.
  *
- * Dates are "YYYY-MM" (approximate is fine — the join uses interval overlap).
+ * Dates are "YYYY-MM" (approximate is fine - the join uses interval overlap).
  * Use "present" for an ongoing stint. Club IDs match Transfermarkt / the
  * transfers feed (verified against the enrichment cache).
  *

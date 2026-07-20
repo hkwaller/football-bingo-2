@@ -33,13 +33,15 @@ function main() {
 
   console.log(`Cache: ${Object.keys(cache).length} players`)
   const withProfile = Object.values(cache).filter((v) => v.profile && v.profile !== false).length
-  const withAchievements = Object.values(cache).filter((v) => v.achievements && v.achievements !== false).length
-  const stillPending = Object.values(cache).filter((v) =>
-    v.profile === null || v.achievements === null || v.transfers === null
+  const withAchievements = Object.values(cache).filter(
+    (v) => v.achievements && v.achievements !== false,
+  ).length
+  const stillPending = Object.values(cache).filter(
+    (v) => v.profile === null || v.achievements === null || v.transfers === null,
   ).length
   console.log(`  With profile: ${withProfile}`)
   console.log(`  With achievements: ${withAchievements}`)
-  console.log(`  Still have null endpoints (blocked — will retry): ${stillPending}`)
+  console.log(`  Still have null endpoints (blocked - will retry): ${stillPending}`)
 
   const processed: any[] = []
   let failed = 0
@@ -48,7 +50,10 @@ function main() {
   for (const raw of Object.values(cache)) {
     const squadInfo = squadCache[raw.playerId]
     const player = processPlayer(raw, squadInfo)
-    if (!player?.name) { failed++; continue }
+    if (!player?.name) {
+      failed++
+      continue
+    }
     // Drop non-notable squad filler; always keep curated legends.
     if (!isNotablePlayer(player) && !MANUAL_PLAYER_IDS.has(player.playerId)) {
       filtered++
@@ -57,7 +62,9 @@ function main() {
     processed.push(player)
   }
 
-  console.log(`\nProcessed: ${processed.length} players (${failed} skipped — no profile data, ${filtered} filtered as non-notable)`)
+  console.log(
+    `\nProcessed: ${processed.length} players (${failed} skipped - no profile data, ${filtered} filtered as non-notable)`,
+  )
 
   applyCommonsImages(processed, path.join(OUTPUT_DIR, 'images.json'))
   const withCommons = processed.filter((p) => p.imageAttribution).length

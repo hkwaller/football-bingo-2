@@ -19,7 +19,7 @@ type DrawnPlayerPanelProps = {
   loading: boolean
   player: DrawnPlayer | null
   error?: string | null
-  /** Bumps on each rejected placement — flashes a pulsing red border on the bar. */
+  /** Bumps on each rejected placement - flashes a pulsing red border on the bar. */
   wrongNonce?: number | null
   onSkip?: () => void
   skipDisabled?: boolean

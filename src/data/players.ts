@@ -1,4 +1,4 @@
-// Auto-generated — do not edit by hand.
+// Auto-generated - do not edit by hand.
 // Source: scripts/output/players.json (run "npm run enrich" then "npm run parse" to regenerate)
 // 641 players, last updated 2026-07-16
 import type { Player } from '@/types/player'

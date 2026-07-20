@@ -29,7 +29,7 @@ export function SiteHeader() {
           <span className="flex h-11 w-11 -rotate-6 items-center justify-center rounded-2xl bg-yellow text-[24px] shadow-[0_4px_0_rgba(0,0,0,0.22)]">
             ⚽
           </span>
-          {/* Wordmark is desktop-only — the crest already says what this is */}
+          {/* Wordmark is desktop-only - the crest already says what this is */}
           <span className="hidden font-display text-[30px] font-bold uppercase leading-none tracking-[0.01em] text-white sm:inline">
             Football Bingo
           </span>

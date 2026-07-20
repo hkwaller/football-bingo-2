@@ -192,8 +192,8 @@ function mapAchievements(raw: any): string[] {
     if (totals.assists >= 200) mapped.add('200+ career assists')
     if (totals.championsLeagueGames >= 100) mapped.add('100+ CL appearances')
   }
-  // NB: the stats endpoint returns club competitions only — no national-team
-  // rows — so international caps/goals are not derivable here.
+  // NB: the stats endpoint returns club competitions only - no national-team
+  // rows - so international caps/goals are not derivable here.
 
   return Array.from(mapped)
 }
@@ -417,7 +417,7 @@ function decadeTags(era: string): string[] {
   const end = m[2] === 'present' ? new Date().getFullYear() : parseInt(m[2])
   const out: string[] = []
   for (let dec = Math.floor(start / 10) * 10; dec <= end; dec += 10) {
-    if (dec >= 1960 && dec <= 2020) out.push(`${dec}s player`)
+    if (dec >= 1960 && dec <= 2000) out.push(`${dec}s player`)
   }
   return out
 }
@@ -616,7 +616,7 @@ export function processPlayer(raw: any, squadInfo?: any) {
 // ─── Popularity filter ────────────────────────────────────────────────────────
 // Squad discovery pulls in fringe/youth players (0 appearances, no honours).
 // Keep only players notable enough for a popularity-based game. Curated legends
-// (MANUAL_PLAYER_IDS) bypass this — see the filter call sites.
+// (MANUAL_PLAYER_IDS) bypass this - see the filter call sites.
 const NOTABLE_FAME = 18
 const NOTABLE_MARKET_VALUE = 5_000_000
 const NOTABLE_APPEARANCES = 200
@@ -654,7 +654,7 @@ export function applyCommonsImages(players: any[], imagesFile: string): any[] {
       p.imageUrl = rec.imageUrl
       p.imageAttribution = rec.attribution ?? null
     } else if (typeof p.imageUrl === 'string' && p.imageUrl.includes('transfermarkt')) {
-      // No free Commons image — drop the copyrighted Transfermarkt fallback so
+      // No free Commons image - drop the copyrighted Transfermarkt fallback so
       // the app never hotlinks TM. The UI shows its placeholder instead.
       p.imageUrl = ''
       p.imageAttribution = null

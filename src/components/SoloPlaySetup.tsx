@@ -268,7 +268,7 @@ export function SoloPlaySetup() {
                 exit={{ opacity: 0, height: 0 }}
                 className="mt-3 text-xs font-bold text-pink"
               >
-                Turn on more categories — need at least {needCount} clues for a {boardConfig.size}×
+                Turn on more categories - need at least {needCount} clues for a {boardConfig.size}×
                 {boardConfig.size} grid.
               </motion.p>
             )}
@@ -396,7 +396,7 @@ export function SoloPlaySetup() {
           variants={itemVariants}
           className="flex flex-wrap items-center justify-between gap-4"
         >
-          <button
+          {/* <button
             type="button"
             onClick={() => setLineHighlight((v) => !v)}
             className="inline-flex items-center gap-2.5 text-[13.5px] font-bold text-white"
@@ -413,13 +413,13 @@ export function SoloPlaySetup() {
               />
             </span>
             Highlight my best line
-          </button>
+          </button> */}
           <motion.button
             type="button"
             disabled={!configOk || launching}
             onClick={persistAndPlay}
             whileTap={configOk ? { scale: 0.98 } : {}}
-            className="btn btn-primary btn-lg"
+            className="btn btn-primary btn-lg w-full"
           >
             {launching ? 'Launching…' : 'Save & kick off ⚽'}
           </motion.button>
