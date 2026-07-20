@@ -11,8 +11,8 @@ export interface TriviaConfig {
   sessionType: TriviaSessionType
   difficulty: TriviaDifficulty
   category: TriviaCategory
-  questionCount: number          // 5 | 10 | 20 — for 'fixed' and 'category'
-  timeLimitSeconds: number       // 60 | 120 | 180 — for 'timed'
+  questionCount: number // 5 | 10 | 20 — for 'fixed' and 'category'
+  timeLimitSeconds: number // 60 | 120 | 180 — for 'timed'
   multiplayerMechanic: TriviaMultiplayerMechanic
 }
 
@@ -38,14 +38,14 @@ export const STAT_KEY_LABELS: Record<StatKey, string> = {
   goals: 'career goals',
   appearances: 'career appearances',
   assists: 'career assists',
-  championsLeagueGoals: 'Champions League goals',
-  championsLeagueGames: 'Champions League appearances',
+  championsLeagueGoals: 'CL goals',
+  championsLeagueGames: 'CL appearances',
 }
 
 interface BaseQuestion {
-  id: string            // `trivia|${sessionId}|${index}`
+  id: string // `trivia|${sessionId}|${index}`
   type: QuestionType
-  playerIds: string[]   // for image preloading
+  playerIds: string[] // for image preloading
 }
 
 export interface MultipleChoiceQuestion extends BaseQuestion {
@@ -89,7 +89,7 @@ export interface TrueFalseQuestion extends BaseQuestion {
   playerId: string
   playerName: string
   playerImageUrl: string
-  detail?: string  // shown after answering, e.g. heights for comparison questions
+  detail?: string // shown after answering, e.g. heights for comparison questions
 }
 
 export type TriviaQuestion =
@@ -102,7 +102,7 @@ export type TriviaQuestion =
 
 export interface TriviaAnswer {
   questionId: string
-  answeredAt: number     // Date.now()
+  answeredAt: number // Date.now()
   questionStartedAt: number
   correct: boolean
   pointsEarned: number

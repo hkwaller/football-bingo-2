@@ -92,7 +92,11 @@ export function DrawnPlayerPanel({
                   unoptimized
                 />
               ) : (
-                <svg viewBox="0 0 44 44" aria-hidden className="absolute inset-0 h-full w-full opacity-25">
+                <svg
+                  viewBox="0 0 44 44"
+                  aria-hidden
+                  className="absolute inset-0 h-full w-full opacity-25"
+                >
                   <circle cx="22" cy="16" r="9" fill="#0a3d20" />
                   <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a3d20" />
                 </svg>
@@ -130,7 +134,7 @@ export function DrawnPlayerPanel({
           <span className="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-pink-deep">
             Round {round + 1}
           </span>
-          <p className="truncate font-display text-[22px] font-black uppercase leading-none text-card-ink sm:text-[26px]">
+          <p className="font-display text-lg md:text-[22px] font-bold uppercase leading-none text-card-ink sm:text-[26px]">
             {loading ? 'Drawing…' : (player?.name ?? 'No player')}
           </p>
           {error ? (
@@ -162,7 +166,7 @@ export function DrawnPlayerPanel({
               className="btn btn-outline btn-sm"
               title="Skip (Space)"
             >
-              Skip ⏭
+              <span className="hidden md:inline">Skip</span> ⏭
             </button>
           ) : null}
           {extraActions}

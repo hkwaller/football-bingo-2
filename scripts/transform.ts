@@ -35,15 +35,21 @@ function canonicalClubName(id: string | undefined, rawName: string): string {
 // ─── Achievement Mapping ─────────────────────────────────────────────────────
 
 const TROPHY_ACHIEVEMENT_MAP: [RegExp, string][] = [
-  [/UEFA Champions League|Champions League winner|European Champion Clubs' Cup winner/i, 'Champions League winner'],
-  [/FIFA Club World Cup|Club World Cup winner|Intercontinental Cup winner|FIFA Intercontinental Cup/i, 'Club World Cup winner'],
+  [/UEFA CL|CL winner|European Champion Clubs' Cup winner/i, 'CL winner'],
+  [
+    /FIFA Club World Cup|Club World Cup winner|Intercontinental Cup winner|FIFA Intercontinental Cup/i,
+    'Club World Cup winner',
+  ],
   [/(?<!Club )(?:FIFA )?World Cup/i, 'World Cup winner'],
   [/Ballon d'Or|Winner Ballon d'Or/i, "Ballon d'Or winner"],
   [/Copa Am[eé]rica/i, 'Copa America champion'],
   [/Africa Cup of Nations|Africa Cup winner/i, 'African Cup of Nations winner'],
   [/African Footballer of the Year/i, 'African Footballer of the Year'],
   [/^European champion$|UEFA European Championship|UEFA Euro\b/i, 'Euro champion'],
-  [/UEFA Europa League|Europa League winner|UEFA Cup winner|Uefa Cup winner/i, 'UEFA Cup/Europa League winner'],
+  [
+    /UEFA Europa League|Europa League winner|UEFA Cup winner|Uefa Cup winner/i,
+    'UEFA Cup/Europa League winner',
+  ],
   [/Conference League winner/i, 'Conference League winner'],
   [/Copa Libertadores winner/i, 'Copa Libertadores winner'],
   [/English FA Cup winner|^FA Cup winner$|^English cup winner$/i, 'FA Cup winner'],
@@ -63,7 +69,7 @@ const TROPHY_ACHIEVEMENT_MAP: [RegExp, string][] = [
 
 const TOP_SCORER_MAP: [RegExp, string][] = [
   [/Premier League|English Premier/i, 'Premier League top scorer'],
-  [/UEFA Champions League|European Champion Clubs' Cup/i, 'Champions League top scorer'],
+  [/UEFA CL|European Champion Clubs' Cup/i, 'CL top scorer'],
   [/LaLiga|La Liga/i, 'La Liga top scorer'],
   [/^Bundesliga$/i, 'Bundesliga top scorer'],
   [/^Serie A$/i, 'Serie A top scorer'],
@@ -71,12 +77,24 @@ const TOP_SCORER_MAP: [RegExp, string][] = [
 ]
 
 const LEAGUE_CHAMPION_PATTERNS: { pattern: RegExp; country: string; label?: string }[] = [
-  { pattern: /English champion|Premier League champion/i, country: 'England', label: 'Premier League winner' },
+  {
+    pattern: /English champion|Premier League champion/i,
+    country: 'England',
+    label: 'Premier League winner',
+  },
   { pattern: /Spanish champion|La Liga champion/i, country: 'Spain', label: 'La Liga winner' },
   { pattern: /Italian champion|Serie A champion/i, country: 'Italy', label: 'Serie A winner' },
-  { pattern: /German champion|Bundesliga champion/i, country: 'Germany', label: 'Bundesliga winner' },
+  {
+    pattern: /German champion|Bundesliga champion/i,
+    country: 'Germany',
+    label: 'Bundesliga winner',
+  },
   { pattern: /French champion|Ligue 1 champion/i, country: 'France', label: 'Ligue 1 winner' },
-  { pattern: /Dutch champion|Eredivisie champion/i, country: 'Netherlands', label: 'Eredivisie winner' },
+  {
+    pattern: /Dutch champion|Eredivisie champion/i,
+    country: 'Netherlands',
+    label: 'Eredivisie winner',
+  },
   { pattern: /Portuguese champion|Liga NOS/i, country: 'Portugal' },
   { pattern: /Scottish champion/i, country: 'Scotland' },
   { pattern: /Turkish champion/i, country: 'Turkey' },
@@ -88,8 +106,7 @@ const LEAGUE_CHAMPION_PATTERNS: { pattern: RegExp; country: string; label?: stri
 // Domestic-cup titles, keyed for the double/treble season-join.
 const DOMESTIC_CUP_PATTERN =
   /English FA Cup winner|^FA Cup winner$|^English cup winner$|Copa del Rey|Spanish cup winner|DFB-Pokal|German cup winner|Italian cup winner|Coppa Italia|French cup winner|Dutch Cup winner|Portuguese cup winner/i
-const CL_WINNER_PATTERN =
-  /UEFA Champions League|Champions League winner|European Champion Clubs' Cup winner/i
+const CL_WINNER_PATTERN = /UEFA CL|CL winner|European Champion Clubs' Cup winner/i
 
 /** Season ids (strings) present on an achievement's details. */
 function seasonIds(ach: any): string[] {
@@ -129,7 +146,7 @@ function mapAchievements(raw: any): string[] {
         const winningClubs = new Set(
           (ach.details ?? []).map((d: any) => d?.club?.id).filter(Boolean),
         )
-        if (winningClubs.size >= 2) mapped.add('Champions League winner with different clubs')
+        if (winningClubs.size >= 2) mapped.add('CL winner with different clubs')
         for (const s of seasonIds(ach)) clSeasons.add(s)
       }
 
@@ -173,7 +190,7 @@ function mapAchievements(raw: any): string[] {
     if (totals.goals >= 500) mapped.add('500+ career goals')
     else if (totals.goals >= 200) mapped.add('200+ career goals')
     if (totals.assists >= 200) mapped.add('200+ career assists')
-    if (totals.championsLeagueGames >= 100) mapped.add('100+ Champions League appearances')
+    if (totals.championsLeagueGames >= 100) mapped.add('100+ CL appearances')
   }
   // NB: the stats endpoint returns club competitions only — no national-team
   // rows — so international caps/goals are not derivable here.
@@ -202,7 +219,7 @@ function computeCareerStats(raw: any) {
     out.minutesPlayed += s.minutesPlayed ?? 0
     const comp = (s.competitionId ?? '').toUpperCase()
     const compName = (s.competitionName ?? '').toLowerCase()
-    if (comp === 'CL' || compName.includes('champions league')) {
+    if (comp === 'CL' || compName.includes('CL')) {
       out.championsLeagueGames += s.appearances ?? 0
       out.championsLeagueGoals += s.goals ?? 0
     }
@@ -219,7 +236,21 @@ function computeIntlStats(raw: any): { caps: number; goals: number } {
     const comp = (s.competitionId ?? '').toUpperCase()
     const compName = (s.competitionName ?? '').toLowerCase()
     if (
-      ['WM', 'EM', 'WCQU', 'EMQU', 'NL-A', 'NL-B', 'NL-C', 'COPA', 'AFCN', 'GC', 'CACN', 'SC', 'KLUB'].includes(comp) ||
+      [
+        'WM',
+        'EM',
+        'WCQU',
+        'EMQU',
+        'NL-A',
+        'NL-B',
+        'NL-C',
+        'COPA',
+        'AFCN',
+        'GC',
+        'CACN',
+        'SC',
+        'KLUB',
+      ].includes(comp) ||
       compName.includes('world cup') ||
       compName.includes('euro') ||
       compName.includes('nations league') ||
@@ -497,7 +528,9 @@ export function processPlayer(raw: any, squadInfo?: any) {
       profile.citizenship?.[0] ?? override?.nationality ?? squadInfo?.nationality?.[0] ?? '',
     ),
     citizenship: citizenship.map(normNationality),
-    clubs: clubs.length ? clubs : (raw.discoveredFromClubs?.filter((c: string) => c !== 'existing') ?? []),
+    clubs: clubs.length
+      ? clubs
+      : (raw.discoveredFromClubs?.filter((c: string) => c !== 'existing') ?? []),
     youthClubs,
     achievements,
     randomAchievements: [],
@@ -518,7 +551,13 @@ export function processPlayer(raw: any, squadInfo?: any) {
     highestValue:
       highestValue ??
       (squadInfo?.marketValue
-        ? { age: 0, date: '', clubId: '', clubName: squadInfo.fromClubs?.[0] ?? '', marketValue: squadInfo.marketValue }
+        ? {
+            age: 0,
+            date: '',
+            clubId: '',
+            clubName: squadInfo.fromClubs?.[0] ?? '',
+            marketValue: squadInfo.marketValue,
+          }
         : null),
     fameScore: 0,
   }
@@ -533,12 +572,14 @@ export function processPlayer(raw: any, squadInfo?: any) {
   if (p.position.other.length > 0) traits.push('Multiple Positions')
   if (p.clubs.length >= 3) traits.push('International Journeyman')
   const { careerStats: s } = p
-  if (s.appearances >= 100 && (s.yellowCards + s.redCards) / s.appearances < 0.05) traits.push('Fair Play Master')
+  if (s.appearances >= 100 && (s.yellowCards + s.redCards) / s.appearances < 0.05)
+    traits.push('Fair Play Master')
   if (s.appearances >= 50 && s.goals / s.appearances >= 0.5) traits.push('Prolific Scorer')
   const eraMatch = p.era.match(/(\d{4})-(\d{4}|present)/)
   if (eraMatch) {
     const span =
-      (eraMatch[2] === 'present' ? new Date().getFullYear() : parseInt(eraMatch[2])) - parseInt(eraMatch[1])
+      (eraMatch[2] === 'present' ? new Date().getFullYear() : parseInt(eraMatch[2])) -
+      parseInt(eraMatch[1])
     if (span >= 15) traits.push('Long Career')
   }
   p.randomAchievements = traits

@@ -23,12 +23,7 @@ import { RoomInvite } from '@/components/RoomInvite'
 import type { CellPick } from '@/lib/cellPick'
 import { DrawnPlayerPanel, type DrawnPlayer } from '@/components/DrawnPlayerPanel'
 import { PlayerPickModal } from '@/components/PlayerPickModal'
-import {
-  cellCategory,
-  freeIndexForConfig,
-  generateBoard,
-  hasBingoForConfig,
-} from '@/lib/board'
+import { cellCategory, freeIndexForConfig, generateBoard, hasBingoForConfig } from '@/lib/board'
 import {
   boardConfigFromStorageFields,
   boardConfigPayload,
@@ -38,11 +33,7 @@ import {
   MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
 import { displayCategory } from '@/lib/canonical'
-import {
-  DRAFT_POLICY_HELP,
-  DRAFT_POLICY_LABEL,
-  type DraftPolicy,
-} from '@/lib/draftPolicy'
+import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { draftApiUrl } from '@/lib/draftQuery'
 import type { PlayMode } from '@/lib/playMode'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
@@ -74,11 +65,9 @@ function RoomInner({ roomId }: { roomId: string }) {
   const playMode: PlayMode = playModeRaw === 'free' ? 'free' : 'draft'
   const hostConnectionId = useStorage((s) => s.hostConnectionId)
   const boardSize = (useStorage((s) => s.boardSize) ?? 5) as 3 | 4 | 5
-  const categoryNationalities =
-    useStorage((s) => s.categoryNationalities) ?? true
+  const categoryNationalities = useStorage((s) => s.categoryNationalities) ?? true
   const categoryClubs = useStorage((s) => s.categoryClubs) ?? true
-  const categoryAchievements =
-    useStorage((s) => s.categoryAchievements) ?? true
+  const categoryAchievements = useStorage((s) => s.categoryAchievements) ?? true
   const categoryTraits = useStorage((s) => s.categoryTraits) ?? true
   const categoryManagers = useStorage((s) => s.categoryManagers) ?? true
   const minFameScore = useStorage((s) => s.minFameScore) ?? 0
@@ -123,9 +112,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     boardLayout === 'individual' ? 'open' : draftPolicyStorage
 
   const isHost =
-    self?.connectionId != null &&
-    hostConnectionId != null &&
-    self.connectionId === hostConnectionId
+    self?.connectionId != null && hostConnectionId != null && self.connectionId === hostConnectionId
 
   const canEditLobby =
     hostConnectionId === null ||
@@ -170,26 +157,17 @@ function RoomInner({ roomId }: { roomId: string }) {
     storage.set('minFameScore', v)
   }, [])
 
-  const setBoardLayoutWithPolicy = useMutation(
-    ({ storage }, layout: 'shared' | 'individual') => {
-      storage.set('boardLayout', layout)
-      if (layout === 'individual') storage.set('draftPolicy', 'open')
-    },
-    [],
-  )
+  const setBoardLayoutWithPolicy = useMutation(({ storage }, layout: 'shared' | 'individual') => {
+    storage.set('boardLayout', layout)
+    if (layout === 'individual') storage.set('draftPolicy', 'open')
+  }, [])
 
-  const setDraftPolicyInStorage = useMutation(
-    ({ storage }, policy: DraftPolicy) => {
-      storage.set('draftPolicy', policy)
-    },
-    [],
-  )
+  const setDraftPolicyInStorage = useMutation(({ storage }, policy: DraftPolicy) => {
+    storage.set('draftPolicy', policy)
+  }, [])
 
   const applyStart = useMutation(
-    (
-      { storage },
-      payload: { seed: string; supabaseGameId: string | null },
-    ) => {
+    ({ storage }, payload: { seed: string; supabaseGameId: string | null }) => {
       storage.set('phase', 'playing')
       storage.set('seed', payload.seed)
       storage.set('startedAt', Date.now())
@@ -205,13 +183,10 @@ function RoomInner({ roomId }: { roomId: string }) {
     storage.set('phase', 'finished')
   }, [])
 
-  const castDraftVoteWithSelf = useMutation(
-    ({ storage, self: s }, vote: DraftVote) => {
-      if (!s) return
-      storage.get('draftVotes').set(String(s.connectionId), vote)
-    },
-    [],
-  )
+  const castDraftVoteWithSelf = useMutation(({ storage, self: s }, vote: DraftVote) => {
+    if (!s) return
+    storage.get('draftVotes').set(String(s.connectionId), vote)
+  }, [])
 
   const clearDraftVotes = useMutation(({ storage }) => {
     liveMapStringKeysClear(storage.get('draftVotes'))
@@ -232,9 +207,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       storage.set('draftRound', r + 1)
       if (!payload.skip && payload.cellIndex !== undefined && payload.pick) {
         if (payload.layout === 'shared') {
-          storage
-            .get('sharedSolved')
-            .set(String(payload.cellIndex), payload.pick)
+          storage.get('sharedSolved').set(String(payload.cellIndex), payload.pick)
         }
       }
     },
@@ -320,10 +293,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     return m
   }, [boardLayout, sharedSolved, localSolved])
 
-  const occupiedForDraft = useMemo(
-    () => [...solvedForDisplay.keys()],
-    [solvedForDisplay],
-  )
+  const occupiedForDraft = useMemo(() => [...solvedForDisplay.keys()], [solvedForDisplay])
   const placedPlayerIdsForDraft = useMemo(
     () => [...solvedForDisplay.values()].map((p) => p.playerId),
     [solvedForDisplay],
@@ -373,9 +343,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         setDraftRestrictCells(restrict)
         setDraftTargetCells(restrict ? new Set(vs) : null)
         setDraftFallbackNote(
-          j.usedOpenFallback
-            ? 'No one matched an open square — random draw this round.'
-            : null,
+          j.usedOpenFallback ? 'No one matched an open square — random draw this round.' : null,
         )
       })
       .catch(() => {
@@ -405,10 +373,9 @@ function RoomInner({ roomId }: { roomId: string }) {
   ])
 
   const participantIds = useMemo(() => {
-    const ids = [
-      self?.connectionId,
-      ...others.map((o) => o.connectionId),
-    ].filter((x): x is number => x != null)
+    const ids = [self?.connectionId, ...others.map((o) => o.connectionId)].filter(
+      (x): x is number => x != null,
+    )
     return ids.sort((a, b) => a - b)
   }, [self?.connectionId, others])
 
@@ -426,12 +393,9 @@ function RoomInner({ roomId }: { roomId: string }) {
     return draftVotes.get(String(self.connectionId)) ?? null
   }, [draftVotes, self?.connectionId])
 
-  const voteHighlightIndex =
-    myVote?.type === 'square' ? myVote.cellIndex : null
+  const voteHighlightIndex = myVote?.type === 'square' ? myVote.cellIndex : null
 
-  const isLeader =
-    participantIds.length > 0 && self?.connectionId === participantIds[0]
-
+  const isLeader = participantIds.length > 0 && self?.connectionId === participantIds[0]
 
   const modalLabel = useMemo(() => {
     if (modalCell === null || !activeSeed) return null
@@ -479,8 +443,7 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const handleFreePick = useCallback(
     async (playerId: string) => {
-      if (modalCell === null || !activeSeed)
-        return { ok: false as const, error: 'Game not ready' }
+      if (modalCell === null || !activeSeed) return { ok: false as const, error: 'Game not ready' }
       const res = await fetch('/api/game/validate-cell', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -538,9 +501,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       return
     }
 
-    const votesList: DraftVote[] = participantIds.map(
-      (id) => draftVotes.get(String(id))!,
-    )
+    const votesList: DraftVote[] = participantIds.map((id) => draftVotes.get(String(id))!)
     const allSkip = votesList.every((v) => v.type === 'skip')
     const first = votesList[0]
     if (!allSkip && first?.type === 'square' && !drawn) return
@@ -625,13 +586,7 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const handleDraftCellClick = useCallback(
     (cellIndex: number) => {
-      if (
-        playMode !== 'draft' ||
-        !drawn ||
-        draftLoading ||
-        localBingo ||
-        phase !== 'playing'
-      ) {
+      if (playMode !== 'draft' || !drawn || draftLoading || localBingo || phase !== 'playing') {
         return
       }
       submitDraftVote({ type: 'square', cellIndex })
@@ -657,7 +612,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         error?: string
       }
       if (j.error) return
-      const gid = j.skipped ? null : j.gameId ?? null
+      const gid = j.skipped ? null : (j.gameId ?? null)
       applyStart({ seed: newSeed, supabaseGameId: gid })
     } finally {
       setStarting(false)
@@ -689,12 +644,10 @@ function RoomInner({ roomId }: { roomId: string }) {
   }
 
   return (
-    <div className={`mx-auto max-w-5xl px-6 py-8 md:px-9 ${playMode === 'draft' ? 'pb-16' : ''}`}>
+    <div className={`mx-auto max-w-5xl px-2 md:px-6 py-8${playMode === 'draft' ? 'pb-16' : ''}`}>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          {phase === 'lobby' ? (
-            <span className="eyebrow mb-3">Pre-match · tunnel</span>
-          ) : null}
+          {phase === 'lobby' ? <span className="eyebrow mb-3">Pre-match · tunnel</span> : null}
           <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
             {phase === 'lobby' ? 'The squad gathers' : 'Race room'}
           </h1>
@@ -725,7 +678,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                   You&apos;re in the room
                 </p>
                 <p className="mt-1.5 text-sm font-medium text-muted">
-                  The host is setting things up. You&apos;ll start automatically when they&apos;re ready.
+                  The host is setting things up. You&apos;ll start automatically when they&apos;re
+                  ready.
                 </p>
               </div>
               <label className="block text-sm font-bold text-ink">
@@ -868,8 +822,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                     </span>
                     {(['open', 'placeable'] as const).map((p) => {
                       const active = draftPolicyStorage === p
-                      const disabled =
-                        boardLayout === 'individual' && p === 'placeable'
+                      const disabled = boardLayout === 'individual' && p === 'placeable'
                       return (
                         <button
                           key={p}
@@ -922,9 +875,19 @@ function RoomInner({ roomId }: { roomId: string }) {
                     </span>
                     {(
                       [
-                        ['categoryNationalities', 'Nations', 'bg-sky text-pitch-deep', categoryNationalities],
+                        [
+                          'categoryNationalities',
+                          'Nations',
+                          'bg-sky text-pitch-deep',
+                          categoryNationalities,
+                        ],
                         ['categoryClubs', 'Clubs', 'bg-green-go text-white', categoryClubs],
-                        ['categoryAchievements', 'Honours', 'bg-yellow text-pitch-deep', categoryAchievements],
+                        [
+                          'categoryAchievements',
+                          'Honours',
+                          'bg-yellow text-pitch-deep',
+                          categoryAchievements,
+                        ],
                         ['categoryTraits', 'Traits', 'bg-card-ink text-white', categoryTraits],
                         ['categoryManagers', 'Managers', 'bg-pink text-white', categoryManagers],
                       ] as const
@@ -1028,9 +991,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             <span className="chip">
               {PLAY_MODE_LABEL[playMode]} ·{' '}
               {boardLayout === 'shared' ? 'Shared board' : 'Individual boards'}
-              {playMode === 'draft'
-                ? ` · ${DRAFT_POLICY_LABEL[effectiveDraftPolicy]}`
-                : ''}
+              {playMode === 'draft' ? ` · ${DRAFT_POLICY_LABEL[effectiveDraftPolicy]}` : ''}
             </span>
           </div>
           <AnimatePresence>
@@ -1076,9 +1037,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             boardConfig={boardConfig}
             solved={solvedForDisplay}
             voteHighlightIndex={voteHighlightIndex}
-            draftTargetCells={
-              null
-            }
+            draftTargetCells={null}
             wrongCell={wrongCell}
             reduceMotion={reduceMotion}
             onCellClick={(i) => {
@@ -1097,10 +1056,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       ) : null}
 
       <AnimatePresence>
-        {playMode === 'free' &&
-        modalCell !== null &&
-        modalLabel &&
-        phase === 'playing' ? (
+        {playMode === 'free' && modalCell !== null && modalLabel && phase === 'playing' ? (
           <PlayerPickModal
             open
             title={`Pick a player: ${displayCategory(modalLabel)}`}

@@ -46,6 +46,7 @@ export function SoloGame() {
   const [draftLoading, setDraftLoading] = useState(false)
   const [draftError, setDraftError] = useState<string | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const [showLabels, setShowLabels] = useState(false)
   const [wrongCell, setWrongCell] = useState<{ cell: number; nonce: number } | null>(null)
 
   useEffect(() => {
@@ -86,10 +87,7 @@ export function SoloGame() {
   }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy])
 
   const occupiedIndices = useMemo(() => [...solved.keys()], [solved])
-  const placedPlayerIds = useMemo(
-    () => [...solved.values()].map((p) => p.playerId),
-    [solved],
-  )
+  const placedPlayerIds = useMemo(() => [...solved.values()].map((p) => p.playerId), [solved])
 
   useEffect(() => {
     if (!wrongCell) return
@@ -330,29 +328,20 @@ export function SoloGame() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8 pb-32 md:px-9">
+    <div className="mx-auto max-w-5xl px-2 md:px-6 py-8 pb-32 md:px-9">
       <div className="mb-4 flex items-center justify-between gap-3">
         <span className="chip -rotate-1 text-[12px] font-extrabold uppercase tracking-[0.08em] text-card-ink">
           {PLAY_MODE_LABEL[playMode]}
         </span>
-        <div className="flex items-center gap-2.5">
-          <button
-            type="button"
-            onClick={resetBoard}
-            className="btn btn-outline-light btn-sm"
-          >
-            New board
-          </button>
-          <button
-            type="button"
-            onClick={() => setSettingsOpen(true)}
-            className="btn btn-outline-light btn-sm"
-            aria-haspopup="dialog"
-            aria-expanded={settingsOpen}
-          >
-            ⚙ Settings
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setSettingsOpen(true)}
+          className="btn btn-outline-light btn-sm"
+          aria-haspopup="dialog"
+          aria-expanded={settingsOpen}
+        >
+          ⚙ Settings
+        </button>
       </div>
 
       {!configOk ? (
@@ -370,92 +359,119 @@ export function SoloGame() {
             <>
               <motion.div
                 className="fixed inset-0 z-[90] bg-black/40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSettingsOpen(false)}
-            />
-            <motion.aside
-              className="fixed right-0 top-0 z-[100] flex h-full w-[min(360px,90vw)] flex-col gap-6 overflow-y-auto bg-white p-6 shadow-[-10px_0_0_rgba(0,0,0,0.22)]"
-              role="dialog"
-              aria-label="Game settings"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 320, damping: 34 }}
-            >
-              <div className="flex items-center justify-between">
-                <h2 className="font-display text-[28px] font-black uppercase leading-none text-card-ink">
-                  Settings
-                </h2>
-                <button
-                  type="button"
-                  onClick={() => setSettingsOpen(false)}
-                  className="btn btn-outline btn-sm"
-                  aria-label="Close settings"
-                >
-                  ✕
-                </button>
-              </div>
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSettingsOpen(false)}
+              />
+              <motion.aside
+                className="fixed right-0 top-0 z-[100] flex h-full w-[min(360px,90vw)] flex-col gap-6 overflow-y-auto bg-white p-6 shadow-[-10px_0_0_rgba(0,0,0,0.22)]"
+                role="dialog"
+                aria-label="Game settings"
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'spring', stiffness: 320, damping: 34 }}
+              >
+                <div className="flex items-center justify-between">
+                  <h2 className="font-display text-[28px] font-black uppercase leading-none text-card-ink">
+                    Settings
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => setSettingsOpen(false)}
+                    className="btn btn-outline btn-sm"
+                    aria-label="Close settings"
+                  >
+                    ✕
+                  </button>
+                </div>
 
-              <div>
-                <p className="mb-2 text-[11.5px] font-extrabold uppercase tracking-[0.1em] text-card-muted-2">
-                  Game mode
-                </p>
-                <div className="flex rounded-full bg-card-tint p-[5px]">
-                  {(['draft', 'free'] as const).map((m) => (
+                <div>
+                  <p className="mb-2 text-[11.5px] font-extrabold uppercase tracking-[0.1em] text-card-muted-2">
+                    Game mode
+                  </p>
+                  <div className="flex rounded-full bg-card-tint p-[5px]">
+                    {(['draft', 'free'] as const).map((m) => (
+                      <button
+                        key={m}
+                        type="button"
+                        onClick={() => switchMode(m)}
+                        className={`flex-1 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
+                          playMode === m
+                            ? 'bg-yellow text-pitch-deep shadow-[0_3px_0_rgba(0,0,0,0.3)]'
+                            : 'text-card-muted hover:text-card-ink'
+                        }`}
+                      >
+                        {PLAY_MODE_LABEL[m]}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-2 text-[13.5px] font-semibold text-card-muted">
+                    {playMode === 'draft'
+                      ? 'Place the drawn player on a square that matches. Complete a line to win.'
+                      : 'Pick a square, then search for a player who fits that clue.'}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="mb-2 text-[11.5px] font-extrabold uppercase tracking-[0.1em] text-card-muted-2">
+                    Board
+                  </p>
+                  <label className="flex cursor-pointer items-center justify-between gap-3 rounded-[14px] bg-card-tint px-4 py-3">
+                    <span>
+                      <span className="block font-display text-[17px] font-black uppercase leading-none text-card-ink">
+                        Show clue labels
+                      </span>
+                      <span className="mt-1 block text-[12.5px] font-semibold text-card-muted">
+                        Print the clue text under every crest and flag.
+                      </span>
+                    </span>
                     <button
-                      key={m}
                       type="button"
-                      onClick={() => switchMode(m)}
-                      className={`flex-1 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
-                        playMode === m
-                          ? 'bg-yellow text-pitch-deep shadow-[0_3px_0_rgba(0,0,0,0.3)]'
-                          : 'text-card-muted hover:text-card-ink'
+                      role="switch"
+                      aria-checked={showLabels}
+                      onClick={() => setShowLabels((v) => !v)}
+                      className={`relative inline-block h-[24px] w-11 shrink-0 rounded-full transition-colors ${
+                        showLabels ? 'bg-green-go' : 'bg-black/25'
                       }`}
                     >
-                      {PLAY_MODE_LABEL[m]}
+                      <span
+                        className={`absolute top-[3px] h-[18px] w-[18px] rounded-full bg-white transition-all ${
+                          showLabels ? 'right-[3px]' : 'left-[3px]'
+                        }`}
+                      />
                     </button>
-                  ))}
+                  </label>
                 </div>
-                <p className="mt-2 text-[13.5px] font-semibold text-card-muted">
-                  {playMode === 'draft'
-                    ? 'Place the drawn player on a square that matches. Complete a line to win.'
-                    : 'Pick a square, then search for a player who fits that clue.'}
-                </p>
-              </div>
 
-              <div className="flex flex-col gap-2.5">
-                <Link
-                  href="/play/setup"
-                  className="btn btn-outline w-full"
-                  onClick={() => setSettingsOpen(false)}
-                >
-                  Board setup
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => {
-                    resetBoard()
-                    setSettingsOpen(false)
-                  }}
-                  className="btn btn-outline w-full"
-                >
-                  New board
-                </button>
-              </div>
-            </motion.aside>
+                <div className="flex flex-col gap-2.5">
+                  <Link
+                    href="/play/setup"
+                    className="btn btn-outline w-full"
+                    onClick={() => setSettingsOpen(false)}
+                  >
+                    Board setup
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      resetBoard()
+                      setSettingsOpen(false)
+                    }}
+                    className="btn btn-outline w-full"
+                  >
+                    New board
+                  </button>
+                </div>
+              </motion.aside>
             </>
           ) : null}
         </AnimatePresence>,
         document.body,
       )}
 
-      <BingoWinModal
-        open={won}
-        onPlayAgain={resetBoard}
-        onClose={() => {}}
-      />
+      <BingoWinModal open={won} onPlayAgain={resetBoard} onClose={() => {}} />
 
       <DrawnPlayerPanel
         mode={playMode}
@@ -476,6 +492,7 @@ export function SoloGame() {
           solved={solved}
           lineHighlight={lineHighlight}
           reduceMotion={reduceMotion}
+          showLabels={showLabels}
           draftTargetCells={null}
           wrongCell={wrongCell}
           onCellClick={(i) => {

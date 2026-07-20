@@ -68,6 +68,39 @@ export function SoloPlaySetup() {
     setHydrated(true)
   }, [])
 
+  // Pills sampling players crossing the eligibility threshold as you drag.
+  // Each floats up and fades on its own lifetime, so several stay readable.
+  const [famePills, setFamePills] = useState<
+    { key: number; name: string; direction: 'added' | 'removed'; percent: number }[]
+  >([])
+  const flashKey = useRef(0)
+  // Only sample once the threshold has moved this many steps since the last pill.
+  const EMIT_STEP = 4
+  const lastEmit = useRef(boardConfig.minFameScore ?? 0)
+
+  const sampleThresholdPlayer = (next: number) => {
+    const from = lastEmit.current
+    if (Math.abs(next - from) < EMIT_STEP) return
+    const direction: 'added' | 'removed' = next > from ? 'removed' : 'added'
+    // Band of players whose eligibility flips between the last pill and now.
+    const lo = Math.min(from, next)
+    const hi = Math.max(from, next)
+    const band = enrichedFootballPlayers.filter((p) => {
+      const s = p.fameScore ?? 0
+      return s >= lo && s < hi
+    })
+    lastEmit.current = next
+    if (band.length === 0) return
+    const pick = band[Math.floor(Math.random() * band.length)]
+    flashKey.current += 1
+    const key = flashKey.current
+    setFamePills((prev) =>
+      [...prev, { key, name: pick.name, direction, percent: (next / MAX_FAME_SCORE) * 100 }].slice(
+        -5,
+      ),
+    )
+  }
+
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
   const configOk = isBoardConfigViable(boardConfig)
@@ -77,8 +110,7 @@ export function SoloPlaySetup() {
     () =>
       minFameScore <= 0
         ? enrichedFootballPlayers.length
-        : enrichedFootballPlayers.filter((p) => (p.fameScore ?? 0) >= minFameScore)
-            .length,
+        : enrichedFootballPlayers.filter((p) => (p.fameScore ?? 0) >= minFameScore).length,
     [minFameScore],
   )
 
@@ -259,21 +291,61 @@ export function SoloPlaySetup() {
             </motion.span>
           </div>
           <p className="mb-4 text-[13.5px] font-semibold text-card-muted">
-            Drag right to keep the journeymen out. Only players at or above this
-            fame score get drawn.
+            Drag right to keep the journeymen out. Only players at or above this fame score get
+            drawn.
           </p>
-          <input
-            type="range"
-            min={0}
-            max={MAX_FAME_SCORE}
-            step={1}
-            value={minFameScore}
-            onChange={(e) =>
-              setBoardConfig((c) => ({ ...c, minFameScore: Number(e.target.value) }))
-            }
-            aria-label="Minimum fame score"
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-card-tint accent-green-go"
-          />
+          <div className="relative">
+            {/* Sampled-player pills floating up from the slider line */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-full h-0">
+              <AnimatePresence>
+                {famePills.map((pill) => (
+                  <motion.div
+                    key={pill.key}
+                    initial={{ opacity: 0, y: 8, scale: 0.8 }}
+                    animate={{
+                      opacity: [0, 1, 0],
+                      y: [8, -8, -60],
+                      scale: [0.8, 1, 0.95],
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      duration: 1,
+                      ease: 'easeOut',
+                    }}
+                    onAnimationComplete={() =>
+                      setFamePills((prev) => prev.filter((p) => p.key !== pill.key))
+                    }
+                    style={{
+                      left: `clamp(14%, ${pill.percent}%, 86%)`,
+                      transform: 'translateX(-50%)',
+                    }}
+                    className={`absolute bottom-0 flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-extrabold shadow-[0_3px_0_rgba(0,0,0,0.2)] ${
+                      pill.direction === 'added' ? 'bg-green-go text-white' : 'bg-pink text-white'
+                    }`}
+                  >
+                    <span className="text-[13px] leading-none">
+                      {pill.direction === 'added' ? '+' : '−'}
+                    </span>
+                    {pill.name}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+            <input
+              type="range"
+              min={0}
+              max={MAX_FAME_SCORE}
+              step={1}
+              value={minFameScore}
+              onChange={(e) => {
+                const next = Number(e.target.value)
+                sampleThresholdPlayer(next)
+                setBoardConfig((c) => ({ ...c, minFameScore: next }))
+              }}
+              aria-label="Minimum fame score"
+              className="h-2 w-full cursor-pointer appearance-none rounded-full bg-card-tint accent-green-go"
+            />
+          </div>
           <div className="mt-2 flex items-center justify-between text-[12px] font-extrabold uppercase tracking-[0.06em] text-card-muted-2">
             <span>Anyone</span>
             <span className="font-mono text-sm font-bold text-card-ink">

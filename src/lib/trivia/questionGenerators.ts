@@ -36,8 +36,8 @@ const STAT_PROMPTS: Record<StatKey, string> = {
   goals: 'Who has scored more career goals?',
   appearances: 'Who has more career appearances?',
   assists: 'Who has more career assists?',
-  championsLeagueGoals: 'Who has scored more Champions League goals?',
-  championsLeagueGames: 'Who has played more Champions League games?',
+  championsLeagueGoals: 'Who has scored more CL goals?',
+  championsLeagueGames: 'Who has played more CL games?',
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -154,9 +154,7 @@ function achievementTemplate(
   rand: () => number,
   id: string,
 ): MultipleChoiceQuestion | null {
-  const playerAchievements = player.achievements.filter((a) =>
-    achievements.includes(a),
-  )
+  const playerAchievements = player.achievements.filter((a) => achievements.includes(a))
   if (!playerAchievements.length) return null
   const correctAchievement = pick(rand, playerAchievements)
   const distractors = shuffle(
@@ -218,11 +216,7 @@ function generateStatComparison(
 
 // ── Open text generator ───────────────────────────────────────────────────────
 
-function generateOpenText(
-  player: Player,
-  rand: () => number,
-  id: string,
-): OpenTextQuestion {
+function generateOpenText(player: Player, rand: () => number, id: string): OpenTextQuestion {
   const clues: OpenTextClue[] = []
 
   clues.push({ kind: 'era', value: player.era })
@@ -238,10 +232,16 @@ function generateOpenText(
   }
 
   // One career stat — pick at random, skip outfield-only stats for goalkeepers
-  const eligibleStatKeys = STAT_KEYS.filter((k) => !(isGoalkeeper(player) && OUTFIELD_ONLY_STATS.has(k)))
+  const eligibleStatKeys = STAT_KEYS.filter(
+    (k) => !(isGoalkeeper(player) && OUTFIELD_ONLY_STATS.has(k)),
+  )
   const statPick = pick(rand, eligibleStatKeys)
   const statVal = player.careerStats[statPick]
-  clues.push({ kind: 'stat', label: STAT_PROMPTS[statPick].replace('Who has ', '').replace('?', ''), value: String(statVal) })
+  clues.push({
+    kind: 'stat',
+    label: STAT_PROMPTS[statPick].replace('Who has ', '').replace('?', ''),
+    value: String(statVal),
+  })
 
   return {
     id,
@@ -288,10 +288,14 @@ function generateTrueFalse(
     // Left foot
     () => {
       if (rand() > 0.5) {
-        return player.leftFooted ? makeTrue(`${player.name} is left-footed`) : makeFalse(`${player.name} is left-footed`)
+        return player.leftFooted
+          ? makeTrue(`${player.name} is left-footed`)
+          : makeFalse(`${player.name} is left-footed`)
       }
       // Flip: always generate based on actual fact + coin flip for true/false framing
-      return player.leftFooted ? makeTrue(`${player.name} is left-footed`) : makeFalse(`${player.name} is left-footed`)
+      return player.leftFooted
+        ? makeTrue(`${player.name} is left-footed`)
+        : makeFalse(`${player.name} is left-footed`)
     },
     // Nationality true/false
     () => {
@@ -299,7 +303,10 @@ function generateTrueFalse(
       if (isTrue) {
         return makeTrue(`${player.name} is from ${player.nationality}`)
       }
-      const wrongNat = pick(rand, nationalities.filter((n) => n !== player.nationality))
+      const wrongNat = pick(
+        rand,
+        nationalities.filter((n) => n !== player.nationality),
+      )
       return makeFalse(`${player.name} is from ${wrongNat}`)
     },
     // Achievement true/false
@@ -317,9 +324,7 @@ function generateTrueFalse(
     },
     // Height comparison
     () => {
-      const others = allPlayers.filter(
-        (p) => p.playerId !== player.playerId && p.height > 0,
-      )
+      const others = allPlayers.filter((p) => p.playerId !== player.playerId && p.height > 0)
       if (!others.length || player.height === 0) return null
       const other = pick(rand, others)
       const isTrue = player.height > other.height
@@ -358,16 +363,18 @@ function generateTrueFalse(
 
 type QuestionTypeName = 'multiple-choice' | 'stat-comparison' | 'open-text' | 'true-false'
 
-function pickQuestionType(
-  category: TriviaCategory,
-  rand: () => number,
-): QuestionTypeName {
+function pickQuestionType(category: TriviaCategory, rand: () => number): QuestionTypeName {
   const weights: Record<TriviaCategory, QuestionTypeName[]> = {
     all: [
-      'multiple-choice', 'multiple-choice', 'multiple-choice',
-      'stat-comparison', 'stat-comparison',
-      'open-text', 'open-text',
-      'true-false', 'true-false',
+      'multiple-choice',
+      'multiple-choice',
+      'multiple-choice',
+      'stat-comparison',
+      'stat-comparison',
+      'open-text',
+      'open-text',
+      'true-false',
+      'true-false',
     ],
     clubs: ['multiple-choice', 'true-false'],
     stats: ['stat-comparison', 'stat-comparison', 'open-text'],
