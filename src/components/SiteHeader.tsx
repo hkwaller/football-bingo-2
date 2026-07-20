@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { Menu } from 'lucide-react'
 
 const clerkOn = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
@@ -96,7 +97,7 @@ export function SiteHeader() {
           aria-label="Menu"
           className="flex h-11 w-11 items-center justify-center rounded-2xl border-[3px] border-white/50 text-[20px] text-white transition-colors hover:bg-white/[0.12] sm:hidden"
         >
-          ⚙
+          <Menu className="size-5 text-white" />
         </button>
       </div>
 

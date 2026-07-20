@@ -328,7 +328,7 @@ export function SoloGame() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-2 md:px-6 py-8 pb-32 md:px-9">
+    <div className="mx-auto max-w-5xl px-2 py-8 pb-32 md:px-9">
       <div className="mb-4 flex items-center justify-between gap-3">
         <span className="chip -rotate-1 text-[12px] font-extrabold uppercase tracking-[0.08em] text-card-ink">
           {PLAY_MODE_LABEL[playMode]}
