@@ -3,16 +3,18 @@
 import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import confetti from 'canvas-confetti'
+import { accuracyPct, formatDuration, totalGuesses, type SoloStats } from '@/lib/soloStats'
 
 interface Props {
   open: boolean
+  stats?: SoloStats | null
   onPlayAgain: () => void
   onClose: () => void
 }
 
 const FOIL_COLORS = ['#ffe23a', '#ff4d8d', '#4de1ff', '#ffffff']
 
-export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
+export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
   const firedRef = useRef(false)
 
   useEffect(() => {
@@ -107,6 +109,57 @@ export function BingoWinModal({ open, onPlayAgain, onClose }: Props) {
                   </span>
                 ))}
               </motion.div>
+
+              {stats ? (
+                <motion.div
+                  initial={{ y: 8, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.32 }}
+                  className="mt-6"
+                >
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      {
+                        value: String(stats.correctCount),
+                        label: 'Correct',
+                        tint: 'text-green-go',
+                      },
+                      {
+                        value: String(totalGuesses(stats)),
+                        label: 'Guesses',
+                        tint: 'text-card-ink',
+                      },
+                      {
+                        value: `${accuracyPct(stats)}%`,
+                        label: 'Accuracy',
+                        tint: 'text-pink',
+                      },
+                    ].map((tile) => (
+                      <div
+                        key={tile.label}
+                        className="rounded-2xl bg-card-tint px-2 py-3"
+                      >
+                        <div
+                          className={`font-mono text-[26px] font-bold leading-none ${tile.tint}`}
+                        >
+                          {tile.value}
+                        </div>
+                        <div className="mt-1.5 text-[10px] font-extrabold uppercase tracking-[0.1em] text-card-muted-2">
+                          {tile.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {stats.durationMs > 0 ? (
+                    <p className="mt-3 text-[12px] font-bold uppercase tracking-[0.08em] text-card-muted">
+                      Finished in{' '}
+                      <span className="font-mono text-card-ink">
+                        {formatDuration(stats.durationMs)}
+                      </span>
+                    </p>
+                  ) : null}
+                </motion.div>
+              ) : null}
 
               <motion.div
                 initial={{ y: 8, opacity: 0 }}

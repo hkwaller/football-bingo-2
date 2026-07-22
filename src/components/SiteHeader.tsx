@@ -13,6 +13,7 @@ const NAV = [
   { href: '/play', label: 'Play', match: ['/play'] },
   { href: '/room/new', label: 'Multiplayer', match: ['/room'] },
   { href: '/trivia', label: 'Trivia', match: ['/trivia'] },
+  { href: '/tenable', label: 'Tenable', match: ['/tenable'] },
 ]
 
 export function SiteHeader() {
@@ -67,6 +68,16 @@ export function SiteHeader() {
                 </SignInButton>
               </SignedOut>
               <SignedIn>
+                <Link
+                  href="/account"
+                  className={`rounded-full px-4 py-2 transition-colors ${
+                    isActive(['/account'])
+                      ? 'bg-white/[0.16] text-white'
+                      : 'text-on-green-dim hover:bg-white/[0.08] hover:text-white'
+                  }`}
+                >
+                  Profile
+                </Link>
                 <Link
                   href="/play/setup"
                   className="rounded-full bg-yellow px-[18px] py-2 text-pitch-deep shadow-[0_4px_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5"
@@ -150,6 +161,17 @@ export function SiteHeader() {
                     </SignInButton>
                   </SignedOut>
                   <SignedIn>
+                    <Link
+                      href="/account"
+                      onClick={() => setMenuOpen(false)}
+                      className={`rounded-full px-4 py-2.5 text-[14px] font-extrabold uppercase tracking-[0.06em] transition-colors ${
+                        isActive(['/account'])
+                          ? 'bg-green-go text-white'
+                          : 'text-card-muted hover:bg-card-tint hover:text-card-ink'
+                      }`}
+                    >
+                      Profile
+                    </Link>
                     <Link
                       href="/play/setup"
                       onClick={() => setMenuOpen(false)}

@@ -264,8 +264,8 @@ export default function HomePage() {
 
       {/* ── Mode cards ───────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="Pick your game" tone="pink" title="Two ways to play" />
-        <div className="mt-9 grid gap-5 sm:grid-cols-2">
+        <SectionHead eyebrow="Pick your game" tone="pink" title="Three ways to play" />
+        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <ModeCard
             title="Bingo"
             icon="⚽"
@@ -281,6 +281,14 @@ export default function HomePage() {
             blurb="Quick-fire football questions where the fastest correct answer wins the round."
             soloHref="/trivia/setup?mode=solo"
             multiHref="/trivia/setup?mode=multiplayer"
+          />
+          <ModeCard
+            title="Tenable"
+            icon="🔟"
+            rot={-0.4}
+            blurb="Name the ten. Top scorers, most caps, biggest transfers - fill the list before your lives run out."
+            soloHref="/tenable/setup?mode=solo"
+            multiHref="/tenable/setup?mode=multiplayer"
           />
         </div>
       </section>

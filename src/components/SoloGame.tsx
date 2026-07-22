@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
@@ -13,6 +13,7 @@ import {
   boardConfigPayload,
   categoryPoolForConfig,
   categoriesRequired,
+  cellCountForConfig,
   DEFAULT_BOARD_CONFIG,
   isBoardConfigViable,
 } from '@/lib/boardConfig'
@@ -25,6 +26,8 @@ import { displayCategory } from '@/lib/canonical'
 import type { PlayMode } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
+import type { SoloStats } from '@/lib/soloStats'
+
 
 export function SoloGame() {
   const [hydrated, setHydrated] = useState(false)
@@ -48,6 +51,13 @@ export function SoloGame() {
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [showLabels, setShowLabels] = useState(false)
   const [wrongCell, setWrongCell] = useState<{ cell: number; nonce: number } | null>(null)
+  const [wrongCount, setWrongCount] = useState(0)
+  const startedAtRef = useRef<number | null>(null)
+  const finishedRef = useRef(false)
+
+  const markStart = useCallback(() => {
+    if (startedAtRef.current === null) startedAtRef.current = Date.now()
+  }, [])
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -171,10 +181,43 @@ export function SoloGame() {
     return hasBingoForConfig(set, boardConfig)
   }, [solved, boardConfig])
 
+  const winStats = useMemo<SoloStats | null>(() => {
+    if (!won) return null
+    const startedAt = startedAtRef.current
+    return {
+      seed,
+      playMode,
+      boardSize: boardConfig.size,
+      correctCount: solved.size,
+      wrongCount,
+      totalCells: cellCountForConfig(boardConfig),
+      durationMs: startedAt ? Date.now() - startedAt : 0,
+    }
+    // Snapshot taken the moment `won` flips true; `solved` won't change afterwards.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [won])
+
+  // Persist the finished board to the signed-in user's profile (once per win).
+  useEffect(() => {
+    if (!won || finishedRef.current || !winStats) return
+    finishedRef.current = true
+    void fetch('/api/solo/finish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(winStats),
+    }).catch(() => {})
+  }, [won, winStats])
+
   const modalLabel = useMemo(() => {
     if (modalCell === null || !seed) return null
     return cellCategory(generateBoard(seed, boardConfig), modalCell)
   }, [modalCell, seed, boardConfig])
+
+  const resetStats = useCallback(() => {
+    setWrongCount(0)
+    startedAtRef.current = null
+    finishedRef.current = false
+  }, [])
 
   const resetBoard = useCallback(() => {
     const s = randomUUID()
@@ -183,6 +226,7 @@ export function SoloGame() {
     setRound(0)
     setModalCell(null)
     setDraftError(null)
+    resetStats()
     saveSolo({
       seed: s,
       solved: {},
@@ -192,7 +236,7 @@ export function SoloGame() {
       lineHighlight,
       draftPolicy,
     })
-  }, [playMode, boardConfig, lineHighlight, draftPolicy])
+  }, [playMode, boardConfig, lineHighlight, draftPolicy, resetStats])
 
   const switchMode = (m: PlayMode) => {
     if (m === playMode) return
@@ -200,6 +244,7 @@ export function SoloGame() {
     setSettingsOpen(false)
     setModalCell(null)
     setDraftError(null)
+    resetStats()
     const s = randomUUID()
     setSeed(s)
     setSolved(new Map())
@@ -245,6 +290,7 @@ export function SoloGame() {
   const handleFreePick = useCallback(
     async (playerId: string) => {
       if (modalCell === null) return { ok: false as const, error: 'No cell' }
+      markStart()
       const res = await fetch('/api/game/validate-cell', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -261,6 +307,7 @@ export function SoloGame() {
         player?: { playerId: string; name: string; imageUrl?: string }
       }
       if (!j.ok || !j.player) {
+        setWrongCount((c) => c + 1)
         return { ok: false as const, error: j.reason ?? 'No match' }
       }
       const pick: CellPick = {
@@ -276,7 +323,7 @@ export function SoloGame() {
       setModalCell(null)
       return { ok: true as const }
     },
-    [modalCell, seed, boardConfig],
+    [modalCell, seed, boardConfig, markStart],
   )
 
   const handleDraftCell = useCallback(
@@ -285,6 +332,7 @@ export function SoloGame() {
         return
       }
       setDraftError(null)
+      markStart()
       const res = await fetch('/api/game/validate-cell', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -302,6 +350,7 @@ export function SoloGame() {
       }
       if (!j.ok || !j.player) {
         setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
+        setWrongCount((c) => c + 1)
         return
       }
       const pick: CellPick = {
@@ -316,7 +365,7 @@ export function SoloGame() {
       })
       setRound((r) => r + 1)
     },
-    [playMode, drawn, draftLoading, won, seed, boardConfig],
+    [playMode, drawn, draftLoading, won, seed, boardConfig, markStart],
   )
 
   if (!hydrated) {
@@ -471,7 +520,7 @@ export function SoloGame() {
         document.body,
       )}
 
-      <BingoWinModal open={won} onPlayAgain={resetBoard} onClose={() => {}} />
+      <BingoWinModal open={won} stats={winStats} onPlayAgain={resetBoard} onClose={() => {}} />
 
       <DrawnPlayerPanel
         mode={playMode}
