@@ -15,6 +15,10 @@ function SiteFooter() {
       ·{' '}
       <Link href="/credits" className="underline">
         Photo credits
+      </Link>{' '}
+      ·{' '}
+      <Link href="/go-ad-free" className="underline">
+        Go ad-free
       </Link>
     </footer>
   )

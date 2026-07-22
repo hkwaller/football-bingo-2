@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { TriviaAnswer, TriviaQuestion, TriviaScoreState } from '@/lib/trivia/types'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
+import { AdsterraPopunder } from '@/components/AdsterraPopunder'
 
 interface LeaderboardEntry {
   displayName: string
@@ -183,6 +185,9 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
           Home
         </Link>
       </div>
+
+      <AdsterraBanner />
+      <AdsterraPopunder />
     </div>
   )
 }

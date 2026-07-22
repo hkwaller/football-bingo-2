@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import { accuracyPct, formatDuration, totalGuesses, type SoloStats } from '@/lib/soloStats'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
+import { AdsterraPopunder } from '@/components/AdsterraPopunder'
 
 interface Props {
   open: boolean
@@ -174,8 +176,13 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                   Keep board
                 </button>
               </motion.div>
+
+              <div className="mt-6">
+                <AdsterraBanner tone="card" />
+              </div>
             </div>
           </motion.div>
+          <AdsterraPopunder />
         </>
       )}
     </AnimatePresence>

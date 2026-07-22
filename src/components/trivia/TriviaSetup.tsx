@@ -13,6 +13,7 @@ import type {
 import { DEFAULT_TRIVIA_CONFIG } from '@/lib/trivia/types'
 import { DIFFICULTY_DESCRIPTIONS, DIFFICULTY_LABELS } from '@/lib/trivia/difficulty'
 import { loadTriviaConfig, saveTriviaConfig, clearTriviaSession } from '@/lib/trivia/triviaStorage'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
 
 const containerVariants = {
   hidden: {},

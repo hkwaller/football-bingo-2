@@ -18,6 +18,7 @@ import { randomUUID } from '@/lib/randomUUID'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
 import type { PlayMode } from '@/lib/playMode'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
 
 const containerVariants = {
   hidden: {},
@@ -425,6 +426,8 @@ export function SoloPlaySetup() {
           </motion.button>
         </motion.div>
       </motion.div>
+
+      <AdsterraBanner />
     </div>
   )
 }

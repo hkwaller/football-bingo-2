@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { enrichedFootballPlayers } from '@/data/players'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
 
 export const metadata = {
   title: 'Photo credits - Football Bingo',
@@ -86,6 +87,10 @@ export default function CreditsPage() {
         <Link href="/" className="btn btn-outline-light btn-sm">
           ← Back
         </Link>
+      </div>
+
+      <div className="mt-10">
+        <AdsterraBanner />
       </div>
     </main>
   )

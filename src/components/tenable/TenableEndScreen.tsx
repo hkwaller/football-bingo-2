@@ -6,6 +6,8 @@ import { motion } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import type { TenableSessionState } from '@/lib/tenable/types'
 import { summarizeSession } from '@/lib/tenableStats'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
+import { AdsterraPopunder } from '@/components/AdsterraPopunder'
 
 interface Props {
   session: TenableSessionState
@@ -80,6 +82,9 @@ export function TenableEndScreen({ session, onPlayAgain }: Props) {
           Home
         </Link>
       </div>
+
+      <AdsterraBanner />
+      <AdsterraPopunder />
     </div>
   )
 }

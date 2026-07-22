@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import type { TenableGroup } from '@/data/tenable'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
 import type { TenableConfig, TenableDifficultyFilter } from '@/lib/tenable/types'
 import { DEFAULT_TENABLE_CONFIG } from '@/lib/tenable/types'
 import {
@@ -230,6 +231,8 @@ export function TenableSetup() {
           )}
         </motion.div>
       </motion.div>
+
+      <AdsterraBanner />
     </div>
   )
 }

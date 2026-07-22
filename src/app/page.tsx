@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Sticker } from '@/components/Sticker'
 import { AdsterraBanner } from '@/components/AdsterraBanner'
+import { HeroTrivia } from '@/components/HeroTrivia'
 
 const fadeUp = {
   initial: { opacity: 0, y: 14 },
@@ -103,13 +104,6 @@ const VARIANTS = ['green', 'pink', 'yellow'] as const
 
 export default function HomePage() {
   const reduceMotion = useReducedMotion()
-  const bob = (dur: number) =>
-    reduceMotion
-      ? {}
-      : {
-          animate: { y: [0, -9, 0] },
-          transition: { duration: dur, ease: 'easeInOut' as const, repeat: Infinity },
-        }
 
   return (
     <div className="flex flex-col gap-24 pb-0">
@@ -124,7 +118,7 @@ export default function HomePage() {
           <motion.div {...fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }}>
             <span className="eyebrow">The football knowledge game</span>
             <h1 className="mt-5 font-display text-[clamp(56px,9.5vw,108px)] font-black uppercase leading-[0.86] text-white">
-              Know ball?
+              Know football?
               <br />
               <span className="mt-2 inline-block -rotate-[1.5deg] bg-yellow px-[18px] text-pitch-deep shadow-[0_8px_0_rgba(0,0,0,0.3)]">
                 Prove it.
@@ -154,66 +148,18 @@ export default function HomePage() {
             </div> */}
           </motion.div>
 
-          {/* Right column - vote card */}
+          {/* Right column - playable trivia taster */}
           <motion.div
             initial={{ opacity: 0, y: 18, rotate: 5 }}
             animate={{ opacity: 1, y: 0, rotate: 2 }}
             transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
             className="relative mx-auto w-full max-w-[420px]"
           >
-            <div className="relative rounded-[24px] bg-white p-[26px] shadow-[0_30px_60px_rgba(0,0,0,0.45)]">
-              <div className="flex items-center gap-4">
-                <motion.div {...bob(4.6)} className="w-[96px] shrink-0">
-                  <Sticker
-                    name="Salah"
-                    imageUrl={DECK[4].imageUrl}
-                    rotate={-4}
-                    nameSize={12}
-                    drawn
-                  />
-                </motion.div>
-                <div>
-                  <p className="text-[12px] font-extrabold uppercase leading-none tracking-[0.14em] text-pink">
-                    Round 7 · fresh from the pack
-                  </p>
-                  <p className="mt-1.5 font-display text-[32px] font-black uppercase leading-none text-card-ink">
-                    Where does he fit?
-                  </p>
-                </div>
-              </div>
-              <div className="mt-[18px] flex flex-col gap-2.5">
-                <div className="flex items-center justify-between rounded-xl bg-green-go px-4 py-3 text-[15px] font-extrabold text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]">
-                  <span>⚽ Liverpool</span>
-                  <span>✓ 71%</span>
-                </div>
-                <div className="flex items-center justify-between rounded-xl bg-card-tint px-4 py-3 text-[15px] font-extrabold text-card-muted">
-                  <span>🌍 Egypt</span>
-                  <span>22%</span>
-                </div>
-                <div className="flex items-center justify-between rounded-xl bg-card-tint px-4 py-3 text-[15px] font-extrabold text-card-muted">
-                  <span>🏆 Ballon d&apos;Or</span>
-                  <span>7%</span>
-                </div>
-              </div>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="-rotate-2 rounded-lg bg-yellow px-2.5 py-1.5 text-[12px] font-extrabold text-pitch-deep">
-                  +250 pts
-                </span>
-                <span className="text-[12.5px] font-bold text-card-muted-2">
-                  Jonas: &quot;no way he misses this&quot; 💬
-                </span>
-              </div>
-            </div>
-            <motion.div
-              {...bob(3.4)}
-              className="absolute -right-3.5 -top-6 rotate-[8deg] rounded-full bg-pink px-[18px] py-3 font-display text-[22px] font-black uppercase text-white shadow-[0_6px_0_rgba(0,0,0,0.3)]"
-            >
-              Bingo!
-            </motion.div>
+            <HeroTrivia />
           </motion.div>
         </div>
         {/* ── Mode cards ───────────────────────────────────────── */}
-        <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8">
+        <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8 md:pb-20">
           <SectionHead eyebrow="Pick your game" tone="pink" title="Three ways to play" />
           <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <ModeCard
