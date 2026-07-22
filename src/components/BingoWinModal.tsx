@@ -6,6 +6,7 @@ import confetti from 'canvas-confetti'
 import { accuracyPct, formatDuration, totalGuesses, type SoloStats } from '@/lib/soloStats'
 import { AdsterraBanner } from '@/components/AdsterraBanner'
 import { AdsterraPopunder } from '@/components/AdsterraPopunder'
+import Link from 'next/link'
 
 interface Props {
   open: boolean
@@ -137,10 +138,7 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                         tint: 'text-pink',
                       },
                     ].map((tile) => (
-                      <div
-                        key={tile.label}
-                        className="rounded-2xl bg-card-tint px-2 py-3"
-                      >
+                      <div key={tile.label} className="rounded-2xl bg-card-tint px-2 py-3">
                         <div
                           className={`font-mono text-[26px] font-bold leading-none ${tile.tint}`}
                         >
@@ -172,9 +170,9 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                 <button type="button" onClick={onPlayAgain} className="btn btn-primary w-full">
                   Run it back
                 </button>
-                <button type="button" onClick={onClose} className="btn btn-outline w-full">
-                  Keep board
-                </button>
+                <Link href="/" className="btn btn-outline w-full">
+                  Return home
+                </Link>
               </motion.div>
 
               <div className="mt-6">
