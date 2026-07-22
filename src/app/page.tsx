@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Sticker } from '@/components/Sticker'
+import { AdsterraBanner } from '@/components/AdsterraBanner'
 
 const fadeUp = {
   initial: { opacity: 0, y: 14 },
@@ -133,7 +134,7 @@ export default function HomePage() {
               A player is drawn, the room goes wild. Slap him on the right square - club, nation or
               honour - and race to a line. No luck, just football knowledge.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3.5">
+            {/* <div className="mt-8 flex flex-wrap gap-3.5">
               <Link href="/play/setup" className="btn btn-primary btn-lg">
                 Play Bingo
               </Link>
@@ -150,7 +151,7 @@ export default function HomePage() {
                   {s}
                 </span>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right column - vote card */}
@@ -211,7 +212,36 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
         </div>
-
+        {/* ── Mode cards ───────────────────────────────────────── */}
+        <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8">
+          <SectionHead eyebrow="Pick your game" tone="pink" title="Three ways to play" />
+          <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <ModeCard
+              title="Bingo"
+              icon=""
+              rot={-0.6}
+              blurb="Fill your board with the players drawn and be first to a full line. The signature mode."
+              soloHref="/play/setup"
+              multiHref="/room/new"
+            />
+            <ModeCard
+              title="Trivia"
+              icon=""
+              rot={0.6}
+              blurb="Quick-fire football questions where the fastest correct answer wins the round."
+              soloHref="/trivia/setup?mode=solo"
+              multiHref="/trivia/setup?mode=multiplayer"
+            />
+            <ModeCard
+              title="Tenable"
+              icon=""
+              rot={-0.4}
+              blurb="Name the ten. Top scorers, most caps, biggest transfers - fill the list before your lives run out."
+              soloHref="/tenable/setup?mode=solo"
+              multiHref="/tenable/setup?mode=multiplayer"
+            />
+          </div>
+        </section>
         {/* ── Full-bleed sticker marquee ─────────── */}
         <div className="relative mt-6 w-full overflow-hidden border-y-[3px] border-white/35 bg-black/[0.14] py-[18px]">
           <motion.div
@@ -262,37 +292,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Mode cards ───────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="Pick your game" tone="pink" title="Three ways to play" />
-        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <ModeCard
-            title="Bingo"
-            icon="⚽"
-            rot={-0.6}
-            blurb="Fill your board with the players drawn and be first to a full line. The signature mode."
-            soloHref="/play/setup"
-            multiHref="/room/new"
-          />
-          <ModeCard
-            title="Trivia"
-            icon="⚡"
-            rot={0.6}
-            blurb="Quick-fire football questions where the fastest correct answer wins the round."
-            soloHref="/trivia/setup?mode=solo"
-            multiHref="/trivia/setup?mode=multiplayer"
-          />
-          <ModeCard
-            title="Tenable"
-            icon="🔟"
-            rot={-0.4}
-            blurb="Name the ten. Top scorers, most caps, biggest transfers - fill the list before your lives run out."
-            soloHref="/tenable/setup?mode=solo"
-            multiHref="/tenable/setup?mode=multiplayer"
-          />
-        </div>
-      </section>
-
       {/* ── Final CTA ────────────────────────────────────────── */}
       <section className="relative w-full overflow-hidden border-t-[3px] border-white/35 bg-black/[0.16] px-6 py-20 md:px-9">
         <div className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-white/[0.16]" />
@@ -317,6 +316,11 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* ── Ad (guests only; hidden for ad-free) ─────────────── */}
+      <section className="w-full px-6 pb-10">
+        <AdsterraBanner />
       </section>
     </div>
   )
