@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { enrichedFootballPlayers } from '@/data/players'
 import { getClubDisplayNames } from '@/data/clubs'
-import { nationalities } from '@/data/categories'
+import { nationalities, achievements } from '@/data/categories'
 import type { Player } from '@/types/player'
 
 /**
@@ -39,7 +39,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)]
+const pick = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)]
 
 type HeroQuestion = {
   name: string
@@ -59,8 +59,8 @@ function clubQuestion(player: Player): HeroQuestion | null {
   const owned = seniorClubs(player)
   if (!owned.length) return null
   const correct = pick(owned)
-  const decoys = shuffle(ALL_SENIOR_CLUBS.filter((c) => !player.clubs.includes(c))).slice(0, 3)
-  if (decoys.length < 3) return null
+  const decoys = shuffle(ALL_SENIOR_CLUBS.filter((c) => !player.clubs.includes(c))).slice(0, 2)
+  if (decoys.length < 2) return null
   return {
     name: player.name,
     imageUrl: player.imageUrl,
@@ -72,8 +72,8 @@ function clubQuestion(player: Player): HeroQuestion | null {
 
 function nationalityQuestion(player: Player): HeroQuestion | null {
   if (!player.nationality) return null
-  const decoys = shuffle(nationalities.filter((n) => n !== player.nationality)).slice(0, 3)
-  if (decoys.length < 3) return null
+  const decoys = shuffle(nationalities.filter((n) => n !== player.nationality)).slice(0, 2)
+  if (decoys.length < 2) return null
   return {
     name: player.name,
     imageUrl: player.imageUrl,
@@ -100,20 +100,54 @@ function trueFalseQuestion(player: Player): HeroQuestion | null {
   }
 }
 
+function achievementQuestion(player: Player): HeroQuestion | null {
+  const owned = player.achievements.filter((a) => achievements.includes(a))
+  if (!owned.length) return null
+  const correct = pick(owned)
+  const decoys = shuffle(achievements.filter((a) => !player.achievements.includes(a))).slice(0, 2)
+  if (decoys.length < 2) return null
+  return {
+    name: player.name,
+    imageUrl: player.imageUrl,
+    prompt: `Which of these has ${player.name} won?`,
+    options: shuffle([correct, ...decoys]),
+    correctAnswer: correct,
+  }
+}
+
 // Players that carry enough data to build a fair, well-illustrated question.
 const POOL = enrichedFootballPlayers.filter(
   (p) => !!p.imageUrl && !!p.nationality && seniorClubs(p).length > 0,
 )
 
-function buildRound(): HeroQuestion[] {
-  const builders = [clubQuestion, nationalityQuestion, trueFalseQuestion]
-  const questions: HeroQuestion[] = []
-  const candidates = shuffle(POOL)
+// Fame-weighted order (Efraimidis–Spirakis): key = random^(1/weight), highest
+// keys first. Recognisable names dominate, but lower-fame players still slip in
+// so the round stays a genuine challenge rather than the same five faces.
+function famePriority(): Player[] {
+  return [...POOL]
+    .map((p) => {
+      const fame = Math.max(p.fameScore, 1)
+      return { p, key: Math.random() ** (1 / fame) }
+    })
+    .sort((a, b) => b.key - a.key)
+    .map((x) => x.p)
+}
 
-  for (const player of candidates) {
+function buildRound(): HeroQuestion[] {
+  const builders = [clubQuestion, nationalityQuestion, trueFalseQuestion, achievementQuestion]
+  const questions: HeroQuestion[] = []
+
+  for (const player of famePriority()) {
     if (questions.length >= ROUND_SIZE) break
-    const q = pick(builders)(player)
-    if (q) questions.push(q)
+    // Try builders in a random order; achievement questions only work for
+    // decorated players, so fall through to a shape this player supports.
+    for (const build of shuffle(builders)) {
+      const q = build(player)
+      if (q) {
+        questions.push(q)
+        break
+      }
+    }
   }
 
   return questions
