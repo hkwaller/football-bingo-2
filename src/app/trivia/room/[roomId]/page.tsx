@@ -1,4 +1,7 @@
+import type { Metadata } from 'next'
 import { TriviaRoomGame } from '@/components/trivia/TriviaRoomGame'
+
+export const metadata: Metadata = { robots: { index: false, follow: false } }
 
 interface Props {
   params: Promise<{ roomId: string }>
