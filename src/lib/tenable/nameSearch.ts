@@ -7,12 +7,12 @@ type Entry = { display: string; key: string; fame: number }
 /**
  * Autocomplete pool = the players we already curate for the other game modes
  * (`enrichedFootballPlayers`, all genuinely notable) + every Tenable answer name
- * (so any answer is suggestable). No giant scraped list — every suggestion is a
+ * (so any answer is suggestable). No giant scraped list - every suggestion is a
  * player worth knowing, which is exactly the decoy set we want. Built once.
  *
  * Ranked by `fameScore` so the biggest names surface first. Answer-only names
  * (legends not in our 641) get a low default so they don't get spotlighted at
- * the top of short queries — you reveal them by typing more.
+ * the top of short queries - you reveal them by typing more.
  */
 const ENTRIES: Entry[] = (() => {
   const byKey = new Map<string, Entry>()

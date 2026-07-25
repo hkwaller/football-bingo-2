@@ -3,7 +3,7 @@
  *
  * Used identically by the autocomplete name index (build + search) and by the
  * in-game answer matcher, so a player typed without special keys still matches
- * — "orjan" → "Ørjan", "muller" → "Müller", "zlatan ibrahimovic" → "Zlatan
+ * - "orjan" → "Ørjan", "muller" → "Müller", "zlatan ibrahimovic" → "Zlatan
  * Ibrahimović". Keep this the single source of truth: if the index and the
  * matcher ever fold differently, correct answers silently stop matching.
  */

@@ -7,7 +7,7 @@ import type { Player } from '@/types/player'
 /**
  * Samples a fresh round of trivia questions from the *real* 641-player dataset
  * for the landing-page taster. Runs on the server so the 3MB player file is
- * never shipped to the client bundle — the browser only receives the handful
+ * never shipped to the client bundle - the browser only receives the handful
  * of questions it needs.
  */
 

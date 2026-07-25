@@ -135,7 +135,9 @@ export function TenableGame() {
               You found {foundCount} of {totalAnswers}.
             </p>
             <button onClick={handleNext} className="btn btn-primary btn-lg">
-              {session.currentIndex + 1 >= session.questions.length ? 'See results' : 'Next category'}
+              {session.currentIndex + 1 >= session.questions.length
+                ? 'See results'
+                : 'Next category'}
             </button>
           </div>
         ) : (
@@ -162,7 +164,7 @@ export function TenableGame() {
                       ? `✓ ${feedback.outcome.name}`
                       : feedback.outcome.kind === 'already-found'
                         ? `Already found ${feedback.outcome.name}`
-                        : '✗ Not on the list — lost a life'}
+                        : '✗ Not on the list - lost a life'}
                   </motion.p>
                 )}
               </AnimatePresence>

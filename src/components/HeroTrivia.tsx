@@ -128,7 +128,9 @@ export function HeroTrivia() {
                   initial={{ opacity: 0, scale: 0.7 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className={`-rotate-2 rounded-lg px-2.5 py-1.5 text-[12px] font-extrabold ${
-                    selected === q!.correctAnswer ? 'bg-yellow text-pitch-deep' : 'bg-pink text-white'
+                    selected === q!.correctAnswer
+                      ? 'bg-yellow text-pitch-deep'
+                      : 'bg-pink text-white'
                   }`}
                 >
                   {selected === q!.correctAnswer ? 'GOOOAL! Correct' : `It was ${q!.correctAnswer}`}
@@ -188,7 +190,7 @@ function FinishedView({
             ? 'So close to a clean sweep!'
             : score === 0
               ? 'Ouch. The full game is kinder, promise.'
-              : 'Not bad — think you can do better?'}
+              : 'Not bad - think you can do better?'}
       </p>
       <div className="mt-5 flex flex-col gap-2.5">
         <button onClick={onRestart} className="btn btn-outline w-full">

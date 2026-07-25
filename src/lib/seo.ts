@@ -15,4 +15,4 @@ export const SITE_URL = (
 export const SITE_NAME = 'Football Bingo'
 
 export const SITE_DESCRIPTION =
-  'The football knowledge game. A player is drawn, slap him on the right square — club, nation or honour — and race to a line. Play Bingo, Trivia and Tenable solo or in a full room. No luck, just football knowledge.'
+  'The football knowledge game. A player is drawn, slap him on the right square - club, nation or honour - and race to a line. Play Bingo, Trivia and Tenable solo or in a full room. No luck, just football knowledge.'

@@ -6,7 +6,7 @@ import type { GuessOutcome } from './types'
  * Match a typed name against a category's answer list. Compares the shared
  * normalize() of the input against each answer's name + aliases, so accents and
  * special letters (ø, ß, ł…) never need typing. Matches the curated answer list
- * only — never a player DB.
+ * only - never a player DB.
  */
 export function matchAnswer(
   input: string,

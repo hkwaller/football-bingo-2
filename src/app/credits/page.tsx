@@ -5,7 +5,7 @@ import { AdsterraBanner } from '@/components/AdsterraBanner'
 export const metadata = {
   title: 'Photo credits',
   description:
-    'Attribution for every player photo used in Football Bingo — all Wikimedia Commons free-licensed images, credited by author and license.',
+    'Attribution for every player photo used in Football Bingo - all Wikimedia Commons free-licensed images, credited by author and license.',
   alternates: { canonical: '/credits' },
 }
 

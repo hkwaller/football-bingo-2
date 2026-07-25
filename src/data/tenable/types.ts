@@ -1,12 +1,12 @@
 /**
  * Tenable data shapes.
  *
- * An answer is intentionally lightweight — essentially just a name. Real-world
+ * An answer is intentionally lightweight - essentially just a name. Real-world
  * "top 10" lists can't be fetched (the transfermarkt-api has no leaderboards)
  * nor derived from our decorated players (they store career totals, not
  * competition splits), so the ordered answers are curated by hand in
  * `questions.ts`. `image`/`id`/full-name aliases are backfilled from the Kaggle
- * CSVs by `scripts/verifyTenable.ts` — never authored by hand.
+ * CSVs by `scripts/verifyTenable.ts` - never authored by hand.
  */
 
 export type TenableGroup =

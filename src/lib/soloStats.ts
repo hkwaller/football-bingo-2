@@ -29,7 +29,7 @@ export function accuracyPct(s: Pick<SoloStats, 'correctCount' | 'wrongCount'>): 
 
 /** "1m 04s" / "48s" style formatting. */
 export function formatDuration(ms: number): string {
-  if (!Number.isFinite(ms) || ms <= 0) return '—'
+  if (!Number.isFinite(ms) || ms <= 0) return '-'
   const totalSeconds = Math.round(ms / 1000)
   const minutes = Math.floor(totalSeconds / 60)
   const seconds = totalSeconds % 60

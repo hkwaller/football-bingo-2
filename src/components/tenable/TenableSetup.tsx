@@ -100,7 +100,11 @@ function NumberSelect({
   )
 }
 
-const DIFFICULTY_OPTIONS: Array<{ value: TenableDifficultyFilter; label: string; description: string }> = [
+const DIFFICULTY_OPTIONS: Array<{
+  value: TenableDifficultyFilter
+  label: string
+  description: string
+}> = [
   { value: 'mixed', label: 'Mixed', description: 'A blend of everything' },
   { value: 'easy', label: 'Easy', description: 'The best-known lists' },
   { value: 'medium', label: 'Medium', description: 'A bit more obscure' },
@@ -169,13 +173,17 @@ export function TenableSetup() {
             Setup
           </h1>
           <p className="mt-2 max-w-[460px] text-[15px] font-semibold text-on-green-soft">
-            Name the ten. Each category has exactly ten answers — how many can you get before your
+            Name the ten. Each category has exactly ten answers - how many can you get before your
             lives run out?
           </p>
         </motion.div>
 
         <Section title="Lives (wrong guesses)">
-          <NumberSelect options={[2, 3, 5]} value={config.lives} onChange={(v) => update('lives', v)} />
+          <NumberSelect
+            options={[2, 3, 5]}
+            value={config.lives}
+            onChange={(v) => update('lives', v)}
+          />
         </Section>
 
         <Section title="Categories">

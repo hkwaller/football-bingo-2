@@ -7,10 +7,10 @@
  *   - validates structure (exactly 10 answers, ranks 1..10 unique),
  *   - resolves name/aliases against scripts/output/tenableNameLookup.json to
  *     grab an image + transfermarkt id, and
- *   - WARNS on any name it can't resolve (likely a typo — fix the spelling or
+ *   - WARNS on any name it can't resolve (likely a typo - fix the spelling or
  *     add an `aliases` entry). A miss only means "no portrait", not "unplayable".
  *
- * Output: src/data/tenable/enrichment.json — { "<questionId>#<rank>": {id,image} }
+ * Output: src/data/tenable/enrichment.json - { "<questionId>#<rank>": {id,image} }
  * merged onto answers at load time (keeps questions.ts author-only).
  */
 import * as fs from 'fs'
@@ -42,7 +42,9 @@ function main() {
     seenIds.add(q.id)
     if (q.kind === 'open') {
       if (q.answers.length < 10) {
-        structural.push(`"${q.category}" is open but has only ${q.answers.length} answers (need ≥10)`)
+        structural.push(
+          `"${q.category}" is open but has only ${q.answers.length} answers (need ≥10)`,
+        )
       }
     } else if (q.answers.length !== 10) {
       structural.push(`"${q.category}" has ${q.answers.length} answers (need exactly 10)`)
@@ -72,14 +74,16 @@ function main() {
 
   fs.writeFileSync(ENRICHMENT_OUT, JSON.stringify(enrichment, null, 0))
 
-  console.log(`\nTenable verify — ${tenableQuestions.length} categories, ${total} answers`)
+  console.log(`\nTenable verify - ${tenableQuestions.length} categories, ${total} answers`)
   console.log(`✅ ${enriched}/${total} answers matched a portrait`)
   if (structural.length) {
     console.log(`\n❌ Structural problems:`)
     for (const s of structural) console.log(`   - ${s}`)
   }
   if (misses.length) {
-    console.log(`\n⚠️  No portrait/match for ${misses.length} names (check spelling or add aliases):`)
+    console.log(
+      `\n⚠️  No portrait/match for ${misses.length} names (check spelling or add aliases):`,
+    )
     for (const m of misses) console.log(`   - ${m}`)
   }
   console.log(`\nWrote ${path.relative(process.cwd(), ENRICHMENT_OUT)}`)

@@ -73,7 +73,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
 
   const isMyTurn = self?.connectionId != null && self.connectionId === currentTurnConnectionId
   const questionOver =
-    !!currentQuestion && (foundRanks.length >= tenableTarget(currentQuestion) || (livesLeft ?? 0) <= 0)
+    !!currentQuestion &&
+    (foundRanks.length >= tenableTarget(currentQuestion) || (livesLeft ?? 0) <= 0)
   const cleared = !!currentQuestion && foundRanks.length >= tenableTarget(currentQuestion)
 
   // ── Mutations ───────────────────────────────────────────────────────────────
@@ -93,33 +94,33 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     [self?.connectionId],
   )
 
-  const startGame = useTenableM(
-    ({ storage }, ids: number[]) => {
-      const cfg = loadTenableConfig()
-      const seed = randomUUID()
-      const qs = selectTenableQuestions(seed, cfg.questionCount, {
-        groups: cfg.groups === 'all' ? undefined : cfg.groups,
-        difficulty: cfg.difficulty,
-      })
-      storage.set('configJson', JSON.stringify(cfg))
-      storage.set('seed', seed)
-      storage.set('questionsJson', JSON.stringify(qs))
-      storage.set('currentQuestionIndex', 0)
-      storage.set('foundRanksJson', '[]')
-      storage.set('livesLeft', cfg.lives)
-      storage.set('resultsJson', '[]')
-      storage.set('startedAt', Date.now())
-      const ring = [...ids].sort((a, b) => a - b)
-      storage.set('turnOrderJson', JSON.stringify(ring))
-      storage.set('currentTurnConnectionId', ring[0] ?? null)
-      storage.set('phase', 'playing')
-    },
-    [],
-  )
+  const startGame = useTenableM(({ storage }, ids: number[]) => {
+    const cfg = loadTenableConfig()
+    const seed = randomUUID()
+    const qs = selectTenableQuestions(seed, cfg.questionCount, {
+      groups: cfg.groups === 'all' ? undefined : cfg.groups,
+      difficulty: cfg.difficulty,
+    })
+    storage.set('configJson', JSON.stringify(cfg))
+    storage.set('seed', seed)
+    storage.set('questionsJson', JSON.stringify(qs))
+    storage.set('currentQuestionIndex', 0)
+    storage.set('foundRanksJson', '[]')
+    storage.set('livesLeft', cfg.lives)
+    storage.set('resultsJson', '[]')
+    storage.set('startedAt', Date.now())
+    const ring = [...ids].sort((a, b) => a - b)
+    storage.set('turnOrderJson', JSON.stringify(ring))
+    storage.set('currentTurnConnectionId', ring[0] ?? null)
+    storage.set('phase', 'playing')
+  }, [])
 
   const submitTurnGuess = useTenableM(
     ({ storage }, { name, ids }: { name: string; ids: number[] }) => {
-      if (self?.connectionId == null || storage.get('currentTurnConnectionId') !== self.connectionId)
+      if (
+        self?.connectionId == null ||
+        storage.get('currentTurnConnectionId') !== self.connectionId
+      )
         return
       const qs = parseTenableQuestions(storage.get('questionsJson') ?? '[]')
       const idx = storage.get('currentQuestionIndex') ?? 0
@@ -168,7 +169,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
       category: q.category,
       foundRanks: found,
       livesUsed:
-        parseTenableConfig(storage.get('configJson') ?? '{}').lives - (storage.get('livesLeft') ?? 0),
+        parseTenableConfig(storage.get('configJson') ?? '{}').lives -
+        (storage.get('livesLeft') ?? 0),
       cleared: found.length >= tenableTarget(q),
     })
     storage.set('resultsJson', JSON.stringify(results))
@@ -189,7 +191,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     if (phase == null || phase !== 'lobby') return
     const displayName =
       typeof window !== 'undefined'
-        ? window.localStorage.getItem('fb_display_name') ?? `Player ${Math.floor(Math.random() * 1000)}`
+        ? (window.localStorage.getItem('fb_display_name') ??
+          `Player ${Math.floor(Math.random() * 1000)}`)
         : 'Player'
     claimHost(displayName)
     updatePresence({ displayName })
@@ -254,7 +257,11 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
 
   if (phase === 'finished') {
     const leaderboard = players
-      .map((p) => ({ name: nameFor(p.connectionId), score: scoreFor(p.connectionId), isMe: p.connectionId === self?.connectionId }))
+      .map((p) => ({
+        name: nameFor(p.connectionId),
+        score: scoreFor(p.connectionId),
+        isMe: p.connectionId === self?.connectionId,
+      }))
       .sort((a, b) => b.score - a.score)
     return (
       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-8 px-6 py-8 md:px-9">
@@ -270,7 +277,9 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
               key={e.name + i}
               className={`panel flex items-center gap-4 px-4 py-3 ${i === 0 ? 'border-2 border-foil' : e.isMe ? 'border-2 border-green' : ''}`}
             >
-              <span className={`w-8 font-display text-2xl uppercase leading-none tabular-nums ${i === 0 ? 'text-gold' : 'text-muted'}`}>
+              <span
+                className={`w-8 font-display text-2xl uppercase leading-none tabular-nums ${i === 0 ? 'text-gold' : 'text-muted'}`}
+              >
                 {i + 1}
               </span>
               <span className="flex-1 text-sm font-bold text-ink">
@@ -278,7 +287,9 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
                 {e.name}
                 {e.isMe && ' (you)'}
               </span>
-              <span className={`font-display text-xl uppercase leading-none tabular-nums ${i === 0 ? 'text-gold' : 'text-ink'}`}>
+              <span
+                className={`font-display text-xl uppercase leading-none tabular-nums ${i === 0 ? 'text-gold' : 'text-ink'}`}
+              >
                 {e.score.toLocaleString()}
               </span>
             </div>
@@ -304,7 +315,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     )
   }
 
-  const turnName = currentTurnConnectionId != null ? nameFor(currentTurnConnectionId) : '—'
+  const turnName = currentTurnConnectionId != null ? nameFor(currentTurnConnectionId) : '-'
   const maxLives = config.lives
 
   return (
@@ -318,11 +329,16 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
             <h1 className="mt-2 font-display text-[32px] font-black uppercase leading-[0.92] text-white md:text-[40px]">
               {currentQuestion.category}
             </h1>
-            <p className="mt-1.5 text-sm font-semibold text-on-green-soft">{currentQuestion.prompt}</p>
+            <p className="mt-1.5 text-sm font-semibold text-on-green-soft">
+              {currentQuestion.prompt}
+            </p>
           </div>
           <div className="flex shrink-0 items-center gap-1.5">
             {Array.from({ length: maxLives }, (_, i) => (
-              <span key={i} className={`text-xl leading-none ${i < (livesLeft ?? 0) ? '' : 'opacity-25 grayscale'}`}>
+              <span
+                key={i}
+                className={`text-xl leading-none ${i < (livesLeft ?? 0) ? '' : 'opacity-25 grayscale'}`}
+              >
                 {i < (livesLeft ?? 0) ? '❤️' : '🖤'}
               </span>
             ))}
@@ -350,7 +366,9 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
             </p>
             {isHost ? (
               <button onClick={() => advanceCategory()} className="btn btn-primary btn-lg">
-                {(currentQuestionIndex ?? 0) + 1 >= questions.length ? 'See results' : 'Next category'}
+                {(currentQuestionIndex ?? 0) + 1 >= questions.length
+                  ? 'See results'
+                  : 'Next category'}
               </button>
             ) : (
               <p className="text-sm font-semibold text-on-green-soft animate-pulse-soft">
@@ -367,7 +385,11 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
         )}
       </div>
 
-      <TenableBoard question={currentQuestion} foundRanks={foundRanks} revealMissed={questionOver} />
+      <TenableBoard
+        question={currentQuestion}
+        foundRanks={foundRanks}
+        revealMissed={questionOver}
+      />
     </div>
   )
 }

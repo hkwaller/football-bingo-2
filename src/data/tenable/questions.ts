@@ -6,7 +6,7 @@ import type { TenableQuestion } from './types'
  * To add one (e.g. "Top 10 Swedish goalscorers"):
  *   1. Append a TenableQuestion below with exactly 10 `answers` (rank 1..10, a
  *      `name`, and ideally a `detail` figure). Leave `image`/`id` out.
- *   2. Run `npm run tenable:verify` — it resolves each name against the Kaggle
+ *   2. Run `npm run tenable:verify` - it resolves each name against the Kaggle
  *      CSVs, backfills `image`/`id` + a full-name alias, and WARNS on any name it
  *      can't match (fix the spelling or add an `aliases` entry).
  *   3. Names fold through the shared normalize() (accents/ø/ß handled), so you
@@ -64,7 +64,12 @@ export const tenableQuestions: TenableQuestion[] = [
     difficulty: 'hard',
     answers: [
       { rank: 1, name: 'Miroslav Klose', detail: '16 goals' },
-      { rank: 2, name: 'Ronaldo', aliases: ['Ronaldo Nazário', 'Ronaldo Luís Nazário de Lima'], detail: '15 goals' },
+      {
+        rank: 2,
+        name: 'Ronaldo',
+        aliases: ['Ronaldo Nazário', 'Ronaldo Luís Nazário de Lima'],
+        detail: '15 goals',
+      },
       { rank: 3, name: 'Gerd Müller', detail: '14 goals' },
       { rank: 4, name: 'Just Fontaine', detail: '13 goals' },
       { rank: 5, name: 'Lionel Messi', detail: '13 goals' },
@@ -163,16 +168,16 @@ export const tenableQuestions: TenableQuestion[] = [
     ordered: true,
     difficulty: 'medium',
     answers: [
-      { rank: 1, name: 'Neymar', detail: '€222m — PSG, 2017' },
-      { rank: 2, name: 'Kylian Mbappé', detail: '€180m — PSG, 2018' },
-      { rank: 3, name: 'Philippe Coutinho', detail: '€145m — Barcelona, 2018' },
-      { rank: 4, name: 'Ousmane Dembélé', detail: '€140m — Barcelona, 2017' },
-      { rank: 5, name: 'João Félix', detail: '€127m — Atlético, 2019' },
-      { rank: 6, name: 'Enzo Fernández', detail: '€121m — Chelsea, 2023' },
-      { rank: 7, name: 'Antoine Griezmann', detail: '€120m — Barcelona, 2019' },
-      { rank: 8, name: 'Jack Grealish', detail: '€117m — Man City, 2021' },
-      { rank: 9, name: 'Moisés Caicedo', detail: '€116m — Chelsea, 2023' },
-      { rank: 10, name: 'Declan Rice', detail: '€116m — Arsenal, 2023' },
+      { rank: 1, name: 'Neymar', detail: '€222m - PSG, 2017' },
+      { rank: 2, name: 'Kylian Mbappé', detail: '€180m - PSG, 2018' },
+      { rank: 3, name: 'Philippe Coutinho', detail: '€145m - Barcelona, 2018' },
+      { rank: 4, name: 'Ousmane Dembélé', detail: '€140m - Barcelona, 2017' },
+      { rank: 5, name: 'João Félix', detail: '€127m - Atlético, 2019' },
+      { rank: 6, name: 'Enzo Fernández', detail: '€121m - Chelsea, 2023' },
+      { rank: 7, name: 'Antoine Griezmann', detail: '€120m - Barcelona, 2019' },
+      { rank: 8, name: 'Jack Grealish', detail: '€117m - Man City, 2021' },
+      { rank: 9, name: 'Moisés Caicedo', detail: '€116m - Chelsea, 2023' },
+      { rank: 10, name: 'Declan Rice', detail: '€116m - Arsenal, 2023' },
     ],
   },
   {

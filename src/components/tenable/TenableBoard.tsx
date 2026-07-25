@@ -8,7 +8,7 @@ interface Props {
   foundRanks: number[]
   /** When the round is over, reveal what was missed. */
   revealMissed?: boolean
-  /** The most recently found rank — briefly highlighted. */
+  /** The most recently found rank - briefly highlighted. */
   justFound?: number | null
 }
 
@@ -40,7 +40,11 @@ function Slot({
     >
       <span
         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-display text-lg font-black leading-none ${
-          state === 'found' ? 'bg-green-go text-white' : state === 'missed' ? 'bg-red/70 text-white' : 'bg-card-tint text-muted'
+          state === 'found'
+            ? 'bg-green-go text-white'
+            : state === 'missed'
+              ? 'bg-red/70 text-white'
+              : 'bg-card-tint text-muted'
         }`}
       >
         {badge}
@@ -57,7 +61,12 @@ function Slot({
       <div className="min-w-0 flex-1">
         <AnimatePresence mode="wait">
           {reveal ? (
-            <motion.div key="r" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.22 }}>
+            <motion.div
+              key="r"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.22 }}
+            >
               <p
                 className={`truncate font-display text-[15px] font-black uppercase leading-tight ${
                   state === 'missed' ? 'text-red' : highlight ? 'text-green' : 'text-ink'
@@ -68,7 +77,7 @@ function Slot({
               {detail && <p className="truncate text-[11px] font-semibold text-muted">{detail}</p>}
             </motion.div>
           ) : (
-            <span className="text-sm font-bold tracking-wide text-muted">— — —</span>
+            <span className="text-sm font-bold tracking-wide text-muted">- - -</span>
           )}
         </AnimatePresence>
       </div>
@@ -83,7 +92,7 @@ export function TenableBoard({ question, foundRanks, revealMissed, justFound }: 
   const byRank = new Map(question.answers.map((a) => [a.rank, a]))
 
   if (isOpen) {
-    // Ten fill-order slots. No canonical "missed" set — reveal a few extras instead.
+    // Ten fill-order slots. No canonical "missed" set - reveal a few extras instead.
     const notFound = question.answers.filter((a) => !found.has(a.rank))
     return (
       <div className="flex flex-col gap-3">
@@ -105,7 +114,11 @@ export function TenableBoard({ question, foundRanks, revealMissed, justFound }: 
         </div>
         {revealMissed && notFound.length > 0 && (
           <p className="text-center text-[13px] font-semibold text-on-green-soft">
-            Others you could&apos;ve had: {notFound.slice(0, 8).map((a) => a.name).join(', ')}
+            Others you could&apos;ve had:{' '}
+            {notFound
+              .slice(0, 8)
+              .map((a) => a.name)
+              .join(', ')}
             {notFound.length > 8 ? `, +${notFound.length - 8} more` : ''}
           </p>
         )}

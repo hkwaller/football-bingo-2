@@ -38,7 +38,7 @@ const TIERS: Tier[] = [
     name: 'Yearly',
     price: '$15.99',
     cadence: 'per year',
-    blurb: 'Best value — under $1.50 a month.',
+    blurb: 'Best value - under $1.50 a month.',
     featured: true,
   },
 ]
@@ -125,7 +125,7 @@ function GoAdFree() {
           Go Ad-Free
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-on-green-soft">
-          Kill the ads across every mode — Bingo, Tenable and Trivia. Your support keeps Football
+          Kill the ads across every mode - Bingo, Tenable and Trivia. Your support keeps Football
           Bingo running.
         </p>
       </motion.div>

@@ -53,7 +53,7 @@ export function TenableLobby({ roomId, players, isHost, config, onStart }: Props
           The squad gathers
         </h1>
         <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
-          Take turns naming the ten. Share lives — a wrong guess costs the whole room.
+          Take turns naming the ten. Share lives - a wrong guess costs the whole room.
         </p>
       </motion.div>
 

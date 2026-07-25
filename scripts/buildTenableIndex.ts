@@ -3,10 +3,10 @@
  *
  * Usage: npm run tenable:index   (then npm run tenable:verify)
  *
- * Output: scripts/output/tenableNameLookup.json — { normalizedKey: { id, image } }
+ * Output: scripts/output/tenableNameLookup.json - { normalizedKey: { id, image } }
  * consumed by verifyTenable.ts. NOT imported by the app.
  *
- * The autocomplete pool is NOT built here — it's derived at runtime in
+ * The autocomplete pool is NOT built here - it's derived at runtime in
  * src/lib/tenable/nameSearch.ts from our curated players + the answer names, so
  * every suggestion is a notable player. This CSV only supplies portraits/ids.
  */
