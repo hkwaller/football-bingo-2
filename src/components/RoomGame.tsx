@@ -24,6 +24,7 @@ import type { CellPick } from '@/lib/cellPick'
 import { DrawnPlayerPanel, type DrawnPlayer } from '@/components/DrawnPlayerPanel'
 import { PlayerPickModal } from '@/components/PlayerPickModal'
 import { cellCategory, freeIndexForConfig, generateBoard, hasBingoForConfig } from '@/lib/board'
+import { enrichedFootballPlayers } from '@/data/players'
 import {
   boardConfigFromStorageFields,
   boardConfigPayload,
@@ -110,6 +111,37 @@ function RoomInner({ roomId }: { roomId: string }) {
   const configOk = isBoardConfigViable(boardConfig)
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
+
+  const eligiblePlayerCount = useMemo(
+    () =>
+      minFameScore <= 0
+        ? enrichedFootballPlayers.length
+        : enrichedFootballPlayers.filter((p) => (p.fameScore ?? 0) >= minFameScore).length,
+    [minFameScore],
+  )
+
+  const FAME_EMIT_STEP = 4
+  const sampleThresholdPlayer = useCallback((next: number) => {
+    const from = lastFameEmit.current
+    if (Math.abs(next - from) < FAME_EMIT_STEP) return
+    const direction: 'added' | 'removed' = next > from ? 'removed' : 'added'
+    const lo = Math.min(from, next)
+    const hi = Math.max(from, next)
+    const band = enrichedFootballPlayers.filter((p) => {
+      const s = p.fameScore ?? 0
+      return s >= lo && s < hi
+    })
+    lastFameEmit.current = next
+    if (band.length === 0) return
+    const pick = band[Math.floor(Math.random() * band.length)]
+    fameFlashKey.current += 1
+    const key = fameFlashKey.current
+    setFamePills((prev) =>
+      [...prev, { key, name: pick.name, direction, percent: (next / MAX_FAME_SCORE) * 100 }].slice(
+        -5,
+      ),
+    )
+  }, [])
 
   const effectiveDraftPolicy: DraftPolicy =
     boardLayout === 'individual' ? 'open' : draftPolicyStorage
@@ -246,6 +278,13 @@ function RoomInner({ roomId }: { roomId: string }) {
   const [indyRound, setIndyRound] = useState(0)
   // Ticks once a second while playing so transient "skipped" chips can clear.
   const [nowTick, setNowTick] = useState(0)
+  // Star-quality slider: sample players crossing the eligibility threshold as the
+  // host drags, floating each up as a +/- pill (mirrors solo setup).
+  const [famePills, setFamePills] = useState<
+    { key: number; name: string; direction: 'added' | 'removed'; percent: number }[]
+  >([])
+  const fameFlashKey = useRef(0)
+  const lastFameEmit = useRef(minFameScore)
   const [localSolved, setLocalSolved] = useState<Map<number, CellPick>>(new Map())
   const [modalCell, setModalCell] = useState<number | null>(null)
   const [starting, setStarting] = useState(false)
@@ -332,8 +371,7 @@ function RoomInner({ roomId }: { roomId: string }) {
   // Independent draw advances a local round; shared draw / shared board use the room round.
   const myRound = isIndividual && !drawShared ? indyRound : draftRound
   // Shared-draw: once I've placed or skipped this round I wait for the others.
-  const myActedThisRound =
-    isIndividual && drawShared && (presence?.actedRound ?? -1) >= draftRound
+  const myActedThisRound = isIndividual && drawShared && (presence?.actedRound ?? -1) >= draftRound
 
   const solvedForDisplay = useMemo(() => {
     if (boardLayout !== 'shared' || !sharedSolved) return localSolved
@@ -557,7 +595,15 @@ function RoomInner({ roomId }: { roomId: string }) {
       setModalCell(null)
       return { ok: true as const }
     },
-    [modalCell, myBoardSeed, boardConfig, boardLayout, applySharedPick, localSolved, updatePresence],
+    [
+      modalCell,
+      myBoardSeed,
+      boardConfig,
+      boardLayout,
+      applySharedPick,
+      localSolved,
+      updatePresence,
+    ],
   )
 
   const submitDraftVote = useCallback(
@@ -667,7 +713,13 @@ function RoomInner({ roomId }: { roomId: string }) {
   )
 
   const handleIndividualSkip = useCallback(() => {
-    if (!isIndividual || playMode !== 'draft' || draftLoading || localBingo || phase !== 'playing') {
+    if (
+      !isIndividual ||
+      playMode !== 'draft' ||
+      draftLoading ||
+      localBingo ||
+      phase !== 'playing'
+    ) {
       return
     }
     if (myActedThisRound) return
@@ -823,7 +875,16 @@ function RoomInner({ roomId }: { roomId: string }) {
         submitDraftVote({ type: 'square', cellIndex })
       }
     },
-    [playMode, drawn, draftLoading, localBingo, phase, isIndividual, handleIndividualPlace, submitDraftVote],
+    [
+      playMode,
+      drawn,
+      draftLoading,
+      localBingo,
+      phase,
+      isIndividual,
+      handleIndividualPlace,
+      submitDraftVote,
+    ],
   )
 
   const handleStart = async () => {
@@ -880,9 +941,9 @@ function RoomInner({ roomId }: { roomId: string }) {
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           {phase === 'lobby' ? <span className="eyebrow mb-3">Pre-match · tunnel</span> : null}
-          <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
+          {/* <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
             {phase === 'lobby' ? 'The squad gathers' : 'Race room'}
-          </h1>
+          </h1> */}
           <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
             {phase === 'lobby'
               ? "Share the room code. The gaffer kicks off when everyone's in the tunnel."
@@ -1225,28 +1286,79 @@ function RoomInner({ roomId }: { roomId: string }) {
                   </p>
 
                   {/* Star quality */}
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                      Star quality
-                    </span>
-                    <div className="min-w-[180px] flex-1">
+                  <div className="rounded-[14px] bg-card-tint/40 p-4">
+                    <div className="mb-2 flex items-baseline justify-between gap-3">
+                      <span className="text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                        Star quality
+                      </span>
+                      <motion.span
+                        key={eligiblePlayerCount}
+                        initial={{ scale: 0.85, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className={`font-mono text-xs font-bold ${
+                          eligiblePlayerCount === 0 ? 'text-pink' : 'text-card-muted'
+                        }`}
+                      >
+                        {eligiblePlayerCount} players in play
+                      </motion.span>
+                    </div>
+                    <p className="mb-4 text-[12.5px] font-medium leading-relaxed text-muted">
+                      Drag right to keep the journeymen out. Only players at or above this fame score
+                      get drawn.
+                    </p>
+                    <div className="relative">
+                      {/* Sampled-player pills floating up from the slider line */}
+                      <div className="pointer-events-none absolute inset-x-0 bottom-full h-0">
+                        <AnimatePresence>
+                          {famePills.map((pill) => (
+                            <motion.div
+                              key={pill.key}
+                              initial={{ opacity: 0, y: 8, scale: 0.8 }}
+                              animate={{ opacity: [0, 1, 0], y: [8, -8, -60], scale: [0.8, 1, 0.95] }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 1, ease: 'easeOut' }}
+                              onAnimationComplete={() =>
+                                setFamePills((prev) => prev.filter((p) => p.key !== pill.key))
+                              }
+                              style={{
+                                left: `clamp(14%, ${pill.percent}%, 86%)`,
+                                transform: 'translateX(-50%)',
+                              }}
+                              className={`absolute bottom-0 flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-extrabold shadow-[0_3px_0_rgba(0,0,0,0.2)] ${
+                                pill.direction === 'added'
+                                  ? 'bg-green-go text-white'
+                                  : 'bg-pink text-white'
+                              }`}
+                            >
+                              <span className="text-[13px] leading-none">
+                                {pill.direction === 'added' ? '+' : '−'}
+                              </span>
+                              {pill.name}
+                            </motion.div>
+                          ))}
+                        </AnimatePresence>
+                      </div>
                       <input
                         type="range"
                         min={0}
                         max={MAX_FAME_SCORE}
                         step={1}
                         value={minFameScore}
-                        onChange={(e) => setMinFameScore(Number(e.target.value))}
+                        onChange={(e) => {
+                          const next = Number(e.target.value)
+                          sampleThresholdPlayer(next)
+                          setMinFameScore(next)
+                        }}
                         aria-label="Minimum fame score"
                         className="h-2 w-full cursor-pointer appearance-none rounded-full bg-card-tint accent-green-go"
                       />
-                      <div className="mt-1 flex items-center justify-between text-[11px] font-extrabold uppercase tracking-[0.05em] text-card-muted">
-                        <span>Anyone</span>
-                        <span className="font-mono text-card-ink">
-                          {minFameScore === 0 ? 'Off' : `≥ ${minFameScore}`}
-                        </span>
-                        <span>Legends</span>
-                      </div>
+                    </div>
+                    <div className="mt-2 flex items-center justify-between text-[11px] font-extrabold uppercase tracking-[0.06em] text-card-muted-2">
+                      <span>Anyone</span>
+                      <span className="font-mono text-sm font-bold text-card-ink">
+                        {minFameScore === 0 ? 'Off' : `≥ ${minFameScore}`}
+                      </span>
+                      <span>Legends only</span>
                     </div>
                   </div>
 
@@ -1327,9 +1439,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             reduceMotion={reduceMotion}
             wrongNonce={wrongCell?.nonce ?? null}
             draftWarning={
-              myActedThisRound && !localBingo
-                ? 'Waiting for the other players…'
-                : draftFallbackNote
+              myActedThisRound && !localBingo ? 'Waiting for the other players…' : draftFallbackNote
             }
             // Individual boards use the singleplayer-style Skip; shared boards vote to skip.
             onSkip={
@@ -1444,7 +1554,9 @@ function RoomInner({ roomId }: { roomId: string }) {
                 {phase === 'playing' ? (
                   <span className="ml-1 shrink-0 font-mono text-[11px] font-bold text-on-green-dim">
                     {p.solvedCount}/{fillTarget}
-                    {!singleGuess && p.guesses > 0 ? ` · ${p.guesses} ${p.guesses === 1 ? 'try' : 'tries'}` : ''}
+                    {!singleGuess && p.guesses > 0
+                      ? ` · ${p.guesses} ${p.guesses === 1 ? 'try' : 'tries'}`
+                      : ''}
                   </span>
                 ) : null}
                 <span className="ml-auto flex shrink-0 items-center gap-2">
