@@ -83,17 +83,25 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   // ── Mutations ─────────────────────────────────────────────────────────────
 
+  // Host claim takes the connection id explicitly (rather than closing over
+  // `self`) and uses a null check so connection id 0 can't be mistaken for
+  // "unclaimed". The effect below gates on self being ready and re-runs when it
+  // becomes available, so the first player in the room reliably wins host.
   const claimHost = useTriviaM(
-    ({ storage }, displayName: string) => {
-      if (!storage.get('hostConnectionId') && self?.connectionId) {
-        storage.set('hostConnectionId', self.connectionId)
+    ({ storage }, { id, displayName }: { id: number; displayName: string }) => {
+      if (storage.get('hostConnectionId') == null) {
+        storage.set('hostConnectionId', id)
       }
-      const names = storage.get('playerNames')
-      if (self?.connectionId) {
-        names.set(String(self.connectionId), displayName)
-      }
+      storage.get('playerNames').set(String(id), displayName)
     },
-    [self?.connectionId],
+    [],
+  )
+
+  const setPlayerName = useTriviaM(
+    ({ storage }, { id, displayName }: { id: number; displayName: string }) => {
+      storage.get('playerNames').set(String(id), displayName)
+    },
+    [],
   )
 
   const startGame = useTriviaM(({ storage }) => {
@@ -191,16 +199,18 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   // storage loads throws "This mutation cannot be used until storage has been loaded".
 
   useEffect(() => {
-    if (phase === null || phase !== 'lobby') return
-    const displayName =
-      typeof window !== 'undefined'
-        ? (window.localStorage.getItem('fb_display_name') ??
-          `Player ${Math.floor(Math.random() * 1000)}`)
-        : 'Player'
-    claimHost(displayName)
+    if (phase !== 'lobby' || self?.connectionId == null) return
+    let displayName =
+      typeof window !== 'undefined' ? window.localStorage.getItem('fb_display_name') : null
+    if (!displayName) {
+      displayName = `Player ${Math.floor(Math.random() * 1000)}`
+      // Persist the fallback so a reconnect (new connection id) keeps the same name.
+      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', displayName)
+    }
+    claimHost({ id: self.connectionId, displayName })
     updatePresence({ displayName, answeredCurrentQuestion: false, score: 0, streak: 0 })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase])
+  }, [phase, self?.connectionId])
 
   // Reset local answer when question changes
   useEffect(() => {
@@ -262,6 +272,18 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     return () => clearInterval(interval)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHost, config.sessionType, config.timeLimitSeconds, sessionStartedAt, phase])
+
+  // ── Rename handler (lobby) ────────────────────────────────────────────────
+
+  const handleRename = useCallback(
+    (name: string) => {
+      const trimmed = name.trim() || 'Player'
+      if (self?.connectionId != null) setPlayerName({ id: self.connectionId, displayName: trimmed })
+      updatePresence({ displayName: trimmed })
+      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', trimmed)
+    },
+    [self?.connectionId, setPlayerName, updatePresence],
+  )
 
   // ── Answer handler ────────────────────────────────────────────────────────
 
@@ -336,6 +358,8 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
         isHost={isHost}
         config={config}
         onStart={startGame}
+        myName={presence.displayName ?? ''}
+        onRename={handleRename}
       />
     )
   }

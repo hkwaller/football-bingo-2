@@ -81,12 +81,7 @@ export function HeroTrivia() {
         <>
           {/* Header: sticker + prompt */}
           <div className="flex items-center gap-4">
-            <motion.div
-              key={q!.name}
-              className="w-[92px] shrink-0"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4.4, ease: 'easeInOut', repeat: Infinity }}
-            >
+            <motion.div key={q!.name} className="w-[92px] shrink-0">
               <Sticker name={q!.name} imageUrl={q!.imageUrl} rotate={-4} nameSize={11} drawn />
             </motion.div>
             <div>
@@ -137,7 +132,7 @@ export function HeroTrivia() {
                 </motion.span>
               ) : (
                 <span key="hint" className="text-[12.5px] font-bold text-card-muted-2">
-                  Tap your answer 👇
+                  Tap your answer 👆
                 </span>
               )}
             </AnimatePresence>
