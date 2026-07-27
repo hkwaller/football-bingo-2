@@ -47,6 +47,16 @@ function getCorrectAnswerForQuestion(question: TriviaQuestion | undefined): stri
   return ''
 }
 
+// Next player in the (sorted, wrapping) turn order. If the current holder has
+// dropped out (`ids` no longer contains them) we restart from the first player.
+function nextTurnConnectionId(current: number | null, ids: number[]): number | null {
+  if (ids.length === 0) return null
+  if (current == null) return ids[0]
+  const i = ids.indexOf(current)
+  if (i === -1) return ids[0]
+  return ids[(i + 1) % ids.length]
+}
+
 // ── Inner room component ──────────────────────────────────────────────────────
 
 function TriviaRoomInner({ roomId }: { roomId: string }) {
@@ -71,15 +81,42 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   const playerAnswers = useTriviaStorage((s) => s.playerAnswers)
   const playerNames = useTriviaStorage((s) => s.playerNames)
   const raceWinner = useTriviaStorage((s) => s.raceWinner)
+  const currentTurnConnectionId = useTriviaStorage((s) => s.currentTurnConnectionId)
 
   const [localAnswer, setLocalAnswer] = useState<string | null>(null)
   const [showReview, setShowReview] = useState(false)
   const reviewTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Synchronous guard: `showReview` state updates async, so two effect runs in
+  // the same tick could both pass a `!showReview` check and schedule twice.
+  const advanceScheduledRef = useRef(false)
+
+  // Schedule a single host-side advance after the review delay. Idempotent
+  // within a question — the reset effect clears the guard on question change.
+  const scheduleAdvance = useCallback((run: () => void) => {
+    if (advanceScheduledRef.current) return
+    advanceScheduledRef.current = true
+    setShowReview(true)
+    reviewTimer.current = setTimeout(run, REVIEW_DELAY_MS)
+  }, [])
 
   const isHost = self?.connectionId === hostConnectionId
   const config = useMemo(() => parseConfigJson(configJson ?? '{}'), [configJson])
   const questions = useMemo(() => parseQuestionsJson(questionsJson ?? '[]'), [questionsJson])
   const currentQuestion = questions[currentQuestionIndex ?? 0] ?? null
+
+  // ── Turn order (turn-based mechanic) ──────────────────────────────────────
+  const isTurnBased = config.multiplayerMechanic === 'turn-based'
+  // Sorted so every client derives the same rotation independent of join order.
+  const participantIds = useMemo(() => {
+    const ids = [self?.connectionId, ...others.map((o) => o.connectionId)].filter(
+      (x): x is number => x != null,
+    )
+    return ids.sort((a, b) => a - b)
+  }, [self?.connectionId, others])
+  // Non-turn-based: everyone may always answer. Turn-based: only the active player.
+  const isMyTurn =
+    !isTurnBased ||
+    (currentTurnConnectionId != null && self?.connectionId === currentTurnConnectionId)
 
   // ── Mutations ─────────────────────────────────────────────────────────────
 
@@ -120,6 +157,9 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     storage.set('questionStartedAt', now)
     storage.set('sessionStartedAt', now)
     storage.set('phase', 'playing')
+    // Turn-based starts with the host (the first player in the room); the host
+    // rotates the turn from here. Harmless for other mechanics, which ignore it.
+    storage.set('currentTurnConnectionId', storage.get('hostConnectionId'))
 
     const pa = storage.get('playerAnswers')
     const rw = storage.get('raceWinner')
@@ -189,6 +229,24 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     }
   }, [])
 
+  // Turn-based advance: hand the turn to `nextTurnId` AND move to the next
+  // question in one mutation, so a fresh question is drawn for each turn.
+  const advanceTurnAndQuestion = useTriviaM(({ storage }, nextTurnId: number | null) => {
+    storage.set('currentTurnConnectionId', nextTurnId)
+    const idx = (storage.get('currentQuestionIndex') ?? 0) + 1
+    const cfg = parseConfigJson(storage.get('configJson') ?? '{}')
+    const isOver =
+      cfg.sessionType === 'fixed' || cfg.sessionType === 'category'
+        ? idx >= cfg.questionCount
+        : false
+    if (isOver) {
+      storage.set('phase', 'finished')
+    } else {
+      storage.set('currentQuestionIndex', idx)
+      storage.set('questionStartedAt', Date.now())
+    }
+  }, [])
+
   const finishGame = useTriviaM(({ storage }) => {
     storage.set('phase', 'finished')
   }, [])
@@ -216,6 +274,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   useEffect(() => {
     setLocalAnswer(null)
     setShowReview(false)
+    advanceScheduledRef.current = false
     updatePresence({ answeredCurrentQuestion: false })
     if (reviewTimer.current) clearTimeout(reviewTimer.current)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -232,13 +291,22 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   const handleTimerExpire = useCallback(() => {
     if (!isHost) return
     if (config.multiplayerMechanic === 'simultaneous' || config.multiplayerMechanic === 'race') {
-      if (showReview) return
-      setShowReview(true)
-      reviewTimer.current = setTimeout(() => {
-        advanceQuestion()
-      }, REVIEW_DELAY_MS)
+      scheduleAdvance(() => advanceQuestion())
+    } else if (config.multiplayerMechanic === 'turn-based') {
+      // The active player ran out of time → forfeit this turn and rotate on.
+      scheduleAdvance(() =>
+        advanceTurnAndQuestion(nextTurnConnectionId(currentTurnConnectionId, participantIds)),
+      )
     }
-  }, [isHost, config.multiplayerMechanic, showReview, advanceQuestion])
+  }, [
+    isHost,
+    config.multiplayerMechanic,
+    scheduleAdvance,
+    advanceQuestion,
+    advanceTurnAndQuestion,
+    currentTurnConnectionId,
+    participantIds,
+  ])
 
   // All players answered → host auto-advances (simultaneous)
   const allPlayerPresences = [
@@ -250,14 +318,33 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     if (!isHost || config.multiplayerMechanic !== 'simultaneous' || phase !== 'playing') return
     const total = allPlayerPresences.length
     const answered = allPlayerPresences.filter((p) => p.presence?.answeredCurrentQuestion).length
-    if (total > 0 && answered >= total && !showReview) {
-      setShowReview(true)
-      reviewTimer.current = setTimeout(() => {
-        advanceQuestion()
-      }, REVIEW_DELAY_MS)
+    if (total > 0 && answered >= total) {
+      scheduleAdvance(() => advanceQuestion())
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [others, presence.answeredCurrentQuestion])
+
+  // Turn-based: the host advances once the active player has answered (after a
+  // review delay), or immediately rotates past a player who dropped mid-turn.
+  useEffect(() => {
+    if (!isHost || !isTurnBased || phase !== 'playing') return
+    if (currentTurnConnectionId == null) return
+    // Active player gone (disconnected/reconnected mid-turn, so their old
+    // connection id is no longer present) → rotate on now, no review delay.
+    if (!participantIds.includes(currentTurnConnectionId)) {
+      advanceTurnAndQuestion(nextTurnConnectionId(currentTurnConnectionId, participantIds))
+      return
+    }
+    const activePresence = allPlayerPresences.find(
+      (p) => p.connectionId === currentTurnConnectionId,
+    )?.presence
+    if (activePresence?.answeredCurrentQuestion) {
+      scheduleAdvance(() =>
+        advanceTurnAndQuestion(nextTurnConnectionId(currentTurnConnectionId, participantIds)),
+      )
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [others, presence.answeredCurrentQuestion, currentTurnConnectionId, isTurnBased, isHost, phase])
 
   // Timed mode: host monitors elapsed time
   useEffect(() => {
@@ -312,11 +399,8 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     })
 
     // Race mechanic: host advances after first correct answer
-    if (config.multiplayerMechanic === 'race' && correct && isHost && !showReview) {
-      setShowReview(true)
-      reviewTimer.current = setTimeout(() => {
-        advanceQuestion()
-      }, REVIEW_DELAY_MS)
+    if (config.multiplayerMechanic === 'race' && correct && isHost) {
+      scheduleAdvance(() => advanceQuestion())
     }
   }
 
@@ -419,6 +503,31 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   const answeredCount = allPlayerPresences.filter((p) => p.presence?.answeredCurrentQuestion).length
 
+  const activeTurnName =
+    currentTurnConnectionId != null
+      ? (allPlayerPresences.find((p) => p.connectionId === currentTurnConnectionId)?.presence
+          ?.displayName ??
+        playerNames?.get(String(currentTurnConnectionId)) ??
+        'a player')
+      : 'a player'
+
+  // In turn-based, only the active player has a local answer. Spectators derive
+  // the reveal from shared state: the active player's `answeredCurrentQuestion`
+  // presence gates it, and their stored answer supplies correct/incorrect.
+  const activeAnswered =
+    isTurnBased &&
+    currentTurnConnectionId != null &&
+    !!allPlayerPresences.find((p) => p.connectionId === currentTurnConnectionId)?.presence
+      ?.answeredCurrentQuestion
+  const activeLastAnswer = ((): TriviaPlayerAnswer | null => {
+    if (!activeAnswered || currentTurnConnectionId == null) return null
+    const json = playerAnswers?.get(String(currentTurnConnectionId))
+    if (!json) return null
+    const arr = JSON.parse(json) as TriviaPlayerAnswer[]
+    return arr[arr.length - 1] ?? null
+  })()
+  const revealTurn = isTurnBased && !isMyTurn && activeAnswered
+
   return (
     <div className="mx-auto flex w-full max-w-[720px] flex-col px-6 py-8 md:px-9">
       <TriviaHUD
@@ -437,9 +546,19 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       />
 
       <div className="flex justify-end mb-4">
-        <span className="font-mono text-xs font-bold text-muted tabular-nums">
-          {answeredCount}/{allPlayerPresences.length} answered
-        </span>
+        {isTurnBased ? (
+          <span
+            className={`font-mono text-xs font-bold tabular-nums ${
+              isMyTurn ? 'text-green-go' : 'text-muted'
+            }`}
+          >
+            {isMyTurn ? '⚡ Your turn' : `${activeTurnName}'s turn`}
+          </span>
+        ) : (
+          <span className="font-mono text-xs font-bold text-muted tabular-nums">
+            {answeredCount}/{allPlayerPresences.length} answered
+          </span>
+        )}
       </div>
 
       <AnimatePresence mode="wait">
@@ -453,11 +572,13 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
           <TriviaQuestionComp
             question={currentQuestion}
             onAnswer={handleAnswer}
-            disabled={!!localAnswer || raceLocked || showReview}
+            disabled={!!localAnswer || raceLocked || showReview || !isMyTurn}
             lastResult={
-              localAnswer || showReview
+              localAnswer || showReview || revealTurn
                 ? {
-                    correct: checkCorrect(currentQuestion, localAnswer ?? ''),
+                    correct: localAnswer
+                      ? checkCorrect(currentQuestion, localAnswer)
+                      : (activeLastAnswer?.correct ?? false),
                     correctAnswer: getCorrectAnswerForQuestion(currentQuestion),
                   }
                 : null
@@ -473,6 +594,16 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
           animate={{ opacity: 1 }}
         >
           Another player answered first…
+        </motion.p>
+      )}
+
+      {isTurnBased && !isMyTurn && !revealTurn && (
+        <motion.p
+          className="mt-4 text-center text-sm font-medium text-muted"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Waiting for {activeTurnName} to answer…
         </motion.p>
       )}
     </div>
