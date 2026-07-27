@@ -111,14 +111,90 @@ const DIFFICULTY_OPTIONS: Array<{
   { value: 'hard', label: 'Hard', description: 'For the true anoraks' },
 ]
 
-const FOCUS_OPTIONS: Array<{ value: 'all' | TenableGroup; label: string }> = [
-  { value: 'all', label: 'All topics' },
-  { value: 'league', label: 'Leagues' },
-  { value: 'club', label: 'Clubs' },
-  { value: 'international', label: 'International' },
-  { value: 'competition', label: 'Competitions' },
-  { value: 'transfers', label: 'Transfers' },
+/**
+ * Topic buckets shown as checkboxes. Each maps to one or more of the underlying
+ * `TenableGroup`s in the question data - e.g. "Records" folds the one-off
+ * `misc`/`transfers` questions together so neither is a lonely standalone filter.
+ */
+const TOPIC_OPTIONS: Array<{
+  key: string
+  label: string
+  description: string
+  groups: TenableGroup[]
+}> = [
+  {
+    key: 'club',
+    label: 'Clubs',
+    description: 'All-time top scorers for the big clubs - Real, Barça, Liverpool, United…',
+    groups: ['club'],
+  },
+  {
+    key: 'league',
+    label: 'Leagues',
+    description: 'Premier League, La Liga, Serie A & Bundesliga scorers and appearances',
+    groups: ['league'],
+  },
+  {
+    key: 'international',
+    label: 'Countries',
+    description: 'World Cup, caps and national-team goalscorers',
+    groups: ['international'],
+  },
+  {
+    key: 'competition',
+    label: 'Competitions',
+    description: 'Champions League, Euros and European Cups won',
+    groups: ['competition'],
+  },
+  {
+    key: 'records',
+    label: 'Records & oddities',
+    description: "Ballon d'Or, all-time goals, biggest transfers and more",
+    groups: ['misc', 'transfers'],
+  },
 ]
+
+function CheckOption({
+  active,
+  onClick,
+  label,
+  description,
+}: {
+  active: boolean
+  onClick: () => void
+  label: string
+  description: string
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex w-full items-start gap-3 rounded-[14px] px-4 py-3 text-left transition-all duration-200 ${
+        active
+          ? 'bg-card-tint ring-[3px] ring-inset ring-card-ink'
+          : 'bg-card-tint/50 hover:-translate-y-0.5 hover:bg-card-tint'
+      }`}
+    >
+      <span
+        className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] border-2 text-sm font-black leading-none transition-colors ${
+          active ? 'border-green-go bg-green-go text-white' : 'border-card-ink/30 text-transparent'
+        }`}
+      >
+        ✓
+      </span>
+      <span>
+        <span
+          className={`block font-display text-lg font-black uppercase leading-none ${active ? 'text-card-ink' : 'text-card-muted'}`}
+        >
+          {label}
+        </span>
+        <span className="mt-1 block text-[12.5px] font-semibold leading-relaxed text-card-muted">
+          {description}
+        </span>
+      </span>
+    </button>
+  )
+}
 
 export function TenableSetup() {
   const router = useRouter()
@@ -156,7 +232,16 @@ export function TenableSetup() {
 
   if (!hydrated) return null
 
-  const focusValue = config.groups === 'all' ? 'all' : (config.groups[0] ?? 'all')
+  const selectedGroups: Set<TenableGroup> =
+    config.groups === 'all' ? new Set() : new Set(config.groups)
+  const isTopicActive = (groups: TenableGroup[]) => groups.every((g) => selectedGroups.has(g))
+  const toggleTopic = (groups: TenableGroup[]) => {
+    const next = new Set(selectedGroups)
+    if (groups.every((g) => next.has(g))) groups.forEach((g) => next.delete(g))
+    else groups.forEach((g) => next.add(g))
+    update('groups', next.size === 0 ? 'all' : (Array.from(next) as TenableGroup[]))
+  }
+  const allTopics = selectedGroups.size === 0
   const modeLabel = isSolo ? 'Solo' : isMultiplayer ? 'Multiplayer' : null
 
   return (
@@ -194,16 +279,25 @@ export function TenableSetup() {
           />
         </Section>
 
-        <Section title="Topic focus">
+        <Section title="Topics">
+          <p className="mb-3 -mt-1 text-[12.5px] font-semibold leading-relaxed text-card-muted">
+            Pick as many as you like. {allTopics ? 'Everything is in play.' : 'Only the checked topics will come up.'}
+          </p>
           <div className="flex flex-col gap-2">
-            {FOCUS_OPTIONS.map((opt) => (
-              <OptionButton
-                key={opt.value}
-                active={focusValue === opt.value}
-                onClick={() => update('groups', opt.value === 'all' ? 'all' : [opt.value])}
-              >
-                {opt.label}
-              </OptionButton>
+            <CheckOption
+              active={allTopics}
+              onClick={() => update('groups', 'all')}
+              label="All topics"
+              description="A bit of everything - the full mix"
+            />
+            {TOPIC_OPTIONS.map((opt) => (
+              <CheckOption
+                key={opt.key}
+                active={isTopicActive(opt.groups)}
+                onClick={() => toggleTopic(opt.groups)}
+                label={opt.label}
+                description={opt.description}
+              />
             ))}
           </div>
         </Section>

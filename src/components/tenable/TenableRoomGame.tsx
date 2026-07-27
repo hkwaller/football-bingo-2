@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import {
   TenableRoomProvider,
   useTenableStorage,
@@ -16,6 +16,8 @@ import {
   parseTenableConfig,
   parseTenableQuestions,
   parseNumberArray,
+  parseLastGuess,
+  type TenableLastGuess,
 } from '@/lib/tenable/liveblocksTenable'
 import { loadTenableConfig } from '@/lib/tenable/tenableStorage'
 import { selectTenableQuestions, tenableTarget } from '@/data/tenable'
@@ -36,6 +38,48 @@ function nextTurn(current: number | null, presentIds: number[]): number | null {
   return ring[(i + 1) % ring.length]
 }
 
+/** Shared feedback line for the most recent guess - visible to every player. */
+function GuessFeedback({
+  guess,
+  nameFor,
+  selfId,
+}: {
+  guess: TenableLastGuess | null
+  nameFor: (connId: number) => string
+  selfId: number | null
+}) {
+  return (
+    <div className="mt-2 h-6">
+      <AnimatePresence mode="wait">
+        {guess && (
+          <motion.p
+            key={guess.seq}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            className={`text-center text-sm font-bold ${
+              guess.kind === 'correct'
+                ? 'text-yellow'
+                : guess.kind === 'already-found'
+                  ? 'text-on-green-soft'
+                  : 'text-pink'
+            }`}
+          >
+            {(() => {
+              const who = guess.by === selfId ? 'You' : nameFor(guess.by)
+              if (guess.kind === 'correct') return `✓ ${who}: ${guess.answer ?? guess.name}`
+              if (guess.kind === 'already-found')
+                return `${who}: ${guess.answer ?? guess.name} was already found`
+              return `✗ ${who}: "${guess.name}" - not on the list, lost a life`
+            })()}
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 function TenableRoomInner({ roomId }: { roomId: string }) {
   const status = useTenableStatus()
   const self = useTenableSelf()
@@ -54,6 +98,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   const questionsJson = useTenableStorage((s) => s.questionsJson)
   const currentQuestionIndex = useTenableStorage((s) => s.currentQuestionIndex)
   const foundRanksJson = useTenableStorage((s) => s.foundRanksJson)
+  const lastGuessJson = useTenableStorage((s) => s.lastGuessJson)
   const livesLeft = useTenableStorage((s) => s.livesLeft)
   const currentTurnConnectionId = useTenableStorage((s) => s.currentTurnConnectionId)
   const playerNames = useTenableStorage((s) => s.playerNames)
@@ -63,6 +108,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   const config = useMemo(() => parseTenableConfig(configJson ?? '{}'), [configJson])
   const questions = useMemo(() => parseTenableQuestions(questionsJson ?? '[]'), [questionsJson])
   const foundRanks = useMemo(() => parseNumberArray(foundRanksJson ?? '[]'), [foundRanksJson])
+  const lastGuess = useMemo(() => parseLastGuess(lastGuessJson ?? ''), [lastGuessJson])
   const currentQuestion = questions[currentQuestionIndex ?? 0] ?? null
 
   const presentIds = useMemo(() => {
@@ -108,6 +154,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     storage.set('foundRanksJson', '[]')
     storage.set('livesLeft', cfg.lives)
     storage.set('resultsJson', '[]')
+    storage.set('lastGuessJson', '')
     storage.set('startedAt', Date.now())
     const ring = [...ids].sort((a, b) => a - b)
     storage.set('turnOrderJson', JSON.stringify(ring))
@@ -143,6 +190,21 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
       } else if (outcome.kind === 'wrong') {
         storage.set('livesLeft', Math.max(0, (storage.get('livesLeft') ?? 0) - 1))
       }
+
+      // Broadcast the outcome so every player sees what was guessed - especially
+      // wrong guesses, which otherwise leave no trace beyond a lost life.
+      const prevSeq = parseLastGuess(storage.get('lastGuessJson') ?? '')?.seq ?? 0
+      storage.set(
+        'lastGuessJson',
+        JSON.stringify({
+          seq: prevSeq + 1,
+          by: self.connectionId,
+          name,
+          kind: outcome.kind,
+          answer: outcome.kind !== 'wrong' ? outcome.name : undefined,
+        }),
+      )
+
       // Pass the turn on every real guess (correct or wrong); duplicates don't advance.
       if (outcome.kind !== 'already-found') {
         storage.set('currentTurnConnectionId', nextTurn(self.connectionId, ids))
@@ -184,6 +246,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     storage.set('currentQuestionIndex', nextIdx)
     storage.set('foundRanksJson', '[]')
     storage.set('livesLeft', cfg.lives)
+    storage.set('lastGuessJson', '')
   }, [])
 
   // ── Init ──────────────────────────────────────────────────────────────────
@@ -377,11 +440,17 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
             )}
           </div>
         ) : isMyTurn ? (
-          <NameAutocomplete onGuess={handleGuess} focusKey={focusKey} placeholder="Name one…" />
+          <>
+            <NameAutocomplete onGuess={handleGuess} focusKey={focusKey} placeholder="Name one…" />
+            <GuessFeedback guess={lastGuess} nameFor={nameFor} selfId={self?.connectionId ?? null} />
+          </>
         ) : (
-          <p className="py-4 text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">
-            {turnName} is naming one…
-          </p>
+          <>
+            <p className="py-4 text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">
+              {turnName} is naming one…
+            </p>
+            <GuessFeedback guess={lastGuess} nameFor={nameFor} selfId={self?.connectionId ?? null} />
+          </>
         )}
       </div>
 

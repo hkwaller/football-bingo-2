@@ -20,6 +20,7 @@ export type TenableGameStorage = {
   currentTurnConnectionId: number | null
   turnOrderJson: string // number[] connection ids
   resultsJson: string // TenableQuestionResult[]
+  lastGuessJson: string // TenableLastGuess - most recent guess, for shared feedback
   startedAt: number
   playerNames: LiveMap<string, string> // connId → displayName
   playerScores: LiveMap<string, string> // connId → score (number as string)
@@ -68,6 +69,7 @@ export function createInitialTenableStorage(): TenableGameStorage {
     currentTurnConnectionId: null,
     turnOrderJson: '[]',
     resultsJson: '[]',
+    lastGuessJson: '',
     startedAt: 0,
     playerNames: new LiveMap(),
     playerScores: new LiveMap(),
@@ -96,6 +98,30 @@ export function parseNumberArray(json: string): number[] {
     return Array.isArray(v) ? (v as number[]) : []
   } catch {
     return []
+  }
+}
+
+/** Broadcast feedback for the most recent guess so every player sees the outcome. */
+export type TenableLastGuess = {
+  /** Monotonic counter so the UI can re-trigger its animation on repeated outcomes. */
+  seq: number
+  /** Connection id of the guesser. */
+  by: number
+  /** The name the player typed. */
+  name: string
+  kind: 'correct' | 'wrong' | 'already-found'
+  /** Canonical answer name for correct/already-found. */
+  answer?: string
+}
+
+export function parseLastGuess(json: string): TenableLastGuess | null {
+  try {
+    const v = JSON.parse(json)
+    return v && typeof v === 'object' && typeof (v as TenableLastGuess).seq === 'number'
+      ? (v as TenableLastGuess)
+      : null
+  } catch {
+    return null
   }
 }
 
