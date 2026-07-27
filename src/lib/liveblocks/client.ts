@@ -34,6 +34,10 @@ export type GameStorage = {
   categoryManagers: boolean
   minFameScore: number
   boardLayout: 'shared' | 'individual'
+  /** Individual boards only: is the drawn player shared by everyone, or does each player draw their own? */
+  drawSource: 'shared' | 'independent'
+  /** When true, each drawn player gets a single placement attempt per turn (no retry). */
+  singleGuess: boolean
   draftPolicy: DraftPolicy
   draftRound: number
   draftVotes: LiveMap<string, DraftVote>
@@ -43,6 +47,16 @@ export type GameStorage = {
 export type GamePresence = {
   displayName: string
   bingoAt: number | null
+  /** Total placement attempts (correct + wrong) this game. */
+  guesses: number
+  /** Squares filled on this player's board. */
+  solvedCount: number
+  /** Shared-draw sync: the highest round index this player has finished acting on. */
+  actedRound: number | null
+  /** The player's most recent action, for the live status chip (correct / incorrect / skipped). */
+  lastAction: 'correct' | 'wrong' | 'skip' | null
+  /** Timestamp of `lastAction`, so transient chips can expire. */
+  lastActionAt: number | null
 }
 
 const client = createClient({
@@ -96,6 +110,8 @@ export function createInitialGameStorage(): GameStorage {
     categoryManagers: true,
     minFameScore: 0,
     boardLayout: 'individual',
+    drawSource: 'shared',
+    singleGuess: false,
     draftPolicy: 'open',
     draftRound: 0,
     draftVotes: new LiveMap(),

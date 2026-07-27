@@ -29,6 +29,7 @@ import {
   boardConfigPayload,
   categoriesRequired,
   categoryPoolForConfig,
+  cellCountForConfig,
   isBoardConfigViable,
   MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
@@ -72,6 +73,8 @@ function RoomInner({ roomId }: { roomId: string }) {
   const categoryManagers = useStorage((s) => s.categoryManagers) ?? true
   const minFameScore = useStorage((s) => s.minFameScore) ?? 0
   const boardLayout = useStorage((s) => s.boardLayout) ?? 'individual'
+  const drawSource = useStorage((s) => s.drawSource) === 'independent' ? 'independent' : 'shared'
+  const singleGuess = useStorage((s) => s.singleGuess) ?? false
   const draftPolicyStorage: DraftPolicy =
     useStorage((s) => s.draftPolicy) === 'placeable' ? 'placeable' : 'open'
   const draftRound = useStorage((s) => s.draftRound) ?? 0
@@ -110,6 +113,11 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const effectiveDraftPolicy: DraftPolicy =
     boardLayout === 'individual' ? 'open' : draftPolicyStorage
+
+  // Individual boards play like singleplayer, in parallel. Shared boards keep the
+  // consensus-voting flow. `drawSource` only matters for individual boards.
+  const isIndividual = boardLayout === 'individual'
+  const drawShared = drawSource === 'shared'
 
   const isHost =
     self?.connectionId != null && hostConnectionId != null && self.connectionId === hostConnectionId
@@ -164,6 +172,18 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const setDraftPolicyInStorage = useMutation(({ storage }, policy: DraftPolicy) => {
     storage.set('draftPolicy', policy)
+  }, [])
+
+  const setDrawSource = useMutation(({ storage }, v: 'shared' | 'independent') => {
+    storage.set('drawSource', v)
+  }, [])
+
+  const setSingleGuess = useMutation(({ storage }, v: boolean) => {
+    storage.set('singleGuess', v)
+  }, [])
+
+  const advanceDraftRound = useMutation(({ storage }) => {
+    storage.set('draftRound', storage.get('draftRound') + 1)
   }, [])
 
   const applyStart = useMutation(
@@ -222,6 +242,10 @@ function RoomInner({ roomId }: { roomId: string }) {
   )
 
   const [nameDraft, setNameDraft] = useState('')
+  // Independent-draw individual boards advance their own draw locally.
+  const [indyRound, setIndyRound] = useState(0)
+  // Ticks once a second while playing so transient "skipped" chips can clear.
+  const [nowTick, setNowTick] = useState(0)
   const [localSolved, setLocalSolved] = useState<Map<number, CellPick>>(new Map())
   const [modalCell, setModalCell] = useState<number | null>(null)
   const [starting, setStarting] = useState(false)
@@ -279,9 +303,37 @@ function RoomInner({ roomId }: { roomId: string }) {
     bingoRecordedRef.current = false
     setModalCell(null)
     setDraftError(null)
-  }, [seed])
+    setIndyRound(0)
+    updatePresence({
+      guesses: 0,
+      solvedCount: 0,
+      actedRound: null,
+      lastAction: null,
+      lastActionAt: null,
+      bingoAt: null,
+    })
+  }, [seed, updatePresence])
+
+  // Drive the transient "skipped" chip so it can expire.
+  useEffect(() => {
+    if (phase !== 'playing') return
+    const id = window.setInterval(() => setNowTick(Date.now()), 1000)
+    return () => window.clearInterval(id)
+  }, [phase])
 
   const activeSeed = phase === 'playing' && seed ? seed : ''
+
+  // Individual boards derive a per-player seed so every player gets a different
+  // grid. Shared boards use the one room seed.
+  const myBoardSeed =
+    isIndividual && activeSeed && self?.connectionId != null
+      ? `${activeSeed}::${self.connectionId}`
+      : activeSeed
+  // Independent draw advances a local round; shared draw / shared board use the room round.
+  const myRound = isIndividual && !drawShared ? indyRound : draftRound
+  // Shared-draw: once I've placed or skipped this round I wait for the others.
+  const myActedThisRound =
+    isIndividual && drawShared && (presence?.actedRound ?? -1) >= draftRound
 
   const solvedForDisplay = useMemo(() => {
     if (boardLayout !== 'shared' || !sharedSolved) return localSolved
@@ -311,14 +363,35 @@ function RoomInner({ roomId }: { roomId: string }) {
     let cancelled = false
     setDraftLoading(true)
     setDraftError(null)
-    const url = draftApiUrl({
-      seed: activeSeed,
-      round: draftRound,
-      policy: effectiveDraftPolicy,
-      boardConfig,
-      occupiedIndices: occupiedForDraft,
-      placedPlayerIds: placedPlayerIdsForDraft,
-    })
+    // Shared-draw individual boards must draw the SAME player for everyone, so the
+    // draw is keyed only on the room seed + room round with no per-board occupancy.
+    const url =
+      isIndividual && drawShared
+        ? draftApiUrl({
+            seed: activeSeed,
+            round: draftRound,
+            policy: 'open',
+            boardConfig,
+            occupiedIndices: [],
+            placedPlayerIds: [],
+          })
+        : isIndividual
+          ? draftApiUrl({
+              seed: myBoardSeed,
+              round: indyRound,
+              policy: 'open',
+              boardConfig,
+              occupiedIndices: occupiedForDraft,
+              placedPlayerIds: placedPlayerIdsForDraft,
+            })
+          : draftApiUrl({
+              seed: activeSeed,
+              round: draftRound,
+              policy: effectiveDraftPolicy,
+              boardConfig,
+              occupiedIndices: occupiedForDraft,
+              placedPlayerIds: placedPlayerIdsForDraft,
+            })
     void fetch(url)
       .then(async (res) => {
         const j = (await res.json()) as {
@@ -370,6 +443,10 @@ function RoomInner({ roomId }: { roomId: string }) {
     boardConfig,
     occupiedForDraft,
     placedPlayerIdsForDraft,
+    isIndividual,
+    drawShared,
+    myBoardSeed,
+    indyRound,
   ])
 
   const participantIds = useMemo(() => {
@@ -398,9 +475,9 @@ function RoomInner({ roomId }: { roomId: string }) {
   const isLeader = participantIds.length > 0 && self?.connectionId === participantIds[0]
 
   const modalLabel = useMemo(() => {
-    if (modalCell === null || !activeSeed) return null
-    return cellCategory(generateBoard(activeSeed, boardConfig), modalCell)
-  }, [modalCell, activeSeed, boardConfig])
+    if (modalCell === null || !myBoardSeed) return null
+    return cellCategory(generateBoard(myBoardSeed, boardConfig), modalCell)
+  }, [modalCell, myBoardSeed, boardConfig])
 
   const recordFinish = useCallback(
     async (displayName: string) => {
@@ -443,12 +520,12 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const handleFreePick = useCallback(
     async (playerId: string) => {
-      if (modalCell === null || !activeSeed) return { ok: false as const, error: 'Game not ready' }
+      if (modalCell === null || !myBoardSeed) return { ok: false as const, error: 'Game not ready' }
       const res = await fetch('/api/game/validate-cell', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          seed: activeSeed,
+          seed: myBoardSeed,
           cellIndex: modalCell,
           playerId,
           boardConfig: boardConfigPayload(boardConfig),
@@ -475,11 +552,12 @@ function RoomInner({ roomId }: { roomId: string }) {
           m.set(modalCell, pick)
           return m
         })
+        updatePresence({ solvedCount: localSolved.size + 1 })
       }
       setModalCell(null)
       return { ok: true as const }
     },
-    [modalCell, activeSeed, boardConfig, boardLayout, applySharedPick],
+    [modalCell, myBoardSeed, boardConfig, boardLayout, applySharedPick, localSolved, updatePresence],
   )
 
   const submitDraftVote = useCallback(
@@ -489,8 +567,158 @@ function RoomInner({ roomId }: { roomId: string }) {
     [castDraftVoteWithSelf],
   )
 
+  // Individual boards: place the drawn player on my own board, exactly like
+  // singleplayer. Wrong guesses vibrate; correct ones stick.
+  const handleIndividualPlace = useCallback(
+    async (cellIndex: number) => {
+      if (
+        !isIndividual ||
+        playMode !== 'draft' ||
+        !drawn ||
+        draftLoading ||
+        localBingo ||
+        phase !== 'playing' ||
+        myActedThisRound
+      ) {
+        return
+      }
+      const res = await fetch('/api/game/validate-cell', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          seed: myBoardSeed,
+          cellIndex,
+          playerId: drawn.playerId,
+          boardConfig: boardConfigPayload(boardConfig),
+        }),
+      })
+      const j = (await res.json()) as {
+        ok?: boolean
+        reason?: string
+        player?: { playerId: string; name: string; imageUrl?: string }
+      }
+      const guessCount = (presence?.guesses ?? 0) + 1
+      const now = Date.now()
+      if (!j.ok || !j.player) {
+        setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
+        // A single-guess turn is consumed even on a miss: advance past this player.
+        if (singleGuess) {
+          if (drawShared) {
+            updatePresence({
+              guesses: guessCount,
+              actedRound: draftRound,
+              lastAction: 'wrong',
+              lastActionAt: now,
+            })
+          } else {
+            updatePresence({ guesses: guessCount, lastAction: 'wrong', lastActionAt: now })
+            setIndyRound((r) => r + 1)
+          }
+        } else {
+          updatePresence({ guesses: guessCount, lastAction: 'wrong', lastActionAt: now })
+        }
+        return
+      }
+      const pick: CellPick = {
+        playerId: j.player.playerId,
+        name: j.player.name,
+        imageUrl: j.player.imageUrl,
+      }
+      setLocalSolved((prev) => {
+        const m = new Map(prev)
+        m.set(cellIndex, pick)
+        return m
+      })
+      if (drawShared) {
+        updatePresence({
+          guesses: guessCount,
+          solvedCount: localSolved.size + 1,
+          actedRound: draftRound,
+          lastAction: 'correct',
+          lastActionAt: now,
+        })
+      } else {
+        updatePresence({
+          guesses: guessCount,
+          solvedCount: localSolved.size + 1,
+          lastAction: 'correct',
+          lastActionAt: now,
+        })
+        setIndyRound((r) => r + 1)
+      }
+    },
+    [
+      isIndividual,
+      playMode,
+      drawn,
+      draftLoading,
+      localBingo,
+      phase,
+      myActedThisRound,
+      myBoardSeed,
+      boardConfig,
+      presence?.guesses,
+      singleGuess,
+      drawShared,
+      draftRound,
+      localSolved,
+      updatePresence,
+    ],
+  )
+
+  const handleIndividualSkip = useCallback(() => {
+    if (!isIndividual || playMode !== 'draft' || draftLoading || localBingo || phase !== 'playing') {
+      return
+    }
+    if (myActedThisRound) return
+    const now = Date.now()
+    if (drawShared) {
+      updatePresence({ actedRound: draftRound, lastAction: 'skip', lastActionAt: now })
+    } else {
+      updatePresence({ lastAction: 'skip', lastActionAt: now })
+      setIndyRound((r) => r + 1)
+    }
+  }, [
+    isIndividual,
+    playMode,
+    draftLoading,
+    localBingo,
+    phase,
+    myActedThisRound,
+    drawShared,
+    draftRound,
+    updatePresence,
+  ])
+
+  // Shared-draw individual boards: the leader bumps the room round once every
+  // participant has placed or skipped, so the next player is drawn for everyone.
+  useEffect(() => {
+    if (!isIndividual || !drawShared || playMode !== 'draft' || phase !== 'playing' || !isLeader) {
+      return
+    }
+    if (participantIds.length === 0) return
+    const actedBy = new Map<number, number>()
+    if (self?.connectionId != null) actedBy.set(self.connectionId, presence?.actedRound ?? -1)
+    for (const o of others) actedBy.set(o.connectionId, o.presence?.actedRound ?? -1)
+    const everyoneActed = participantIds.every((id) => (actedBy.get(id) ?? -1) >= draftRound)
+    if (everyoneActed) advanceDraftRound()
+  }, [
+    isIndividual,
+    drawShared,
+    playMode,
+    phase,
+    isLeader,
+    participantIds,
+    others,
+    self?.connectionId,
+    presence?.actedRound,
+    draftRound,
+    advanceDraftRound,
+  ])
+
   useEffect(() => {
     if (
+      boardLayout !== 'shared' ||
       !isLeader ||
       !allDraftVoted ||
       phase !== 'playing' ||
@@ -589,9 +817,13 @@ function RoomInner({ roomId }: { roomId: string }) {
       if (playMode !== 'draft' || !drawn || draftLoading || localBingo || phase !== 'playing') {
         return
       }
-      submitDraftVote({ type: 'square', cellIndex })
+      if (isIndividual) {
+        void handleIndividualPlace(cellIndex)
+      } else {
+        submitDraftVote({ type: 'square', cellIndex })
+      }
     },
-    [playMode, drawn, draftLoading, localBingo, phase, submitDraftVote],
+    [playMode, drawn, draftLoading, localBingo, phase, isIndividual, handleIndividualPlace, submitDraftVote],
   )
 
   const handleStart = async () => {
@@ -815,34 +1047,105 @@ function RoomInner({ roomId }: { roomId: string }) {
                     })}
                   </div>
 
-                  {/* Draft rule */}
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                      Draft
-                    </span>
-                    {(['open', 'placeable'] as const).map((p) => {
-                      const active = draftPolicyStorage === p
-                      const disabled = boardLayout === 'individual' && p === 'placeable'
-                      return (
-                        <button
-                          key={p}
-                          type="button"
-                          disabled={disabled}
-                          onClick={() => setDraftPolicyInStorage(p)}
-                          className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 disabled:opacity-40 ${
-                            active
-                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                              : 'bg-card-tint text-card-muted hover:text-card-ink'
-                          }`}
-                        >
-                          {DRAFT_POLICY_LABEL[p]}
-                        </button>
-                      )
-                    })}
-                  </div>
-                  <p className="-mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
-                    {DRAFT_POLICY_HELP[effectiveDraftPolicy]}
-                  </p>
+                  {/* Draw source (individual boards only) */}
+                  {boardLayout === 'individual' && playMode === 'draft' ? (
+                    <>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                          Draw
+                        </span>
+                        {(
+                          [
+                            ['shared', 'Same player'],
+                            ['independent', 'Own draws'],
+                          ] as const
+                        ).map(([v, label]) => {
+                          const active = drawSource === v
+                          return (
+                            <button
+                              key={v}
+                              type="button"
+                              onClick={() => setDrawSource(v)}
+                              className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
+                                active
+                                  ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+                                  : 'bg-card-tint text-card-muted hover:text-card-ink'
+                              }`}
+                            >
+                              {label}
+                            </button>
+                          )
+                        })}
+                      </div>
+                      <p className="-mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
+                        {drawSource === 'shared'
+                          ? 'Everyone gets the same drawn player each round (more social). Place them on your own board.'
+                          : 'Each player draws their own players and races independently.'}
+                      </p>
+                    </>
+                  ) : null}
+
+                  {/* Draft rule (shared board only) */}
+                  {boardLayout === 'shared' ? (
+                    <>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                          Draft
+                        </span>
+                        {(['open', 'placeable'] as const).map((p) => {
+                          const active = draftPolicyStorage === p
+                          return (
+                            <button
+                              key={p}
+                              type="button"
+                              onClick={() => setDraftPolicyInStorage(p)}
+                              className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
+                                active
+                                  ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+                                  : 'bg-card-tint text-card-muted hover:text-card-ink'
+                              }`}
+                            >
+                              {DRAFT_POLICY_LABEL[p]}
+                            </button>
+                          )
+                        })}
+                      </div>
+                      <p className="-mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
+                        {DRAFT_POLICY_HELP[effectiveDraftPolicy]}
+                      </p>
+                    </>
+                  ) : null}
+
+                  {/* One guess per turn (individual draft only) */}
+                  {boardLayout === 'individual' && playMode === 'draft' ? (
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
+                        Guesses
+                      </span>
+                      {(
+                        [
+                          [false, 'Unlimited'],
+                          [true, 'One per turn'],
+                        ] as const
+                      ).map(([v, label]) => {
+                        const active = singleGuess === v
+                        return (
+                          <button
+                            key={String(v)}
+                            type="button"
+                            onClick={() => setSingleGuess(v)}
+                            className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
+                              active
+                                ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+                                : 'bg-card-tint text-card-muted hover:text-card-ink'
+                            }`}
+                          >
+                            {label}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  ) : null}
 
                   {/* Grid */}
                   <div className="flex flex-wrap items-center gap-3">
@@ -991,7 +1294,11 @@ function RoomInner({ roomId }: { roomId: string }) {
             <span className="chip">
               {PLAY_MODE_LABEL[playMode]} ·{' '}
               {boardLayout === 'shared' ? 'Shared board' : 'Individual boards'}
-              {playMode === 'draft' ? ` · ${DRAFT_POLICY_LABEL[effectiveDraftPolicy]}` : ''}
+              {playMode === 'draft'
+                ? isIndividual
+                  ? ` · ${drawShared ? 'Same player' : 'Own draws'}${singleGuess ? ' · 1 try' : ''}`
+                  : ` · ${DRAFT_POLICY_LABEL[effectiveDraftPolicy]}`
+                : ''}
             </span>
           </div>
           <AnimatePresence>
@@ -1013,14 +1320,26 @@ function RoomInner({ roomId }: { roomId: string }) {
           </AnimatePresence>
           <DrawnPlayerPanel
             mode={playMode}
-            round={draftRound}
+            round={myRound}
             loading={draftLoading}
             player={drawn}
             error={draftError}
+            reduceMotion={reduceMotion}
             wrongNonce={wrongCell?.nonce ?? null}
-            draftWarning={draftFallbackNote}
+            draftWarning={
+              myActedThisRound && !localBingo
+                ? 'Waiting for the other players…'
+                : draftFallbackNote
+            }
+            // Individual boards use the singleplayer-style Skip; shared boards vote to skip.
+            onSkip={
+              isIndividual && playMode === 'draft' && phase === 'playing' && !localBingo
+                ? handleIndividualSkip
+                : undefined
+            }
+            skipDisabled={draftLoading || myActedThisRound}
             extraActions={
-              playMode === 'draft' && phase === 'playing' && !localBingo ? (
+              !isIndividual && playMode === 'draft' && phase === 'playing' && !localBingo ? (
                 <button
                   type="button"
                   disabled={draftLoading}
@@ -1033,15 +1352,15 @@ function RoomInner({ roomId }: { roomId: string }) {
             }
           />
           <BingoBoard
-            seed={activeSeed}
+            seed={myBoardSeed}
             boardConfig={boardConfig}
             solved={solvedForDisplay}
-            voteHighlightIndex={voteHighlightIndex}
+            voteHighlightIndex={isIndividual ? null : voteHighlightIndex}
             draftTargetCells={null}
             wrongCell={wrongCell}
             reduceMotion={reduceMotion}
             onCellClick={(i) => {
-              if (phase !== 'playing' || localBingo || !configOk) return
+              if (phase !== 'playing' || localBingo || !configOk || myActedThisRound) return
               if (playMode === 'draft') handleDraftCellClick(i)
               else setModalCell(i)
             }}
@@ -1049,7 +1368,11 @@ function RoomInner({ roomId }: { roomId: string }) {
           />
           {playMode === 'draft' && phase === 'playing' && !localBingo ? (
             <p className="mb-4 text-center text-xs font-medium text-muted">
-              Tap a square to vote · everyone must agree (or all skip) to advance
+              {isIndividual
+                ? drawShared
+                  ? 'Same player for everyone — place them on your own board, or skip. Next player when all have acted.'
+                  : 'Place the drawn player on a matching square, or skip for a new one.'
+                : 'Tap a square to vote · everyone must agree (or all skip) to advance'}
             </p>
           ) : null}
         </>
@@ -1074,29 +1397,77 @@ function RoomInner({ roomId }: { roomId: string }) {
               id: self?.connectionId ?? -1,
               name: (presence?.displayName || nameDraft).trim() || 'You',
               bingo: presence?.bingoAt != null,
+              guesses: presence?.guesses ?? 0,
+              solvedCount: presence?.solvedCount ?? 0,
+              actedRound: presence?.actedRound ?? null,
+              lastAction: presence?.lastAction ?? null,
+              lastActionAt: presence?.lastActionAt ?? null,
             },
             ...others.map((o) => ({
               id: o.connectionId,
               name: (o.presence?.displayName ?? '').trim() || 'Guest',
               bingo: o.presence?.bingoAt != null,
+              guesses: o.presence?.guesses ?? 0,
+              solvedCount: o.presence?.solvedCount ?? 0,
+              actedRound: o.presence?.actedRound ?? null,
+              lastAction: o.presence?.lastAction ?? null,
+              lastActionAt: o.presence?.lastActionAt ?? null,
             })),
-          ].map((p, i) => (
-            <li key={p.id} className="flex items-center gap-3">
-              <span
-                className={`flex h-9 w-9 items-center justify-center rounded-full font-display text-[15px] uppercase ${
-                  ROUNDEL_COLORS[i % ROUNDEL_COLORS.length]
-                }`}
-              >
-                {p.name.charAt(0) || '?'}
-              </span>
-              <span className="text-sm font-bold text-ink">{p.name}</span>
-              {p.bingo ? (
-                <span className="foil ml-auto rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.06em]">
-                  Bingo
+          ].map((p, i) => {
+            const fillTarget = cellCountForConfig(boardConfig) - 1
+            // A locked-in action in shared-draw persists until the round advances;
+            // in the other modes the chip fades a few seconds after the action.
+            const lockedThisRound =
+              isIndividual && drawShared && phase === 'playing' && p.actedRound === draftRound
+            const recentAction =
+              p.lastActionAt != null && nowTick > 0 && nowTick - p.lastActionAt < 3500
+            let status: { label: string; tone: string } | null = null
+            if (phase === 'playing' && !p.bingo && (lockedThisRound || recentAction)) {
+              if (p.lastAction === 'correct') {
+                status = { label: '✓ Correct', tone: 'bg-green-go/15 text-green-go' }
+              } else if (p.lastAction === 'wrong') {
+                status = { label: '✗ Incorrect', tone: 'bg-live-red/15 text-live-red' }
+              } else if (p.lastAction === 'skip') {
+                status = { label: '⏭ Skipped', tone: 'bg-card-tint text-card-muted' }
+              }
+            }
+            return (
+              <li key={p.id} className="flex items-center gap-3">
+                <span
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[15px] uppercase ${
+                    ROUNDEL_COLORS[i % ROUNDEL_COLORS.length]
+                  }`}
+                >
+                  {p.name.charAt(0) || '?'}
                 </span>
-              ) : null}
-            </li>
-          ))}
+                <span className="min-w-0 truncate text-sm font-bold text-ink">{p.name}</span>
+                {phase === 'playing' ? (
+                  <span className="ml-1 shrink-0 font-mono text-[11px] font-bold text-on-green-dim">
+                    {p.solvedCount}/{fillTarget}
+                    {!singleGuess && p.guesses > 0 ? ` · ${p.guesses} ${p.guesses === 1 ? 'try' : 'tries'}` : ''}
+                  </span>
+                ) : null}
+                <span className="ml-auto flex shrink-0 items-center gap-2">
+                  {status ? (
+                    <motion.span
+                      key={`${p.id}-${p.lastActionAt ?? 0}`}
+                      initial={reduceMotion ? false : { scale: 0.7, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ type: 'spring', stiffness: 420, damping: 20 }}
+                      className={`rounded-full px-2.5 py-1 text-[10.5px] font-extrabold uppercase tracking-[0.05em] ${status.tone}`}
+                    >
+                      {status.label}
+                    </motion.span>
+                  ) : null}
+                  {p.bingo ? (
+                    <span className="foil rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.06em]">
+                      Bingo
+                    </span>
+                  ) : null}
+                </span>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </div>
@@ -1126,7 +1497,15 @@ export function RoomGame({ roomId }: { roomId: string }) {
     <RoomProvider
       key={roomId}
       id={roomId}
-      initialPresence={{ displayName: '', bingoAt: null }}
+      initialPresence={{
+        displayName: '',
+        bingoAt: null,
+        guesses: 0,
+        solvedCount: 0,
+        actedRound: null,
+        lastAction: null,
+        lastActionAt: null,
+      }}
       initialStorage={createInitialGameStorage()}
     >
       <RoomInner roomId={roomId} />

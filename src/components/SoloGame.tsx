@@ -528,6 +528,7 @@ export function SoloGame() {
         loading={draftLoading}
         player={drawn}
         error={draftError}
+        reduceMotion={reduceMotion}
         wrongNonce={wrongCell?.nonce ?? null}
         onSkip={playMode === 'draft' ? skipDraft : undefined}
         skipDisabled={won || draftLoading}

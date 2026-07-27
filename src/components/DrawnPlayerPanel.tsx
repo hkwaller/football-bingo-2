@@ -26,6 +26,7 @@ type DrawnPlayerPanelProps = {
   /** Extra actions (e.g. multiplayer Skip vote) shown next to solo Skip */
   extraActions?: ReactNode
   draftWarning?: string | null
+  reduceMotion?: boolean
 }
 
 /**
@@ -45,10 +46,13 @@ export function DrawnPlayerPanel({
   skipDisabled,
   extraActions,
   draftWarning,
+  reduceMotion = false,
 }: DrawnPlayerPanelProps) {
   if (mode !== 'draft') return null
 
   const attr = player?.imageAttribution
+  // Re-mounts the portrait/name (and fires the glow) whenever a new player is drawn.
+  const drawKey = player?.playerId ?? `round-${round}`
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30 flex justify-center px-4">
@@ -75,12 +79,32 @@ export function DrawnPlayerPanel({
             />
           ) : null}
         </AnimatePresence>
+        {/* One-shot glow when a new player is drawn */}
+        <AnimatePresence>
+          {!loading && player ? (
+            <motion.div
+              key={`glow-${drawKey}`}
+              className="pointer-events-none absolute inset-0 z-0 rounded-[18px] ring-4 ring-yellow"
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0 }}
+              animate={{ opacity: [0, 0.9, 0] }}
+              transition={{ duration: reduceMotion ? 0 : 0.7, ease: 'easeOut' }}
+              exit={{ opacity: 0 }}
+              aria-hidden
+            />
+          ) : null}
+        </AnimatePresence>
         {/* Portrait + credit tooltip */}
-        <div className="group relative shrink-0">
+        <div className="group relative z-[1] shrink-0">
           {loading ? (
             <div className="h-[52px] w-[52px] animate-pulse rounded-[10px] bg-card-tint" />
           ) : (
-            <div className="relative h-[52px] w-[52px] overflow-hidden rounded-[10px] bg-[#dceee2] ring-2 ring-yellow">
+            <motion.div
+              key={`portrait-${drawKey}`}
+              initial={reduceMotion ? false : { scale: 0.5, rotate: -12, opacity: 0 }}
+              animate={{ scale: 1, rotate: 0, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 360, damping: 18 }}
+              className="relative h-[52px] w-[52px] overflow-hidden rounded-[10px] bg-[#dceee2] ring-2 ring-yellow"
+            >
               {player?.imageUrl ? (
                 <Image
                   src={player.imageUrl}
@@ -101,7 +125,7 @@ export function DrawnPlayerPanel({
                   <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a3d20" />
                 </svg>
               )}
-            </div>
+            </motion.div>
           )}
           {attr ? (
             <div
@@ -134,9 +158,20 @@ export function DrawnPlayerPanel({
           <span className="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-pink-deep">
             Round {round + 1}
           </span>
-          <p className="font-display text-lg md:text-[22px] font-bold uppercase leading-none text-card-ink sm:text-[26px]">
-            {loading ? 'Drawing…' : (player?.name ?? 'No player')}
-          </p>
+          <div className="overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={loading ? 'loading' : drawKey}
+                initial={reduceMotion ? false : { y: 14, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={reduceMotion ? { opacity: 0 } : { y: -14, opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.25, ease: 'easeOut' }}
+                className="font-display text-lg md:text-[22px] font-bold uppercase leading-none text-card-ink sm:text-[26px]"
+              >
+                {loading ? 'Drawing…' : (player?.name ?? 'No player')}
+              </motion.p>
+            </AnimatePresence>
+          </div>
           {error ? (
             <span
               className="mt-0.5 block truncate text-[12px] font-bold text-pink-deep"
