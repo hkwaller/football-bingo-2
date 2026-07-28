@@ -140,6 +140,15 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     [self?.connectionId],
   )
 
+  const setPlayerName = useTenableM(
+    ({ storage }, displayName: string) => {
+      if (self?.connectionId != null) {
+        storage.get('playerNames').set(String(self.connectionId), displayName)
+      }
+    },
+    [self?.connectionId],
+  )
+
   const startGame = useTenableM(({ storage }, ids: number[]) => {
     const cfg = loadTenableConfig()
     const seed = randomUUID()
@@ -252,15 +261,27 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   // ── Init ──────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (phase == null || phase !== 'lobby') return
-    const displayName =
-      typeof window !== 'undefined'
-        ? (window.localStorage.getItem('fb_display_name') ??
-          `Player ${Math.floor(Math.random() * 1000)}`)
-        : 'Player'
+    let displayName =
+      typeof window !== 'undefined' ? window.localStorage.getItem('fb_display_name') : null
+    if (!displayName) {
+      displayName = `Player ${Math.floor(Math.random() * 1000)}`
+      // Persist the fallback so a reconnect (new connection id) keeps the same name.
+      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', displayName)
+    }
     claimHost(displayName)
     updatePresence({ displayName })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase])
+
+  const handleRename = useCallback(
+    (name: string) => {
+      const trimmed = name.trim() || 'Player'
+      setPlayerName(trimmed)
+      updatePresence({ displayName: trimmed })
+      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', trimmed)
+    },
+    [setPlayerName, updatePresence],
+  )
 
   useEffect(() => {
     setFocusKey((k) => k + 1)
@@ -311,6 +332,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
         isHost={isHost}
         config={config}
         onStart={() => startGame(presentIds)}
+        myName={self?.presence.displayName ?? ''}
+        onRename={handleRename}
       />
     )
   }

@@ -17,15 +17,36 @@ interface Props {
   isHost: boolean
   config: TenableConfig
   onStart: () => void
+  myName?: string
+  onRename?: (name: string) => void
 }
 
-export function TenableLobby({ roomId, players, isHost, config, onStart }: Props) {
+export function TenableLobby({
+  roomId,
+  players,
+  isHost,
+  config,
+  onStart,
+  myName = '',
+  onRename,
+}: Props) {
   const [origin, setOrigin] = useState('')
   const [copied, setCopied] = useState(false)
+  const [nameDraft, setNameDraft] = useState(myName)
 
   useEffect(() => {
     setOrigin(window.location.origin)
   }, [])
+
+  // Keep the field in sync when the stored name loads/changes, but don't clobber
+  // what the user is actively typing.
+  useEffect(() => {
+    if (myName) setNameDraft(myName)
+  }, [myName])
+
+  const saveName = () => {
+    onRename?.(nameDraft)
+  }
 
   const joinUrl = origin ? `${origin}/tenable/room/${roomId}` : `/tenable/room/${roomId}`
 
@@ -94,6 +115,26 @@ export function TenableLobby({ roomId, players, isHost, config, onStart }: Props
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="panel p-6">
+        <label className="block text-sm font-bold text-card-ink">
+          Your name
+          <input
+            value={nameDraft}
+            onChange={(e) => setNameDraft(e.target.value)}
+            onBlur={saveName}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault()
+                e.currentTarget.blur()
+              }
+            }}
+            className="input mt-1.5 max-w-sm"
+            placeholder="Enter your name"
+            maxLength={24}
+          />
+        </label>
       </div>
 
       <div className="flex flex-col gap-2.5">

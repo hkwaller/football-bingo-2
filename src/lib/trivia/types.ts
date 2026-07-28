@@ -142,4 +142,8 @@ export interface TriviaPlayerAnswer {
   correct: boolean
   pointsEarned: number
   answerValue: string
+  // Which question this answer belongs to. Optional because solo play
+  // (sessionEngine) doesn't need it; multiplayer always sets it so the host
+  // can authoritatively tell who has answered the current question.
+  questionIndex?: number
 }
