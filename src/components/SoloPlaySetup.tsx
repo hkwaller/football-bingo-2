@@ -177,7 +177,8 @@ export function SoloPlaySetup() {
         transition={{ duration: 0.4 }}
       >
         <div>
-          <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
+          <span className="eyebrow">Bingo · Solo</span>
+          <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
             Team talk
           </h1>
           <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">

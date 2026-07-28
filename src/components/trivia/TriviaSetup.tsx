@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ListChecks, Heart, Timer, Target, type LucideIcon } from 'lucide-react'
 import type {
   TriviaConfig,
@@ -26,17 +26,12 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' as const } },
 }
 
-/** Reveal used by the conditional (session-dependent) panels so they ease in
- *  instead of snapping the layout under the user's thumb. */
+/** Entrance for the conditional (session-dependent) panels so they ease in when
+ *  a session type reveals them. Entrance-only and unmount-on-hide: no exit
+ *  animation, so a fast session switch can never leave a stale panel behind. */
 const revealVariants = {
-  hidden: { opacity: 0, y: -8, height: 0, marginTop: 0 },
-  show: {
-    opacity: 1,
-    y: 0,
-    height: 'auto',
-    transition: { duration: 0.28, ease: 'easeOut' as const },
-  },
-  exit: { opacity: 0, y: -8, height: 0, marginTop: 0, transition: { duration: 0.2 } },
+  hidden: { opacity: 0, y: -8 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.28, ease: 'easeOut' as const } },
 }
 
 /** Per-mode accent so each game reads as its own thing, selected or not. */
@@ -209,12 +204,16 @@ export function TriviaSetup() {
   const isSolo = modeParam === 'solo'
   const isMultiplayer = modeParam === 'multiplayer'
 
-  // Start from the SSR-safe default so the first paint matches the server and
-  // the screen never flashes an empty green stage; reconcile stored prefs on mount.
   const [config, setConfig] = useState<TriviaConfig>(DEFAULT_TRIVIA_CONFIG)
+  const [hydrated, setHydrated] = useState(false)
 
+  // Config lives in localStorage, and this whole subtree is a client-only
+  // Suspense boundary (useSearchParams). Rendering it on the server would strand
+  // an orphaned copy in the stream, so gate on the client mount like the other
+  // setup screens do, then reconcile stored prefs.
   useEffect(() => {
     setConfig(loadTriviaConfig())
+    setHydrated(true)
   }, [])
 
   function update<K extends keyof TriviaConfig>(key: K, value: TriviaConfig[K]) {
@@ -296,6 +295,8 @@ export function TriviaSetup() {
   const showTimeLimit = config.sessionType === 'timed'
   const showCategory = config.sessionType === 'category'
 
+  if (!hydrated) return null
+
   return (
     <div className="mx-auto w-full max-w-[720px] px-6 py-8 md:px-9">
       <motion.div className="flex flex-col gap-[18px]">
@@ -335,81 +336,63 @@ export function TriviaSetup() {
         </motion.div>
 
         {/* ── Tuning (secondary, session-dependent) ──────────────── */}
-        <AnimatePresence initial={false}>
-          {showQuestionCount && (
-            <motion.div
-              key="questions"
-              variants={revealVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-            >
-              <div className="panel p-5">
-                <p className="eyebrow mb-3">How many questions?</p>
-                <NumberSelect
-                  options={[5, 10, 20]}
-                  value={config.questionCount}
-                  onChange={(v) => update('questionCount', v)}
-                />
-              </div>
-            </motion.div>
-          )}
+        {/* Entrance-only + unmount-on-hide: a fast session switch removes the
+            old panel immediately, so the wrong control can never linger. */}
+        {showQuestionCount && (
+          <motion.div key="questions" variants={revealVariants} initial="hidden" animate="show">
+            <div className="panel p-5">
+              <p className="eyebrow mb-3">How many questions?</p>
+              <NumberSelect
+                options={[5, 10, 20]}
+                value={config.questionCount}
+                onChange={(v) => update('questionCount', v)}
+              />
+            </div>
+          </motion.div>
+        )}
 
-          {showTimeLimit && (
-            <motion.div
-              key="time"
-              variants={revealVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-            >
-              <div className="panel p-5">
-                <p className="eyebrow mb-3">How long on the clock?</p>
-                <NumberSelect
-                  options={[60, 120, 180]}
-                  value={config.timeLimitSeconds}
-                  onChange={(v) => update('timeLimitSeconds', v)}
-                  suffix="s"
-                />
-              </div>
-            </motion.div>
-          )}
+        {showTimeLimit && (
+          <motion.div key="time" variants={revealVariants} initial="hidden" animate="show">
+            <div className="panel p-5">
+              <p className="eyebrow mb-3">How long on the clock?</p>
+              <NumberSelect
+                options={[60, 120, 180]}
+                value={config.timeLimitSeconds}
+                onChange={(v) => update('timeLimitSeconds', v)}
+                suffix="s"
+              />
+            </div>
+          </motion.div>
+        )}
 
-          {showCategory && (
-            <motion.div
-              key="category"
-              variants={revealVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-            >
-              <div className="panel p-5">
-                <p className="eyebrow mb-3">Pick your topic</p>
-                <div role="radiogroup" aria-label="Topic" className="grid grid-cols-2 gap-2">
-                  {CATEGORY_OPTIONS.map((opt) => {
-                    const active = config.category === opt.value
-                    return (
-                      <button
-                        key={opt.value}
-                        type="button"
-                        role="radio"
-                        aria-checked={active}
-                        onClick={() => update('category', opt.value)}
-                        className={`rounded-[12px] px-4 py-2.5 text-center font-display text-base font-black uppercase leading-none transition-all duration-200 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
-                          active
-                            ? 'bg-green-go text-white shadow-[0_4px_0_rgba(0,0,0,0.22)]'
-                            : 'bg-card-tint text-card-muted hover:-translate-y-0.5 hover:text-card-ink'
-                        }`}
-                      >
-                        {opt.label}
-                      </button>
-                    )
-                  })}
-                </div>
+        {showCategory && (
+          <motion.div key="category" variants={revealVariants} initial="hidden" animate="show">
+            <div className="panel p-5">
+              <p className="eyebrow mb-3">Pick your topic</p>
+              <div role="radiogroup" aria-label="Topic" className="grid grid-cols-2 gap-2">
+                {CATEGORY_OPTIONS.map((opt) => {
+                  const active = config.category === opt.value
+                  return (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      onClick={() => update('category', opt.value)}
+                      className={`rounded-[12px] px-4 py-2.5 text-center font-display text-base font-black uppercase leading-none transition-all duration-200 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                        active
+                          ? 'bg-green-go text-white shadow-[0_4px_0_rgba(0,0,0,0.22)]'
+                          : 'bg-card-tint text-card-muted hover:-translate-y-0.5 hover:text-card-ink'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  )
+                })}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
 
         {/* Difficulty */}
         <SecondaryPanel title="Difficulty">
