@@ -197,29 +197,46 @@ export function SoloPlaySetup() {
         initial="hidden"
         animate="show"
       >
-        {/* Grid size */}
-        <motion.div variants={itemVariants} className="panel p-6">
-          <p className="eyebrow mb-3">Grid size</p>
-          <div className="flex flex-wrap gap-3">
-            {([3, 4, 5] as const).map((n) => {
+        {/* ── HERO: choose your board ────────────────────────────── */}
+        <motion.div variants={itemVariants}>
+          <span className="eyebrow eyebrow-yellow">Choose your board</span>
+          <p className="mt-2 max-w-[460px] text-[14px] font-semibold leading-snug text-on-green-soft">
+            Bigger board, bigger brag. How many squares are you backing yourself to fill?
+          </p>
+          <div
+            role="radiogroup"
+            aria-label="Board size"
+            className="mt-4 grid grid-cols-3 gap-3"
+          >
+            {([3, 4, 5] as const).map((n, i) => {
               const active = boardConfig.size === n
+              const tilt = [-1.5, 1, -1][i]
               return (
                 <motion.button
                   key={n}
                   type="button"
+                  role="radio"
+                  aria-checked={active}
                   onClick={() => setBoardConfig((c) => ({ ...c, size: n }))}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  style={active ? { transform: 'rotate(-1.5deg)' } : undefined}
-                  className={`flex flex-col items-center gap-2.5 rounded-[14px] px-7 py-4 font-display text-xl font-black uppercase transition-all duration-200 ${
+                  style={{ transform: `rotate(${active ? tilt : tilt * 0.4}deg)` }}
+                  className={`flex flex-col items-center gap-2.5 rounded-[18px] border-[3px] px-4 py-5 font-display font-black uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pitch ${
                     active
-                      ? 'bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.22)]'
-                      : 'bg-card-tint text-card-muted hover:text-card-ink'
+                      ? 'border-black/10 bg-green-go text-white shadow-[0_7px_0_rgba(0,0,0,0.28)]'
+                      : 'border-card-ink/10 bg-white text-card-ink shadow-[0_5px_0_rgba(0,0,0,0.18)] hover:shadow-[0_7px_0_rgba(0,0,0,0.22)]'
                   }`}
                 >
                   <GridDots size={n} />
-                  <span>
+                  <span className="text-xl leading-none">
                     {n}×{n}
+                  </span>
+                  <span
+                    className={`rounded-md px-2 py-0.5 font-mono text-[11px] font-bold leading-none ${
+                      active ? 'bg-black/15 text-white' : 'bg-card-tint text-card-muted'
+                    }`}
+                  >
+                    {n * n} squares
                   </span>
                 </motion.button>
               )
@@ -248,8 +265,9 @@ export function SoloPlaySetup() {
                 <button
                   key={k}
                   type="button"
+                  aria-pressed={active}
                   onClick={() => toggleKind(k)}
-                  className={`inline-flex items-center gap-2 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
+                  className={`inline-flex items-center gap-2 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
                     active
                       ? `${onClass} shadow-[0_3px_0_rgba(0,0,0,0.2)]`
                       : 'bg-card-tint text-card-muted hover:text-card-ink'
