@@ -376,11 +376,11 @@ function ModeCard({
       </p>
       <p className="mt-2 text-[14.5px] font-semibold leading-relaxed text-card-muted">{blurb}</p>
       <div className="mt-[18px] flex gap-3">
-        <Link href={soloHref} className="btn btn-primary flex-1">
-          Solo
-        </Link>
-        <Link href={multiHref} className="btn btn-outline flex-1">
+        <Link href={multiHref} className="btn btn-primary flex-1">
           Multiplayer
+        </Link>
+        <Link href={soloHref} className="btn btn-outline flex-1">
+          Solo
         </Link>
       </div>
     </motion.div>
