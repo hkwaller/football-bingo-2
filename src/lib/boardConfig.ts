@@ -19,6 +19,8 @@ export type BoardConfig = {
   categoryKinds: BoardCategoryKinds
   /** Only players with fameScore >= this are eligible to be drawn. 0 = no filter. */
   minFameScore: number
+  /** When true, the centre cell is a pre-solved free square. */
+  freeSquare: boolean
 }
 
 /** Fame scores in the dataset run ~0.7–90. */
@@ -34,6 +36,7 @@ export const DEFAULT_BOARD_CONFIG: BoardConfig = {
     managers: true,
   },
   minFameScore: 0,
+  freeSquare: true,
 }
 
 function clampFameScore(raw: unknown): number {
@@ -51,6 +54,7 @@ export type StorageBoardFields = {
   categoryTraits: boolean
   categoryManagers: boolean
   minFameScore?: number
+  freeSquare?: boolean
 }
 
 export function boardConfigFromStorageFields(f: StorageBoardFields): BoardConfig {
@@ -64,6 +68,7 @@ export function boardConfigFromStorageFields(f: StorageBoardFields): BoardConfig
       managers: f.categoryManagers,
     },
     minFameScore: clampFameScore(f.minFameScore),
+    freeSquare: f.freeSquare !== false,
   }
 }
 
@@ -95,7 +100,7 @@ export function cellCountForConfig(config: BoardConfig): number {
 }
 
 export function categoriesRequired(config: BoardConfig): number {
-  return cellCountForConfig(config) - 1
+  return cellCountForConfig(config) - (config.freeSquare ? 1 : 0)
 }
 
 export function isBoardConfigViable(config: BoardConfig): boolean {
@@ -123,6 +128,7 @@ export function parseBoardConfig(raw: unknown): BoardConfig | null {
     size: o.size,
     categoryKinds: { nationalities, clubs, achievements, traits, managers },
     minFameScore: clampFameScore(o.minFameScore),
+    freeSquare: o.freeSquare !== false,
   }
 }
 
@@ -131,5 +137,6 @@ export function boardConfigPayload(c: BoardConfig) {
     size: c.size,
     categoryKinds: { ...c.categoryKinds },
     minFameScore: c.minFameScore,
+    freeSquare: c.freeSquare,
   }
 }

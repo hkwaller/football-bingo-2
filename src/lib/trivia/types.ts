@@ -7,10 +7,21 @@ export type TriviaSessionType = 'survival' | 'fixed' | 'timed' | 'category'
 export type TriviaCategory = 'all' | 'clubs' | 'stats' | 'achievements' | 'nationalities'
 export type TriviaMultiplayerMechanic = 'race' | 'simultaneous' | 'turn-based'
 
+/** The topics that can be ticked in setup (the concrete categories, minus 'all'). */
+export type TriviaTopic = Exclude<TriviaCategory, 'all'>
+export const TRIVIA_TOPICS: TriviaTopic[] = ['clubs', 'stats', 'achievements', 'nationalities']
+
 export interface TriviaConfig {
   sessionType: TriviaSessionType
   difficulty: TriviaDifficulty
   category: TriviaCategory
+  /**
+   * Topics ticked in setup. The setup UI is the source of truth here and keeps
+   * `category` in sync for the question generator: all ticked → 'all', exactly
+   * one → that topic, a subset → 'all' (the generator can't filter to a subset).
+   * Optional so older stored configs and multiplayer storage stay valid.
+   */
+  topics?: TriviaTopic[]
   questionCount: number // 5 | 10 | 20 - for 'fixed' and 'category'
   timeLimitSeconds: number // 60 | 120 | 180 - for 'timed'
   multiplayerMechanic: TriviaMultiplayerMechanic
@@ -20,9 +31,16 @@ export const DEFAULT_TRIVIA_CONFIG: TriviaConfig = {
   sessionType: 'fixed',
   difficulty: 'medium',
   category: 'all',
+  topics: [...TRIVIA_TOPICS],
   questionCount: 10,
   timeLimitSeconds: 60,
   multiplayerMechanic: 'simultaneous',
+}
+
+/** Derive the single `category` the engine understands from the ticked topics. */
+export function triviaCategoryFromTopics(topics: TriviaTopic[]): TriviaCategory {
+  if (topics.length === 1) return topics[0]
+  return 'all'
 }
 
 // ── Questions ─────────────────────────────────────────────────────────────────

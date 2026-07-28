@@ -3,50 +3,76 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { Grid3x3, LayoutGrid, Grid2x2 } from 'lucide-react'
 import type { BoardConfig } from '@/lib/boardConfig'
 import {
-  categoryPoolForConfig,
   categoriesRequired,
+  categoryPoolForConfig,
   DEFAULT_BOARD_CONFIG,
   isBoardConfigViable,
   MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
+import { achievements, clubs, managers, nationalities, traits } from '@/data/categories'
 import { enrichedFootballPlayers } from '@/data/players'
 import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { randomUUID } from '@/lib/randomUUID'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
 import type { PlayMode } from '@/lib/playMode'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { AdsterraBanner } from '@/components/AdsterraBanner'
+import { SetupPageFrame, SetupHeader, TacticsBoard } from '@/components/setup/SetupScaffold'
+import { PresetPills, type Preset } from '@/components/setup/PresetPills'
+import { MarqueeRow, type MarqueeItem } from '@/components/setup/MarqueeRow'
+import { DotGridDecoration } from '@/components/setup/MarqueeCard'
+import { TopicPicker, type TopicItem } from '@/components/setup/TopicPicker'
+import { KickoffBar } from '@/components/setup/KickoffBar'
+import { ControlLabel } from '@/components/setup/primitives'
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.07,
-    },
+type KindKey = keyof BoardConfig['categoryKinds']
+const KINDS: Array<{ key: KindKey; label: string; pool: readonly string[] }> = [
+  { key: 'nationalities', label: 'Nations', pool: nationalities },
+  { key: 'clubs', label: 'Clubs', pool: clubs },
+  { key: 'achievements', label: 'Honours', pool: achievements },
+  { key: 'traits', label: 'Traits', pool: traits },
+  { key: 'managers', label: 'Managers', pool: managers },
+]
+const TOTAL_KINDS = KINDS.length
+
+const GRID_ITEMS: MarqueeItem[] = [
+  {
+    id: '3',
+    icon: Grid3x3,
+    accent: 'sky',
+    title: '3×3 · Classic',
+    blurb: 'Nine squares, eight clues. A quick game with room to breathe.',
+    renderDecoration: (s) => <DotGridDecoration size={3} selected={s} />,
   },
-} as const
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: 'easeOut' as const },
+  {
+    id: '4',
+    icon: LayoutGrid,
+    accent: 'sky',
+    title: '4×4',
+    blurb: 'Sixteen squares. The sweet spot.',
+    renderDecoration: (s) => <DotGridDecoration size={4} selected={s} />,
   },
-}
+  {
+    id: '5',
+    icon: Grid2x2,
+    accent: 'pink',
+    title: '5×5',
+    blurb: 'Twenty-five squares. The long haul.',
+    renderDecoration: (s) => <DotGridDecoration size={5} selected={s} />,
+  },
+]
 
-function GridDots({ size }: { size: 3 | 4 | 5 }) {
-  return (
-    <div className="grid gap-[3px]" style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}>
-      {Array.from({ length: size * size }).map((_, i) => (
-        <div key={i} className="size-[5px] rounded-full bg-current opacity-70" />
-      ))}
-    </div>
-  )
+type PresetDef = Preset & {
+  size: 3 | 4 | 5
+  minFameScore: number
+  draftPolicy: DraftPolicy
 }
+const PRESETS: PresetDef[] = [
+  { id: 'classic', emoji: '⚽', label: 'Classic', size: 3, minFameScore: 42, draftPolicy: 'open' },
+  { id: 'legends', emoji: '👑', label: 'Legends Only', size: 4, minFameScore: 70, draftPolicy: 'open' },
+  { id: 'fullhouse', emoji: '🏟', label: 'Full House', size: 5, minFameScore: 0, draftPolicy: 'open' },
+]
 
 export function SoloPlaySetup() {
   const router = useRouter()
@@ -69,44 +95,11 @@ export function SoloPlaySetup() {
     setHydrated(true)
   }, [])
 
-  // Pills sampling players crossing the eligibility threshold as you drag.
-  // Each floats up and fades on its own lifetime, so several stay readable.
-  const [famePills, setFamePills] = useState<
-    { key: number; name: string; direction: 'added' | 'removed'; percent: number }[]
-  >([])
-  const flashKey = useRef(0)
-  // Only sample once the threshold has moved this many steps since the last pill.
-  const EMIT_STEP = 4
-  const lastEmit = useRef(boardConfig.minFameScore ?? 0)
-
-  const sampleThresholdPlayer = (next: number) => {
-    const from = lastEmit.current
-    if (Math.abs(next - from) < EMIT_STEP) return
-    const direction: 'added' | 'removed' = next > from ? 'removed' : 'added'
-    // Band of players whose eligibility flips between the last pill and now.
-    const lo = Math.min(from, next)
-    const hi = Math.max(from, next)
-    const band = enrichedFootballPlayers.filter((p) => {
-      const s = p.fameScore ?? 0
-      return s >= lo && s < hi
-    })
-    lastEmit.current = next
-    if (band.length === 0) return
-    const pick = band[Math.floor(Math.random() * band.length)]
-    flashKey.current += 1
-    const key = flashKey.current
-    setFamePills((prev) =>
-      [...prev, { key, name: pick.name, direction, percent: (next / MAX_FAME_SCORE) * 100 }].slice(
-        -5,
-      ),
-    )
-  }
-
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
   const configOk = isBoardConfigViable(boardConfig)
-
   const minFameScore = boardConfig.minFameScore ?? 0
+
   const eligiblePlayerCount = useMemo(
     () =>
       minFameScore <= 0
@@ -115,10 +108,66 @@ export function SoloPlaySetup() {
     [minFameScore],
   )
 
+  const activeKinds = KINDS.filter((k) => boardConfig.categoryKinds[k.key])
+  const selectedKinds = useMemo(
+    () => new Set<string>(activeKinds.map((k) => k.key)),
+    [activeKinds],
+  )
+
+  const activePreset = useMemo(() => {
+    const allKindsOn = activeKinds.length === TOTAL_KINDS
+    if (!allKindsOn) return null
+    return (
+      PRESETS.find(
+        (p) =>
+          p.size === boardConfig.size &&
+          p.minFameScore === minFameScore &&
+          p.draftPolicy === draftPolicy,
+      )?.id ?? null
+    )
+  }, [boardConfig.size, minFameScore, draftPolicy, activeKinds.length])
+
+  function applyPreset(id: string) {
+    const p = PRESETS.find((x) => x.id === id)
+    if (!p) return
+    setBoardConfig((c) => ({
+      ...c,
+      size: p.size,
+      minFameScore: p.minFameScore,
+      categoryKinds: {
+        nationalities: true,
+        clubs: true,
+        achievements: true,
+        traits: true,
+        managers: true,
+      },
+    }))
+    setDraftPolicy(p.draftPolicy)
+  }
+
+  const toggleKind = (id: string) => {
+    const key = id as KindKey
+    setBoardConfig((c) => ({
+      ...c,
+      categoryKinds: { ...c.categoryKinds, [key]: !c.categoryKinds[key] },
+    }))
+  }
+  const setAllKinds = (on: boolean) =>
+    setBoardConfig((c) => ({
+      ...c,
+      categoryKinds: {
+        nationalities: on,
+        clubs: on,
+        achievements: on,
+        traits: on,
+        managers: on,
+      },
+    }))
+
   const persistAndPlay = () => {
+    if (!configOk || launching) return
     const prev = loadSolo()
     const playMode: PlayMode = prev?.playMode === 'free' ? 'free' : 'draft'
-
     saveSolo({
       seed: randomUUID(),
       solved: {},
@@ -132,321 +181,235 @@ export function SoloPlaySetup() {
     router.push('/play')
   }
 
-  const toggleKind = (key: keyof BoardConfig['categoryKinds']) => {
-    const next = {
-      ...boardConfig,
-      categoryKinds: {
-        ...boardConfig.categoryKinds,
-        [key]: !boardConfig.categoryKinds[key],
-      },
-    }
-    if (!isBoardConfigViable(next)) return
-    setBoardConfig(next)
-  }
-
   if (!hydrated) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
-        <motion.div
-          className="flex items-center gap-3 text-sm font-semibold text-on-green-dim"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
+        <span className="flex items-center gap-3 text-sm font-semibold text-on-green-dim">
           <span className="inline-block size-2 animate-pulse rounded-full bg-yellow" />
           Loading config…
-        </motion.div>
+        </span>
       </div>
     )
   }
 
-  const CATEGORIES = [
-    ['nationalities', 'Nations', 'bg-sky text-pitch-deep'],
-    ['clubs', 'Clubs', 'bg-green-go text-white'],
-    ['achievements', 'Honours', 'bg-yellow text-pitch-deep'],
-    ['traits', 'Traits', 'bg-card-ink text-white'],
-    ['managers', 'Managers', 'bg-pink text-white'],
-  ] as const
+  const topicItems: TopicItem[] = KINDS.map((k) => ({
+    id: k.key,
+    label: k.label,
+    count: `${k.pool.length} clues`,
+  }))
 
-  return (
-    <div className="mx-auto flex max-w-[760px] flex-col gap-[18px] px-6 py-8 md:px-9">
-      {/* Header */}
-      <motion.div
-        className="flex flex-wrap items-end justify-between gap-4"
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <div>
-          <span className="eyebrow">Bingo · Solo</span>
-          <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
-            Team talk
-          </h1>
-          <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
-            Set your tactics. Every save kicks off a fresh game with a new board.
-          </p>
+  let topicSummary: string
+  if (activeKinds.length === 0) topicSummary = 'Pick at least one kind'
+  else if (activeKinds.length === TOTAL_KINDS)
+    topicSummary = `A varied board — ${activeKinds.length} of ${TOTAL_KINDS} kinds, ${poolCount} clues in the pool`
+  else if (activeKinds.length === 1)
+    topicSummary = `A themed board — ${activeKinds[0].label} only, ${poolCount} clues in the pool`
+  else
+    topicSummary = `${activeKinds.length} of ${TOTAL_KINDS} kinds, ${poolCount} clues in the pool`
+
+  // ── Column 1: star quality + clues needed ────────────────────────────────
+  const fillPct = (minFameScore / MAX_FAME_SCORE) * 100
+  const col1 = (
+    <>
+      <div>
+        <div className="flex items-baseline justify-between gap-3">
+          <ControlLabel>Star quality</ControlLabel>
+          <span
+            className={`font-mono text-[11px] font-bold ${eligiblePlayerCount === 0 ? 'text-live-red' : 'text-card-muted-2'}`}
+          >
+            {eligiblePlayerCount} players in play
+          </span>
         </div>
-        <Link href="/play" className="btn btn-outline-light">
-          ← Back to game
-        </Link>
-      </motion.div>
+        <p className="mt-2 text-[12.5px] font-semibold leading-snug text-card-muted">
+          Drag right to keep the journeymen out. Only players at or above this fame score get drawn.
+        </p>
+        <input
+          type="range"
+          min={0}
+          max={MAX_FAME_SCORE}
+          step={1}
+          value={minFameScore}
+          onChange={(e) => setBoardConfig((c) => ({ ...c, minFameScore: Number(e.target.value) }))}
+          aria-label="Minimum fame score"
+          className="mt-4 h-2 w-full cursor-pointer appearance-none rounded-full accent-green-go"
+          style={{
+            background: `linear-gradient(90deg, var(--green-go) ${fillPct}%, var(--card-tint) ${fillPct}%)`,
+          }}
+        />
+        <div className="mt-2 flex items-center justify-between font-mono text-[13px] font-bold text-card-ink">
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.06em] text-card-muted-2">
+            Anyone
+          </span>
+          <span>{minFameScore === 0 ? 'Anyone' : `≥ ${minFameScore}`}</span>
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.06em] text-card-muted-2">
+            Legends only
+          </span>
+        </div>
+      </div>
 
-      {/* Sections */}
-      <motion.div
-        className="flex flex-col gap-[18px]"
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-      >
-        {/* ── HERO: choose your board ────────────────────────────── */}
-        <motion.div variants={itemVariants}>
-          <span className="eyebrow eyebrow-yellow">Choose your board</span>
-          <p className="mt-2 max-w-[460px] text-[14px] font-semibold leading-snug text-on-green-soft">
-            Bigger board, bigger brag. How many squares are you backing yourself to fill?
-          </p>
-          <div
-            role="radiogroup"
-            aria-label="Board size"
-            className="mt-4 grid grid-cols-3 gap-3"
-          >
-            {([3, 4, 5] as const).map((n, i) => {
-              const active = boardConfig.size === n
-              const tilt = [-1.5, 1, -1][i]
-              return (
-                <motion.button
-                  key={n}
-                  type="button"
-                  role="radio"
-                  aria-checked={active}
-                  onClick={() => setBoardConfig((c) => ({ ...c, size: n }))}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  style={{ transform: `rotate(${active ? tilt : tilt * 0.4}deg)` }}
-                  className={`flex flex-col items-center gap-2.5 rounded-[18px] border-[3px] px-4 py-5 font-display font-black uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-pitch ${
-                    active
-                      ? 'border-black/10 bg-green-go text-white shadow-[0_7px_0_rgba(0,0,0,0.28)]'
-                      : 'border-card-ink/10 bg-white text-card-ink shadow-[0_5px_0_rgba(0,0,0,0.18)] hover:shadow-[0_7px_0_rgba(0,0,0,0.22)]'
-                  }`}
-                >
-                  <GridDots size={n} />
-                  <span className="text-xl leading-none">
-                    {n}×{n}
-                  </span>
-                  <span
-                    className={`rounded-md px-2 py-0.5 font-mono text-[11px] font-bold leading-none ${
-                      active ? 'bg-black/15 text-white' : 'bg-card-tint text-card-muted'
-                    }`}
-                  >
-                    {n * n} squares
-                  </span>
-                </motion.button>
-              )
-            })}
-          </div>
-        </motion.div>
-
-        {/* Categories */}
-        <motion.div variants={itemVariants} className="panel p-6">
-          <div className="mb-3 flex items-baseline justify-between gap-3">
-            <p className="eyebrow">Categories</p>
-            <motion.span
-              key={poolCount}
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className={`font-mono text-xs font-bold ${configOk ? 'text-card-muted' : 'text-pink'}`}
-            >
-              {poolCount} in pool · {needCount} needed {configOk ? '✓' : '✗'}
-            </motion.span>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5">
-            {CATEGORIES.map(([k, label, onClass]) => {
-              const active = boardConfig.categoryKinds[k]
-              return (
-                <button
-                  key={k}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => toggleKind(k)}
-                  className={`inline-flex items-center gap-2 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
-                    active
-                      ? `${onClass} shadow-[0_3px_0_rgba(0,0,0,0.2)]`
-                      : 'bg-card-tint text-card-muted hover:text-card-ink'
-                  }`}
-                >
-                  {active ? '✓ ' : ''}
-                  {label}
-                </button>
-              )
-            })}
-          </div>
-
-          <AnimatePresence>
-            {!configOk && (
-              <motion.p
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mt-3 text-xs font-bold text-pink"
-              >
-                Turn on more categories - need at least {needCount} clues for a {boardConfig.size}×
-                {boardConfig.size} grid.
-              </motion.p>
-            )}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* Star quality */}
-        <motion.div variants={itemVariants} className="panel p-6">
-          <div className="mb-3 flex items-baseline justify-between gap-3">
-            <p className="eyebrow">Star quality</p>
-            <motion.span
-              key={eligiblePlayerCount}
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className={`font-mono text-xs font-bold ${
-                eligiblePlayerCount === 0 ? 'text-pink' : 'text-card-muted'
-              }`}
-            >
-              {eligiblePlayerCount} players in play
-            </motion.span>
-          </div>
-          <p className="mb-4 text-[13.5px] font-semibold text-card-muted">
-            Drag right to keep the journeymen out. Only players at or above this fame score get
-            drawn.
-          </p>
-          <div className="relative">
-            {/* Sampled-player pills floating up from the slider line */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-full h-0">
-              <AnimatePresence>
-                {famePills.map((pill) => (
-                  <motion.div
-                    key={pill.key}
-                    initial={{ opacity: 0, y: 8, scale: 0.8 }}
-                    animate={{
-                      opacity: [0, 1, 0],
-                      y: [8, -8, -60],
-                      scale: [0.8, 1, 0.95],
-                    }}
-                    exit={{ opacity: 0 }}
-                    transition={{
-                      duration: 1,
-                      ease: 'easeOut',
-                    }}
-                    onAnimationComplete={() =>
-                      setFamePills((prev) => prev.filter((p) => p.key !== pill.key))
-                    }
-                    style={{
-                      left: `clamp(14%, ${pill.percent}%, 86%)`,
-                      transform: 'translateX(-50%)',
-                    }}
-                    className={`absolute bottom-0 flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-extrabold shadow-[0_3px_0_rgba(0,0,0,0.2)] ${
-                      pill.direction === 'added' ? 'bg-green-go text-white' : 'bg-pink text-white'
-                    }`}
-                  >
-                    <span className="text-[13px] leading-none">
-                      {pill.direction === 'added' ? '+' : '−'}
-                    </span>
-                    {pill.name}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-            <input
-              type="range"
-              min={0}
-              max={MAX_FAME_SCORE}
-              step={1}
-              value={minFameScore}
-              onChange={(e) => {
-                const next = Number(e.target.value)
-                sampleThresholdPlayer(next)
-                setBoardConfig((c) => ({ ...c, minFameScore: next }))
-              }}
-              aria-label="Minimum fame score"
-              className="h-2 w-full cursor-pointer appearance-none rounded-full bg-card-tint accent-green-go"
-            />
-          </div>
-          <div className="mt-2 flex items-center justify-between text-[12px] font-extrabold uppercase tracking-[0.06em] text-card-muted-2">
-            <span>Anyone</span>
-            <span className="font-mono text-sm font-bold text-card-ink">
-              {minFameScore === 0 ? 'Off' : `≥ ${minFameScore}`}
-            </span>
-            <span>Legends only</span>
-          </div>
-        </motion.div>
-
-        {/* Draft rule */}
-        <motion.div variants={itemVariants} className="panel p-6">
-          <p className="eyebrow mb-3">Draft rule</p>
-          <RadioGroup
-            value={draftPolicy}
-            onValueChange={(v) => setDraftPolicy(v as DraftPolicy)}
-            className="grid gap-3 sm:grid-cols-2"
-          >
-            {(['open', 'placeable'] as const).map((p) => {
-              const active = draftPolicy === p
-              return (
-                <label
-                  key={p}
-                  className={`flex cursor-pointer items-start gap-3 rounded-[14px] p-4 transition-all duration-200 ${
-                    active
-                      ? 'border-[3px] border-card-ink bg-card-tint'
-                      : 'border-[3px] border-transparent bg-card-tint/50 hover:bg-card-tint'
-                  }`}
-                >
-                  <RadioGroupItem value={p} className="mt-1 shrink-0" />
-                  <div>
-                    <p
-                      className={`font-display text-lg font-black uppercase ${active ? 'text-card-ink' : 'text-card-muted'}`}
-                    >
-                      {DRAFT_POLICY_LABEL[p]}
-                    </p>
-                    <p className="mt-1 text-[12.5px] font-semibold leading-relaxed text-card-muted">
-                      {DRAFT_POLICY_HELP[p]}
-                    </p>
-                  </div>
-                </label>
-              )
-            })}
-          </RadioGroup>
-        </motion.div>
-
-        {/* Footer actions */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap items-center justify-between gap-4"
+      <div>
+        <ControlLabel className="mb-2">Clues needed</ControlLabel>
+        <div
+          className={`flex items-center justify-between rounded-[12px] px-[14px] py-[11px] ${configOk ? 'bg-card-tint' : 'bg-live-red/10'}`}
         >
-          {/* <button
-            type="button"
-            onClick={() => setLineHighlight((v) => !v)}
-            className="inline-flex items-center gap-2.5 text-[13.5px] font-bold text-white"
+          <span className="font-sans text-[11.5px] font-extrabold uppercase tracking-[0.12em] text-card-muted-2">
+            {needCount} of {poolCount}
+          </span>
+          <span
+            className={`font-display text-[18px] font-black leading-none ${configOk ? 'text-green-go' : 'text-live-red'}`}
+          >
+            {configOk ? '✓' : 'Too few'}
+          </span>
+        </div>
+        {!configOk && (
+          <p className="mt-2 text-[12px] font-bold text-live-red">
+            Turn on more kinds — need {needCount} clues for a {boardConfig.size}×{boardConfig.size}{' '}
+            board.
+          </p>
+        )}
+      </div>
+    </>
+  )
+
+  // ── Column 2: draft rule + free square ───────────────────────────────────
+  const col2 = (
+    <>
+      <div>
+        <ControlLabel className="mb-3">Draft rule</ControlLabel>
+        <div className="flex flex-col gap-2" role="radiogroup" aria-label="Draft rule">
+          {(['open', 'placeable'] as const).map((p) => {
+            const active = draftPolicy === p
+            return (
+              <button
+                key={p}
+                type="button"
+                role="radio"
+                aria-checked={active}
+                onClick={() => setDraftPolicy(p)}
+                className={`flex items-start gap-3 rounded-[14px] px-[13px] py-3 text-left transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                  active
+                    ? 'bg-card-tint shadow-[inset_0_0_0_3px_var(--card-ink)]'
+                    : 'bg-card-tint/50 hover:-translate-y-px hover:bg-card-tint'
+                }`}
+              >
+                <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 border-card-ink">
+                  {active && <span className="h-[9px] w-[9px] rounded-full bg-pink" />}
+                </span>
+                <span className="min-w-0">
+                  <span
+                    className={`block font-display text-[17px] font-black uppercase leading-none ${active ? 'text-card-ink' : 'text-card-muted'}`}
+                  >
+                    {DRAFT_POLICY_LABEL[p]}
+                  </span>
+                  <span className="mt-1 block text-[11.5px] font-semibold leading-snug text-card-muted">
+                    {DRAFT_POLICY_HELP[p]}
+                  </span>
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      </div>
+      <div className="mt-auto">
+        <ControlLabel className="mb-3">Free square</ControlLabel>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={boardConfig.freeSquare}
+          onClick={() =>
+            setBoardConfig((c) => ({ ...c, freeSquare: !c.freeSquare }))
+          }
+          className="flex w-full items-center gap-3 rounded-[14px] bg-card-tint px-[13px] py-3 text-left transition-all duration-150 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+        >
+          <span
+            className={`relative flex h-[22px] w-[38px] shrink-0 items-center rounded-full px-[3px] transition-colors ${
+              boardConfig.freeSquare ? 'bg-pink' : 'bg-card-ink/25'
+            }`}
           >
             <span
-              className={`relative inline-block h-[24px] w-11 rounded-full transition-colors ${
-                lineHighlight ? 'bg-yellow' : 'bg-black/25'
+              className={`h-4 w-4 rounded-full bg-white shadow transition-transform ${
+                boardConfig.freeSquare ? 'translate-x-[16px]' : 'translate-x-0'
               }`}
-            >
-              <span
-                className={`absolute top-[3px] h-[18px] w-[18px] rounded-full transition-all ${
-                  lineHighlight ? 'right-[3px] bg-pitch-deep' : 'left-[3px] bg-white'
-                }`}
-              />
+            />
+          </span>
+          <span className="min-w-0">
+            <span className="block font-display text-[17px] font-black uppercase leading-none text-card-ink">
+              {boardConfig.freeSquare ? 'Centre ★ free' : 'No free square'}
             </span>
-            Highlight my best line
-          </button> */}
-          <motion.button
-            type="button"
-            disabled={!configOk || launching}
-            onClick={persistAndPlay}
-            whileTap={configOk ? { scale: 0.98 } : {}}
-            className="btn btn-primary btn-lg w-full"
-          >
-            {launching ? 'Launching…' : 'Save & kick off ⚽'}
-          </motion.button>
-        </motion.div>
-      </motion.div>
+            <span className="mt-1 block text-[11.5px] font-semibold leading-snug text-card-muted">
+              {boardConfig.freeSquare
+                ? 'Centre square starts solved as a head start.'
+                : 'Every square must be earned — a tougher board.'}
+            </span>
+          </span>
+        </button>
+      </div>
+    </>
+  )
 
-      <AdsterraBanner />
-    </div>
+  const topicsPanel = (
+    <TopicPicker
+      label="Category kinds in play"
+      helper="Tick everything for a varied board, or leave one on for a themed one."
+      items={topicItems}
+      selected={selectedKinds}
+      onToggle={toggleKind}
+      onAll={() => setAllKinds(true)}
+      onNone={() => setAllKinds(false)}
+      summary={topicSummary}
+      invalid={activeKinds.length === 0}
+    />
+  )
+
+  const starValue = minFameScore === 0 ? 'Anyone' : `≥ ${minFameScore} · ${eligiblePlayerCount} in`
+  const fields = [
+    { label: 'Board', value: `${boardConfig.size}×${boardConfig.size} · ${needCount} clues` },
+    { label: 'Star quality', value: starValue },
+    { label: 'Draft', value: DRAFT_POLICY_LABEL[draftPolicy] },
+    { label: 'Kinds', value: `${activeKinds.length} of ${TOTAL_KINDS}` },
+  ]
+
+  return (
+    <>
+      <SetupPageFrame>
+        <SetupHeader badge="Bingo · Solo" title="Team talk">
+          <PresetPills
+            presets={PRESETS}
+            activeId={activePreset}
+            onSelect={applyPreset}
+            trailing={
+              <Link
+                href="/play"
+                className="flex flex-none items-center gap-2 whitespace-nowrap rounded-full border-[3px] border-white/50 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white/10"
+              >
+                ← Back to game
+              </Link>
+            }
+          />
+        </SetupHeader>
+
+        <MarqueeRow
+          items={GRID_ITEMS}
+          selectedId={String(boardConfig.size)}
+          onSelect={(id) =>
+            setBoardConfig((c) => ({ ...c, size: Number(id) as 3 | 4 | 5 }))
+          }
+        />
+
+        <div className="mt-4">
+          <TacticsBoard col1={col1} col2={col2} topics={topicsPanel} />
+        </div>
+      </SetupPageFrame>
+
+      <KickoffBar
+        fields={fields}
+        mobilePrimary={`${boardConfig.size}×${boardConfig.size} · ${needCount} clues`}
+        mobileDetail={`${DRAFT_POLICY_LABEL[draftPolicy]} · ${activeKinds.length} of ${TOTAL_KINDS} kinds`}
+        hint="Saving starts a fresh board"
+        ctaLabel={launching ? 'Launching…' : 'Save & kick off'}
+        onCta={persistAndPlay}
+        disabled={!configOk || launching}
+      />
+    </>
   )
 }

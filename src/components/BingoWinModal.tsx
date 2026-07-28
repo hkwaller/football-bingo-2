@@ -168,7 +168,7 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                 className="mt-6 flex flex-col gap-3"
               >
                 <button type="button" onClick={onPlayAgain} className="btn btn-primary w-full">
-                  Run it back
+                  Play again
                 </button>
                 <Link href="/" className="btn btn-outline w-full">
                   Return home

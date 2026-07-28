@@ -2,6 +2,7 @@ import type { TenableGroup, TenableQuestion } from '@/data/tenable'
 
 export type TenableDifficultyFilter = 'easy' | 'medium' | 'hard' | 'mixed'
 export type TenableMultiplayerMechanic = 'turn-based'
+export type TenableAnswerOrder = 'any' | 'topdown'
 
 export interface TenableConfig {
   /** Wrong guesses allowed per category. */
@@ -11,6 +12,8 @@ export interface TenableConfig {
   /** Category groups to draw from; 'all' = no filter. */
   groups: TenableGroup[] | 'all'
   difficulty: TenableDifficultyFilter
+  /** Whether answers may be named in any order or must go top-down. */
+  answerOrder?: TenableAnswerOrder
   multiplayerMechanic: TenableMultiplayerMechanic
 }
 
@@ -19,6 +22,7 @@ export const DEFAULT_TENABLE_CONFIG: TenableConfig = {
   questionCount: 3,
   groups: 'all',
   difficulty: 'mixed',
+  answerOrder: 'any',
   multiplayerMechanic: 'turn-based',
 }
 

@@ -54,8 +54,9 @@ export function bingoLinesForConfig(
   return buildBingoLines(config.size)
 }
 
+/** Index of the free square, or -1 when the free square is disabled. */
 export function freeIndexForConfig(config: BoardConfig): number {
-  return freeSquareIndex(config.size)
+  return config.freeSquare ? freeSquareIndex(config.size) : -1
 }
 
 /** Legacy 5×5 lines; prefer bingoLinesForConfig */
@@ -77,7 +78,7 @@ export function generateBoard(
   const picked = shuffled.slice(0, need)
   const n = config.size
   const total = n * n
-  const freeAt = freeSquareIndex(n)
+  const freeAt = config.freeSquare ? freeSquareIndex(n) : -1
   const cells: BoardCell[] = []
   let p = 0
   for (let i = 0; i < total; i++) {
