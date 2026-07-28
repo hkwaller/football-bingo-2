@@ -82,7 +82,14 @@ export function HeroTrivia() {
           {/* Header: sticker + prompt */}
           <div className="flex items-center gap-4">
             <motion.div key={q!.name} className="w-[92px] shrink-0">
-              <Sticker name={q!.name} imageUrl={q!.imageUrl} rotate={-4} nameSize={11} drawn />
+              <Sticker
+                name={q!.name}
+                imageUrl={q!.imageUrl}
+                rotate={-4}
+                nameSize={11}
+                drawn
+                showName={false}
+              />
             </motion.div>
             <div>
               <p className="text-[12px] font-extrabold uppercase leading-none tracking-[0.14em] text-pink">
