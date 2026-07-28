@@ -65,7 +65,9 @@ export function TopicPicker({
             >
               <span
                 className={`flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-[7px] text-[13px] font-black leading-none ${
-                  active ? 'bg-black/20 text-white' : 'border-2 border-card-ink/[0.28] text-transparent'
+                  active
+                    ? 'bg-black/20 text-white'
+                    : 'border-2 border-card-ink/[0.28] text-transparent'
                 }`}
               >
                 ✓
@@ -86,7 +88,7 @@ export function TopicPicker({
       </div>
 
       {/* Summary strip, pinned to the bottom of the column. */}
-      <div className="mt-auto flex items-center gap-2.5 rounded-[12px] bg-card-ink px-[14px] py-[11px] pt-3.5">
+      <div className="mt-4 flex items-center gap-2.5 rounded-[12px] bg-card-ink px-[14px] py-[11px] pt-3.5">
         <Layers size={16} strokeWidth={2.6} className="shrink-0 text-yellow" />
         <span
           className={`text-[12.5px] font-bold leading-snug ${invalid ? 'text-yellow' : 'text-white'}`}
