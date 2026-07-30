@@ -29,6 +29,7 @@ export async function GET(request: Request) {
   const boardConfigRaw = searchParams.get('boardConfig')
   const occupied = parseOccupied(searchParams.get('occupied'))
   const placed = parsePlaced(searchParams.get('placed'))
+  const drawn = parsePlaced(searchParams.get('drawn'))
 
   if (!seed) {
     return Response.json({ error: 'Missing seed' }, { status: 400 })
@@ -54,6 +55,7 @@ export async function GET(request: Request) {
     boardConfig,
     occupiedIndices: occupied,
     placedPlayerIds: placed,
+    drawnPlayerIds: drawn,
   })
 
   if (!result) {

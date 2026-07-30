@@ -27,6 +27,7 @@ import type { PlayMode } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import type { SoloStats } from '@/lib/soloStats'
+import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 
 
 export function SoloGame() {
@@ -52,8 +53,13 @@ export function SoloGame() {
   const [showLabels, setShowLabels] = useState(false)
   const [wrongCell, setWrongCell] = useState<{ cell: number; nonce: number } | null>(null)
   const [wrongCount, setWrongCount] = useState(0)
+  const [drawSessionKey, setDrawSessionKey] = useState(0)
   const startedAtRef = useRef<number | null>(null)
   const finishedRef = useRef(false)
+  const { drawnPlayerIds, noteDrawnPlayer, restoreDrawnPlayerIds } = useDrawnPlayerHistory(
+    round,
+    String(drawSessionKey),
+  )
 
   const markStart = useCallback(() => {
     if (startedAtRef.current === null) startedAtRef.current = Date.now()
@@ -77,6 +83,9 @@ export function SoloGame() {
       setBoardConfig(saved.boardConfig ?? DEFAULT_BOARD_CONFIG)
       setLineHighlight(saved.lineHighlight !== false)
       setDraftPolicy(saved.draftPolicy === 'placeable' ? 'placeable' : 'open')
+      if (Array.isArray(saved.drawnPlayerIds)) {
+        restoreDrawnPlayerIds(saved.drawnPlayerIds)
+      }
     } else {
       setSeed(randomUUID())
     }
@@ -93,8 +102,9 @@ export function SoloGame() {
       boardConfig,
       lineHighlight,
       draftPolicy,
+      drawnPlayerIds,
     })
-  }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy])
+  }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy, drawnPlayerIds])
 
   const occupiedIndices = useMemo(() => [...solved.keys()], [solved])
   const placedPlayerIds = useMemo(() => [...solved.values()].map((p) => p.playerId), [solved])
@@ -124,6 +134,7 @@ export function SoloGame() {
       boardConfig,
       occupiedIndices,
       placedPlayerIds,
+      drawnPlayerIds,
     })
     void fetch(url)
       .then(async (res) => {
@@ -144,6 +155,7 @@ export function SoloGame() {
           return
         }
         setDrawn(j.player ?? null)
+        noteDrawnPlayer(j.player?.playerId)
         const vs = Array.isArray(j.validSquares) ? j.validSquares : []
         const restrict = Boolean(j.restrictToValidSquares) && vs.length > 0
         setDraftRestrictCells(restrict)
@@ -169,7 +181,7 @@ export function SoloGame() {
     return () => {
       cancelled = true
     }
-  }, [playMode, seed, round, hydrated, draftPolicy, boardConfig, occupiedIndices, placedPlayerIds])
+  }, [playMode, seed, round, hydrated, draftPolicy, boardConfig, occupiedIndices, placedPlayerIds, drawnPlayerIds])
 
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
@@ -221,6 +233,7 @@ export function SoloGame() {
 
   const resetBoard = useCallback(() => {
     const s = randomUUID()
+    setDrawSessionKey((k) => k + 1)
     setSeed(s)
     setSolved(new Map())
     setRound(0)
@@ -235,6 +248,7 @@ export function SoloGame() {
       boardConfig,
       lineHighlight,
       draftPolicy,
+      drawnPlayerIds: [],
     })
   }, [playMode, boardConfig, lineHighlight, draftPolicy, resetStats])
 
@@ -245,6 +259,7 @@ export function SoloGame() {
     setModalCell(null)
     setDraftError(null)
     resetStats()
+    setDrawSessionKey((k) => k + 1)
     const s = randomUUID()
     setSeed(s)
     setSolved(new Map())
@@ -257,6 +272,7 @@ export function SoloGame() {
       boardConfig,
       lineHighlight,
       draftPolicy,
+      drawnPlayerIds: [],
     })
   }
 

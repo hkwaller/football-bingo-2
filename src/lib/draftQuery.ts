@@ -8,6 +8,7 @@ export function draftApiUrl(opts: {
   boardConfig: BoardConfig
   occupiedIndices: number[]
   placedPlayerIds?: string[]
+  drawnPlayerIds?: string[]
 }): string {
   const params = new URLSearchParams({
     seed: opts.seed,
@@ -16,6 +17,7 @@ export function draftApiUrl(opts: {
     boardConfig: JSON.stringify(boardConfigPayload(opts.boardConfig)),
     occupied: [...opts.occupiedIndices].sort((a, b) => a - b).join(','),
     placed: [...new Set(opts.placedPlayerIds ?? [])].sort().join(','),
+    drawn: [...new Set(opts.drawnPlayerIds ?? [])].sort().join(','),
   })
   return `/api/game/draft?${params.toString()}`
 }

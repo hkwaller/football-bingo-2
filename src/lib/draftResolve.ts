@@ -75,16 +75,17 @@ function placeablePool(
 }
 
 /**
- * Players eligible to be drawn: not already placed on the board, and clearing
- * the minimum fame score. The fame floor is relaxed only if it would empty the
- * pool, so a strict setting can never leave a game with no one to draw.
+ * Players eligible to be drawn: not already used this game (placed or previously
+ * drawn), and clearing the minimum fame score. The fame floor is relaxed only
+ * if it would empty the pool, so a strict setting can never leave a game with
+ * no one to draw.
  */
 function eligiblePlayers(
-  placedPlayerIds: string[],
+  excludedPlayerIds: string[],
   minFameScore: number,
 ): EnrichedPlayer[] {
-  const placed = new Set(placedPlayerIds)
-  const notPlaced = enrichedFootballPlayers.filter((p) => !placed.has(p.playerId))
+  const excluded = new Set(excludedPlayerIds)
+  const notPlaced = enrichedFootballPlayers.filter((p) => !excluded.has(p.playerId))
   if (minFameScore <= 0) return notPlaced
   const famous = notPlaced.filter((p) => (p.fameScore ?? 0) >= minFameScore)
   return famous.length > 0 ? famous : notPlaced
@@ -97,13 +98,18 @@ export function resolveDraftPlayer(params: {
   boardConfig: BoardConfig
   occupiedIndices: number[]
   placedPlayerIds?: string[]
+  /** Drawn earlier this game but not placed (skipped or wrong single-guess). */
+  drawnPlayerIds?: string[]
 }): DraftResolveResult | null {
   const cells = generateBoard(params.seed, params.boardConfig)
   const occ = new Set(params.occupiedIndices)
   const emptyIdx = emptyCategoryCellIndices(cells, occ)
   const occKey = occupiedKey(params.occupiedIndices)
+  const excludedPlayerIds = [
+    ...new Set([...(params.placedPlayerIds ?? []), ...(params.drawnPlayerIds ?? [])]),
+  ]
   const candidates = eligiblePlayers(
-    params.placedPlayerIds ?? [],
+    excludedPlayerIds,
     params.boardConfig.minFameScore ?? 0,
   )
 

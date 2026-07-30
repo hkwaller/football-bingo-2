@@ -19,6 +19,7 @@ export type SoloPersisted = {
   boardConfig?: BoardConfig
   lineHighlight?: boolean
   draftPolicy?: DraftPolicy
+  drawnPlayerIds?: string[]
 }
 
 function normalizeBoardConfig(raw: unknown): BoardConfig {

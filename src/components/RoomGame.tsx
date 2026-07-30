@@ -41,6 +41,7 @@ import { draftApiUrl } from '@/lib/draftQuery'
 import type { PlayMode } from '@/lib/playMode'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
+import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 
 const ROUNDEL_COLORS = [
   'bg-green-go text-white',
@@ -315,6 +316,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       : activeSeed
   // Independent draw advances a local round; shared draw / shared board use the room round.
   const myRound = isIndividual && !drawShared ? indyRound : draftRound
+  const { drawnPlayerIds, noteDrawnPlayer } = useDrawnPlayerHistory(myRound, activeSeed)
   // Shared-draw: once I've placed or skipped this round I wait for the others.
   const myActedThisRound = isIndividual && drawShared && (presence?.actedRound ?? -1) >= draftRound
 
@@ -357,6 +359,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             boardConfig,
             occupiedIndices: [],
             placedPlayerIds: [],
+            drawnPlayerIds,
           })
         : isIndividual
           ? draftApiUrl({
@@ -366,6 +369,7 @@ function RoomInner({ roomId }: { roomId: string }) {
               boardConfig,
               occupiedIndices: occupiedForDraft,
               placedPlayerIds: placedPlayerIdsForDraft,
+              drawnPlayerIds,
             })
           : draftApiUrl({
               seed: activeSeed,
@@ -374,6 +378,7 @@ function RoomInner({ roomId }: { roomId: string }) {
               boardConfig,
               occupiedIndices: occupiedForDraft,
               placedPlayerIds: placedPlayerIdsForDraft,
+              drawnPlayerIds,
             })
     void fetch(url)
       .then(async (res) => {
@@ -394,6 +399,7 @@ function RoomInner({ roomId }: { roomId: string }) {
           return
         }
         setDrawn(j.player ?? null)
+        noteDrawnPlayer(j.player?.playerId)
         const vs = Array.isArray(j.validSquares) ? j.validSquares : []
         const restrict = Boolean(j.restrictToValidSquares) && vs.length > 0
         setDraftRestrictCells(restrict)
@@ -426,6 +432,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     boardConfig,
     occupiedForDraft,
     placedPlayerIdsForDraft,
+    drawnPlayerIds,
     isIndividual,
     drawShared,
     myBoardSeed,
