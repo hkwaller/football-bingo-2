@@ -168,7 +168,7 @@ export default function HomePage() {
               rot={-0.6}
               blurb="Fill your board with the players drawn and be first to a full line. The signature mode."
               soloHref="/play/setup"
-              multiHref="/room/new"
+              multiHref="/play/setup?mode=multiplayer"
             />
             <ModeCard
               title="Trivia"
@@ -257,7 +257,7 @@ export default function HomePage() {
             <Link href="/play/setup" className="btn btn-primary btn-lg">
               Start playing
             </Link>
-            <Link href="/room/new" className="btn btn-outline-light btn-lg">
+            <Link href="/play/setup?mode=multiplayer" className="btn btn-outline-light btn-lg">
               Start a room
             </Link>
           </div>

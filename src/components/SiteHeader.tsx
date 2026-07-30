@@ -11,7 +11,7 @@ const clerkOn = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
 const NAV = [
   { href: '/play', label: 'Play', match: ['/play'] },
-  { href: '/room/new', label: 'Multiplayer', match: ['/room'] },
+  { href: '/play/setup?mode=multiplayer', label: 'Multiplayer', match: ['/room'] },
   { href: '/trivia', label: 'Trivia', match: ['/trivia'] },
   { href: '/tenable', label: 'Tenable', match: ['/tenable'] },
 ]

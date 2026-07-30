@@ -94,7 +94,26 @@ export function liveMapStringKeysClear(m: LiveMap<string, Lson>) {
   }
 }
 
-export function createInitialGameStorage(): GameStorage {
+/** The subset of storage a host picks on the setup screen before opening a room. */
+export type InitialGameConfig = Partial<
+  Pick<
+    GameStorage,
+    | 'playMode'
+    | 'boardSize'
+    | 'categoryNationalities'
+    | 'categoryClubs'
+    | 'categoryAchievements'
+    | 'categoryTraits'
+    | 'categoryManagers'
+    | 'minFameScore'
+    | 'boardLayout'
+    | 'drawSource'
+    | 'singleGuess'
+    | 'draftPolicy'
+  >
+>
+
+export function createInitialGameStorage(config?: InitialGameConfig): GameStorage {
   return {
     phase: 'lobby',
     seed: '',
@@ -113,6 +132,7 @@ export function createInitialGameStorage(): GameStorage {
     drawSource: 'shared',
     singleGuess: false,
     draftPolicy: 'open',
+    ...config,
     draftRound: 0,
     draftVotes: new LiveMap(),
     sharedSolved: new LiveMap(),

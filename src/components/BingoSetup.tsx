@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Grid3x3, LayoutGrid, Grid2x2 } from 'lucide-react'
 import type { BoardConfig } from '@/lib/boardConfig'
 import {
@@ -17,14 +17,16 @@ import { enrichedFootballPlayers } from '@/data/players'
 import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { randomUUID } from '@/lib/randomUUID'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
+import { loadBingoRoomConfig, saveBingoRoomConfig } from '@/lib/bingoRoomConfig'
 import type { PlayMode } from '@/lib/playMode'
+import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { SetupPageFrame, SetupHeader, TacticsBoard } from '@/components/setup/SetupScaffold'
 import { PresetPills, type Preset } from '@/components/setup/PresetPills'
 import { MarqueeRow, type MarqueeItem } from '@/components/setup/MarqueeRow'
 import { DotGridDecoration } from '@/components/setup/MarqueeCard'
 import { TopicPicker, type TopicItem } from '@/components/setup/TopicPicker'
 import { KickoffBar } from '@/components/setup/KickoffBar'
-import { ControlLabel } from '@/components/setup/primitives'
+import { ControlLabel, SelectRow } from '@/components/setup/primitives'
 
 type KindKey = keyof BoardConfig['categoryKinds']
 const KINDS: Array<{ key: KindKey; label: string; pool: readonly string[] }> = [
@@ -74,11 +76,19 @@ const PRESETS: PresetDef[] = [
   { id: 'fullhouse', emoji: '🏟', label: 'Full House', size: 5, minFameScore: 0, draftPolicy: 'open' },
 ]
 
-export function SoloPlaySetup() {
+export function BingoSetup() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const isMultiplayer = searchParams.get('mode') === 'multiplayer'
+
   const [boardConfig, setBoardConfig] = useState<BoardConfig>(DEFAULT_BOARD_CONFIG)
   const [lineHighlight, setLineHighlight] = useState(true)
   const [draftPolicy, setDraftPolicy] = useState<DraftPolicy>('open')
+  // Multiplayer-only settings
+  const [playMode, setPlayMode] = useState<PlayMode>('draft')
+  const [boardLayout, setBoardLayout] = useState<'shared' | 'individual'>('individual')
+  const [drawSource, setDrawSource] = useState<'shared' | 'independent'>('shared')
+  const [singleGuess, setSingleGuess] = useState(false)
   const [hydrated, setHydrated] = useState(false)
   const [launching, setLaunching] = useState(false)
   const mounted = useRef(false)
@@ -86,14 +96,24 @@ export function SoloPlaySetup() {
   useEffect(() => {
     if (mounted.current) return
     mounted.current = true
-    const s = loadSolo()
-    if (s) {
-      setBoardConfig(s.boardConfig ?? DEFAULT_BOARD_CONFIG)
-      setLineHighlight(s.lineHighlight !== false)
-      setDraftPolicy(s.draftPolicy === 'placeable' ? 'placeable' : 'open')
+    if (isMultiplayer) {
+      const c = loadBingoRoomConfig()
+      setBoardConfig({ ...c.boardConfig, freeSquare: true })
+      setDraftPolicy(c.draftPolicy)
+      setPlayMode(c.playMode)
+      setBoardLayout(c.boardLayout)
+      setDrawSource(c.drawSource)
+      setSingleGuess(c.singleGuess)
+    } else {
+      const s = loadSolo()
+      if (s) {
+        setBoardConfig(s.boardConfig ?? DEFAULT_BOARD_CONFIG)
+        setLineHighlight(s.lineHighlight !== false)
+        setDraftPolicy(s.draftPolicy === 'placeable' ? 'placeable' : 'open')
+      }
     }
     setHydrated(true)
-  }, [])
+  }, [isMultiplayer])
 
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
@@ -167,11 +187,11 @@ export function SoloPlaySetup() {
   const persistAndPlay = () => {
     if (!configOk || launching) return
     const prev = loadSolo()
-    const playMode: PlayMode = prev?.playMode === 'free' ? 'free' : 'draft'
+    const mode: PlayMode = prev?.playMode === 'free' ? 'free' : 'draft'
     saveSolo({
       seed: randomUUID(),
       solved: {},
-      playMode,
+      playMode: mode,
       round: 0,
       boardConfig,
       lineHighlight,
@@ -179,6 +199,20 @@ export function SoloPlaySetup() {
     })
     setLaunching(true)
     router.push('/play')
+  }
+
+  const createRoom = () => {
+    if (!configOk || launching) return
+    saveBingoRoomConfig({
+      boardConfig: { ...boardConfig, freeSquare: true },
+      playMode,
+      boardLayout,
+      drawSource,
+      singleGuess,
+      draftPolicy,
+    })
+    setLaunching(true)
+    router.push('/room/new')
   }
 
   if (!hydrated) {
@@ -271,8 +305,111 @@ export function SoloPlaySetup() {
     </>
   )
 
-  // ── Column 2: draft rule + free square ───────────────────────────────────
-  const col2 = (
+  // ── Column 2: solo (draft rule + free square) or multiplayer settings ─────
+  const col2 = isMultiplayer ? (
+    <>
+      <div>
+        <ControlLabel className="mb-3">Mode</ControlLabel>
+        <div className="flex flex-col gap-2" role="radiogroup" aria-label="Mode">
+          {(['draft', 'free'] as const).map((m) => (
+            <SelectRow
+              key={m}
+              active={playMode === m}
+              onClick={() => setPlayMode(m)}
+              name={PLAY_MODE_LABEL[m]}
+              explainer={
+                m === 'draft'
+                  ? 'Players are drawn one at a time — place who you can.'
+                  : 'Pick any player, any time, and fill your own squares.'
+              }
+            />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <ControlLabel className="mb-3">Boards</ControlLabel>
+        <div className="flex flex-col gap-2" role="radiogroup" aria-label="Boards">
+          {(
+            [
+              ['individual', 'Individual', 'Everyone gets their own board and races in parallel.'],
+              ['shared', 'Shared', 'One board for the whole room — the draft decides placement.'],
+            ] as const
+          ).map(([v, label, explainer]) => (
+            <SelectRow
+              key={v}
+              active={boardLayout === v}
+              onClick={() => setBoardLayout(v)}
+              name={label}
+              explainer={explainer}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Shared board → draft rule */}
+      {boardLayout === 'shared' && playMode === 'draft' ? (
+        <div>
+          <ControlLabel className="mb-3">Draft rule</ControlLabel>
+          <div className="flex flex-col gap-2" role="radiogroup" aria-label="Draft rule">
+            {(['open', 'placeable'] as const).map((p) => (
+              <SelectRow
+                key={p}
+                active={draftPolicy === p}
+                onClick={() => setDraftPolicy(p)}
+                name={DRAFT_POLICY_LABEL[p]}
+                explainer={DRAFT_POLICY_HELP[p]}
+              />
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {/* Individual draft → draw source + one-guess */}
+      {boardLayout === 'individual' && playMode === 'draft' ? (
+        <>
+          <div>
+            <ControlLabel className="mb-3">Draw</ControlLabel>
+            <div className="flex flex-col gap-2" role="radiogroup" aria-label="Draw">
+              {(
+                [
+                  ['shared', 'Same player', 'Everyone gets the same drawn player each round.'],
+                  ['independent', 'Own draws', 'Each player draws their own and races solo.'],
+                ] as const
+              ).map(([v, label, explainer]) => (
+                <SelectRow
+                  key={v}
+                  active={drawSource === v}
+                  onClick={() => setDrawSource(v)}
+                  name={label}
+                  explainer={explainer}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="mt-auto">
+            <ControlLabel className="mb-3">Guesses</ControlLabel>
+            <div className="flex flex-col gap-2" role="radiogroup" aria-label="Guesses">
+              {(
+                [
+                  [false, 'Unlimited', 'Keep trying squares until you place the drawn player.'],
+                  [true, 'One per turn', 'A single placement attempt each round — no retries.'],
+                ] as const
+              ).map(([v, label, explainer]) => (
+                <SelectRow
+                  key={String(v)}
+                  active={singleGuess === v}
+                  onClick={() => setSingleGuess(v)}
+                  name={label}
+                  explainer={explainer}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      ) : null}
+    </>
+  ) : (
     <>
       <div>
         <ControlLabel className="mb-3">Draft rule</ControlLabel>
@@ -362,27 +499,37 @@ export function SoloPlaySetup() {
   )
 
   const starValue = minFameScore === 0 ? 'Anyone' : `≥ ${minFameScore} · ${eligiblePlayerCount} in`
-  const fields = [
-    { label: 'Board', value: `${boardConfig.size}×${boardConfig.size} · ${needCount} clues` },
-    { label: 'Star quality', value: starValue },
-    { label: 'Draft', value: DRAFT_POLICY_LABEL[draftPolicy] },
-    { label: 'Kinds', value: `${activeKinds.length} of ${TOTAL_KINDS}` },
-  ]
+  const fields = isMultiplayer
+    ? [
+        { label: 'Mode', value: PLAY_MODE_LABEL[playMode] },
+        { label: 'Boards', value: boardLayout === 'shared' ? 'Shared' : 'Individual' },
+        { label: 'Board', value: `${boardConfig.size}×${boardConfig.size} · ${needCount} clues` },
+        { label: 'Kinds', value: `${activeKinds.length} of ${TOTAL_KINDS}` },
+      ]
+    : [
+        { label: 'Board', value: `${boardConfig.size}×${boardConfig.size} · ${needCount} clues` },
+        { label: 'Star quality', value: starValue },
+        { label: 'Draft', value: DRAFT_POLICY_LABEL[draftPolicy] },
+        { label: 'Kinds', value: `${activeKinds.length} of ${TOTAL_KINDS}` },
+      ]
 
   return (
     <>
       <SetupPageFrame>
-        <SetupHeader badge="Bingo · Solo" title="Team talk">
+        <SetupHeader
+          badge={`Bingo · ${isMultiplayer ? 'Multiplayer' : 'Solo'}`}
+          title="Team talk"
+        >
           <PresetPills
             presets={PRESETS}
             activeId={activePreset}
             onSelect={applyPreset}
             trailing={
               <Link
-                href="/play"
+                href={isMultiplayer ? '/' : '/play'}
                 className="flex flex-none items-center gap-2 whitespace-nowrap rounded-full border-[3px] border-white/50 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white/10"
               >
-                ← Back to game
+                {isMultiplayer ? '← Back home' : '← Back to game'}
               </Link>
             }
           />
@@ -403,11 +550,27 @@ export function SoloPlaySetup() {
 
       <KickoffBar
         fields={fields}
-        mobilePrimary={`${boardConfig.size}×${boardConfig.size} · ${needCount} clues`}
-        mobileDetail={`${DRAFT_POLICY_LABEL[draftPolicy]} · ${activeKinds.length} of ${TOTAL_KINDS} kinds`}
-        hint="Saving starts a fresh board"
-        ctaLabel={launching ? 'Launching…' : 'Save & kick off'}
-        onCta={persistAndPlay}
+        mobilePrimary={
+          isMultiplayer
+            ? `${PLAY_MODE_LABEL[playMode]} · ${boardLayout === 'shared' ? 'Shared' : 'Individual'}`
+            : `${boardConfig.size}×${boardConfig.size} · ${needCount} clues`
+        }
+        mobileDetail={
+          isMultiplayer
+            ? `${boardConfig.size}×${boardConfig.size} · ${activeKinds.length} of ${TOTAL_KINDS} kinds`
+            : `${DRAFT_POLICY_LABEL[draftPolicy]} · ${activeKinds.length} of ${TOTAL_KINDS} kinds`
+        }
+        hint={isMultiplayer ? 'Room code comes next' : 'Saving starts a fresh board'}
+        ctaLabel={
+          launching
+            ? isMultiplayer
+              ? 'Creating…'
+              : 'Launching…'
+            : isMultiplayer
+              ? 'Create room'
+              : 'Save & kick off'
+        }
+        onCta={isMultiplayer ? createRoom : persistAndPlay}
         disabled={!configOk || launching}
       />
     </>

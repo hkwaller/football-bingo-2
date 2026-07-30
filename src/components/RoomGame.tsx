@@ -17,7 +17,9 @@ import {
   createInitialGameStorage,
   liveMapStringKeysClear,
   type DraftVote,
+  type InitialGameConfig,
 } from '@/lib/liveblocks/client'
+import { bingoRoomConfigToStorage, loadBingoRoomConfig } from '@/lib/bingoRoomConfig'
 import { BingoBoard } from '@/components/BingoBoard'
 import { RoomInvite } from '@/components/RoomInvite'
 import type { CellPick } from '@/lib/cellPick'
@@ -32,10 +34,9 @@ import {
   categoryPoolForConfig,
   cellCountForConfig,
   isBoardConfigViable,
-  MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
 import { displayCategory } from '@/lib/canonical'
-import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
+import { DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { draftApiUrl } from '@/lib/draftQuery'
 import type { PlayMode } from '@/lib/playMode'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
@@ -46,6 +47,16 @@ const ROUNDEL_COLORS = [
   'bg-sky text-pitch-deep',
   'bg-pink text-white',
 ] as const
+
+/** A label/value row in the host's read-only match-settings summary. */
+function SummaryRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between gap-3 py-2.5">
+      <dt className="text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">{label}</dt>
+      <dd className="font-display text-[15px] uppercase leading-none text-card-ink">{value}</dd>
+    </div>
+  )
+}
 
 function RoomInner({ roomId }: { roomId: string }) {
   const status = useStatus()
@@ -120,28 +131,14 @@ function RoomInner({ roomId }: { roomId: string }) {
     [minFameScore],
   )
 
-  const FAME_EMIT_STEP = 4
-  const sampleThresholdPlayer = useCallback((next: number) => {
-    const from = lastFameEmit.current
-    if (Math.abs(next - from) < FAME_EMIT_STEP) return
-    const direction: 'added' | 'removed' = next > from ? 'removed' : 'added'
-    const lo = Math.min(from, next)
-    const hi = Math.max(from, next)
-    const band = enrichedFootballPlayers.filter((p) => {
-      const s = p.fameScore ?? 0
-      return s >= lo && s < hi
-    })
-    lastFameEmit.current = next
-    if (band.length === 0) return
-    const pick = band[Math.floor(Math.random() * band.length)]
-    fameFlashKey.current += 1
-    const key = fameFlashKey.current
-    setFamePills((prev) =>
-      [...prev, { key, name: pick.name, direction, percent: (next / MAX_FAME_SCORE) * 100 }].slice(
-        -5,
-      ),
-    )
-  }, [])
+  const activeCategoryCount = [
+    categoryNationalities,
+    categoryClubs,
+    categoryAchievements,
+    categoryTraits,
+    categoryManagers,
+  ].filter(Boolean).length
+  const categorySummary = activeCategoryCount === 5 ? 'All 5 kinds' : `${activeCategoryCount} of 5`
 
   const effectiveDraftPolicy: DraftPolicy =
     boardLayout === 'individual' ? 'open' : draftPolicyStorage
@@ -168,51 +165,6 @@ function RoomInner({ roomId }: { roomId: string }) {
     if (phase !== 'lobby' || self?.connectionId == null) return
     claimHost(self.connectionId)
   }, [phase, self?.connectionId, claimHost])
-
-  const setRoomPlayMode = useMutation(({ storage }, m: PlayMode) => {
-    storage.set('playMode', m)
-  }, [])
-
-  const setBoardSize = useMutation(({ storage }, n: 3 | 4 | 5) => {
-    storage.set('boardSize', n)
-  }, [])
-
-  const setCategory = useMutation(
-    (
-      { storage },
-      key:
-        | 'categoryNationalities'
-        | 'categoryClubs'
-        | 'categoryAchievements'
-        | 'categoryTraits'
-        | 'categoryManagers',
-      value: boolean,
-    ) => {
-      storage.set(key, value)
-    },
-    [],
-  )
-
-  const setMinFameScore = useMutation(({ storage }, v: number) => {
-    storage.set('minFameScore', v)
-  }, [])
-
-  const setBoardLayoutWithPolicy = useMutation(({ storage }, layout: 'shared' | 'individual') => {
-    storage.set('boardLayout', layout)
-    if (layout === 'individual') storage.set('draftPolicy', 'open')
-  }, [])
-
-  const setDraftPolicyInStorage = useMutation(({ storage }, policy: DraftPolicy) => {
-    storage.set('draftPolicy', policy)
-  }, [])
-
-  const setDrawSource = useMutation(({ storage }, v: 'shared' | 'independent') => {
-    storage.set('drawSource', v)
-  }, [])
-
-  const setSingleGuess = useMutation(({ storage }, v: boolean) => {
-    storage.set('singleGuess', v)
-  }, [])
 
   const advanceDraftRound = useMutation(({ storage }) => {
     storage.set('draftRound', storage.get('draftRound') + 1)
@@ -278,13 +230,6 @@ function RoomInner({ roomId }: { roomId: string }) {
   const [indyRound, setIndyRound] = useState(0)
   // Ticks once a second while playing so transient "skipped" chips can clear.
   const [nowTick, setNowTick] = useState(0)
-  // Star-quality slider: sample players crossing the eligibility threshold as the
-  // host drags, floating each up as a +/- pill (mirrors solo setup).
-  const [famePills, setFamePills] = useState<
-    { key: number; name: string; direction: 'added' | 'removed'; percent: number }[]
-  >([])
-  const fameFlashKey = useRef(0)
-  const lastFameEmit = useRef(minFameScore)
   const [localSolved, setLocalSolved] = useState<Map<number, CellPick>>(new Map())
   const [modalCell, setModalCell] = useState<number | null>(null)
   const [starting, setStarting] = useState(false)
@@ -1053,314 +998,42 @@ function RoomInner({ roomId }: { roomId: string }) {
               {/* Right column */}
               <div className="flex flex-col gap-5">
                 <div className="panel flex flex-col gap-4 p-6">
-                  <p className="eyebrow eyebrow-sky">Tactics board · gaffer only</p>
-
-                  {/* Mode */}
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                      Mode
-                    </span>
-                    {(['draft', 'free'] as const).map((m) => {
-                      const active = playMode === m
-                      return (
-                        <button
-                          key={m}
-                          type="button"
-                          onClick={() => setRoomPlayMode(m)}
-                          className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
-                            active
-                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                              : 'bg-card-tint text-card-muted hover:text-card-ink'
-                          }`}
-                        >
-                          {PLAY_MODE_LABEL[m]}
-                        </button>
-                      )
-                    })}
-                  </div>
-
-                  {/* Boards */}
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                      Boards
-                    </span>
-                    {(
-                      [
-                        ['individual', 'Individual'],
-                        ['shared', 'Shared'],
-                      ] as const
-                    ).map(([v, label]) => {
-                      const active = boardLayout === v
-                      return (
-                        <button
-                          key={v}
-                          type="button"
-                          onClick={() => setBoardLayoutWithPolicy(v)}
-                          className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
-                            active
-                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                              : 'bg-card-tint text-card-muted hover:text-card-ink'
-                          }`}
-                        >
-                          {label}
-                        </button>
-                      )
-                    })}
-                  </div>
-
-                  {/* Draw source (individual boards only) */}
-                  {boardLayout === 'individual' && playMode === 'draft' ? (
-                    <>
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                          Draw
-                        </span>
-                        {(
-                          [
-                            ['shared', 'Same player'],
-                            ['independent', 'Own draws'],
-                          ] as const
-                        ).map(([v, label]) => {
-                          const active = drawSource === v
-                          return (
-                            <button
-                              key={v}
-                              type="button"
-                              onClick={() => setDrawSource(v)}
-                              className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
-                                active
-                                  ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                                  : 'bg-card-tint text-card-muted hover:text-card-ink'
-                              }`}
-                            >
-                              {label}
-                            </button>
-                          )
-                        })}
-                      </div>
-                      <p className="-mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
-                        {drawSource === 'shared'
-                          ? 'Everyone gets the same drawn player each round (more social). Place them on your own board.'
-                          : 'Each player draws their own players and races independently.'}
-                      </p>
-                    </>
-                  ) : null}
-
-                  {/* Draft rule (shared board only) */}
-                  {boardLayout === 'shared' ? (
-                    <>
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                          Draft
-                        </span>
-                        {(['open', 'placeable'] as const).map((p) => {
-                          const active = draftPolicyStorage === p
-                          return (
-                            <button
-                              key={p}
-                              type="button"
-                              onClick={() => setDraftPolicyInStorage(p)}
-                              className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
-                                active
-                                  ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                                  : 'bg-card-tint text-card-muted hover:text-card-ink'
-                              }`}
-                            >
-                              {DRAFT_POLICY_LABEL[p]}
-                            </button>
-                          )
-                        })}
-                      </div>
-                      <p className="-mt-1 text-[12.5px] font-medium leading-relaxed text-muted">
-                        {DRAFT_POLICY_HELP[effectiveDraftPolicy]}
-                      </p>
-                    </>
-                  ) : null}
-
-                  {/* One guess per turn (individual draft only) */}
-                  {boardLayout === 'individual' && playMode === 'draft' ? (
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                        Guesses
-                      </span>
-                      {(
-                        [
-                          [false, 'Unlimited'],
-                          [true, 'One per turn'],
-                        ] as const
-                      ).map(([v, label]) => {
-                        const active = singleGuess === v
-                        return (
-                          <button
-                            key={String(v)}
-                            type="button"
-                            onClick={() => setSingleGuess(v)}
-                            className={`rounded-full px-4 py-1.5 text-[12.5px] font-bold uppercase tracking-[0.04em] transition-colors duration-200 ${
-                              active
-                                ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                                : 'bg-card-tint text-card-muted hover:text-card-ink'
-                            }`}
-                          >
-                            {label}
-                          </button>
-                        )
-                      })}
-                    </div>
-                  ) : null}
-
-                  {/* Grid */}
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                      Grid
-                    </span>
-                    {([3, 4, 5] as const).map((n) => {
-                      const active = boardSize === n
-                      return (
-                        <button
-                          key={n}
-                          type="button"
-                          onClick={() => setBoardSize(n)}
-                          className={`rounded-full px-4 py-1.5 font-display text-[14px] uppercase transition-colors duration-200 ${
-                            active
-                              ? 'bg-green-go text-white shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                              : 'bg-card-tint text-card-muted hover:text-card-ink'
-                          }`}
-                        >
-                          {n}×{n}
-                        </button>
-                      )
-                    })}
-                  </div>
-
-                  {/* Categories */}
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="w-[90px] shrink-0 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                      Categories
-                    </span>
-                    {(
-                      [
-                        [
-                          'categoryNationalities',
-                          'Nations',
-                          'bg-sky text-pitch-deep',
-                          categoryNationalities,
-                        ],
-                        ['categoryClubs', 'Clubs', 'bg-green-go text-white', categoryClubs],
-                        [
-                          'categoryAchievements',
-                          'Honours',
-                          'bg-yellow text-pitch-deep',
-                          categoryAchievements,
-                        ],
-                        ['categoryTraits', 'Traits', 'bg-card-ink text-white', categoryTraits],
-                        ['categoryManagers', 'Managers', 'bg-pink text-white', categoryManagers],
-                      ] as const
-                    ).map(([k, label, onClass, cur]) => {
-                      const active = Boolean(cur)
-                      return (
-                        <button
-                          key={k}
-                          type="button"
-                          onClick={() => setCategory(k, !cur)}
-                          className={`inline-flex items-center gap-1 rounded-full px-[14px] py-[5px] text-[11.5px] font-extrabold uppercase tracking-[0.04em] transition-all duration-200 ${
-                            active
-                              ? `${onClass} shadow-[0_3px_0_rgba(0,0,0,0.2)]`
-                              : 'bg-card-tint text-card-muted hover:text-card-ink'
-                          }`}
-                        >
-                          {active ? '✓ ' : ''}
-                          {label}
-                        </button>
-                      )
-                    })}
-                  </div>
-
+                  <p className="eyebrow eyebrow-sky">Match settings</p>
+                  <dl className="flex flex-col divide-y divide-card-tint/70">
+                    <SummaryRow label="Mode" value={PLAY_MODE_LABEL[playMode]} />
+                    <SummaryRow
+                      label="Boards"
+                      value={boardLayout === 'shared' ? 'Shared board' : 'Individual boards'}
+                    />
+                    {playMode === 'draft' && isIndividual ? (
+                      <>
+                        <SummaryRow label="Draw" value={drawShared ? 'Same player' : 'Own draws'} />
+                        <SummaryRow label="Guesses" value={singleGuess ? 'One per turn' : 'Unlimited'} />
+                      </>
+                    ) : null}
+                    {playMode === 'draft' && !isIndividual ? (
+                      <SummaryRow label="Draft" value={DRAFT_POLICY_LABEL[effectiveDraftPolicy]} />
+                    ) : null}
+                    <SummaryRow label="Grid" value={`${boardSize}×${boardSize}`} />
+                    <SummaryRow label="Categories" value={categorySummary} />
+                    <SummaryRow
+                      label="Star quality"
+                      value={minFameScore === 0 ? 'Anyone' : `≥ ${minFameScore} · ${eligiblePlayerCount} in`}
+                    />
+                  </dl>
                   <p
-                    className={`font-mono text-xs font-bold ${
-                      configOk ? 'text-card-muted' : 'text-pink'
-                    }`}
+                    className={`font-mono text-xs font-bold ${configOk ? 'text-card-muted' : 'text-pink'}`}
                   >
                     {configOk
                       ? `${poolCount} in pool · ${needCount} needed ✓`
-                      : `Need at least ${needCount} clues - enable more categories.`}
+                      : `Need at least ${needCount} clues — reopen setup to add categories.`}
                   </p>
-
-                  {/* Star quality */}
-                  <div className="rounded-[14px] bg-card-tint/40 p-4">
-                    <div className="mb-2 flex items-baseline justify-between gap-3">
-                      <span className="text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                        Star quality
-                      </span>
-                      <motion.span
-                        key={eligiblePlayerCount}
-                        initial={{ scale: 0.85, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className={`font-mono text-xs font-bold ${
-                          eligiblePlayerCount === 0 ? 'text-pink' : 'text-card-muted'
-                        }`}
-                      >
-                        {eligiblePlayerCount} players in play
-                      </motion.span>
-                    </div>
-                    <p className="mb-4 text-[12.5px] font-medium leading-relaxed text-muted">
-                      Drag right to keep the journeymen out. Only players at or above this fame score
-                      get drawn.
-                    </p>
-                    <div className="relative">
-                      {/* Sampled-player pills floating up from the slider line */}
-                      <div className="pointer-events-none absolute inset-x-0 bottom-full h-0">
-                        <AnimatePresence>
-                          {famePills.map((pill) => (
-                            <motion.div
-                              key={pill.key}
-                              initial={{ opacity: 0, y: 8, scale: 0.8 }}
-                              animate={{ opacity: [0, 1, 0], y: [8, -8, -60], scale: [0.8, 1, 0.95] }}
-                              exit={{ opacity: 0 }}
-                              transition={{ duration: 1, ease: 'easeOut' }}
-                              onAnimationComplete={() =>
-                                setFamePills((prev) => prev.filter((p) => p.key !== pill.key))
-                              }
-                              style={{
-                                left: `clamp(14%, ${pill.percent}%, 86%)`,
-                                transform: 'translateX(-50%)',
-                              }}
-                              className={`absolute bottom-0 flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-extrabold shadow-[0_3px_0_rgba(0,0,0,0.2)] ${
-                                pill.direction === 'added'
-                                  ? 'bg-green-go text-white'
-                                  : 'bg-pink text-white'
-                              }`}
-                            >
-                              <span className="text-[13px] leading-none">
-                                {pill.direction === 'added' ? '+' : '−'}
-                              </span>
-                              {pill.name}
-                            </motion.div>
-                          ))}
-                        </AnimatePresence>
-                      </div>
-                      <input
-                        type="range"
-                        min={0}
-                        max={MAX_FAME_SCORE}
-                        step={1}
-                        value={minFameScore}
-                        onChange={(e) => {
-                          const next = Number(e.target.value)
-                          sampleThresholdPlayer(next)
-                          setMinFameScore(next)
-                        }}
-                        aria-label="Minimum fame score"
-                        className="h-2 w-full cursor-pointer appearance-none rounded-full bg-card-tint accent-green-go"
-                      />
-                    </div>
-                    <div className="mt-2 flex items-center justify-between text-[11px] font-extrabold uppercase tracking-[0.06em] text-card-muted-2">
-                      <span>Anyone</span>
-                      <span className="font-mono text-sm font-bold text-card-ink">
-                        {minFameScore === 0 ? 'Off' : `≥ ${minFameScore}`}
-                      </span>
-                      <span>Legends only</span>
-                    </div>
-                  </div>
+                  <Link
+                    href="/play/setup?mode=multiplayer"
+                    className="text-[12.5px] font-bold text-green-go underline underline-offset-2 hover:opacity-70"
+                  >
+                    Change settings (opens a fresh room)
+                  </Link>
 
                   {/* Display name */}
                   <label className="block text-sm font-bold text-ink">
@@ -1588,11 +1261,15 @@ function RoomInner({ roomId }: { roomId: string }) {
 
 export function RoomGame({ roomId }: { roomId: string }) {
   const [ready, setReady] = useState(false)
+  // Seed the room from the config the host picked on the setup screen. This is
+  // only used when the room is first created (fresh id from /room/new).
+  const [initialConfig, setInitialConfig] = useState<InitialGameConfig | undefined>(undefined)
 
   useEffect(() => {
     if (!localStorage.getItem('fb_anon_id')) {
       localStorage.setItem('fb_anon_id', randomUUID())
     }
+    setInitialConfig(bingoRoomConfigToStorage(loadBingoRoomConfig()))
     setReady(true)
   }, [])
 
@@ -1618,7 +1295,7 @@ export function RoomGame({ roomId }: { roomId: string }) {
         lastAction: null,
         lastActionAt: null,
       }}
-      initialStorage={createInitialGameStorage()}
+      initialStorage={createInitialGameStorage(initialConfig)}
     >
       <RoomInner roomId={roomId} />
     </RoomProvider>

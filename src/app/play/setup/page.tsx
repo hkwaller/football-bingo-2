@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { SoloPlaySetup } from '@/components/SoloPlaySetup'
+import { Suspense } from 'react'
+import { BingoSetup } from '@/components/BingoSetup'
 
 export const metadata: Metadata = {
   title: 'Play Bingo',
@@ -8,6 +9,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/play/setup' },
 }
 
-export default function SoloSetupPage() {
-  return <SoloPlaySetup />
+export default function BingoSetupPage() {
+  return (
+    <Suspense>
+      <BingoSetup />
+    </Suspense>
+  )
 }
