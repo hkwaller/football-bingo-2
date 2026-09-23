@@ -86,7 +86,7 @@ body {
      Squared (8px), chunky, 2.5px ink border and a hard ink shadow that
      presses down on click. Primary = solid yellow with ink text. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 font-sans text-sm font-extrabold uppercase tracking-[0.06em] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--yellow)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--pitch)] disabled:pointer-events-none disabled:opacity-40;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg px-5 py-2.5 font-sans text-sm font-extrabold uppercase tracking-[0.06em] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--yellow)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--pitch)] disabled:pointer-events-none disabled:opacity-40;
   }
 
   .btn-primary {

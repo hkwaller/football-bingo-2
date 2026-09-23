@@ -4,7 +4,16 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { Settings } from 'lucide-react'
 import { BingoBoard } from '@/components/BingoBoard'
+import {
+  CategoryLegend,
+  ClosestLines,
+  closestLines,
+  type DrawOutcome,
+  RecentDraws,
+  Scoreboard,
+} from '@/components/BingoSidePanels'
 import { BingoWinModal } from '@/components/BingoWinModal'
 import { DrawnPlayerPanel, type DrawnPlayer } from '@/components/DrawnPlayerPanel'
 import { PlayerPickModal } from '@/components/PlayerPickModal'
@@ -53,6 +62,9 @@ export function SoloGame() {
   const [showLabels, setShowLabels] = useState(false)
   const [wrongCell, setWrongCell] = useState<{ cell: number; nonce: number } | null>(null)
   const [wrongCount, setWrongCount] = useState(0)
+  const [skippedCount, setSkippedCount] = useState(0)
+  const [recentDraws, setRecentDraws] = useState<DrawOutcome[]>([])
+  const missesThisRoundRef = useRef(0)
   const [drawSessionKey, setDrawSessionKey] = useState(0)
   const startedAtRef = useRef<number | null>(null)
   const finishedRef = useRef(false)
@@ -107,6 +119,16 @@ export function SoloGame() {
   }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy, drawnPlayerIds])
 
   const occupiedIndices = useMemo(() => [...solved.keys()], [solved])
+  const boardCells = useMemo(() => (seed ? generateBoard(seed, boardConfig) : []), [seed, boardConfig])
+  const lineProgress = useMemo(() => closestLines(boardConfig, new Set(solved.keys())), [boardConfig, solved])
+  const noteDraw = useCallback((d: Omit<DrawOutcome, 'key'>) => {
+    setRecentDraws((prev) => [{ ...d, key: `${Date.now()}-${d.name}` }, ...prev].slice(0, 4))
+  }, [])
+
+  // Misses count per drawn player, for the "skipped after 2 misses" note.
+  useEffect(() => {
+    missesThisRoundRef.current = 0
+  }, [round])
   const placedPlayerIds = useMemo(() => [...solved.values()].map((p) => p.playerId), [solved])
 
   useEffect(() => {
@@ -227,6 +249,8 @@ export function SoloGame() {
 
   const resetStats = useCallback(() => {
     setWrongCount(0)
+    setSkippedCount(0)
+    setRecentDraws([])
     startedAtRef.current = null
     finishedRef.current = false
   }, [])
@@ -279,8 +303,17 @@ export function SoloGame() {
   const skipDraft = useCallback(() => {
     if (playMode !== 'draft' || won || draftLoading) return
     setDraftError(null)
+    if (drawn) {
+      const misses = missesThisRoundRef.current
+      setSkippedCount((c) => c + 1)
+      noteDraw({
+        name: drawn.name,
+        result: 'skipped',
+        detail: misses ? `Skipped after ${misses} ${misses === 1 ? 'miss' : 'misses'}` : 'Skipped',
+      })
+    }
     setRound((r) => r + 1)
-  }, [playMode, won, draftLoading])
+  }, [playMode, won, draftLoading, drawn, noteDraw])
 
   useEffect(() => {
     if (playMode !== 'draft' || won) return
@@ -367,6 +400,7 @@ export function SoloGame() {
       if (!j.ok || !j.player) {
         setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
         setWrongCount((c) => c + 1)
+        missesThisRoundRef.current += 1
         return
       }
       const pick: CellPick = {
@@ -379,9 +413,11 @@ export function SoloGame() {
         m.set(cellIndex, pick)
         return m
       })
+      const clue = cellCategory(boardCells, cellIndex)
+      noteDraw({ name: j.player.name, result: 'placed', detail: clue ? displayCategory(clue) : undefined })
       setRound((r) => r + 1)
     },
-    [playMode, drawn, draftLoading, won, seed, boardConfig, markStart],
+    [playMode, drawn, draftLoading, won, seed, boardConfig, markStart, boardCells, noteDraw],
   )
 
   if (!hydrated) {
@@ -393,20 +429,75 @@ export function SoloGame() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-2 py-8 pb-32 md:px-9">
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <span className="chip -rotate-1 text-[12px] font-extrabold uppercase tracking-[0.08em] text-card-ink">
-          {PLAY_MODE_LABEL[playMode]}
+    <div className="mx-auto max-w-[1440px] px-2.5 pb-36 pt-1 sm:px-6 lg:px-16 lg:pb-16">
+      <div
+        className={`lg:grid lg:items-start lg:gap-9 ${
+          playMode === 'draft'
+            ? 'lg:grid-cols-[300px_minmax(0,1fr)_280px]'
+            : 'lg:grid-cols-[minmax(0,1fr)_280px]'
+        }`}
+      >
+      {/* Left column (desktop): drawn player + last draws. Below lg the drawn
+          player is a bar docked to the bottom of the screen. */}
+      {playMode === 'draft' ? (
+        <aside className="flex flex-col gap-5">
+          <DrawnPlayerPanel
+            mode={playMode}
+            round={round}
+            loading={draftLoading}
+            player={drawn}
+            error={draftError}
+            reduceMotion={reduceMotion}
+            wrongNonce={wrongCell?.nonce ?? null}
+            onSkip={skipDraft}
+            skipDisabled={won || draftLoading}
+            draftWarning={draftFallbackNote}
+          />
+          <RecentDraws draws={recentDraws} className="hidden lg:block" />
+        </aside>
+      ) : null}
+
+      <section aria-label="Your board" className="min-w-0">
+      <div className="mb-3 flex items-end justify-between gap-3 lg:mb-4">
+        <div>
+          <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-yellow">
+            Solo · {PLAY_MODE_LABEL[playMode]}
+          </p>
+          <h1 className="mt-1 hidden whitespace-nowrap font-display text-[44px] font-black uppercase leading-[0.9] text-on-green lg:block xl:text-[56px]">
+            Your board
+          </h1>
+        </div>
+        <div className="flex gap-2">
+          <button type="button" onClick={resetBoard} className="btn btn-outline-light btn-sm hidden lg:inline-flex">
+            New board
+          </button>
+          <button
+            type="button"
+            onClick={() => setSettingsOpen(true)}
+            className="btn btn-outline-light btn-sm"
+            aria-haspopup="dialog"
+            aria-expanded={settingsOpen}
+          >
+            <Settings aria-hidden className="size-4" /> Settings
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile stats line (the scoreboard column is desktop-only) */}
+      <div className="mb-2.5 flex items-center justify-between px-1 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-[#cfe3d5] lg:hidden">
+        <span className="flex gap-3">
+          <span>
+            <span className="text-yellow">{solved.size}</span> placed
+          </span>
+          <span>
+            <span className="text-coral">{wrongCount}</span> missed
+          </span>
         </span>
-        <button
-          type="button"
-          onClick={() => setSettingsOpen(true)}
-          className="btn btn-outline-light btn-sm"
-          aria-haspopup="dialog"
-          aria-expanded={settingsOpen}
-        >
-          ⚙ Settings
-        </button>
+        {lineProgress[0] ? (
+          <span className="rounded bg-yellow px-1.5 py-0.5 text-ink">
+            {lineProgress[0].label} · {lineProgress[0].filled}/{lineProgress[0].total}
+          </span>
+        ) : null}
       </div>
 
       {!configOk ? (
@@ -538,19 +629,6 @@ export function SoloGame() {
 
       <BingoWinModal open={won} stats={winStats} onPlayAgain={resetBoard} onClose={() => {}} />
 
-      <DrawnPlayerPanel
-        mode={playMode}
-        round={round}
-        loading={draftLoading}
-        player={drawn}
-        error={draftError}
-        reduceMotion={reduceMotion}
-        wrongNonce={wrongCell?.nonce ?? null}
-        onSkip={playMode === 'draft' ? skipDraft : undefined}
-        skipDisabled={won || draftLoading}
-        draftWarning={draftFallbackNote}
-      />
-
       {seed ? (
         <BingoBoard
           seed={seed}
@@ -568,6 +646,21 @@ export function SoloGame() {
           }}
         />
       ) : null}
+      </section>
+
+      {/* Right column (desktop): scoreboard, closest lines, legend */}
+      <aside className="hidden flex-col gap-5 pt-[74px] lg:flex">
+        <Scoreboard
+          items={[
+            { label: 'Placed', value: solved.size, tone: 'yellow' },
+            { label: 'Missed', value: wrongCount, tone: 'coral' },
+            ...(playMode === 'draft' ? [{ label: 'Skipped', value: skippedCount }] : []),
+          ]}
+        />
+        <ClosestLines lines={lineProgress} />
+        <CategoryLegend />
+      </aside>
+      </div>
 
       <AnimatePresence>
         {playMode === 'free' && modalCell !== null && modalLabel ? (

@@ -41,6 +41,7 @@ const config: Config = {
         coral: {
           DEFAULT: '#ff5b45', // Trivia, wrong answers, LIVE
           deep: '#e8452f',
+          ink: '#b3321e', // coral text on paper (passes 4.5:1)
         },
         surface: {
           DEFAULT: '#f5f0e1', // paper cards
