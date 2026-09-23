@@ -34,7 +34,7 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
     const isCorrect = playerId === question.correctPlayerId
     const wasChosen = playerId === selected
     if (isCorrect) return `${base} bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    if (wasChosen) return `${base} bg-pink text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
+    if (wasChosen) return `${base} bg-pink text-ink shadow-[0_5px_0_rgba(0,0,0,0.3)]`
     return `${base} bg-white/55 text-card-muted opacity-70`
   }
 

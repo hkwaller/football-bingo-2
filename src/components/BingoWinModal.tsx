@@ -70,7 +70,7 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 18 }}
-                className="mb-1.5 inline-block -rotate-2 rounded-lg bg-pink px-4 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_4px_0_rgba(0,0,0,0.22)]"
+                className="mb-1.5 inline-block -rotate-2 rounded-lg bg-pink px-4 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.16em] text-ink shadow-[0_4px_0_rgba(0,0,0,0.22)]"
               >
                 Full line
               </motion.span>

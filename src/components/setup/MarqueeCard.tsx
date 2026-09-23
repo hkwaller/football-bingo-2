@@ -7,7 +7,7 @@ import type { ReactNode } from 'react'
 export type MarqueeAccent = 'pink' | 'sky'
 
 const ACCENT_TILE: Record<MarqueeAccent, string> = {
-  pink: 'bg-pink text-white',
+  pink: 'bg-pink text-ink',
   sky: 'bg-sky text-pitch-deep',
 }
 

@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-red text-white uppercase tracking-[0.06em] shadow-[0_10px_20px_-10px_rgba(214,69,51,0.7)] hover:-translate-y-px hover:bg-red-deep active:translate-y-0",
+          "bg-red text-ink uppercase tracking-[0.06em] shadow-[0_10px_20px_-10px_rgba(214,69,51,0.7)] hover:-translate-y-px hover:bg-red-deep active:translate-y-0",
         outline:
           "border-2 border-ink bg-panel text-ink uppercase tracking-[0.06em] hover:-translate-y-px hover:bg-panel-white",
         secondary:

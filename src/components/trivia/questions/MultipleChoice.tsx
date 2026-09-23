@@ -30,7 +30,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
     const isCorrect = option === question.correctAnswer
     const wasChosen = option === selected
     if (isCorrect) return `${base} bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    if (wasChosen) return `${base} bg-pink text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
+    if (wasChosen) return `${base} bg-pink text-ink shadow-[0_5px_0_rgba(0,0,0,0.3)]`
     return `${base} bg-white/55 text-card-muted opacity-70`
   }
 
@@ -112,7 +112,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
           >
             <span
               className={`inline-block -rotate-[1.5deg] rounded-full px-6 py-2.5 font-display text-[22px] font-black uppercase leading-none shadow-[0_5px_0_rgba(0,0,0,0.25)] ${
-                lastResult.correct ? 'bg-yellow text-pitch-deep' : 'bg-pink text-white'
+                lastResult.correct ? 'bg-yellow text-pitch-deep' : 'bg-pink text-ink'
               }`}
             >
               {lastResult.correct

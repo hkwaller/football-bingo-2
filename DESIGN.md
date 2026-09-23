@@ -1,70 +1,113 @@
-# Football Bingo - "Prime Time Green" design system
+# Football Bingo - "Matchday" design system
 
-The aesthetic is a **TV game-show on a bright turf-green stage**: a vivid diagonal green gradient, chunky white cards with hard offset (no-blur) shadows, hot yellow/pink/sky accents, twinkling floodlight dots, and playful rotated badges. The collectible-sticker motif is kept. Confident, loud, broadcast-energy - never muted, never dark-mode.
+The look is a **matchday programme on a mown pitch**: a deep turf-green stage with wide stripes and faint chalk markings, cream paper cards with thick ink borders and hard ink shadows (printed, not plastic), stadium-signage headlines, and one loud action colour. The collectible sticker stays the signature motif. Confident and broadcast-loud, never muted, never dark-mode.
 
-## Tokens (defined in globals.css / tailwind.config.ts)
+Reference designs: the "Football Bingo · Matchday take" canvas (home, solo bingo, mobile bingo, trivia, room lobby, room in play, full time).
 
-Colors (Tailwind classes):
+## Tokens (globals.css + tailwind.config.ts)
 
-- `pitch` `#0d7a3a` / `pitch-bright` `#1fae5a` / `pitch-deep` `#06592a` - the green stage. Body is a fixed `linear-gradient(165deg, #1fae5a 0%, #0d7a3a 60%, #06592a 100%)`. `pitch-deep` = dark text on yellow + sticker name bars.
-- `card-ink` `#0a3d20` - headings/borders on white cards; `card-muted` `#3c6e4d` - secondary text; `card-muted-2` `#6f9c7f` - tertiary; `card-tint` `#ecf7ef` - inactive fills / input backgrounds.
-- `yellow` `#ffe23a` - **THE action color**: primary CTAs, free square, highlights (`yellow-deep` hover).
-- `pink` `#ff4d8d` - hot pop: eyebrows, round tags, wrong answers, "Bingo!" (`pink-deep` hover).
-- `sky` `#4de1ff` - cool pop: "Nation" chips, section eyebrows.
-- `green-go` `#22c55e` - correct answers, active toggles/pills, "Club" chips, ✓ Ready.
-- `live-red` `#e0301e` - the pulsing LIVE badge only.
-- `on-green` `#fff` / `on-green-soft` `#d7f2df` / `on-green-dim` `#b9e6c8` - text on the green stage.
+Token names from Prime Time Green are kept for now so every caller restyles at once. New names are listed first; prefer them in new code.
 
-Legacy Sticker-Album names (`paper`/`panel`/`ink`/`red`/`green`/`cream`/`nation`/`foil`/`gold`/`muted`) are **remapped** onto Prime Time Green so un-migrated callers stay coherent (`red`→pink, `foil`/`gold`→ yellow, `nation`→sky, `green`→card-ink, `cream`→white, etc). Prefer the new names when you touch a file.
+| Token | Value | Use |
+|---|---|---|
+| `pitch` | `#0e4a2c` | the stage. Body = stripes `#0f5030`/`#0d472a` (`--stripe` 120px, 65px under 640px) with a darkening wash to the bottom |
+| `pitch-bright` / `pitch-deep` | `#15603a` / `#093820` | stage highlights / footers, board tray |
+| `surface` | `#f5f0e1` | **paper**: every card, panel, board square |
+| `surface-2` | `#e9e1c9` | inactive fills, Trait chips, empty progress |
+| `surface-hi` | `#fffdf6` | sticker card, inputs |
+| `card-ink` (`ink`) | `#0a2417` | all text on paper, every border and hard shadow |
+| `card-muted` / `card-muted-2` | `#3d5a48` / `#6b8575` | secondary / tertiary text on paper |
+| `yellow` | `#ffd62e` | **the action colour**: primary CTAs, FREE square, winning line, highlights. Text on it is always ink |
+| `coral` (legacy `pink`, `red`) | `#ff5b45` | Trivia, wrong answers, LIVE, eyebrow tags. Ink text only |
+| `sky` (legacy `nation`) | `#6fd3f2` | Tenable, Nation category |
+| `green-go` | `#3ddc84` | correct, Club category, ✓ Ready/Placed |
+| `on-green` / `-soft` / `-dim` | `#f5f0e1` / `#ddebe1` / `#b7d3c1` | text on the stage |
 
-Shadows: hard offset, no blur. `shadow-soft`/`shadow-panel`/`shadow-hard` = `0 8px 0 rgba(0,0,0,0.22)`; `shadow-btn` = `0 6px 0`; `shadow-chip` = `0 3px 0`; `shadow-sticker` = `0 5px 0`.
+Legacy names (`paper`, `panel`, `cream`, `nation`, `foil`, `gold`, `turf`, `chalk`...) still resolve onto the values above. They go away in the cleanup phase.
+
+**Shadows** are hard, no blur, always ink: cards `0 6px 0`, buttons `0 5px 0` (hover 7px, active 2px), chips `0 3px 0`. On the ink scoreboard panels the shadow is `#052012`.
+
+**Borders**: 2.5px ink on cards, buttons and inputs; 2px on board squares and stickers; 1.5px on chips and flags.
+
+**Radii**: cards 14px (hero boards 16px), buttons and inputs 8px, board squares 8px (6px on mobile), chips 5-6px, tags 4px. No pills except progress bars.
 
 ## Typography
 
-- `font-display` - **Passion One** (700/900). Headlines, big numerals, sticker name bars. Always `uppercase font-black` (or `font-bold`), tight line-height (0.86–1.1).
-- `font-sans` - **Libre Franklin** (400–800). Body, buttons, labels - buttons/labels at 800.
-- `font-mono` - **Courier Prime**. Scores, room IDs, pool counts, timers only.
+- `font-display` - **Big Shoulders** (variable, `opsz` axis, 700-900). Headlines, numerals, sticker name bars, board labels. Always uppercase, tight line-height (0.84-1.05). Big headlines at 900.
+- `font-sans` - **Archivo** (400-800). Body, buttons (800, uppercase, 0.04em tracking), labels.
+- `font-mono` - **IBM Plex Mono** (500-700). Scores, rounds, timers, room IDs, eyebrow tags and small uppercase labels (0.08-0.14em tracking).
 
-## Components (prebuilt classes in globals.css - use these)
+## Components (globals.css classes)
 
-- `.btn` + `.btn-primary` - solid **yellow** pill, `pitch-deep` text, `0 6px 0` shadow that presses down on `:active`. The main CTA per view.
-- `.btn` + `.btn-outline` - 3px `card-ink` border pill, for **white** surfaces.
-- `.btn` + `.btn-outline-light` - 3px translucent-white border pill, for the **green stage**.
-- `.btn-ghost` - no border, `on-green-soft` text.
-- `.btn-lg` / `.btn-sm` size modifiers.
-- `.card` / `.panel` - white, `rounded-[20px]`, `0 8px 0` hard shadow, `card-ink` text.
-- `.eyebrow` - solid **pink** rounded chip, rotated `-1.5°`, `0 4px 0` shadow. Variants `.eyebrow-sky` and `.eyebrow-yellow`.
-- `.chip` - white pill, `0 3px 0` shadow.
-- `.input` - `card-tint` bg, 3px `card-ink` border, yellow focus ring.
-- `.foil` - solid yellow fill (free square / win moments).
-- `<Sticker>` (`@/components/Sticker`) - player portrait as a collectible sticker: white card, tilt, `pitch-deep` name bar with `yellow` text. `drawn` → yellow outline ring; `win` → yellow name bar; `variant` `green`/`pink`/`yellow` for marquee alternation. The signature motif.
-- `<TwinkleDots>` - ambient fixed floodlight glints (yellow/pink/sky), added globally in AppShell.
+- `.btn` + `.btn-primary` - yellow, ink border, ink shadow that presses down. One per view.
+- `.btn` + `.btn-outline` - transparent with ink border, for paper surfaces.
+- `.btn` + `.btn-outline-light` - transparent with cream border, for the stage.
+- `.btn-ghost`, `.btn-lg`, `.btn-sm` as before.
+- `.card` / `.panel` - paper, ink border, ink shadow, 14px.
+- `.eyebrow` - small mono tag, coral by default, rotated -1.5°. `.eyebrow-sky`, `.eyebrow-yellow`.
+- `.chip` - paper, 1.5px ink border, `0 3px 0` shadow.
+- `.input` - `surface-hi`, ink border, yellow focus ring.
+- `.foil` - solid yellow fill (FREE square, win moments).
 
-## Shape, spacing, rotation
+### Board square (container-query rule)
 
-- Radii: cards `20px` (hero `24px`, win modal `26px`), board cells `14px`, option tiles `16px`, pills `999px`, small badges `6–10px`.
-- **Rotation everywhere** (±0.3° to ±6°): cards, badges, eyebrow chips, letter tiles all get a small deterministic rotation. Solved sticker tilt: `((i*7)%5 - 2) * 1.2` deg.
-- Hover: `translateY(-2 to -3px)`. Tap: press-down (shadow flattens) or `scale(0.97)`.
+Board squares must work from ~66px (mobile 5×5) to ~165px (home hero). Each square is a size container and **everything that scales lives on an inner layer**, because `cqi` units on the container's own box resolve against an ancestor, not the square:
 
-## Chrome
+```html
+<button class="bingo-cell">          <!-- aspect-square, container-type: inline-size, position: relative -->
+  <span class="bingo-cell-inner">    <!-- absolute inset-0, padding in cqi, flex column -->
+    category bar · crest (32cqi) · label (clamp(8.5px, 11.5cqi, 15px), 3 lines max, 2 on mobile)
+  </span>
+</button>
+```
 
-- Header (`SiteHeader.tsx`): **transparent**, sits on the gradient (no bg, no border). Logo = ⚽ on a 44px yellow rounded tile rotated `-6°`; wordmark Passion One 30px white; **LIVE** badge in `live-red` rotated `4°`, pulsing. Nav pills: active = `bg-white/16` + white, idle `on-green-dim`; "New game" = yellow pill with `pitch-deep` text.
-- On the green stage, page titles/headings are **white**; body is `on-green-soft`. Inside white cards, headings are `card-ink`, body `card-muted`.
+States: open = paper; FREE = yellow + ink star, rotated -1.5°; filled = the player's sticker on a translucent tray (dashed cream border); on the winning line / nearest line = `#fff3b8` tray with a yellow border; vote target (shared board) = 4px coral outline, voters as small roundels on the square's bottom edge; disabled = 40% opacity.
 
-## Motion (framer-motion)
+Category bars (5px bar at the top of the square): Club `green-go`, Nation `sky`, Honour `yellow`, Trait `card-muted`. The mono category name sits beside it on desktop and is dropped on mobile.
 
-- Ambient: twinkle dots (opacity+scale, 2.2–3s, staggered); bob (`y:[0,-9,0]`, 3.4–5s) on drawn sticker / "Bingo!" pill / roster tiles / trivia sticker; LIVE + "in the tunnel" pulse (1.6–1.8s); marquee (translateX 0→-50%, 40s linear, list duplicated 2×). All skip under `prefers-reduced-motion`.
-- Entrances: fade-up (`opacity 0→1, y 12→0`, 0.35–0.5s easeOut, stagger 0.05–0.08s).
-- Board placement: spring slap-down (`scale 1.4→1, rotate tilt−10→tilt, y −40→0`, spring 320/18).
-- Win: modal pop (`scale 0.6→1.08→1`), canvas-confetti recolored `['#ffe23a','#ff4d8d','#4de1ff','#fff']`.
-- Trivia: shot clock is a `#ffe23a→#ff4d8d` gradient draining over 15s; correct tile → green-go pop; result is a rotated pill ("GOOOAL! Correct!" yellow / "Off the post - X" pink).
+### Sticker
 
-## Semantics
+`surface-hi` card, 2px ink border, small tilt, portrait on a halftone backdrop (mode colour + `radial-gradient` dots), flag in the top-right corner, ink name bar with yellow Big Shoulders text. Name-bar variants: ink/yellow (default), yellow/ink (win). Never white text on coral.
 
-- Solved bingo cell = the player's sticker (spring slap-down); winning line = yellow name bar; free cell = solid yellow ★ "FREE"; vote target (multiplayer) = pink ring; disabled = `opacity-40`.
-- Category chips: Nation `sky`, Club `green-go`, Honour `yellow` (🏆 emoji when no logo).
+### Mode colours
 
-## Migration notes
+Bingo = `yellow`, Trivia = `coral`, Tenable = `sky`. All three take **ink** text. Home mode cards use the full colour as the card background with a `MODE 0X` mono tag and a 104px Big Shoulders title.
 
-- This replaced the earlier "Sticker Album" (cream/red/ink) theme, which itself replaced "Floodlit" (dark). All three generations' token names still resolve via the remaps above.
-- Keep all logic, props, handlers, Liveblocks storage, API calls and accessibility attributes untouched - the redesign is styling + motion only.
+### Chrome
+
+- Ticker strip (ink, yellow bottom border, mono uppercase, coral LIVE tag) above the header on marketing pages only.
+- Header: 46px yellow logo tile with the ball mark, rotated -6°, wordmark in Big Shoulders 32px. Nav items: active = cream text on `rgba(245,240,225,0.12)` with a 3px yellow underline; idle `#cfe3d5`. "New game" = small primary button.
+- Scoreboard panels: ink card, row of yellow bulbs along the top, IBM Plex Mono digits in `#052a15` wells.
+
+## Screens
+
+- **Home** - hero with a small live board and a drawn sticker, three mode cards, sticker marquee on a tilted ink band, "How it plays" match timeline (1' / 45' / 90+'), scoreboard CTA.
+- **Solo bingo, desktop** - three columns: drawn-player card + last four draws (left), board (centre), scoreboard (placed / missed / skipped) + closest lines (right). Closest lines are derived from `bingoLinesForConfig` and the filled squares.
+- **Solo bingo, mobile** - header, one-line stats (placed, missed, closest line), board, and the drawn player in a slim bottom bar (small sticker, round, name, nation · position, Skip).
+- **Room in play** - the solo layout with the right column as the room scoreboard. It adapts to the room setting:
+  - *Same player*: "Everyone's on: [player]" at the top, per-player result this round (Placed / Playing), "Waiting on ...".
+  - *Own draws*: no shared player; progress bar, squares filled, tries and last move per player.
+  - *Shared board*: votes as roundels on the board, vote count in the column.
+  - *Mini boards* (optional): a 5×5 dot grid per player. **Needs a logic change**: presence only carries `solvedCount` today, not which squares. With Same player the current round's pick stays hidden (striped) until everyone has played.
+  - Mobile: an avatar strip (progress ring + ✓ / waiting badge) above the board; the bottom bar adds "You placed him · Waiting on ...".
+- **Room lobby** - QR + room ID with copy buttons, "Starting XI" team sheet (Gaffer badge, ✓ Ready, In the tunnel..., open spots), match settings summary, name input, "Kick off".
+- **Full time** - scoreboard banner with the winner and the winning line, standings table (squares, tries, Bingo badge), the winning board with the line highlighted, Rematch / New room / Home.
+
+## Motion
+
+Unchanged from Prime Time Green: fade-up entrances, spring slap-down when placing a sticker, modal pop on win, confetti (recolour to `['#ffd62e','#ff5b45','#6fd3f2','#f5f0e1']`), marquee, pulse on LIVE and "In the tunnel". Everything respects `prefers-reduced-motion`.
+
+## Accessibility
+
+- Ink text on every accent colour; never white on coral, sky or green-go.
+- Caption text on paper is `card-muted` or darker; on the stage `on-green-dim` or lighter.
+- Touch targets at least 44px; icon-only buttons get `aria-label`.
+
+## Migration
+
+The redesign is styling only: keep all logic, props, handlers, Liveblocks storage, API calls and accessibility attributes untouched (the mini boards are the one flagged exception).
+
+1. **Tokens and fonts** - done on `design/matchday`: palette, stage, fonts, and the `.btn` / `.card` / `.chip` / `.eyebrow` / `.input` classes.
+2. **Shared components** - `Sticker`, `BingoBoard` square (container rule above), category bars + Trait chip, `SiteHeader`, ticker, scoreboard panel.
+3. **Screens** - home, solo bingo (desktop 3-column, mobile bottom bar), room in play, lobby, full time, then Trivia and Tenable.
+4. **Cleanup** - move the ~64 hard-coded `rounded-[..]` values and ~43 hex literals in components to tokens, drop the legacy remaps, rename `pink` to `coral`, update the OG image and icon.

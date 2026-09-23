@@ -132,7 +132,7 @@ export function HeroTrivia() {
                   className={`-rotate-2 rounded-lg px-2.5 py-1.5 text-[12px] font-extrabold ${
                     selected === q!.correctAnswer
                       ? 'bg-yellow text-pitch-deep'
-                      : 'bg-pink text-white'
+                      : 'bg-pink text-ink'
                   }`}
                 >
                   {selected === q!.correctAnswer ? 'GOOOAL! Correct' : `It was ${q!.correctAnswer}`}
@@ -156,7 +156,7 @@ export function HeroTrivia() {
       )}
 
       <motion.div
-        className="absolute -right-3.5 -top-6 rotate-[8deg] rounded-full bg-pink px-[18px] py-3 font-display text-[20px] font-black uppercase text-white shadow-[0_6px_0_rgba(0,0,0,0.3)]"
+        className="absolute -right-3.5 -top-6 rotate-[8deg] rounded-full bg-pink px-[18px] py-3 font-display text-[20px] font-black uppercase text-ink shadow-[0_6px_0_rgba(0,0,0,0.3)]"
         animate={{ y: [0, -9, 0] }}
         transition={{ duration: 3.4, ease: 'easeInOut', repeat: Infinity }}
       >
@@ -235,7 +235,7 @@ function optionClass(option: string, selected: string | null, correctAnswer: str
   }
   if (option === correctAnswer)
     return `${base} bg-green-go text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]`
-  if (option === selected) return `${base} bg-pink text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]`
+  if (option === selected) return `${base} bg-pink text-ink shadow-[0_4px_0_rgba(0,0,0,0.2)]`
   return `${base} bg-card-tint text-card-muted opacity-60`
 }
 

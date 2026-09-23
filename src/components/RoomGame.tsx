@@ -46,7 +46,7 @@ import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 const ROUNDEL_COLORS = [
   'bg-green-go text-white',
   'bg-sky text-pitch-deep',
-  'bg-pink text-white',
+  'bg-pink text-ink',
 ] as const
 
 /** A label/value row in the host's read-only match-settings summary. */

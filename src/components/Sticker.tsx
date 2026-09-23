@@ -24,7 +24,7 @@ type StickerProps = {
 
 const NAME_BAR: Record<'green' | 'pink' | 'yellow', string> = {
   green: 'bg-pitch-deep text-yellow',
-  pink: 'bg-pink text-white',
+  pink: 'bg-pink text-ink',
   yellow: 'bg-yellow text-pitch-deep',
 }
 

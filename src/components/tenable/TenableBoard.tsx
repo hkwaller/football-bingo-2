@@ -43,7 +43,7 @@ function Slot({
           state === 'found'
             ? 'bg-green-go text-white'
             : state === 'missed'
-              ? 'bg-red/70 text-white'
+              ? 'bg-red/70 text-ink'
               : 'bg-card-tint text-muted'
         }`}
       >

@@ -306,7 +306,7 @@ function SectionHead({
 
 const ROUNDEL: Record<'yellow' | 'pink' | 'sky', string> = {
   yellow: 'bg-yellow text-pitch-deep',
-  pink: 'bg-pink text-white',
+  pink: 'bg-pink text-ink',
   sky: 'bg-sky text-pitch-deep',
 }
 
