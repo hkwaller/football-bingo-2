@@ -23,9 +23,9 @@ type StickerProps = {
 }
 
 const NAME_BAR: Record<'green' | 'pink' | 'yellow', string> = {
-  green: 'bg-pitch-deep text-yellow',
-  pink: 'bg-pink text-ink',
-  yellow: 'bg-yellow text-pitch-deep',
+  green: 'bg-ink text-yellow',
+  pink: 'bg-coral text-ink',
+  yellow: 'bg-yellow text-ink',
 }
 
 /** A player portrait mounted like a collectible sticker: white card,
@@ -46,12 +46,12 @@ export function Sticker({
 }: StickerProps) {
   return (
     <div
-      className={`shrink-0 rounded-[8px] bg-white p-[6px] shadow-sticker ${showName ? 'pb-2' : ''} ${
+      className={`shrink-0 rounded-[7px] border-2 border-ink bg-surface-hi p-[5px] shadow-[0_4px_0_#0a2417] ${showName ? 'pb-[6px]' : ''} ${
         drawn ? 'outline outline-[3px] outline-offset-2 outline-yellow' : ''
       } ${className}`}
       style={{ transform: `rotate(${rotate}deg)`, width: width ? `${width}px` : undefined }}
     >
-      <div className="relative aspect-square w-full overflow-hidden rounded-[5px] bg-[#dceee2]">
+      <div className="halftone relative aspect-square w-full overflow-hidden rounded-[4px] bg-sky">
         {imageUrl ? (
           <Image
             src={imageUrl}
@@ -66,16 +66,16 @@ export function Sticker({
           <svg
             viewBox="0 0 44 44"
             aria-hidden
-            className="absolute inset-0 h-full w-full opacity-25"
+            className="absolute inset-0 h-full w-full opacity-50"
           >
-            <circle cx="22" cy="16" r="9" fill="#0a3d20" />
-            <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a3d20" />
+            <circle cx="22" cy="16" r="9" fill="#0a2417" />
+            <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a2417" />
           </svg>
         )}
       </div>
       {showName ? (
         <div
-          className={`mt-[5px] truncate rounded-[4px] px-1 py-[3px] text-center font-display font-bold uppercase leading-tight tracking-[0.04em] ${
+          className={`mt-[5px] truncate rounded-[3px] px-1 py-[3px] text-center font-display font-black uppercase leading-none tracking-[0.02em] ${
             win ? NAME_BAR.yellow : NAME_BAR[variant]
           }`}
           style={{ fontSize: `${nameSize}px` }}

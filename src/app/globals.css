@@ -212,6 +212,51 @@ body {
     color: var(--card-ink);
   }
 
+  /* ── Board square ─────────────────────────────────────────────────────
+     The square is a size container. cqi units on the container's own box
+     resolve against an ancestor, so padding/type/icons that scale live on
+     .bingo-cell-inner, never on .bingo-cell itself. */
+  .bingo-cell {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    container-type: inline-size;
+  }
+  .bingo-cell-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Halftone backdrop behind sticker portraits; set the tone with bg-*. */
+  .halftone {
+    background-image: radial-gradient(rgba(10, 36, 23, 0.22) 1px, transparent 1.5px);
+    background-size: 6px 6px;
+  }
+
+  /* ── Scoreboard panel ─────────────────────────────────────────────────
+     Ink card, a row of yellow bulbs along the top, mono digits in wells. */
+  .scoreboard {
+    position: relative;
+    background-color: var(--card-ink);
+    border: 2.5px solid #052012;
+    border-radius: 14px;
+    box-shadow: 0 6px 0 #052012;
+    color: var(--on-green);
+  }
+  .scoreboard-bulbs {
+    height: 10px;
+    background-image: radial-gradient(circle, var(--yellow) 3px, transparent 3.5px);
+    background-size: 22px 10px;
+    opacity: 0.85;
+  }
+  .scoreboard-well {
+    @apply rounded-lg font-mono font-semibold;
+    background-color: #052a15;
+  }
+
   /* Legacy classes kept for any unconverted callers */
   .fb-brutal-btn {
     @apply btn btn-primary;

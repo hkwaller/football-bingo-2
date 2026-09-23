@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Star, Target, Trophy } from 'lucide-react'
 import {
   type BoardCell,
   type BoardConfig,
@@ -11,7 +12,7 @@ import {
   freeIndexForConfig,
   generateBoard,
 } from '@/lib/board'
-import { categoryLogo, displayCategory } from '@/lib/canonical'
+import { type CategoryKind, categoryLogo, displayCategory, getCategoryKind } from '@/lib/canonical'
 import type { CellPick } from '@/lib/cellPick'
 
 type BingoBoardProps = {
@@ -59,17 +60,19 @@ export function BingoBoard({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[760px] overflow-hidden rounded-[24px] bg-black/[0.22] p-3.5 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.25)] sm:p-6">
+    <div className="relative mx-auto w-full max-w-[760px] overflow-hidden rounded-xl border-[2.5px] border-ink bg-pitch-deep/90 p-[7px] shadow-[0_6px_0_#0a2417] sm:rounded-2xl sm:p-[18px] sm:shadow-[0_10px_0_#0a2417]">
       {/* faint chalk ring bleeding through the tray */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/[0.09]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface/[0.07]" />
       <div
-        className="relative grid gap-2.5 sm:gap-[13px]"
+        className="relative grid gap-[5px] sm:gap-3"
         style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}
       >
         {cells.map((cell, index) => {
           const isFree = cell.kind === 'free'
           const label = cell.kind === 'category' ? cell.label : null
           const logo = label ? categoryLogo(label) : null
+          const catKind = label ? getCategoryKind(label) : null
+          const meta = catKind ? KIND_META[catKind] : null
           // "Played under X" clues waste half the cell on the shared prefix.
           // Split it so the manager's name gets the room instead.
           const managerName =
@@ -95,24 +98,27 @@ export function BingoBoard({
               transition={{ duration: reduceMotion ? 0 : 0.35 }}
               disabled={isFree || !!pick || (restricted && !allowed)}
               onClick={() => !isFree && !pick && allowed && onCellClick(index)}
-              style={isFree ? { transform: 'rotate(-1deg)' } : undefined}
-              className={`relative flex aspect-square items-center justify-center overflow-hidden rounded-[14px] text-center transition-all duration-150 ${
+              style={isFree ? { transform: 'rotate(-1.5deg)' } : undefined}
+              // bingo-cell = size container; everything that scales lives on .bingo-cell-inner.
+              className={`bingo-cell overflow-hidden rounded-md text-center transition-all duration-150 sm:rounded-lg ${
                 pick
-                  ? 'cursor-not-allowed'
+                  ? isWinLine
+                    ? 'cursor-not-allowed border-2 border-yellow bg-[#fff3b8]'
+                    : 'cursor-not-allowed border-2 border-dashed border-surface/35 bg-surface/[0.14]'
                   : isFree
-                    ? 'bg-yellow text-pitch-deep shadow-[0_6px_0_rgba(0,0,0,0.25)]'
+                    ? 'border-2 border-ink bg-yellow text-ink shadow-[0_3px_0_#0a2417] sm:shadow-[0_5px_0_#0a2417]'
                     : voteHi
-                      ? 'bg-white ring-[3px] ring-pink shadow-[0_5px_0_rgba(0,0,0,0.22)]'
+                      ? 'border-2 border-ink bg-surface shadow-[0_3px_0_#0a2417] outline outline-4 outline-offset-2 outline-coral sm:shadow-[0_5px_0_#0a2417]'
                       : restricted && !allowed
-                        ? 'cursor-not-allowed bg-white/40 opacity-40 shadow-[0_5px_0_rgba(0,0,0,0.15)]'
-                        : 'bg-white/[0.92] shadow-[0_5px_0_rgba(0,0,0,0.22)] hover:-translate-y-[3px] hover:bg-white'
+                        ? 'cursor-not-allowed border-2 border-ink/50 bg-surface/40 opacity-40'
+                        : 'border-2 border-ink bg-surface shadow-[0_3px_0_#0a2417] hover:-translate-y-[3px] sm:shadow-[0_5px_0_#0a2417]'
               }`}
             >
               <AnimatePresence>
                 {isWrong ? (
                   <motion.div
                     key={`wrong-${wrongCell?.nonce}`}
-                    className="pointer-events-none absolute inset-0 z-20 rounded-[14px] border-[5px] border-live-red"
+                    className="pointer-events-none absolute inset-0 z-20 rounded-[inherit] border-[4px] border-live-red"
                     initial={{ opacity: 0 }}
                     animate={
                       reduceMotion
@@ -133,10 +139,10 @@ export function BingoBoard({
                     key="free"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center"
+                    className="bingo-cell-inner justify-center gap-[4cqi]"
                   >
-                    <span className="text-[30px] leading-none">★</span>
-                    <span className="mt-1.5 font-display text-[16px] font-black uppercase tracking-[0.12em]">
+                    <Star aria-hidden className="h-[26cqi] w-[26cqi] fill-ink stroke-none" />
+                    <span className="font-display text-[length:clamp(11px,17cqi,22px)] font-black uppercase leading-none tracking-[0.06em]">
                       Free
                     </span>
                   </motion.span>
@@ -155,10 +161,10 @@ export function BingoBoard({
                         ? { duration: 0 }
                         : { type: 'spring', stiffness: 320, damping: 18 }
                     }
-                    className="absolute inset-[6px] rounded-[6px] bg-white p-[5px] pb-[7px] shadow-[0_8px_16px_rgba(0,0,0,0.35)]"
+                    className="absolute inset-[9%] rounded-[6px] border-2 border-ink bg-surface-hi p-[4%] shadow-[0_3px_0_#0a2417]"
                   >
                     {/* portrait fills the sticker, name bar under it */}
-                    <div className="relative h-full w-full overflow-hidden rounded-[4px] bg-[#dceee2]">
+                    <div className="halftone relative h-full w-full overflow-hidden rounded-[3px] bg-sky">
                       {pick.imageUrl ? (
                         <Image
                           src={pick.imageUrl}
@@ -173,15 +179,15 @@ export function BingoBoard({
                         <svg
                           viewBox="0 0 44 44"
                           aria-hidden
-                          className="absolute inset-0 h-full w-full opacity-25"
+                          className="absolute inset-0 h-full w-full opacity-50"
                         >
-                          <circle cx="22" cy="16" r="9" fill="#0a3d20" />
-                          <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a3d20" />
+                          <circle cx="22" cy="16" r="9" fill="#0a2417" />
+                          <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a2417" />
                         </svg>
                       )}
                       <span
-                        className={`absolute inset-x-0 bottom-0 truncate px-1 py-[3px] text-center font-display font-bold uppercase leading-tight tracking-[0.04em] text-[10px] ${
-                          isWinLine ? 'bg-yellow text-pitch-deep' : 'bg-pitch-deep text-yellow'
+                        className={`absolute inset-x-0 bottom-0 truncate px-1 py-[3%] text-center font-display text-[length:clamp(8px,11cqi,14px)] font-black uppercase leading-none tracking-[0.02em] ${
+                          isWinLine ? 'bg-yellow text-ink' : 'bg-ink text-yellow'
                         }`}
                       >
                         {pick.name}
@@ -193,15 +199,24 @@ export function BingoBoard({
                     key="cat"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="flex w-full flex-col items-center gap-1.5 px-1 py-2 sm:px-2"
+                    className="bingo-cell-inner justify-center gap-[5cqi] px-[6cqi] pb-[6cqi] pt-[14cqi]"
                   >
+                    {/* category bar: kind name on desktop, just the colour bar on mobile */}
+                    {meta ? (
+                      <span className="absolute inset-x-[7cqi] top-[7cqi] flex items-center justify-center gap-1 sm:justify-between">
+                        <span className="hidden font-mono text-[length:clamp(8px,7.5cqi,10px)] font-semibold uppercase leading-none tracking-[0.08em] text-card-muted sm:inline">
+                          {meta.label}
+                        </span>
+                        <span className={`h-[5cqi] min-h-[3px] w-[44cqi] rounded-sm sm:w-[16cqi] ${meta.bar}`} />
+                      </span>
+                    ) : null}
                     {managerName ? (
                       // Managers: tiny shared prefix, then the name gets the space.
-                      <span className="flex w-full flex-col items-center gap-1 px-0.5">
-                        <span className="text-[6.5px] font-extrabold uppercase leading-none tracking-[0.14em] text-card-muted-2 sm:text-[9px]">
+                      <span className="flex w-full flex-col items-center gap-[3cqi]">
+                        <span className="font-mono text-[length:clamp(6.5px,7.5cqi,10px)] font-semibold uppercase leading-none tracking-[0.1em] text-card-muted">
                           Played under
                         </span>
-                        <span className="line-clamp-3 w-full text-[10px] font-extrabold uppercase leading-tight tracking-[0.01em] text-card-ink break-words sm:text-[14px]">
+                        <span className="line-clamp-2 w-full break-words font-display text-[length:clamp(8.5px,12.5cqi,16px)] font-extrabold uppercase leading-[1.1] tracking-[0.02em] text-ink sm:line-clamp-3">
                           {managerName}
                         </span>
                       </span>
@@ -211,23 +226,19 @@ export function BingoBoard({
                           <Image
                             src={logo}
                             alt={displayCategory(label)}
-                            width={44}
-                            height={44}
-                            className="h-11 w-11 object-contain sm:h-[38px] sm:w-[38px]"
+                            width={64}
+                            height={64}
+                            className="h-[32cqi] w-[32cqi] shrink-0 object-contain"
                             unoptimized
                           />
+                        ) : catKind === 'trait' ? (
+                          <Target aria-hidden className="hidden h-[22cqi] w-[22cqi] shrink-0 text-card-muted sm:block" strokeWidth={1.9} />
                         ) : (
-                          // Honours/squares have no crest - hide the trophy on mobile
-                          // and let the text carry the clue.
-                          <span
-                            className="hidden text-[28px] leading-none sm:block sm:text-[30px]"
-                            aria-hidden
-                          >
-                            🏆
-                          </span>
+                          // Honours have no crest - hide the trophy on mobile and let the text carry the clue.
+                          <Trophy aria-hidden className="hidden h-[24cqi] w-[24cqi] shrink-0 text-[#9a7400] sm:block" strokeWidth={1.9} />
                         )}
                         <span
-                          className={`line-clamp-3 px-0.5 text-[11px] font-extrabold uppercase leading-tight tracking-[0.01em] text-card-ink sm:text-[12.5px] ${
+                          className={`line-clamp-2 w-full break-words font-display text-[length:clamp(8.5px,11.5cqi,15px)] font-extrabold uppercase leading-[1.1] tracking-[0.02em] text-ink sm:line-clamp-3 ${
                             // Crested cells stay icon-only on mobile unless labels are on.
                             logo && !showLabels ? 'max-sm:hidden' : ''
                           }`}
@@ -245,6 +256,14 @@ export function BingoBoard({
       </div>
     </div>
   )
+}
+
+const KIND_META: Record<CategoryKind, { label: string; bar: string }> = {
+  club: { label: 'Club', bar: 'bg-green-go' },
+  nationality: { label: 'Nation', bar: 'bg-sky' },
+  achievement: { label: 'Honour', bar: 'bg-yellow' },
+  trait: { label: 'Trait', bar: 'bg-card-muted' },
+  manager: { label: 'Manager', bar: 'bg-card-muted' },
 }
 
 /** deterministic slap-down tilt for a solved sticker */
