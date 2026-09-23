@@ -77,7 +77,7 @@ export default async function AccountPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-14">
       <p className="eyebrow">Your profile</p>
-      <h1 className="mt-3 font-display text-[52px] font-black uppercase leading-none text-white">
+      <h1 className="mt-3 font-display text-[52px] font-black uppercase leading-none text-on-green">
         Stats
       </h1>
 
@@ -108,17 +108,17 @@ export default async function AccountPage() {
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[13px] font-bold text-on-green-dim">
             <span>
               Total guesses:{' '}
-              <span className="font-mono text-white">{summary.totalGuesses}</span>
+              <span className="font-mono text-on-green">{summary.totalGuesses}</span>
             </span>
             {summary.fastestMs !== null ? (
               <span>
                 Fastest board:{' '}
-                <span className="font-mono text-white">{formatDuration(summary.fastestMs)}</span>
+                <span className="font-mono text-on-green">{formatDuration(summary.fastestMs)}</span>
               </span>
             ) : null}
           </div>
 
-          <h2 className="mt-10 font-display text-[26px] font-black uppercase leading-none text-white">
+          <h2 className="mt-10 font-display text-[26px] font-black uppercase leading-none text-on-green">
             History
           </h2>
           <div className="mt-4 flex flex-col gap-2.5">
@@ -171,7 +171,7 @@ export default async function AccountPage() {
       {supabaseReady && tenableRows.length > 0 && (
         <section className="mt-14">
           <p className="eyebrow">Tenable</p>
-          <h2 className="mt-3 font-display text-[40px] font-black uppercase leading-none text-white">
+          <h2 className="mt-3 font-display text-[40px] font-black uppercase leading-none text-on-green">
             Name the ten
           </h2>
 

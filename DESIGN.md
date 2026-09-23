@@ -107,7 +107,7 @@ Unchanged from Prime Time Green: fade-up entrances, spring slap-down when placin
 
 The redesign is styling only: keep all logic, props, handlers, Liveblocks storage, API calls and accessibility attributes untouched (the mini boards are the one flagged exception).
 
-1. **Tokens and fonts** - done on `design/matchday`: palette, stage, fonts, and the `.btn` / `.card` / `.chip` / `.eyebrow` / `.input` classes.
-2. **Shared components** - `Sticker`, `BingoBoard` square (container rule above), category bars + Trait chip, `SiteHeader`, ticker, scoreboard panel.
-3. **Screens** - home, solo bingo (desktop 3-column, mobile bottom bar), room in play, lobby, full time, then Trivia and Tenable.
-4. **Cleanup** - move the ~64 hard-coded `rounded-[..]` values and ~43 hex literals in components to tokens, drop the legacy remaps, rename `pink` to `coral`, update the OG image and icon.
+1. **Tokens and fonts** - done: palette, stage, fonts, and the `.btn` / `.card` / `.chip` / `.eyebrow` / `.input` classes.
+2. **Shared components** - done: `Sticker`, `BingoBoard` square (container rule above, category bars, voter roundels), `SiteHeader`, `.scoreboard` / `.halftone` classes. Ticker still lives in the stashed Broadcast work.
+3. **Screens** - done: solo bingo (desktop 3-column, mobile bottom bar), room in play (`RoomPanels`: scoreboard column per room setting, mobile avatar strip, mini boards, full-time banner with standings and rematch), lobby restyle. Trivia, Tenable and setup screens restyled through the tokens and the sweep below. **Not yet**: the home page hero/mode cards from the canvas (the stashed Broadcast work already rebuilds that page, so it should land on top of it).
+4. **Cleanup** - partly done: black shadows are ink, `bg-white` is paper, white text is cream or ink, old palette hexes and 16-28px radii are migrated, single-line pill buttons are squared. Left: pills whose classes span several lines, dropping the legacy token remaps, renaming `pink` to `coral`, and the OG image/icon fonts.

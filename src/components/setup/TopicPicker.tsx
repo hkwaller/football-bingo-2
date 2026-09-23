@@ -59,14 +59,14 @@ export function TopicPicker({
               onClick={() => onToggle(item.id)}
               className={`flex items-center gap-[11px] rounded-[14px] px-[13px] py-3 text-left transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
                 active
-                  ? 'bg-green-go text-white shadow-[0_4px_0_rgba(0,0,0,0.22)]'
+                  ? 'bg-green-go text-ink shadow-[0_4px_0_#0a2417]'
                   : 'bg-card-tint/60 text-card-muted hover:-translate-y-px hover:bg-card-tint'
               }`}
             >
               <span
                 className={`flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-[7px] text-[13px] font-black leading-none ${
                   active
-                    ? 'bg-black/20 text-white'
+                    ? 'bg-black/20 text-on-green'
                     : 'border-2 border-card-ink/[0.28] text-transparent'
                 }`}
               >
@@ -77,7 +77,7 @@ export function TopicPicker({
                   {item.label}
                 </span>
                 <span
-                  className={`mt-1 block font-mono text-[11px] ${active ? 'text-white/80' : 'text-card-muted-2'}`}
+                  className={`mt-1 block font-mono text-[11px] ${active ? 'text-on-green/80' : 'text-card-muted-2'}`}
                 >
                   {item.count}
                 </span>
@@ -91,7 +91,7 @@ export function TopicPicker({
       <div className="mt-4 flex items-center gap-2.5 rounded-[12px] bg-card-ink px-[14px] py-[11px] pt-3.5">
         <Layers size={16} strokeWidth={2.6} className="shrink-0 text-yellow" />
         <span
-          className={`text-[12.5px] font-bold leading-snug ${invalid ? 'text-yellow' : 'text-white'}`}
+          className={`text-[12.5px] font-bold leading-snug ${invalid ? 'text-yellow' : 'text-on-green'}`}
         >
           {summary}
         </span>

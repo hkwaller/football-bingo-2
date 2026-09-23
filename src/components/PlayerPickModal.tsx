@@ -96,7 +96,7 @@ export function PlayerPickModal({
       role="presentation"
     >
       <motion.div
-        className="panel max-h-[85vh] w-full max-w-md overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
+        className="panel max-h-[85vh] w-full max-w-md overflow-hidden shadow-[0_24px_60px_-24px_rgba(10,36,23,0.6)]"
         initial={{ scale: 0.97, y: 10 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
@@ -163,7 +163,7 @@ export function PlayerPickModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-[0.06em] text-card-muted transition-colors hover:bg-card-tint hover:text-card-ink"
+            className="rounded-lg px-4 py-2 text-xs font-extrabold uppercase tracking-[0.06em] text-card-muted transition-colors hover:bg-card-tint hover:text-card-ink"
           >
             Cancel
           </button>

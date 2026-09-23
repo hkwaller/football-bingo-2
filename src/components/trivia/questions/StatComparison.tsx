@@ -29,13 +29,13 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
     const base =
       'flex-1 flex flex-col items-center gap-4 p-6 rounded-xl transition-all duration-200 cursor-pointer min-h-[220px] justify-center'
     if (!selected) {
-      return `${base} bg-white text-card-ink shadow-[0_5px_0_rgba(0,0,0,0.22)] hover:-translate-y-[3px]`
+      return `${base} bg-surface text-card-ink shadow-[0_5px_0_#0a2417] hover:-translate-y-[3px]`
     }
     const isCorrect = playerId === question.correctPlayerId
     const wasChosen = playerId === selected
-    if (isCorrect) return `${base} bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    if (wasChosen) return `${base} bg-pink text-ink shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    return `${base} bg-white/55 text-card-muted opacity-70`
+    if (isCorrect) return `${base} bg-green-go text-ink shadow-[0_5px_0_#0a2417]`
+    if (wasChosen) return `${base} bg-pink text-ink shadow-[0_5px_0_#0a2417]`
+    return `${base} bg-surface/55 text-card-muted opacity-70`
   }
 
   return (
@@ -65,7 +65,7 @@ export function StatComparison({ question, onAnswer, disabled, lastResult }: Pro
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.1, duration: 0.3 }}
             >
-              <div className="w-20 h-20 overflow-hidden rounded-[6px] border-2 border-card-ink bg-white p-[3px]">
+              <div className="w-20 h-20 overflow-hidden rounded-[6px] border-2 border-card-ink bg-surface p-[3px]">
                 <img
                   src={player.imageUrl}
                   alt={player.name}

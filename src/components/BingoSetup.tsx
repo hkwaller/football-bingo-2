@@ -464,7 +464,7 @@ export function BingoSetup() {
             }`}
           >
             <span
-              className={`h-4 w-4 rounded-full bg-white shadow transition-transform ${
+              className={`h-4 w-4 rounded-full bg-surface shadow transition-transform ${
                 boardConfig.freeSquare ? 'translate-x-[16px]' : 'translate-x-0'
               }`}
             />
@@ -527,7 +527,7 @@ export function BingoSetup() {
             trailing={
               <Link
                 href={isMultiplayer ? '/' : '/play'}
-                className="flex flex-none items-center gap-2 whitespace-nowrap rounded-full border-[3px] border-white/50 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white/10"
+                className="flex flex-none items-center gap-2 whitespace-nowrap rounded-lg border-[3px] border-surface/50 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.04em] text-on-green transition-colors hover:bg-surface/10"
               >
                 {isMultiplayer ? '← Back home' : '← Back to game'}
               </Link>

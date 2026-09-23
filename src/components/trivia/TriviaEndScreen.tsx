@@ -72,7 +72,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
         </motion.div>
         <span className="eyebrow">Full time</span>
         <div>
-          <h1 className="font-display text-[72px] font-black uppercase leading-none text-white tabular-nums">
+          <h1 className="font-display text-[72px] font-black uppercase leading-none text-on-green tabular-nums">
             {scoreState.score.toLocaleString()}
           </h1>
           <p className="mt-1 text-sm font-semibold text-on-green-soft">points</p>
@@ -85,7 +85,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
           </div>
           <div className="flex-1 text-center">
             <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-card-muted">Best streak</p>
-            <p className="font-display text-2xl font-black uppercase leading-none text-pitch-deep tabular-nums">{scoreState.bestStreak}x</p>
+            <p className="font-display text-2xl font-black uppercase leading-none text-ink tabular-nums">{scoreState.bestStreak}x</p>
           </div>
           <div className="flex-1 text-center">
             <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-card-muted">Answered</p>
@@ -102,7 +102,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="font-display text-2xl font-black uppercase leading-none text-white">Leaderboard</h2>
+          <h2 className="font-display text-2xl font-black uppercase leading-none text-on-green">Leaderboard</h2>
           {leaderboard
             .sort((a, b) => b.score - a.score)
             .map((entry, i) => (
@@ -141,7 +141,7 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <h2 className="font-display text-2xl font-black uppercase leading-none text-white">Review</h2>
+        <h2 className="font-display text-2xl font-black uppercase leading-none text-on-green">Review</h2>
         {questions.map((q, i) => {
           const answer = answers[i]
           if (!answer) return null

@@ -30,12 +30,12 @@ export function TenableHUD({
           <span className="eyebrow eyebrow-sky">
             Category {questionNumber} of {totalQuestions}
           </span>
-          <h1 className="mt-2 font-display text-[32px] font-black uppercase leading-[0.92] text-white md:text-[40px]">
+          <h1 className="mt-2 font-display text-[32px] font-black uppercase leading-[0.92] text-on-green md:text-[40px]">
             {category}
           </h1>
           <p className="mt-1.5 text-sm font-semibold text-on-green-soft">{prompt}</p>
         </div>
-        <span className="inline-flex shrink-0 items-center rounded-full bg-black/25 px-4 py-2 font-mono text-sm font-bold tabular-nums text-yellow">
+        <span className="inline-flex shrink-0 items-center rounded-lg bg-black/25 px-4 py-2 font-mono text-sm font-bold tabular-nums text-yellow">
           {score.toLocaleString()} pts
         </span>
       </div>
@@ -50,7 +50,7 @@ export function TenableHUD({
           ))}
         </div>
         {/* Progress */}
-        <span className="font-display text-lg font-black uppercase leading-none text-white tabular-nums">
+        <span className="font-display text-lg font-black uppercase leading-none text-on-green tabular-nums">
           {foundCount}/{totalAnswers}
         </span>
       </div>

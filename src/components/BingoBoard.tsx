@@ -33,6 +33,8 @@ type BingoBoardProps = {
    * always shows labels regardless. Toggled from the game's settings panel.
    */
   showLabels?: boolean
+  /** Shared board: who has voted for each square (roundels on the square's edge). */
+  cellVoters?: Map<number, { key: string; initial: string; color: string }[]>
 }
 
 export function BingoBoard({
@@ -46,6 +48,7 @@ export function BingoBoard({
   wrongCell = null,
   reduceMotion = false,
   showLabels = false,
+  cellVoters,
 }: BingoBoardProps) {
   const lines = bingoLinesForConfig(boardConfig)
   const freeIdx = freeIndexForConfig(boardConfig)
@@ -114,6 +117,18 @@ export function BingoBoard({
                         : 'border-2 border-ink bg-surface shadow-[0_3px_0_#0a2417] hover:-translate-y-[3px] sm:shadow-[0_5px_0_#0a2417]'
               }`}
             >
+              {cellVoters?.get(index)?.length ? (
+                <span className="pointer-events-none absolute bottom-[5cqi] right-[5cqi] z-10 flex" aria-hidden>
+                  {cellVoters.get(index)!.map((v) => (
+                    <span
+                      key={v.key}
+                      className={`-ml-[4cqi] flex h-[20cqi] w-[20cqi] items-center justify-center rounded-full border-2 border-ink font-display text-[length:clamp(8px,11cqi,13px)] font-black uppercase leading-none text-ink ${v.color}`}
+                    >
+                      {v.initial}
+                    </span>
+                  ))}
+                </span>
+              ) : null}
               <AnimatePresence>
                 {isWrong ? (
                   <motion.div

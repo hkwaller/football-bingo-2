@@ -23,25 +23,25 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
 
   function optionClass(option: string) {
     const base =
-      'flex items-center gap-3.5 rounded-[16px] p-[18px] text-left text-base font-extrabold transition-all duration-150'
+      'flex items-center gap-3.5 rounded-[12px] p-[18px] text-left text-base font-extrabold transition-all duration-150'
     if (!selected) {
-      return `${base} bg-white text-card-ink shadow-[0_5px_0_rgba(0,0,0,0.22)] hover:-translate-y-[3px] cursor-pointer`
+      return `${base} bg-surface text-card-ink shadow-[0_5px_0_#0a2417] hover:-translate-y-[3px] cursor-pointer`
     }
     const isCorrect = option === question.correctAnswer
     const wasChosen = option === selected
-    if (isCorrect) return `${base} bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    if (wasChosen) return `${base} bg-pink text-ink shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    return `${base} bg-white/55 text-card-muted opacity-70`
+    if (isCorrect) return `${base} bg-green-go text-ink shadow-[0_5px_0_#0a2417]`
+    if (wasChosen) return `${base} bg-pink text-ink shadow-[0_5px_0_#0a2417]`
+    return `${base} bg-surface/55 text-card-muted opacity-70`
   }
 
   function letterTileClass(option: string) {
     const base =
       'flex h-[34px] w-[34px] shrink-0 -rotate-3 items-center justify-center rounded-[10px] font-display text-[19px] font-black uppercase leading-none'
-    if (!selected) return `${base} bg-yellow text-pitch-deep`
+    if (!selected) return `${base} bg-yellow text-ink`
     const isCorrect = option === question.correctAnswer
     const wasChosen = option === selected
-    if (isCorrect) return `${base} bg-yellow text-pitch-deep`
-    if (wasChosen) return `${base} bg-white text-pink`
+    if (isCorrect) return `${base} bg-yellow text-ink`
+    if (wasChosen) return `${base} bg-surface text-pink`
     return `${base} bg-card-tint text-card-muted`
   }
 
@@ -66,7 +66,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
           </motion.div>
         )}
         <motion.div
-          className="w-full rounded-[20px] bg-white px-8 pb-7 pt-11 text-center shadow-[0_8px_0_rgba(0,0,0,0.22)]"
+          className="w-full rounded-[14px] bg-surface px-8 pb-7 pt-11 text-center shadow-[0_8px_0_#0a2417]"
           style={{ marginTop: question.playerImageUrl ? -28 : 0, transform: 'rotate(0.4deg)' }}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -111,8 +111,8 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
             transition={{ type: 'spring', stiffness: 320, damping: 18 }}
           >
             <span
-              className={`inline-block -rotate-[1.5deg] rounded-full px-6 py-2.5 font-display text-[22px] font-black uppercase leading-none shadow-[0_5px_0_rgba(0,0,0,0.25)] ${
-                lastResult.correct ? 'bg-yellow text-pitch-deep' : 'bg-pink text-ink'
+              className={`inline-block -rotate-[1.5deg] rounded-full px-6 py-2.5 font-display text-[22px] font-black uppercase leading-none shadow-[0_5px_0_#0a2417] ${
+                lastResult.correct ? 'bg-yellow text-ink' : 'bg-pink text-ink'
               }`}
             >
               {lastResult.correct

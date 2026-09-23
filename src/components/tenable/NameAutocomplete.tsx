@@ -106,7 +106,7 @@ export function NameAutocomplete({ onGuess, disabled, placeholder, focusKey }: P
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
-          className="w-full rounded-[14px] border-2 border-ink bg-white px-4 py-3.5 font-semibold text-ink outline-none placeholder:text-muted focus:border-green disabled:opacity-50"
+          className="w-full rounded-[14px] border-2 border-ink bg-surface px-4 py-3.5 font-semibold text-ink outline-none placeholder:text-muted focus:border-green disabled:opacity-50"
         />
         <button
           type="submit"
@@ -118,7 +118,7 @@ export function NameAutocomplete({ onGuess, disabled, placeholder, focusKey }: P
       </form>
 
       {open && suggestions.length > 0 && (
-        <ul className="absolute z-20 mt-2 max-h-64 w-full overflow-auto rounded-[14px] border-2 border-ink bg-white py-1 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.5)]">
+        <ul className="absolute z-20 mt-2 max-h-64 w-full overflow-auto rounded-[14px] border-2 border-ink bg-surface py-1 shadow-[0_18px_40px_-18px_rgba(10,36,23,0.5)]">
           {suggestions.map((name, i) => (
             <li key={`${name}-${i}`}>
               <button
@@ -129,7 +129,7 @@ export function NameAutocomplete({ onGuess, disabled, placeholder, focusKey }: P
                   submit(name)
                 }}
                 className={`w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors ${
-                  i === active ? 'bg-green-go text-white' : 'text-ink hover:bg-card-tint'
+                  i === active ? 'bg-green-go text-ink' : 'text-ink hover:bg-card-tint'
                 }`}
               >
                 {name}

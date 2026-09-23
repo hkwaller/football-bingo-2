@@ -33,7 +33,7 @@ export function TenableEndScreen({ session, onPlayAgain }: Props) {
       >
         <span className="eyebrow">Full time</span>
         <div>
-          <h1 className="font-display text-[72px] font-black uppercase leading-none text-white tabular-nums">
+          <h1 className="font-display text-[72px] font-black uppercase leading-none text-on-green tabular-nums">
             {summary.score.toLocaleString()}
           </h1>
           <p className="mt-1 text-sm font-semibold text-on-green-soft">points</p>
@@ -53,7 +53,7 @@ export function TenableEndScreen({ session, onPlayAgain }: Props) {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        <h2 className="font-display text-2xl font-black uppercase leading-none text-white">Review</h2>
+        <h2 className="font-display text-2xl font-black uppercase leading-none text-on-green">Review</h2>
         {session.results.map((r) => (
           <div
             key={r.questionId}

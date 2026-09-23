@@ -15,7 +15,7 @@ interface Props {
   onClose: () => void
 }
 
-const FOIL_COLORS = ['#ffe23a', '#ff4d8d', '#4de1ff', '#ffffff']
+const FOIL_COLORS = ['#ffd62e', '#ff5b45', '#6fd3f2', '#ffffff']
 
 export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
   const firedRef = useRef(false)
@@ -65,12 +65,12 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
             transition={{ duration: 0.5, ease: [0.2, 1.4, 0.4, 1] }}
           >
-            <div className="w-[420px] max-w-full rounded-[26px] bg-white px-9 pb-7 pt-9 text-center shadow-[0_14px_0_rgba(0,0,0,0.3),0_40px_90px_rgba(0,0,0,0.5)]">
+            <div className="w-[420px] max-w-full rounded-[14px] bg-surface px-9 pb-7 pt-9 text-center shadow-[0_14px_0_rgba(10,36,23,0.3),0_40px_90px_rgba(10,36,23,0.5)]">
               <motion.span
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 18 }}
-                className="mb-1.5 inline-block -rotate-2 rounded-lg bg-pink px-4 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.16em] text-ink shadow-[0_4px_0_rgba(0,0,0,0.22)]"
+                className="mb-1.5 inline-block -rotate-2 rounded-lg bg-pink px-4 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.16em] text-ink shadow-[0_4px_0_#0a2417]"
               >
                 Full line
               </motion.span>

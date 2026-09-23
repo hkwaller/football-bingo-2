@@ -110,17 +110,17 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative w-full overflow-hidden">
         {/* decorative chalk center circle + halfway line */}
-        <div className="pointer-events-none absolute left-1/2 top-[-260px] h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-white/[0.18]" />
-        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-white/[0.08]" />
+        <div className="pointer-events-none absolute left-1/2 top-[-260px] h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-surface/[0.18]" />
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-surface/[0.08]" />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pb-12 pt-16 md:px-9 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Left column */}
           <motion.div {...fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }}>
             <span className="eyebrow">The football knowledge game</span>
-            <h1 className="mt-5 font-display text-[clamp(56px,9.5vw,108px)] font-black uppercase leading-[0.86] text-white">
+            <h1 className="mt-5 font-display text-[clamp(56px,9.5vw,108px)] font-black uppercase leading-[0.86] text-on-green">
               Know football?
               <br />
-              <span className="mt-2 inline-block -rotate-[1.5deg] bg-yellow px-[18px] text-pitch-deep shadow-[0_8px_0_rgba(0,0,0,0.3)]">
+              <span className="mt-2 inline-block -rotate-[1.5deg] bg-yellow px-[18px] text-ink shadow-[0_8px_0_#0a2417]">
                 Prove it.
               </span>
             </h1>
@@ -140,7 +140,7 @@ export default function HomePage() {
               {['🃏 641 real players', '👥 Solo or full room', '🎉 Free to play'].map((s) => (
                 <span
                   key={s}
-                  className="inline-flex items-center gap-2 rounded-full bg-black/20 px-4 py-2 text-[13px] font-bold text-on-green"
+                  className="inline-flex items-center gap-2 rounded-lg bg-black/20 px-4 py-2 text-[13px] font-bold text-on-green"
                 >
                   {s}
                 </span>
@@ -189,7 +189,7 @@ export default function HomePage() {
           </div>
         </section>
         {/* ── Full-bleed sticker marquee ─────────── */}
-        <div className="relative mt-6 w-full overflow-hidden border-y-[3px] border-white/35 bg-black/[0.14] py-[18px]">
+        <div className="relative mt-6 w-full overflow-hidden border-y-[3px] border-surface/35 bg-black/[0.14] py-[18px]">
           <motion.div
             className="flex w-max gap-[18px] px-[18px]"
             animate={reduceMotion ? undefined : { x: ['0%', '-50%'] }}
@@ -239,13 +239,13 @@ export default function HomePage() {
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden border-t-[3px] border-white/35 bg-black/[0.16] px-6 py-20 md:px-9">
-        <div className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-white/[0.16]" />
+      <section className="relative w-full overflow-hidden border-t-[3px] border-surface/35 bg-black/[0.16] px-6 py-20 md:px-9">
+        <div className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-surface/[0.16]" />
         <div className="relative mx-auto max-w-[640px] text-center">
-          <h2 className="font-display text-[clamp(2.5rem,8vw,60px)] font-black uppercase leading-[0.9] text-white">
+          <h2 className="font-display text-[clamp(2.5rem,8vw,60px)] font-black uppercase leading-[0.9] text-on-green">
             Ready for
             <br />
-            <span className="mt-1 inline-block -rotate-1 bg-yellow px-3.5 text-pitch-deep shadow-[0_6px_0_rgba(0,0,0,0.3)]">
+            <span className="mt-1 inline-block -rotate-1 bg-yellow px-3.5 text-ink shadow-[0_6px_0_#0a2417]">
               kick-off?
             </span>
           </h2>
@@ -297,7 +297,7 @@ function SectionHead({
       className="text-center"
     >
       <span className={cls}>{eyebrow}</span>
-      <h2 className="mt-3 font-display text-[clamp(2rem,6vw,52px)] font-black uppercase leading-none text-white">
+      <h2 className="mt-3 font-display text-[clamp(2rem,6vw,52px)] font-black uppercase leading-none text-on-green">
         {title}
       </h2>
     </motion.div>
@@ -305,9 +305,9 @@ function SectionHead({
 }
 
 const ROUNDEL: Record<'yellow' | 'pink' | 'sky', string> = {
-  yellow: 'bg-yellow text-pitch-deep',
+  yellow: 'bg-yellow text-ink',
   pink: 'bg-pink text-ink',
-  sky: 'bg-sky text-pitch-deep',
+  sky: 'bg-sky text-ink',
 }
 
 function StepCard({
@@ -330,11 +330,11 @@ function StepCard({
       whileInView="animate"
       initial="initial"
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="rounded-[20px] bg-white p-[26px] shadow-[0_10px_0_rgba(0,0,0,0.22)]"
+      className="rounded-[14px] bg-surface p-[26px] shadow-[0_10px_0_#0a2417]"
       style={{ transform: `rotate(${rot}deg)` }}
     >
       <span
-        className={`flex h-[46px] w-[46px] items-center justify-center rounded-full font-display text-[24px] font-black leading-none shadow-[0_4px_0_rgba(0,0,0,0.2)] ${ROUNDEL[tone]}`}
+        className={`flex h-[46px] w-[46px] items-center justify-center rounded-full font-display text-[24px] font-black leading-none shadow-[0_4px_0_#0a2417] ${ROUNDEL[tone]}`}
       >
         {step}
       </span>
@@ -368,7 +368,7 @@ function ModeCard({
       whileInView="animate"
       initial="initial"
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="rounded-[20px] bg-white p-7 shadow-[0_10px_0_rgba(0,0,0,0.22)]"
+      className="rounded-[14px] bg-surface p-7 shadow-[0_10px_0_#0a2417]"
       style={{ transform: `rotate(${rot}deg)` }}
     >
       <p className="font-display text-[34px] font-black uppercase leading-none text-card-ink">

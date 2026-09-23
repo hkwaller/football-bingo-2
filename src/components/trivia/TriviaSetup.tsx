@@ -330,7 +330,7 @@ export function TriviaSetup() {
   const hint = isSolo ? undefined : isMultiplayer ? (
     'Room code comes next'
   ) : (
-    <button type="button" onClick={launchSolo} className="underline hover:text-white">
+    <button type="button" onClick={launchSolo} className="underline hover:text-on-green">
       or play solo →
     </button>
   )

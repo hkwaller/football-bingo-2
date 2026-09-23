@@ -25,6 +25,15 @@ import { RoomInvite } from '@/components/RoomInvite'
 import type { CellPick } from '@/lib/cellPick'
 import { DrawnPlayerPanel, type DrawnPlayer } from '@/components/DrawnPlayerPanel'
 import { PlayerPickModal } from '@/components/PlayerPickModal'
+import {
+  AvatarStrip,
+  FullTimeBanner,
+  joinNames,
+  PLAYER_COLORS,
+  type RoomMode,
+  type RoomPlayer,
+  RoomRail,
+} from '@/components/RoomPanels'
 import { cellCategory, freeIndexForConfig, generateBoard, hasBingoForConfig } from '@/lib/board'
 import { enrichedFootballPlayers } from '@/data/players'
 import {
@@ -43,11 +52,7 @@ import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 
-const ROUNDEL_COLORS = [
-  'bg-green-go text-white',
-  'bg-sky text-pitch-deep',
-  'bg-pink text-ink',
-] as const
+const ROUNDEL_COLORS = PLAYER_COLORS.map((c) => `${c} text-ink border-2 border-ink`)
 
 /** A label/value row in the host's read-only match-settings summary. */
 function SummaryRow({ label, value }: { label: string; value: string }) {
@@ -292,6 +297,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     updatePresence({
       guesses: 0,
       solvedCount: 0,
+      solvedCells: [],
       actedRound: null,
       lastAction: null,
       lastActionAt: null,
@@ -462,6 +468,73 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   const voteHighlightIndex = myVote?.type === 'square' ? myVote.cellIndex : null
 
+  // ── Room scoreboard model (styling only; derived from presence + storage) ──
+  const roomMode: RoomMode =
+    playMode === 'free' ? 'free' : !isIndividual ? 'shared' : drawShared ? 'same' : 'own'
+  const sharedCells = useMemo(
+    () => (!isIndividual && activeSeed ? generateBoard(activeSeed, boardConfig) : []),
+    [isIndividual, activeSeed, boardConfig],
+  )
+  const roomPlayers = useMemo<RoomPlayer[]>(() => {
+    const raw = [
+      { id: self?.connectionId ?? -1, isSelf: true, pr: presence, name: (presence?.displayName || nameDraft).trim() || 'You' },
+      ...others.map((o) => ({ id: o.connectionId, isSelf: false, pr: o.presence, name: (o.presence?.displayName ?? '').trim() || 'Guest' })),
+    ]
+    const allActed = raw.every((r) => r.pr?.bingoAt != null || r.pr?.actedRound === draftRound)
+    return raw.map((r, i) => {
+      const pr = r.pr
+      const acted = phase === 'playing' && pr?.actedRound === draftRound
+      const recent = pr?.lastActionAt != null && nowTick > 0 && nowTick - pr.lastActionAt < 3500
+      const fromAction = (a: typeof pr.lastAction | undefined): RoomPlayer['status'] =>
+        a === 'correct' ? { kind: 'placed' } : a === 'wrong' ? { kind: 'missed' } : a === 'skip' ? { kind: 'skipped' } : null
+      let status: RoomPlayer['status'] = null
+      if (phase === 'playing') {
+        if (roomMode === 'same') status = acted ? fromAction(pr?.lastAction) : { kind: 'playing' }
+        else if (roomMode === 'shared') {
+          const v = draftVotes?.get(String(r.id))
+          status = !v
+            ? { kind: 'novote' }
+            : v.type === 'skip'
+              ? { kind: 'vote', label: 'Skip' }
+              : { kind: 'vote', label: displayCategory(cellCategory(sharedCells, v.cellIndex) ?? '') }
+        } else if (recent) status = fromAction(pr?.lastAction)
+      }
+      return {
+        id: r.id,
+        name: r.name,
+        isSelf: r.isSelf,
+        colorIndex: i,
+        bingo: pr?.bingoAt != null,
+        bingoAt: pr?.bingoAt ?? null,
+        guesses: pr?.guesses ?? 0,
+        solvedCount: pr?.solvedCount ?? 0,
+        solvedCells: pr?.solvedCells ?? [],
+        status,
+        hideLastPick: roomMode === 'same' && !r.isSelf && acted && pr?.lastAction === 'correct' && !allActed,
+      }
+    })
+  }, [self?.connectionId, presence, nameDraft, others, draftRound, phase, nowTick, roomMode, draftVotes, sharedCells])
+  const waitingOn = useMemo(
+    () =>
+      roomMode === 'same' && phase === 'playing'
+        ? roomPlayers.filter((p) => !p.isSelf && !p.bingo && p.status?.kind === 'playing').map((p) => p.name)
+        : [],
+    [roomMode, phase, roomPlayers],
+  )
+  const cellVoters = useMemo(() => {
+    if (roomMode !== 'shared' || !draftVotes) return undefined
+    const m = new Map<number, { key: string; initial: string; color: string }[]>()
+    for (const p of roomPlayers) {
+      const v = draftVotes.get(String(p.id))
+      if (v?.type !== 'square') continue
+      const list = m.get(v.cellIndex) ?? []
+      list.push({ key: String(p.id), initial: p.name.charAt(0) || '?', color: PLAYER_COLORS[p.colorIndex % PLAYER_COLORS.length] })
+      m.set(v.cellIndex, list)
+    }
+    return m
+  }, [roomMode, draftVotes, roomPlayers])
+  const votedCount = roomPlayers.filter((p) => p.status?.kind === 'vote').length
+
   const isLeader = participantIds.length > 0 && self?.connectionId === participantIds[0]
 
   const modalLabel = useMemo(() => {
@@ -542,7 +615,7 @@ function RoomInner({ roomId }: { roomId: string }) {
           m.set(modalCell, pick)
           return m
         })
-        updatePresence({ solvedCount: localSolved.size + 1 })
+        updatePresence({ solvedCount: localSolved.size + 1, solvedCells: [...localSolved.keys(), modalCell] })
       }
       setModalCell(null)
       return { ok: true as const }
@@ -631,6 +704,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         updatePresence({
           guesses: guessCount,
           solvedCount: localSolved.size + 1,
+          solvedCells: [...localSolved.keys(), cellIndex],
           actedRound: draftRound,
           lastAction: 'correct',
           lastActionAt: now,
@@ -639,6 +713,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         updatePresence({
           guesses: guessCount,
           solvedCount: localSolved.size + 1,
+          solvedCells: [...localSolved.keys(), cellIndex],
           lastAction: 'correct',
           lastActionAt: now,
         })
@@ -864,6 +939,14 @@ function RoomInner({ roomId }: { roomId: string }) {
     }
   }
 
+  const roomModeLabel = `${PLAY_MODE_LABEL[playMode]} · ${boardLayout === 'shared' ? 'Shared board' : 'Own boards'}${
+    playMode === 'draft'
+      ? isIndividual
+        ? ` · ${drawShared ? 'Same player' : 'Own draws'}${singleGuess ? ' · 1 try' : ''}`
+        : ` · ${DRAFT_POLICY_LABEL[effectiveDraftPolicy]}`
+      : ''
+  }`
+
   const saveName = () => {
     updatePresence({ displayName: nameDraft.trim() || 'Player', bingoAt: null })
   }
@@ -881,7 +964,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     return (
       <div className="mx-auto max-w-lg px-6 py-16 text-center">
         <p className="text-sm font-bold text-yellow">{roomError}</p>
-        <Link href="/" className="mt-4 inline-block font-bold text-white underline">
+        <Link href="/" className="mt-4 inline-block font-bold text-on-green underline">
           Home
         </Link>
       </div>
@@ -889,11 +972,19 @@ function RoomInner({ roomId }: { roomId: string }) {
   }
 
   return (
-    <div className={`mx-auto max-w-5xl px-2 md:px-6 py-8${playMode === 'draft' ? 'pb-16' : ''}`}>
+    <div
+      className={`mx-auto px-2.5 pt-1 sm:px-6 ${
+        phase === 'lobby' ? 'max-w-5xl pb-16' : 'max-w-[1440px] pb-36 lg:px-16 lg:pb-16'
+      }`}
+    >
+      {phase === 'lobby' ? (
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          {phase === 'lobby' ? <span className="eyebrow mb-3">Pre-match · tunnel</span> : null}
-          {/* <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
+          <span className="eyebrow mb-3">Pre-match · in the tunnel</span>
+          <h1 className="font-display text-[56px] font-black uppercase leading-[0.86] text-on-green md:text-[96px]">
+            Get your mates <span className="text-yellow">in.</span>
+          </h1>
+          {/* <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-on-green md:text-[56px]">
             {phase === 'lobby' ? 'The squad gathers' : 'Race room'}
           </h1> */}
           <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
@@ -906,6 +997,7 @@ function RoomInner({ roomId }: { roomId: string }) {
           Home
         </Link>
       </div>
+      ) : null}
 
       {phase === 'lobby' ? (
         <motion.div
@@ -983,7 +1075,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                           </span>
                           <span className="text-sm font-bold text-card-ink">{p.name}</span>
                           {p.host ? (
-                            <span className="ml-auto -rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-pitch-deep shadow-[0_2px_0_rgba(0,0,0,0.2)]">
+                            <span className="ml-auto -rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-ink shadow-[0_2px_0_#0a2417]">
                               Gaffer
                             </span>
                           ) : (
@@ -1037,7 +1129,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                   </p>
                   <Link
                     href="/play/setup?mode=multiplayer"
-                    className="text-[12.5px] font-bold text-green-go underline underline-offset-2 hover:opacity-70"
+                    className="text-[12.5px] font-bold text-ink underline underline-offset-2 hover:opacity-70"
                   >
                     Change settings (opens a fresh room)
                   </Link>
@@ -1056,7 +1148,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                 </div>
 
                 {/* Footer strip */}
-                <div className="flex flex-wrap items-center justify-between gap-4 rounded-[16px] border-[3px] border-dashed border-white/40 p-5">
+                <div className="flex flex-wrap items-center justify-between gap-4 rounded-[12px] border-[3px] border-dashed border-surface/40 p-5">
                   <span className="text-[13.5px] font-semibold text-on-green-soft">
                     {boardLayout === 'shared'
                       ? 'One shared board for the room. First full line wins the match.'
@@ -1071,7 +1163,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                     }}
                     className="btn btn-primary"
                   >
-                    {starting ? 'Starting…' : '🏁 Kick off the match'}
+                    {starting ? 'Starting…' : 'Kick off'}
                   </button>
                 </div>
               </div>
@@ -1082,34 +1174,25 @@ function RoomInner({ roomId }: { roomId: string }) {
 
       {(phase === 'playing' || phase === 'finished') && activeSeed ? (
         <>
-          <div className="mb-3 flex justify-center">
-            <span className="chip">
-              {PLAY_MODE_LABEL[playMode]} ·{' '}
-              {boardLayout === 'shared' ? 'Shared board' : 'Individual boards'}
-              {playMode === 'draft'
-                ? isIndividual
-                  ? ` · ${drawShared ? 'Same player' : 'Own draws'}${singleGuess ? ' · 1 try' : ''}`
-                  : ` · ${DRAFT_POLICY_LABEL[effectiveDraftPolicy]}`
-                : ''}
-            </span>
-          </div>
-          <AnimatePresence>
-            {localBingo || phase === 'finished' ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className={`mb-4 rounded-[14px] px-4 py-3 text-center font-display text-lg uppercase leading-none ${
-                  localBingo
-                    ? 'foil border-2 border-foil'
-                    : 'border-2 border-ink bg-panel-white text-green'
-                }`}
-              >
-                {localBingo
-                  ? 'Bingo! Result recorded if cloud save is enabled.'
-                  : 'Round finished.'}
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
+          {phase === 'finished' ? (
+            <FullTimeBanner
+              players={roomPlayers}
+              total={cellCountForConfig(boardConfig) - 1}
+              isHost={isHost}
+              starting={starting}
+              onRematch={() => void handleStart()}
+              modeLabel={roomModeLabel}
+            />
+          ) : null}
+          <div
+            className={`lg:grid lg:items-start lg:gap-9 ${
+              playMode === 'draft'
+                ? 'lg:grid-cols-[300px_minmax(0,1fr)_300px]'
+                : 'lg:grid-cols-[minmax(0,1fr)_300px]'
+            }`}
+          >
+            {playMode === 'draft' ? (
+              <aside className="flex flex-col gap-5">
           <DrawnPlayerPanel
             mode={playMode}
             round={myRound}
@@ -1119,7 +1202,11 @@ function RoomInner({ roomId }: { roomId: string }) {
             reduceMotion={reduceMotion}
             wrongNonce={wrongCell?.nonce ?? null}
             draftWarning={
-              myActedThisRound && !localBingo ? 'Waiting for the other players…' : draftFallbackNote
+              myActedThisRound && !localBingo
+                ? waitingOn.length
+                  ? `You're in. Waiting on ${joinNames(waitingOn)}`
+                  : 'Waiting for the other players…'
+                : draftFallbackNote
             }
             // Individual boards use the singleplayer-style Skip; shared boards vote to skip.
             onSkip={
@@ -1141,6 +1228,24 @@ function RoomInner({ roomId }: { roomId: string }) {
               ) : null
             }
           />
+              </aside>
+            ) : null}
+
+            <section aria-label={isIndividual ? 'Your board' : 'Room board'} className="min-w-0">
+              <div className="mb-3 flex items-end justify-between gap-3 lg:mb-4">
+                <div className="min-w-0">
+                  <p className="truncate font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-yellow">
+                    Room · {roomModeLabel}
+                  </p>
+                  <h1 className="mt-1 hidden whitespace-nowrap font-display text-[44px] font-black uppercase leading-[0.9] text-on-green lg:block xl:text-[56px]">
+                    {isIndividual ? 'Your board' : 'Room board'}
+                  </h1>
+                </div>
+                <Link href="/" className="btn btn-outline-light btn-sm">
+                  Leave
+                </Link>
+              </div>
+              <AvatarStrip players={roomPlayers} total={cellCountForConfig(boardConfig) - 1} className="mb-3 lg:hidden" />
           <BingoBoard
             seed={myBoardSeed}
             boardConfig={boardConfig}
@@ -1148,6 +1253,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             voteHighlightIndex={isIndividual ? null : voteHighlightIndex}
             draftTargetCells={null}
             wrongCell={wrongCell}
+            cellVoters={cellVoters}
             reduceMotion={reduceMotion}
             onCellClick={(i) => {
               if (phase !== 'playing' || localBingo || !configOk || myActedThisRound) return
@@ -1157,7 +1263,7 @@ function RoomInner({ roomId }: { roomId: string }) {
             lineHighlight={phase === 'playing' || localBingo}
           />
           {playMode === 'draft' && phase === 'playing' && !localBingo ? (
-            <p className="mb-4 text-center text-xs font-medium text-muted">
+            <p className="mt-4 text-center text-[13px] font-medium text-on-green-dim">
               {isIndividual
                 ? drawShared
                   ? 'Same player for everyone — place them on your own board, or skip. Next player when all have acted.'
@@ -1165,6 +1271,23 @@ function RoomInner({ roomId }: { roomId: string }) {
                 : 'Tap a square to vote · everyone must agree (or all skip) to advance'}
             </p>
           ) : null}
+            </section>
+
+            <aside className="hidden lg:block">
+              <RoomRail
+                mode={roomMode}
+                players={roomPlayers}
+                total={cellCountForConfig(boardConfig) - 1}
+                boardSize={boardConfig.size}
+                freeIndex={freeIndexForConfig(boardConfig)}
+                showMiniBoards
+                round={draftRound}
+                drawnName={drawn?.name ?? null}
+                waitingOn={waitingOn}
+                votedCount={votedCount}
+              />
+            </aside>
+          </div>
         </>
       ) : null}
 
@@ -1179,89 +1302,44 @@ function RoomInner({ roomId }: { roomId: string }) {
         ) : null}
       </AnimatePresence>
 
-      <div className="panel mt-8 p-6">
-        <p className="eyebrow mb-4">In the room · {others.length + 1}</p>
-        <ul className="flex flex-col gap-3">
-          {[
-            {
-              id: self?.connectionId ?? -1,
-              name: (presence?.displayName || nameDraft).trim() || 'You',
-              bingo: presence?.bingoAt != null,
-              guesses: presence?.guesses ?? 0,
-              solvedCount: presence?.solvedCount ?? 0,
-              actedRound: presence?.actedRound ?? null,
-              lastAction: presence?.lastAction ?? null,
-              lastActionAt: presence?.lastActionAt ?? null,
-            },
-            ...others.map((o) => ({
-              id: o.connectionId,
-              name: (o.presence?.displayName ?? '').trim() || 'Guest',
-              bingo: o.presence?.bingoAt != null,
-              guesses: o.presence?.guesses ?? 0,
-              solvedCount: o.presence?.solvedCount ?? 0,
-              actedRound: o.presence?.actedRound ?? null,
-              lastAction: o.presence?.lastAction ?? null,
-              lastActionAt: o.presence?.lastActionAt ?? null,
-            })),
-          ].map((p, i) => {
-            const fillTarget = cellCountForConfig(boardConfig) - 1
-            // A locked-in action in shared-draw persists until the round advances;
-            // in the other modes the chip fades a few seconds after the action.
-            const lockedThisRound =
-              isIndividual && drawShared && phase === 'playing' && p.actedRound === draftRound
-            const recentAction =
-              p.lastActionAt != null && nowTick > 0 && nowTick - p.lastActionAt < 3500
-            let status: { label: string; tone: string } | null = null
-            if (phase === 'playing' && !p.bingo && (lockedThisRound || recentAction)) {
-              if (p.lastAction === 'correct') {
-                status = { label: '✓ Correct', tone: 'bg-green-go/15 text-green-go' }
-              } else if (p.lastAction === 'wrong') {
-                status = { label: '✗ Incorrect', tone: 'bg-live-red/15 text-live-red' }
-              } else if (p.lastAction === 'skip') {
-                status = { label: '⏭ Skipped', tone: 'bg-card-tint text-card-muted' }
-              }
-            }
-            return (
-              <li key={p.id} className="flex items-center gap-3">
+      {phase === 'lobby' && !isHost ? (
+        <div className="panel mt-8 p-6">
+          <p className="eyebrow eyebrow-sky mb-4">Starting XI · {roomPlayers.length}</p>
+          <ul className="flex flex-col">
+            {roomPlayers.map((p, i) => (
+              <li
+                key={p.id}
+                className="flex h-14 items-center gap-3.5 border-b-[1.5px] border-dashed border-ink/20 last:border-b-0"
+              >
+                <span className="w-6 font-mono text-[13px] font-semibold text-card-muted">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[15px] uppercase ${
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[16px] font-black uppercase ${
                     ROUNDEL_COLORS[i % ROUNDEL_COLORS.length]
                   }`}
                 >
                   {p.name.charAt(0) || '?'}
                 </span>
-                <span className="min-w-0 truncate text-sm font-bold text-ink">{p.name}</span>
-                {phase === 'playing' ? (
-                  <span className="ml-1 shrink-0 font-mono text-[11px] font-bold text-on-green-dim">
-                    {p.solvedCount}/{fillTarget}
-                    {!singleGuess && p.guesses > 0
-                      ? ` · ${p.guesses} ${p.guesses === 1 ? 'try' : 'tries'}`
-                      : ''}
-                  </span>
-                ) : null}
-                <span className="ml-auto flex shrink-0 items-center gap-2">
-                  {status ? (
-                    <motion.span
-                      key={`${p.id}-${p.lastActionAt ?? 0}`}
-                      initial={reduceMotion ? false : { scale: 0.7, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ type: 'spring', stiffness: 420, damping: 20 }}
-                      className={`rounded-full px-2.5 py-1 text-[10.5px] font-extrabold uppercase tracking-[0.05em] ${status.tone}`}
-                    >
-                      {status.label}
-                    </motion.span>
-                  ) : null}
-                  {p.bingo ? (
-                    <span className="foil rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.06em]">
-                      Bingo
+                <span className="min-w-0 truncate font-display text-[22px] font-black uppercase leading-none text-ink">
+                  {p.isSelf ? `${p.name} (you)` : p.name}
+                </span>
+                <span className="ml-auto shrink-0">
+                  {hostConnectionId === p.id ? (
+                    <span className="inline-block -rotate-2 rounded bg-yellow px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-ink">
+                      Gaffer
                     </span>
-                  ) : null}
+                  ) : p.name !== 'Guest' ? (
+                    <span className="text-xs font-bold text-ink">✓ Ready</span>
+                  ) : (
+                    <span className="text-xs font-bold text-card-muted">In the tunnel…</span>
+                  )}
                 </span>
               </li>
-            )
-          })}
-        </ul>
-      </div>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   )
 }
@@ -1298,6 +1376,7 @@ export function RoomGame({ roomId }: { roomId: string }) {
         bingoAt: null,
         guesses: 0,
         solvedCount: 0,
+        solvedCells: [],
         actedRound: null,
         lastAction: null,
         lastActionAt: null,

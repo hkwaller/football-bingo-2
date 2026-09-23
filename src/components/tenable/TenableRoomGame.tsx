@@ -353,7 +353,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
       <div className="mx-auto flex w-full max-w-[720px] flex-col gap-8 px-6 py-8 md:px-9">
         <div className="text-center">
           <span className="eyebrow">Full time</span>
-          <h1 className="mt-2 font-display text-[56px] font-black uppercase leading-none text-white">
+          <h1 className="mt-2 font-display text-[56px] font-black uppercase leading-none text-on-green">
             Results
           </h1>
         </div>
@@ -412,7 +412,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
             <span className="eyebrow eyebrow-sky">
               Category {(currentQuestionIndex ?? 0) + 1} of {questions.length}
             </span>
-            <h1 className="mt-2 font-display text-[32px] font-black uppercase leading-[0.92] text-white md:text-[40px]">
+            <h1 className="mt-2 font-display text-[32px] font-black uppercase leading-[0.92] text-on-green md:text-[40px]">
               {currentQuestion.category}
             </h1>
             <p className="mt-1.5 text-sm font-semibold text-on-green-soft">
@@ -433,12 +433,12 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
         <div className="flex items-center justify-between gap-4">
           <span
             className={`inline-flex items-center rounded-full px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] ${
-              isMyTurn ? 'bg-yellow text-pitch-deep' : 'bg-black/25 text-on-green-soft'
+              isMyTurn ? 'bg-yellow text-ink' : 'bg-black/25 text-on-green-soft'
             }`}
           >
             {isMyTurn ? 'Your turn' : `${turnName}'s turn`}
           </span>
-          <span className="font-display text-lg font-black uppercase leading-none text-white tabular-nums">
+          <span className="font-display text-lg font-black uppercase leading-none text-on-green tabular-nums">
             {foundRanks.length}/{tenableTarget(currentQuestion)}
           </span>
         </div>
@@ -446,8 +446,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
 
       <div className="mb-4 min-h-[92px]">
         {questionOver ? (
-          <div className="flex flex-col items-center gap-3 rounded-[16px] bg-black/20 px-4 py-4 text-center">
-            <p className="font-display text-2xl font-black uppercase leading-none text-white">
+          <div className="flex flex-col items-center gap-3 rounded-[12px] bg-black/20 px-4 py-4 text-center">
+            <p className="font-display text-2xl font-black uppercase leading-none text-on-green">
               {cleared ? '🎉 All ten!' : '💔 Out of lives'}
             </p>
             {isHost ? (

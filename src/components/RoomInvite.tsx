@@ -33,21 +33,21 @@ export function RoomInvite({ roomId }: RoomInviteProps) {
     <div className="panel p-6">
       <p className="eyebrow eyebrow-sky mb-4">Season ticket</p>
       <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
-        <div className="rounded-[12px] border-[3px] border-card-ink bg-white p-3">
+        <div className="rounded-[10px] border-[2.5px] border-card-ink bg-surface-hi p-3">
           <QRCodeSVG
             value={joinUrl}
             size={148}
             level="M"
-            bgColor="#ffffff"
-            fgColor="#0a3d20"
+            bgColor="#fffdf6"
+            fgColor="#0a2417"
           />
         </div>
         <div className="w-full flex-1 space-y-4">
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-card-muted">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-card-muted">
               Room ID
             </p>
-            <code className="mt-1.5 block break-all rounded-[8px] border-[3px] border-card-ink bg-card-tint px-3 py-2 font-mono text-sm font-bold text-card-ink">
+            <code className="mt-1.5 block break-all rounded-md border-2 border-card-ink bg-surface-2 px-3 py-2 font-mono text-sm font-medium text-card-ink">
               {roomId}
             </code>
           </div>

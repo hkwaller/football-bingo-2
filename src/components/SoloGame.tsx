@@ -521,7 +521,7 @@ export function SoloGame() {
                 onClick={() => setSettingsOpen(false)}
               />
               <motion.aside
-                className="fixed right-0 top-0 z-[100] flex h-full w-[min(360px,90vw)] flex-col gap-6 overflow-y-auto bg-white p-6 shadow-[-10px_0_0_rgba(0,0,0,0.22)]"
+                className="fixed right-0 top-0 z-[100] flex h-full w-[min(360px,90vw)] flex-col gap-6 overflow-y-auto bg-surface p-6 shadow-[-10px_0_0_rgba(10,36,23,0.22)]"
                 role="dialog"
                 aria-label="Game settings"
                 initial={{ x: '100%' }}
@@ -555,7 +555,7 @@ export function SoloGame() {
                         onClick={() => switchMode(m)}
                         className={`flex-1 rounded-full px-[18px] py-2 text-[13px] font-extrabold uppercase tracking-[0.06em] transition-all duration-200 ${
                           playMode === m
-                            ? 'bg-yellow text-pitch-deep shadow-[0_3px_0_rgba(0,0,0,0.3)]'
+                            ? 'bg-yellow text-ink shadow-[0_3px_0_#0a2417]'
                             : 'text-card-muted hover:text-card-ink'
                         }`}
                       >
@@ -593,7 +593,7 @@ export function SoloGame() {
                       }`}
                     >
                       <span
-                        className={`absolute top-[3px] h-[18px] w-[18px] rounded-full bg-white transition-all ${
+                        className={`absolute top-[3px] h-[18px] w-[18px] rounded-full bg-surface transition-all ${
                           showLabels ? 'right-[3px]' : 'left-[3px]'
                         }`}
                       />

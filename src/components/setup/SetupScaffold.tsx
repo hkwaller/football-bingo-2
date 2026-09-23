@@ -37,7 +37,7 @@ export function SetupHeader({
     <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
       <div>
         <span className={`eyebrow ${toneClass}`}>{badge}</span>
-        <h1 className="mt-2.5 font-display text-[44px] font-black uppercase leading-[0.88] text-white md:text-[64px]">
+        <h1 className="mt-2.5 font-display text-[44px] font-black uppercase leading-[0.88] text-on-green md:text-[64px]">
           {title}
         </h1>
       </div>
@@ -65,7 +65,7 @@ export function TacticsBoard({
 }) {
   return (
     <div
-      className={`grid grid-cols-1 gap-7 rounded-[24px] bg-white shadow-[0_8px_0_rgba(0,0,0,0.22)] md:grid-cols-2 xl:grid-cols-[1fr_1fr_512px] ${
+      className={`grid grid-cols-1 gap-7 rounded-[14px] bg-surface shadow-[0_8px_0_#0a2417] md:grid-cols-2 xl:grid-cols-[1fr_1fr_512px] ${
         tall ? 'p-[30px] xl:min-h-[498px]' : 'px-6 py-[22px]'
       }`}
     >

@@ -32,16 +32,16 @@ function Slot({
     <div
       className={`flex items-center gap-3 rounded-[14px] border-2 px-3 py-2.5 transition-colors ${
         state === 'found'
-          ? 'border-green bg-white'
+          ? 'border-green bg-surface'
           : state === 'missed'
-            ? 'border-red/40 bg-white/70'
-            : 'border-ink/15 bg-white/45'
+            ? 'border-red/40 bg-surface/70'
+            : 'border-ink/15 bg-surface/45'
       }`}
     >
       <span
         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-display text-lg font-black leading-none ${
           state === 'found'
-            ? 'bg-green-go text-white'
+            ? 'bg-green-go text-ink'
             : state === 'missed'
               ? 'bg-red/70 text-ink'
               : 'bg-card-tint text-muted'

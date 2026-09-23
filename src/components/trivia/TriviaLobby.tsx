@@ -83,7 +83,7 @@ export function TriviaLobby({
         transition={{ duration: 0.45, ease: 'easeOut' }}
       >
         <span className="eyebrow">Pre-match · tunnel</span>
-        <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-white md:text-[56px]">
+        <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-on-green md:text-[56px]">
           The squad gathers
         </h1>
         <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
@@ -120,8 +120,8 @@ export function TriviaLobby({
       <div className="panel p-6">
         <p className="eyebrow mb-4">Room code</p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-          <div className="shrink-0 rounded-[12px] border-[3px] border-card-ink bg-white p-2">
-            <QRCodeSVG value={joinUrl} size={140} bgColor="#ffffff" fgColor="#0a3d20" />
+          <div className="shrink-0 rounded-[12px] border-[3px] border-card-ink bg-surface p-2">
+            <QRCodeSVG value={joinUrl} size={140} bgColor="#ffffff" fgColor="#0a2417" />
           </div>
           <div className="flex flex-1 flex-col gap-3">
             <code className="block break-all rounded-xl border-[3px] border-card-ink bg-card-tint px-3 py-2 font-mono text-sm font-bold text-card-ink">
@@ -160,12 +160,12 @@ export function TriviaLobby({
         <p className="eyebrow">In the room ({players.length})</p>
         {players.map((p) => (
           <div key={p.connectionId} className="panel flex items-center gap-3 px-4 py-3">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-go font-display text-lg font-black uppercase leading-none text-white">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-go font-display text-lg font-black uppercase leading-none text-ink">
               {p.displayName.charAt(0) || '?'}
             </span>
             <span className="flex-1 text-sm font-bold text-card-ink">{p.displayName}</span>
             {p.isHost && (
-              <span className="-rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-pitch-deep shadow-[0_2px_0_rgba(0,0,0,0.2)]">
+              <span className="-rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-ink shadow-[0_2px_0_#0a2417]">
                 Gaffer
               </span>
             )}
