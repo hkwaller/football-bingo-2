@@ -10,7 +10,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { enrichedFootballPlayers } from '../src/data/players'
 import { processPlayer, isNotablePlayer, applyCommonsImages } from './transform'
-import { MANUAL_PLAYER_IDS } from './data/manualPlayers'
+import { MANUAL_PLAYER_IDS, EXCLUDED_IDS } from './data/manualPlayers'
 
 const OUTPUT_DIR = path.join(__dirname, 'output')
 const CACHE_FILE = path.join(OUTPUT_DIR, 'player-cache.json')
@@ -48,6 +48,7 @@ function main() {
   let filtered = 0
 
   for (const raw of Object.values(cache)) {
+    if (EXCLUDED_IDS.has(raw.playerId)) continue
     const squadInfo = squadCache[raw.playerId]
     const player = processPlayer(raw, squadInfo)
     if (!player?.name) {

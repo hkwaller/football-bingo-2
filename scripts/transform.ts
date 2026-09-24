@@ -473,7 +473,7 @@ function deriveEra(raw: any): string {
     )
     if (sorted[0]?.date) startYear = sorted[0].date.split('-')[0]
     const last = sorted[sorted.length - 1]
-    if (last && /retired/i.test(last.clubTo?.name ?? '')) endYear = last.date.split('-')[0]
+    if (last?.date && /retired/i.test(last.clubTo?.name ?? '')) endYear = last.date.split('-')[0]
   }
 
   if (!startYear && profile.dateOfBirth) {
@@ -504,7 +504,10 @@ export function processPlayer(raw: any, squadInfo?: any) {
   // still build clubs/honours/stats from their working endpoints.
   const override = LEGEND_OVERRIDES[raw.playerId as string]
   const profile = raw.profile && typeof raw.profile === 'object' ? raw.profile : {}
-  const name = profile.name ?? override?.name
+  // Strip zero-width / bidi marks Transfermarkt sometimes leaves in names.
+  const name = (profile.name ?? override?.name)
+    ?.replace(/[\u200B-\u200F\u202A-\u202E\u2060\uFEFF]/g, '')
+    .trim()
   if (!name) return null
 
   const intl = computeIntlStats(raw)

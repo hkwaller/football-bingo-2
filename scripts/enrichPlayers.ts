@@ -33,7 +33,9 @@ const DIFF_FILE = path.join(OUTPUT_DIR, 'diff-report.json')
 const API_BASE = 'http://localhost:8000'
 const DELAY_MS = 3500
 const BACKOFF_DELAY_MS = 90_000
-const FULL_FETCH_THRESHOLD = 3_000_000
+// Peak squad market value a discovered player needs to get a full fetch.
+// €40M keeps it to ~250 genuinely known names (was €3M → ~3,850, mostly filler).
+const FULL_FETCH_THRESHOLD = 40_000_000
 const HISTORICAL_SEASON_CUTOFF = '2010'
 const CURRENT_SEASON = '2026'
 
@@ -56,10 +58,14 @@ const DISCOVERY_SEASONS = [
   '2026',
 ]
 
-import { MANUAL_PLAYERS, MANUAL_PLAYER_IDS } from './data/manualPlayers'
+import { MANUAL_PLAYERS, MANUAL_PLAYER_IDS, EXCLUDED_IDS } from './data/manualPlayers'
 
 // IDs to forcibly remove from cache (wrong entries replaced by MANUAL_PLAYERS above)
 const PURGE_IDS = new Set(['10201'])
+
+// --manual-only: fetch just existing + curated players, skipping the (huge)
+// backlog of discovered players above the market-value gate.
+const MANUAL_ONLY = process.argv.includes('--manual-only')
 
 // ─── Club List ───────────────────────────────────────────────────────────────
 
@@ -160,18 +166,49 @@ function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms))
 }
 
+// Consecutive transient failures before we assume the API (or its upstream,
+// Transfermarkt) is down and abort instead of hammering it for hours.
+const MAX_CONSECUTIVE_FAILURES = 8
+let consecutiveFailures = 0
+
+function noteFailure(what: string) {
+  consecutiveFailures++
+  if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) {
+    throw new Error(
+      `Aborting after ${consecutiveFailures} consecutive API failures (last: ${what}). ` +
+        'Check that transfermarkt-api can reach Transfermarkt; progress so far is cached.',
+    )
+  }
+}
+
+/**
+ * Returns the parsed body, `false` for a definitive 404 (safe to cache as "no
+ * data"), or `null` for anything transient - 5xx, network errors, rate limits.
+ * Callers must never cache `null`, so transient failures are retried next run
+ * instead of poisoning the cache.
+ */
 async function apiFetch<T>(endpoint: string): Promise<T | null | false> {
   try {
     const res = await fetch(`${API_BASE}${endpoint}`)
     if (res.status === 405 || res.status === 403 || res.status === 429) {
       console.warn(`  ⚠ Rate limited (${res.status}). Waiting ${BACKOFF_DELAY_MS / 1000}s...`)
       await sleep(BACKOFF_DELAY_MS)
+      noteFailure(`${res.status} ${endpoint}`)
       return null
     }
-    if (res.status === 404 || res.status >= 500) return false
-    if (!res.ok) return null
+    if (res.status === 404) {
+      consecutiveFailures = 0
+      return false
+    }
+    if (!res.ok) {
+      noteFailure(`${res.status} ${endpoint}`)
+      return null
+    }
+    consecutiveFailures = 0
     return (await res.json()) as T
-  } catch {
+  } catch (err) {
+    if (err instanceof Error && err.message.startsWith('Aborting')) throw err
+    noteFailure(`network error ${endpoint}`)
     return null
   }
 }
@@ -492,7 +529,8 @@ async function fetchPlayerData(playerMap: Map<string, SquadPlayer>, existingIds:
     id,
     mv: sp.marketValue ?? 0,
     earliestSeason: sp.earliestSeason,
-    manual: sp.fromClubs?.includes('manual') ?? false,
+    // Curated players count as manual even when squad discovery also found them.
+    manual: MANUAL_PLAYER_IDS.has(id) || (sp.fromClubs?.includes('manual') ?? false),
   }))
 
   // Fetch buckets:
@@ -510,7 +548,11 @@ async function fetchPlayerData(playerMap: Map<string, SquadPlayer>, existingIds:
     (d) => !existingIds.has(d.id) && !d.manual && d.mv < FULL_FETCH_THRESHOLD,
   )
 
-  const toFetch = [...existing, ...manual, ...valued]
+  const toFetch = MANUAL_ONLY ? [...existing, ...manual] : [...existing, ...manual, ...valued]
+
+  // A player skipped under an older, higher threshold now qualifies → fetch fresh.
+  for (const { id } of toFetch) if (cache[id]?.skipped) delete cache[id]
+  if (MANUAL_ONLY) console.log(`    --manual-only: skipping ${valued.length} valued discoveries`)
 
   console.log(`    Existing:                        ${existing.length}`)
   console.log(`    Manual (curated legends):        ${manual.length}`)
@@ -554,7 +596,7 @@ async function fetchPlayerData(playerMap: Map<string, SquadPlayer>, existingIds:
       await sleep(DELAY_MS)
       const data = await apiFetch<any>(ENDPOINT_PATH[ep](id))
       if (data === null) {
-        process.stdout.write(` ⚠ Blocked. Waiting ${BACKOFF_DELAY_MS / 1000}s...`)
+        process.stdout.write(` ⚠ ${ep} failed (will retry next run)`)
       } else {
         cache[id][ep] = data
         anyFetched = true
@@ -591,6 +633,7 @@ async function fetchPlayerData(playerMap: Map<string, SquadPlayer>, existingIds:
         marketValue: false,
         jerseyNumbers: false,
         discoveredFromClubs: sp.fromClubs,
+        skipped: true,
       }
     }
   }
@@ -611,6 +654,7 @@ function parseAndWrite(cache: Record<string, any>, playerMap: Map<string, SquadP
   let filtered = 0
 
   for (const raw of Object.values(cache)) {
+    if (EXCLUDED_IDS.has(raw.playerId)) continue
     const squadInfo = squadCache[raw.playerId]
     const player = processPlayer(raw, squadInfo)
     if (!player?.name) {
