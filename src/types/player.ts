@@ -40,7 +40,7 @@ export interface Player {
   youthClubs: string[]
   achievements: string[]
   randomAchievements: string[]
-  /** Bingo "traits" axis: position / decade / shirt-number / trait / academy labels */
+  /** Bingo "traits" axis: position / decade / shirt-number / trait labels */
   tags: string[]
   /** "Played under <manager>" labels */
   managers: string[]

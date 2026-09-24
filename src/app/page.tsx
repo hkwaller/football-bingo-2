@@ -161,7 +161,7 @@ export default function HomePage() {
         {/* ── Mode cards ───────────────────────────────────────── */}
         <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8 md:pb-20">
           <SectionHead eyebrow="Pick your game" tone="pink" title="Three ways to play" />
-          <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-9 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             <ModeCard
               title="Bingo"
               icon=""
@@ -185,6 +185,15 @@ export default function HomePage() {
               blurb="Name the ten. Top scorers, most caps, biggest transfers - fill the list before your lives run out."
               soloHref="/tenable/setup?mode=solo"
               multiHref="/tenable/setup?mode=multiplayer"
+            />
+            <ModeCard
+              title="Famous 11s"
+              icon=""
+              rot={0.5}
+              blurb="Name all eleven from iconic XIs - World Cup finals, Champions League classics and legendary club sides."
+              soloHref="/famous-11s/setup?mode=solo"
+              multiHref="/famous-11s/setup?mode=multiplayer"
+              isNew
             />
           </div>
         </section>
@@ -353,6 +362,7 @@ function ModeCard({
   soloHref,
   multiHref,
   rot,
+  isNew,
 }: {
   title: string
   icon: string
@@ -360,6 +370,7 @@ function ModeCard({
   soloHref: string
   multiHref: string
   rot: number
+  isNew?: boolean
 }) {
   return (
     <motion.div
@@ -368,9 +379,14 @@ function ModeCard({
       whileInView="animate"
       initial="initial"
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="rounded-[14px] bg-surface p-7 shadow-[0_10px_0_#0a2417]"
+      className="relative rounded-[14px] bg-surface p-7 shadow-[0_10px_0_#0a2417]"
       style={{ transform: `rotate(${rot}deg)` }}
     >
+      {isNew && (
+        <span className="absolute right-4 top-4 rounded-full bg-yellow px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-ink">
+          New
+        </span>
+      )}
       <p className="font-display text-[34px] font-black uppercase leading-none text-card-ink">
         {title} <span className="text-[20px]">{icon}</span>
       </p>

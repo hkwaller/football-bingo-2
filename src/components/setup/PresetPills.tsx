@@ -10,7 +10,7 @@ export type Preset = {
 }
 
 /**
- * The "SHORTCUTS" row that sits next to the page title — one-tap presets that
+ * The "SHORTCUTS" row that sits next to the page title - one-tap presets that
  * write a whole config at once. Scrolls horizontally on narrow screens and never
  * wraps. Extra trailing content (e.g. Bingo's "Back to game" pill) slots in via
  * `trailing`.

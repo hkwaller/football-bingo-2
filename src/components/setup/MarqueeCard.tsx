@@ -12,7 +12,7 @@ const ACCENT_TILE: Record<MarqueeAccent, string> = {
 }
 
 /**
- * The large "marquee" card — the one choice that redefines the game (Trivia
+ * The large "marquee" card - the one choice that redefines the game (Trivia
  * format, Bingo grid size). Selected → hot yellow, lifted and rotated with a
  * SELECTED chip; unselected → white with a bright icon tile and a ghost
  * decoration (a giant numeral, or a custom node such as Bingo's dot-grid).
@@ -36,7 +36,7 @@ export function MarqueeCard({
   selected: boolean
   /** The selected card is the wide one in the 1.24fr column. */
   wide?: boolean
-  /** Icon + title only, shorter — the mobile "other formats" mini-cards. */
+  /** Icon + title only, shorter - the mobile "other formats" mini-cards. */
   compact?: boolean
   icon: LucideIcon
   /** Accent for the icon tile when unselected. */

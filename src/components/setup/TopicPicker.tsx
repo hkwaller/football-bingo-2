@@ -36,7 +36,7 @@ export function TopicPicker({
   onNone: () => void
   /** Precomputed summary sentence (caller derives it from the selection). */
   summary: string
-  /** True when zero topics are selected — flips the summary to a warning. */
+  /** True when zero topics are selected - flips the summary to a warning. */
   invalid?: boolean
 }) {
   return (

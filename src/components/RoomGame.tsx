@@ -477,8 +477,18 @@ function RoomInner({ roomId }: { roomId: string }) {
   )
   const roomPlayers = useMemo<RoomPlayer[]>(() => {
     const raw = [
-      { id: self?.connectionId ?? -1, isSelf: true, pr: presence, name: (presence?.displayName || nameDraft).trim() || 'You' },
-      ...others.map((o) => ({ id: o.connectionId, isSelf: false, pr: o.presence, name: (o.presence?.displayName ?? '').trim() || 'Guest' })),
+      {
+        id: self?.connectionId ?? -1,
+        isSelf: true,
+        pr: presence,
+        name: (presence?.displayName || nameDraft).trim() || 'You',
+      },
+      ...others.map((o) => ({
+        id: o.connectionId,
+        isSelf: false,
+        pr: o.presence,
+        name: (o.presence?.displayName ?? '').trim() || 'Guest',
+      })),
     ]
     const allActed = raw.every((r) => r.pr?.bingoAt != null || r.pr?.actedRound === draftRound)
     return raw.map((r, i) => {
@@ -486,7 +496,13 @@ function RoomInner({ roomId }: { roomId: string }) {
       const acted = phase === 'playing' && pr?.actedRound === draftRound
       const recent = pr?.lastActionAt != null && nowTick > 0 && nowTick - pr.lastActionAt < 3500
       const fromAction = (a: typeof pr.lastAction | undefined): RoomPlayer['status'] =>
-        a === 'correct' ? { kind: 'placed' } : a === 'wrong' ? { kind: 'missed' } : a === 'skip' ? { kind: 'skipped' } : null
+        a === 'correct'
+          ? { kind: 'placed' }
+          : a === 'wrong'
+            ? { kind: 'missed' }
+            : a === 'skip'
+              ? { kind: 'skipped' }
+              : null
       let status: RoomPlayer['status'] = null
       if (phase === 'playing') {
         if (roomMode === 'same') status = acted ? fromAction(pr?.lastAction) : { kind: 'playing' }
@@ -496,7 +512,10 @@ function RoomInner({ roomId }: { roomId: string }) {
             ? { kind: 'novote' }
             : v.type === 'skip'
               ? { kind: 'vote', label: 'Skip' }
-              : { kind: 'vote', label: displayCategory(cellCategory(sharedCells, v.cellIndex) ?? '') }
+              : {
+                  kind: 'vote',
+                  label: displayCategory(cellCategory(sharedCells, v.cellIndex) ?? ''),
+                }
         } else if (recent) status = fromAction(pr?.lastAction)
       }
       return {
@@ -510,14 +529,28 @@ function RoomInner({ roomId }: { roomId: string }) {
         solvedCount: pr?.solvedCount ?? 0,
         solvedCells: pr?.solvedCells ?? [],
         status,
-        hideLastPick: roomMode === 'same' && !r.isSelf && acted && pr?.lastAction === 'correct' && !allActed,
+        hideLastPick:
+          roomMode === 'same' && !r.isSelf && acted && pr?.lastAction === 'correct' && !allActed,
       }
     })
-  }, [self?.connectionId, presence, nameDraft, others, draftRound, phase, nowTick, roomMode, draftVotes, sharedCells])
+  }, [
+    self?.connectionId,
+    presence,
+    nameDraft,
+    others,
+    draftRound,
+    phase,
+    nowTick,
+    roomMode,
+    draftVotes,
+    sharedCells,
+  ])
   const waitingOn = useMemo(
     () =>
       roomMode === 'same' && phase === 'playing'
-        ? roomPlayers.filter((p) => !p.isSelf && !p.bingo && p.status?.kind === 'playing').map((p) => p.name)
+        ? roomPlayers
+            .filter((p) => !p.isSelf && !p.bingo && p.status?.kind === 'playing')
+            .map((p) => p.name)
         : [],
     [roomMode, phase, roomPlayers],
   )
@@ -528,7 +561,11 @@ function RoomInner({ roomId }: { roomId: string }) {
       const v = draftVotes.get(String(p.id))
       if (v?.type !== 'square') continue
       const list = m.get(v.cellIndex) ?? []
-      list.push({ key: String(p.id), initial: p.name.charAt(0) || '?', color: PLAYER_COLORS[p.colorIndex % PLAYER_COLORS.length] })
+      list.push({
+        key: String(p.id),
+        initial: p.name.charAt(0) || '?',
+        color: PLAYER_COLORS[p.colorIndex % PLAYER_COLORS.length],
+      })
       m.set(v.cellIndex, list)
     }
     return m
@@ -615,7 +652,10 @@ function RoomInner({ roomId }: { roomId: string }) {
           m.set(modalCell, pick)
           return m
         })
-        updatePresence({ solvedCount: localSolved.size + 1, solvedCells: [...localSolved.keys(), modalCell] })
+        updatePresence({
+          solvedCount: localSolved.size + 1,
+          solvedCells: [...localSolved.keys(), modalCell],
+        })
       }
       setModalCell(null)
       return { ok: true as const }
@@ -978,25 +1018,25 @@ function RoomInner({ roomId }: { roomId: string }) {
       }`}
     >
       {phase === 'lobby' ? (
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <span className="eyebrow mb-3">Pre-match · in the tunnel</span>
-          <h1 className="font-display text-[56px] font-black uppercase leading-[0.86] text-on-green md:text-[96px]">
-            Get your mates <span className="text-yellow">in.</span>
-          </h1>
-          {/* <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-on-green md:text-[56px]">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <span className="eyebrow mb-3">Pre-match · in the tunnel</span>
+            <h1 className="font-display text-[56px] font-black uppercase leading-[0.86] text-on-green md:text-[96px]">
+              Get your mates <span className="text-yellow">in.</span>
+            </h1>
+            {/* <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-on-green md:text-[56px]">
             {phase === 'lobby' ? 'The squad gathers' : 'Race room'}
           </h1> */}
-          <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
-            {phase === 'lobby'
-              ? "Share the room code. The gaffer kicks off when everyone's in the tunnel."
-              : 'Same clues for everyone - draft uses votes + skip.'}
-          </p>
+            <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
+              {phase === 'lobby'
+                ? "Share the room code. The gaffer kicks off when everyone's in the tunnel."
+                : 'Same clues for everyone - draft uses votes + skip.'}
+            </p>
+          </div>
+          <Link href="/" className="btn btn-outline-light btn-sm">
+            Home
+          </Link>
         </div>
-        <Link href="/" className="btn btn-outline-light btn-sm">
-          Home
-        </Link>
-      </div>
       ) : null}
 
       {phase === 'lobby' ? (
@@ -1107,7 +1147,10 @@ function RoomInner({ roomId }: { roomId: string }) {
                     {playMode === 'draft' && isIndividual ? (
                       <>
                         <SummaryRow label="Draw" value={drawShared ? 'Same player' : 'Own draws'} />
-                        <SummaryRow label="Guesses" value={singleGuess ? 'One per turn' : 'Unlimited'} />
+                        <SummaryRow
+                          label="Guesses"
+                          value={singleGuess ? 'One per turn' : 'Unlimited'}
+                        />
                       </>
                     ) : null}
                     {playMode === 'draft' && !isIndividual ? (
@@ -1117,7 +1160,11 @@ function RoomInner({ roomId }: { roomId: string }) {
                     <SummaryRow label="Categories" value={categorySummary} />
                     <SummaryRow
                       label="Star quality"
-                      value={minFameScore === 0 ? 'Anyone' : `≥ ${minFameScore} · ${eligiblePlayerCount} in`}
+                      value={
+                        minFameScore === 0
+                          ? 'Anyone'
+                          : `≥ ${minFameScore} · ${eligiblePlayerCount} in`
+                      }
                     />
                   </dl>
                   <p
@@ -1125,7 +1172,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                   >
                     {configOk
                       ? `${poolCount} in pool · ${needCount} needed ✓`
-                      : `Need at least ${needCount} clues — reopen setup to add categories.`}
+                      : `Need at least ${needCount} clues - reopen setup to add categories.`}
                   </p>
                   <Link
                     href="/play/setup?mode=multiplayer"
@@ -1193,41 +1240,41 @@ function RoomInner({ roomId }: { roomId: string }) {
           >
             {playMode === 'draft' ? (
               <aside className="flex flex-col gap-5">
-          <DrawnPlayerPanel
-            mode={playMode}
-            round={myRound}
-            loading={draftLoading}
-            player={drawn}
-            error={draftError}
-            reduceMotion={reduceMotion}
-            wrongNonce={wrongCell?.nonce ?? null}
-            draftWarning={
-              myActedThisRound && !localBingo
-                ? waitingOn.length
-                  ? `You're in. Waiting on ${joinNames(waitingOn)}`
-                  : 'Waiting for the other players…'
-                : draftFallbackNote
-            }
-            // Individual boards use the singleplayer-style Skip; shared boards vote to skip.
-            onSkip={
-              isIndividual && playMode === 'draft' && phase === 'playing' && !localBingo
-                ? handleIndividualSkip
-                : undefined
-            }
-            skipDisabled={draftLoading || myActedThisRound}
-            extraActions={
-              !isIndividual && playMode === 'draft' && phase === 'playing' && !localBingo ? (
-                <button
-                  type="button"
-                  disabled={draftLoading}
-                  onClick={() => submitDraftVote({ type: 'skip' })}
-                  className="btn btn-outline btn-sm"
-                >
-                  Skip
-                </button>
-              ) : null
-            }
-          />
+                <DrawnPlayerPanel
+                  mode={playMode}
+                  round={myRound}
+                  loading={draftLoading}
+                  player={drawn}
+                  error={draftError}
+                  reduceMotion={reduceMotion}
+                  wrongNonce={wrongCell?.nonce ?? null}
+                  draftWarning={
+                    myActedThisRound && !localBingo
+                      ? waitingOn.length
+                        ? `You're in. Waiting on ${joinNames(waitingOn)}`
+                        : 'Waiting for the other players…'
+                      : draftFallbackNote
+                  }
+                  // Individual boards use the singleplayer-style Skip; shared boards vote to skip.
+                  onSkip={
+                    isIndividual && playMode === 'draft' && phase === 'playing' && !localBingo
+                      ? handleIndividualSkip
+                      : undefined
+                  }
+                  skipDisabled={draftLoading || myActedThisRound}
+                  extraActions={
+                    !isIndividual && playMode === 'draft' && phase === 'playing' && !localBingo ? (
+                      <button
+                        type="button"
+                        disabled={draftLoading}
+                        onClick={() => submitDraftVote({ type: 'skip' })}
+                        className="btn btn-outline btn-sm"
+                      >
+                        Skip
+                      </button>
+                    ) : null
+                  }
+                />
               </aside>
             ) : null}
 
@@ -1245,32 +1292,36 @@ function RoomInner({ roomId }: { roomId: string }) {
                   Leave
                 </Link>
               </div>
-              <AvatarStrip players={roomPlayers} total={cellCountForConfig(boardConfig) - 1} className="mb-3 lg:hidden" />
-          <BingoBoard
-            seed={myBoardSeed}
-            boardConfig={boardConfig}
-            solved={solvedForDisplay}
-            voteHighlightIndex={isIndividual ? null : voteHighlightIndex}
-            draftTargetCells={null}
-            wrongCell={wrongCell}
-            cellVoters={cellVoters}
-            reduceMotion={reduceMotion}
-            onCellClick={(i) => {
-              if (phase !== 'playing' || localBingo || !configOk || myActedThisRound) return
-              if (playMode === 'draft') handleDraftCellClick(i)
-              else setModalCell(i)
-            }}
-            lineHighlight={phase === 'playing' || localBingo}
-          />
-          {playMode === 'draft' && phase === 'playing' && !localBingo ? (
-            <p className="mt-4 text-center text-[13px] font-medium text-on-green-dim">
-              {isIndividual
-                ? drawShared
-                  ? 'Same player for everyone — place them on your own board, or skip. Next player when all have acted.'
-                  : 'Place the drawn player on a matching square, or skip for a new one.'
-                : 'Tap a square to vote · everyone must agree (or all skip) to advance'}
-            </p>
-          ) : null}
+              <AvatarStrip
+                players={roomPlayers}
+                total={cellCountForConfig(boardConfig) - 1}
+                className="mb-3 lg:hidden"
+              />
+              <BingoBoard
+                seed={myBoardSeed}
+                boardConfig={boardConfig}
+                solved={solvedForDisplay}
+                voteHighlightIndex={isIndividual ? null : voteHighlightIndex}
+                draftTargetCells={null}
+                wrongCell={wrongCell}
+                cellVoters={cellVoters}
+                reduceMotion={reduceMotion}
+                onCellClick={(i) => {
+                  if (phase !== 'playing' || localBingo || !configOk || myActedThisRound) return
+                  if (playMode === 'draft') handleDraftCellClick(i)
+                  else setModalCell(i)
+                }}
+                lineHighlight={phase === 'playing' || localBingo}
+              />
+              {playMode === 'draft' && phase === 'playing' && !localBingo ? (
+                <p className="mt-4 text-center text-[13px] font-medium text-on-green-dim">
+                  {isIndividual
+                    ? drawShared
+                      ? 'Same player for everyone - place them on your own board, or skip. Next player when all have acted.'
+                      : 'Place the drawn player on a matching square, or skip for a new one.'
+                    : 'Tap a square to vote · everyone must agree (or all skip) to advance'}
+                </p>
+              ) : null}
             </section>
 
             <aside className="hidden lg:block">

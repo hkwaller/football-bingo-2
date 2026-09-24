@@ -499,5 +499,29 @@ export const MANUAL_PLAYER_IDS = new Set(MANUAL_PLAYERS.map((p) => p.id))
  * IDs that must never reach the output, even if they sit in the caches:
  *   131754 - Venezuelan Raúl González, confused with the Real Madrid Raúl (7349)
  *   54432  - journeyman wrongly entered as El Hadji Diouf (real one: 3604)
+ *   rest   - mid-2000s Bundesliga squad players fetched by an interrupted
+ *            backlog run; below the bar for the curated pool (2026-09)
  */
-export const EXCLUDED_IDS = new Set(['131754', '54432'])
+export const EXCLUDED_IDS = new Set([
+  '131754',
+  '54432',
+  // Sagnol, Metzelder, Kehl, Salihamidzic, Borowski, Klasnic, Rolfes,
+  // Ujfalusi, Dedê, Kobiashvili, Bajramovic, Asamoah, Hanke
+  ...['213', '123', '410', '214', '692', '690', '691', '325', '109', '411', '752', '258', '1428'],
+])
+
+/**
+ * Display-name fixes applied over Transfermarkt's profile name: keep names the
+ * app already uses stable, drop honorifics, and split same-name players.
+ */
+export const DISPLAY_NAMES: Record<string, string> = {
+  '174874': 'Bobby Charlton', // TM: "Sir Bobby Charlton"
+  '135778': 'Alfredo Di Stéfano', // TM: "Alfredo di Stéfano"
+  '50935': 'Javier Hernández', // TM: "Chicharito"
+  '743591': 'Savinho', // TM: "Sávio" - clashes with the 90s Real Madrid Sávio (7976)
+  '151263': 'Garrincha', // TM: "Mané Garrincha"
+  '200633': 'Geoff Hurst', // TM: "Sir Geoff Hurst"
+  '212779': 'Stanley Matthews', // TM: "Sir Stanley Matthews"
+  '27705': 'Paulo Futre', // TM: "Futre"
+  '96182': 'Preben Elkjær', // TM: "Preben Elkjaer Larsen"
+}

@@ -1,9 +1,10 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SkipForward } from 'lucide-react'
+import { wikimediaLoader } from '@/lib/playerImage'
 import type { PlayMode } from '@/lib/playMode'
 import type { PhotoAttribution } from '@/types/player'
 
@@ -30,6 +31,9 @@ type DrawnPlayerPanelProps = {
   reduceMotion?: boolean
 }
 
+/** Cap on how long the sticker waits for its photo before popping in regardless. */
+const PORTRAIT_WAIT_MS = 2500
+
 /**
  * The drawn-player HUD. Below lg it is a slim bar docked to the bottom of the
  * viewport (mini sticker, round, name, Skip) so the board gets the screen.
@@ -49,11 +53,31 @@ export function DrawnPlayerPanel({
   draftWarning,
   reduceMotion = false,
 }: DrawnPlayerPanelProps) {
-  if (mode !== 'draft') return null
-
   const attr = player?.imageAttribution
   // Re-mounts the portrait/name (and fires the glow) whenever a new player is drawn.
   const drawKey = player?.playerId ?? `round-${round}`
+  const imageUrl = player?.imageUrl
+
+  // The sticker animation only looks right on a decoded photo - a progressive
+  // JPEG otherwise wipes in top-to-bottom mid-spring. Hold the frame on the
+  // placeholder until the image is loaded, then pop it in whole.
+  const [portraitLoaded, setPortraitLoaded] = useState(false)
+  const [useRawImage, setUseRawImage] = useState(false)
+
+  useEffect(() => {
+    setPortraitLoaded(false)
+    setUseRawImage(false)
+  }, [drawKey, imageUrl])
+
+  useEffect(() => {
+    if (portraitLoaded || !imageUrl) return
+    const t = window.setTimeout(() => setPortraitLoaded(true), PORTRAIT_WAIT_MS)
+    return () => window.clearTimeout(t)
+  }, [portraitLoaded, imageUrl, drawKey])
+
+  if (mode !== 'draft') return null
+
+  const portraitReady = !loading && (portraitLoaded || !imageUrl)
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 lg:pointer-events-auto lg:static lg:z-auto">
@@ -82,7 +106,7 @@ export function DrawnPlayerPanel({
         </AnimatePresence>
         {/* One-shot glow when a new player is drawn */}
         <AnimatePresence>
-          {!loading && player ? (
+          {portraitReady && player ? (
             <motion.div
               key={`glow-${drawKey}`}
               className="pointer-events-none absolute inset-0 z-0 rounded-[inherit] ring-4 ring-yellow"
@@ -107,25 +131,47 @@ export function DrawnPlayerPanel({
           {loading ? (
             <div className="h-14 w-12 animate-pulse rounded-md bg-surface-2 lg:h-[220px] lg:w-[190px]" />
           ) : (
+            <div className="relative">
+            {!portraitReady ? (
+              <div
+                className="absolute inset-0 animate-pulse rounded-md bg-surface-2"
+                aria-hidden
+              />
+            ) : null}
             <motion.div
               key={`portrait-${drawKey}`}
               initial={reduceMotion ? false : { scale: 0.5, rotate: -12, opacity: 0 }}
-              animate={{ scale: 1, rotate: 0, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 360, damping: 18 }}
+              animate={
+                portraitReady
+                  ? { scale: 1, rotate: 0, opacity: 1 }
+                  : { scale: reduceMotion ? 1 : 0.5, rotate: reduceMotion ? 0 : -12, opacity: 0 }
+              }
+              transition={
+                reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 360, damping: 18 }
+              }
               className="relative"
             >
               {/* sticker frame: tilted, ink border, halftone backdrop */}
               <div className="-rotate-[4deg] rounded-md border-2 border-ink bg-surface-hi p-[3px] shadow-[0_3px_0_#0a2417] lg:-rotate-3 lg:p-[7px] lg:shadow-[0_5px_0_#0a2417]">
               <div className="halftone relative h-[48px] w-[42px] overflow-hidden rounded-[3px] bg-sky lg:h-[172px] lg:w-[174px]">
-              {player?.imageUrl ? (
+              {imageUrl ? (
                 <Image
-                  src={player.imageUrl}
+                  key={useRawImage ? 'raw' : 'thumb'}
+                  src={imageUrl}
+                  loader={useRawImage ? undefined : wikimediaLoader}
+                  unoptimized={useRawImage}
                   alt=""
                   fill
-                  sizes="52px"
+                  sizes="(min-width: 1024px) 174px, 42px"
+                  loading="eager"
                   className="object-cover"
                   style={{ objectPosition: '50% 16%' }}
-                  unoptimized
+                  onLoad={() => setPortraitLoaded(true)}
+                  onError={() => {
+                    // Commons won't thumbnail past the source width; retry raw.
+                    if (useRawImage) setPortraitLoaded(true)
+                    else setUseRawImage(true)
+                  }}
                 />
               ) : (
                 <svg
@@ -140,6 +186,7 @@ export function DrawnPlayerPanel({
               </div>
               </div>
             </motion.div>
+            </div>
           )}
           {attr ? (
             <div

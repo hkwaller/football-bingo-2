@@ -26,7 +26,7 @@ export function SegmentedNumbers({
   onChange: (v: number) => void
   ariaLabel: string
   helper?: ReactNode
-  /** Numeral size — mocks use 26–30px depending on screen. */
+  /** Numeral size - mocks use 26–30px depending on screen. */
   numberClass?: string
 }) {
   return (
@@ -48,7 +48,9 @@ export function SegmentedNumbers({
                   : 'bg-card-tint text-card-muted hover:-translate-y-px hover:text-card-ink'
               }`}
             >
-              <span className={`font-display font-black uppercase ${numberClass}`}>{opt.value}</span>
+              <span className={`font-display font-black uppercase ${numberClass}`}>
+                {opt.value}
+              </span>
               {opt.sub && (
                 <span
                   className={`font-mono text-[11px] ${active ? 'text-on-green/80' : 'text-card-muted-2'}`}
@@ -60,9 +62,7 @@ export function SegmentedNumbers({
           )
         })}
       </div>
-      {helper && (
-        <p className="mt-2 font-mono text-[12px] font-bold text-card-muted-2">{helper}</p>
-      )}
+      {helper && <p className="mt-2 font-mono text-[12px] font-bold text-card-muted-2">{helper}</p>}
     </div>
   )
 }

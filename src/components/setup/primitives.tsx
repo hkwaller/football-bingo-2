@@ -3,7 +3,7 @@
 /**
  * Shared low-level primitives for the "Marquee" setup screens (Trivia / Tenable /
  * Bingo). Everything here uses the Prime Time Green tokens from tailwind.config /
- * globals.css — no raw hex. See DESIGN.md and the setup redesign handoff.
+ * globals.css - no raw hex. See DESIGN.md and the setup redesign handoff.
  */
 
 import type { ReactNode } from 'react'

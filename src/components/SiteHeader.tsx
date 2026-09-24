@@ -25,6 +25,7 @@ const NAV = [
   { href: '/play/setup?mode=multiplayer', label: 'Multiplayer', match: ['/room'] },
   { href: '/trivia', label: 'Trivia', match: ['/trivia'] },
   { href: '/tenable', label: 'Tenable', match: ['/tenable'] },
+  { href: '/famous-11s', label: 'Famous 11s', match: ['/famous-11s'] },
 ]
 
 export function SiteHeader() {
