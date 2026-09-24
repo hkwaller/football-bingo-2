@@ -20,7 +20,7 @@ export interface ElevenLastGuess {
 /** Liveblocks storage - complex values JSON-serialised to satisfy LsonObject. */
 export type ElevenGameStorage = {
   phase: ElevenRoomPhase
-  /** Stable player ids (Liveblocks user id) - connection ids change on every reconnect. */
+  /** Stable per-tab player ids - connection ids change on every reconnect. */
   hostPlayerId: string | null
   configJson: string // Famous11sConfig
   seed: string
@@ -40,6 +40,8 @@ export type ElevenGameStorage = {
 
 export type ElevenGamePresence = {
   displayName: string
+  /** Per-tab id (see lib/roomPlayer) - survives reconnects, unlike connectionId. */
+  playerId: string
 }
 
 /** Persist an anon id so guests keep the same Liveblocks user id across reconnects. */

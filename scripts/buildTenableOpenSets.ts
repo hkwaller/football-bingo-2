@@ -17,6 +17,11 @@ import { fetchRaw, parseMembers, type OpenMember } from './tenableWikiLists'
 
 const OUT = path.join(__dirname, '..', 'src', 'data', 'tenable', 'openSets.json')
 
+/** Members to drop from a generated set - too obscure to be a fair answer. */
+const EXCLUDE: Record<string, string[]> = {
+  'spanish-in-pl': ['Míchel'],
+}
+
 async function main() {
   const pages = new Map<string, Promise<string>>()
   const out: Record<string, OpenMember[]> = {}
@@ -31,7 +36,10 @@ async function main() {
     const src = q.source
     if (!pages.has(src.page)) pages.set(src.page, fetchRaw(src.page))
     try {
-      const members = parseMembers(await pages.get(src.page)!, src)
+      const excluded = new Set((EXCLUDE[q.id] ?? []).map(normalize))
+      const members = parseMembers(await pages.get(src.page)!, src).filter(
+        (m) => !excluded.has(normalize(m.name)),
+      )
       if (members.length < 10) throw new Error(`only ${members.length} members parsed`)
       out[q.id] = members
       const listed = new Set(members.flatMap((m) => [m.name, ...(m.aliases ?? [])].map(normalize)))

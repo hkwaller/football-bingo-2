@@ -25,6 +25,12 @@ import { getLineupById, selectLineups, lineupTarget } from '@/data/famous11s'
 import { matchSlot } from '@/lib/famous11s/matching'
 import { POINTS_PER_SLOT, CLEAR_BONUS, MISS_PENALTY } from '@/lib/famous11s/types'
 import { randomUUID } from '@/lib/randomUUID'
+import {
+  getTabDisplayName,
+  getTabPlayerId,
+  roomPlayerIdOf as playerIdOf,
+  saveTabDisplayName,
+} from '@/lib/roomPlayer'
 import { Famous11sLobby } from './Famous11sLobby'
 import { PitchBoard } from './PitchBoard'
 import { Famous11sAutocomplete } from './Famous11sAutocomplete'
@@ -40,10 +46,6 @@ function nextTurn(current: string | null, presentIds: string[]): string | null {
 }
 
 const ABSENT_TURN_GRACE_MS = 8000
-
-function playerIdOf(user: { id?: string; connectionId: number }): string {
-  return user.id ?? `conn:${user.connectionId}`
-}
 
 function GuessFeedback({
   guess,
@@ -113,7 +115,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   const playerScores = useElevenStorage((s) => s.playerScores)
   const turnDeadline = useElevenStorage((s) => s.turnDeadline)
 
-  // Stable across reconnects (Liveblocks user id), unlike connectionId.
+  // Stable across reconnects, unlike connectionId.
   const myId = self ? playerIdOf(self) : null
   const isHost = myId != null && myId === hostPlayerId
   const config = useMemo(() => parseElevenConfig(configJson ?? '{}'), [configJson])
@@ -352,12 +354,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
 
   useEffect(() => {
     if (phase == null || myId == null) return
-    let displayName =
-      typeof window !== 'undefined' ? window.localStorage.getItem('fb_display_name') : null
-    if (!displayName) {
-      displayName = `Player ${Math.floor(Math.random() * 1000)}`
-      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', displayName)
-    }
+    const displayName = getTabDisplayName()
     if (phase === 'lobby') claimHost(displayName)
     else setPlayerName(displayName)
     updatePresence({ displayName })
@@ -373,7 +370,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
       const trimmed = name.trim() || 'Player'
       setPlayerName(trimmed)
       updatePresence({ displayName: trimmed })
-      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', trimmed)
+      saveTabDisplayName(trimmed)
     },
     [setPlayerName, updatePresence],
   )
@@ -605,7 +602,7 @@ export function Famous11sRoomGame({ roomId }: { roomId: string }) {
   return (
     <ElevenRoomProvider
       id={roomId}
-      initialPresence={{ displayName: '' }}
+      initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
       initialStorage={createInitialElevenStorage}
     >
       <Famous11sRoomInner roomId={roomId} />
