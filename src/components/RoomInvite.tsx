@@ -5,9 +5,11 @@ import { QRCodeSVG } from 'qrcode.react'
 
 type RoomInviteProps = {
   roomId: string
+  /** Path players open to join; defaults to the bingo room. */
+  joinPath?: string
 }
 
-export function RoomInvite({ roomId }: RoomInviteProps) {
+export function RoomInvite({ roomId, joinPath = `/room/${roomId}` }: RoomInviteProps) {
   const [origin, setOrigin] = useState('')
   const [copied, setCopied] = useState<'link' | 'id' | null>(null)
 
@@ -15,7 +17,6 @@ export function RoomInvite({ roomId }: RoomInviteProps) {
     setOrigin(window.location.origin)
   }, [])
 
-  const joinPath = `/room/${roomId}`
   const joinUrl = origin ? `${origin}${joinPath}` : joinPath
 
   const copy = useCallback(async (kind: 'link' | 'id') => {

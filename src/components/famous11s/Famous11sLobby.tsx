@@ -6,7 +6,7 @@ import { RoomInvite } from '@/components/RoomInvite'
 import type { Famous11sConfig } from '@/lib/famous11s/types'
 
 interface Player {
-  connectionId: number
+  id: string
   displayName: string
   isHost: boolean
 }
@@ -40,7 +40,7 @@ export function Famous11sLobby({ roomId, players, isHost, config, onStart, myNam
       </div>
 
       {/* Invite */}
-      <RoomInvite roomId={roomId} />
+      <RoomInvite roomId={roomId} joinPath={`/famous-11s/room/${roomId}`} />
 
       {/* Players */}
       <div className="flex flex-col gap-3">
@@ -49,7 +49,7 @@ export function Famous11sLobby({ roomId, players, isHost, config, onStart, myNam
         </p>
         {players.map((p) => (
           <div
-            key={p.connectionId}
+            key={p.id}
             className="panel flex items-center justify-between gap-3 px-4 py-3"
           >
             <div className="flex items-center gap-3">
