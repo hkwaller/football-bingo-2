@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { enrichedFootballPlayers } from '@/data/players'
-import { getClubDisplayNames } from '@/data/clubs'
+import { getClubDisplayNames, getKnownClubDisplayNames } from '@/data/clubs'
 import { nationalities, achievements } from '@/data/categories'
 import type { Player } from '@/types/player'
 
@@ -51,15 +51,24 @@ type HeroQuestion = {
 
 const ALL_SENIOR_CLUBS = getClubDisplayNames().filter(isSeniorClub)
 
+// Clubs a player can be asked about, as display names so they match the decoy
+// pool. Falls back to raw names for players with no known clubs.
 function seniorClubs(player: Player): string[] {
-  return player.clubs.filter(isSeniorClub)
+  const known = getKnownClubDisplayNames(player.clubs).filter(isSeniorClub)
+  return known.length ? known : player.clubs.filter(isSeniorClub)
+}
+
+// Known clubs the player never played for (aliases and canonical names resolved).
+function clubsNotPlayedFor(player: Player): string[] {
+  const played = new Set(getKnownClubDisplayNames(player.clubs))
+  return ALL_SENIOR_CLUBS.filter((c) => !played.has(c) && !player.clubs.includes(c))
 }
 
 function clubQuestion(player: Player): HeroQuestion | null {
   const owned = seniorClubs(player)
   if (!owned.length) return null
   const correct = pick(owned)
-  const decoys = shuffle(ALL_SENIOR_CLUBS.filter((c) => !player.clubs.includes(c))).slice(0, 2)
+  const decoys = shuffle(clubsNotPlayedFor(player)).slice(0, 2)
   if (decoys.length < 2) return null
   return {
     name: player.name,
@@ -89,7 +98,7 @@ function trueFalseQuestion(player: Player): HeroQuestion | null {
   const asTrue = Math.random() > 0.5
   const club = asTrue
     ? pick(owned)
-    : pick(ALL_SENIOR_CLUBS.filter((c) => !player.clubs.includes(c)))
+    : pick(clubsNotPlayedFor(player))
   if (!club) return null
   return {
     name: player.name,

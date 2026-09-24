@@ -1,6 +1,6 @@
 import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
 import { nationalities, achievements } from '@/data/categories'
-import { getClubDisplayNames } from '@/data/clubs'
+import { getClubDisplayNames, getKnownClubDisplayNames } from '@/data/clubs'
 
 const clubs = getClubDisplayNames()
 import type { Player } from '@/types/player'
@@ -56,6 +56,19 @@ function isSeniorClub(name: string): boolean {
   )
 }
 
+// Clubs a player can be asked about, as display names so they match the
+// distractor pool. Falls back to raw names for players with no known clubs.
+function askableClubs(player: Player): string[] {
+  const known = getKnownClubDisplayNames(player.clubs).filter(isSeniorClub)
+  return known.length ? known : player.clubs.filter(isSeniorClub)
+}
+
+// Known clubs the player never played for (aliases and canonical names resolved).
+function clubsNotPlayedFor(player: Player): string[] {
+  const played = new Set(getKnownClubDisplayNames(player.clubs))
+  return clubs.filter((c) => !played.has(c) && !player.clubs.includes(c) && isSeniorClub(c))
+}
+
 // ── Seeded RNG helper ─────────────────────────────────────────────────────────
 
 function makeRand(sessionId: string, questionIndex: number): () => number {
@@ -103,13 +116,10 @@ function clubTemplate(
   rand: () => number,
   id: string,
 ): MultipleChoiceQuestion | null {
-  const seniorClubs = player.clubs.filter(isSeniorClub)
+  const seniorClubs = askableClubs(player)
   if (!seniorClubs.length) return null
   const correctClub = pick(rand, seniorClubs)
-  const distractors = shuffle(
-    clubs.filter((c) => !player.clubs.includes(c) && isSeniorClub(c)),
-    rand,
-  ).slice(0, 3)
+  const distractors = shuffle(clubsNotPlayedFor(player), rand).slice(0, 3)
   if (distractors.length < 3) return null
   const options = shuffle([correctClub, ...distractors], rand)
   return {
@@ -336,13 +346,13 @@ function generateTrueFalse(
     },
     // Club history
     () => {
-      const seniorClubs = player.clubs.filter(isSeniorClub)
+      const seniorClubs = askableClubs(player)
       const isTrue = rand() > 0.5
       if (isTrue && seniorClubs.length) {
         const club = pick(rand, seniorClubs)
         return makeTrue(`${player.name} has played for ${club}`)
       }
-      const notPlayed = clubs.filter((c) => !player.clubs.includes(c) && isSeniorClub(c))
+      const notPlayed = clubsNotPlayedFor(player)
       if (!notPlayed.length) return null
       const club = pick(rand, notPlayed)
       return makeFalse(`${player.name} has played for ${club}`)

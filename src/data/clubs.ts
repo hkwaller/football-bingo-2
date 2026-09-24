@@ -290,3 +290,17 @@ export function getClubCanonicalNames(): string[] {
 export function getClubDisplayNames(): string[] {
   return clubs.map((c) => c.displayName)
 }
+
+/**
+ * Display names of the known clubs in a raw player club list, with canonical
+ * names and aliases resolved and duplicates removed. Use this to compare raw
+ * player data ("Arsenal FC") against display-name pools ("Arsenal").
+ */
+export function getKnownClubDisplayNames(names: string[]): string[] {
+  const out = new Set<string>()
+  for (const name of names) {
+    const canonical = getCanonicalName(name)
+    if (canonicalSet.has(canonical)) out.add(getDisplayName(canonical))
+  }
+  return [...out]
+}
