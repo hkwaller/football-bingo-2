@@ -25,13 +25,20 @@ The **Tenable** game mode: a category with exactly ten correct answers; the play
 ## Two kinds of category
 
 - **`ranked`** (default): a fixed top-10 where order matters - exactly 10 answers, filled into their rank slots (e.g. "Top 10 Premier League goalscorers").
-- **`open`**: set-membership - a larger valid set where the player names **any ten** (e.g. "Swedes in the Premier League"). Set `kind: 'open'`, `ordered: false`, and list ≥10 members; `rank` is just a stable id. Answers fill in the order named; on round-over the board shows a few of the members you missed. Curate the set from knowledge (web-verify if you like) - the Kaggle CSV can only source current squads, not all-time membership.
+- **`open`**: set-membership - a larger valid set where the player names **any ten** (e.g. "Swedes in the Premier League"). Set `kind: 'open'`, `ordered: false`, list a handful of well-known members in `answers` (they carry aliases/details and are the round-over "others you could've had" reveals), and point `source` at the Wikipedia list that holds the **complete** set:
+  ```ts
+  source: { page: 'List of foreign Premier League players', section: 'Sweden' }
+  source: { page: 'List of foreign Premier League players', section: 'France', club: 'Arsenal F.C.' }
+  ```
+  Then run **`npm run tenable:open`** - it fetches each list, writes every member to `openSets.json` (merged after the curated answers at load time) and re-runs verify. Never hand-curate the full set: hand-typed lists always miss people (Limpar, Schwarz…), and a correct answer rejected is the worst bug this mode can have. The `foreign … players` / `List of Brazilian footballers in La Liga` pages include everyone with at least one league game, which is the bar we want.
 
 ## Files
 
 - `questions.ts` - **the curated bank (edit this).**
 - `types.ts` - `TenableQuestion` / `TenableAnswer` shapes.
 - `index.ts` - merges `enrichment.json` onto answers + seeded question selection.
+- `openSets.json` - generated complete member sets for open categories (`npm run tenable:open`). Do not edit.
+- `openSets.ts` - merges `openSets.json` onto the curated open answers.
 - `enrichment.json` - generated portraits (`npm run tenable:verify`). Do not edit.
 
 ## Autocomplete pool

@@ -1,6 +1,7 @@
 import { tenableQuestions } from '@/data/tenable'
-import type { TenableGroup } from '@/data/tenable'
-import type { TenableDifficultyFilter } from './types'
+import type { TenableGroup, TenableQuestion } from '@/data/tenable'
+import { normalize } from './normalize'
+import type { TenableBrowseSort, TenableDifficultyFilter, TenableKindFilter } from './types'
 
 /**
  * Live counts for the Tenable setup screen, derived straight from the curated
@@ -50,4 +51,46 @@ export function estimatedMinutes(listCount: number): number {
 /** "1 list" / "3 lists" - small pluralisation helper for the count sub-lines. */
 export function pluralLists(n: number): string {
   return `${n} ${n === 1 ? 'list' : 'lists'}`
+}
+
+const DIFFICULTY_ORDER = { easy: 0, medium: 1, hard: 2 } as const
+const GROUP_ORDER = new Map(TENABLE_GROUPS.map((g, i) => [g.id, i]))
+
+export function groupLabel(group: TenableGroup): string {
+  return TENABLE_GROUPS.find((g) => g.id === group)?.label ?? group
+}
+
+/** The "Pick a list" gallery: search + filter + sort over the whole bank. */
+export function browseTenables(opts: {
+  query: string
+  group: TenableGroup | 'all'
+  kind: TenableKindFilter
+  difficulty: TenableDifficultyFilter
+  sort: TenableBrowseSort
+}): TenableQuestion[] {
+  const q = normalize(opts.query)
+  const pool = tenableQuestions.filter((t) => {
+    if (opts.group !== 'all' && t.group !== opts.group) return false
+    if (opts.kind !== 'all' && (t.kind ?? 'ranked') !== opts.kind) return false
+    if (!matchesDifficulty(opts.difficulty, t.difficulty)) return false
+    return !q || normalize(`${t.category} ${t.prompt}`).includes(q)
+  })
+
+  const az = (a: TenableQuestion, b: TenableQuestion) => a.category.localeCompare(b.category)
+  const sorted = [...pool]
+  switch (opts.sort) {
+    case 'az':
+      sorted.sort(az)
+      break
+    case 'difficulty':
+      sorted.sort(
+        (a, b) => DIFFICULTY_ORDER[a.difficulty] - DIFFICULTY_ORDER[b.difficulty] || az(a, b),
+      )
+      break
+    case 'topic':
+    default:
+      sorted.sort((a, b) => GROUP_ORDER.get(a.group)! - GROUP_ORDER.get(b.group)! || az(a, b))
+      break
+  }
+  return sorted
 }

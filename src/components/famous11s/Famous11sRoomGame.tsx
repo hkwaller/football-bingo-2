@@ -28,6 +28,7 @@ import { randomUUID } from '@/lib/randomUUID'
 import { Famous11sLobby } from './Famous11sLobby'
 import { PitchBoard } from './PitchBoard'
 import { Famous11sAutocomplete } from './Famous11sAutocomplete'
+import { LivesRow } from '@/components/LivesRow'
 
 function nextTurn(current: number | null, presentIds: number[]): number | null {
   if (!presentIds.length) return null
@@ -496,16 +497,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
               {currentLineup.prompt}
             </p>
           </div>
-          <div className="flex items-center gap-1.5">
-            {Array.from({ length: config.lives }, (_, i) => (
-              <span
-                key={i}
-                className={`text-xl leading-none ${i < (livesLeft ?? 0) ? '' : 'opacity-25 grayscale'}`}
-              >
-                {i < (livesLeft ?? 0) ? '❤️' : '🖤'}
-              </span>
-            ))}
-          </div>
+          <LivesRow livesLeft={livesLeft ?? 0} maxLives={config.lives} />
         </div>
         <div className="flex items-center justify-between gap-4">
           <span

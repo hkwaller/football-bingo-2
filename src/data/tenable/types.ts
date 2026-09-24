@@ -57,4 +57,20 @@ export interface TenableQuestion {
   difficulty: TenableDifficulty
   /** 'ranked' → exactly 10, ordered by `rank`. 'open' → the full valid set (≥10). */
   answers: TenableAnswer[]
+  /**
+   * 'open' only: the Wikipedia list the COMPLETE member set is generated from
+   * (`npm run tenable:open` → openSets.json). Hand-written `answers` stay first
+   * (they carry aliases/details and are the "you could've had" reveals); every
+   * other listed player is appended at load time, so no valid answer is missing.
+   */
+  source?: TenableOpenSource
+}
+
+export interface TenableOpenSource {
+  /** Wikipedia page title, e.g. "List of foreign Premier League players". */
+  page: string
+  /** Heading to read, e.g. "Sweden". Omit to read the whole page. */
+  section?: string
+  /** Only keep entries linking this club's article, e.g. "Arsenal F.C.". */
+  club?: string
 }

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
 import { motion } from 'framer-motion'
+import { getTenableQuestionById } from '@/data/tenable'
 import type { TenableConfig } from '@/lib/tenable/types'
 
 interface Player {
@@ -60,7 +61,14 @@ export function TenableLobby({
     }
   }, [joinUrl])
 
-  const focusLabel = config.groups === 'all' ? 'All topics' : config.groups.join(', ')
+  const picked = config.selectedQuestionId
+    ? getTenableQuestionById(config.selectedQuestionId)
+    : undefined
+  const focusLabel = picked
+    ? picked.category
+    : config.groups === 'all'
+      ? 'All topics'
+      : config.groups.join(', ')
 
   return (
     <div className="mx-auto flex w-full max-w-[720px] flex-col gap-[18px] px-6 py-8 md:px-9">
@@ -83,12 +91,20 @@ export function TenableLobby({
         <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
           <span className="text-muted">Lives</span>
           <span className="font-semibold text-ink">{config.lives}</span>
+          <span className="text-muted">Hints</span>
+          <span className="font-semibold text-ink">{config.hints}</span>
           <span className="text-muted">Categories</span>
-          <span className="font-semibold text-ink">{config.questionCount}</span>
-          <span className="text-muted">Topic</span>
-          <span className="font-semibold text-ink capitalize">{focusLabel}</span>
+          <span className="font-semibold text-ink">
+            {picked ? '1 (picked)' : config.questionCount}
+          </span>
+          <span className="text-muted">{picked ? 'List' : 'Topic'}</span>
+          <span className={`font-semibold text-ink ${picked ? '' : 'capitalize'}`}>
+            {focusLabel}
+          </span>
           <span className="text-muted">Difficulty</span>
-          <span className="font-semibold text-ink capitalize">{config.difficulty}</span>
+          <span className="font-semibold text-ink capitalize">
+            {picked ? picked.difficulty : config.difficulty}
+          </span>
         </div>
         {isHost && (
           <a

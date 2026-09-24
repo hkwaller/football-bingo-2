@@ -27,7 +27,9 @@ export function loadTenableSession(): TenableSessionState | null {
     const s = JSON.parse(raw) as TenableSessionState
     if (!s.sessionId || !s.config || !Array.isArray(s.questions)) return null
     if (s.phase === 'finished') return null
-    return s
+    // Sessions saved before hints existed.
+    const config = { ...DEFAULT_TENABLE_CONFIG, ...s.config }
+    return { ...s, config, hintsLeft: s.hintsLeft ?? config.hints, hints: s.hints ?? [] }
   } catch {
     return null
   }

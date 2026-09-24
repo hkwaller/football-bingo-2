@@ -25,3 +25,17 @@ export function matchAnswer(
   }
   return { kind: 'wrong' }
 }
+
+/**
+ * Every spelling of the answers already on the board, so the autocomplete can
+ * hide them (John Arne Riise found → "Riis" only offers Bjørn Helge Riise).
+ */
+export function foundAnswerNames(
+  question: TenableQuestion | null | undefined,
+  foundRanks: readonly number[],
+): string[] {
+  if (!question) return []
+  return question.answers
+    .filter((a) => foundRanks.includes(a.rank))
+    .flatMap((a) => [a.name, ...(a.aliases ?? [])])
+}

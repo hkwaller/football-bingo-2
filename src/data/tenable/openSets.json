@@ -1,0 +1,4933 @@
+{
+ "swedes-in-pl": [
+  {
+   "name": "Niclas Alexandersson",
+   "detail": "Sheffield Wednesday / Everton"
+  },
+  {
+   "name": "Marcus Allbäck",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Anders Andersson",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Andreas Andersson",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Patrik Andersson",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Joel Asoro",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Ludwig Augustinsson",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Yasin Ayari",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Lucas Bergvall",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Joachim Björklund",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Jesper Blomqvist",
+   "detail": "Manchester United / Everton / Charlton Athletic"
+  },
+  {
+   "name": "Tomas Brolin",
+   "detail": "Leeds United / Crystal Palace"
+  },
+  {
+   "name": "Jens Cajuste",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Martin Dahlin",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Bojan Djordjic",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Erik Edman",
+   "detail": "Tottenham Hotspur / Wigan Athletic"
+  },
+  {
+   "name": "Hjalmar Ekdal",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Anthony Elanga",
+   "detail": "Manchester United / Nottingham Forest / Newcastle United"
+  },
+  {
+   "name": "Melker Ellborg",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "David Elm",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Johan Elmander",
+   "detail": "Bolton Wanderers / Norwich City"
+  },
+  {
+   "name": "Jan Eriksson",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Andreas Granqvist",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Gabriel Gudmundsson",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Niklas Gudmundsson",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "John Guidetti",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Tomas Gustafsson",
+   "aliases": [
+    "Tomas Antonelius"
+   ],
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Viktor Gyökeres",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Magnus Hedman",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Zlatan Ibrahimović",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Klas Ingesson",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "Alexander Isak",
+   "detail": "Newcastle United / Liverpool"
+  },
+  {
+   "name": "Andreas Isaksson",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Andreas Jakobsson",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Pontus Jansson",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Andreas Johansson",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Nils-Eric Johansson",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Mattias Jonson",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Alexander Kačaniklić",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Kim Källström",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Pontus Kåmark",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Emil Krafth",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Dejan Kulusevski",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Jonah Kusi-Asare",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Henrik Larsson",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Hugo Larsson",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Sebastian Larsson",
+   "detail": "Arsenal / Birmingham City / Sunderland"
+  },
+  {
+   "name": "Anders Limpar",
+   "detail": "Arsenal / Everton"
+  },
+  {
+   "name": "Victor Lindelöf",
+   "detail": "Manchester United / Aston Villa"
+  },
+  {
+   "name": "Tobias Linderoth",
+   "detail": "Everton"
+  },
+  {
+   "name": "Freddie Ljungberg",
+   "detail": "Arsenal / West Ham United"
+  },
+  {
+   "name": "Teddy Lučić",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Peter Markstedt",
+   "detail": "Barnsley"
+  },
+  {
+   "name": "Jesper Mattsson",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Olof Mellberg",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Joel Mumbongo",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Mikael Nilsson",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Roland Nilsson",
+   "detail": "Sheffield Wednesday / Coventry City"
+  },
+  {
+   "name": "Kristoffer Nordfeldt",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Robin Olsen",
+   "detail": "Everton / Aston Villa"
+  },
+  {
+   "name": "Jonas Olsson",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Marcus Olsson",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Martin Olsson",
+   "detail": "Blackburn Rovers / Norwich City / Swansea City"
+  },
+  {
+   "name": "Rade Prica",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Martin Pringle",
+   "detail": "Charlton Athletic"
+  },
+  {
+   "name": "Marino Rahmberg",
+   "detail": "Derby County"
+  },
+  {
+   "name": "Markus Rosenberg",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Björn Runström",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Stefan Schwarz",
+   "detail": "Arsenal / Sunderland"
+  },
+  {
+   "name": "Ken Sema",
+   "detail": "Watford"
+  },
+  {
+   "name": "Rami Shaaban",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Fredrik Stoor",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Elliot Stroud",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Anders Svensson",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Mathias Svensson",
+   "detail": "Charlton Athletic / Norwich City"
+  },
+  {
+   "name": "Michael Svensson",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Muamer Tanković",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Ola Toivonen",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Christian Wilhelmsson",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Jonas Wirmola",
+   "detail": "Sheffield United"
+  }
+ ],
+ "norwegians-in-pl": [
+  {
+   "name": "Kristoffer Ajer",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Trond Andersen",
+   "detail": "Wimbledon"
+  },
+  {
+   "name": "Martin Andresen",
+   "detail": "Wimbledon / Blackburn Rovers"
+  },
+  {
+   "name": "Espen Baardsen",
+   "detail": "Tottenham Hotspur / Everton"
+  },
+  {
+   "name": "Eirik Bakke",
+   "detail": "Leeds United / Aston Villa"
+  },
+  {
+   "name": "Henning Berg",
+   "detail": "Blackburn Rovers / Manchester United"
+  },
+  {
+   "name": "Sander Berge",
+   "detail": "Sheffield United / Burnley / Fulham"
+  },
+  {
+   "name": "Jo Inge Berget",
+   "detail": "Cardiff City"
+  },
+  {
+   "name": "Stig Inge Bjørnebye",
+   "detail": "Liverpool / Blackburn Rovers"
+  },
+  {
+   "name": "Oscar Bobb",
+   "detail": "Manchester City / Fulham"
+  },
+  {
+   "name": "Lars Bohinen",
+   "detail": "Nottingham Forest / Blackburn Rovers / Derby County"
+  },
+  {
+   "name": "Daniel Braaten",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Bjørn Otto Bragstad",
+   "detail": "Derby County"
+  },
+  {
+   "name": "John Carew",
+   "detail": "Aston Villa / Stoke City"
+  },
+  {
+   "name": "Mats Møller Dæhli",
+   "detail": "Cardiff City"
+  },
+  {
+   "name": "Adama Diomande",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Sindre Walle Egeli",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Magnus Wolff Eikrem",
+   "detail": "Cardiff City"
+  },
+  {
+   "name": "Omar Elabdellaoui",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Mohamed Elyounoussi",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Jan Åge Fjørtoft",
+   "detail": "Swindon Town / Middlesbrough / Barnsley"
+  },
+  {
+   "name": "Jostein Flo",
+   "detail": "Sheffield United"
+  },
+  {
+   "name": "Tore André Flo",
+   "detail": "Chelsea / Sunderland"
+  },
+  {
+   "name": "Frode Grodås",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Alf-Inge Haaland",
+   "detail": "Nottingham Forest / Leeds United / Manchester City"
+  },
+  {
+   "name": "Erling Haaland",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Kristofer Hæstad",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Erik Hagen",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Gunnar Halle",
+   "detail": "Oldham Athletic / Leeds United / Bradford City"
+  },
+  {
+   "name": "Brede Hangeland",
+   "detail": "Fulham / Crystal Palace"
+  },
+  {
+   "name": "Vegard Heggem",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Markus Henriksen",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Jon Olav Hjelde",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Leo Hjelde",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Jens Hjerto-Dahl",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Abdisalam Ibrahim",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Kåre Ingebrigtsen",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Steffen Iversen",
+   "detail": "Tottenham Hotspur / Wolverhampton Wanderers"
+  },
+  {
+   "name": "Stefan Johansen",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Stig Johansen",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Erland Johnsen",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Ronny Johnsen",
+   "detail": "Manchester United / Aston Villa / Newcastle United"
+  },
+  {
+   "name": "Christian Kalvenes",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Azar Karadas",
+   "detail": "Portsmouth"
+  },
+  {
+   "name": "Joshua King",
+   "detail": "Bournemouth / Everton / Watford"
+  },
+  {
+   "name": "Kristoffer Klaesson",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Bjørn Tore Kvarme",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Jørgen Strand Larsen",
+   "detail": "Wolverhampton Wanderers / Crystal Palace"
+  },
+  {
+   "name": "Øyvind Leonhardsen",
+   "detail": "Wimbledon / Liverpool / Tottenham Hotspur / Aston Villa"
+  },
+  {
+   "name": "Andreas Lund",
+   "detail": "Wimbledon"
+  },
+  {
+   "name": "Claus Lundekvam",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Pål Lydersen",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Thomas Myhre",
+   "detail": "Everton / Sunderland / Charlton Athletic"
+  },
+  {
+   "name": "Erik Nevland",
+   "detail": "Manchester United / Fulham"
+  },
+  {
+   "name": "Roger Nilsen",
+   "detail": "Sheffield United / Tottenham Hotspur"
+  },
+  {
+   "name": "Håvard Nordtveit",
+   "detail": "West Ham United / Fulham"
+  },
+  {
+   "name": "Mathias Normann",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Runar Normann",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Ørjan Nyland",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Martin Ødegaard",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Egil Østenstad",
+   "detail": "Southampton / Manchester City / Blackburn Rovers"
+  },
+  {
+   "name": "Jonathan Parr",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Morten Gamst Pedersen",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Tore Pedersen",
+   "detail": "Oldham Athletic / Blackburn Rovers / Wimbledon"
+  },
+  {
+   "name": "Bjørn Helge Riise",
+   "detail": "Fulham"
+  },
+  {
+   "name": "John Arne Riise",
+   "detail": "Liverpool / Fulham"
+  },
+  {
+   "name": "Petter Rudi",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "Ståle Solbakken",
+   "detail": "Wimbledon"
+  },
+  {
+   "name": "Ole Gunnar Solskjær",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Trond Egil Soltvedt",
+   "detail": "Coventry City / Southampton"
+  },
+  {
+   "name": "Ragnvald Soma",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Alexander Sørloth",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Ståle Stensaas",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Frank Strandli",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Jo Tessem",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Alexander Tettey",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Erik Thorstvedt",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Fredrik Ulvestad",
+   "detail": "Burnley"
+  },
+  {
+   "name": "David Møller Wolfe",
+   "detail": "Wolverhampton Wanderers"
+  }
+ ],
+ "danes-in-pl": [
+  {
+   "name": "Daniel Agger",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Martin Albrechtsen",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Joachim Andersen",
+   "detail": "Fulham / Crystal Palace"
+  },
+  {
+   "name": "Mads Juel Andersen",
+   "detail": "Luton Town"
+  },
+  {
+   "name": "Stephan Andersen",
+   "detail": "Charlton Athletic"
+  },
+  {
+   "name": "Leon Andreasen",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Mikkel Beck",
+   "detail": "Middlesbrough / Derby County"
+  },
+  {
+   "name": "Nicklas Bendtner",
+   "detail": "Arsenal / Sunderland"
+  },
+  {
+   "name": "Mads Bidstrup",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Philip Billing",
+   "detail": "Huddersfield Town / Bournemouth"
+  },
+  {
+   "name": "Mikkel Bischoff",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Jacob Bruun Larsen",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Oskar Buur",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Andreas Christensen",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Andreas Cornelius",
+   "detail": "Cardiff City"
+  },
+  {
+   "name": "Mikkel Damsgaard",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Peter Degn",
+   "detail": "Everton"
+  },
+  {
+   "name": "Patrick Dorgu",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Ronnie Ekelund",
+   "detail": "Southampton / Manchester City"
+  },
+  {
+   "name": "Christian Eriksen",
+   "detail": "Tottenham Hotspur / Brentford / Manchester United"
+  },
+  {
+   "name": "Viktor Fischer",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Per Frandsen",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Carsten Fredgaard",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Thomas Gaardsøe",
+   "detail": "Ipswich Town / West Bromwich Albion"
+  },
+  {
+   "name": "Bjarne Goldbæk",
+   "detail": "Chelsea / Fulham"
+  },
+  {
+   "name": "Thomas Gravesen",
+   "detail": "Everton"
+  },
+  {
+   "name": "Albert Grønbæk",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Jesper Grønkjær",
+   "detail": "Chelsea / Birmingham City"
+  },
+  {
+   "name": "Bo Hansen",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Jakob Haugaard",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Nicklas Helenius",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Thomas Helveg",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Mads Hermansen",
+   "detail": "Leicester City / West Ham United"
+  },
+  {
+   "name": "Jes Høgh",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Pierre-Emile Højbjerg",
+   "detail": "Southampton / Tottenham Hotspur"
+  },
+  {
+   "name": "Rasmus Højlund",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Daniel Iversen",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Lars Jacobsen",
+   "detail": "Everton / Blackburn Rovers / West Ham United"
+  },
+  {
+   "name": "Brian Jensen",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Claus Jensen",
+   "detail": "Charlton Athletic / Fulham"
+  },
+  {
+   "name": "John Jensen",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Mathias Jensen",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Niclas Jensen",
+   "detail": "Manchester City / Fulham"
+  },
+  {
+   "name": "Martin Johansen",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Michael Johansen",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Filip Jörgensen",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Mathias Jørgensen",
+   "detail": "Huddersfield Town / Brentford"
+  },
+  {
+   "name": "Jakob Kjeldbjerg",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Rasmus Kristensen",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Victor Kristiansen",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Per Krøldrup",
+   "detail": "Everton"
+  },
+  {
+   "name": "William Kvist",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Brian Laudrup",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Jacob Laursen",
+   "detail": "Derby County / Leicester City"
+  },
+  {
+   "name": "Martin Laursen",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Anders Lindegaard",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Jesper Lindstrøm",
+   "detail": "Everton"
+  },
+  {
+   "name": "Jonas Lössl",
+   "detail": "Huddersfield Town / Brentford"
+  },
+  {
+   "name": "Peter Løvenkrands",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Emiliano Marcondes",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Jan Mølby",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Allan Nielsen",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Christian Nørgaard",
+   "detail": "Brentford / Arsenal"
+  },
+  {
+   "name": "Chido Obi",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Jores Okore",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Matt O'Riley",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "William Osula",
+   "detail": "Sheffield United / Newcastle United"
+  },
+  {
+   "name": "Henrik Pedersen",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Per Pedersen",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Torben Piechnik",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Christian Poulsen",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Brian Priske",
+   "detail": "Portsmouth"
+  },
+  {
+   "name": "Marc Rieper",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Mads Roerslev",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Dennis Rommedahl",
+   "detail": "Charlton Athletic"
+  },
+  {
+   "name": "Kasper Schmeichel",
+   "detail": "Manchester City / Leicester City"
+  },
+  {
+   "name": "Peter Schmeichel",
+   "detail": "Manchester United / Aston Villa / Manchester City"
+  },
+  {
+   "name": "Jacob Sørensen",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Lasse Sørensen",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Mads Bech Sørensen",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Thomas Sørensen",
+   "detail": "Sunderland / Aston Villa / Stoke City"
+  },
+  {
+   "name": "Kevin Stuhr Ellegaard",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Claus Thomsen",
+   "detail": "Ipswich Town / Everton"
+  },
+  {
+   "name": "Stig Tøfting",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Jon Dahl Tomasson",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Victor Torp",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Jannik Vestergaard",
+   "detail": "Southampton / Leicester City"
+  },
+  {
+   "name": "Kenneth Zohore",
+   "detail": "Cardiff City"
+  }
+ ],
+ "french-in-pl": [
+  {
+   "name": "Samassi Abou",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Didier Agathe",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Naouirou Ahamada",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Ibrahim Amadou",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Morgan Amalfitano",
+   "detail": "West Bromwich Albion / West Ham United"
+  },
+  {
+   "name": "Jordan Amavi",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Jérémie Aliadière",
+   "detail": "Arsenal / West Ham United / Middlesbrough"
+  },
+  {
+   "name": "Bernard Allou",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Mathis Amougou",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Pierre-Yves André",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Nicolas Anelka",
+   "detail": "Arsenal / Liverpool / Manchester City / Bolton Wanderers / Chelsea / West Bromwich Albion"
+  },
+  {
+   "name": "Alphonse Areola",
+   "detail": "Fulham / West Ham United"
+  },
+  {
+   "name": "Pegguy Arphexad",
+   "detail": "Leicester City / Liverpool"
+  },
+  {
+   "name": "Lorenz Assignon",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Cédric Avinel",
+   "detail": "Watford"
+  },
+  {
+   "name": "Ibrahim Ba",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Benoît Badiashile",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Jean-Mattéo Bahoya",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Tiémoué Bakayoko",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Dilane Bakwa",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Aladji Bamba",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Bradley Barcola",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Melvin Bard",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Thierno Barry",
+   "detail": "Everton"
+  },
+  {
+   "name": "Fabien Barthez",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "David Bellion",
+   "detail": "Sunderland / Manchester United / West Ham United"
+  },
+  {
+   "name": "Hatem Ben Arfa",
+   "detail": "Newcastle United / Hull City"
+  },
+  {
+   "name": "Olivier Bernard",
+   "detail": "Newcastle United / Southampton"
+  },
+  {
+   "name": "Mathieu Berson",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Giulian Biancone",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Laurent Blanc",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Patrick Blondeau",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "Thierry Bonalair",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Jérôme Bonnissel",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Alexandre Bonnot",
+   "detail": "Watford"
+  },
+  {
+   "name": "Olivier Boscagli",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Jean-Alain Boumsong",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Yohan Cabaye",
+   "detail": "Newcastle United / Crystal Palace"
+  },
+  {
+   "name": "Rémy Cabella",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Zoumana Camara",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Vincent Candela",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Eric Cantona",
+   "detail": "Leeds United / Manchester United"
+  },
+  {
+   "name": "Jaydee Canvot",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Étienne Capoue",
+   "detail": "Tottenham Hotspur / Watford"
+  },
+  {
+   "name": "Patrice Carteron",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Johan Cavalli",
+   "detail": "Watford"
+  },
+  {
+   "name": "Cyril Chapuis",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Laurent Charvet",
+   "detail": "Chelsea / Newcastle United / Manchester City"
+  },
+  {
+   "name": "Rayan Cherki",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Bruno Cheyrou",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Pascal Chimbonda",
+   "detail": "Wigan Athletic / Tottenham Hotspur / Sunderland / Blackburn Rovers"
+  },
+  {
+   "name": "Mohamed-Ali Cho",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Philippe Christanval",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Gérald Cid",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Djibril Cissé",
+   "detail": "Liverpool / Sunderland / Queens Park Rangers"
+  },
+  {
+   "name": "Édouard Cissé",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Aly Cissokho",
+   "detail": "Liverpool / Aston Villa"
+  },
+  {
+   "name": "Gaël Clichy",
+   "detail": "Arsenal / Manchester City"
+  },
+  {
+   "name": "Patrick Colleter",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Francis Coquelin",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Laurent Courtois",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Pascal Cygan",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Ousmane Dabo",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Olivier Dacourt",
+   "detail": "Everton / Leeds United / Fulham"
+  },
+  {
+   "name": "Stéphane Dalmat",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Loïc Damour",
+   "detail": "Cardiff City"
+  },
+  {
+   "name": "Jean-Claude Darcheville",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Mickaël Debève",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Mathieu Debuchy",
+   "detail": "Newcastle United / Arsenal"
+  },
+  {
+   "name": "Moussa Dembélé",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Marcel Desailly",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Didier Deschamps",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Abou Diaby",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Moussa Diaby",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Adama Diakhaby",
+   "detail": "Huddersfield Town"
+  },
+  {
+   "name": "Bafodé Diakité",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Modibo Diakité",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Ibrahima Diallo",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Alou Diarra",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Lassana Diarra",
+   "detail": "Chelsea / Arsenal / Portsmouth"
+  },
+  {
+   "name": "Didier Digard",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Lucas Digne",
+   "detail": "Everton / Aston Villa"
+  },
+  {
+   "name": "Bernard Diomède",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Axel Disasi",
+   "detail": "Chelsea / Aston Villa / West Ham United / Crystal Palace"
+  },
+  {
+   "name": "Sylvain Distin",
+   "detail": "Newcastle United / Manchester City / Portsmouth / Everton / Bournemouth"
+  },
+  {
+   "name": "Martin Djetou",
+   "detail": "Fulham / Bolton Wanderers"
+  },
+  {
+   "name": "Youri Djorkaeff",
+   "detail": "Bolton Wanderers / Blackburn Rovers"
+  },
+  {
+   "name": "Didier Domi",
+   "detail": "Newcastle United / Leeds United"
+  },
+  {
+   "name": "Pierre Ducrocq",
+   "detail": "Derby County"
+  },
+  {
+   "name": "Christophe Dugarry",
+   "detail": "Birmingham City"
+  },
+  {
+   "name": "Franck Dumas",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Odsonne Édouard",
+   "detail": "Crystal Palace / Leicester City"
+  },
+  {
+   "name": "Hugo Ekitike",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Mario Espartero",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Maxime Estève",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Patrice Evra",
+   "detail": "Manchester United / West Ham United"
+  },
+  {
+   "name": "Romain Faivre",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Julien Faubert",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Fabrice Fernandes",
+   "detail": "Southampton / Bolton Wanderers"
+  },
+  {
+   "name": "Jean-Michel Ferri",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Mathieu Flamini",
+   "detail": "Arsenal / Crystal Palace"
+  },
+  {
+   "name": "Wesley Fofana",
+   "detail": "Leicester City / Chelsea"
+  },
+  {
+   "name": "Marc-Antoine Fortuné",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Dimitri Foulquier",
+   "detail": "Watford"
+  },
+  {
+   "name": "William Gallas",
+   "detail": "Chelsea / Arsenal / Tottenham Hotspur"
+  },
+  {
+   "name": "Rémi Garde",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "David Ginola",
+   "detail": "Newcastle United / Tottenham Hotspur / Aston Villa / Everton"
+  },
+  {
+   "name": "Olivier Giroud",
+   "detail": "Arsenal / Chelsea"
+  },
+  {
+   "name": "Gaël Givet",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Alain Goma",
+   "detail": "Newcastle United / Fulham"
+  },
+  {
+   "name": "Bafétimbi Gomis",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Yoan Gouffran",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Hérold Goulon",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Lucas Gourna-Douath",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Elliot Grandin",
+   "detail": "Blackpool"
+  },
+  {
+   "name": "Xavier Gravelaine",
+   "detail": "Watford"
+  },
+  {
+   "name": "François Grenet",
+   "detail": "Derby County"
+  },
+  {
+   "name": "Léandre Griffit",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Gilles Grimandi",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "David Grondin",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Matteo Guendouzi",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Frédéric Guilbert",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Stéphane Guivarc'h",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Malo Gusto",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Thierry Henry",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Valérien Ismaël",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Jérémy Jacquet",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Younès Kaboul",
+   "detail": "Tottenham Hotspur / Portsmouth / Sunderland / Watford"
+  },
+  {
+   "name": "Boubacar Kamara",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Mohamadou Kanté",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "N'Golo Kanté",
+   "detail": "Leicester City / Chelsea"
+  },
+  {
+   "name": "Arnaud Kalimuendo",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Olivier Kapo",
+   "detail": "Birmingham City / Wigan Athletic"
+  },
+  {
+   "name": "Christian Karembeu",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Joachim Kayi Sanda",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Marc Keller",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Yann Kermorgant",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Anthony Knockaert",
+   "detail": "Leicester City / Brighton & Hove Albion"
+  },
+  {
+   "name": "Randal Kolo Muani",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Ibrahima Konaté",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Laurent Koscielny",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Eli Junior Kroupi",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Layvin Kurzawa",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Alexandre Lacazette",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Maxence Lacroix",
+   "detail": "Crystal Palace / Chelsea"
+  },
+  {
+   "name": "Bernard Lama",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Bernard Lambourde",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Lilian Laslandes",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Pierre Laurent",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Florent Laville",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Enzo Le Fée",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Maxime Le Marchand",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Ulrich Le Pen",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Anthony Le Tallec",
+   "detail": "Liverpool / Sunderland"
+  },
+  {
+   "name": "Frank Leboeuf",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Pierre Lees-Melou",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Sylvain Legwinski",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Florian Lejeune",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Clément Lenglet",
+   "detail": "Tottenham Hotspur / Aston Villa"
+  },
+  {
+   "name": "Hugo Lloris",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Matthieu Louis-Jean",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Patrice Luzi",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Mickaël Madar",
+   "detail": "Everton"
+  },
+  {
+   "name": "Soungoutou Magassa",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Claude Makélélé",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Steed Malbranque",
+   "detail": "Fulham / Tottenham Hotspur / Sunderland"
+  },
+  {
+   "name": "Florent Malouda",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Steve Mandanda",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Mikael Mandron",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Eliaquim Mangala",
+   "detail": "Manchester City / Everton"
+  },
+  {
+   "name": "Sékou Mara",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Steve Marlet",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Anthony Martial",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Lilian Martin",
+   "detail": "Derby County"
+  },
+  {
+   "name": "Sylvain Marveaux",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Han-Noah Massengo",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Jean-Philippe Mateta",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Neal Maupay",
+   "detail": "Brighton & Hove Albion / Everton / Brentford"
+  },
+  {
+   "name": "Youl Mawéné",
+   "detail": "Derby County"
+  },
+  {
+   "name": "Benjamin Mendy",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Bernard Mendy",
+   "detail": "Bolton Wanderers / Hull City"
+  },
+  {
+   "name": "Illan Meslier",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Dayann Methalie",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Anthony Modeste",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Lys Mousset",
+   "detail": "Bournemouth / Sheffield United"
+  },
+  {
+   "name": "Steven Mouyokolo",
+   "detail": "Hull City / Wolverhampton Wanderers"
+  },
+  {
+   "name": "Nordi Mukiele",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Yann M'Vila",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Christian Nadé",
+   "detail": "Sheffield United"
+  },
+  {
+   "name": "Lilian Nalis",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Samir Nasri",
+   "detail": "Arsenal / Manchester City / West Ham United"
+  },
+  {
+   "name": "Tanguy Ndombele",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Christian Negouai",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "David Ngog",
+   "detail": "Liverpool / Bolton Wanderers / Swansea City"
+  },
+  {
+   "name": "Bruno Ngotty",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Niels Nkounkou",
+   "detail": "Everton"
+  },
+  {
+   "name": "Christopher Nkunku",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Charles N'Zogbia",
+   "detail": "Newcastle United / Wigan Athletic / Aston Villa"
+  },
+  {
+   "name": "Steven Nzonzi",
+   "detail": "Blackburn Rovers / Stoke City"
+  },
+  {
+   "name": "Gabriel Obertan",
+   "detail": "Manchester United / Newcastle United"
+  },
+  {
+   "name": "Wilson Odobert",
+   "detail": "Burnley / Tottenham Hotspur"
+  },
+  {
+   "name": "Michael Olise",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Noé Pamarot",
+   "detail": "Tottenham Hotspur / Portsmouth"
+  },
+  {
+   "name": "Dimitri Payet",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Lionel Pérez",
+   "aliases": [
+    "Lionel Perez"
+   ],
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Sébastien Pérez",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Vincent Péricard",
+   "detail": "Portsmouth / Stoke City"
+  },
+  {
+   "name": "Romain Perraud",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Emmanuel Petit",
+   "detail": "Arsenal / Chelsea"
+  },
+  {
+   "name": "Jérémy Pied",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Frédéric Piquionne",
+   "detail": "Portsmouth / West Ham United"
+  },
+  {
+   "name": "Robert Pires",
+   "detail": "Arsenal / Aston Villa"
+  },
+  {
+   "name": "Damien Plessis",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Paul Pogba",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "William Prunier",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Sébastien Puygrenier",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Franck Queudrue",
+   "detail": "Middlesbrough / Fulham / Birmingham City"
+  },
+  {
+   "name": "Loïc Rémy",
+   "detail": "Queens Park Rangers / Newcastle United / Chelsea / Crystal Palace"
+  },
+  {
+   "name": "Anthony Réveillère",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Emmanuel Rivière",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Laurent Robert",
+   "detail": "Newcastle United / Portsmouth / Derby County"
+  },
+  {
+   "name": "Bruno Rodriguez",
+   "detail": "Bradford City"
+  },
+  {
+   "name": "Franck Rolling",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Eric Roy",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Georginio Rutter",
+   "detail": "Leeds United / Brighton & Hove Albion"
+  },
+  {
+   "name": "Bacary Sagna",
+   "detail": "Arsenal / Manchester City"
+  },
+  {
+   "name": "Yaya Sanogo",
+   "detail": "Arsenal / Crystal Palace"
+  },
+  {
+   "name": "Louis Saha",
+   "detail": "Newcastle United / Fulham / Manchester United / Everton / Tottenham Hotspur / Sunderland"
+  },
+  {
+   "name": "Allan Saint-Maximin",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Mamadou Sakho",
+   "detail": "Liverpool / Crystal Palace"
+  },
+  {
+   "name": "William Saliba",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Morgan Sanson",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Malang Sarr",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Sébastien Schemmel",
+   "detail": "West Ham United / Portsmouth"
+  },
+  {
+   "name": "Morgan Schneiderlin",
+   "detail": "Southampton / Manchester United / Everton"
+  },
+  {
+   "name": "Antoine Sibierski",
+   "detail": "Manchester City / Newcastle United / Wigan Athletic"
+  },
+  {
+   "name": "Djibril Sidibé",
+   "detail": "Everton"
+  },
+  {
+   "name": "Mikaël Silvestre",
+   "detail": "Manchester United / Arsenal"
+  },
+  {
+   "name": "Florent Sinama Pongolle",
+   "detail": "Liverpool / Blackburn Rovers"
+  },
+  {
+   "name": "Moussa Sissoko",
+   "detail": "Newcastle United / Tottenham Hotspur / Watford"
+  },
+  {
+   "name": "David Sommeil",
+   "detail": "Manchester City / Sheffield United"
+  },
+  {
+   "name": "Boubakary Soumaré",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Sébastien Squillaci",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Benjamin Stambouli",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Ludovic Sylvestre",
+   "detail": "Blackpool"
+  },
+  {
+   "name": "Loum Tchaouna",
+   "detail": "Burnley / Coventry City"
+  },
+  {
+   "name": "Allan Tchaptchet",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Mathys Tel",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "David Terrier",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Florian Thauvin",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Kévin Théophile-Catherine",
+   "detail": "Cardiff City"
+  },
+  {
+   "name": "Jean-Clair Todibo",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Adrien Truffert",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Lesley Ugochukwu",
+   "detail": "Chelsea / Southampton / Burnley"
+  },
+  {
+   "name": "Patrick Valéry",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Raphaël Varane",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Robinio Vaz",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Jordan Veretout",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Patrick Vieira",
+   "detail": "Arsenal / Manchester City"
+  },
+  {
+   "name": "Grégory Vignal",
+   "detail": "Liverpool / Portsmouth / Birmingham City"
+  },
+  {
+   "name": "Jean-Guy Wallemme",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Sylvain Wiltord",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Mapou Yanga-Mbiwa",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Leny Yoro",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Kurt Zouma",
+   "detail": "Chelsea / Stoke City / Everton / West Ham United"
+  },
+  {
+   "name": "Ronald Zubar",
+   "detail": "Wolverhampton Wanderers"
+  }
+ ],
+ "dutch-in-pl": [
+  {
+   "name": "Patrick van Aanholt",
+   "detail": "Chelsea / Wigan Athletic / Sunderland / Crystal Palace"
+  },
+  {
+   "name": "Nabil Abidallah",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Ibrahim Afellay",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Nathan Aké",
+   "detail": "Chelsea / Watford / Bournemouth / Manchester City"
+  },
+  {
+   "name": "Ryan Babel",
+   "detail": "Liverpool / Fulham"
+  },
+  {
+   "name": "Jaydon Banel",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Donny van de Beek",
+   "detail": "Manchester United / Everton"
+  },
+  {
+   "name": "Sepp van den Berg",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Steven Berghuis",
+   "detail": "Watford"
+  },
+  {
+   "name": "Dennis Bergkamp",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Steven Bergwijn",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Marco Bizot",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Daley Blind",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Regi Blinker",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "George Boateng",
+   "detail": "Coventry City / Aston Villa / Middlesbrough / Hull City"
+  },
+  {
+   "name": "Jeroen Boere",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Lamare Bogarde",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Winston Bogarde",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Marco Boogers",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Paul Bosvelt",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Sven Botman",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Khalid Boulahrouz",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Wilfred Bouma",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Brian Brobbey",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Giovanni van Bronckhorst",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Jeffrey Bruma",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Alexander Büttner",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Jordy Clasie",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Jordi Cruyff",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Arnaut Danjuma",
+   "detail": "Bournemouth / Tottenham Hotspur / Everton"
+  },
+  {
+   "name": "Chris David",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Edgar Davids",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Memphis Depay",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Virgil van Dijk",
+   "detail": "Southampton / Liverpool"
+  },
+  {
+   "name": "Sieb Dijkstra",
+   "detail": "Queens Park Rangers"
+  },
+  {
+   "name": "Royston Drenthe",
+   "detail": "Everton"
+  },
+  {
+   "name": "Anwar El Ghazi",
+   "detail": "Aston Villa / Everton"
+  },
+  {
+   "name": "Eljero Elia",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Urby Emanuelson",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Marvin Emnes",
+   "detail": "Middlesbrough / Swansea City"
+  },
+  {
+   "name": "Milan van Ewijk",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Leroy Fer",
+   "detail": "Norwich City / Queens Park Rangers / Swansea City"
+  },
+  {
+   "name": "Mark Flekken",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Zian Flemming",
+   "detail": "Burnley / Ipswich Town"
+  },
+  {
+   "name": "Timothy Fosu-Mensah",
+   "detail": "Manchester United / Crystal Palace / Fulham"
+  },
+  {
+   "name": "Fabian de Freitas",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Jeremie Frimpong",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Cody Gakpo",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Lutsharel Geertruida",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Marco van Ginkel",
+   "detail": "Chelsea / Stoke City"
+  },
+  {
+   "name": "Ulrich van Gobbel",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Ed de Goey",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Raimond van der Gouw",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Ryan Gravenberch",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Alfons Groenendijk",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Ruud Gullit",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Jonathan de Guzmán",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Gustavo Hamer",
+   "detail": "Sheffield United / Coventry City"
+  },
+  {
+   "name": "Quilindschy Hartman",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Jimmy Floyd Hasselbaink",
+   "detail": "Leeds United / Chelsea / Middlesbrough / Charlton Athletic"
+  },
+  {
+   "name": "Jorrel Hato",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Jan Paul van Hecke",
+   "detail": "Brighton & Hove Albion / Tottenham Hotspur"
+  },
+  {
+   "name": "John Heitinga",
+   "detail": "Everton / Fulham"
+  },
+  {
+   "name": "Glenn Helder",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Laurens ten Heuvel",
+   "detail": "Barnsley"
+  },
+  {
+   "name": "Wesley Hoedt",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Ki-Jana Hoever",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Pierre van Hooijdonk",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Jos Hooiveld",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Mike van der Hoorn",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Daryl Janmaat",
+   "detail": "Newcastle United / Watford"
+  },
+  {
+   "name": "Vincent Janssen",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Collins John",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Luuk de Jong",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Nigel de Jong",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Siem de Jong",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Wim Jonk",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "John Karelse",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Orpheo Keizerweerd",
+   "detail": "Oldham Athletic"
+  },
+  {
+   "name": "Davy Klaassen",
+   "detail": "Everton"
+  },
+  {
+   "name": "Justin Kluivert",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Patrick Kluivert",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Terence Kongolo",
+   "detail": "Huddersfield Town / Fulham"
+  },
+  {
+   "name": "Willem Korsten",
+   "detail": "Leeds United / Tottenham Hotspur"
+  },
+  {
+   "name": "Jan Kromkamp",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Tim Krul",
+   "detail": "Newcastle United / Norwich City"
+  },
+  {
+   "name": "Dirk Kuyt",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Robin van der Laan",
+   "detail": "Derby County"
+  },
+  {
+   "name": "Denny Landzaat",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Rajiv van La Parra",
+   "detail": "Huddersfield Town"
+  },
+  {
+   "name": "Jeremain Lens",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Matthijs de Ligt",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Ian Maatsen",
+   "detail": "Chelsea / Aston Villa"
+  },
+  {
+   "name": "Sherjill MacDonald",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Tyrell Malacia",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Donyell Malen",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Bruno Martins Indi",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Erik Meijer",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Mario Melchiot",
+   "detail": "Chelsea / Birmingham City / Wigan Athletic"
+  },
+  {
+   "name": "Andy van der Meyde",
+   "detail": "Everton"
+  },
+  {
+   "name": "Antoni Milambo",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Robert Molenaar",
+   "detail": "Leeds United / Bradford City"
+  },
+  {
+   "name": "Ken Monkou",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Kiki Musampa",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Riga Mustapha",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Luciano Narsingh",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Luc Nijholt",
+   "detail": "Swindon Town"
+  },
+  {
+   "name": "Ruud van Nistelrooy",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "André Ooijer",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Marc Overmars",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Robin van Persie",
+   "detail": "Arsenal / Manchester United"
+  },
+  {
+   "name": "Bobby Petta",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Erik Pieters",
+   "detail": "Stoke City / Burnley"
+  },
+  {
+   "name": "Stefan Postma",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Davy Pröpper",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Tijjani Reijnders",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Michael Reiziger",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Karim Rekik",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Martijn Reuser",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Daniël de Ridder",
+   "detail": "Birmingham City / Wigan Athletic"
+  },
+  {
+   "name": "Jaïro Riedewald",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Maceo Rigters",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Arjen Robben",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Robin Roefs",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Marten de Roon",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Bryan Roy",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Edwin van der Sar",
+   "detail": "Fulham / Manchester United"
+  },
+  {
+   "name": "Kjell Scherpen",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Jenson Seelt",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Hans Segers",
+   "detail": "Wimbledon / Tottenham Hotspur"
+  },
+  {
+   "name": "Gerald Sibon",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "Xavi Simons",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Richard Sneekes",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Jaap Stam",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Ronnie Stam",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Maarten Stekelenburg",
+   "detail": "Fulham / Southampton / Everton"
+  },
+  {
+   "name": "Sean Steur",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Pascal Struijk",
+   "detail": "Leeds United / Brighton & Hove Albion"
+  },
+  {
+   "name": "Crysencio Summerville",
+   "detail": "Leeds United / West Ham United"
+  },
+  {
+   "name": "Kenny Tete",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Dwight Tiendalli",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Jurriën Timber",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Quinten Timber",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Orlando Trustfull",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "Rafael van der Vaart",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Joël Veltman",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Micky van de Ven",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Jan Vennegoor of Hesselink",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Bart Verbruggen",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Ron Vlaar",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Michel Vonk",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Michel Vorm",
+   "detail": "Swansea City / Tottenham Hotspur"
+  },
+  {
+   "name": "Dorus de Vries",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Harald Wapenaar",
+   "detail": "Portsmouth"
+  },
+  {
+   "name": "Wout Weghorst",
+   "detail": "Burnley / Manchester United"
+  },
+  {
+   "name": "Sander Westerveld",
+   "detail": "Liverpool / Portsmouth / Everton"
+  },
+  {
+   "name": "Mats Wieffer",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Gerard Wiekens",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Georginio Wijnaldum",
+   "detail": "Newcastle United / Liverpool"
+  },
+  {
+   "name": "Clyde Wijnhard",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Jetro Willems",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Ron Willems",
+   "detail": "Derby County"
+  },
+  {
+   "name": "Fabian Wilnis",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Richard Witschge",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Ricky van Wolfswinkel",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Nordin Wooter",
+   "detail": "Watford"
+  },
+  {
+   "name": "Marvin Zeegelaar",
+   "detail": "Watford"
+  },
+  {
+   "name": "Arjan de Zeeuw",
+   "detail": "Barnsley / Portsmouth / Wigan Athletic"
+  },
+  {
+   "name": "Boudewijn Zenden",
+   "detail": "Chelsea / Middlesbrough / Liverpool / Sunderland"
+  },
+  {
+   "name": "Joshua Zirkzee",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Gianni Zuiverloon",
+   "detail": "West Bromwich Albion"
+  }
+ ],
+ "germans-in-pl": [
+  {
+   "name": "Markus Babbel",
+   "detail": "Liverpool / Blackburn Rovers"
+  },
+  {
+   "name": "Michael Ballack",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Stefan Beinlich",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Armel Bella-Kotchap",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Jordan Beyer",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Jérôme Boateng",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Fredi Bobic",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Matthias Breitkreutz",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Emre Can",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Eric da Silva Moreira",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Sean Dundee",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Mahmoud Dahoud",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Erik Durm",
+   "detail": "Huddersfield Town"
+  },
+  {
+   "name": "Ralf Fährmann",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Steffen Freund",
+   "detail": "Tottenham Hotspur / Leicester City"
+  },
+  {
+   "name": "Michael Frontzeck",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Niclas Füllkrug",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Maurizio Gaudino",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Serge Gnabry",
+   "detail": "Arsenal / West Bromwich Albion"
+  },
+  {
+   "name": "Pascal Groß",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Brajan Gruda",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "İlkay Gündoğan",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Dietmar Hamann",
+   "detail": "Newcastle United / Liverpool / Manchester City"
+  },
+  {
+   "name": "Kai Havertz",
+   "detail": "Chelsea / Arsenal"
+  },
+  {
+   "name": "Michael Hefele",
+   "detail": "Huddersfield Town"
+  },
+  {
+   "name": "Thomas Helmer",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Thomas Hitzlsperger",
+   "detail": "Aston Villa / West Ham United / Everton"
+  },
+  {
+   "name": "Lewis Holtby",
+   "detail": "Tottenham Hotspur / Fulham"
+  },
+  {
+   "name": "Uwe Hünemeier",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Robert Huth",
+   "detail": "Chelsea / Middlesbrough / Stoke City / Leicester City"
+  },
+  {
+   "name": "Eike Immel",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Vitaly Janelt",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Loris Karius",
+   "detail": "Liverpool / Newcastle United"
+  },
+  {
+   "name": "Steffen Karl",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Thilo Kehrer",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Reda Khadra",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Jan Kirchhoff",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Jürgen Klinsmann",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Robin Koch",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Lars Leese",
+   "detail": "Barnsley"
+  },
+  {
+   "name": "Jens Lehmann",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Moritz Leitner",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Bernd Leno",
+   "detail": "Arsenal / Fulham"
+  },
+  {
+   "name": "Chris Löwe",
+   "detail": "Huddersfield Town"
+  },
+  {
+   "name": "Stefan Malz",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Marko Marin",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Alberto Méndez",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Per Mertesacker",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Max Meyer",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Shkodran Mustafi",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Luca Netz",
+   "detail": "Nottingham Forest"
+  },
+  {
+   "name": "Lukas Nmecha",
+   "detail": "Manchester City / Leeds United"
+  },
+  {
+   "name": "Savio Nsereko",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Stefan Ortega",
+   "detail": "Manchester City / Nottingham Forest"
+  },
+  {
+   "name": "Mesut Özil",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Sergio Peter",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Lukas Podolski",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Nick Proschwitz",
+   "detail": "Hull City"
+  },
+  {
+   "name": "Collin Quaner",
+   "detail": "Huddersfield Town"
+  },
+  {
+   "name": "Karl-Heinz Riedle",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Sascha Riether",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Merlin Röhl",
+   "detail": "Everton"
+  },
+  {
+   "name": "Uwe Rösler",
+   "detail": "Manchester City / Southampton"
+  },
+  {
+   "name": "Antonio Rüdiger",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Lukas Rupp",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Leroy Sané",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Kevin Schade",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Christopher Schindler",
+   "detail": "Huddersfield Town"
+  },
+  {
+   "name": "Stefan Schnoor",
+   "detail": "Derby County"
+  },
+  {
+   "name": "André Schürrle",
+   "detail": "Chelsea / Fulham"
+  },
+  {
+   "name": "Bastian Schweinsteiger",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Lennard Sowah",
+   "detail": "Portsmouth"
+  },
+  {
+   "name": "Dennis Srbeny",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Anton Stach",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Marco Stiepermann",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Michael Tarnat",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Malick Thiaw",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Gerhard Tremmel",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Tom Trybull",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Deniz Undav",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Moritz Volz",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Max Weiß",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Timo Werner",
+   "detail": "Chelsea / Tottenham Hotspur"
+  },
+  {
+   "name": "Stefan Wessels",
+   "detail": "Everton"
+  },
+  {
+   "name": "Florian Wirtz",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Philipp Wollscheid",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Nick Woltemade",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Christian Ziege",
+   "detail": "Middlesbrough / Liverpool / Tottenham Hotspur"
+  },
+  {
+   "name": "Ron-Robert Zieler",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Christoph Zimmermann",
+   "detail": "Norwich City"
+  }
+ ],
+ "irish-in-pl": [
+  {
+   "name": "Keith Andrews",
+   "detail": "Wolverhampton Wanderers / Blackburn Rovers / West Bromwich Albion"
+  },
+  {
+   "name": "Harry Arter",
+   "detail": "Bournemouth / Cardiff City"
+  },
+  {
+   "name": "Phil Babb",
+   "detail": "Coventry City / Liverpool / Sunderland"
+  },
+  {
+   "name": "Graham Barrett",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Gavin Bazunu",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Leon Best",
+   "detail": "Southampton / Newcastle United"
+  },
+  {
+   "name": "Willie Boland",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Danny Boxall",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Lee Boylan",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Robbie Brady",
+   "detail": "Hull City / Norwich City / Burnley"
+  },
+  {
+   "name": "Keith Branagan",
+   "detail": "Bolton Wanderers / Ipswich Town"
+  },
+  {
+   "name": "Gary Breen",
+   "detail": "Coventry City / West Ham United / Sunderland"
+  },
+  {
+   "name": "Paul Butler",
+   "detail": "Sunderland / Wolverhampton Wanderers"
+  },
+  {
+   "name": "Thomas Butler",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Shaun Byrne",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Tom Cannon",
+   "detail": "Everton"
+  },
+  {
+   "name": "Brian Carey",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Stephen Carr",
+   "detail": "Tottenham Hotspur / Newcastle United / Birmingham City"
+  },
+  {
+   "name": "Samir Carruthers",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Lee Carsley",
+   "detail": "Derby County / Blackburn Rovers / Coventry City / Everton / Birmingham City"
+  },
+  {
+   "name": "Tony Cascarino",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Eiran Cashin",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Cyrus Christie",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Ciaran Clark",
+   "detail": "Aston Villa / Newcastle United"
+  },
+  {
+   "name": "Clive Clarke",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Séamus Coleman",
+   "detail": "Everton"
+  },
+  {
+   "name": "Nick Colgan",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Nathan Collins",
+   "detail": "Burnley / Wolverhampton Wanderers / Brentford"
+  },
+  {
+   "name": "Aaron Connolly",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "David Connolly",
+   "detail": "Wigan Athletic / Sunderland"
+  },
+  {
+   "name": "Conor Coventry",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Simon Cox",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Owen Coyle",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Jim Crawford",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Josh Cullen",
+   "detail": "West Ham United / Burnley"
+  },
+  {
+   "name": "Micky Cummins",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Greg Cunningham",
+   "detail": "Manchester City / Cardiff City"
+  },
+  {
+   "name": "Kenny Cunningham",
+   "detail": "Wimbledon / Birmingham City"
+  },
+  {
+   "name": "Liam Daish",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Damien Delaney",
+   "detail": "Leicester City / Crystal Palace"
+  },
+  {
+   "name": "Rory Delap",
+   "detail": "Derby County / Southampton / Sunderland / Stoke City"
+  },
+  {
+   "name": "Gary Doherty",
+   "detail": "Tottenham Hotspur / Norwich City"
+  },
+  {
+   "name": "Matt Doherty",
+   "detail": "Wolverhampton Wanderers / Tottenham Hotspur"
+  },
+  {
+   "name": "Aaron Doran",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Jonathan Douglas",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Colin Doyle",
+   "detail": "Birmingham City"
+  },
+  {
+   "name": "Kevin Doyle",
+   "detail": "Reading / Wolverhampton Wanderers / Crystal Palace"
+  },
+  {
+   "name": "Damien Duff",
+   "detail": "Blackburn Rovers / Chelsea / Newcastle United / Fulham"
+  },
+  {
+   "name": "Shane Duffy",
+   "detail": "Everton / Brighton & Hove Albion / Fulham"
+  },
+  {
+   "name": "Jimmy Dunne",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Richard Dunne",
+   "detail": "Everton / Manchester City / Aston Villa / Queens Park Rangers"
+  },
+  {
+   "name": "John Egan",
+   "detail": "Sheffield United / Hull City"
+  },
+  {
+   "name": "Rob Elliot",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Stephen Elliott",
+   "detail": "Manchester City / Sunderland"
+  },
+  {
+   "name": "Mickey Evans",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Keith Fahey",
+   "detail": "Birmingham City"
+  },
+  {
+   "name": "Gareth Farrelly",
+   "detail": "Aston Villa / Everton / Bolton Wanderers"
+  },
+  {
+   "name": "Neale Fenn",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Evan Ferguson",
+   "detail": "Brighton & Hove Albion / West Ham United"
+  },
+  {
+   "name": "Steve Finnan",
+   "detail": "Fulham / Liverpool / Portsmouth"
+  },
+  {
+   "name": "Scott Fitzgerald",
+   "detail": "Wimbledon"
+  },
+  {
+   "name": "Curtis Fleming",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Willo Flood",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Caleb Folan",
+   "detail": "Wigan Athletic / Hull City"
+  },
+  {
+   "name": "Tony Folan",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Dominic Foley",
+   "detail": "Watford"
+  },
+  {
+   "name": "Kevin Foley",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Anthony Forde",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Nathan Fraser",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Owen Garvan",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Jason Gavin",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Derek Geary",
+   "detail": "Sheffield United"
+  },
+  {
+   "name": "Darron Gibson",
+   "detail": "Manchester United / Everton / Sunderland"
+  },
+  {
+   "name": "Rory Ginty",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Shay Given",
+   "detail": "Blackburn Rovers / Newcastle United / Manchester City / Aston Villa / Stoke City"
+  },
+  {
+   "name": "Jon Goodman",
+   "detail": "Wimbledon"
+  },
+  {
+   "name": "Reece Grego-Cox",
+   "detail": "Queens Park Rangers"
+  },
+  {
+   "name": "Michael Harriman",
+   "detail": "Queens Park Rangers"
+  },
+  {
+   "name": "Ian Harte",
+   "detail": "Leeds United / Sunderland / Reading"
+  },
+  {
+   "name": "Jeff Hendrick",
+   "detail": "Burnley / Newcastle United"
+  },
+  {
+   "name": "Joe Hodge",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Matt Holland",
+   "detail": "Ipswich Town / Charlton Athletic"
+  },
+  {
+   "name": "Wes Hoolahan",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Ray Houghton",
+   "detail": "Aston Villa / Crystal Palace"
+  },
+  {
+   "name": "Conor Hourihane",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Noel Hunt",
+   "detail": "Reading"
+  },
+  {
+   "name": "Stephen Hunt",
+   "detail": "Reading / Hull City / Wolverhampton Wanderers"
+  },
+  {
+   "name": "Adam Idah",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Stephen Ireland",
+   "detail": "Manchester City / Aston Villa / Newcastle United / Stoke City"
+  },
+  {
+   "name": "Denis Irwin",
+   "detail": "Manchester United / Wolverhampton Wanderers"
+  },
+  {
+   "name": "Graham Kavanagh",
+   "detail": "Middlesbrough / Wigan Athletic"
+  },
+  {
+   "name": "Robbie Keane",
+   "detail": "Coventry City / Leeds United / Tottenham Hotspur / Liverpool / West Ham United / Aston Villa"
+  },
+  {
+   "name": "Roy Keane",
+   "detail": "Nottingham Forest / Manchester United"
+  },
+  {
+   "name": "Will Keane",
+   "detail": "Manchester United / Hull City"
+  },
+  {
+   "name": "Caoimhín Kelleher",
+   "detail": "Liverpool / Brentford"
+  },
+  {
+   "name": "Alan Kelly",
+   "aliases": [
+    "Alan Kelly Jr."
+   ],
+   "detail": "Sheffield United / Blackburn Rovers"
+  },
+  {
+   "name": "David Kelly",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Gary Kelly",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Stephen Kelly",
+   "detail": "Tottenham Hotspur / Birmingham City / Stoke City / Fulham / Reading"
+  },
+  {
+   "name": "Jeff Kenna",
+   "detail": "Southampton / Blackburn Rovers / Birmingham City"
+  },
+  {
+   "name": "Mark Kennedy",
+   "detail": "Liverpool / Wimbledon / Manchester City / Wolverhampton Wanderers"
+  },
+  {
+   "name": "Paddy Kenny",
+   "detail": "Sheffield United / Queens Park Rangers"
+  },
+  {
+   "name": "Andy Keogh",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Alan Kernaghan",
+   "detail": "Middlesbrough / Manchester City"
+  },
+  {
+   "name": "Dean Kiely",
+   "detail": "Charlton Athletic / Portsmouth / West Bromwich Albion"
+  },
+  {
+   "name": "Kevin Kilbane",
+   "detail": "Sunderland / Everton / Wigan Athletic / Hull City"
+  },
+  {
+   "name": "Mark Kinsella",
+   "detail": "Charlton Athletic / Aston Villa"
+  },
+  {
+   "name": "Brian Launders",
+   "detail": "Crystal Palace / Derby County"
+  },
+  {
+   "name": "Liam Lawrence",
+   "detail": "Sunderland / Stoke City"
+  },
+  {
+   "name": "Kevin Long",
+   "detail": "Burnley"
+  },
+  {
+   "name": "Shane Long",
+   "detail": "Reading / West Bromwich Albion / Hull City / Southampton"
+  },
+  {
+   "name": "Jon Macken",
+   "detail": "Manchester City / Derby County"
+  },
+  {
+   "name": "Alan Mahon",
+   "detail": "Blackburn Rovers / Wigan Athletic"
+  },
+  {
+   "name": "Ryan Manning",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Alan Maybury",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Jason McAteer",
+   "detail": "Bolton Wanderers / Liverpool / Blackburn Rovers / Sunderland"
+  },
+  {
+   "name": "Kasey McAteer",
+   "detail": "Leicester City / Ipswich Town"
+  },
+  {
+   "name": "Chris McCann",
+   "detail": "Burnley"
+  },
+  {
+   "name": "James McCarthy",
+   "detail": "Wigan Athletic / Everton / Crystal Palace"
+  },
+  {
+   "name": "Paddy McCarthy",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "James McClean",
+   "detail": "Sunderland / West Bromwich Albion"
+  },
+  {
+   "name": "David McDonald",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Aiden McGeady",
+   "detail": "Everton"
+  },
+  {
+   "name": "Paul McGee",
+   "detail": "Wimbledon"
+  },
+  {
+   "name": "David McGoldrick",
+   "detail": "Sheffield United"
+  },
+  {
+   "name": "Eddie McGoldrick",
+   "detail": "Crystal Palace / Arsenal"
+  },
+  {
+   "name": "Brian McGovern",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Paul McGrath",
+   "detail": "Aston Villa / Derby County"
+  },
+  {
+   "name": "John McGrath",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Mark McKeever",
+   "detail": "Sheffield Wednesday"
+  },
+  {
+   "name": "Stephen McPhail",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Paul McShane",
+   "detail": "Sunderland / Hull City"
+  },
+  {
+   "name": "David Meyler",
+   "detail": "Sunderland / Hull City"
+  },
+  {
+   "name": "Liam Miller",
+   "detail": "Manchester United / Sunderland"
+  },
+  {
+   "name": "Mike Milligan",
+   "detail": "Oldham Athletic / Norwich City"
+  },
+  {
+   "name": "Adam Mitchell",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Jayson Molumby",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Alan Moore",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Andrew Moran",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Kevin Moran",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Chris Morris",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Clinton Morrison",
+   "detail": "Crystal Palace / Birmingham City"
+  },
+  {
+   "name": "Alex Murphy",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Daryl Murphy",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Joe Murphy",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Michael Obafemi",
+   "detail": "Southampton / Burnley"
+  },
+  {
+   "name": "Alan O'Brien",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Andy O'Brien",
+   "detail": "Bradford City / Newcastle United / Portsmouth / Bolton Wanderers"
+  },
+  {
+   "name": "Jake O'Brien",
+   "detail": "Everton"
+  },
+  {
+   "name": "Joey O'Brien",
+   "detail": "Bolton Wanderers / West Ham United"
+  },
+  {
+   "name": "Liam O'Brien",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Roy O'Donovan",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Chiedozie Ogbene",
+   "detail": "Luton Town / Ipswich Town"
+  },
+  {
+   "name": "Keith O'Halloran",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Eunan O'Kane",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "David O'Leary",
+   "detail": "Arsenal / Leeds United"
+  },
+  {
+   "name": "Mark O'Mahony",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Andrew Omobamidele",
+   "detail": "Norwich City / Nottingham Forest"
+  },
+  {
+   "name": "Keith O'Neill",
+   "detail": "Norwich City / Middlesbrough"
+  },
+  {
+   "name": "Dara O'Shea",
+   "detail": "West Bromwich Albion / Burnley / Ipswich Town"
+  },
+  {
+   "name": "Jay O'Shea",
+   "detail": "Birmingham City"
+  },
+  {
+   "name": "John O'Shea",
+   "detail": "Manchester United / Sunderland"
+  },
+  {
+   "name": "Marcos Painter",
+   "detail": "Birmingham City"
+  },
+  {
+   "name": "Troy Parrott",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Alex Pearce",
+   "detail": "Reading"
+  },
+  {
+   "name": "Gerry Peyton",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Terry Phelan",
+   "detail": "Manchester City / Chelsea / Everton"
+  },
+  {
+   "name": "Anthony Pilkington",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Darren Potter",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Lee Power",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Alan Quinn",
+   "detail": "Sheffield Wednesday / Sheffield United"
+  },
+  {
+   "name": "Barry Quinn",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Niall Quinn",
+   "detail": "Manchester City / Sunderland"
+  },
+  {
+   "name": "Rob Quinn",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Stephen Quinn",
+   "detail": "Sheffield United / Hull City"
+  },
+  {
+   "name": "Darren Randolph",
+   "detail": "Charlton Athletic / West Ham United"
+  },
+  {
+   "name": "Michael Reddy",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Andy Reid",
+   "detail": "Tottenham Hotspur / Charlton Athletic / Sunderland / Blackpool"
+  },
+  {
+   "name": "Steven Reid",
+   "detail": "Blackburn Rovers / West Bromwich Albion / Burnley"
+  },
+  {
+   "name": "Callum Robinson",
+   "detail": "Aston Villa / Sheffield United / West Bromwich Albion"
+  },
+  {
+   "name": "Matthew Rush",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Richie Ryan",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Conor Sammon",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "John Sheridan",
+   "detail": "Sheffield Wednesday / Bolton Wanderers"
+  },
+  {
+   "name": "Tony Sheridan",
+   "detail": "Coventry City"
+  },
+  {
+   "name": "Bernie Slaven",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Will Smallbone",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Tony Springett",
+   "detail": "Norwich City"
+  },
+  {
+   "name": "Steve Staunton",
+   "detail": "Aston Villa / Liverpool"
+  },
+  {
+   "name": "Enda Stevens",
+   "detail": "Aston Villa / Sheffield United"
+  },
+  {
+   "name": "Anthony Stokes",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Sammie Szmodics",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Jay Tabb",
+   "detail": "Reading"
+  },
+  {
+   "name": "Sean Thornton",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Kevin Toner",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Andy Townsend",
+   "detail": "Chelsea / Aston Villa / Middlesbrough"
+  },
+  {
+   "name": "Jack Taylor",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "Mark Travers",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Keith Treacy",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Andy Turner",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Jonathan Walters",
+   "detail": "Bolton Wanderers / Stoke City / Burnley"
+  },
+  {
+   "name": "Stephen Ward",
+   "detail": "Wolverhampton Wanderers / Burnley"
+  },
+  {
+   "name": "Keiren Westwood",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Gareth Whalley",
+   "detail": "Bradford City"
+  },
+  {
+   "name": "Glenn Whelan",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Ronnie Whelan",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Derrick Williams",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Marc Wilson",
+   "detail": "Portsmouth / Stoke City / West Bromwich Albion"
+  },
+  {
+   "name": "Mark Yeates",
+   "detail": "Tottenham Hotspur"
+  }
+ ],
+ "spanish-in-pl": [
+  {
+   "name": "Adrián",
+   "detail": "West Ham United / Liverpool"
+  },
+  {
+   "name": "Thiago Alcântara",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Manuel Almunia",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Marcos Alonso",
+   "detail": "Bolton Wanderers / Sunderland / Chelsea"
+  },
+  {
+   "name": "Mikel Alonso",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Xabi Alonso",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Chema Andrés",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Angeliño",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Álvaro Arbeloa",
+   "detail": "Liverpool / West Ham United"
+  },
+  {
+   "name": "Kepa Arrizabalaga",
+   "detail": "Chelsea / Bournemouth / Arsenal"
+  },
+  {
+   "name": "Mikel Arteta",
+   "detail": "Everton / Arsenal"
+  },
+  {
+   "name": "Marco Asensio",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Iago Aspas",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Daniel Ayala",
+   "detail": "Liverpool / Norwich City / Middlesbrough"
+  },
+  {
+   "name": "César Azpilicueta",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Stefan Bajcetic",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Antonio Barragán",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Héctor Bellerín",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Bojan",
+   "aliases": [
+    "Bojan Krkić"
+   ],
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Borja Bastón",
+   "detail": "Swansea City / Aston Villa"
+  },
+  {
+   "name": "Kepa Blanco",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Raúl Bravo",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Bruno",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Hugo Bueno",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Cala",
+   "detail": "Cardiff City"
+  },
+  {
+   "name": "Víctor Camarasa",
+   "detail": "Cardiff City / Crystal Palace"
+  },
+  {
+   "name": "Eduard Campabadal",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "José Campaña",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Iván Campo",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "José Cañas",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Sergi Canós",
+   "detail": "Liverpool / Brentford"
+  },
+  {
+   "name": "Kiko Casilla",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Santi Cazorla",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Dani Ceballos",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "César",
+   "aliases": [
+    "César Martín"
+   ],
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Pep Chavarría",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Pedro Chirivella",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Diego Costa",
+   "detail": "Chelsea / Wolverhampton Wanderers"
+  },
+  {
+   "name": "Pablo Couñago",
+   "detail": "Ipswich Town"
+  },
+  {
+   "name": "José Ángel Crespo",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Albert Crusat",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Marc Cucurella",
+   "detail": "Brighton & Hove Albion / Chelsea"
+  },
+  {
+   "name": "Carlos Cuéllar",
+   "detail": "Aston Villa / Sunderland"
+  },
+  {
+   "name": "Jorge Cuenca",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Gerard Deulofeu",
+   "detail": "Everton / Watford"
+  },
+  {
+   "name": "David de Gea",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Enrique de Lucas",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Javier de Pedro",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Asier del Horno",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "José Enrique",
+   "detail": "Newcastle United / Liverpool"
+  },
+  {
+   "name": "Cesc Fàbregas",
+   "detail": "Arsenal / Chelsea"
+  },
+  {
+   "name": "Fabri",
+   "aliases": [
+    "Fabricio Agosto Ramírez"
+   ],
+   "detail": "Fulham"
+  },
+  {
+   "name": "Iago Falque",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Ansu Fati",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Kiko Femenía",
+   "detail": "Watford"
+  },
+  {
+   "name": "Álvaro Fernández",
+   "detail": "Brentford"
+  },
+  {
+   "name": "Albert Ferrer",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Chico Flores",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Pablo Fornals",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Jesús Gámez",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Aleix García",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Andrés García",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Eric García",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Gonzalo García",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Javi García",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Luis García",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Manu García",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Javier Garrido",
+   "detail": "Manchester City / Norwich City"
+  },
+  {
+   "name": "Bryan Gil",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Carles Gil",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Román Golobart",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Jordi Gómez",
+   "detail": "Wigan Athletic / Sunderland"
+  },
+  {
+   "name": "Sergio Gómez",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Nico González",
+   "detail": "Manchester City / Newcastle United"
+  },
+  {
+   "name": "Esteban Granero",
+   "detail": "Queens Park Rangers"
+  },
+  {
+   "name": "Vicente Guaita",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Marc Guiu",
+   "detail": "Chelsea / Sunderland"
+  },
+  {
+   "name": "Luis Hernández",
+   "aliases": [
+    "Luis Hernández Rodríguez"
+   ],
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Pablo Hernández",
+   "detail": "Swansea City / Leeds United"
+  },
+  {
+   "name": "Ander Herrera",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Fernando Hierro",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Dean Huijsen",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Pablo Ibáñez",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Vicente Iborra",
+   "detail": "Leicester City"
+  },
+  {
+   "name": "Jesé",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Álex Jiménez",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Jonny",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Joselu",
+   "detail": "Stoke City / Newcastle United"
+  },
+  {
+   "name": "Josemi",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Mateo Joseph",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Jota",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Juanmi",
+   "detail": "Southampton"
+  },
+  {
+   "name": "José Manuel Jurado",
+   "detail": "Watford"
+  },
+  {
+   "name": "Aymeric Laporte",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Juan Larios",
+   "detail": "Southampton"
+  },
+  {
+   "name": "Diego Llorente",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Fernando Llorente",
+   "detail": "Swansea City / Tottenham Hotspur"
+  },
+  {
+   "name": "Adrián López",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Fer López",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Luis Alberto",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Antonio Luna",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Albert Luque",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Javier Manquillo",
+   "detail": "Liverpool / Sunderland / Newcastle United"
+  },
+  {
+   "name": "Marcelino",
+   "aliases": [
+    "Marcelino Elena"
+   ],
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Pablo Marí",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Juan Mata",
+   "detail": "Chelsea / Manchester United"
+  },
+  {
+   "name": "Eliezer Mayenda",
+   "detail": "Sunderland"
+  },
+  {
+   "name": "Gaizka Mendieta",
+   "detail": "Middlesbrough"
+  },
+  {
+   "name": "Fran Mérida",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Mikel Merino",
+   "detail": "Newcastle United / Arsenal"
+  },
+  {
+   "name": "Roque Mesa",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Míchel",
+   "detail": "Birmingham City"
+  },
+  {
+   "name": "Michu",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Óscar Mingueza",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Ignasi Miquel",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Nacho Monreal",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Martín Montoya",
+   "detail": "Brighton & Hove Albion"
+  },
+  {
+   "name": "Álvaro Morata",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Alberto Moreno",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Álex Moreno",
+   "detail": "Aston Villa / Nottingham Forest"
+  },
+  {
+   "name": "Javi Moreno",
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Fernando Morientes",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Cristhian Mosquera",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Marc Muniesa",
+   "detail": "Stoke City"
+  },
+  {
+   "name": "Víctor Muñoz",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Marc Navarro",
+   "detail": "Watford"
+  },
+  {
+   "name": "Jesús Navas",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Nayim",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Álvaro Negredo",
+   "detail": "Manchester City / Middlesbrough"
+  },
+  {
+   "name": "Nolito",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Antonio Núñez",
+   "aliases": [
+    "Antonio Núñez Tena"
+   ],
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Andrea Orlandi",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Borja Oubiña",
+   "detail": "Birmingham City"
+  },
+  {
+   "name": "Daniel Pacheco",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "César Palacios",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Pedro",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "Ayoze Pérez",
+   "detail": "Newcastle United / Leicester City"
+  },
+  {
+   "name": "Lucas Pérez",
+   "detail": "Arsenal / West Ham United"
+  },
+  {
+   "name": "Yeremy Pino",
+   "detail": "Crystal Palace"
+  },
+  {
+   "name": "Gerard Piqué",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Pedro Porro",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "José Ángel Pozo",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Alejandro Pozuelo",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Iván Ramis",
+   "detail": "Wigan Athletic"
+  },
+  {
+   "name": "Àngel Rangel",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "David Raya",
+   "detail": "Brentford / Arsenal"
+  },
+  {
+   "name": "Sergio Reguilón",
+   "detail": "Tottenham Hotspur / Manchester United / Brentford"
+  },
+  {
+   "name": "Pepe Reina",
+   "detail": "Liverpool / Aston Villa"
+  },
+  {
+   "name": "José Antonio Reyes",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Ricardo",
+   "detail": "Manchester United"
+  },
+  {
+   "name": "Diego Rico",
+   "detail": "Bournemouth"
+  },
+  {
+   "name": "Sergio Rico",
+   "detail": "Fulham"
+  },
+  {
+   "name": "Albert Riera",
+   "detail": "Manchester City / Liverpool"
+  },
+  {
+   "name": "Roberto",
+   "aliases": [
+    "Roberto Jiménez Gago"
+   ],
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Joel Robles",
+   "detail": "Wigan Athletic / Everton / Leeds United"
+  },
+  {
+   "name": "Marc Roca",
+   "detail": "Leeds United"
+  },
+  {
+   "name": "Rubén Rochina",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Rodri",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Rodrigo",
+   "detail": "Bolton Wanderers / Leeds United"
+  },
+  {
+   "name": "Oriol Romeu",
+   "detail": "Chelsea / Southampton"
+  },
+  {
+   "name": "Míchel Salgado",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Salva",
+   "aliases": [
+    "Salva Ballesta"
+   ],
+   "detail": "Bolton Wanderers"
+  },
+  {
+   "name": "Robert Sánchez",
+   "detail": "Brighton & Hove Albion / Chelsea"
+  },
+  {
+   "name": "Sandro",
+   "aliases": [
+    "Sandro Ramírez"
+   ],
+   "detail": "Everton"
+  },
+  {
+   "name": "Pablo Sarabia",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Saúl",
+   "detail": "Chelsea"
+  },
+  {
+   "name": "David Silva",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Roberto Soldado",
+   "detail": "Tottenham Hotspur"
+  },
+  {
+   "name": "Carlos Soler",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Denis Suárez",
+   "detail": "Arsenal"
+  },
+  {
+   "name": "Mario Suárez",
+   "detail": "Watford"
+  },
+  {
+   "name": "Suso",
+   "detail": "Liverpool"
+  },
+  {
+   "name": "Fernando Torres",
+   "detail": "Liverpool / Chelsea"
+  },
+  {
+   "name": "Ferran Torres",
+   "detail": "Manchester City"
+  },
+  {
+   "name": "Pau Torres",
+   "detail": "Aston Villa"
+  },
+  {
+   "name": "Adama Traoré",
+   "detail": "Aston Villa / Middlesbrough / Wolverhampton Wanderers / Fulham / West Ham United"
+  },
+  {
+   "name": "Diego Tristán",
+   "detail": "West Ham United"
+  },
+  {
+   "name": "Víctor Valdés",
+   "detail": "Manchester United / Middlesbrough"
+  },
+  {
+   "name": "Borja Valero",
+   "detail": "West Bromwich Albion"
+  },
+  {
+   "name": "Jesús Vallejo",
+   "detail": "Wolverhampton Wanderers"
+  },
+  {
+   "name": "Álvaro Vázquez",
+   "detail": "Swansea City"
+  },
+  {
+   "name": "Xisco",
+   "detail": "Newcastle United"
+  },
+  {
+   "name": "Yordi",
+   "detail": "Blackburn Rovers"
+  },
+  {
+   "name": "Martín Zubimendi",
+   "detail": "Arsenal"
+  }
+ ],
+ "brazilians-at-barcelona": [
+  {
+   "name": "Adriano"
+  },
+  {
+   "name": "Aloísio Pires",
+   "aliases": [
+    "Aloísio Pires Alves"
+   ]
+  },
+  {
+   "name": "Arthur",
+   "aliases": [
+    "Arthur Melo"
+   ]
+  },
+  {
+   "name": "Bio"
+  },
+  {
+   "name": "Dani Alves"
+  },
+  {
+   "name": "Douglas"
+  },
+  {
+   "name": "Edmílson",
+   "aliases": [
+    "Edmílson Gomes"
+   ]
+  },
+  {
+   "name": "Emerson Royal"
+  },
+  {
+   "name": "Evaristo",
+   "aliases": [
+    "Evaristo de Macedo"
+   ]
+  },
+  {
+   "name": "Fábio Rochemback"
+  },
+  {
+   "name": "Gabriel Jesus"
+  },
+  {
+   "name": "Geovanni Deiberson",
+   "aliases": [
+    "Geovanni Deiberson Maurício"
+   ]
+  },
+  {
+   "name": "Giovanni Silva",
+   "aliases": [
+    "Giovanni Silva de Oliveira"
+   ]
+  },
+  {
+   "name": "Juliano Belletti"
+  },
+  {
+   "name": "Lucídio Batista da Silva"
+  },
+  {
+   "name": "Malcom"
+  },
+  {
+   "name": "Marinho Peres"
+  },
+  {
+   "name": "Marlon Santos",
+   "aliases": [
+    "Marlon"
+   ]
+  },
+  {
+   "name": "Maxwell",
+   "aliases": [
+    "Maxwell Cabelino Andrade"
+   ]
+  },
+  {
+   "name": "Neto"
+  },
+  {
+   "name": "Neymar"
+  },
+  {
+   "name": "Paulinho"
+  },
+  {
+   "name": "Philippe Coutinho"
+  },
+  {
+   "name": "Rafinha"
+  },
+  {
+   "name": "Raphinha"
+  },
+  {
+   "name": "Rivaldo"
+  },
+  {
+   "name": "Roberto Dinamite"
+  },
+  {
+   "name": "Romário"
+  },
+  {
+   "name": "Ronaldinho"
+  },
+  {
+   "name": "Ronaldo"
+  },
+  {
+   "name": "Sonny Anderson"
+  },
+  {
+   "name": "Sylvinho"
+  },
+  {
+   "name": "Vitor Roque"
+  }
+ ],
+ "french-at-arsenal": [
+  {
+   "name": "Jérémie Aliadière"
+  },
+  {
+   "name": "Nicolas Anelka"
+  },
+  {
+   "name": "Gaël Clichy"
+  },
+  {
+   "name": "Francis Coquelin"
+  },
+  {
+   "name": "Pascal Cygan"
+  },
+  {
+   "name": "Mathieu Debuchy"
+  },
+  {
+   "name": "Abou Diaby"
+  },
+  {
+   "name": "Lassana Diarra"
+  },
+  {
+   "name": "Mathieu Flamini"
+  },
+  {
+   "name": "William Gallas"
+  },
+  {
+   "name": "Rémi Garde"
+  },
+  {
+   "name": "Olivier Giroud"
+  },
+  {
+   "name": "Gilles Grimandi"
+  },
+  {
+   "name": "David Grondin"
+  },
+  {
+   "name": "Matteo Guendouzi"
+  },
+  {
+   "name": "Thierry Henry"
+  },
+  {
+   "name": "Laurent Koscielny"
+  },
+  {
+   "name": "Alexandre Lacazette"
+  },
+  {
+   "name": "Samir Nasri"
+  },
+  {
+   "name": "Emmanuel Petit"
+  },
+  {
+   "name": "Robert Pires"
+  },
+  {
+   "name": "Bacary Sagna"
+  },
+  {
+   "name": "Yaya Sanogo"
+  },
+  {
+   "name": "William Saliba"
+  },
+  {
+   "name": "Mikaël Silvestre"
+  },
+  {
+   "name": "Sébastien Squillaci"
+  },
+  {
+   "name": "Patrick Vieira"
+  },
+  {
+   "name": "Sylvain Wiltord"
+  }
+ ]
+}

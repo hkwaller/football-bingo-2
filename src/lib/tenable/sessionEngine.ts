@@ -4,8 +4,9 @@ import { matchAnswer } from './matching'
 import {
   CLEAR_BONUS,
   DEFAULT_TENABLE_CONFIG,
-  POINTS_PER_ANSWER,
+  pointsFor,
   type GuessOutcome,
+  type TenableHint,
   type TenableConfig,
   type TenableSessionState,
 } from './types'
@@ -15,6 +16,7 @@ export function buildSession(config: TenableConfig, seed?: string): TenableSessi
   const questions = selectTenableQuestions(sessionSeed, config.questionCount, {
     groups: config.groups === 'all' ? undefined : config.groups,
     difficulty: config.difficulty,
+    selectedId: config.selectedQuestionId,
   })
   return {
     sessionId: randomUUID(),
@@ -25,6 +27,8 @@ export function buildSession(config: TenableConfig, seed?: string): TenableSessi
     currentIndex: 0,
     foundRanks: [],
     livesLeft: config.lives,
+    hintsLeft: config.hints,
+    hints: [],
     results: [],
     score: 0,
     startedAt: Date.now(),
@@ -56,7 +60,8 @@ export function submitGuess(
   if (outcome.kind === 'correct') {
     const foundRanks = [...state.foundRanks, outcome.rank]
     const cleared = foundRanks.length >= tenableTarget(q)
-    const score = state.score + POINTS_PER_ANSWER + (cleared ? CLEAR_BONUS : 0)
+    const score =
+      state.score + pointsFor(outcome.rank, state.hints) + (cleared ? CLEAR_BONUS : 0)
     return { state: { ...state, foundRanks, score }, outcome }
   }
 
@@ -66,6 +71,15 @@ export function submitGuess(
 
   // already-found: no penalty, no change.
   return { state, outcome }
+}
+
+/** Spend a hint on the current category. No-op when none are left or the category is over. */
+export function applyHint(state: TenableSessionState, hint: TenableHint): TenableSessionState {
+  if (state.phase !== 'playing' || state.hintsLeft <= 0 || isQuestionOver(state)) return state
+  if (state.foundRanks.includes(hint.rank) || state.hints.some((h) => h.rank === hint.rank)) {
+    return state
+  }
+  return { ...state, hintsLeft: state.hintsLeft - 1, hints: [...state.hints, hint] }
 }
 
 /**
@@ -82,6 +96,7 @@ export function advanceQuestion(state: TenableSessionState): TenableSessionState
     foundRanks: state.foundRanks,
     livesUsed: state.config.lives - state.livesLeft,
     cleared: state.foundRanks.length >= tenableTarget(q),
+    hintsUsed: state.hints.length,
   }
   const results = [...state.results, result]
   const nextIndex = state.currentIndex + 1
@@ -95,6 +110,7 @@ export function advanceQuestion(state: TenableSessionState): TenableSessionState
     currentIndex: nextIndex,
     foundRanks: [],
     livesLeft: state.config.lives,
+    hints: [],
   }
 }
 
