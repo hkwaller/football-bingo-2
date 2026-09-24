@@ -8,6 +8,8 @@
 import { clubs as APP_CLUBS } from '../src/data/clubs'
 import { managers } from './data/managers'
 import { LEGEND_OVERRIDES } from './data/legendOverrides'
+import { DISPLAY_NAMES, MANUAL_PLAYER_IDS } from './data/manualPlayers'
+import { FAME_OVERRIDES, CURATED_FAME_FLOOR } from './data/fameOverrides'
 
 // ─── Club canonicalisation (by Transfermarkt club ID) ────────────────────────
 // The transfers feed carries stable club IDs (t.clubFrom.id / t.clubTo.id).
@@ -35,7 +37,11 @@ function canonicalClubName(id: string | undefined, rawName: string): string {
 // ─── Achievement Mapping ─────────────────────────────────────────────────────
 
 const TROPHY_ACHIEVEMENT_MAP: [RegExp, string][] = [
-  [/UEFA CL|CL winner|European Champion Clubs' Cup winner/i, 'CL winner'],
+  // Patterns match Transfermarkt's wording ("Champions League winner"); only the labels are short.
+  [
+    /UEFA Champions League|Champions League winner|European Champion Clubs' Cup winner/i,
+    'CL winner',
+  ],
   [
     /FIFA Club World Cup|Club World Cup winner|Intercontinental Cup winner|FIFA Intercontinental Cup/i,
     'Club World Cup winner',
@@ -69,7 +75,7 @@ const TROPHY_ACHIEVEMENT_MAP: [RegExp, string][] = [
 
 const TOP_SCORER_MAP: [RegExp, string][] = [
   [/Premier League|English Premier/i, 'Premier League top scorer'],
-  [/UEFA CL|European Champion Clubs' Cup/i, 'CL top scorer'],
+  [/UEFA Champions League|European Champion Clubs' Cup/i, 'CL top scorer'],
   [/LaLiga|La Liga/i, 'La Liga top scorer'],
   [/^Bundesliga$/i, 'Bundesliga top scorer'],
   [/^Serie A$/i, 'Serie A top scorer'],
@@ -106,7 +112,8 @@ const LEAGUE_CHAMPION_PATTERNS: { pattern: RegExp; country: string; label?: stri
 // Domestic-cup titles, keyed for the double/treble season-join.
 const DOMESTIC_CUP_PATTERN =
   /English FA Cup winner|^FA Cup winner$|^English cup winner$|Copa del Rey|Spanish cup winner|DFB-Pokal|German cup winner|Italian cup winner|Coppa Italia|French cup winner|Dutch Cup winner|Portuguese cup winner/i
-const CL_WINNER_PATTERN = /UEFA CL|CL winner|European Champion Clubs' Cup winner/i
+const CL_WINNER_PATTERN =
+  /UEFA Champions League|Champions League winner|European Champion Clubs' Cup winner/i
 
 /** Season ids (strings) present on an achievement's details. */
 function seasonIds(ach: any): string[] {
@@ -219,7 +226,7 @@ function computeCareerStats(raw: any) {
     out.minutesPlayed += s.minutesPlayed ?? 0
     const comp = (s.competitionId ?? '').toUpperCase()
     const compName = (s.competitionName ?? '').toLowerCase()
-    if (comp === 'CL' || compName.includes('CL')) {
+    if (comp === 'CL' || compName.includes('champions league')) {
       out.championsLeagueGames += s.appearances ?? 0
       out.championsLeagueGoals += s.goals ?? 0
     }
@@ -383,7 +390,7 @@ function deriveManagers(raw: any): string[] {
   return Array.from(out)
 }
 
-// ─── Tags (position / decade / shirt number / trait / academy) ───────────────
+// ─── Tags (position / decade / shirt number / trait) ─────────────────────────
 
 const POSITION_BUCKETS: [RegExp, string][] = [
   [/goalkeeper/i, 'Goalkeeper'],
@@ -416,8 +423,10 @@ function decadeTags(era: string): string[] {
   const start = parseInt(m[1])
   const end = m[2] === 'present' ? new Date().getFullYear() : parseInt(m[2])
   const out: string[] = []
+  // Capped at the 1990s: every modern decade covers so much of the pool that
+  // the square is a free tick.
   for (let dec = Math.floor(start / 10) * 10; dec <= end; dec += 10) {
-    if (dec >= 1960 && dec <= 2000) out.push(`${dec}s player`)
+    if (dec >= 1960 && dec <= 1990) out.push(`${dec}s player`)
   }
   return out
 }
@@ -429,31 +438,6 @@ function jerseyTags(jerseyNumbers: { jerseyNumber?: number }[]): string[] {
   for (const j of jerseyNumbers) {
     if (typeof j.jerseyNumber === 'number' && ICONIC_NUMBERS.has(j.jerseyNumber)) {
       out.add(`Wore #${j.jerseyNumber}`)
-    }
-  }
-  return Array.from(out)
-}
-
-// Match exact club identifiers in the youth-club history. Loose substrings
-// caused false positives (e.g. "Barcelona Esporte Clube", "FC Miyagi Barcelona").
-// This is accurate-but-incomplete: Transfermarkt's youthClubs field often omits
-// the senior academy, so some genuine graduates won't be tagged.
-const ACADEMY_PATTERNS: [RegExp, string][] = [
-  [/\bFC Barcelona\b|La Masia/i, 'La Masia (Barcelona)'],
-  [/\bAjax Amsterdam\b|\bAFC Ajax\b|(^|\W)Ajax(\W|$)/i, 'Ajax Academy'],
-  [/\bManchester United\b/i, 'Man Utd Academy'],
-  [/\bReal Madrid\b/i, 'Real Madrid Academy'],
-  [/\bSporting (CP|Clube)\b|Sporting Lissabon/i, 'Sporting CP Academy'],
-  [/\bArsenal FC\b/i, 'Arsenal Academy'],
-  [/\bChelsea FC\b/i, 'Chelsea Academy'],
-  [/\bSantos FC\b/i, 'Santos Academy'],
-]
-
-function academyTags(youthClubs: string[]): string[] {
-  const out = new Set<string>()
-  for (const yc of youthClubs) {
-    for (const [re, label] of ACADEMY_PATTERNS) {
-      if (re.test(yc)) out.add(label)
     }
   }
   return Array.from(out)
@@ -473,7 +457,7 @@ function deriveEra(raw: any): string {
     )
     if (sorted[0]?.date) startYear = sorted[0].date.split('-')[0]
     const last = sorted[sorted.length - 1]
-    if (last && /retired/i.test(last.clubTo?.name ?? '')) endYear = last.date.split('-')[0]
+    if (last?.date && /retired/i.test(last.clubTo?.name ?? '')) endYear = last.date.split('-')[0]
   }
 
   if (!startYear && profile.dateOfBirth) {
@@ -504,7 +488,10 @@ export function processPlayer(raw: any, squadInfo?: any) {
   // still build clubs/honours/stats from their working endpoints.
   const override = LEGEND_OVERRIDES[raw.playerId as string]
   const profile = raw.profile && typeof raw.profile === 'object' ? raw.profile : {}
-  const name = profile.name ?? override?.name
+  // Strip zero-width / bidi marks Transfermarkt sometimes leaves in names.
+  const name = (DISPLAY_NAMES[raw.playerId as string] ?? profile.name ?? override?.name)
+    ?.replace(/[\u200B-\u200F\u202A-\u202E\u2060\uFEFF]/g, '')
+    .trim()
   if (!name) return null
 
   const intl = computeIntlStats(raw)
@@ -584,12 +571,11 @@ export function processPlayer(raw: any, squadInfo?: any) {
   }
   p.randomAchievements = traits
 
-  // ── tags (the new "traits" bingo axis: position / decade / shirt / trait / academy) ──
+  // ── tags (the new "traits" bingo axis: position / decade / shirt / trait) ──
   const tagSet = new Set<string>()
   for (const t of positionTags(p.position)) tagSet.add(t)
   for (const t of decadeTags(p.era)) tagSet.add(t)
   for (const t of jerseyTags(jerseyNumbers)) tagSet.add(t)
-  for (const t of academyTags(youthClubs)) tagSet.add(t)
   // Bingo-worthy personal traits (curated subset + two new profile-derived ones).
   if (p.leftFooted) tagSet.add('Left Footed')
   if (p.clubs.length === 1) tagSet.add('One Club Man')
@@ -608,7 +594,10 @@ export function processPlayer(raw: any, squadInfo?: any) {
   // ── managers ──
   p.managers = deriveManagers(raw)
 
-  p.fameScore = computeFameScore(p, intl.caps)
+  // Hand-set floors fix what the formula can't see (pre-2000 data gaps); see fameOverrides.ts.
+  const fameFloor =
+    FAME_OVERRIDES[p.playerId] ?? (MANUAL_PLAYER_IDS.has(p.playerId) ? CURATED_FAME_FLOOR : 0)
+  p.fameScore = Math.max(computeFameScore(p, intl.caps), fameFloor)
 
   return p
 }

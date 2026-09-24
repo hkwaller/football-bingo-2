@@ -119,7 +119,8 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
         {/* Immediate clues - all shown at once */}
         {immediateClues.map((clue, i) => (
           <motion.div
-            key={clue.kind}
+            // kind repeats (e.g. two CLUB clues), so include the position
+            key={`${clue.kind}-${i}`}
             className="flex items-center gap-4 rounded-xl border-2 border-ink bg-panel-white px-4 py-3"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -137,7 +138,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           {stagedClues.slice(0, revealedStagedCount).map((clue, i) => (
             <motion.div
               key={`staged-${i}`}
-              className="flex items-center gap-4 rounded-xl border-2 border-solid bg-white px-4 py-3"
+              className="flex items-center gap-4 rounded-xl border-2 border-solid bg-surface px-4 py-3"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -162,7 +163,7 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
           {wrongGuesses.map((g) => (
             <span
               key={g}
-              className="rounded-full border-2 border-red/50 bg-panel-white px-2.5 py-1 text-xs font-semibold text-red line-through"
+              className="rounded-lg border-2 border-red/50 bg-panel-white px-2.5 py-1 text-xs font-semibold text-red line-through"
             >
               {g}
             </span>

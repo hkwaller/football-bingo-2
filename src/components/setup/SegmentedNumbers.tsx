@@ -26,7 +26,7 @@ export function SegmentedNumbers({
   onChange: (v: number) => void
   ariaLabel: string
   helper?: ReactNode
-  /** Numeral size — mocks use 26–30px depending on screen. */
+  /** Numeral size - mocks use 26–30px depending on screen. */
   numberClass?: string
 }) {
   return (
@@ -44,14 +44,16 @@ export function SegmentedNumbers({
               style={active ? { transform: 'rotate(-1deg)' } : undefined}
               className={`flex flex-1 flex-col items-center justify-center gap-0.5 rounded-[14px] py-3 leading-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transform-none ${
                 active
-                  ? 'bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.22)]'
+                  ? 'bg-green-go text-ink shadow-[0_5px_0_#0a2417]'
                   : 'bg-card-tint text-card-muted hover:-translate-y-px hover:text-card-ink'
               }`}
             >
-              <span className={`font-display font-black uppercase ${numberClass}`}>{opt.value}</span>
+              <span className={`font-display font-black uppercase ${numberClass}`}>
+                {opt.value}
+              </span>
               {opt.sub && (
                 <span
-                  className={`font-mono text-[11px] ${active ? 'text-white/80' : 'text-card-muted-2'}`}
+                  className={`font-mono text-[11px] ${active ? 'text-on-green/80' : 'text-card-muted-2'}`}
                 >
                   {opt.sub}
                 </span>
@@ -60,9 +62,7 @@ export function SegmentedNumbers({
           )
         })}
       </div>
-      {helper && (
-        <p className="mt-2 font-mono text-[12px] font-bold text-card-muted-2">{helper}</p>
-      )}
+      {helper && <p className="mt-2 font-mono text-[12px] font-bold text-card-muted-2">{helper}</p>}
     </div>
   )
 }

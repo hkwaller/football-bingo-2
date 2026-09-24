@@ -36,7 +36,12 @@ const PRESETS: Array<Preset & { patch: PresetPatch }> = [
     id: 'quickfire',
     emoji: '⚡',
     label: 'Quickfire',
-    patch: { sessionType: 'fixed', questionCount: 5, difficulty: 'easy', multiplayerMechanic: 'race' },
+    patch: {
+      sessionType: 'fixed',
+      questionCount: 5,
+      difficulty: 'easy',
+      multiplayerMechanic: 'race',
+    },
   },
   {
     id: 'pub',
@@ -82,7 +87,7 @@ const FORMAT_ITEMS: MarqueeItem[] = [
     icon: Heart,
     accent: 'pink',
     title: 'Survival',
-    blurb: "Sudden death — one wrong answer and you're out.",
+    blurb: "Sudden death - one wrong answer and you're out.",
   },
   {
     id: 'timed',
@@ -187,9 +192,9 @@ export function TriviaSetup() {
   let topicSummary: string
   if (topicCount === 0) topicSummary = 'Pick at least one topic'
   else if (topicCount === TRIVIA_TOPICS.length)
-    topicSummary = `The full mix — ${topicCount} of ${TRIVIA_TOPICS.length} topics, ${poolSize} players in the pool`
+    topicSummary = `The full mix - ${topicCount} of ${TRIVIA_TOPICS.length} topics, ${poolSize} players in the pool`
   else if (topicCount === 1)
-    topicSummary = `Deep dive — ${TOPIC_LABEL[topics[0]]} only, ${poolSize} players in the pool`
+    topicSummary = `Deep dive - ${TOPIC_LABEL[topics[0]]} only, ${poolSize} players in the pool`
   else
     topicSummary = `${topicCount} of ${TRIVIA_TOPICS.length} topics, ${poolSize} players in the pool`
 
@@ -330,7 +335,7 @@ export function TriviaSetup() {
   const hint = isSolo ? undefined : isMultiplayer ? (
     'Room code comes next'
   ) : (
-    <button type="button" onClick={launchSolo} className="underline hover:text-white">
+    <button type="button" onClick={launchSolo} className="underline hover:text-on-green">
       or play solo →
     </button>
   )

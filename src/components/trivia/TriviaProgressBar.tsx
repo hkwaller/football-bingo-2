@@ -47,12 +47,12 @@ export function TriviaProgressBar({ durationMs, startedAt, paused, onExpire }: P
   const dangerZone = progress < 0.25
 
   return (
-    <div className="h-3.5 w-full overflow-hidden rounded-full bg-black/30 shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+    <div className="h-3.5 w-full overflow-hidden rounded-full bg-black/30 shadow-[inset_0_2px_4px_rgba(10,36,23,0.3)]">
       <motion.div
         className="h-full rounded-full"
         style={{
           width: `${progress * 100}%`,
-          backgroundImage: 'linear-gradient(90deg,#ffe23a,#ff4d8d)',
+          backgroundImage: 'linear-gradient(90deg,#ffd62e,#ff5b45)',
         }}
         animate={dangerZone ? { opacity: [1, 0.5, 1] } : { opacity: 1 }}
         transition={dangerZone ? { repeat: Infinity, duration: 0.5 } : {}}

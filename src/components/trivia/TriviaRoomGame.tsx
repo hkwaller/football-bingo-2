@@ -48,7 +48,7 @@ function getCorrectAnswerForQuestion(question: TriviaQuestion | undefined): stri
 }
 
 // Connection ids (as strings) that have a durable stored answer for the given
-// question index. This is the authoritative "who has answered" signal — unlike
+// question index. This is the authoritative "who has answered" signal - unlike
 // ephemeral presence, it can't go stale during the window after an advance
 // while each client resets its own presence independently.
 function connIdsAnsweredIndex(
@@ -112,7 +112,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   const advanceScheduledRef = useRef(false)
 
   // Schedule a single host-side advance after the review delay. Idempotent
-  // within a question — the reset effect clears the guard on question change.
+  // within a question - the reset effect clears the guard on question change.
   const scheduleAdvance = useCallback((run: () => void) => {
     if (advanceScheduledRef.current) return
     advanceScheduledRef.current = true

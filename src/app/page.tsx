@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Sticker } from '@/components/Sticker'
 import { AdsterraBanner } from '@/components/AdsterraBanner'
@@ -102,25 +103,112 @@ const DECK: { name: string; imageUrl: string }[] = [
 const tilt = (i: number) => (((i * 7) % 5) - 2) * 1.4
 const VARIANTS = ['green', 'pink', 'yellow'] as const
 
+/** "How it plays" walkthrough, one three-step story per game mode. */
+const HOW_IT_PLAYS = [
+  {
+    id: 'bingo',
+    label: 'Bingo',
+    title: 'Three squares from glory',
+    steps: [
+      {
+        title: 'Build your board',
+        body: "Fill a grid with clubs, countries and honours. Every square is a football fact you're betting on.",
+      },
+      {
+        title: 'Stickers get drawn',
+        body: 'Real players, one by one. Slap each sticker on a square he genuinely fits - miss and it stays empty.',
+      },
+      {
+        title: 'Race to a line',
+        body: 'Row, column or diagonal - first to fill one shouts BINGO and takes the roar of the room.',
+      },
+    ],
+  },
+  {
+    id: 'trivia',
+    label: 'Trivia',
+    title: 'Ten questions, one winner',
+    steps: [
+      {
+        title: 'Pick your round',
+        body: 'Choose difficulty, topics and length - a quick five or a full twenty, or play against the clock.',
+      },
+      {
+        title: 'Answer fast',
+        body: 'Multiple choice, stat duels and mystery players. Everyone answers at once, so hesitation costs you.',
+      },
+      {
+        title: 'Top the table',
+        body: 'Points stack up round by round. The final leaderboard settles who actually knows their football.',
+      },
+    ],
+  },
+  {
+    id: 'tenable',
+    label: 'Tenable',
+    title: 'Name the ten',
+    steps: [
+      {
+        title: 'A list appears',
+        body: 'Top scorers, most caps, biggest transfers - ten answers hidden behind ten slots, and you know some of them.',
+      },
+      {
+        title: 'Name them, lose lives',
+        body: 'Every correct name flips a slot. Three wrong guesses and the category closes with the rest still hidden.',
+      },
+      {
+        title: 'Clear the board',
+        body: 'Each answer scores, and finding all ten lands the clear bonus. In a room you take turns, so one miss hands it over.',
+      },
+    ],
+  },
+  {
+    id: 'famous11s',
+    label: 'Famous 11s',
+    title: 'Name all eleven',
+    steps: [
+      {
+        title: 'An iconic XI loads',
+        body: 'World Cup finals, Champions League classics and legendary club sides - laid out as an empty team sheet.',
+      },
+      {
+        title: 'Fill the pitch',
+        body: 'Type any name you remember and it drops into the right position. Surnames and nicknames count.',
+      },
+      {
+        title: 'Beat the lineup',
+        body: 'Wrong guesses cost a life, so dig deep before you swing. Complete the eleven for the full clear bonus.',
+      },
+    ],
+  },
+] as const
+
+type HowItPlaysId = (typeof HOW_IT_PLAYS)[number]['id']
+
+const STEP_TONES = ['yellow', 'pink', 'sky'] as const
+const STEP_ROTATIONS = [-1, 1, -0.6]
+
 export default function HomePage() {
   const reduceMotion = useReducedMotion()
+  const [howItPlays, setHowItPlays] = useState<HowItPlaysId>('bingo')
+  const activeHowItPlays = HOW_IT_PLAYS.find((m) => m.id === howItPlays) ?? HOW_IT_PLAYS[0]
 
   return (
     <div className="flex flex-col gap-24 pb-0">
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative w-full overflow-hidden">
         {/* decorative chalk center circle + halfway line */}
-        <div className="pointer-events-none absolute left-1/2 top-[-260px] h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-white/[0.18]" />
-        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-white/[0.08]" />
+        <div className="pointer-events-none absolute left-1/2 top-[-260px] h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-surface/[0.18]" />
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-surface/[0.08]" />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pb-12 pt-16 md:px-9 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Left column */}
           <motion.div {...fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }}>
             <span className="eyebrow">The football knowledge game</span>
-            <h1 className="mt-5 font-display text-[clamp(56px,9.5vw,108px)] font-black uppercase leading-[0.86] text-white">
+            <h1 className="mt-5 font-display text-[clamp(56px,9.5vw,108px)] font-black uppercase leading-[0.86] text-on-green">
               Know football?
               <br />
-              <span className="mt-2 inline-block -rotate-[1.5deg] bg-yellow px-[18px] text-pitch-deep shadow-[0_8px_0_rgba(0,0,0,0.3)]">
+              <span className="mt-2 inline-block -rotate-[1.5deg] bg-yellow px-[18px] text-ink shadow-[0_8px_0_#0a2417]">
                 Prove it.
               </span>
             </h1>
@@ -137,10 +225,10 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-7 flex flex-wrap gap-2.5">
-              {['🃏 641 real players', '👥 Solo or full room', '🎉 Free to play'].map((s) => (
+              {['🃏 950+ real players', '👥 Solo or full room', '🎉 Free to play'].map((s) => (
                 <span
                   key={s}
-                  className="inline-flex items-center gap-2 rounded-full bg-black/20 px-4 py-2 text-[13px] font-bold text-on-green"
+                  className="inline-flex items-center gap-2 rounded-lg bg-black/20 px-4 py-2 text-[13px] font-bold text-on-green"
                 >
                   {s}
                 </span>
@@ -160,8 +248,8 @@ export default function HomePage() {
         </div>
         {/* ── Mode cards ───────────────────────────────────────── */}
         <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8 md:pb-20">
-          <SectionHead eyebrow="Pick your game" tone="pink" title="Three ways to play" />
-          <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHead eyebrow="Pick your game" tone="pink" title="Four ways to play" />
+          <div className="mt-9 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             <ModeCard
               title="Bingo"
               icon=""
@@ -186,10 +274,19 @@ export default function HomePage() {
               soloHref="/tenable/setup?mode=solo"
               multiHref="/tenable/setup?mode=multiplayer"
             />
+            <ModeCard
+              title="Famous 11s"
+              icon=""
+              rot={0.5}
+              blurb="Name all eleven from iconic XIs - World Cup finals, Champions League classics and legendary club sides."
+              soloHref="/famous-11s/setup?mode=solo"
+              multiHref="/famous-11s/setup?mode=multiplayer"
+              isNew
+            />
           </div>
         </section>
         {/* ── Full-bleed sticker marquee ─────────── */}
-        <div className="relative mt-6 w-full overflow-hidden border-y-[3px] border-white/35 bg-black/[0.14] py-[18px]">
+        <div className="relative mt-6 w-full overflow-hidden border-y-[3px] border-surface/35 bg-black/[0.14] py-[18px]">
           <motion.div
             className="flex w-max gap-[18px] px-[18px]"
             animate={reduceMotion ? undefined : { x: ['0%', '-50%'] }}
@@ -212,40 +309,30 @@ export default function HomePage() {
 
       {/* ── How it plays ─────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="How it plays" tone="sky" title="Three squares from glory" />
-        <div className="mt-9 grid gap-5 sm:grid-cols-3">
-          <StepCard
-            step="1"
-            rot={-1}
-            tone="yellow"
-            title="Build your board"
-            body="Fill a grid with clubs, countries and honours. Every square is a football fact you're betting on."
-          />
-          <StepCard
-            step="2"
-            rot={1}
-            tone="pink"
-            title="Stickers get drawn"
-            body="Real players, one by one. Slap each sticker on a square he genuinely fits - miss and it stays empty."
-          />
-          <StepCard
-            step="3"
-            rot={-0.6}
-            tone="sky"
-            title="Race to a line"
-            body="Row, column or diagonal - first to fill one shouts BINGO and takes the roar of the room."
-          />
+        <SectionHead eyebrow="How it plays" tone="sky" title={activeHowItPlays.title} />
+        <ModeTabs active={howItPlays} onSelect={setHowItPlays} />
+        <div className="mt-7 grid gap-5 sm:grid-cols-3">
+          {activeHowItPlays.steps.map((s, i) => (
+            <StepCard
+              key={`${activeHowItPlays.id}-${i}`}
+              step={String(i + 1)}
+              rot={STEP_ROTATIONS[i]}
+              tone={STEP_TONES[i]}
+              title={s.title}
+              body={s.body}
+            />
+          ))}
         </div>
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden border-t-[3px] border-white/35 bg-black/[0.16] px-6 py-20 md:px-9">
-        <div className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-white/[0.16]" />
+      <section className="relative w-full overflow-hidden border-t-[3px] border-surface/35 bg-black/[0.16] px-6 py-20 md:px-9">
+        <div className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-surface/[0.16]" />
         <div className="relative mx-auto max-w-[640px] text-center">
-          <h2 className="font-display text-[clamp(2.5rem,8vw,60px)] font-black uppercase leading-[0.9] text-white">
+          <h2 className="font-display text-[clamp(2.5rem,8vw,60px)] font-black uppercase leading-[0.9] text-on-green">
             Ready for
             <br />
-            <span className="mt-1 inline-block -rotate-1 bg-yellow px-3.5 text-pitch-deep shadow-[0_6px_0_rgba(0,0,0,0.3)]">
+            <span className="mt-1 inline-block -rotate-1 bg-yellow px-3.5 text-ink shadow-[0_6px_0_#0a2417]">
               kick-off?
             </span>
           </h2>
@@ -297,17 +384,62 @@ function SectionHead({
       className="text-center"
     >
       <span className={cls}>{eyebrow}</span>
-      <h2 className="mt-3 font-display text-[clamp(2rem,6vw,52px)] font-black uppercase leading-none text-white">
+      <h2 className="mt-3 font-display text-[clamp(2rem,6vw,52px)] font-black uppercase leading-none text-on-green">
         {title}
       </h2>
     </motion.div>
   )
 }
 
+function ModeTabs({
+  active,
+  onSelect,
+}: {
+  active: HowItPlaysId
+  onSelect: (id: HowItPlaysId) => void
+}) {
+  const reduceMotion = useReducedMotion()
+
+  return (
+    <div className="mt-7 flex justify-center">
+      <div
+        role="tablist"
+        aria-label="Game mode"
+        className="flex flex-wrap justify-center gap-1 rounded-full border-[2.5px] border-surface/30 bg-black/20 p-1.5"
+      >
+        {HOW_IT_PLAYS.map((m) => {
+          const isActive = m.id === active
+          return (
+            <button
+              key={m.id}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => onSelect(m.id)}
+              className={`relative rounded-full px-4 py-2 font-display text-[15px] font-black uppercase leading-none tracking-wide transition-colors sm:px-5 ${
+                isActive ? 'text-ink' : 'text-on-green-soft hover:text-on-green'
+              }`}
+            >
+              {isActive && (
+                <motion.span
+                  layoutId={reduceMotion ? undefined : 'how-it-plays-tab'}
+                  transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                  className="absolute inset-0 rounded-full bg-yellow"
+                />
+              )}
+              <span className="relative">{m.label}</span>
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 const ROUNDEL: Record<'yellow' | 'pink' | 'sky', string> = {
-  yellow: 'bg-yellow text-pitch-deep',
-  pink: 'bg-pink text-white',
-  sky: 'bg-sky text-pitch-deep',
+  yellow: 'bg-yellow text-ink',
+  pink: 'bg-pink text-ink',
+  sky: 'bg-sky text-ink',
 }
 
 function StepCard({
@@ -330,11 +462,11 @@ function StepCard({
       whileInView="animate"
       initial="initial"
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="rounded-[20px] bg-white p-[26px] shadow-[0_10px_0_rgba(0,0,0,0.22)]"
+      className="rounded-[14px] bg-surface p-[26px] shadow-[0_10px_0_#0a2417]"
       style={{ transform: `rotate(${rot}deg)` }}
     >
       <span
-        className={`flex h-[46px] w-[46px] items-center justify-center rounded-full font-display text-[24px] font-black leading-none shadow-[0_4px_0_rgba(0,0,0,0.2)] ${ROUNDEL[tone]}`}
+        className={`flex h-[46px] w-[46px] items-center justify-center rounded-full font-display text-[24px] font-black leading-none shadow-[0_4px_0_#0a2417] ${ROUNDEL[tone]}`}
       >
         {step}
       </span>
@@ -353,6 +485,7 @@ function ModeCard({
   soloHref,
   multiHref,
   rot,
+  isNew,
 }: {
   title: string
   icon: string
@@ -360,6 +493,7 @@ function ModeCard({
   soloHref: string
   multiHref: string
   rot: number
+  isNew?: boolean
 }) {
   return (
     <motion.div
@@ -368,9 +502,14 @@ function ModeCard({
       whileInView="animate"
       initial="initial"
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="rounded-[20px] bg-white p-7 shadow-[0_10px_0_rgba(0,0,0,0.22)]"
+      className="relative rounded-[14px] bg-surface p-7 shadow-[0_10px_0_#0a2417]"
       style={{ transform: `rotate(${rot}deg)` }}
     >
+      {isNew && (
+        <span className="absolute right-4 top-4 rounded-full bg-yellow px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-ink">
+          New
+        </span>
+      )}
       <p className="font-display text-[34px] font-black uppercase leading-none text-card-ink">
         {title} <span className="text-[20px]">{icon}</span>
       </p>

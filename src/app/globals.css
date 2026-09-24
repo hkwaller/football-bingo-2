@@ -3,49 +3,54 @@
 @tailwind utilities;
 
 :root {
-  /* ── Prime Time Green palette ────────────────────────────────────────── */
-  --pitch: #0d7a3a; /* page base / mid gradient stop */
-  --pitch-bright: #1fae5a; /* gradient top-left */
-  --pitch-deep: #06592a; /* gradient bottom / dark text on yellow / name bars */
+  /* ── Matchday palette ─────────────────────────────────────────────────── */
+  --pitch: #0e4a2c; /* page base / mid gradient stop */
+  --pitch-bright: #15603a; /* gradient top-left */
+  --pitch-deep: #093820; /* gradient bottom / dark text on yellow / name bars */
 
-  --card-ink: #0a3d20; /* headings / borders on white cards */
-  --card-muted: #3c6e4d; /* secondary text on cards */
-  --card-muted-2: #6f9c7f; /* tertiary text on cards */
-  --card-tint: #ecf7ef; /* inactive fills / input backgrounds */
+  --card-ink: #0a2417; /* headings / borders on white cards */
+  --card-muted: #3d5a48; /* secondary text on cards */
+  --card-muted-2: #6b8575; /* tertiary text on cards */
+  --card-tint: #e9e1c9; /* inactive fills / input backgrounds */
 
-  --green-go: #22c55e; /* correct / active / Club */
-  --yellow: #ffe23a; /* THE action color */
-  --yellow-deep: #ffd000;
-  --pink: #ff4d8d; /* hot pop */
-  --pink-deep: #e63a76;
-  --sky: #4de1ff; /* cool pop */
-  --live-red: #e0301e; /* pulsing LIVE badge */
+  --green-go: #3ddc84; /* correct / active / Club */
+  --yellow: #ffd62e; /* THE action color */
+  --yellow-deep: #f5c400;
+  --pink: var(--coral); /* legacy name, now coral */
+  --pink-deep: var(--coral-deep);
+  --sky: #6fd3f2; /* cool pop */
+  --coral: #ff5b45; /* Trivia, wrong answers, LIVE */
+  --coral-deep: #e8452f;
+  --surface: #f5f0e1; /* paper cards */
+  --surface-2: #e9e1c9; /* inactive fills, trait chips */
+  --surface-hi: #fffdf6; /* sticker card, inputs */
+  --live-red: #e8412c; /* pulsing LIVE badge */
 
-  --on-green: #ffffff;
-  --on-green-soft: #d7f2df;
-  --on-green-dim: #b9e6c8;
+  --on-green: #f5f0e1;
+  --on-green-soft: #ddebe1;
+  --on-green-dim: #b7d3c1;
 
   --line: rgba(10, 61, 32, 0.18); /* hairline borders on cards */
   --line-strong: rgba(10, 61, 32, 0.32);
 
   /* ── Legacy names remapped so un-migrated callers stay coherent ──────── */
   --paper: var(--pitch);
-  --panel: #ffffff;
-  --panel-white: #ffffff;
+  --panel: var(--surface);
+  --panel-white: var(--surface);
   --ink: var(--card-ink);
   --ink-soft: var(--card-muted);
   --muted: var(--card-muted);
   --green: var(--card-ink);
   --green-deep: var(--pitch-deep);
-  --red: var(--pink);
+  --red: var(--coral);
   --red-deep: var(--pink-deep);
-  --cream: #ffffff;
+  --cream: var(--surface);
   --cream-dim: var(--on-green-dim);
   --nation: var(--sky);
   --gold: var(--yellow);
   --foil-text: var(--pitch-deep);
   --link: var(--yellow);
-  --link-hover: #fff07a;
+  --link-hover: #ffe680;
   --line-dashed: rgba(255, 255, 255, 0.5);
 
   /* Older Floodlit aliases */
@@ -59,34 +64,45 @@
   --flare: var(--pink);
 }
 
+/* Mown-pitch stage: deep green with wide turf stripes, darkening toward the
+   bottom. Fixed so it reads as the set, not the page. */
 body {
+  --stripe: 120px;
   background-color: var(--pitch);
-  background-image: linear-gradient(165deg, #1fae5a 0%, #0d7a3a 60%, #06592a 100%);
+  background-image:
+    linear-gradient(180deg, rgba(9, 56, 32, 0) 0%, rgba(9, 56, 32, 0.6) 100%),
+    repeating-linear-gradient(90deg, #0f5030 0, #0f5030 var(--stripe), #0d472a var(--stripe), #0d472a calc(var(--stripe) * 2));
   background-attachment: fixed;
   color: var(--on-green);
+}
+@media (max-width: 640px) {
+  body {
+    --stripe: 65px;
+  }
 }
 
 @layer components {
   /* ── Buttons ──────────────────────────────────────────────────────────
-     Pill shape, chunky, hard offset shadow that presses down on click.
-     Primary = solid yellow with deep-green text. */
+     Squared (8px), chunky, 2.5px ink border and a hard ink shadow that
+     presses down on click. Primary = solid yellow with ink text. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm font-extrabold uppercase tracking-[0.06em] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--yellow)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--pitch)] disabled:pointer-events-none disabled:opacity-40;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg px-5 py-2.5 font-sans text-sm font-extrabold uppercase tracking-[0.06em] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--yellow)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--pitch)] disabled:pointer-events-none disabled:opacity-40;
   }
 
   .btn-primary {
-    color: var(--pitch-deep);
+    color: var(--card-ink);
     background-color: var(--yellow);
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.28);
+    border: 2.5px solid var(--card-ink);
+    box-shadow: 0 5px 0 var(--card-ink);
   }
   .btn-primary:hover {
     background-color: var(--yellow-deep);
     transform: translateY(-2px);
-    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 7px 0 var(--card-ink);
   }
   .btn-primary:active {
     transform: translateY(3px);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.28);
+    box-shadow: 0 2px 0 var(--card-ink);
   }
 
   /* Outline pill on WHITE surfaces: 3px deep-green border. */
@@ -94,7 +110,7 @@ body {
   .btn-outline {
     color: var(--card-ink);
     background-color: transparent;
-    border: 3px solid var(--card-ink);
+    border: 2.5px solid var(--card-ink);
   }
   .btn-secondary:hover,
   .btn-outline:hover {
@@ -110,10 +126,10 @@ body {
   .btn-outline-light {
     color: var(--on-green);
     background-color: transparent;
-    border: 3px solid rgba(255, 255, 255, 0.5);
+    border: 2.5px solid rgba(245, 240, 225, 0.55);
   }
   .btn-outline-light:hover {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(245, 240, 225, 0.12);
     transform: translateY(-2px);
   }
   .btn-outline-light:active {
@@ -140,47 +156,49 @@ body {
   }
 
   /* ── Surfaces ─────────────────────────────────────────────────────────
-     White cards with a hard offset shadow, generous radius. */
+     Paper cards: 2.5px ink border, hard ink shadow, 14px radius. */
   .card,
   .panel {
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.22);
+    background-color: var(--surface);
+    border: 2.5px solid var(--card-ink);
+    border-radius: 14px;
+    box-shadow: 0 6px 0 var(--card-ink);
     color: var(--card-ink);
   }
 
-  /* Solid eyebrow badge - the pink/sky/yellow rotated chip. Defaults pink. */
+  /* Eyebrow tag - a small mono label, slightly rotated. Defaults coral.
+     Always ink text: white fails contrast on coral at this size. */
   .eyebrow {
-    @apply inline-block rounded-lg px-3 py-1.5 text-[11.5px] font-extrabold uppercase leading-none tracking-[0.14em];
-    background-color: var(--pink);
-    color: #ffffff;
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    @apply inline-block rounded px-2 py-1 font-mono text-[11.5px] font-semibold uppercase leading-none tracking-[0.1em];
+    background-color: var(--coral);
+    color: var(--card-ink);
     transform: rotate(-1.5deg);
   }
   .eyebrow-sky {
     background-color: var(--sky);
-    color: var(--pitch-deep);
+    color: var(--card-ink);
   }
   .eyebrow-yellow {
     background-color: var(--yellow);
-    color: var(--pitch-deep);
+    color: var(--card-ink);
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-[0.06em];
-    background-color: #ffffff;
+    @apply inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-[0.06em];
+    background-color: var(--surface);
     color: var(--card-ink);
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+    border: 1.5px solid var(--card-ink);
+    box-shadow: 0 3px 0 var(--card-ink);
   }
 
   .input {
-    @apply w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors focus:outline-none;
-    background-color: var(--card-tint);
-    border: 3px solid var(--card-ink);
+    @apply w-full rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors focus:outline-none;
+    background-color: var(--surface-hi);
+    border: 2.5px solid var(--card-ink);
     color: var(--card-ink);
   }
   .input:focus {
-    box-shadow: 0 0 0 3px rgba(255, 226, 58, 0.6);
+    box-shadow: 0 0 0 3px rgba(255, 214, 46, 0.6);
   }
   .input::placeholder {
     color: var(--card-muted-2);
@@ -191,7 +209,52 @@ body {
   .foil {
     background-image: none;
     background-color: var(--yellow);
-    color: var(--pitch-deep);
+    color: var(--card-ink);
+  }
+
+  /* ── Board square ─────────────────────────────────────────────────────
+     The square is a size container. cqi units on the container's own box
+     resolve against an ancestor, so padding/type/icons that scale live on
+     .bingo-cell-inner, never on .bingo-cell itself. */
+  .bingo-cell {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    container-type: inline-size;
+  }
+  .bingo-cell-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Halftone backdrop behind sticker portraits; set the tone with bg-*. */
+  .halftone {
+    background-image: radial-gradient(rgba(10, 36, 23, 0.22) 1px, transparent 1.5px);
+    background-size: 6px 6px;
+  }
+
+  /* ── Scoreboard panel ─────────────────────────────────────────────────
+     Ink card, a row of yellow bulbs along the top, mono digits in wells. */
+  .scoreboard {
+    position: relative;
+    background-color: var(--card-ink);
+    border: 2.5px solid #052012;
+    border-radius: 14px;
+    box-shadow: 0 6px 0 #052012;
+    color: var(--on-green);
+  }
+  .scoreboard-bulbs {
+    height: 10px;
+    background-image: radial-gradient(circle, var(--yellow) 3px, transparent 3.5px);
+    background-size: 22px 10px;
+    opacity: 0.85;
+  }
+  .scoreboard-well {
+    @apply rounded-lg font-mono font-semibold;
+    background-color: #052a15;
   }
 
   /* Legacy classes kept for any unconverted callers */
@@ -221,16 +284,16 @@ body {
 
 @layer base {
   :root {
-    /* shadcn tokens, Prime Time Green flavor */
+    /* shadcn tokens, Matchday flavor */
     --background: var(--pitch);
     --foreground: var(--on-green);
-    --card: #ffffff;
+    --card: var(--surface);
     --card-foreground: var(--card-ink);
-    --popover: #ffffff;
+    --popover: var(--surface);
     --popover-foreground: var(--card-ink);
     --primary: var(--yellow);
-    --primary-foreground: var(--pitch-deep);
-    --secondary: #ffffff;
+    --primary-foreground: var(--card-ink);
+    --secondary: var(--surface);
     --secondary-foreground: var(--card-ink);
     --muted-tone: var(--card-tint);
     --muted-foreground: var(--card-muted);
@@ -240,7 +303,7 @@ body {
     --border: var(--line);
     --input: var(--card-ink);
     --ring: var(--yellow);
-    --radius: 1.25rem;
+    --radius: 0.875rem;
   }
   * {
     border-color: var(--border);

@@ -43,7 +43,7 @@ export default function CreditsPage() {
   return (
     <main className="mx-auto max-w-[860px] px-6 py-10">
       <span className="eyebrow">Attribution</span>
-      <h1 className="mt-2.5 font-display text-[34px] font-black uppercase leading-none text-white">
+      <h1 className="mt-2.5 font-display text-[34px] font-black uppercase leading-none text-on-green">
         Photo credits
       </h1>
       <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-on-green-soft">
@@ -60,10 +60,10 @@ export default function CreditsPage() {
         link to the source file are listed below. {rows.length} photos credited.
       </p>
 
-      <ul className="mt-6 divide-y divide-white/15">
+      <ul className="mt-6 divide-y divide-surface/15">
         {rows.map((r) => (
           <li key={r.source || r.author} className="py-3 text-[13px]">
-            <div className="font-semibold text-white">{r.players.join(', ')}</div>
+            <div className="font-semibold text-on-green">{r.players.join(', ')}</div>
             <div className="mt-0.5 text-on-green-dim">
               © {r.author} ·{' '}
               {r.licenseUrl ? (

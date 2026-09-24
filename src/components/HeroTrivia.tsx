@@ -49,7 +49,7 @@ export function HeroTrivia() {
   if (!round) return <SkeletonCard />
   if (round.length === 0)
     return (
-      <div className="rounded-[24px] bg-white p-[26px] text-center shadow-[0_30px_60px_rgba(0,0,0,0.45)]">
+      <div className="rounded-[14px] bg-surface p-[26px] text-center shadow-[0_30px_60px_rgba(10,36,23,0.45)]">
         <p className="font-display text-[22px] font-black uppercase text-card-ink">
           Couldn&apos;t deal a round
         </p>
@@ -74,7 +74,7 @@ export function HeroTrivia() {
   }
 
   return (
-    <div className="relative rounded-[24px] bg-white p-[26px] shadow-[0_30px_60px_rgba(0,0,0,0.45)]">
+    <div className="relative rounded-[14px] bg-surface p-[26px] shadow-[0_30px_60px_rgba(10,36,23,0.45)]">
       {finished ? (
         <FinishedView score={score} total={round.length} onRestart={load} />
       ) : (
@@ -131,8 +131,8 @@ export function HeroTrivia() {
                   animate={{ opacity: 1, scale: 1 }}
                   className={`-rotate-2 rounded-lg px-2.5 py-1.5 text-[12px] font-extrabold ${
                     selected === q!.correctAnswer
-                      ? 'bg-yellow text-pitch-deep'
-                      : 'bg-pink text-white'
+                      ? 'bg-yellow text-ink'
+                      : 'bg-pink text-ink'
                   }`}
                 >
                   {selected === q!.correctAnswer ? 'GOOOAL! Correct' : `It was ${q!.correctAnswer}`}
@@ -146,7 +146,7 @@ export function HeroTrivia() {
             {selected && (
               <button
                 onClick={next}
-                className="rounded-lg bg-green-go px-4 py-2 text-[13px] font-extrabold text-white shadow-[0_4px_0_rgba(0,0,0,0.2)] transition-transform active:translate-y-[2px]"
+                className="rounded-lg bg-green-go px-4 py-2 text-[13px] font-extrabold text-ink shadow-[0_4px_0_#0a2417] transition-transform active:translate-y-[2px]"
               >
                 {index + 1 === round.length ? 'See score →' : 'Next →'}
               </button>
@@ -156,7 +156,7 @@ export function HeroTrivia() {
       )}
 
       <motion.div
-        className="absolute -right-3.5 -top-6 rotate-[8deg] rounded-full bg-pink px-[18px] py-3 font-display text-[20px] font-black uppercase text-white shadow-[0_6px_0_rgba(0,0,0,0.3)]"
+        className="absolute -right-3.5 -top-6 rotate-[8deg] rounded-lg bg-pink px-[18px] py-3 font-display text-[20px] font-black uppercase text-ink shadow-[0_6px_0_#0a2417]"
         animate={{ y: [0, -9, 0] }}
         transition={{ duration: 3.4, ease: 'easeInOut', repeat: Infinity }}
       >
@@ -208,7 +208,7 @@ function FinishedView({
 
 function SkeletonCard() {
   return (
-    <div className="rounded-[24px] bg-white p-[26px] shadow-[0_30px_60px_rgba(0,0,0,0.45)]">
+    <div className="rounded-[14px] bg-surface p-[26px] shadow-[0_30px_60px_rgba(10,36,23,0.45)]">
       <div className="flex items-center gap-4">
         <div className="h-[112px] w-[92px] shrink-0 animate-pulse rounded-xl bg-card-tint" />
         <div className="flex-1 space-y-2">
@@ -234,16 +234,16 @@ function optionClass(option: string, selected: string | null, correctAnswer: str
     return `${base} bg-card-tint text-card-ink hover:-translate-y-[2px] hover:bg-card-tint/70 cursor-pointer`
   }
   if (option === correctAnswer)
-    return `${base} bg-green-go text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]`
-  if (option === selected) return `${base} bg-pink text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]`
+    return `${base} bg-green-go text-ink shadow-[0_4px_0_#0a2417]`
+  if (option === selected) return `${base} bg-pink text-ink shadow-[0_4px_0_#0a2417]`
   return `${base} bg-card-tint text-card-muted opacity-60`
 }
 
 function letterTileClass(option: string, selected: string | null, correctAnswer: string): string {
   const base =
     'flex h-[26px] w-[26px] shrink-0 -rotate-3 items-center justify-center rounded-[8px] font-display text-[15px] font-black uppercase leading-none'
-  if (!selected) return `${base} bg-yellow text-pitch-deep`
-  if (option === correctAnswer) return `${base} bg-yellow text-pitch-deep`
-  if (option === selected) return `${base} bg-white text-pink`
-  return `${base} bg-white/60 text-card-muted`
+  if (!selected) return `${base} bg-yellow text-ink`
+  if (option === correctAnswer) return `${base} bg-yellow text-ink`
+  if (option === selected) return `${base} bg-surface text-pink`
+  return `${base} bg-surface/60 text-card-muted`
 }

@@ -72,8 +72,22 @@ type PresetDef = Preset & {
 }
 const PRESETS: PresetDef[] = [
   { id: 'classic', emoji: '⚽', label: 'Classic', size: 3, minFameScore: 42, draftPolicy: 'open' },
-  { id: 'legends', emoji: '👑', label: 'Legends Only', size: 4, minFameScore: 70, draftPolicy: 'open' },
-  { id: 'fullhouse', emoji: '🏟', label: 'Full House', size: 5, minFameScore: 0, draftPolicy: 'open' },
+  {
+    id: 'legends',
+    emoji: '👑',
+    label: 'Legends Only',
+    size: 4,
+    minFameScore: 70,
+    draftPolicy: 'open',
+  },
+  {
+    id: 'fullhouse',
+    emoji: '🏟',
+    label: 'Full House',
+    size: 5,
+    minFameScore: 0,
+    draftPolicy: 'open',
+  },
 ]
 
 export function BingoSetup() {
@@ -107,7 +121,8 @@ export function BingoSetup() {
     } else {
       const s = loadSolo()
       if (s) {
-        setBoardConfig(s.boardConfig ?? DEFAULT_BOARD_CONFIG)
+        // Free square is on by default for every new board; only the rest carries over.
+        setBoardConfig({ ...(s.boardConfig ?? DEFAULT_BOARD_CONFIG), freeSquare: true })
         setLineHighlight(s.lineHighlight !== false)
         setDraftPolicy(s.draftPolicy === 'placeable' ? 'placeable' : 'open')
       }
@@ -129,10 +144,7 @@ export function BingoSetup() {
   )
 
   const activeKinds = KINDS.filter((k) => boardConfig.categoryKinds[k.key])
-  const selectedKinds = useMemo(
-    () => new Set<string>(activeKinds.map((k) => k.key)),
-    [activeKinds],
-  )
+  const selectedKinds = useMemo(() => new Set<string>(activeKinds.map((k) => k.key)), [activeKinds])
 
   const activePreset = useMemo(() => {
     const allKindsOn = activeKinds.length === TOTAL_KINDS
@@ -235,9 +247,9 @@ export function BingoSetup() {
   let topicSummary: string
   if (activeKinds.length === 0) topicSummary = 'Pick at least one kind'
   else if (activeKinds.length === TOTAL_KINDS)
-    topicSummary = `A varied board — ${activeKinds.length} of ${TOTAL_KINDS} kinds, ${poolCount} clues in the pool`
+    topicSummary = `A varied board - ${activeKinds.length} of ${TOTAL_KINDS} kinds, ${poolCount} clues in the pool`
   else if (activeKinds.length === 1)
-    topicSummary = `A themed board — ${activeKinds[0].label} only, ${poolCount} clues in the pool`
+    topicSummary = `A themed board - ${activeKinds[0].label} only, ${poolCount} clues in the pool`
   else
     topicSummary = `${activeKinds.length} of ${TOTAL_KINDS} kinds, ${poolCount} clues in the pool`
 
@@ -297,7 +309,7 @@ export function BingoSetup() {
         </div>
         {!configOk && (
           <p className="mt-2 text-[12px] font-bold text-live-red">
-            Turn on more kinds — need {needCount} clues for a {boardConfig.size}×{boardConfig.size}{' '}
+            Turn on more kinds - need {needCount} clues for a {boardConfig.size}×{boardConfig.size}{' '}
             board.
           </p>
         )}
@@ -319,7 +331,7 @@ export function BingoSetup() {
               name={PLAY_MODE_LABEL[m]}
               explainer={
                 m === 'draft'
-                  ? 'Players are drawn one at a time — place who you can.'
+                  ? 'Players are drawn one at a time - place who you can.'
                   : 'Pick any player, any time, and fill your own squares.'
               }
             />
@@ -333,7 +345,7 @@ export function BingoSetup() {
           {(
             [
               ['individual', 'Individual', 'Everyone gets their own board and races in parallel.'],
-              ['shared', 'Shared', 'One board for the whole room — the draft decides placement.'],
+              ['shared', 'Shared', 'One board for the whole room - the draft decides placement.'],
             ] as const
           ).map(([v, label, explainer]) => (
             <SelectRow
@@ -393,7 +405,7 @@ export function BingoSetup() {
               {(
                 [
                   [false, 'Unlimited', 'Keep trying squares until you place the drawn player.'],
-                  [true, 'One per turn', 'A single placement attempt each round — no retries.'],
+                  [true, 'One per turn', 'A single placement attempt each round - no retries.'],
                 ] as const
               ).map(([v, label, explainer]) => (
                 <SelectRow
@@ -453,9 +465,7 @@ export function BingoSetup() {
           type="button"
           role="switch"
           aria-checked={boardConfig.freeSquare}
-          onClick={() =>
-            setBoardConfig((c) => ({ ...c, freeSquare: !c.freeSquare }))
-          }
+          onClick={() => setBoardConfig((c) => ({ ...c, freeSquare: !c.freeSquare }))}
           className="flex w-full items-center gap-3 rounded-[14px] bg-card-tint px-[13px] py-3 text-left transition-all duration-150 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white"
         >
           <span
@@ -464,19 +474,19 @@ export function BingoSetup() {
             }`}
           >
             <span
-              className={`h-4 w-4 rounded-full bg-white shadow transition-transform ${
+              className={`h-4 w-4 rounded-full bg-surface shadow transition-transform ${
                 boardConfig.freeSquare ? 'translate-x-[16px]' : 'translate-x-0'
               }`}
             />
           </span>
           <span className="min-w-0">
             <span className="block font-display text-[17px] font-black uppercase leading-none text-card-ink">
-              {boardConfig.freeSquare ? 'Centre ★ free' : 'No free square'}
+              Centre ★ free
             </span>
             <span className="mt-1 block text-[11.5px] font-semibold leading-snug text-card-muted">
               {boardConfig.freeSquare
-                ? 'Centre square starts solved as a head start.'
-                : 'Every square must be earned — a tougher board.'}
+                ? 'On: the centre square starts solved as a head start.'
+                : 'Off: every square must be earned, a tougher board.'}
             </span>
           </span>
         </button>
@@ -516,10 +526,7 @@ export function BingoSetup() {
   return (
     <>
       <SetupPageFrame>
-        <SetupHeader
-          badge={`Bingo · ${isMultiplayer ? 'Multiplayer' : 'Solo'}`}
-          title="Team talk"
-        >
+        <SetupHeader badge={`Bingo · ${isMultiplayer ? 'Multiplayer' : 'Solo'}`} title="Team talk">
           <PresetPills
             presets={PRESETS}
             activeId={activePreset}
@@ -527,7 +534,7 @@ export function BingoSetup() {
             trailing={
               <Link
                 href={isMultiplayer ? '/' : '/play'}
-                className="flex flex-none items-center gap-2 whitespace-nowrap rounded-full border-[3px] border-white/50 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white/10"
+                className="flex flex-none items-center gap-2 whitespace-nowrap rounded-lg border-[3px] border-surface/50 px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.04em] text-on-green transition-colors hover:bg-surface/10"
               >
                 {isMultiplayer ? '← Back home' : '← Back to game'}
               </Link>
@@ -538,9 +545,7 @@ export function BingoSetup() {
         <MarqueeRow
           items={GRID_ITEMS}
           selectedId={String(boardConfig.size)}
-          onSelect={(id) =>
-            setBoardConfig((c) => ({ ...c, size: Number(id) as 3 | 4 | 5 }))
-          }
+          onSelect={(id) => setBoardConfig((c) => ({ ...c, size: Number(id) as 3 | 4 | 5 }))}
         />
 
         <div className="mt-4">

@@ -16,7 +16,7 @@ export default function OgImage() {
         flexDirection: 'column',
         justifyContent: 'center',
         padding: '80px 88px',
-        background: 'linear-gradient(135deg, #1fae5a 0%, #0d7a3a 55%, #06592a 100%)',
+        background: 'linear-gradient(135deg, #15603a 0%, #0e4a2c 55%, #093820 100%)',
         fontFamily: 'sans-serif',
       }}
     >
@@ -24,7 +24,7 @@ export default function OgImage() {
         style={{
           display: 'flex',
           alignSelf: 'flex-start',
-          background: 'rgba(0,0,0,0.22)',
+          background: 'rgba(10,36,23,0.22)',
           color: '#ffffff',
           fontSize: 26,
           fontWeight: 800,
@@ -61,8 +61,8 @@ export default function OgImage() {
             display: 'flex',
             alignSelf: 'flex-start',
             marginTop: 18,
-            background: '#ffe23a',
-            color: '#06592a',
+            background: '#ffd62e',
+            color: '#093820',
             fontSize: 120,
             fontWeight: 900,
             lineHeight: 1,
@@ -79,7 +79,7 @@ export default function OgImage() {
         style={{
           display: 'flex',
           marginTop: 52,
-          color: '#d7f2df',
+          color: '#ddebe1',
           fontSize: 34,
           fontWeight: 700,
         }}

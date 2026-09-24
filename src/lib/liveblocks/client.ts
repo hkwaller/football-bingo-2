@@ -51,6 +51,10 @@ export type GamePresence = {
   guesses: number
   /** Squares filled on this player's board. */
   solvedCount: number
+  /** Which squares are filled, in placement order (individual boards). Drives the
+   *  room scoreboard's mini boards; the latest one stays hidden in same-player
+   *  rounds until everyone has acted. */
+  solvedCells?: number[]
   /** Shared-draw sync: the highest round index this player has finished acting on. */
   actedRound: number | null
   /** The player's most recent action, for the live status chip (correct / incorrect / skipped). */

@@ -7,7 +7,7 @@ import { TwinkleDots } from '@/components/TwinkleDots'
 
 function SiteFooter() {
   return (
-    <footer className="mt-10 border-t border-white/15 px-6 py-5 text-center text-xs text-on-green-dim">
+    <footer className="mt-10 border-t border-surface/15 px-6 py-5 text-center text-xs text-on-green-dim">
       Player photos from{' '}
       <a href="https://commons.wikimedia.org" className="underline" target="_blank" rel="noreferrer">
         Wikimedia Commons

@@ -127,8 +127,8 @@ export function TenableGame() {
       {/* Input / round-over controls */}
       <div className="mb-4 min-h-[92px]">
         {questionOver ? (
-          <div className="flex flex-col items-center gap-3 rounded-[16px] bg-black/20 px-4 py-4 text-center">
-            <p className="font-display text-2xl font-black uppercase leading-none text-white">
+          <div className="flex flex-col items-center gap-3 rounded-[12px] bg-black/20 px-4 py-4 text-center">
+            <p className="font-display text-2xl font-black uppercase leading-none text-on-green">
               {cleared ? '🎉 All ten!' : '💔 Out of lives'}
             </p>
             <p className="text-sm font-semibold text-on-green-soft">

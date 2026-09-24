@@ -3,7 +3,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import type { TenableGroup } from '@/data/tenable'
-import type { TenableConfig, TenableDifficultyFilter, TenableAnswerOrder } from '@/lib/tenable/types'
+import type {
+  TenableConfig,
+  TenableDifficultyFilter,
+  TenableAnswerOrder,
+} from '@/lib/tenable/types'
 import { DEFAULT_TENABLE_CONFIG } from '@/lib/tenable/types'
 import {
   clearTenableSession,
@@ -145,10 +149,10 @@ export function TenableSetup() {
   let topicSummary: string
   if (groupCount === 0) topicSummary = 'Pick at least one topic'
   else if (groupCount === ALL_GROUP_IDS.length)
-    topicSummary = `The full mix — ${groupCount} of ${ALL_GROUP_IDS.length} topics, ${listPool} lists in the pool`
+    topicSummary = `The full mix - ${groupCount} of ${ALL_GROUP_IDS.length} topics, ${listPool} lists in the pool`
   else if (groupCount === 1) {
     const only = TENABLE_GROUPS.find((g) => selectedGroups.has(g.id))!
-    topicSummary = `Deep dive — ${only.label} only, ${listPool} lists in the pool`
+    topicSummary = `Deep dive - ${only.label} only, ${listPool} lists in the pool`
   } else
     topicSummary = `${groupCount} of ${ALL_GROUP_IDS.length} topics, ${listPool} lists in the pool`
 
@@ -248,7 +252,7 @@ export function TenableSetup() {
   const hint = isSolo ? undefined : isMultiplayer ? (
     'Room code comes next'
   ) : (
-    <button type="button" onClick={launchSolo} className="underline hover:text-white">
+    <button type="button" onClick={launchSolo} className="underline hover:text-on-green">
       or play solo →
     </button>
   )

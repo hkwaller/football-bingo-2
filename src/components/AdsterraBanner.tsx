@@ -70,7 +70,7 @@ export function AdsterraBanner({
         className={
           tone === 'card'
             ? 'text-xs font-bold uppercase tracking-wide text-card-muted underline decoration-dotted underline-offset-2 hover:text-card-ink'
-            : 'text-xs font-bold uppercase tracking-wide text-on-green-dim underline decoration-dotted underline-offset-2 hover:text-white'
+            : 'text-xs font-bold uppercase tracking-wide text-on-green-dim underline decoration-dotted underline-offset-2 hover:text-on-green'
         }
       >
         Remove ads

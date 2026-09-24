@@ -9,11 +9,23 @@ import { Menu } from 'lucide-react'
 
 const clerkOn = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
+/** The ball mark on the yellow logo tile (replaces the emoji). */
+function BallMark() {
+  return (
+    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden>
+      <circle cx="16" cy="16" r="13" fill="#f5f0e1" stroke="#0a2417" strokeWidth="2.5" />
+      <path d="M16 10.5l5 3.6-1.9 5.9h-6.2L11 14.1z" fill="#0a2417" />
+      <path d="M16 10.5V4.2M21 14.1l5.6-2M19.1 20l3.4 5M12.9 20l-3.4 5M11 14.1l-5.6-2" stroke="#0a2417" strokeWidth="2" fill="none" />
+    </svg>
+  )
+}
+
 const NAV = [
   { href: '/play', label: 'Play', match: ['/play'] },
   { href: '/play/setup?mode=multiplayer', label: 'Multiplayer', match: ['/room'] },
   { href: '/trivia', label: 'Trivia', match: ['/trivia'] },
   { href: '/tenable', label: 'Tenable', match: ['/tenable'] },
+  { href: '/famous-11s', label: 'Famous 11s', match: ['/famous-11s'] },
 ]
 
 export function SiteHeader() {
@@ -27,14 +39,14 @@ export function SiteHeader() {
     <header className="relative z-30 bg-transparent">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5 md:px-9">
         <Link href="/" className="flex items-center gap-3.5 transition-opacity hover:opacity-90">
-          <span className="flex h-11 w-11 -rotate-6 items-center justify-center rounded-2xl bg-yellow text-[24px] shadow-[0_4px_0_rgba(0,0,0,0.22)]">
-            ⚽
+          <span className="flex h-11 w-11 -rotate-6 items-center justify-center rounded-[10px] border-[2.5px] border-ink bg-yellow shadow-[0_4px_0_#0a2417]">
+            <BallMark />
           </span>
           {/* Wordmark is desktop-only - the crest already says what this is */}
-          <span className="hidden font-display text-[30px] font-bold uppercase leading-none tracking-[0.01em] text-white sm:inline">
+          <span className="hidden font-display text-[32px] font-black uppercase leading-none tracking-[0.02em] text-on-green sm:inline">
             Football Bingo
           </span>
-          <span className="ml-1 inline-flex rotate-[4deg] animate-pulse-soft items-center rounded-md bg-live-red px-1.5 py-0.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_2px_0_rgba(0,0,0,0.25)]">
+          <span className="ml-1 inline-flex rotate-[4deg] animate-pulse-soft items-center rounded bg-coral px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink">
             Live
           </span>
         </Link>
@@ -45,10 +57,10 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-full px-4 py-2 transition-colors ${
+              className={`rounded-md px-3.5 py-2 transition-colors ${
                 isActive(item.match)
-                  ? 'bg-white/[0.16] text-white'
-                  : 'text-on-green-dim hover:bg-white/[0.08] hover:text-white'
+                  ? 'bg-surface/[0.12] text-on-green shadow-[inset_0_-3px_0_#ffd62e]'
+                  : 'text-[#cfe3d5] hover:bg-surface/[0.08] hover:text-on-green'
               }`}
             >
               {item.label}
@@ -61,7 +73,7 @@ export function SiteHeader() {
                 <SignInButton mode="modal">
                   <button
                     type="button"
-                    className="rounded-full border-[3px] border-white/50 px-4 py-1.5 text-white transition-colors hover:bg-white/[0.12]"
+                    className="rounded-lg border-[2.5px] border-surface/55 px-4 py-1.5 text-on-green transition-colors hover:bg-surface/[0.12]"
                   >
                     Sign in
                   </button>
@@ -70,17 +82,17 @@ export function SiteHeader() {
               <SignedIn>
                 <Link
                   href="/account"
-                  className={`rounded-full px-4 py-2 transition-colors ${
+                  className={`rounded-md px-3.5 py-2 transition-colors ${
                     isActive(['/account'])
-                      ? 'bg-white/[0.16] text-white'
-                      : 'text-on-green-dim hover:bg-white/[0.08] hover:text-white'
+                      ? 'bg-surface/[0.12] text-on-green shadow-[inset_0_-3px_0_#ffd62e]'
+                      : 'text-[#cfe3d5] hover:bg-surface/[0.08] hover:text-on-green'
                   }`}
                 >
                   Profile
                 </Link>
                 <Link
                   href="/play/setup"
-                  className="rounded-full bg-yellow px-[18px] py-2 text-pitch-deep shadow-[0_4px_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5"
+                  className="ml-2 rounded-lg border-[2.5px] border-ink bg-yellow px-4 py-[7px] text-ink shadow-[0_4px_0_#0a2417] transition-transform hover:-translate-y-0.5"
                 >
                   New game
                 </Link>
@@ -92,7 +104,7 @@ export function SiteHeader() {
           ) : (
             <Link
               href="/play/setup"
-              className="rounded-full bg-yellow px-[18px] py-2 text-pitch-deep shadow-[0_4px_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5"
+              className="ml-2 rounded-lg border-[2.5px] border-ink bg-yellow px-4 py-[7px] text-ink shadow-[0_4px_0_#0a2417] transition-transform hover:-translate-y-0.5"
             >
               New game
             </Link>
@@ -106,9 +118,9 @@ export function SiteHeader() {
           aria-haspopup="menu"
           aria-expanded={menuOpen}
           aria-label="Menu"
-          className="flex h-11 w-11 items-center justify-center rounded-2xl border-[3px] border-white/50 text-[20px] text-white transition-colors hover:bg-white/[0.12] sm:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border-[2.5px] border-surface/55 text-on-green transition-colors hover:bg-surface/[0.12] sm:hidden"
         >
-          <Menu className="size-5 text-white" />
+          <Menu className="size-5 text-on-green" />
         </button>
       </div>
 
@@ -124,7 +136,7 @@ export function SiteHeader() {
               onClick={() => setMenuOpen(false)}
             />
             <motion.nav
-              className="absolute right-6 top-[76px] z-40 flex w-[min(240px,80vw)] flex-col gap-1.5 rounded-[20px] bg-white p-3 shadow-[0_8px_0_rgba(0,0,0,0.22)] sm:hidden"
+              className="absolute right-6 top-[76px] z-40 flex w-[min(240px,80vw)] flex-col gap-1.5 rounded-[14px] border-[2.5px] border-ink bg-surface p-3 shadow-[0_6px_0_#0a2417] sm:hidden"
               initial={{ opacity: 0, y: -8, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -135,9 +147,9 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`rounded-full px-4 py-2.5 text-[14px] font-extrabold uppercase tracking-[0.06em] transition-colors ${
+                  className={`rounded-md px-4 py-2.5 text-[14px] font-extrabold uppercase tracking-[0.06em] transition-colors ${
                     isActive(item.match)
-                      ? 'bg-green-go text-white'
+                      ? 'bg-yellow text-ink'
                       : 'text-card-muted hover:bg-card-tint hover:text-card-ink'
                   }`}
                 >
@@ -164,9 +176,9 @@ export function SiteHeader() {
                     <Link
                       href="/account"
                       onClick={() => setMenuOpen(false)}
-                      className={`rounded-full px-4 py-2.5 text-[14px] font-extrabold uppercase tracking-[0.06em] transition-colors ${
+                      className={`rounded-md px-4 py-2.5 text-[14px] font-extrabold uppercase tracking-[0.06em] transition-colors ${
                         isActive(['/account'])
-                          ? 'bg-green-go text-white'
+                          ? 'bg-yellow text-ink'
                           : 'text-card-muted hover:bg-card-tint hover:text-card-ink'
                       }`}
                     >

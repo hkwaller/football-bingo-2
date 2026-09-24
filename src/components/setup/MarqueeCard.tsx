@@ -7,12 +7,12 @@ import type { ReactNode } from 'react'
 export type MarqueeAccent = 'pink' | 'sky'
 
 const ACCENT_TILE: Record<MarqueeAccent, string> = {
-  pink: 'bg-pink text-white',
-  sky: 'bg-sky text-pitch-deep',
+  pink: 'bg-pink text-ink',
+  sky: 'bg-sky text-ink',
 }
 
 /**
- * The large "marquee" card — the one choice that redefines the game (Trivia
+ * The large "marquee" card - the one choice that redefines the game (Trivia
  * format, Bingo grid size). Selected → hot yellow, lifted and rotated with a
  * SELECTED chip; unselected → white with a bright icon tile and a ghost
  * decoration (a giant numeral, or a custom node such as Bingo's dot-grid).
@@ -36,7 +36,7 @@ export function MarqueeCard({
   selected: boolean
   /** The selected card is the wide one in the 1.24fr column. */
   wide?: boolean
-  /** Icon + title only, shorter — the mobile "other formats" mini-cards. */
+  /** Icon + title only, shorter - the mobile "other formats" mini-cards. */
   compact?: boolean
   icon: LucideIcon
   /** Accent for the icon tile when unselected. */
@@ -57,12 +57,12 @@ export function MarqueeCard({
       aria-checked={selected}
       onClick={onClick}
       style={{ transform: `rotate(${tilt}deg)${selected ? ' translateY(-3px)' : ''}` }}
-      className={`group relative flex h-full w-full flex-col overflow-hidden rounded-[24px] p-[22px] text-left transition-[box-shadow,transform] duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch active:translate-y-[2px] motion-reduce:transform-none ${
+      className={`group relative flex h-full w-full flex-col overflow-hidden rounded-[14px] p-[22px] text-left transition-[box-shadow,transform] duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch active:translate-y-[2px] motion-reduce:transform-none ${
         compact ? 'min-h-[132px]' : 'min-h-[196px]'
       } ${
         selected
-          ? 'bg-yellow text-pitch-deep shadow-[0_9px_0_rgba(0,0,0,0.3)] active:shadow-[0_3px_0_rgba(0,0,0,0.3)]'
-          : 'bg-white text-card-ink shadow-[0_6px_0_rgba(0,0,0,0.2)] hover:-translate-y-0.5 hover:shadow-[0_8px_0_rgba(0,0,0,0.22)] active:shadow-[0_3px_0_rgba(0,0,0,0.2)]'
+          ? 'bg-yellow text-ink shadow-[0_9px_0_#0a2417] active:shadow-[0_3px_0_#0a2417]'
+          : 'bg-surface text-card-ink shadow-[0_6px_0_#0a2417] hover:-translate-y-0.5 hover:shadow-[0_8px_0_#0a2417] active:shadow-[0_3px_0_#0a2417]'
       }`}
     >
       {/* Ghost decoration */}
@@ -70,7 +70,7 @@ export function MarqueeCard({
         <span
           aria-hidden
           className={`pointer-events-none absolute -bottom-[34px] -right-[10px] font-display text-[150px] font-black leading-none ${
-            selected ? 'text-pitch-deep/[0.13]' : 'text-card-ink/[0.07]'
+            selected ? 'text-ink/[0.13]' : 'text-card-ink/[0.07]'
           }`}
         >
           {String(index).padStart(2, '0')}
@@ -81,13 +81,13 @@ export function MarqueeCard({
       <div className="relative flex items-start justify-between gap-2">
         <span
           className={`flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-[14px] ${
-            selected ? 'bg-pitch-deep/[0.16] text-pitch-deep' : ACCENT_TILE[accent]
+            selected ? 'bg-pitch-deep/[0.16] text-ink' : ACCENT_TILE[accent]
           }`}
         >
           <Icon size={24} strokeWidth={2.6} />
         </span>
         {selected && (
-          <span className="rounded-full bg-pitch-deep px-3 py-1.5 font-mono text-[11.5px] font-bold uppercase leading-none text-yellow">
+          <span className="rounded-lg bg-pitch-deep px-3 py-1.5 font-mono text-[11.5px] font-bold uppercase leading-none text-yellow">
             Selected
           </span>
         )}
@@ -104,7 +104,7 @@ export function MarqueeCard({
       {!compact && (
         <p
           className={`relative mt-2 max-w-[260px] text-[13px] font-semibold leading-[1.35] ${
-            selected ? 'text-pitch-deep/85' : 'text-card-muted'
+            selected ? 'text-ink/85' : 'text-card-muted'
           }`}
         >
           {blurb}

@@ -1,23 +1,24 @@
 import type { Metadata, Viewport } from 'next'
-import { Passion_One, Libre_Franklin, Courier_Prime } from 'next/font/google'
+import { Big_Shoulders, Archivo, IBM_Plex_Mono } from 'next/font/google'
 import { AppShell } from '@/components/AppShell'
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/seo'
 import './globals.css'
 
-const display = Passion_One({
-  weight: ['400', '700', '900'],
+// Variable font with an optical-size axis: large headlines get the Display cut.
+const display = Big_Shoulders({
+  axes: ['opsz'],
   variable: '--font-display',
   subsets: ['latin'],
 })
 
-const sans = Libre_Franklin({
+const sans = Archivo({
   weight: ['400', '500', '600', '700', '800'],
   variable: '--font-sans',
   subsets: ['latin'],
 })
 
-const mono = Courier_Prime({
-  weight: ['400', '700'],
+const mono = IBM_Plex_Mono({
+  weight: ['500', '600', '700'],
   variable: '--font-mono',
   subsets: ['latin'],
 })
@@ -25,7 +26,7 @@ const mono = Courier_Prime({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0d7a3a',
+  themeColor: '#0e4a2c',
 }
 
 export const metadata: Metadata = {

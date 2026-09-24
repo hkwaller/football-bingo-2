@@ -10,7 +10,7 @@ export type Preset = {
 }
 
 /**
- * The "SHORTCUTS" row that sits next to the page title — one-tap presets that
+ * The "SHORTCUTS" row that sits next to the page title - one-tap presets that
  * write a whole config at once. Scrolls horizontally on narrow screens and never
  * wraps. Extra trailing content (e.g. Bingo's "Back to game" pill) slots in via
  * `trailing`.
@@ -41,8 +41,8 @@ export function PresetPills({
             onClick={() => onSelect(p.id)}
             className={`flex flex-none items-center gap-2 whitespace-nowrap rounded-full px-4 py-2.5 text-[13px] font-extrabold uppercase tracking-[0.04em] transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch ${
               active
-                ? 'bg-yellow text-pitch-deep shadow-[0_3px_0_rgba(0,0,0,0.2)]'
-                : 'border border-white/15 bg-white/10 text-white hover:bg-white/[0.22]'
+                ? 'bg-yellow text-ink shadow-[0_3px_0_#0a2417]'
+                : 'border border-surface/15 bg-surface/10 text-on-green hover:bg-surface/[0.22]'
             }`}
           >
             <span aria-hidden>{p.emoji}</span>

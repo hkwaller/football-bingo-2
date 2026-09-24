@@ -40,7 +40,7 @@ function Switch({
           "group-data-[size=default]/switch:size-[18px] group-data-[size=sm]/switch:size-3.5",
           // unchecked position + colour
           "data-[unchecked]:translate-x-0",
-          "data-[unchecked]:bg-cream data-[unchecked]:hover:bg-white",
+          "data-[unchecked]:bg-cream data-[unchecked]:hover:bg-surface",
           // checked position + colour
           "data-[checked]:translate-x-[calc(100%-2px)]",
           "data-[checked]:bg-cream",

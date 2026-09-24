@@ -16,67 +16,77 @@ const config: Config = {
       colors: {
         /* ── Prime Time Green palette ──────────────────────────────────── */
         pitch: {
-          DEFAULT: '#0d7a3a', // page base / mid gradient stop
-          bright: '#1fae5a', // gradient top-left
-          deep: '#06592a', // gradient bottom / dark text on yellow / name bars
-          light: '#ffffff', // legacy alias → white cards
-          lighter: '#ffffff',
+          DEFAULT: '#0e4a2c', // page base / mid gradient stop
+          bright: '#15603a', // gradient top-left
+          deep: '#093820', // gradient bottom / dark text on yellow / name bars
+          light: '#f5f0e1', // legacy alias → paper cards
+          lighter: '#f5f0e1',
         },
         card: {
-          ink: '#0a3d20', // headings / borders on white cards
-          muted: '#3c6e4d', // secondary text on cards
-          'muted-2': '#6f9c7f', // tertiary text on cards
-          tint: '#ecf7ef', // inactive fills / input backgrounds
+          ink: '#0a2417', // headings / borders on white cards
+          muted: '#3d5a48', // secondary text on cards
+          'muted-2': '#6b8575', // tertiary text on cards
+          tint: '#e9e1c9', // inactive fills / input backgrounds
         },
-        'green-go': '#22c55e', // correct / active / Club
+        'green-go': '#3ddc84', // correct / active / Club
         yellow: {
-          DEFAULT: '#ffe23a', // THE action color
-          deep: '#ffd000',
+          DEFAULT: '#ffd62e', // THE action color
+          deep: '#f5c400',
         },
         pink: {
-          DEFAULT: '#ff4d8d', // hot pop
-          deep: '#e63a76',
+          DEFAULT: '#ff5b45', // hot pop
+          deep: '#e8452f',
         },
-        sky: '#4de1ff', // cool pop
-        'live-red': '#e0301e', // pulsing LIVE badge
+        sky: '#6fd3f2', // cool pop (Tenable, Nation)
+        coral: {
+          DEFAULT: '#ff5b45', // Trivia, wrong answers, LIVE
+          deep: '#e8452f',
+          ink: '#b3321e', // coral text on paper (passes 4.5:1)
+        },
+        surface: {
+          DEFAULT: '#f5f0e1', // paper cards
+          2: '#e9e1c9', // inactive fills, trait chips
+          hi: '#fffdf6', // sticker card, inputs
+        },
+        'live-red': '#e8412c', // pulsing LIVE badge
         'on-green': {
           DEFAULT: '#ffffff',
-          soft: '#d7f2df',
-          dim: '#b9e6c8',
+          soft: '#ddebe1',
+          dim: '#b7d3c1',
         },
 
         /* ── Legacy Sticker-Album names, remapped onto Prime Time Green ─── */
-        paper: '#0d7a3a',
+        paper: '#0e4a2c',
         panel: {
-          DEFAULT: '#ffffff',
-          white: '#ffffff',
+          DEFAULT: '#f5f0e1',
+          white: '#f5f0e1',
         },
         ink: {
-          DEFAULT: '#0a3d20',
-          soft: '#3c6e4d',
+          DEFAULT: '#0a2417',
+          soft: '#3d5a48',
         },
         muted: {
-          DEFAULT: '#3c6e4d',
+          DEFAULT: '#3d5a48',
           foreground: 'var(--muted-foreground)',
         },
         green: {
-          DEFAULT: '#0a3d20',
-          deep: '#06592a',
+          DEFAULT: '#0a2417',
+          deep: '#093820',
         },
         red: {
-          DEFAULT: '#ff4d8d',
-          deep: '#e63a76',
+          DEFAULT: '#ff5b45',
+          deep: '#e8452f',
         },
         cream: {
-          DEFAULT: '#ffffff',
-          dim: '#b9e6c8',
+          DEFAULT: '#f5f0e1',
+          dim: '#b7d3c1',
         },
-        nation: '#4de1ff',
-        foil: '#ffe23a',
-        gold: '#ffe23a',
+        nation: '#6fd3f2',
+        foil: '#ffd62e',
+        gold: '#ffd62e',
         link: {
-          DEFAULT: '#ffe23a',
-          hover: '#fff07a',
+          DEFAULT: '#ffd62e',
+          hover: '#ffe680',
         },
         line: {
           DEFAULT: 'var(--line)',
@@ -119,28 +129,28 @@ const config: Config = {
         ring: 'var(--ring)',
       },
       boxShadow: {
-        /* Hard offset shadows, no blur - the Prime Time language */
-        soft: '0 8px 0 rgba(0,0,0,0.22)',
-        sticker: '0 5px 0 rgba(0,0,0,0.2)',
-        'sticker-lg': '0 8px 0 rgba(0,0,0,0.22)',
-        panel: '0 8px 0 rgba(0,0,0,0.22)',
-        hard: '0 8px 0 rgba(0,0,0,0.22)',
-        'hard-lg': '0 10px 0 rgba(0,0,0,0.22)',
-        'hard-sm': '0 4px 0 rgba(0,0,0,0.22)',
-        btn: '0 6px 0 rgba(0,0,0,0.28)',
-        'btn-sm': '0 4px 0 rgba(0,0,0,0.25)',
-        chip: '0 3px 0 rgba(0,0,0,0.2)',
+        /* Hard offset ink shadows, no blur - the Matchday language */
+        soft: '0 8px 0 #0a2417',
+        sticker: '0 5px 0 #0a2417',
+        'sticker-lg': '0 8px 0 #0a2417',
+        panel: '0 8px 0 #0a2417',
+        hard: '0 8px 0 #0a2417',
+        'hard-lg': '0 10px 0 #0a2417',
+        'hard-sm': '0 4px 0 #0a2417',
+        btn: '0 6px 0 #0a2417',
+        'btn-sm': '0 4px 0 #0a2417',
+        chip: '0 3px 0 #0a2417',
         'foil-ring': 'inset 0 0 0 3px rgba(255,255,255,0.25)',
         // Legacy aliases so unconverted components degrade gracefully
-        'glow-turf': '0 6px 0 rgba(0,0,0,0.25)',
-        'glow-gold': '0 6px 0 rgba(0,0,0,0.25)',
-        'brutal-sm': '0 4px 0 rgba(0,0,0,0.22)',
-        brutal: '0 6px 0 rgba(0,0,0,0.25)',
-        'brutal-lg': '0 10px 0 rgba(0,0,0,0.22)',
+        'glow-turf': '0 6px 0 #0a2417',
+        'glow-gold': '0 6px 0 #0a2417',
+        'brutal-sm': '0 4px 0 #0a2417',
+        brutal: '0 6px 0 #0a2417',
+        'brutal-lg': '0 10px 0 #0a2417',
       },
       backgroundImage: {
-        foil: 'linear-gradient(90deg,#ffe23a,#ff4d8d)',
-        stage: 'linear-gradient(165deg, #1fae5a 0%, #0d7a3a 60%, #06592a 100%)',
+        foil: 'linear-gradient(90deg,#ffd62e,#ff5b45)',
+        stage: 'linear-gradient(180deg, #0e4a2c 0%, #093820 100%)',
         'paper-dots': 'none',
       },
       animation: {

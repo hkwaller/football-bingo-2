@@ -4,7 +4,7 @@ import type { TenableDifficultyFilter } from './types'
 
 /**
  * Live counts for the Tenable setup screen, derived straight from the curated
- * question bank — no hand-typed numbers.
+ * question bank - no hand-typed numbers.
  */
 
 /** The six real groups, in display order, with their setup labels. */
@@ -17,10 +17,8 @@ export const TENABLE_GROUPS: Array<{ id: TenableGroup; label: string }> = [
   { id: 'misc', label: 'Oddities' },
 ]
 
-const matchesDifficulty = (
-  d: TenableDifficultyFilter,
-  qd: string,
-): boolean => d === 'mixed' || qd === d
+const matchesDifficulty = (d: TenableDifficultyFilter, qd: string): boolean =>
+  d === 'mixed' || qd === d
 
 /** Lists available in one group at the current difficulty. */
 export function groupListCount(group: TenableGroup, difficulty: TenableDifficultyFilter): number {
@@ -49,7 +47,7 @@ export function estimatedMinutes(listCount: number): number {
   return Math.max(1, listCount * 2)
 }
 
-/** "1 list" / "3 lists" — small pluralisation helper for the count sub-lines. */
+/** "1 list" / "3 lists" - small pluralisation helper for the count sub-lines. */
 export function pluralLists(n: number): string {
   return `${n} ${n === 1 ? 'list' : 'lists'}`
 }

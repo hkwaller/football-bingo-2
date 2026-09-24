@@ -20,6 +20,8 @@ export default function robots(): MetadataRoute.Robots {
           '/trivia/play',
           '/tenable/room/',
           '/tenable/play',
+          '/famous-11s/room/',
+          '/famous-11s/play',
         ],
       },
     ],

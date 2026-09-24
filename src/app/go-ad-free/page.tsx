@@ -121,7 +121,7 @@ function GoAdFree() {
     <main className="mx-auto w-full max-w-5xl px-4 py-10 sm:py-14">
       <motion.div {...fadeUp} className="text-center">
         <span className="eyebrow eyebrow-yellow">No ads · pure football</span>
-        <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] text-white sm:text-6xl">
+        <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] text-on-green sm:text-6xl">
           Go Ad-Free
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-on-green-soft">

@@ -25,14 +25,13 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
     const base =
       'relative flex-1 min-h-[140px] rounded-xl font-display text-3xl uppercase leading-none transition-all duration-200 flex items-center justify-center gap-2'
     if (!selected) {
-      return `${base} bg-white text-card-ink shadow-[0_5px_0_rgba(0,0,0,0.22)] hover:-translate-y-[3px] cursor-pointer`
+      return `${base} bg-surface text-card-ink shadow-[0_5px_0_#0a2417] hover:-translate-y-[3px] cursor-pointer`
     }
     const isCorrect = value === String(question.correct)
     const wasChosen = value === selected
-    if (isCorrect) return `${base} bg-green-go text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    if (wasChosen && !isCorrect)
-      return `${base} bg-pink text-white shadow-[0_5px_0_rgba(0,0,0,0.3)]`
-    return `${base} bg-white/55 text-card-muted opacity-70`
+    if (isCorrect) return `${base} bg-green-go text-ink shadow-[0_5px_0_#0a2417]`
+    if (wasChosen && !isCorrect) return `${base} bg-pink text-ink shadow-[0_5px_0_#0a2417]`
+    return `${base} bg-surface/55 text-card-muted opacity-70`
   }
 
   const correctBtn = (value: string) => !!selected && value === String(question.correct)
@@ -91,12 +90,12 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
             exit={{ opacity: 0 }}
           >
             <span
-              className={`inline-block -rotate-[1.5deg] rounded-full px-6 py-2.5 font-display text-[22px] font-black uppercase leading-none shadow-[0_5px_0_rgba(0,0,0,0.25)] ${
-                lastResult.correct ? 'bg-yellow text-pitch-deep' : 'bg-pink text-white'
+              className={`inline-block -rotate-[1.5deg] rounded-full px-6 py-2.5 font-display text-[22px] font-black uppercase leading-none shadow-[0_5px_0_#0a2417] ${
+                lastResult.correct ? 'bg-yellow text-ink' : 'bg-pink text-ink'
               }`}
             >
               {lastResult.correct
-                ? 'GOOOAL! Correct!'
+                ? 'Correct!'
                 : `Off the post - ${lastResult.correctAnswer === 'true' ? 'TRUE' : 'FALSE'}`}
             </span>
             {question.detail && <p className="mt-2 text-xs text-on-green-dim">{question.detail}</p>}
