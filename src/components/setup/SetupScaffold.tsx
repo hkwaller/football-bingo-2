@@ -6,9 +6,20 @@ import type { ReactNode } from 'react'
  * Outer page frame: full-width, capped at the 1440 design width, with bottom
  * padding that clears the fixed kick-off bar so nothing hides behind it.
  */
-export function SetupPageFrame({ children }: { children: ReactNode }) {
+export function SetupPageFrame({
+  children,
+  kickoff = true,
+}: {
+  children: ReactNode
+  /** Extra bottom padding so content clears the fixed kick-off bar. */
+  kickoff?: boolean
+}) {
   return (
-    <div className="mx-auto w-full max-w-[1440px] px-5 pb-[136px] pt-2 md:px-10">{children}</div>
+    <div
+      className={`mx-auto w-full max-w-[1440px] px-5 pt-2 md:px-10 ${kickoff ? 'pb-[136px]' : 'pb-10'}`}
+    >
+      {children}
+    </div>
   )
 }
 

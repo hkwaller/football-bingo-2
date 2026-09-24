@@ -11,6 +11,10 @@ interface Props {
   revealMissed?: boolean
   justFoundSlotId?: string | null
   includeManager: boolean
+  /** Called when the user clicks an empty slot — passes slotId + positionLabel. */
+  onSlotClick?: (slotId: string, positionLabel: string) => void
+  /** slotId of the currently "active" slot (clicked, awaiting a guess). */
+  activeSlotId?: string | null
 }
 
 // ── Pitch SVG background ──────────────────────────────────────────────────
@@ -76,13 +80,17 @@ function PlayerSlotBox({
   found,
   missed,
   highlight,
+  active,
   reduceMotion,
+  onSlotClick,
 }: {
   slot: LineupSlot
   found: boolean
   missed: boolean
   highlight: boolean
+  active: boolean
   reduceMotion: boolean
+  onSlotClick?: () => void
 }) {
   const state = found ? 'found' : missed ? 'missed' : 'empty'
 
@@ -93,15 +101,24 @@ function PlayerSlotBox({
     >
       <AnimatePresence mode="wait">
         {state === 'empty' ? (
-          <motion.div
+          <motion.button
             key="empty"
-            className="flex h-[56px] w-[56px] flex-col items-center justify-center rounded-[8px] border-2 border-dashed border-white/40 bg-black/25 backdrop-blur-[1px]"
-            initial={{ opacity: 1 }}
+            type="button"
+            onClick={onSlotClick}
+            aria-label={`Fill ${slot.positionLabel} position`}
+            className={`flex h-[56px] w-[56px] flex-col items-center justify-center rounded-[8px] border-2 border-dashed backdrop-blur-[1px] transition-colors ${
+              active
+                ? 'border-yellow bg-yellow/20 shadow-[0_0_0_3px_rgba(255,215,0,0.35)]'
+                : 'border-white/40 bg-black/25 hover:border-white/70 hover:bg-white/10'
+            }`}
+            animate={active && !reduceMotion ? { scale: [1, 1.08, 1] } : {}}
+            transition={{ duration: 0.25 }}
+            initial={false}
           >
-            <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-white/60">
+            <span className={`font-mono text-[9px] font-bold uppercase tracking-widest ${active ? 'text-yellow' : 'text-white/60'}`}>
               {slot.positionLabel}
             </span>
-          </motion.div>
+          </motion.button>
         ) : (
           <motion.div
             key="filled"
@@ -229,7 +246,7 @@ function ManagerChip({
 
 // ── Main component ────────────────────────────────────────────────────────
 
-export function PitchBoard({ lineup, foundSlotIds, revealMissed = false, justFoundSlotId, includeManager }: Props) {
+export function PitchBoard({ lineup, foundSlotIds, revealMissed = false, justFoundSlotId, includeManager, onSlotClick, activeSlotId }: Props) {
   const reduceMotion = useReducedMotion() ?? false
 
   return (
@@ -249,7 +266,9 @@ export function PitchBoard({ lineup, foundSlotIds, revealMissed = false, justFou
                 found={found}
                 missed={missed}
                 highlight={justFoundSlotId === slot.slotId}
+                active={!found && activeSlotId === slot.slotId}
                 reduceMotion={reduceMotion}
+                onSlotClick={!found && !missed && onSlotClick ? () => onSlotClick(slot.slotId, slot.positionLabel) : undefined}
               />
             )
           })}

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Sticker } from '@/components/Sticker'
 import { AdsterraBanner } from '@/components/AdsterraBanner'
@@ -102,8 +103,95 @@ const DECK: { name: string; imageUrl: string }[] = [
 const tilt = (i: number) => (((i * 7) % 5) - 2) * 1.4
 const VARIANTS = ['green', 'pink', 'yellow'] as const
 
+/** "How it plays" walkthrough, one three-step story per game mode. */
+const HOW_IT_PLAYS = [
+  {
+    id: 'bingo',
+    label: 'Bingo',
+    title: 'Three squares from glory',
+    steps: [
+      {
+        title: 'Build your board',
+        body: "Fill a grid with clubs, countries and honours. Every square is a football fact you're betting on.",
+      },
+      {
+        title: 'Stickers get drawn',
+        body: 'Real players, one by one. Slap each sticker on a square he genuinely fits - miss and it stays empty.',
+      },
+      {
+        title: 'Race to a line',
+        body: 'Row, column or diagonal - first to fill one shouts BINGO and takes the roar of the room.',
+      },
+    ],
+  },
+  {
+    id: 'trivia',
+    label: 'Trivia',
+    title: 'Ten questions, one winner',
+    steps: [
+      {
+        title: 'Pick your round',
+        body: 'Choose difficulty, topics and length - a quick five or a full twenty, or play against the clock.',
+      },
+      {
+        title: 'Answer fast',
+        body: 'Multiple choice, stat duels and mystery players. Everyone answers at once, so hesitation costs you.',
+      },
+      {
+        title: 'Top the table',
+        body: 'Points stack up round by round. The final leaderboard settles who actually knows their football.',
+      },
+    ],
+  },
+  {
+    id: 'tenable',
+    label: 'Tenable',
+    title: 'Name the ten',
+    steps: [
+      {
+        title: 'A list appears',
+        body: 'Top scorers, most caps, biggest transfers - ten answers hidden behind ten slots, and you know some of them.',
+      },
+      {
+        title: 'Name them, lose lives',
+        body: 'Every correct name flips a slot. Three wrong guesses and the category closes with the rest still hidden.',
+      },
+      {
+        title: 'Clear the board',
+        body: 'Each answer scores, and finding all ten lands the clear bonus. In a room you take turns, so one miss hands it over.',
+      },
+    ],
+  },
+  {
+    id: 'famous11s',
+    label: 'Famous 11s',
+    title: 'Name all eleven',
+    steps: [
+      {
+        title: 'An iconic XI loads',
+        body: 'World Cup finals, Champions League classics and legendary club sides - laid out as an empty team sheet.',
+      },
+      {
+        title: 'Fill the pitch',
+        body: 'Type any name you remember and it drops into the right position. Surnames and nicknames count.',
+      },
+      {
+        title: 'Beat the lineup',
+        body: 'Wrong guesses cost a life, so dig deep before you swing. Complete the eleven for the full clear bonus.',
+      },
+    ],
+  },
+] as const
+
+type HowItPlaysId = (typeof HOW_IT_PLAYS)[number]['id']
+
+const STEP_TONES = ['yellow', 'pink', 'sky'] as const
+const STEP_ROTATIONS = [-1, 1, -0.6]
+
 export default function HomePage() {
   const reduceMotion = useReducedMotion()
+  const [howItPlays, setHowItPlays] = useState<HowItPlaysId>('bingo')
+  const activeHowItPlays = HOW_IT_PLAYS.find((m) => m.id === howItPlays) ?? HOW_IT_PLAYS[0]
 
   return (
     <div className="flex flex-col gap-24 pb-0">
@@ -137,7 +225,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-7 flex flex-wrap gap-2.5">
-              {['🃏 641 real players', '👥 Solo or full room', '🎉 Free to play'].map((s) => (
+              {['🃏 950+ real players', '👥 Solo or full room', '🎉 Free to play'].map((s) => (
                 <span
                   key={s}
                   className="inline-flex items-center gap-2 rounded-lg bg-black/20 px-4 py-2 text-[13px] font-bold text-on-green"
@@ -160,7 +248,7 @@ export default function HomePage() {
         </div>
         {/* ── Mode cards ───────────────────────────────────────── */}
         <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8 md:pb-20">
-          <SectionHead eyebrow="Pick your game" tone="pink" title="Three ways to play" />
+          <SectionHead eyebrow="Pick your game" tone="pink" title="Four ways to play" />
           <div className="mt-9 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             <ModeCard
               title="Bingo"
@@ -221,29 +309,19 @@ export default function HomePage() {
 
       {/* ── How it plays ─────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="How it plays" tone="sky" title="Three squares from glory" />
-        <div className="mt-9 grid gap-5 sm:grid-cols-3">
-          <StepCard
-            step="1"
-            rot={-1}
-            tone="yellow"
-            title="Build your board"
-            body="Fill a grid with clubs, countries and honours. Every square is a football fact you're betting on."
-          />
-          <StepCard
-            step="2"
-            rot={1}
-            tone="pink"
-            title="Stickers get drawn"
-            body="Real players, one by one. Slap each sticker on a square he genuinely fits - miss and it stays empty."
-          />
-          <StepCard
-            step="3"
-            rot={-0.6}
-            tone="sky"
-            title="Race to a line"
-            body="Row, column or diagonal - first to fill one shouts BINGO and takes the roar of the room."
-          />
+        <SectionHead eyebrow="How it plays" tone="sky" title={activeHowItPlays.title} />
+        <ModeTabs active={howItPlays} onSelect={setHowItPlays} />
+        <div className="mt-7 grid gap-5 sm:grid-cols-3">
+          {activeHowItPlays.steps.map((s, i) => (
+            <StepCard
+              key={`${activeHowItPlays.id}-${i}`}
+              step={String(i + 1)}
+              rot={STEP_ROTATIONS[i]}
+              tone={STEP_TONES[i]}
+              title={s.title}
+              body={s.body}
+            />
+          ))}
         </div>
       </section>
 
@@ -310,6 +388,51 @@ function SectionHead({
         {title}
       </h2>
     </motion.div>
+  )
+}
+
+function ModeTabs({
+  active,
+  onSelect,
+}: {
+  active: HowItPlaysId
+  onSelect: (id: HowItPlaysId) => void
+}) {
+  const reduceMotion = useReducedMotion()
+
+  return (
+    <div className="mt-7 flex justify-center">
+      <div
+        role="tablist"
+        aria-label="Game mode"
+        className="flex flex-wrap justify-center gap-1 rounded-full border-[2.5px] border-surface/30 bg-black/20 p-1.5"
+      >
+        {HOW_IT_PLAYS.map((m) => {
+          const isActive = m.id === active
+          return (
+            <button
+              key={m.id}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => onSelect(m.id)}
+              className={`relative rounded-full px-4 py-2 font-display text-[15px] font-black uppercase leading-none tracking-wide transition-colors sm:px-5 ${
+                isActive ? 'text-ink' : 'text-on-green-soft hover:text-on-green'
+              }`}
+            >
+              {isActive && (
+                <motion.span
+                  layoutId={reduceMotion ? undefined : 'how-it-plays-tab'}
+                  transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                  className="absolute inset-0 rounded-full bg-yellow"
+                />
+              )}
+              <span className="relative">{m.label}</span>
+            </button>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 

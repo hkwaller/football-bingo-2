@@ -21,7 +21,7 @@ import {
   type ElevenLastGuess,
 } from '@/lib/famous11s/liveblocksEleven'
 import { loadFamous11sConfig } from '@/lib/famous11s/storage'
-import { selectLineups, lineupTarget } from '@/data/famous11s'
+import { getLineupById, selectLineups, lineupTarget } from '@/data/famous11s'
 import { matchSlot } from '@/lib/famous11s/matching'
 import { POINTS_PER_SLOT, CLEAR_BONUS, MISS_PENALTY } from '@/lib/famous11s/types'
 import { randomUUID } from '@/lib/randomUUID'
@@ -153,10 +153,16 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   const startGame = useElevenM(({ storage }, ids: number[]) => {
     const cfg = loadFamous11sConfig()
     const seed = randomUUID()
-    const picked = selectLineups(seed, cfg.lineupCount, {
-      kind: cfg.kind,
-      difficulty: cfg.difficulty,
-    })
+    const picked = cfg.selectedLineupId
+      ? (() => {
+          const l = getLineupById(cfg.selectedLineupId!)
+          return l ? [l] : []
+        })()
+      : selectLineups(seed, cfg.lineupCount, {
+          kind: cfg.kind,
+          era: cfg.era,
+          difficulty: cfg.difficulty,
+        })
     storage.set('configJson', JSON.stringify(cfg))
     storage.set('seed', seed)
     storage.set('lineupsJson', JSON.stringify(picked))

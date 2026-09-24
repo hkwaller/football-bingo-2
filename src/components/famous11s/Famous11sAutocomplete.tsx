@@ -7,6 +7,11 @@ interface Props {
   disabled?: boolean
   placeholder?: string
   focusKey?: number
+  /**
+   * 'default' — light text on dark green background (pitch view).
+   * 'bar'     — dark ink text on the light cream bottom bar; dropdown opens upward.
+   */
+  variant?: 'default' | 'bar'
 }
 
 /**
@@ -14,7 +19,8 @@ interface Props {
  * Pool includes all Famous 11s names + enrichedFootballPlayers for decoy
  * coverage. Free-typed names still submit even when not suggested.
  */
-export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a player…', focusKey }: Props) {
+export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a player…', focusKey, variant = 'default' }: Props) {
+  const isBar = variant === 'bar'
   const [query, setQuery] = useState('')
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [open, setOpen] = useState(false)
@@ -74,10 +80,16 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
       e.preventDefault()
       setActive((i) => Math.max(i - 1, -1))
     } else if (e.key === 'Enter') {
+      // Highlighted suggestion → submit it.
       if (active >= 0 && suggestions[active]) {
         e.preventDefault()
         submit(suggestions[active])
+      } else if (open && suggestions.length === 1) {
+        // Only one suggestion visible → treat it as if it were selected.
+        e.preventDefault()
+        submit(suggestions[0])
       }
+      // Otherwise fall through to the form's onSubmit.
     } else if (e.key === 'Escape') {
       setOpen(false)
       setActive(-1)
@@ -88,7 +100,14 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
     <form
       onSubmit={(e) => {
         e.preventDefault()
-        submit(active >= 0 && suggestions[active] ? suggestions[active] : query)
+        // Use highlighted suggestion, or the only visible one, or raw query.
+        const best =
+          active >= 0 && suggestions[active]
+            ? suggestions[active]
+            : open && suggestions.length === 1
+              ? suggestions[0]
+              : query
+        submit(best)
       }}
       className="relative"
     >
@@ -103,10 +122,20 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
         placeholder={placeholder}
         autoComplete="off"
         spellCheck={false}
-        className="h-[52px] w-full rounded-[12px] border-2 border-surface/20 bg-surface/15 px-4 font-display text-[17px] font-black uppercase text-on-green placeholder:text-on-green-dim focus:border-yellow focus:outline-none disabled:opacity-50"
+        className={`h-[52px] w-full rounded-[12px] border-2 px-4 font-display text-[17px] font-black uppercase focus:outline-none disabled:opacity-50 ${
+          isBar
+            ? 'border-ink/20 bg-surface-hi text-ink placeholder:text-ink/40 focus:border-ink'
+            : 'border-surface/20 bg-surface/15 text-on-green placeholder:text-on-green-dim focus:border-yellow'
+        }`}
       />
       {open && suggestions.length > 0 && (
-        <ul className="absolute left-0 right-0 top-[56px] z-20 overflow-hidden rounded-[10px] border border-surface/20 bg-ink shadow-[0_8px_0_#0a2417]">
+        <ul
+          className={`absolute left-0 right-0 z-20 overflow-hidden rounded-[10px] border bg-ink shadow-[0_8px_0_#0a2417] ${
+            isBar
+              ? 'bottom-[56px] border-ink/30 shadow-[0_-8px_0_#0a2417]'
+              : 'top-[56px] border-surface/20'
+          }`}
+        >
           {suggestions.map((s, i) => (
             <li key={s}>
               <button

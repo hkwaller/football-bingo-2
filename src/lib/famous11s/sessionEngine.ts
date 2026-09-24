@@ -24,6 +24,7 @@ export function buildSession(config: Famous11sConfig, seed?: string): Famous11sS
         })()
       : selectLineups(sessionSeed, config.lineupCount, {
           kind: config.kind,
+          era: config.era,
           difficulty: config.difficulty,
         })
 
@@ -60,7 +61,7 @@ export function submitGuess(
 ): { state: Famous11sSessionState; outcome: GuessOutcome } {
   const lineup = state.lineups[state.currentIndex]
   if (!lineup || state.phase !== 'playing' || isLineupOver(state)) {
-    return { state, outcome: { kind: 'wrong' } }
+    return { state, outcome: { kind: 'wrong', name: '' } }
   }
 
   const outcome = matchSlot(name, lineup, state.foundSlotIds, state.config.includeManager)

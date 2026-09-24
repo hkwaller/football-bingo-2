@@ -2,8 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { famousLineups } from '@/data/famous11s'
-import type { Famous11sDifficultyFilter, Famous11sKindFilter } from '@/lib/famous11s/types'
+import type { Famous11sDifficultyFilter, Famous11sEraFilter, Famous11sKindFilter } from '@/lib/famous11s/types'
 import { DEFAULT_FAMOUS11S_CONFIG, type Famous11sConfig } from '@/lib/famous11s/types'
 import {
   clearFamous11sSession,
@@ -16,6 +15,7 @@ import { PresetPills, type Preset } from '@/components/setup/PresetPills'
 import { SegmentedNumbers } from '@/components/setup/SegmentedNumbers'
 import { KickoffBar } from '@/components/setup/KickoffBar'
 import { ControlLabel, ReadoutTile, SelectRow } from '@/components/setup/primitives'
+import { Famous11sBrowse } from './Famous11sBrowse'
 
 const DIFFICULTIES: Array<{ value: Famous11sDifficultyFilter; label: string; explainer: string }> =
   [
@@ -35,28 +35,38 @@ const KINDS: Array<{ value: Famous11sKindFilter; label: string; explainer: strin
   { value: 'club', label: 'Club sides', explainer: 'CL finals, domestic champions' },
 ]
 
-type PresetPatch = Partial<Pick<Famous11sConfig, 'lineupCount' | 'difficulty' | 'kind' | 'lives'>>
+const ERAS: Array<{ value: Famous11sEraFilter; label: string; explainer: string }> = [
+  { value: 'all', label: 'All', explainer: 'Classic XIs and recent Big Nights' },
+  { value: 'classic', label: 'Classic', explainer: 'Folklore sides - finals and legendary XIs' },
+  { value: 'big-nights', label: 'Big Nights', explainer: 'Recent marquee matches' },
+]
+
+type PresetPatch = Partial<
+  Pick<Famous11sConfig, 'lineupCount' | 'difficulty' | 'kind' | 'era' | 'lives'>
+>
 
 const PRESETS: Array<Preset & { patch: PresetPatch }> = [
   {
     id: 'pubnight',
     emoji: '🍺',
     label: 'Pub Night',
-    patch: { difficulty: 'mixed', lineupCount: 3, lives: 3, kind: 'all' },
+    patch: { difficulty: 'mixed', lineupCount: 3, lives: 3, kind: 'all', era: 'all' },
   },
   {
     id: 'warmup',
     emoji: '👣',
     label: 'Warm-up',
-    patch: { difficulty: 'easy', lineupCount: 1, lives: 5, kind: 'all' },
+    patch: { difficulty: 'easy', lineupCount: 1, lives: 5, kind: 'all', era: 'all' },
   },
   {
     id: 'anorak',
     emoji: '🤓',
     label: 'Anorak',
-    patch: { difficulty: 'hard', lineupCount: 5, lives: 2, kind: 'national' },
+    patch: { difficulty: 'hard', lineupCount: 5, lives: 2, kind: 'national', era: 'classic' },
   },
 ]
+
+type SetupTab = 'mix' | 'pick'
 
 export function Famous11sSetup() {
   const router = useRouter()
@@ -67,7 +77,7 @@ export function Famous11sSetup() {
 
   const [config, setConfig] = useState<Famous11sConfig>(DEFAULT_FAMOUS11S_CONFIG)
   const [hydrated, setHydrated] = useState(false)
-  const [showGallery, setShowGallery] = useState(false)
+  const [tab, setTab] = useState<SetupTab>('mix')
 
   useEffect(() => {
     setConfig(loadFamous11sConfig())
@@ -85,28 +95,31 @@ export function Famous11sSetup() {
     const preset = PRESETS.find((p) => p.id === id)
     if (!preset) return
     persist({ ...config, ...preset.patch, selectedLineupId: undefined })
+    setTab('mix')
   }
 
   function pickLineup(id: string) {
     persist({ ...config, lineupCount: 1, selectedLineupId: id })
     if (isSolo) launchSolo(id)
-    else if (isMultiplayer) launchMultiplayer()
+    else if (isMultiplayer) launchMultiplayer({ ...config, lineupCount: 1, selectedLineupId: id })
   }
 
   function launchSolo(selectedId?: string) {
-    const cfg = selectedId ? { ...config, selectedLineupId: selectedId } : config
+    const cfg = selectedId
+      ? { ...config, selectedLineupId: selectedId, lineupCount: 1 as const }
+      : { ...config, selectedLineupId: undefined }
     clearFamous11sSession()
     saveFamous11sConfig(cfg)
     router.push('/famous-11s/play')
   }
-  function launchMultiplayer() {
-    saveFamous11sConfig(config)
+  function launchMultiplayer(next?: Famous11sConfig) {
+    saveFamous11sConfig(next ?? { ...config, selectedLineupId: undefined })
     router.push('/famous-11s/room/new')
   }
 
   const poolSize = useMemo(
-    () => lineupPoolSize(config.kind, config.difficulty),
-    [config.kind, config.difficulty],
+    () => lineupPoolSize(config.kind, config.difficulty, config.era),
+    [config.kind, config.difficulty, config.era],
   )
   const isValid = poolSize > 0
 
@@ -119,12 +132,6 @@ export function Famous11sSetup() {
   }, [config])
 
   if (!hydrated) return null
-
-  const galleryLineups = famousLineups.filter((l) => {
-    if (config.kind !== 'all' && l.kind !== config.kind) return false
-    if (config.difficulty !== 'mixed' && l.difficulty !== config.difficulty) return false
-    return true
-  })
 
   const col1 = (
     <>
@@ -174,7 +181,7 @@ export function Famous11sSetup() {
               onClick={() => update('difficulty', d.value)}
               name={d.label}
               explainer={d.explainer}
-              count={`${lineupPoolSize(config.kind, d.value)} lineups`}
+              count={`${pluralLineups(lineupPoolSize(config.kind, d.value, config.era))}`}
             />
           ))}
         </div>
@@ -234,74 +241,37 @@ export function Famous11sSetup() {
               onClick={() => update('kind', k.value)}
               name={k.label}
               explainer={k.explainer}
-              count={`${lineupPoolSize(k.value, config.difficulty)} lineups`}
+              count={`${pluralLineups(lineupPoolSize(k.value, config.difficulty, config.era))}`}
             />
           ))}
         </div>
       </div>
-      {/* Gallery toggle */}
-      <div className="border-t border-card-ink/15 pt-4">
-        <button
-          type="button"
-          onClick={() => setShowGallery((v) => !v)}
-          className="w-full rounded-[12px] bg-card-tint/60 px-4 py-3 text-left transition-all hover:bg-card-tint"
-        >
-          <span className="font-display text-[15px] font-black uppercase leading-none text-card-ink">
-            {showGallery ? '↑ Hide gallery' : '↓ Pick a specific lineup'}
-          </span>
-          <p className="mt-0.5 text-[11px] font-semibold text-card-muted">
-            Browse and pick one XI to play
-          </p>
-        </button>
-        {showGallery && (
-          <div className="mt-3 flex max-h-[340px] flex-col gap-2 overflow-y-auto">
-            {galleryLineups.length === 0 ? (
-              <p className="py-4 text-center text-sm font-semibold text-card-muted">
-                No lineups match current filters
-              </p>
-            ) : (
-              galleryLineups.map((l) => (
-                <button
-                  key={l.id}
-                  type="button"
-                  onClick={() => pickLineup(l.id)}
-                  className="rounded-[10px] bg-card-tint/70 px-3 py-2.5 text-left transition-all hover:-translate-y-px hover:bg-card-tint active:translate-y-0"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <p className="font-display text-[13px] font-black uppercase leading-tight text-card-ink">
-                      {l.title}
-                    </p>
-                    <span
-                      className={`shrink-0 rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase ${
-                        l.difficulty === 'easy'
-                          ? 'bg-green-go/20 text-green-go'
-                          : l.difficulty === 'medium'
-                            ? 'bg-yellow/25 text-card-ink'
-                            : 'bg-red/20 text-red'
-                      }`}
-                    >
-                      {l.difficulty}
-                    </span>
-                  </div>
-                  <p className="mt-0.5 text-[11px] font-semibold text-card-muted">{l.prompt}</p>
-                  <p className="mt-0.5 font-mono text-[10px] text-card-muted-2">{l.formation}</p>
-                </button>
-              ))
-            )}
-          </div>
-        )}
+      <div>
+        <ControlLabel className="mb-3">Era</ControlLabel>
+        <div className="flex flex-col gap-2" role="radiogroup" aria-label="Era">
+          {ERAS.map((e) => (
+            <SelectRow
+              key={e.value}
+              active={config.era === e.value}
+              onClick={() => update('era', e.value)}
+              name={e.label}
+              explainer={e.explainer}
+              count={`${pluralLineups(lineupPoolSize(config.kind, config.difficulty, e.value))}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
 
   const diffLabel = DIFFICULTIES.find((d) => d.value === config.difficulty)?.label ?? 'Mixed'
-  const kindLabel = KINDS.find((k) => k.value === config.kind)?.label ?? 'All'
+  const eraLabel = ERAS.find((e) => e.value === config.era)?.label ?? 'All'
 
   const fields = [
     { label: 'Lineups', value: `${config.lineupCount} XI${config.lineupCount === 1 ? '' : 's'}` },
     { label: 'Lives', value: `${config.lives} wrong` },
     { label: 'Difficulty', value: diffLabel },
-    { label: 'Type', value: kindLabel },
+    { label: 'Era', value: eraLabel },
   ]
 
   const hint = isSolo ? undefined : isMultiplayer ? (
@@ -314,28 +284,68 @@ export function Famous11sSetup() {
 
   return (
     <>
-      <SetupPageFrame>
+      <SetupPageFrame kickoff={tab === 'mix'}>
         <SetupHeader
           badge={`Famous 11s · ${isSolo ? 'Solo' : 'Multiplayer'}`}
           title="Name the eleven"
           badgeTone="yellow"
         >
-          <PresetPills presets={PRESETS} activeId={activePreset} onSelect={applyPreset} />
+          {tab === 'mix' && (
+            <PresetPills presets={PRESETS} activeId={activePreset} onSelect={applyPreset} />
+          )}
         </SetupHeader>
-        <div className="mt-5">
-          <TacticsBoard tall col1={col1} col2={col2} topics={topicsPanel} />
+
+        <div
+          role="tablist"
+          aria-label="How to play"
+          className="mt-5 flex gap-1.5 rounded-full border-[2.5px] border-surface/30 bg-black/20 p-1.5"
+        >
+          {(
+            [
+              { id: 'mix' as const, label: 'Play a mix' },
+              { id: 'pick' as const, label: 'Pick an XI' },
+            ] as const
+          ).map((t) => {
+            const active = tab === t.id
+            return (
+              <button
+                key={t.id}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setTab(t.id)}
+                className={`flex-1 rounded-full px-4 py-2.5 font-display text-[16px] font-black uppercase leading-none tracking-wide transition-colors md:text-[18px] ${
+                  active
+                    ? 'bg-yellow text-ink shadow-[0_3px_0_#0a2417]'
+                    : 'text-on-green-soft hover:text-on-green'
+                }`}
+              >
+                {t.label}
+              </button>
+            )
+          })}
         </div>
+
+        {tab === 'mix' ? (
+          <div className="mt-5">
+            <TacticsBoard tall col1={col1} col2={col2} topics={topicsPanel} />
+          </div>
+        ) : (
+          <Famous11sBrowse onPick={pickLineup} />
+        )}
       </SetupPageFrame>
 
-      <KickoffBar
-        fields={fields}
-        mobilePrimary={`${config.lineupCount} lineup${config.lineupCount === 1 ? '' : 's'}`}
-        mobileDetail={`${config.lives} lives · ${diffLabel} · ${kindLabel}`}
-        hint={hint}
-        ctaLabel={isSolo ? 'Kick off' : 'Create room'}
-        onCta={isSolo ? () => launchSolo() : launchMultiplayer}
-        disabled={!isValid}
-      />
+      {tab === 'mix' && (
+        <KickoffBar
+          fields={fields}
+          mobilePrimary={`${config.lineupCount} lineup${config.lineupCount === 1 ? '' : 's'}`}
+          mobileDetail={`${config.lives} lives · ${diffLabel} · ${eraLabel}`}
+          hint={hint}
+          ctaLabel={isSolo ? 'Kick off' : 'Create room'}
+          onCta={isSolo ? () => launchSolo() : () => launchMultiplayer()}
+          disabled={!isValid}
+        />
+      )}
     </>
   )
 }

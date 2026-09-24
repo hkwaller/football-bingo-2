@@ -1,9 +1,11 @@
-import type { Famous11sLineup, LineupDifficulty, LineupKind } from '@/data/famous11s'
+import type { Famous11sLineup, LineupDifficulty, LineupEra, LineupKind } from '@/data/famous11s'
 
 export type { Famous11sLineup }
 
 export type Famous11sDifficultyFilter = LineupDifficulty | 'mixed'
 export type Famous11sKindFilter = LineupKind | 'all'
+export type Famous11sEraFilter = LineupEra | 'all'
+export type Famous11sBrowseSort = 'year-desc' | 'year-asc' | 'side' | 'difficulty'
 
 /** Points per correctly guessed player slot. */
 export const POINTS_PER_SLOT = 100
@@ -17,6 +19,8 @@ export interface Famous11sConfig {
   lineupCount: 1 | 3 | 5 | 7
   /** Kind filter - national, club, or both. */
   kind: Famous11sKindFilter
+  /** Era filter - classic folklore XIs, recent big nights, or both. */
+  era: Famous11sEraFilter
   /** Difficulty filter. */
   difficulty: Famous11sDifficultyFilter
   /** Whether the manager is an extra guessable slot. */
@@ -36,6 +40,7 @@ export interface Famous11sConfig {
 export const DEFAULT_FAMOUS11S_CONFIG: Famous11sConfig = {
   lineupCount: 1,
   kind: 'all',
+  era: 'all',
   difficulty: 'mixed',
   includeManager: true,
   lives: 3,
@@ -48,7 +53,7 @@ export const DEFAULT_FAMOUS11S_CONFIG: Famous11sConfig = {
 export type GuessOutcome =
   | { kind: 'correct'; slotId: string; name: string }
   | { kind: 'already-found'; slotId: string; name: string }
-  | { kind: 'wrong' }
+  | { kind: 'wrong'; name: string }
 
 /** Finalized record of one played lineup. */
 export interface LineupResult {

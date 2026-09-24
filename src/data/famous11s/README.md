@@ -71,5 +71,25 @@ All lineups must be sourced. Acceptable sources:
 | `inter-cl-final-2010` | [Wikipedia – 2010 UEFA Champions League Final](https://en.wikipedia.org/wiki/2010_UEFA_Champions_League_final) |
 | `arsenal-invincibles-0304` | [Wikipedia – Arsenal F.C. 2003–04 season](https://en.wikipedia.org/wiki/Arsenal_F.C._2003%E2%80%9304_season) |
 | `leicester-pl-1516` | [Wikipedia – Leicester City 2015–16 season](https://en.wikipedia.org/wiki/2015%E2%80%9316_Leicester_City_F.C._season) |
+| `argentina-wc22-final` | [Wikipedia – 2022 FIFA World Cup final](https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final) |
+| `france-wc18-final` | [Wikipedia – 2018 FIFA World Cup final](https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_final) |
+| `spain-wc10-final` | [Wikipedia – 2010 FIFA World Cup Final](https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_Final) |
+| `brazil-wc02-final` | [Wikipedia – 2002 FIFA World Cup Final](https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_Final) |
+| `liverpool-cl-final-2005` | [Wikipedia – 2005 UEFA Champions League final](https://en.wikipedia.org/wiki/2005_UEFA_Champions_League_final) |
+| `chelsea-cl-final-2012` | [Wikipedia – 2012 UEFA Champions League final](https://en.wikipedia.org/wiki/2012_UEFA_Champions_League_final) |
+| `man-utd-fa-cup-final-2024` | [Wikipedia – 2024 FA Cup final](https://en.wikipedia.org/wiki/2024_FA_Cup_final) |
+| `man-city-fa-cup-final-2024` | [Wikipedia – 2024 FA Cup final](https://en.wikipedia.org/wiki/2024_FA_Cup_final) |
+| `barcelona-el-clasico-2024-10` | [ESPN – Real Madrid 0–4 Barcelona lineups](https://www.espn.com/soccer/lineups/_/gameId/704766) |
+| `real-madrid-el-clasico-2024-10` | [ESPN – Real Madrid 0–4 Barcelona lineups](https://www.espn.com/soccer/lineups/_/gameId/704766) |
+| `italy-wc06-final` | [Wikipedia – 2006 FIFA World Cup final](https://en.wikipedia.org/wiki/2006_FIFA_World_Cup_final) |
+| `germany-wc14-final` | [Wikipedia – 2014 FIFA World Cup final](https://en.wikipedia.org/wiki/2014_FIFA_World_Cup_final) |
+| `italy-euro20-final` | [Wikipedia – UEFA Euro 2020 final](https://en.wikipedia.org/wiki/UEFA_Euro_2020_final) |
+| `man-utd-cl-final-2008` | [Wikipedia – 2008 UEFA Champions League final](https://en.wikipedia.org/wiki/2008_UEFA_Champions_League_Final) |
+| `chelsea-cl-final-2008` | [Wikipedia – 2008 UEFA Champions League final](https://en.wikipedia.org/wiki/2008_UEFA_Champions_League_Final) |
+| `bayern-cl-final-2013` | [Wikipedia – 2013 UEFA Champions League final](https://en.wikipedia.org/wiki/2013_UEFA_Champions_League_final) |
+| `real-madrid-cl-final-2022` | [Wikipedia – 2022 UEFA Champions League final](https://en.wikipedia.org/wiki/2022_UEFA_Champions_League_final) |
+| `man-city-cl-final-2023` | [Wikipedia – 2023 UEFA Champions League final](https://en.wikipedia.org/wiki/2023_UEFA_Champions_League_final) |
+| `spain-euro24-final` | [Wikipedia – UEFA Euro 2024 final](https://en.wikipedia.org/wiki/UEFA_Euro_2024_final) |
+| `england-euro24-final` | [Wikipedia – UEFA Euro 2024 final](https://en.wikipedia.org/wiki/UEFA_Euro_2024_final) |
 
 > **Note:** Lineup slot names should be verified against the Wikipedia match report infobox before shipping. History from memory may be slightly off (e.g. a backup defender who started instead of the usual starter in a specific final).

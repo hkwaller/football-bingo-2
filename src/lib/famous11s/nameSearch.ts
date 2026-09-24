@@ -13,11 +13,14 @@ type Entry = { display: string; key: string; fame: number }
 const ENTRIES: Entry[] = (() => {
   const byKey = new Map<string, Entry>()
 
-  const add = (name: string, fame: number) => {
+  // displayOverride: store a different display string than the lookup key.
+  // Used for aliases so "Guivarch" (key) → "Stéphane Guivarch" (display).
+  const add = (name: string, fame: number, displayOverride?: string) => {
     const key = normalize(name)
     if (!key) return
+    const display = displayOverride ?? name
     const existing = byKey.get(key)
-    if (!existing || fame > existing.fame) byKey.set(key, { display: name, key, fame })
+    if (!existing || fame > existing.fame) byKey.set(key, { display, key, fame })
   }
 
   // Main player pool - rich fame scores for good ranking.
@@ -28,12 +31,18 @@ const ENTRIES: Entry[] = (() => {
   for (const lineup of famousLineups) {
     for (const slot of lineup.slots) {
       add(slot.name, 0)
-      for (const alias of slot.aliases ?? []) add(alias, 0)
+      // Aliases use the canonical full name as display so the dropdown never
+      // shows a bare surname like "Guivarch" alongside "Stéphane Guivarch".
+      for (const alias of slot.aliases ?? []) add(alias, 0, slot.name)
     }
     if (lineup.manager) {
       add(lineup.manager.name, 0)
-      for (const alias of lineup.manager.aliases ?? []) add(alias, 0)
+      for (const alias of lineup.manager.aliases ?? []) add(alias, 0, lineup.manager.name)
     }
+    // Squad members appear in autocomplete but are wrong answers - this lets
+    // players type a name from the squad and get a "not in this lineup" response
+    // rather than no autocomplete at all.
+    for (const name of lineup.squad ?? []) add(name, 0)
   }
 
   return [...byKey.values()]
@@ -57,5 +66,17 @@ export function searchFamous11sNames(query: string, limit = 8): NameSuggestion[]
   const byFame = (a: Entry, b: Entry) => b.fame - a.fame
   prefix.sort(byFame)
   contains.sort(byFame)
-  return [...prefix, ...contains].slice(0, limit).map((e) => ({ name: e.display }))
+
+  // Deduplicate by display name (alias entries share the canonical display).
+  const seen = new Set<string>()
+  const results: NameSuggestion[] = []
+  for (const e of [...prefix, ...contains]) {
+    const dk = normalize(e.display)
+    if (!seen.has(dk)) {
+      seen.add(dk)
+      results.push({ name: e.display })
+    }
+    if (results.length >= limit) break
+  }
+  return results
 }

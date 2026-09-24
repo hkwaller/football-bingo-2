@@ -16,7 +16,9 @@ export function matchSlot(
   includeManager: boolean,
 ): GuessOutcome {
   const key = normalize(input)
-  if (!key) return { kind: 'wrong' }
+  // Capitalise the raw input nicely for display (Title Case each word)
+  const displayName = input.trim().replace(/\b\w/g, (c) => c.toUpperCase())
+  if (!key) return { kind: 'wrong', name: displayName }
 
   // Check player slots first.
   for (const slot of lineup.slots) {
@@ -41,5 +43,5 @@ export function matchSlot(
     }
   }
 
-  return { kind: 'wrong' }
+  return { kind: 'wrong', name: displayName }
 }

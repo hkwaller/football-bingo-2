@@ -8,7 +8,8 @@
 import { clubs as APP_CLUBS } from '../src/data/clubs'
 import { managers } from './data/managers'
 import { LEGEND_OVERRIDES } from './data/legendOverrides'
-import { DISPLAY_NAMES } from './data/manualPlayers'
+import { DISPLAY_NAMES, MANUAL_PLAYER_IDS } from './data/manualPlayers'
+import { FAME_OVERRIDES, CURATED_FAME_FLOOR } from './data/fameOverrides'
 
 // ─── Club canonicalisation (by Transfermarkt club ID) ────────────────────────
 // The transfers feed carries stable club IDs (t.clubFrom.id / t.clubTo.id).
@@ -37,7 +38,10 @@ function canonicalClubName(id: string | undefined, rawName: string): string {
 
 const TROPHY_ACHIEVEMENT_MAP: [RegExp, string][] = [
   // Patterns match Transfermarkt's wording ("Champions League winner"); only the labels are short.
-  [/UEFA Champions League|Champions League winner|European Champion Clubs' Cup winner/i, 'CL winner'],
+  [
+    /UEFA Champions League|Champions League winner|European Champion Clubs' Cup winner/i,
+    'CL winner',
+  ],
   [
     /FIFA Club World Cup|Club World Cup winner|Intercontinental Cup winner|FIFA Intercontinental Cup/i,
     'Club World Cup winner',
@@ -590,7 +594,10 @@ export function processPlayer(raw: any, squadInfo?: any) {
   // ── managers ──
   p.managers = deriveManagers(raw)
 
-  p.fameScore = computeFameScore(p, intl.caps)
+  // Hand-set floors fix what the formula can't see (pre-2000 data gaps); see fameOverrides.ts.
+  const fameFloor =
+    FAME_OVERRIDES[p.playerId] ?? (MANUAL_PLAYER_IDS.has(p.playerId) ? CURATED_FAME_FLOOR : 0)
+  p.fameScore = Math.max(computeFameScore(p, intl.caps), fameFloor)
 
   return p
 }

@@ -27,6 +27,8 @@ export function Famous11sGame() {
   const [session, setSession] = useState<Famous11sSessionState | null>(null)
   const [feedback, setFeedback] = useState<Feedback | null>(null)
   const [justFoundSlotId, setJustFoundSlotId] = useState<string | null>(null)
+  const [activeSlotId, setActiveSlotId] = useState<string | null>(null)
+  const [revealed, setRevealed] = useState(false)
   const [focusKey, setFocusKey] = useState(0)
   const [timerResetKey, setTimerResetKey] = useState(0)
   const finishedRef = useRef(false)
@@ -74,6 +76,7 @@ export function Famous11sGame() {
       setFeedback({ outcome, id: feedbackSeq.current })
       if (outcome.kind === 'correct') {
         setJustFoundSlotId(outcome.slotId)
+        setActiveSlotId(null)
         window.setTimeout(() => setJustFoundSlotId(null), 900)
       }
       setFocusKey((k) => k + 1)
@@ -82,10 +85,17 @@ export function Famous11sGame() {
     [session, lineupOver],
   )
 
+  const handleSlotClick = useCallback((slotId: string) => {
+    setActiveSlotId((prev) => (prev === slotId ? null : slotId))
+    setFocusKey((k) => k + 1) // re-focus the input
+  }, [])
+
   const handleNext = useCallback(() => {
     if (!session) return
     setFeedback(null)
     setJustFoundSlotId(null)
+    setActiveSlotId(null)
+    setRevealed(false)
     setSession(advanceLineup(session))
     setFocusKey((k) => k + 1)
     setTimerResetKey((k) => k + 1)
@@ -117,51 +127,120 @@ export function Famous11sGame() {
 
   const cleared = session.foundSlotIds.length >= totalSlots
 
-  return (
-    <div className="mx-auto flex w-full max-w-[680px] flex-col px-4 py-6 md:px-8">
-      <Famous11sHUD
-        lineup={currentLineup}
-        lineupNumber={session.currentIndex + 1}
-        totalLineups={session.lineups.length}
-        foundCount={session.foundSlotIds.length}
-        totalSlots={totalSlots}
-        livesLeft={session.livesLeft === Infinity ? session.config.lives : session.livesLeft}
-        maxLives={session.config.lives}
-        score={session.score}
-        secondsLeft={secondsLeft}
+  const isLastLineup = session.currentIndex + 1 >= session.lineups.length
+  const inputArea = lineupOver ? (
+    <div className="flex flex-col items-center gap-3 rounded-[12px] bg-black/20 px-4 py-4 text-center">
+      <p className="font-display text-2xl font-black uppercase leading-none text-on-green">
+        {cleared ? '🎉 Full XI!' : 'Out of lives'}
+      </p>
+      <p className="text-sm font-semibold text-on-green-soft">
+        You found {session.foundSlotIds.length} of {totalSlots}.
+      </p>
+      <div className="flex w-full flex-col gap-2">
+        <button onClick={handleNext} className="btn btn-primary btn-lg w-full">
+          {isLastLineup ? 'See results' : 'Next lineup'}
+        </button>
+        {!cleared && !revealed && (
+          <button
+            onClick={() => setRevealed(true)}
+            className="btn btn-outline-light btn-lg w-full"
+          >
+            Reveal answers
+          </button>
+        )}
+      </div>
+    </div>
+  ) : (
+    <>
+      <Famous11sAutocomplete
+        onGuess={handleGuess}
+        focusKey={focusKey}
+        placeholder={
+          activeSlotId
+            ? `Name the ${currentLineup.slots.find((s) => s.slotId === activeSlotId)?.positionLabel ?? 'player'}…`
+            : 'Name a player…'
+        }
       />
+      <div className="mt-2 h-6">
+        <AnimatePresence mode="wait">
+          {feedback && (
+            <motion.p
+              key={feedback.id}
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.18 }}
+              className={`text-center text-sm font-bold ${
+                feedback.outcome.kind === 'correct'
+                  ? 'text-yellow'
+                  : feedback.outcome.kind === 'already-found'
+                    ? 'text-on-green-soft'
+                    : 'text-pink'
+              }`}
+            >
+              {feedback.outcome.kind === 'correct'
+                ? `✓ ${feedback.outcome.name}`
+                : feedback.outcome.kind === 'already-found'
+                  ? `Already found ${feedback.outcome.name}`
+                  : `✗ ${feedback.outcome.name} didn't start`}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
+  )
 
-      {/* Input / round-over controls */}
-      <div className="mb-4 min-h-[88px]">
-        {lineupOver ? (
-          <div className="flex flex-col items-center gap-3 rounded-[12px] bg-black/20 px-4 py-4 text-center">
-            <p className="font-display text-2xl font-black uppercase leading-none text-on-green">
-              {cleared ? '🎉 Full XI!' : '💔 Out of lives'}
-            </p>
-            <p className="text-sm font-semibold text-on-green-soft">
-              You found {session.foundSlotIds.length} of {totalSlots}.
-            </p>
-            <button onClick={handleNext} className="btn btn-primary btn-lg">
-              {session.currentIndex + 1 >= session.lineups.length ? 'See results' : 'Next lineup'}
-            </button>
-          </div>
-        ) : (
-          <>
-            <Famous11sAutocomplete onGuess={handleGuess} focusKey={focusKey} />
-            <div className="mt-2 h-6">
+  return (
+    <>
+      {/* ── Main content ─────────────────────────────────────────────── */}
+      <div className="mx-auto flex w-full max-w-[680px] flex-col px-4 py-6 pb-[96px] md:px-8 lg:pb-6">
+        <Famous11sHUD
+          lineup={currentLineup}
+          lineupNumber={session.currentIndex + 1}
+          totalLineups={session.lineups.length}
+          foundCount={session.foundSlotIds.length}
+          totalSlots={totalSlots}
+          livesLeft={session.livesLeft === Infinity ? session.config.lives : session.livesLeft}
+          maxLives={session.config.lives}
+          score={session.score}
+          secondsLeft={secondsLeft}
+        />
+
+        {/* Input - hidden on mobile (replaced by fixed bottom bar) */}
+        <div className="mb-4 hidden min-h-[88px] lg:block">{inputArea}</div>
+
+        {/* On mobile, show round-over inline (bottom bar can't hold the Next button) */}
+        {lineupOver && <div className="mb-4 lg:hidden">{inputArea}</div>}
+
+        <PitchBoard
+          lineup={currentLineup}
+          foundSlotIds={session.foundSlotIds}
+          revealMissed={cleared || revealed}
+          justFoundSlotId={justFoundSlotId}
+          includeManager={session.config.includeManager}
+          onSlotClick={!lineupOver ? handleSlotClick : undefined}
+          activeSlotId={activeSlotId}
+        />
+      </div>
+
+      {/* ── Mobile fixed bottom input bar ────────────────────────────── */}
+      {!lineupOver && (
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 lg:hidden">
+          <div className="pointer-events-auto border-t-[3px] border-ink bg-surface px-4 pb-[max(16px,env(safe-area-inset-bottom))] shadow-[0_-4px_0_rgba(10,36,23,0.4)]">
+            <div className="mt-1.5 h-5">
               <AnimatePresence mode="wait">
                 {feedback && (
                   <motion.p
                     key={feedback.id}
-                    initial={{ opacity: 0, y: -6 }}
+                    initial={{ opacity: 0, y: -4 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.18 }}
-                    className={`text-center text-sm font-bold ${
+                    transition={{ duration: 0.15 }}
+                    className={`text-center text-xs font-bold ${
                       feedback.outcome.kind === 'correct'
                         ? 'text-yellow'
                         : feedback.outcome.kind === 'already-found'
-                          ? 'text-on-green-soft'
+                          ? 'text-card-muted'
                           : 'text-pink'
                     }`}
                   >
@@ -169,22 +248,20 @@ export function Famous11sGame() {
                       ? `✓ ${feedback.outcome.name}`
                       : feedback.outcome.kind === 'already-found'
                         ? `Already found ${feedback.outcome.name}`
-                        : '✗ Not in this lineup - lost a life'}
+                        : `✗ ${feedback.outcome.name} didn't start`}
                   </motion.p>
                 )}
               </AnimatePresence>
             </div>
-          </>
-        )}
-      </div>
-
-      <PitchBoard
-        lineup={currentLineup}
-        foundSlotIds={session.foundSlotIds}
-        revealMissed={lineupOver}
-        justFoundSlotId={justFoundSlotId}
-        includeManager={session.config.includeManager}
-      />
-    </div>
+            <Famous11sAutocomplete
+              onGuess={handleGuess}
+              focusKey={focusKey}
+              variant="bar"
+              placeholder="Name a player…"
+            />
+          </div>
+        </div>
+      )}
+    </>
   )
 }

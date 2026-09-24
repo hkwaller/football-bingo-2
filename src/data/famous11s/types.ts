@@ -42,6 +42,8 @@ export interface ManagerSlot {
 
 export type LineupKind = 'national' | 'club'
 export type LineupDifficulty = 'easy' | 'medium' | 'hard'
+/** Classic = folklore XIs. Big Nights = recent marquee matches a current fan might have watched. */
+export type LineupEra = 'classic' | 'big-nights'
 
 export interface Famous11sLineup {
   /** Stable slug, e.g. "france-wc98-final". */
@@ -51,6 +53,12 @@ export interface Famous11sLineup {
   /** Subtitle / context, e.g. "vs Brazil · 12 July 1998 · Stade de France". */
   prompt: string
   kind: LineupKind
+  /** Folklore XI vs recent marquee match. */
+  era: LineupEra
+  /** The side whose XI you name, e.g. "France", "Manchester United". */
+  side: string
+  /** Opponent in this match. Omitted for season sides (Invincibles, Leicester). */
+  opponent?: string
   year: number
   /** Competition name, e.g. "World Cup", "Champions League", "Premier League". */
   competition: string
@@ -61,4 +69,10 @@ export interface Famous11sLineup {
   slots: LineupSlot[]
   /** Manager/coach - optional bonus slot; included in game only when config.includeManager is on. */
   manager?: ManagerSlot
+  /**
+   * Non-starting squad members who were present at the tournament/season but
+   * did not feature in this specific match. Names appear in the autocomplete
+   * pool so players can type them, but they will not register as correct guesses.
+   */
+  squad?: string[]
 }

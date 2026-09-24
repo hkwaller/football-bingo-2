@@ -120,9 +120,10 @@ export function Famous11sLobby({ roomId, players, isHost, config, onStart, myNam
           Match settings
         </p>
         <div className="grid grid-cols-2 gap-2 text-[12px] font-semibold text-card-muted">
-          <span>Lineups: {config.lineupCount}</span>
+          <span>Lineups: {config.selectedLineupId ? '1 (picked)' : config.lineupCount}</span>
           <span>Lives: {config.lives}</span>
           <span>Difficulty: {config.difficulty}</span>
+          <span>Era: {config.era === 'big-nights' ? 'Big Nights' : config.era}</span>
           <span>Manager: {config.includeManager ? 'on' : 'off'}</span>
           {config.turnSeconds > 0 && <span>Timer: {config.turnSeconds}s</span>}
           {config.penaltyOnMiss && <span>Score penalty: on</span>}
