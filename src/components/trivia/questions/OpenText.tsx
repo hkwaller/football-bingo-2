@@ -119,7 +119,8 @@ export function OpenText({ question, onAnswer, disabled, lastResult }: Props) {
         {/* Immediate clues - all shown at once */}
         {immediateClues.map((clue, i) => (
           <motion.div
-            key={clue.kind}
+            // kind repeats (e.g. two CLUB clues), so include the position
+            key={`${clue.kind}-${i}`}
             className="flex items-center gap-4 rounded-xl border-2 border-ink bg-panel-white px-4 py-3"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

@@ -106,9 +106,11 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
           <motion.div
             className="text-center"
             initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: [0.6, 1.08, 1] }}
+            // Springs only support two keyframes; the spring's own overshoot gives the pop.
+            // (A 3-keyframe array here threw, and the stalled exit kept the old question on screen.)
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 18 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 14 }}
           >
             <span
               className={`inline-block -rotate-[1.5deg] rounded-full px-6 py-2.5 font-display text-[22px] font-black uppercase leading-none shadow-[0_5px_0_#0a2417] ${
