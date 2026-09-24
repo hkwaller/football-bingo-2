@@ -514,7 +514,7 @@ function ModeCard({
         {title} <span className="text-[20px]">{icon}</span>
       </p>
       <p className="mt-2 text-[14.5px] font-semibold leading-relaxed text-card-muted">{blurb}</p>
-      <div className="mt-[18px] flex gap-3">
+      <div className="mt-[18px] flex flex-col gap-3">
         <Link href={multiHref} className="btn btn-primary flex-1">
           Multiplayer
         </Link>
