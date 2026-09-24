@@ -30,8 +30,7 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
     const isCorrect = value === String(question.correct)
     const wasChosen = value === selected
     if (isCorrect) return `${base} bg-green-go text-ink shadow-[0_5px_0_#0a2417]`
-    if (wasChosen && !isCorrect)
-      return `${base} bg-pink text-ink shadow-[0_5px_0_#0a2417]`
+    if (wasChosen && !isCorrect) return `${base} bg-pink text-ink shadow-[0_5px_0_#0a2417]`
     return `${base} bg-surface/55 text-card-muted opacity-70`
   }
 
@@ -96,7 +95,7 @@ export function TrueFalse({ question, onAnswer, disabled, lastResult }: Props) {
               }`}
             >
               {lastResult.correct
-                ? 'GOOOAL! Correct!'
+                ? 'Correct!'
                 : `Off the post - ${lastResult.correctAnswer === 'true' ? 'TRUE' : 'FALSE'}`}
             </span>
             {question.detail && <p className="mt-2 text-xs text-on-green-dim">{question.detail}</p>}

@@ -107,7 +107,8 @@ export function BingoSetup() {
     } else {
       const s = loadSolo()
       if (s) {
-        setBoardConfig(s.boardConfig ?? DEFAULT_BOARD_CONFIG)
+        // Free square is on by default for every new board; only the rest carries over.
+        setBoardConfig({ ...(s.boardConfig ?? DEFAULT_BOARD_CONFIG), freeSquare: true })
         setLineHighlight(s.lineHighlight !== false)
         setDraftPolicy(s.draftPolicy === 'placeable' ? 'placeable' : 'open')
       }
@@ -471,12 +472,12 @@ export function BingoSetup() {
           </span>
           <span className="min-w-0">
             <span className="block font-display text-[17px] font-black uppercase leading-none text-card-ink">
-              {boardConfig.freeSquare ? 'Centre ★ free' : 'No free square'}
+              Centre ★ free
             </span>
             <span className="mt-1 block text-[11.5px] font-semibold leading-snug text-card-muted">
               {boardConfig.freeSquare
-                ? 'Centre square starts solved as a head start.'
-                : 'Every square must be earned — a tougher board.'}
+                ? 'On: the centre square starts solved as a head start.'
+                : 'Off: every square must be earned, a tougher board.'}
             </span>
           </span>
         </button>
