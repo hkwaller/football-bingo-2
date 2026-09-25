@@ -306,7 +306,8 @@ function RoomInner({ roomId }: { roomId: string }) {
     return () => window.clearInterval(id)
   }, [phase])
 
-  const activeSeed = phase === 'playing' && seed ? seed : ''
+  // Kept through 'finished' so the final board stays on screen under the full-time banner.
+  const activeSeed = (phase === 'playing' || phase === 'finished') && seed ? seed : ''
 
   // Individual boards derive a per-player seed so every player gets a different
   // grid. Shared boards use the one room seed.

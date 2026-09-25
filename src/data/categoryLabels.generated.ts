@@ -4,11 +4,11 @@
 
 export const traits: string[] = [
   'Wore #10',
-  'Football family',
+  // 'Football family',
   '1990s player',
   'Wore #7',
   'Wore #9',
-  'Dual Nationality',
+  // 'Dual Nationality',
   'Central Midfield',
   'Centre-Forward',
   'Winger',
@@ -23,7 +23,7 @@ export const traits: string[] = [
   'Wore #1',
   '1970s player',
   'Goalkeeper',
-  'Prolific Scorer',
+  // 'Prolific Scorer',
   '1960s player',
   'One Club Man',
 ]
