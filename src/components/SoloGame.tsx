@@ -138,6 +138,12 @@ export function SoloGame() {
     return () => window.clearTimeout(t)
   }, [wrongCell])
 
+  const won = useMemo(() => {
+    const set = new Set(solved.keys())
+    set.add(freeIndexForConfig(boardConfig))
+    return hasBingoForConfig(set, boardConfig)
+  }, [solved, boardConfig])
+
   useEffect(() => {
     if (playMode !== 'draft' || !seed || !hydrated) {
       setDrawn(null)
@@ -145,6 +151,11 @@ export function SoloGame() {
       setDraftTargetCells(null)
       setDraftRestrictCells(false)
       setDraftFallbackNote(null)
+      return
+    }
+    // Board is finished: keep the player who completed the line, don't draw another.
+    if (won) {
+      setDraftLoading(false)
       return
     }
     let cancelled = false
@@ -204,17 +215,11 @@ export function SoloGame() {
     return () => {
       cancelled = true
     }
-  }, [playMode, seed, round, hydrated, draftPolicy, boardConfig, occupiedIndices, placedPlayerIds, drawnPlayerIds])
+  }, [playMode, seed, round, hydrated, won, draftPolicy, boardConfig, occupiedIndices, placedPlayerIds, drawnPlayerIds])
 
   const poolCount = categoryPoolForConfig(boardConfig).length
   const needCount = categoriesRequired(boardConfig)
   const configOk = isBoardConfigViable(boardConfig)
-
-  const won = useMemo(() => {
-    const set = new Set(solved.keys())
-    set.add(freeIndexForConfig(boardConfig))
-    return hasBingoForConfig(set, boardConfig)
-  }, [solved, boardConfig])
 
   const winStats = useMemo<SoloStats | null>(() => {
     if (!won) return null

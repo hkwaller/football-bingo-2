@@ -92,14 +92,41 @@ export function fixtureKey(lineup: Famous11sLineup): string {
   return `${lineup.year}:${normalize(lineup.competition)}:${teams}`
 }
 
+export interface Famous11sFixtureDate {
+  day: number
+  /** Three-letter month, e.g. "Jul". */
+  month: string
+  year: number
+}
+
+const PROMPT_DATE_RE = /^(\d{1,2}) ([A-Za-z]+) (\d{4})$/
+
+/** Prompt segments after the "vs X" lead, split on the `·` separators. */
+function promptParts(lineup: Famous11sLineup): string[] {
+  const parts = lineup.prompt.split('·').map((p) => p.trim()).filter(Boolean)
+  return lineup.opponent && /^vs\s/i.test(parts[0] ?? '') ? parts.slice(1) : parts
+}
+
+export function fixtureDate(lineup: Famous11sLineup): Famous11sFixtureDate | undefined {
+  for (const part of promptParts(lineup)) {
+    const m = PROMPT_DATE_RE.exec(part)
+    if (m) return { day: Number(m[1]), month: m[2]!.slice(0, 3), year: Number(m[3]) }
+  }
+  return undefined
+}
+
+/** Prompt minus the opponent and the match date - those have their own UI. */
 export function fixtureDetail(lineup: Famous11sLineup): string {
-  if (!lineup.opponent) return lineup.prompt
-  return lineup.prompt.replace(/^vs\s+[^·]+·\s*/i, '')
+  return promptParts(lineup)
+    .filter((part) => !PROMPT_DATE_RE.test(part))
+    .join(' · ')
 }
 
 export interface Famous11sFixture {
   key: string
   year: number
+  /** Match day, when the prompt carries one (season sides don't). */
+  date?: Famous11sFixtureDate
   competition: string
   era: Famous11sLineup['era']
   kind: Famous11sLineup['kind']
@@ -148,6 +175,7 @@ export function browseFixtures(opts: {
     fixtures.push({
       key,
       year: head.year,
+      date: fixtureDate(head),
       competition: head.competition,
       era: head.era,
       kind: head.kind,

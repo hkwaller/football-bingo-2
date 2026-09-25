@@ -336,10 +336,18 @@ function RoomInner({ roomId }: { roomId: string }) {
     [solvedForDisplay],
   )
 
+  const boardWon = useMemo(() => {
+    const set = new Set(solvedForDisplay.keys())
+    set.add(freeIndexForConfig(boardConfig))
+    return hasBingoForConfig(set, boardConfig)
+  }, [solvedForDisplay, boardConfig])
+  // Once the game is over, keep the last drawn player instead of drawing another.
+  const drawFrozen = boardWon || phase === 'finished'
+
   // The draw is keyed on the exact request, so state that doesn't feed it (e.g. my
   // own placements under shared draw) can't refetch and re-animate the same player.
   const draftUrl = useMemo(() => {
-    if (playMode !== 'draft' || !activeSeed || phase !== 'playing') return null
+    if (playMode !== 'draft' || !activeSeed || phase !== 'playing' || boardWon) return null
     // Shared-draw individual boards must draw the SAME player for everyone, so the
     // draw is keyed only on the room seed + room round with no per-board occupancy.
     return isIndividual && drawShared
@@ -385,9 +393,14 @@ function RoomInner({ roomId }: { roomId: string }) {
     drawShared,
     myBoardSeed,
     indyRound,
+    boardWon,
   ])
 
   useEffect(() => {
+    if (drawFrozen) {
+      setDraftLoading(false)
+      return
+    }
     if (!draftUrl) {
       setDrawn(null)
       setDraftLoading(false)
@@ -442,7 +455,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     return () => {
       cancelled = true
     }
-  }, [draftUrl])
+  }, [draftUrl, drawFrozen])
 
   const participantIds = useMemo(() => {
     const ids = [self?.connectionId, ...others.map((o) => o.connectionId)].filter(
