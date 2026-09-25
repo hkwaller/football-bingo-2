@@ -448,6 +448,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       connectionId: p.connectionId,
       displayName: p.presence!.displayName,
       isHost: p.connectionId === hostConnectionId,
+      isSelf: p.connectionId === self?.connectionId,
     }))
 
   // ── Render ─────────────────────────────────────────────────────────────────

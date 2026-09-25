@@ -33,13 +33,8 @@ export function getTenableQuestionById(id: string): TenableQuestion | undefined 
   return tenableQuestions.find((q) => q.id === id)
 }
 
-/**
- * How many slots to fill for a category: ranked = its 10 answers; open = the
- * first 10 of a larger valid set (name any ten).
- */
-export function tenableTarget(q: Pick<TenableQuestion, 'answers'>): number {
-  return Math.min(10, q.answers.length)
-}
+// Lives in its own module so the board can use it without bundling the question bank.
+export { tenableTarget } from '@/lib/tenable/target'
 
 /**
  * Deterministically pick `count` questions for a session. Same seed + filters →

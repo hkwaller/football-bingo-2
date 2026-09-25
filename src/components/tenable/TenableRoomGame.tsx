@@ -436,6 +436,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
           id: p.id,
           displayName: p.name,
           isHost: p.id === hostPlayerId,
+          isSelf: p.id === myId,
         }))}
         isHost={isHost}
         config={config}

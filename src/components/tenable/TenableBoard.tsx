@@ -1,7 +1,8 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { type TenableQuestion, tenableTarget } from '@/data/tenable'
+import type { TenableQuestion } from '@/data/tenable/types'
+import { tenableTarget } from '@/lib/tenable/target'
 
 interface Props {
   question: TenableQuestion

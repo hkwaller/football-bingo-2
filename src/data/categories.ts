@@ -1,5 +1,5 @@
 import { getClubCanonicalNames } from './clubs'
-import { enrichedFootballPlayers } from './players'
+import { traits, managers } from './categoryLabels.generated'
 
 export const nationalities = [
   'United States',
@@ -83,32 +83,11 @@ export const achievements = [
 ]
 
 /**
- * The "traits" and "managers" bingo axes are data-driven: we surface only the
- * labels that at least MIN_PER_CATEGORY players actually have, so no square is
- * unwinnable. They repopulate automatically whenever players.ts is regenerated.
+ * The "traits" and "managers" bingo axes are data-driven: only labels that at
+ * least 8 players actually have, so no square is unwinnable. Precomputed by
+ * scripts/writeDerivedPlayerData.ts (run as part of "npm run write-players") so
+ * this module doesn't pull players.ts into client bundles.
  */
-const MIN_PER_CATEGORY = 8
-
-function labelsWithMinCount(
-  selector: (p: (typeof enrichedFootballPlayers)[number]) => string[] | undefined,
-  min: number,
-): string[] {
-  const counts = new Map<string, number>()
-  for (const p of enrichedFootballPlayers) {
-    for (const label of selector(p) ?? []) {
-      counts.set(label, (counts.get(label) ?? 0) + 1)
-    }
-  }
-  return [...counts.entries()]
-    .filter(([, n]) => n >= min)
-    .sort((a, b) => b[1] - a[1])
-    .map(([label]) => label)
-}
-
-export const traits = labelsWithMinCount((p) => (p as { tags?: string[] }).tags, MIN_PER_CATEGORY)
-export const managers = labelsWithMinCount(
-  (p) => (p as { managers?: string[] }).managers,
-  MIN_PER_CATEGORY,
-)
+export { traits, managers }
 
 export const categories = [...nationalities, ...clubs, ...achievements, ...traits, ...managers]

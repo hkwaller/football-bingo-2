@@ -1,15 +1,18 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import type { TriviaConfig } from '@/lib/trivia/types'
 import { DIFFICULTY_LABELS } from '@/lib/trivia/difficulty'
 import { RoomInvite } from '@/components/RoomInvite'
+import { LobbyNameField } from '@/components/LobbyNameField'
 import { LobbySettingRow, LobbySquad } from '@/components/LobbySquad'
+import { LobbyLayout } from '@/components/LobbyLayout'
+import { LobbyBar } from '@/components/setup/LobbyBar'
 
 interface Player {
   connectionId: number
   displayName: string
   isHost: boolean
+  isSelf?: boolean
 }
 
 interface Props {
@@ -45,68 +48,66 @@ export function TriviaLobby({
     'turn-based': 'Turn-based',
   }
 
-  return (
-    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-7 px-6 py-8 md:px-9 md:py-10">
-      <motion.div
-        initial={{ y: 12, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
-      >
-        <span className="eyebrow">Pre-match · tunnel</span>
-        <h1 className="mt-3 font-display text-[48px] font-black uppercase leading-[0.9] text-on-green md:text-[56px]">
-          The squad gathers
-        </h1>
-        <p className="mt-3 text-[14.5px] font-semibold text-on-green-soft">
-          Share the code below - everyone plays from their own device.
-        </p>
-      </motion.div>
+  const shortSession: Record<string, string> = {
+    fixed: `${config.questionCount} questions`,
+    survival: 'Survival',
+    timed: `${config.timeLimitSeconds}s timed`,
+    category: config.category ?? 'Category',
+  }
+  const shortMechanic: Record<string, string> = {
+    race: 'Race',
+    simultaneous: 'Simultaneous',
+    'turn-based': 'Turn-based',
+  }
+  const sessionValue = shortSession[config.sessionType] ?? config.sessionType
+  const mechanicValue = shortMechanic[config.multiplayerMechanic] ?? config.multiplayerMechanic
+  const difficultyValue = DIFFICULTY_LABELS[config.difficulty]
 
-      {/* Config summary */}
-      <div className="panel p-6">
-        <p className="eyebrow mb-4">Match settings</p>
+  return (
+    <LobbyLayout
+      isHost={isHost}
+      eyebrow="Pre-match · tunnel"
+      title="The squad gathers"
+      subtitle="Share the code - everyone plays from their own device."
+      invite={<RoomInvite roomId={roomId} joinPath={`/trivia/room/${roomId}`} />}
+      squad={<LobbySquad players={players.map((p) => ({ ...p, id: p.connectionId }))} />}
+      settings={
         <dl>
           <LobbySettingRow
             label="Session"
             value={sessionLabel[config.sessionType] ?? config.sessionType}
           />
-          <LobbySettingRow label="Difficulty" value={DIFFICULTY_LABELS[config.difficulty]} />
+          <LobbySettingRow label="Difficulty" value={difficultyValue} />
           <LobbySettingRow
             label="Mechanic"
             value={mechanicLabel[config.multiplayerMechanic] ?? config.multiplayerMechanic}
           />
         </dl>
-        {isHost && (
-          <a
-            href="/trivia/setup"
-            className="mt-3 inline-block text-xs font-bold uppercase tracking-[0.06em] text-red hover:underline"
-          >
-            Change settings →
-          </a>
-        )}
-      </div>
-
-      <RoomInvite roomId={roomId} joinPath={`/trivia/room/${roomId}`} />
-
-      <LobbySquad
-        players={players.map((p) => ({ ...p, id: p.connectionId }))}
-        myName={myName}
-        onRename={(n) => onRename?.(n)}
-      />
-
-      {/* Start button (host only) */}
-      {isHost ? (
-        <button
-          onClick={onStart}
+      }
+      changeSettingsHref="/trivia/setup"
+      nameField={
+        <LobbyNameField
+          value={myName}
+          onSave={(n) => onRename?.(n)}
+          autoFocus={!isHost && !myName}
+        />
+      }
+      bar={
+        <LobbyBar
+          isHost={isHost}
+          playerCount={players.length}
+          fields={[
+            { label: 'Session', value: sessionValue },
+            { label: 'Difficulty', value: difficultyValue },
+            { label: 'Mechanic', value: mechanicValue },
+          ]}
+          mobileDetail={`${sessionValue} · ${difficultyValue} · ${mechanicValue}`}
+          hint="Everyone plays from their own device"
+          startLabel="Start match"
+          onStart={onStart}
           disabled={players.length < 1}
-          className="btn btn-primary btn-lg disabled:cursor-not-allowed"
-        >
-          Start match
-        </button>
-      ) : (
-        <p className="text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">
-          In the tunnel - waiting for the gaffer to start…
-        </p>
-      )}
-    </div>
+        />
+      }
+    />
   )
 }

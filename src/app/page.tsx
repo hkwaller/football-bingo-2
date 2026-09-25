@@ -6,6 +6,8 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Sticker } from '@/components/Sticker'
 import { AdsterraBanner } from '@/components/AdsterraBanner'
 import { HeroTrivia } from '@/components/HeroTrivia'
+import { GameModeGrid } from '@/components/GameModeGrid'
+import { GAME_MODES, type GameModeId } from '@/lib/gameModes'
 
 const fadeUp = {
   initial: { opacity: 0, y: 14 },
@@ -103,95 +105,13 @@ const DECK: { name: string; imageUrl: string }[] = [
 const tilt = (i: number) => (((i * 7) % 5) - 2) * 1.4
 const VARIANTS = ['green', 'pink', 'yellow'] as const
 
-/** "How it plays" walkthrough, one three-step story per game mode. */
-const HOW_IT_PLAYS = [
-  {
-    id: 'bingo',
-    label: 'Bingo',
-    title: 'Three squares from glory',
-    steps: [
-      {
-        title: 'Build your board',
-        body: "Fill a grid with clubs, countries and honours. Every square is a football fact you're betting on.",
-      },
-      {
-        title: 'Stickers get drawn',
-        body: 'Real players, one by one. Slap each sticker on a square he genuinely fits - miss and it stays empty.',
-      },
-      {
-        title: 'Race to a line',
-        body: 'Row, column or diagonal - first to fill one shouts BINGO and takes the roar of the room.',
-      },
-    ],
-  },
-  {
-    id: 'trivia',
-    label: 'Trivia',
-    title: 'Ten questions, one winner',
-    steps: [
-      {
-        title: 'Pick your round',
-        body: 'Choose difficulty, topics and length - a quick five or a full twenty, or play against the clock.',
-      },
-      {
-        title: 'Answer fast',
-        body: 'Multiple choice, stat duels and mystery players. Everyone answers at once, so hesitation costs you.',
-      },
-      {
-        title: 'Top the table',
-        body: 'Points stack up round by round. The final leaderboard settles who actually knows their football.',
-      },
-    ],
-  },
-  {
-    id: 'tenable',
-    label: 'Tenable',
-    title: 'Name the ten',
-    steps: [
-      {
-        title: 'A list appears',
-        body: 'Top scorers, most caps, biggest transfers - ten answers hidden behind ten slots, and you know some of them.',
-      },
-      {
-        title: 'Name them, lose lives',
-        body: 'Every correct name flips a slot. Three wrong guesses and the category closes with the rest still hidden.',
-      },
-      {
-        title: 'Clear the board',
-        body: 'Each answer scores, and finding all ten lands the clear bonus. In a room you take turns, so one miss hands it over.',
-      },
-    ],
-  },
-  {
-    id: 'famous11s',
-    label: 'Famous 11s',
-    title: 'Name all eleven',
-    steps: [
-      {
-        title: 'An iconic XI loads',
-        body: 'World Cup finals, Champions League classics and legendary club sides - laid out as an empty team sheet.',
-      },
-      {
-        title: 'Fill the pitch',
-        body: 'Type any name you remember and it drops into the right position. Surnames and nicknames count.',
-      },
-      {
-        title: 'Beat the lineup',
-        body: 'Wrong guesses cost a life, so dig deep before you swing. Complete the eleven for the full clear bonus.',
-      },
-    ],
-  },
-] as const
-
-type HowItPlaysId = (typeof HOW_IT_PLAYS)[number]['id']
-
 const STEP_TONES = ['yellow', 'pink', 'sky'] as const
 const STEP_ROTATIONS = [-1, 1, -0.6]
 
 export default function HomePage() {
   const reduceMotion = useReducedMotion()
-  const [howItPlays, setHowItPlays] = useState<HowItPlaysId>('bingo')
-  const activeHowItPlays = HOW_IT_PLAYS.find((m) => m.id === howItPlays) ?? HOW_IT_PLAYS[0]
+  const [howItPlays, setHowItPlays] = useState<GameModeId>('bingo')
+  const activeHowItPlays = GAME_MODES.find((m) => m.id === howItPlays) ?? GAME_MODES[0]
 
   return (
     <div className="flex flex-col gap-24 pb-0">
@@ -249,41 +169,7 @@ export default function HomePage() {
         {/* ── Mode cards ───────────────────────────────────────── */}
         <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8 md:pb-20">
           <SectionHead eyebrow="Pick your game" tone="pink" title="Four ways to play" />
-          <div className="mt-9 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            <ModeCard
-              title="Bingo"
-              icon=""
-              rot={-0.6}
-              blurb="Fill your board with the players drawn and be first to a full line. The signature mode."
-              soloHref="/play/setup"
-              multiHref="/play/setup?mode=multiplayer"
-            />
-            <ModeCard
-              title="Trivia"
-              icon=""
-              rot={0.6}
-              blurb="Quick-fire football questions where the fastest correct answer wins the round."
-              soloHref="/trivia/setup?mode=solo"
-              multiHref="/trivia/setup?mode=multiplayer"
-            />
-            <ModeCard
-              title="Tenable"
-              icon=""
-              rot={-0.4}
-              blurb="Name the ten. Top scorers, most caps, biggest transfers - fill the list before your lives run out."
-              soloHref="/tenable/setup?mode=solo"
-              multiHref="/tenable/setup?mode=multiplayer"
-            />
-            <ModeCard
-              title="Famous 11s"
-              icon=""
-              rot={0.5}
-              blurb="Name all eleven from iconic XIs - World Cup finals, Champions League classics and legendary club sides."
-              soloHref="/famous-11s/setup?mode=solo"
-              multiHref="/famous-11s/setup?mode=multiplayer"
-              isNew
-            />
-          </div>
+          <GameModeGrid />
         </section>
         {/* ── Full-bleed sticker marquee ─────────── */}
         <div className="relative mt-6 w-full overflow-hidden border-y-[3px] border-surface/35 bg-black/[0.14] py-[18px]">
@@ -309,7 +195,7 @@ export default function HomePage() {
 
       {/* ── How it plays ─────────────────────────────────────── */}
       <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
-        <SectionHead eyebrow="How it plays" tone="sky" title={activeHowItPlays.title} />
+        <SectionHead eyebrow="How it plays" tone="sky" title={activeHowItPlays.tagline} />
         <ModeTabs active={howItPlays} onSelect={setHowItPlays} />
         <div className="mt-7 grid gap-5 sm:grid-cols-3">
           {activeHowItPlays.steps.map((s, i) => (
@@ -341,11 +227,8 @@ export default function HomePage() {
             runs.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3.5">
-            <Link href="/play/setup" className="btn btn-primary btn-lg">
+            <Link href="/games" className="btn btn-primary btn-lg">
               Start playing
-            </Link>
-            <Link href="/play/setup?mode=multiplayer" className="btn btn-outline-light btn-lg">
-              Start a room
             </Link>
           </div>
         </div>
@@ -395,8 +278,8 @@ function ModeTabs({
   active,
   onSelect,
 }: {
-  active: HowItPlaysId
-  onSelect: (id: HowItPlaysId) => void
+  active: GameModeId
+  onSelect: (id: GameModeId) => void
 }) {
   const reduceMotion = useReducedMotion()
 
@@ -407,7 +290,7 @@ function ModeTabs({
         aria-label="Game mode"
         className="flex flex-wrap justify-center gap-1 rounded-full border-[2.5px] border-surface/30 bg-black/20 p-1.5"
       >
-        {HOW_IT_PLAYS.map((m) => {
+        {GAME_MODES.map((m) => {
           const isActive = m.id === active
           return (
             <button
@@ -427,7 +310,7 @@ function ModeTabs({
                   className="absolute inset-0 rounded-full bg-yellow"
                 />
               )}
-              <span className="relative">{m.label}</span>
+              <span className="relative">{m.title}</span>
             </button>
           )
         })}
@@ -474,54 +357,6 @@ function StepCard({
         {title}
       </p>
       <p className="mt-2 text-[14px] font-semibold leading-relaxed text-card-muted">{body}</p>
-    </motion.div>
-  )
-}
-
-function ModeCard({
-  title,
-  icon,
-  blurb,
-  soloHref,
-  multiHref,
-  rot,
-  isNew,
-}: {
-  title: string
-  icon: string
-  blurb: string
-  soloHref: string
-  multiHref: string
-  rot: number
-  isNew?: boolean
-}) {
-  return (
-    <motion.div
-      {...fadeUp}
-      viewport={{ once: true, margin: '-60px' }}
-      whileInView="animate"
-      initial="initial"
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="relative rounded-[14px] bg-surface p-7 shadow-[0_10px_0_#0a2417]"
-      style={{ transform: `rotate(${rot}deg)` }}
-    >
-      {isNew && (
-        <span className="absolute right-4 top-4 rounded-full bg-yellow px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-ink">
-          New
-        </span>
-      )}
-      <p className="font-display text-[34px] font-black uppercase leading-none text-card-ink">
-        {title} <span className="text-[20px]">{icon}</span>
-      </p>
-      <p className="mt-2 text-[14.5px] font-semibold leading-relaxed text-card-muted">{blurb}</p>
-      <div className="mt-[18px] flex flex-col gap-3">
-        <Link href={multiHref} className="btn btn-primary flex-1">
-          Multiplayer
-        </Link>
-        <Link href={soloHref} className="btn btn-outline flex-1">
-          Solo
-        </Link>
-      </div>
     </motion.div>
   )
 }

@@ -37,6 +37,7 @@ import { randomUUID } from '@/lib/randomUUID'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import type { SoloStats } from '@/lib/soloStats'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
+import { useSpaceToSkip } from '@/lib/useSpaceToSkip'
 
 
 export function SoloGame() {
@@ -315,26 +316,7 @@ export function SoloGame() {
     setRound((r) => r + 1)
   }, [playMode, won, draftLoading, drawn, noteDraw])
 
-  useEffect(() => {
-    if (playMode !== 'draft' || won) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.code !== 'Space' && e.key !== ' ') return
-      const t = e.target as HTMLElement | null
-      if (
-        t &&
-        (t.tagName === 'INPUT' ||
-          t.tagName === 'TEXTAREA' ||
-          t.tagName === 'SELECT' ||
-          t.isContentEditable)
-      ) {
-        return
-      }
-      e.preventDefault()
-      skipDraft()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [playMode, won, skipDraft])
+  useSpaceToSkip(playMode === 'draft' && !won, skipDraft)
 
   const handleFreePick = useCallback(
     async (playerId: string) => {

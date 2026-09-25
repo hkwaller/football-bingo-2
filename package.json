@@ -12,6 +12,7 @@
     "enrich:refresh": "tsx scripts/enrichPlayers.ts --refresh",
     "parse": "tsx scripts/parsePlayers.ts",
     "write-players": "tsx scripts/writePlayers.ts",
+    "write-derived": "tsx scripts/writeDerivedPlayerData.ts",
     "fetch-logos": "tsx scripts/fetchLogos.ts",
     "tenable:index": "tsx scripts/buildTenableIndex.ts",
     "tenable:verify": "tsx scripts/verifyTenable.ts",

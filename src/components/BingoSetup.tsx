@@ -13,7 +13,7 @@ import {
   MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
 import { achievements, clubs, managers, nationalities, traits } from '@/data/categories'
-import { enrichedFootballPlayers } from '@/data/players'
+import { playerFameScores } from '@/data/playerFameScores.generated'
 import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { randomUUID } from '@/lib/randomUUID'
 import { loadSolo, saveSolo } from '@/lib/soloStorage'
@@ -138,8 +138,8 @@ export function BingoSetup() {
   const eligiblePlayerCount = useMemo(
     () =>
       minFameScore <= 0
-        ? enrichedFootballPlayers.length
-        : enrichedFootballPlayers.filter((p) => (p.fameScore ?? 0) >= minFameScore).length,
+        ? playerFameScores.length
+        : playerFameScores.filter((score) => score >= minFameScore).length,
     [minFameScore],
   )
 
