@@ -52,15 +52,21 @@ export interface NameSuggestion {
   name: string
 }
 
-/** Prefix matches rank above substring; within each group, by fame desc. */
+/**
+ * An exact name/alias match ranks first (so a typed surname like "Vieira" puts
+ * "Patrick Vieira" on top for Enter to pick), then prefix matches, then
+ * substring; within each group, by fame desc.
+ */
 export function searchFamous11sNames(query: string, limit = 8): NameSuggestion[] {
   const q = normalize(query)
   if (q.length < 2) return []
 
+  const exact: Entry[] = []
   const prefix: Entry[] = []
   const contains: Entry[] = []
   for (const e of ENTRIES) {
-    if (e.key.startsWith(q)) prefix.push(e)
+    if (e.key === q) exact.push(e)
+    else if (e.key.startsWith(q)) prefix.push(e)
     else if (e.key.includes(q)) contains.push(e)
   }
   const byFame = (a: Entry, b: Entry) => b.fame - a.fame
@@ -70,7 +76,7 @@ export function searchFamous11sNames(query: string, limit = 8): NameSuggestion[]
   // Deduplicate by display name (alias entries share the canonical display).
   const seen = new Set<string>()
   const results: NameSuggestion[] = []
-  for (const e of [...prefix, ...contains]) {
+  for (const e of [...exact, ...prefix, ...contains]) {
     const dk = normalize(e.display)
     if (!seen.has(dk)) {
       seen.add(dk)
