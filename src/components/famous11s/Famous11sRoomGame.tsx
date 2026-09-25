@@ -51,6 +51,7 @@ import {
   poolKey,
   teamScore,
 } from '@/lib/roomMode'
+import { RoomConnecting } from '@/components/RoomConnecting'
 
 const ABSENT_TURN_GRACE_MS = 8000
 
@@ -456,9 +457,10 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
 
   if (status === 'connecting' || status === 'reconnecting' || phase == null) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-sm text-muted animate-pulse-soft">
-        Connecting…
-      </div>
+      <RoomConnecting
+        mode="famous11s"
+        state={status === 'reconnecting' ? 'reconnecting' : 'connecting'}
+      />
     )
   }
 

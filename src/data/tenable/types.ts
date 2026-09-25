@@ -34,6 +34,9 @@ export interface TenableAnswer {
   name: string
   /** Extra accepted spellings. Author-added; the verify script also appends full_name. */
   aliases?: string[]
+  /** Wikipedia article for the portrait when the name is ambiguous (e.g. the
+   *  Spanish "Luis Suárez"). Wins over the CSV match; see `npm run tenable:images`. */
+  wikiTitle?: string
   /** Reveal caption, e.g. "260 goals". */
   detail?: string
   /** Portrait URL, backfilled by the verify script (best-effort, optional). */

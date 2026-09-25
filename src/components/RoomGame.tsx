@@ -56,6 +56,7 @@ import { randomUUID } from '@/lib/randomUUID'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 import { useSpaceToSkip } from '@/lib/useSpaceToSkip'
 import { LobbyNameField } from '@/components/LobbyNameField'
+import { RoomConnecting } from '@/components/RoomConnecting'
 
 function RoomInner({ roomId }: { roomId: string }) {
   const status = useStatus()
@@ -1000,10 +1001,10 @@ function RoomInner({ roomId }: { roomId: string }) {
 
   if (phase === null || status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center gap-3 text-sm font-semibold text-on-green-dim">
-        <span className="inline-block size-2 animate-pulse rounded-full bg-yellow" />
-        Connecting to room…
-      </div>
+      <RoomConnecting
+        mode="bingo"
+        state={status === 'reconnecting' ? 'reconnecting' : 'connecting'}
+      />
     )
   }
 
@@ -1271,12 +1272,7 @@ export function RoomGame({ roomId }: { roomId: string }) {
   }, [])
 
   if (!ready) {
-    return (
-      <div className="flex min-h-[30vh] items-center justify-center gap-3 text-sm font-medium text-muted">
-        <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
-        Preparing…
-      </div>
-    )
+    return <RoomConnecting mode="bingo" />
   }
 
   return (

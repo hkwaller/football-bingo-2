@@ -24,6 +24,7 @@ import { TriviaLobby } from './TriviaLobby'
 import { TriviaHUD } from './TriviaHUD'
 import { TriviaQuestion as TriviaQuestionComp } from './TriviaQuestion'
 import { TriviaEndScreen } from './TriviaEndScreen'
+import { RoomConnecting } from '@/components/RoomConnecting'
 
 const REVIEW_DELAY_MS = 3000
 
@@ -465,9 +466,10 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   if (status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-sm text-muted animate-pulse-soft">
-        Connecting…
-      </div>
+      <RoomConnecting
+        mode="trivia"
+        state={status === 'reconnecting' ? 'reconnecting' : 'connecting'}
+      />
     )
   }
 

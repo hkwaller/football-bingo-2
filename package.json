@@ -16,6 +16,7 @@
     "fetch-logos": "tsx scripts/fetchLogos.ts",
     "tenable:index": "tsx scripts/buildTenableIndex.ts",
     "tenable:verify": "tsx scripts/verifyTenable.ts",
+    "tenable:images": "tsx scripts/fetchTenableWikiImages.ts",
     "tenable:open": "tsx scripts/buildTenableOpenSets.ts && tsx scripts/verifyTenable.ts",
     "famous11s:verify": "tsx scripts/verifyFamous11s.ts"
   },

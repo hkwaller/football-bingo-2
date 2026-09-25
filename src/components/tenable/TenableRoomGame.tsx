@@ -47,6 +47,7 @@ import {
   poolKey,
   teamScore,
 } from '@/lib/roomMode'
+import { RoomConnecting } from '@/components/RoomConnecting'
 
 /** How long a missing turn-holder gets to reconnect before the turn moves on. */
 const ABSENT_TURN_GRACE_MS = 8000
@@ -414,9 +415,10 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
 
   if (status === 'connecting' || status === 'reconnecting' || phase == null) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-sm text-muted animate-pulse-soft">
-        Connecting…
-      </div>
+      <RoomConnecting
+        mode="tenable"
+        state={status === 'reconnecting' ? 'reconnecting' : 'connecting'}
+      />
     )
   }
 
