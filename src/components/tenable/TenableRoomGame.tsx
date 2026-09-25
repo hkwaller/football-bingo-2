@@ -17,16 +17,19 @@ import {
   parseTenableQuestions,
   parseNumberArray,
   parseLastGuess,
+  parseHints,
   type TenableLastGuess,
 } from '@/lib/tenable/liveblocksTenable'
 import { loadTenableConfig } from '@/lib/tenable/tenableStorage'
 import { selectTenableQuestions, tenableTarget } from '@/data/tenable'
-import { matchAnswer } from '@/lib/tenable/matching'
-import { CLEAR_BONUS, POINTS_PER_ANSWER } from '@/lib/tenable/types'
+import { foundAnswerNames, matchAnswer } from '@/lib/tenable/matching'
+import { CLEAR_BONUS, pointsFor, type TenableHint } from '@/lib/tenable/types'
 import { randomUUID } from '@/lib/randomUUID'
 import { TenableLobby } from './TenableLobby'
 import { TenableBoard } from './TenableBoard'
 import { NameAutocomplete } from './NameAutocomplete'
+import { TenableHints, fetchTenableHint } from './TenableHints'
+import { LivesRow } from '@/components/LivesRow'
 
 /** Next connection id in the sorted ring of currently-present players. */
 function nextTurn(current: number | null, presentIds: number[]): number | null {
@@ -100,6 +103,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   const foundRanksJson = useTenableStorage((s) => s.foundRanksJson)
   const lastGuessJson = useTenableStorage((s) => s.lastGuessJson)
   const livesLeft = useTenableStorage((s) => s.livesLeft)
+  const hintsLeft = useTenableStorage((s) => s.hintsLeft)
+  const hintsJson = useTenableStorage((s) => s.hintsJson)
   const currentTurnConnectionId = useTenableStorage((s) => s.currentTurnConnectionId)
   const playerNames = useTenableStorage((s) => s.playerNames)
   const playerScores = useTenableStorage((s) => s.playerScores)
@@ -109,7 +114,12 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   const questions = useMemo(() => parseTenableQuestions(questionsJson ?? '[]'), [questionsJson])
   const foundRanks = useMemo(() => parseNumberArray(foundRanksJson ?? '[]'), [foundRanksJson])
   const lastGuess = useMemo(() => parseLastGuess(lastGuessJson ?? ''), [lastGuessJson])
+  const hints = useMemo(() => parseHints(hintsJson ?? '[]'), [hintsJson])
   const currentQuestion = questions[currentQuestionIndex ?? 0] ?? null
+  const foundNames = useMemo(
+    () => foundAnswerNames(currentQuestion, foundRanks),
+    [currentQuestion, foundRanks],
+  )
 
   const presentIds = useMemo(() => {
     const ids = others.map((o) => o.connectionId)
@@ -155,6 +165,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     const qs = selectTenableQuestions(seed, cfg.questionCount, {
       groups: cfg.groups === 'all' ? undefined : cfg.groups,
       difficulty: cfg.difficulty,
+      selectedId: cfg.selectedQuestionId,
     })
     storage.set('configJson', JSON.stringify(cfg))
     storage.set('seed', seed)
@@ -162,6 +173,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     storage.set('currentQuestionIndex', 0)
     storage.set('foundRanksJson', '[]')
     storage.set('livesLeft', cfg.lives)
+    storage.set('hintsLeft', cfg.hints)
+    storage.set('hintsJson', '[]')
     storage.set('resultsJson', '[]')
     storage.set('lastGuessJson', '')
     storage.set('startedAt', Date.now())
@@ -193,9 +206,10 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
         storage.set('foundRanksJson', JSON.stringify(nextFound))
         const clearedNow = nextFound.length >= tenableTarget(q)
         const prev = Number(storage.get('playerScores').get(connId) ?? '0')
+        const points = pointsFor(outcome.rank, parseHints(storage.get('hintsJson') ?? '[]'))
         storage
           .get('playerScores')
-          .set(connId, String(prev + POINTS_PER_ANSWER + (clearedNow ? CLEAR_BONUS : 0)))
+          .set(connId, String(prev + points + (clearedNow ? CLEAR_BONUS : 0)))
       } else if (outcome.kind === 'wrong') {
         storage.set('livesLeft', Math.max(0, (storage.get('livesLeft') ?? 0) - 1))
       }
@@ -222,6 +236,28 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     [self?.connectionId],
   )
 
+  // Hints come from the server, so the mutation only records one already drawn.
+  // Using a hint doesn't pass the turn.
+  const addHint = useTenableM(
+    ({ storage }, { questionId, hint }: { questionId: string; hint: TenableHint }) => {
+      if (
+        self?.connectionId == null ||
+        storage.get('currentTurnConnectionId') !== self.connectionId
+      )
+        return
+      const qs = parseTenableQuestions(storage.get('questionsJson') ?? '[]')
+      const q = qs[storage.get('currentQuestionIndex') ?? 0]
+      if (!q || q.id !== questionId) return
+      const left = storage.get('hintsLeft') ?? 0
+      const found = parseNumberArray(storage.get('foundRanksJson') ?? '[]')
+      const taken = parseHints(storage.get('hintsJson') ?? '[]')
+      if (left <= 0 || found.includes(hint.rank) || taken.some((h) => h.rank === hint.rank)) return
+      storage.set('hintsLeft', left - 1)
+      storage.set('hintsJson', JSON.stringify([...taken, { ...hint, by: self.connectionId }]))
+    },
+    [self?.connectionId],
+  )
+
   const advanceCategory = useTenableM(({ storage }) => {
     const qs = parseTenableQuestions(storage.get('questionsJson') ?? '[]')
     const idx = storage.get('currentQuestionIndex') ?? 0
@@ -243,6 +279,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
         parseTenableConfig(storage.get('configJson') ?? '{}').lives -
         (storage.get('livesLeft') ?? 0),
       cleared: found.length >= tenableTarget(q),
+      hintsUsed: parseHints(storage.get('hintsJson') ?? '[]').length,
     })
     storage.set('resultsJson', JSON.stringify(results))
 
@@ -255,6 +292,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     storage.set('currentQuestionIndex', nextIdx)
     storage.set('foundRanksJson', '[]')
     storage.set('livesLeft', cfg.lives)
+    storage.set('hintsJson', '[]')
     storage.set('lastGuessJson', '')
   }, [])
 
@@ -294,6 +332,16 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     },
     [isMyTurn, questionOver, submitTurnGuess, presentIds],
   )
+
+  const handleHint = useCallback(async () => {
+    if (!isMyTurn || questionOver || !currentQuestion) return 'failed' as const
+    const exclude = [...foundRanks, ...hints.map((h) => h.rank)]
+    const hint = await fetchTenableHint(currentQuestion.id, exclude)
+    if (typeof hint === 'string') return hint
+    addHint({ questionId: currentQuestion.id, hint })
+    setFocusKey((k) => k + 1)
+    return 'ok' as const
+  }, [isMyTurn, questionOver, currentQuestion, foundRanks, hints, addHint])
 
   // ── Render ──────────────────────────────────────────────────────────────────
 
@@ -419,15 +467,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
               {currentQuestion.prompt}
             </p>
           </div>
-          <div className="flex shrink-0 items-center gap-1.5">
-            {Array.from({ length: maxLives }, (_, i) => (
-              <span
-                key={i}
-                className={`text-xl leading-none ${i < (livesLeft ?? 0) ? '' : 'opacity-25 grayscale'}`}
-              >
-                {i < (livesLeft ?? 0) ? '❤️' : '🖤'}
-              </span>
-            ))}
+          <div className="shrink-0">
+            <LivesRow livesLeft={livesLeft ?? 0} maxLives={maxLives} />
           </div>
         </div>
         <div className="flex items-center justify-between gap-4">
@@ -464,18 +505,44 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
           </div>
         ) : isMyTurn ? (
           <>
-            <NameAutocomplete onGuess={handleGuess} focusKey={focusKey} placeholder="Name one…" />
-            <GuessFeedback guess={lastGuess} nameFor={nameFor} selfId={self?.connectionId ?? null} />
+            <NameAutocomplete
+              onGuess={handleGuess}
+              focusKey={focusKey}
+              placeholder="Name one…"
+              exclude={foundNames}
+              resetKey={currentQuestionIndex ?? 0}
+            />
+            <GuessFeedback
+              guess={lastGuess}
+              nameFor={nameFor}
+              selfId={self?.connectionId ?? null}
+            />
           </>
         ) : (
           <>
             <p className="py-4 text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">
               {turnName} is naming one…
             </p>
-            <GuessFeedback guess={lastGuess} nameFor={nameFor} selfId={self?.connectionId ?? null} />
+            <GuessFeedback
+              guess={lastGuess}
+              nameFor={nameFor}
+              selfId={self?.connectionId ?? null}
+            />
           </>
         )}
       </div>
+
+      {!questionOver && (
+        <TenableHints
+          key={currentQuestion.id}
+          hints={hints}
+          foundRanks={foundRanks}
+          hintsLeft={hintsLeft ?? 0}
+          onRequest={handleHint}
+          canRequest={isMyTurn}
+          byLabel={(id) => (id === self?.connectionId ? 'you' : nameFor(id))}
+        />
+      )}
 
       <TenableBoard
         question={currentQuestion}

@@ -8,7 +8,7 @@ import type {
   TenableDifficultyFilter,
   TenableAnswerOrder,
 } from '@/lib/tenable/types'
-import { DEFAULT_TENABLE_CONFIG } from '@/lib/tenable/types'
+import { DEFAULT_TENABLE_CONFIG, HINTED_POINTS, POINTS_PER_ANSWER } from '@/lib/tenable/types'
 import {
   clearTenableSession,
   loadTenableConfig,
@@ -28,28 +28,29 @@ import { SegmentedNumbers } from '@/components/setup/SegmentedNumbers'
 import { TopicPicker, type TopicItem } from '@/components/setup/TopicPicker'
 import { KickoffBar } from '@/components/setup/KickoffBar'
 import { ControlLabel, ReadoutTile, SelectRow } from '@/components/setup/primitives'
+import { TenableBrowse } from './TenableBrowse'
 
 type PresetPatch = Partial<
-  Pick<TenableConfig, 'lives' | 'questionCount' | 'difficulty' | 'answerOrder'>
+  Pick<TenableConfig, 'lives' | 'questionCount' | 'difficulty' | 'answerOrder' | 'hints'>
 >
 const PRESETS: Array<Preset & { patch: PresetPatch }> = [
   {
     id: 'pubnight',
     emoji: '🍺',
     label: 'Pub Night',
-    patch: { difficulty: 'mixed', questionCount: 3, lives: 3, answerOrder: 'any' },
+    patch: { difficulty: 'mixed', questionCount: 3, lives: 3, answerOrder: 'any', hints: 3 },
   },
   {
     id: 'warmup',
     emoji: '👣',
     label: 'Warm-up',
-    patch: { difficulty: 'easy', questionCount: 1, lives: 5, answerOrder: 'any' },
+    patch: { difficulty: 'easy', questionCount: 1, lives: 5, answerOrder: 'any', hints: 5 },
   },
   {
     id: 'anorak',
     emoji: '🤓',
     label: 'Anorak',
-    patch: { difficulty: 'hard', questionCount: 5, lives: 2, answerOrder: 'any' },
+    patch: { difficulty: 'hard', questionCount: 5, lives: 2, answerOrder: 'any', hints: 0 },
   },
 ]
 
@@ -65,6 +66,8 @@ const ORDERS: Array<{ value: TenableAnswerOrder; label: string; explainer: strin
 ]
 const ALL_GROUP_IDS = TENABLE_GROUPS.map((g) => g.id)
 
+type SetupTab = 'mix' | 'pick'
+
 export function TenableSetup() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -74,6 +77,7 @@ export function TenableSetup() {
 
   const [config, setConfig] = useState<TenableConfig>(DEFAULT_TENABLE_CONFIG)
   const [hydrated, setHydrated] = useState(false)
+  const [tab, setTab] = useState<SetupTab>('mix')
 
   useEffect(() => {
     setConfig(loadTenableConfig())
@@ -90,16 +94,25 @@ export function TenableSetup() {
   function applyPreset(id: string) {
     const preset = PRESETS.find((p) => p.id === id)
     if (!preset) return
-    persist({ ...config, ...preset.patch, groups: 'all' })
+    persist({ ...config, ...preset.patch, groups: 'all', selectedQuestionId: undefined })
+    setTab('mix')
   }
 
-  function launchSolo() {
+  // The mix tab always plays the filters; only a gallery pick sets selectedQuestionId.
+  function pickList(id: string) {
+    const picked = { ...config, selectedQuestionId: id }
+    persist(picked)
+    if (isSolo) launchSolo(picked)
+    else if (isMultiplayer) launchMultiplayer(picked)
+  }
+
+  function launchSolo(cfg: TenableConfig = { ...config, selectedQuestionId: undefined }) {
     clearTenableSession()
-    saveTenableConfig(config)
+    saveTenableConfig(cfg)
     router.push('/tenable/play')
   }
-  function launchMultiplayer() {
-    saveTenableConfig(config)
+  function launchMultiplayer(cfg: TenableConfig = { ...config, selectedQuestionId: undefined }) {
+    saveTenableConfig(cfg)
     router.push('/tenable/room/new')
   }
 
@@ -189,6 +202,21 @@ export function TenableSetup() {
           }
         />
       </div>
+      <div>
+        <ControlLabel className="mb-3">Hints</ControlLabel>
+        <SegmentedNumbers
+          ariaLabel="Hints"
+          numberClass="text-[28px]"
+          options={[{ value: 0 }, { value: 3 }, { value: 5 }]}
+          value={config.hints}
+          onChange={(v) => update('hints', v)}
+          helper={
+            config.hints === 0
+              ? 'No hints - pure recall'
+              : `${config.hints} per game · a hinted answer scores ${HINTED_POINTS}, not ${POINTS_PER_ANSWER}`
+          }
+        />
+      </div>
     </>
   )
 
@@ -244,7 +272,7 @@ export function TenableSetup() {
 
   const fields = [
     { label: 'The run', value: `${config.questionCount} lists · ${answers} answers` },
-    { label: 'Lives', value: `${config.lives} wrong` },
+    { label: 'Lives', value: `${config.lives} wrong · ${config.hints} hints` },
     { label: 'Difficulty', value: `${diffLabel} · ≈${minutes} min` },
     { label: 'Topics', value: `${groupCount} of ${ALL_GROUP_IDS.length}` },
   ]
@@ -252,32 +280,71 @@ export function TenableSetup() {
   const hint = isSolo ? undefined : isMultiplayer ? (
     'Room code comes next'
   ) : (
-    <button type="button" onClick={launchSolo} className="underline hover:text-on-green">
+    <button type="button" onClick={() => launchSolo()} className="underline hover:text-on-green">
       or play solo →
     </button>
   )
 
   return (
     <>
-      <SetupPageFrame>
+      <SetupPageFrame kickoff={tab === 'mix'}>
         <SetupHeader badge={`Tenable · ${isSolo ? 'Solo' : 'Multiplayer'}`} title="Name the ten">
-          <PresetPills presets={PRESETS} activeId={activePreset} onSelect={applyPreset} />
+          {tab === 'mix' && (
+            <PresetPills presets={PRESETS} activeId={activePreset} onSelect={applyPreset} />
+          )}
         </SetupHeader>
 
-        <div className="mt-5">
-          <TacticsBoard tall col1={col1} col2={col2} topics={topicsPanel} />
+        <div
+          role="tablist"
+          aria-label="How to play"
+          className="mt-5 flex gap-1.5 rounded-full border-[2.5px] border-surface/30 bg-black/20 p-1.5"
+        >
+          {(
+            [
+              { id: 'mix' as const, label: 'Play a mix' },
+              { id: 'pick' as const, label: 'Pick a list' },
+            ] as const
+          ).map((t) => {
+            const active = tab === t.id
+            return (
+              <button
+                key={t.id}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setTab(t.id)}
+                className={`flex-1 rounded-full px-4 py-2.5 font-display text-[16px] font-black uppercase leading-none tracking-wide transition-colors md:text-[18px] ${
+                  active
+                    ? 'bg-yellow text-ink shadow-[0_3px_0_#0a2417]'
+                    : 'text-on-green-soft hover:text-on-green'
+                }`}
+              >
+                {t.label}
+              </button>
+            )
+          })}
         </div>
+
+        {tab === 'mix' ? (
+          <div className="mt-5">
+            <TacticsBoard tall col1={col1} col2={col2} topics={topicsPanel} />
+          </div>
+        ) : (
+          <TenableBrowse onPick={pickList} />
+        )}
       </SetupPageFrame>
 
-      <KickoffBar
-        fields={fields}
-        mobilePrimary={`${config.questionCount} lists · ${answers} answers`}
-        mobileDetail={`${config.lives} lives · ${diffLabel} · ≈${minutes} min`}
-        hint={hint}
-        ctaLabel={isSolo ? 'Kick off' : 'Create room'}
-        onCta={isSolo ? launchSolo : launchMultiplayer}
-        disabled={!isValid}
-      />
+      {tab === 'mix' && (
+        <KickoffBar
+          fields={fields}
+          mobilePrimary={`${config.questionCount} lists · ${answers} answers`}
+          mobileDetail={`${config.lives} lives · ${config.hints} hints · ${diffLabel} · ≈${minutes} min`}
+          hint={hint}
+          ctaLabel={isSolo ? 'Kick off' : 'Create room'}
+          onCta={isSolo ? () => launchSolo() : () => launchMultiplayer()}
+          disabled={!isValid}
+        />
+      )}
     </>
   )
 }

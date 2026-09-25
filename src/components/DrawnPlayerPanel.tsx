@@ -132,60 +132,60 @@ export function DrawnPlayerPanel({
             <div className="h-14 w-12 animate-pulse rounded-md bg-surface-2 lg:h-[220px] lg:w-[190px]" />
           ) : (
             <div className="relative">
-            {!portraitReady ? (
-              <div
-                className="absolute inset-0 animate-pulse rounded-md bg-surface-2"
-                aria-hidden
-              />
-            ) : null}
-            <motion.div
-              key={`portrait-${drawKey}`}
-              initial={reduceMotion ? false : { scale: 0.5, rotate: -12, opacity: 0 }}
-              animate={
-                portraitReady
-                  ? { scale: 1, rotate: 0, opacity: 1 }
-                  : { scale: reduceMotion ? 1 : 0.5, rotate: reduceMotion ? 0 : -12, opacity: 0 }
-              }
-              transition={
-                reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 360, damping: 18 }
-              }
-              className="relative"
-            >
-              {/* sticker frame: tilted, ink border, halftone backdrop */}
-              <div className="-rotate-[4deg] rounded-md border-2 border-ink bg-surface-hi p-[3px] shadow-[0_3px_0_#0a2417] lg:-rotate-3 lg:p-[7px] lg:shadow-[0_5px_0_#0a2417]">
-              <div className="halftone relative h-[48px] w-[42px] overflow-hidden rounded-[3px] bg-sky lg:h-[172px] lg:w-[174px]">
-              {imageUrl ? (
-                <Image
-                  key={useRawImage ? 'raw' : 'thumb'}
-                  src={imageUrl}
-                  loader={useRawImage ? undefined : wikimediaLoader}
-                  unoptimized={useRawImage}
-                  alt=""
-                  fill
-                  sizes="(min-width: 1024px) 174px, 42px"
-                  loading="eager"
-                  className="object-cover"
-                  style={{ objectPosition: '50% 16%' }}
-                  onLoad={() => setPortraitLoaded(true)}
-                  onError={() => {
-                    // Commons won't thumbnail past the source width; retry raw.
-                    if (useRawImage) setPortraitLoaded(true)
-                    else setUseRawImage(true)
-                  }}
-                />
-              ) : (
-                <svg
-                  viewBox="0 0 44 44"
+              {!portraitReady ? (
+                <div
+                  className="absolute inset-0 animate-pulse rounded-md bg-surface-2"
                   aria-hidden
-                  className="absolute inset-0 h-full w-full opacity-50"
-                >
-                  <circle cx="22" cy="16" r="9" fill="#0a2417" />
-                  <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a2417" />
-                </svg>
-              )}
-              </div>
-              </div>
-            </motion.div>
+                />
+              ) : null}
+              <motion.div
+                key={`portrait-${drawKey}`}
+                initial={reduceMotion ? false : { scale: 0.5, rotate: -12, opacity: 0 }}
+                animate={
+                  portraitReady
+                    ? { scale: 1, rotate: 0, opacity: 1 }
+                    : { scale: reduceMotion ? 1 : 0.5, rotate: reduceMotion ? 0 : -12, opacity: 0 }
+                }
+                transition={
+                  reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 360, damping: 18 }
+                }
+                className="relative"
+              >
+                {/* sticker frame: tilted, ink border, halftone backdrop */}
+                <div className="-rotate-[4deg] rounded-md border-2 border-ink bg-surface-hi p-[3px] shadow-[0_3px_0_#0a2417] lg:-rotate-3 lg:p-[7px] lg:shadow-[0_5px_0_#0a2417]">
+                  <div className="halftone relative h-[48px] w-[42px] overflow-hidden rounded-[3px] bg-sky lg:h-[172px] lg:w-[174px]">
+                    {imageUrl ? (
+                      <Image
+                        key={useRawImage ? 'raw' : 'thumb'}
+                        src={imageUrl}
+                        loader={useRawImage ? undefined : wikimediaLoader}
+                        unoptimized={useRawImage}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 174px, 42px"
+                        loading="eager"
+                        className="object-cover"
+                        style={{ objectPosition: '50% 16%' }}
+                        onLoad={() => setPortraitLoaded(true)}
+                        onError={() => {
+                          // Commons won't thumbnail past the source width; retry raw.
+                          if (useRawImage) setPortraitLoaded(true)
+                          else setUseRawImage(true)
+                        }}
+                      />
+                    ) : (
+                      <svg
+                        viewBox="0 0 44 44"
+                        aria-hidden
+                        className="absolute inset-0 h-full w-full opacity-50"
+                      >
+                        <circle cx="22" cy="16" r="9" fill="#0a2417" />
+                        <path d="M4 44 C4 30 14 26 22 26 C30 26 40 30 40 44 Z" fill="#0a2417" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
             </div>
           )}
           {attr ? (
@@ -245,11 +245,7 @@ export function DrawnPlayerPanel({
               {draftWarning}
             </span>
           ) : null}
-          {!error && !draftWarning ? (
-            <p className="mt-3 hidden text-[14.5px] leading-snug text-card-muted lg:block">
-              Tap a square he genuinely fits.
-            </p>
-          ) : null}
+
           {wrongNonce ? (
             <span key={`sr-wrong-${wrongNonce}`} role="alert" className="sr-only">
               Player does not match this square

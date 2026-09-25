@@ -25,18 +25,27 @@ import { getLineupById, selectLineups, lineupTarget } from '@/data/famous11s'
 import { matchSlot } from '@/lib/famous11s/matching'
 import { POINTS_PER_SLOT, CLEAR_BONUS, MISS_PENALTY } from '@/lib/famous11s/types'
 import { randomUUID } from '@/lib/randomUUID'
+import {
+  getTabDisplayName,
+  getTabPlayerId,
+  roomPlayerIdOf as playerIdOf,
+  saveTabDisplayName,
+} from '@/lib/roomPlayer'
 import { Famous11sLobby } from './Famous11sLobby'
 import { PitchBoard } from './PitchBoard'
 import { Famous11sAutocomplete } from './Famous11sAutocomplete'
+import { LivesRow } from '@/components/LivesRow'
 
-function nextTurn(current: number | null, presentIds: number[]): number | null {
+function nextTurn(current: string | null, presentIds: string[]): string | null {
   if (!presentIds.length) return null
-  const ring = [...presentIds].sort((a, b) => a - b)
+  const ring = [...presentIds].sort()
   if (current === null) return ring[0]
   const i = ring.indexOf(current)
   if (i === -1) return ring[0]
   return ring[(i + 1) % ring.length]
 }
+
+const ABSENT_TURN_GRACE_MS = 8000
 
 function GuessFeedback({
   guess,
@@ -44,8 +53,8 @@ function GuessFeedback({
   selfId,
 }: {
   guess: ElevenLastGuess | null
-  nameFor: (id: number) => string
-  selfId: number | null
+  nameFor: (id: string) => string
+  selfId: string | null
 }) {
   return (
     <div className="mt-2 h-6">
@@ -94,19 +103,21 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   })
 
   const phase = useElevenStorage((s) => s.phase)
-  const hostConnectionId = useElevenStorage((s) => s.hostConnectionId)
+  const hostPlayerId = useElevenStorage((s) => s.hostPlayerId ?? null)
   const configJson = useElevenStorage((s) => s.configJson)
   const lineupsJson = useElevenStorage((s) => s.lineupsJson)
   const currentLineupIndex = useElevenStorage((s) => s.currentLineupIndex)
   const foundSlotIdsJson = useElevenStorage((s) => s.foundSlotIdsJson)
   const lastGuessJson = useElevenStorage((s) => s.lastGuessJson)
   const livesLeft = useElevenStorage((s) => s.livesLeft)
-  const currentTurnConnectionId = useElevenStorage((s) => s.currentTurnConnectionId)
+  const currentTurnPlayerId = useElevenStorage((s) => s.currentTurnPlayerId ?? null)
   const playerNames = useElevenStorage((s) => s.playerNames)
   const playerScores = useElevenStorage((s) => s.playerScores)
   const turnDeadline = useElevenStorage((s) => s.turnDeadline)
 
-  const isHost = self?.connectionId === hostConnectionId
+  // Stable across reconnects, unlike connectionId.
+  const myId = self ? playerIdOf(self) : null
+  const isHost = myId != null && myId === hostPlayerId
   const config = useMemo(() => parseElevenConfig(configJson ?? '{}'), [configJson])
   const lineups = useMemo(() => parseElevenLineups(lineupsJson ?? '[]'), [lineupsJson])
   const foundSlotIds = useMemo(() => parseStringArray(foundSlotIdsJson ?? '[]'), [foundSlotIdsJson])
@@ -114,12 +125,12 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   const currentLineup = lineups[currentLineupIndex ?? 0] ?? null
 
   const presentIds = useMemo(() => {
-    const ids = others.map((o) => o.connectionId)
-    if (self?.connectionId != null) ids.push(self.connectionId)
-    return ids
-  }, [others, self?.connectionId])
+    const ids = new Set(others.map(playerIdOf))
+    if (myId != null) ids.add(myId)
+    return [...ids]
+  }, [others, myId])
 
-  const isMyTurn = self?.connectionId != null && self.connectionId === currentTurnConnectionId
+  const isMyTurn = myId != null && myId === currentTurnPlayerId
   const totalSlots = currentLineup ? lineupTarget(currentLineup, config.includeManager) : 0
   const lineupOver = !!currentLineup && (foundSlotIds.length >= totalSlots || (livesLeft ?? 0) <= 0)
   const cleared = !!currentLineup && foundSlotIds.length >= totalSlots
@@ -128,29 +139,22 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
 
   const claimHost = useElevenM(
     ({ storage }, displayName: string) => {
-      if (!storage.get('hostConnectionId') && self?.connectionId != null) {
-        storage.set('hostConnectionId', self.connectionId)
-      }
-      if (self?.connectionId != null) {
-        storage.get('playerNames').set(String(self.connectionId), displayName)
-        if (!storage.get('playerScores').get(String(self.connectionId))) {
-          storage.get('playerScores').set(String(self.connectionId), '0')
-        }
-      }
+      if (myId == null) return
+      if (!storage.get('hostPlayerId')) storage.set('hostPlayerId', myId)
+      storage.get('playerNames').set(myId, displayName)
+      if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
     },
-    [self?.connectionId],
+    [myId],
   )
 
   const setPlayerName = useElevenM(
     ({ storage }, displayName: string) => {
-      if (self?.connectionId != null) {
-        storage.get('playerNames').set(String(self.connectionId), displayName)
-      }
+      if (myId != null) storage.get('playerNames').set(myId, displayName)
     },
-    [self?.connectionId],
+    [myId],
   )
 
-  const startGame = useElevenM(({ storage }, ids: number[]) => {
+  const startGame = useElevenM(({ storage }, ids: string[]) => {
     const cfg = loadFamous11sConfig()
     const seed = randomUUID()
     const picked = cfg.selectedLineupId
@@ -172,21 +176,17 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     storage.set('resultsJson', '[]')
     storage.set('lastGuessJson', '')
     storage.set('startedAt', Date.now())
-    const ring = [...ids].sort((a, b) => a - b)
+    const ring = [...ids].sort()
     storage.set('turnOrderJson', JSON.stringify(ring))
-    storage.set('currentTurnConnectionId', ring[0] ?? null)
+    storage.set('currentTurnPlayerId', ring[0] ?? null)
     const deadline = cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0
     storage.set('turnDeadline', deadline)
     storage.set('phase', 'playing')
   }, [])
 
   const submitTurnGuess = useElevenM(
-    ({ storage }, { name, ids }: { name: string; ids: number[] }) => {
-      if (
-        self?.connectionId == null ||
-        storage.get('currentTurnConnectionId') !== self.connectionId
-      )
-        return
+    ({ storage }, { name, ids }: { name: string; ids: string[] }) => {
+      if (myId == null || storage.get('currentTurnPlayerId') !== myId) return
 
       const lns = parseElevenLineups(storage.get('lineupsJson') ?? '[]')
       const idx = storage.get('currentLineupIndex') ?? 0
@@ -198,7 +198,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
       if (found.length >= target || (storage.get('livesLeft') ?? 0) <= 0) return
 
       const outcome = matchSlot(name, lineup, found, cfg.includeManager)
-      const connId = String(self.connectionId)
+      const connId = myId
 
       if (outcome.kind === 'correct') {
         const nextFound = [...found, outcome.slotId]
@@ -221,7 +221,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
         'lastGuessJson',
         JSON.stringify({
           seq: prevSeq + 1,
-          by: self.connectionId,
+          by: myId,
           name,
           kind: outcome.kind,
           slotId: outcome.kind !== 'wrong' ? outcome.slotId : undefined,
@@ -230,24 +230,23 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
       )
 
       if (outcome.kind !== 'already-found') {
-        const nextConnId = nextTurn(self.connectionId, ids)
-        storage.set('currentTurnConnectionId', nextConnId)
+        storage.set('currentTurnPlayerId', nextTurn(myId, ids))
         const cfgParsed = parseElevenConfig(storage.get('configJson') ?? '{}')
         const deadline = cfgParsed.turnSeconds > 0 ? Date.now() + cfgParsed.turnSeconds * 1000 : 0
         storage.set('turnDeadline', deadline)
       }
     },
-    [self?.connectionId],
+    [myId],
   )
 
-  const skipTurn = useElevenM(({ storage }, ids: number[]) => {
-    const current = storage.get('currentTurnConnectionId')
+  const skipTurn = useElevenM(({ storage }, ids: string[]) => {
+    const current = storage.get('currentTurnPlayerId')
     if (current == null) return
     const found = parseStringArray(storage.get('foundSlotIdsJson') ?? '[]')
     const cfg = parseElevenConfig(storage.get('configJson') ?? '{}')
     storage.set('livesLeft', Math.max(0, (storage.get('livesLeft') ?? 0) - 1))
     const prevSeq = parseLastGuess(storage.get('lastGuessJson') ?? '')?.seq ?? 0
-    const name = storage.get('playerNames').get(String(current)) ?? `Player ${current}`
+    const name = storage.get('playerNames').get(current) ?? 'Player'
     storage.set(
       'lastGuessJson',
       JSON.stringify({
@@ -265,9 +264,17 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     const target = lineupTarget(lineup, cfg.includeManager)
     const livesAfter = Math.max(0, storage.get('livesLeft') ?? 0)
     const nextConnId = found.length < target && livesAfter > 0 ? nextTurn(current, ids) : current
-    storage.set('currentTurnConnectionId', nextConnId)
+    storage.set('currentTurnPlayerId', nextConnId)
     const deadline = cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0
     storage.set('turnDeadline', deadline)
+  }, [])
+
+  const passAbsentTurn = useElevenM(({ storage }, ids: string[]) => {
+    const current = storage.get('currentTurnPlayerId')
+    if (current != null && ids.includes(current)) return
+    storage.set('currentTurnPlayerId', nextTurn(current, ids))
+    const cfg = parseElevenConfig(storage.get('configJson') ?? '{}')
+    storage.set('turnDeadline', cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0)
   }, [])
 
   const advanceLineupRoom = useElevenM(({ storage }) => {
@@ -327,31 +334,43 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [turnDeadline, phase, lineupOver])
 
+  // ── Absent turn-holder: pass the turn after a grace period ──────────────
+  // Only the lowest present id acts, so clients don't race each other.
+
+  const turnHolderAbsent =
+    phase === 'playing' &&
+    !lineupOver &&
+    presentIds.length > 0 &&
+    (currentTurnPlayerId == null || !presentIds.includes(currentTurnPlayerId))
+  const iAmTurnJanitor = myId != null && [...presentIds].sort()[0] === myId
+
+  useEffect(() => {
+    if (!turnHolderAbsent || !iAmTurnJanitor) return
+    const t = window.setTimeout(() => passAbsentTurn(presentIds), ABSENT_TURN_GRACE_MS)
+    return () => window.clearTimeout(t)
+  }, [turnHolderAbsent, iAmTurnJanitor, presentIds, passAbsentTurn])
+
   // ── Init ──────────────────────────────────────────────────────────────────
 
   useEffect(() => {
-    if (phase == null || phase !== 'lobby') return
-    let displayName =
-      typeof window !== 'undefined' ? window.localStorage.getItem('fb_display_name') : null
-    if (!displayName) {
-      displayName = `Player ${Math.floor(Math.random() * 1000)}`
-      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', displayName)
-    }
-    claimHost(displayName)
+    if (phase == null || myId == null) return
+    const displayName = getTabDisplayName()
+    if (phase === 'lobby') claimHost(displayName)
+    else setPlayerName(displayName)
     updatePresence({ displayName })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase])
+  }, [phase === 'lobby', phase == null, myId])
 
   useEffect(() => {
     setFocusKey((k) => k + 1)
-  }, [currentTurnConnectionId, currentLineupIndex])
+  }, [currentTurnPlayerId, currentLineupIndex])
 
   const handleRename = useCallback(
     (name: string) => {
       const trimmed = name.trim() || 'Player'
       setPlayerName(trimmed)
       updatePresence({ displayName: trimmed })
-      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', trimmed)
+      saveTabDisplayName(trimmed)
     },
     [setPlayerName, updatePresence],
   )
@@ -388,19 +407,22 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     )
   }
 
+  // One entry per player id (the same user may have several tabs/connections).
   const players = [
-    ...(self ? [{ connectionId: self.connectionId, name: self.presence.displayName }] : []),
-    ...others.map((o) => ({ connectionId: o.connectionId, name: o.presence.displayName })),
-  ].filter((p) => p.name)
+    ...(self ? [{ id: playerIdOf(self), name: self.presence.displayName }] : []),
+    ...others.map((o) => ({ id: playerIdOf(o), name: o.presence.displayName })),
+  ]
+    .filter((p) => p.name)
+    .filter((p, i, arr) => arr.findIndex((q) => q.id === p.id) === i)
 
   if (phase === 'lobby') {
     return (
       <Famous11sLobby
         roomId={roomId}
         players={players.map((p) => ({
-          connectionId: p.connectionId,
+          id: p.id,
           displayName: p.name,
-          isHost: p.connectionId === hostConnectionId,
+          isHost: p.id === hostPlayerId,
         }))}
         isHost={isHost}
         config={config}
@@ -411,15 +433,15 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     )
   }
 
-  const nameFor = (connId: number) => playerNames?.get(String(connId)) ?? `Player ${connId}`
-  const scoreFor = (connId: number) => Number(playerScores?.get(String(connId)) ?? '0')
+  const nameFor = (id: string) => playerNames?.get(id) ?? 'Player'
+  const scoreFor = (id: string) => Number(playerScores?.get(id) ?? '0')
 
   if (phase === 'finished') {
     const leaderboard = players
       .map((p) => ({
-        name: nameFor(p.connectionId),
-        score: scoreFor(p.connectionId),
-        isMe: p.connectionId === self?.connectionId,
+        name: nameFor(p.id),
+        score: scoreFor(p.id),
+        isMe: p.id === myId,
       }))
       .sort((a, b) => b.score - a.score)
     return (
@@ -474,7 +496,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     )
   }
 
-  const turnName = currentTurnConnectionId != null ? nameFor(currentTurnConnectionId) : '-'
+  const turnName = currentTurnPlayerId != null ? nameFor(currentTurnPlayerId) : '-'
   const timerSeconds =
     config.turnSeconds > 0 && turnDeadline && turnDeadline > 0
       ? Math.max(0, Math.round((turnDeadline - Date.now()) / 1000))
@@ -496,16 +518,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
               {currentLineup.prompt}
             </p>
           </div>
-          <div className="flex items-center gap-1.5">
-            {Array.from({ length: config.lives }, (_, i) => (
-              <span
-                key={i}
-                className={`text-xl leading-none ${i < (livesLeft ?? 0) ? '' : 'opacity-25 grayscale'}`}
-              >
-                {i < (livesLeft ?? 0) ? '❤️' : '🖤'}
-              </span>
-            ))}
-          </div>
+          <LivesRow livesLeft={livesLeft ?? 0} maxLives={config.lives} />
         </div>
         <div className="flex items-center justify-between gap-4">
           <span
@@ -557,7 +570,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
             <GuessFeedback
               guess={lastGuess}
               nameFor={nameFor}
-              selfId={self?.connectionId ?? null}
+              selfId={myId}
             />
           </>
         ) : (
@@ -568,7 +581,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
             <GuessFeedback
               guess={lastGuess}
               nameFor={nameFor}
-              selfId={self?.connectionId ?? null}
+              selfId={myId}
             />
           </>
         )}
@@ -589,7 +602,7 @@ export function Famous11sRoomGame({ roomId }: { roomId: string }) {
   return (
     <ElevenRoomProvider
       id={roomId}
-      initialPresence={{ displayName: '' }}
+      initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
       initialStorage={createInitialElevenStorage}
     >
       <Famous11sRoomInner roomId={roomId} />

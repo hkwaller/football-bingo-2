@@ -4,10 +4,12 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   advanceQuestion,
+  applyHint,
   buildSession,
   isQuestionOver,
   submitGuess,
 } from '@/lib/tenable/sessionEngine'
+import { foundAnswerNames } from '@/lib/tenable/matching'
 import { tenableTarget } from '@/data/tenable'
 import {
   clearTenableSession,
@@ -21,6 +23,7 @@ import { TenableBoard } from './TenableBoard'
 import { TenableHUD } from './TenableHUD'
 import { NameAutocomplete } from './NameAutocomplete'
 import { TenableEndScreen } from './TenableEndScreen'
+import { TenableHints, fetchTenableHint } from './TenableHints'
 
 type Feedback = { outcome: GuessOutcome; id: number }
 
@@ -74,6 +77,19 @@ export function TenableGame() {
     [session, questionOver],
   )
 
+  const handleHint = useCallback(async () => {
+    if (!session || !currentQuestion || questionOver) return 'failed' as const
+    const exclude = [...session.foundRanks, ...session.hints.map((h) => h.rank)]
+    const hint = await fetchTenableHint(currentQuestion.id, exclude)
+    if (typeof hint === 'string') return hint
+    // Functional update: a guess may have landed while the hint was in flight.
+    setSession((s) =>
+      s && s.questions[s.currentIndex]?.id === currentQuestion.id ? applyHint(s, hint) : s,
+    )
+    setFocusKey((k) => k + 1)
+    return 'ok' as const
+  }, [session, currentQuestion, questionOver])
+
   const handleNext = useCallback(() => {
     if (!session) return
     setFeedback(null)
@@ -107,6 +123,7 @@ export function TenableGame() {
   }
 
   const foundCount = session.foundRanks.length
+  const foundNames = foundAnswerNames(currentQuestion, session.foundRanks)
   const totalAnswers = tenableTarget(currentQuestion)
   const cleared = foundCount >= totalAnswers
 
@@ -142,7 +159,12 @@ export function TenableGame() {
           </div>
         ) : (
           <>
-            <NameAutocomplete onGuess={handleGuess} focusKey={focusKey} />
+            <NameAutocomplete
+              onGuess={handleGuess}
+              focusKey={focusKey}
+              exclude={foundNames}
+              resetKey={session.currentIndex}
+            />
             <div className="mt-2 h-6">
               <AnimatePresence mode="wait">
                 {feedback && (
@@ -172,6 +194,16 @@ export function TenableGame() {
           </>
         )}
       </div>
+
+      {!questionOver && (
+        <TenableHints
+          key={currentQuestion.id}
+          hints={session.hints}
+          foundRanks={session.foundRanks}
+          hintsLeft={session.hintsLeft}
+          onRequest={handleHint}
+        />
+      )}
 
       <TenableBoard
         question={currentQuestion}

@@ -16,12 +16,16 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import { normalize } from '../src/lib/tenable/normalize'
-import { tenableQuestions } from '../src/data/tenable/questions'
+import { tenableQuestions as rawQuestions } from '../src/data/tenable/questions'
+import { withOpenMembers } from '../src/data/tenable/openSets'
 
 const LOOKUP_FILE = path.join(__dirname, 'output', 'tenableNameLookup.json')
 const ENRICHMENT_OUT = path.join(__dirname, '..', 'src', 'data', 'tenable', 'enrichment.json')
 
 type Lookup = Record<string, { id: string; image: string }>
+
+// Verify the bank as the app sees it: open categories include their generated members.
+const tenableQuestions = withOpenMembers(rawQuestions)
 
 function main() {
   if (!fs.existsSync(LOOKUP_FILE)) {

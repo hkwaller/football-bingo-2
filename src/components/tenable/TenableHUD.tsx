@@ -1,5 +1,7 @@
 'use client'
 
+import { LivesRow } from '@/components/LivesRow'
+
 interface Props {
   category: string
   prompt: string
@@ -41,14 +43,7 @@ export function TenableHUD({
       </div>
 
       <div className="flex items-center justify-between gap-4">
-        {/* Lives */}
-        <div className="flex items-center gap-1.5" aria-label={`${livesLeft} of ${maxLives} lives`}>
-          {Array.from({ length: maxLives }, (_, i) => (
-            <span key={i} className={`text-xl leading-none ${i < livesLeft ? '' : 'opacity-25 grayscale'}`}>
-              {i < livesLeft ? '❤️' : '🖤'}
-            </span>
-          ))}
-        </div>
+        <LivesRow livesLeft={livesLeft} maxLives={maxLives} />
         {/* Progress */}
         <span className="font-display text-lg font-black uppercase leading-none text-on-green tabular-nums">
           {foundCount}/{totalAnswers}

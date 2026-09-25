@@ -3,7 +3,12 @@
 import { type BaseUserMeta, createClient, LiveMap } from '@liveblocks/client'
 import { createRoomContext } from '@liveblocks/react'
 import type { TenableQuestion } from '@/data/tenable'
-import { DEFAULT_TENABLE_CONFIG, type TenableConfig, type TenableQuestionResult } from './types'
+import {
+  DEFAULT_TENABLE_CONFIG,
+  type TenableConfig,
+  type TenableHint,
+  type TenableQuestionResult,
+} from './types'
 
 export type TenableRoomPhase = 'lobby' | 'playing' | 'finished'
 
@@ -17,6 +22,8 @@ export type TenableGameStorage = {
   currentQuestionIndex: number
   foundRanksJson: string // number[] found in the current category
   livesLeft: number // shared across the room
+  hintsLeft: number // shared across the room, for the whole game
+  hintsJson: string // TenableHint[] taken in the current category
   currentTurnConnectionId: number | null
   turnOrderJson: string // number[] connection ids
   resultsJson: string // TenableQuestionResult[]
@@ -66,6 +73,8 @@ export function createInitialTenableStorage(): TenableGameStorage {
     currentQuestionIndex: 0,
     foundRanksJson: '[]',
     livesLeft: DEFAULT_TENABLE_CONFIG.lives,
+    hintsLeft: DEFAULT_TENABLE_CONFIG.hints,
+    hintsJson: '[]',
     currentTurnConnectionId: null,
     turnOrderJson: '[]',
     resultsJson: '[]',
@@ -122,6 +131,15 @@ export function parseLastGuess(json: string): TenableLastGuess | null {
       : null
   } catch {
     return null
+  }
+}
+
+export function parseHints(json: string): TenableHint[] {
+  try {
+    const v = JSON.parse(json)
+    return Array.isArray(v) ? (v as TenableHint[]) : []
+  } catch {
+    return []
   }
 }
 

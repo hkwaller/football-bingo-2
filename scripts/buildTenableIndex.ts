@@ -13,6 +13,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import { normalize } from '../src/lib/tenable/normalize'
+import { enrichedFootballPlayers } from '../src/data/players'
 
 const PLAYERS_CSV = path.join(__dirname, '..', 'datasets', 'players.csv')
 const LOOKUP_OUT = path.join(__dirname, 'output', 'tenableNameLookup.json')
@@ -95,6 +96,26 @@ function main() {
       lookup.set(key, { id: row[iId] || '', image: row[iImg] || '', mv })
     }
   }
+
+  // Curated players win over the CSV: market value favours active players, so a
+  // retired legend (Ronaldo Nazário, value 0) lost his name to a current namesake.
+  // Among curated namesakes, the most famous one wins.
+  const curated = new Map<string, { id: string; image: string; fame: number }>()
+  for (const p of enrichedFootballPlayers) {
+    const key = normalize(p.name)
+    if (!key || !p.imageUrl) continue
+    const fame = p.fameScore ?? 0
+    const existing = curated.get(key)
+    if (!existing || fame > existing.fame) {
+      curated.set(key, { id: p.playerId, image: p.imageUrl, fame })
+    }
+  }
+  let overridden = 0
+  for (const [key, { id, image }] of curated) {
+    if (lookup.get(key)?.id !== id) overridden++
+    lookup.set(key, { id, image, mv: Infinity })
+  }
+  console.log(`  ${curated.size} curated names (${overridden} replaced a CSV match)`)
 
   const lookupObj: Record<string, { id: string; image: string }> = {}
   for (const [key, { id, image }] of lookup) lookupObj[key] = { id, image }
