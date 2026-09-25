@@ -10,7 +10,7 @@ export default clerkEnabled
   ? clerkMiddleware(async (auth, req) => {
       if (isProtected(req)) await auth.protect()
     })
-  : function middleware(_request: NextRequest) {
+  : function proxy(_request: NextRequest) {
       return NextResponse.next()
     }
 

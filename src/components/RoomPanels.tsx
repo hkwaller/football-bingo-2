@@ -19,7 +19,10 @@ export type RoomPlayer = {
   /** Filled squares in placement order (individual boards only). */
   solvedCells: number[]
   /** This player's status for the current moment, already resolved per room mode. */
-  status: { kind: 'placed' | 'missed' | 'skipped' | 'playing' | 'vote' | 'novote'; label?: string } | null
+  status: {
+    kind: 'placed' | 'missed' | 'skipped' | 'playing' | 'vote' | 'novote'
+    label?: string
+  } | null
   /** Hide this player's most recent pick on their mini board (same-player rounds). */
   hideLastPick: boolean
 }
@@ -46,13 +49,33 @@ function StatusChip({ status }: { status: RoomPlayer['status'] }) {
     'inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-[5px] border-[1.5px] border-ink px-2 py-[3px] text-[11px] font-extrabold uppercase tracking-[0.05em] text-ink'
   switch (status.kind) {
     case 'placed':
-      return <span className={`${base} bg-green-go`}><Check className="size-3" strokeWidth={3} aria-hidden />Placed</span>
+      return (
+        <span className={`${base} bg-green-go`}>
+          <Check className="size-3" strokeWidth={3} aria-hidden />
+          Placed
+        </span>
+      )
     case 'missed':
-      return <span className={`${base} bg-coral`}><X className="size-3" strokeWidth={3} aria-hidden />Missed</span>
+      return (
+        <span className={`${base} bg-coral`}>
+          <X className="size-3" strokeWidth={3} aria-hidden />
+          Missed
+        </span>
+      )
     case 'skipped':
-      return <span className={`${base} bg-surface-2`}><SkipForward className="size-3" strokeWidth={2.5} aria-hidden />Skipped</span>
+      return (
+        <span className={`${base} bg-surface-2`}>
+          <SkipForward className="size-3" strokeWidth={2.5} aria-hidden />
+          Skipped
+        </span>
+      )
     case 'playing':
-      return <span className={`${base} bg-surface-2`}><Hourglass className="size-3" strokeWidth={2.5} aria-hidden />Playing</span>
+      return (
+        <span className={`${base} bg-surface-2`}>
+          <Hourglass className="size-3" strokeWidth={2.5} aria-hidden />
+          Playing
+        </span>
+      )
     case 'vote':
       return <span className={`${base} max-w-[120px] truncate bg-yellow`}>{status.label}</span>
     case 'novote':
@@ -93,7 +116,13 @@ export function MiniBoard({
               : filled.has(i)
                 ? PLAYER_COLORS[colorIndex % PLAYER_COLORS.length]
                 : 'bg-ink/[0.12]'
-        return <span key={i} className={`rounded-[2px] border border-ink/35 ${cls}`} style={{ width: dot, height: dot }} />
+        return (
+          <span
+            key={i}
+            className={`rounded-[2px] border border-ink/35 ${cls}`}
+            style={{ width: dot, height: dot }}
+          />
+        )
       })}
     </span>
   )
@@ -132,7 +161,7 @@ export function RoomRail({
         <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-card-muted">
           In the room · {players.length}
         </span>
-        <span className="eyebrow rotate-2 text-[10px]">Live</span>
+        {/* <span className="eyebrow rotate-2 text-[10px]">Live</span> */}
       </div>
 
       <div className="border-b-2 border-ink pb-3.5">
@@ -150,12 +179,16 @@ export function RoomRail({
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-card-muted">
               Shared board
             </p>
-            <p className="mt-1 font-display text-[26px] font-black uppercase leading-[0.95] text-ink">Votes are in</p>
+            <p className="mt-1 font-display text-[26px] font-black uppercase leading-[0.95] text-ink">
+              Votes are in
+            </p>
             <div className="mt-2 flex items-center gap-2">
               <span className="block h-2 flex-1 overflow-hidden rounded border-[1.5px] border-ink bg-ink/[0.12]">
                 <span
                   className="block h-full bg-yellow"
-                  style={{ width: `${players.length ? Math.round((votedCount / players.length) * 100) : 0}%` }}
+                  style={{
+                    width: `${players.length ? Math.round((votedCount / players.length) * 100) : 0}%`,
+                  }}
                 />
               </span>
               <span className="font-mono text-[11px] font-semibold text-card-muted">
@@ -168,7 +201,9 @@ export function RoomRail({
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-card-muted">
               {mode === 'own' ? 'Own draws' : 'Free play'}
             </p>
-            <p className="mt-1 font-display text-[26px] font-black uppercase leading-[0.95] text-ink">Race to a line</p>
+            <p className="mt-1 font-display text-[26px] font-black uppercase leading-[0.95] text-ink">
+              Race to a line
+            </p>
             {mode === 'own' ? (
               <p className="mt-1.5 text-[13px] leading-snug text-card-muted">
                 Everyone&apos;s on a different player, so you only see progress.
@@ -180,7 +215,10 @@ export function RoomRail({
 
       <ul>
         {players.map((p) => (
-          <li key={p.id} className="flex items-start gap-3 border-b-[1.5px] border-dashed border-ink/20 py-3 last:border-b-0">
+          <li
+            key={p.id}
+            className="flex items-start gap-3 border-b-[1.5px] border-dashed border-ink/20 py-3 last:border-b-0"
+          >
             <Roundel player={p} />
             <span className="block min-w-0 flex-1">
               <span className="flex items-center justify-between gap-1.5">
@@ -189,7 +227,8 @@ export function RoomRail({
                 </span>
                 {p.bingo ? (
                   <span className="foil inline-flex items-center gap-1 rounded-[5px] border-[1.5px] border-ink px-2 py-[3px] text-[11px] font-extrabold uppercase tracking-[0.05em]">
-                    <Crown className="size-3" aria-hidden />Bingo
+                    <Crown className="size-3" aria-hidden />
+                    Bingo
                   </span>
                 ) : (
                   <StatusChip status={p.status} />
@@ -200,7 +239,9 @@ export function RoomRail({
                   <span className="block h-2 flex-1 overflow-hidden rounded border-[1.5px] border-ink bg-ink/[0.12]">
                     <span
                       className={`block h-full ${PLAYER_COLORS[p.colorIndex % PLAYER_COLORS.length]}`}
-                      style={{ width: `${Math.round((p.solvedCount / Math.max(1, total)) * 100)}%` }}
+                      style={{
+                        width: `${Math.round((p.solvedCount / Math.max(1, total)) * 100)}%`,
+                      }}
                     />
                   </span>
                   <span className="whitespace-nowrap font-mono text-[11px] font-semibold text-card-muted">
@@ -244,7 +285,15 @@ export function RoomRail({
 }
 
 /** Mobile: a strip of avatars with progress rings and a status badge. */
-export function AvatarStrip({ players, total, className = '' }: { players: RoomPlayer[]; total: number; className?: string }) {
+export function AvatarStrip({
+  players,
+  total,
+  className = '',
+}: {
+  players: RoomPlayer[]
+  total: number
+  className?: string
+}) {
   return (
     <section
       aria-label="Players"
@@ -257,7 +306,10 @@ export function AvatarStrip({ players, total, className = '' }: { players: RoomP
           const badge = p.bingo
             ? { cls: 'bg-yellow', icon: <Crown className="size-2.5" aria-hidden /> }
             : p.status?.kind === 'placed'
-              ? { cls: 'bg-green-go', icon: <Check className="size-2.5" strokeWidth={3} aria-hidden /> }
+              ? {
+                  cls: 'bg-green-go',
+                  icon: <Check className="size-2.5" strokeWidth={3} aria-hidden />,
+                }
               : p.status?.kind === 'missed'
                 ? { cls: 'bg-coral', icon: <X className="size-2.5" strokeWidth={3} aria-hidden /> }
                 : p.status?.kind === 'skipped'
@@ -318,16 +370,22 @@ export function FullTimeBanner({
   })
   const winner = standings.find((p) => p.bingo) ?? null
   return (
-    <section aria-label="Full time" className="scoreboard mb-6 overflow-hidden px-5 pb-5 pt-3 sm:px-8 sm:pb-7">
+    <section
+      aria-label="Full time"
+      className="scoreboard mb-6 overflow-hidden px-5 pb-5 pt-3 sm:px-8 sm:pb-7"
+    >
       <div className="scoreboard-bulbs mx-1 mb-4" aria-hidden />
       <div className="flex flex-wrap items-center gap-3">
         <span className="eyebrow text-[12px]">Full time</span>
-        <span className="font-mono text-[12px] uppercase tracking-[0.1em] text-[#9fc2ac]">{modeLabel}</span>
+        <span className="font-mono text-[12px] uppercase tracking-[0.1em] text-[#9fc2ac]">
+          {modeLabel}
+        </span>
       </div>
       <h2 className="mt-3 font-display text-[56px] font-black uppercase leading-[0.86] text-on-green sm:text-[88px]">
         {winner ? (
           <>
-            {winner.isSelf ? 'You' : winner.name} <span className="text-yellow">{winner.isSelf ? 'win it.' : 'wins it.'}</span>
+            {winner.isSelf ? 'You' : winner.name}{' '}
+            <span className="text-yellow">{winner.isSelf ? 'win it.' : 'wins it.'}</span>
           </>
         ) : (
           'Round finished.'
@@ -343,13 +401,17 @@ export function FullTimeBanner({
               p.bingo && i === 0 ? 'bg-[#fff3b8]' : ''
             }`}
           >
-            <span className="w-6 font-display text-[26px] font-black leading-none text-ink">{i + 1}</span>
+            <span className="w-6 font-display text-[26px] font-black leading-none text-ink">
+              {i + 1}
+            </span>
             <Roundel player={p} size={36} />
             <span className="min-w-0 flex-1 truncate font-display text-[22px] font-black uppercase leading-none">
               {p.isSelf ? `${p.name} (you)` : p.name}
             </span>
             {p.bingo ? <span className="eyebrow eyebrow-yellow -rotate-2">Bingo</span> : null}
-            <span className="w-14 text-right font-mono text-[14px] font-semibold">{p.solvedCount}/{total}</span>
+            <span className="w-14 text-right font-mono text-[14px] font-semibold">
+              {p.solvedCount}/{total}
+            </span>
             <span className="hidden w-16 text-right font-mono text-[12px] text-card-muted sm:inline">
               {p.guesses} {p.guesses === 1 ? 'try' : 'tries'}
             </span>
@@ -359,7 +421,12 @@ export function FullTimeBanner({
 
       <div className="mt-5 flex flex-wrap gap-3">
         {isHost ? (
-          <button type="button" disabled={starting} onClick={onRematch} className="btn btn-primary btn-lg">
+          <button
+            type="button"
+            disabled={starting}
+            onClick={onRematch}
+            className="btn btn-primary btn-lg"
+          >
             {starting ? 'Starting…' : 'Rematch'}
           </button>
         ) : (

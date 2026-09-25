@@ -1,8 +1,10 @@
 import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
 import { tenableQuestions as rawQuestions } from './questions'
+import { normalize } from '@/lib/tenable/normalize'
 import enrichment from './enrichment.json'
 import { withOpenMembers } from './openSets'
 import type { TenableGroup, TenableQuestion } from './types'
+import wikiImages from './wikiImages.json'
 
 export type {
   TenableAnswer,
@@ -20,12 +22,17 @@ export type {
  * chip renders instead).
  */
 const enrichmentMap = enrichment as Record<string, { id?: string; image?: string }>
+// Name-keyed Wikipedia portraits (`npm run tenable:images`): fallback for names
+// the CSV lacks, and the winner when an answer pins a `wikiTitle`.
+const wikiMap = wikiImages as Record<string, { title: string; image: string }>
 
 export const tenableQuestions: TenableQuestion[] = withOpenMembers(rawQuestions).map((q) => ({
   ...q,
   answers: q.answers.map((a) => {
     const extra = enrichmentMap[`${q.id}#${a.rank}`]
-    return extra ? { ...a, id: a.id ?? extra.id, image: a.image ?? extra.image } : a
+    const wiki = wikiMap[normalize(a.wikiTitle ?? a.name)]?.image
+    const image = a.image ?? (a.wikiTitle ? wiki : (extra?.image ?? wiki))
+    return extra || image ? { ...a, id: a.id ?? extra?.id, image } : a
   }),
 }))
 
@@ -33,13 +40,8 @@ export function getTenableQuestionById(id: string): TenableQuestion | undefined 
   return tenableQuestions.find((q) => q.id === id)
 }
 
-/**
- * How many slots to fill for a category: ranked = its 10 answers; open = the
- * first 10 of a larger valid set (name any ten).
- */
-export function tenableTarget(q: Pick<TenableQuestion, 'answers'>): number {
-  return Math.min(10, q.answers.length)
-}
+// Lives in its own module so the board can use it without bundling the question bank.
+export { tenableTarget } from '@/lib/tenable/target'
 
 /**
  * Deterministically pick `count` questions for a session. Same seed + filters →

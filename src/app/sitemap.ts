@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // pages are intentionally excluded (and disallowed in robots.ts).
   const routes = [
     '/', // home
+    '/games', // game overview
     '/play/setup', // start a Bingo game
     '/trivia/setup', // start a Trivia game
     '/tenable/setup', // start a Tenable game

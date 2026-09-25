@@ -11,7 +11,7 @@ import type { AdFreePublicMetadata } from '@/lib/entitlement'
  *
  * Must run on the Node runtime and read the RAW body - signature verification
  * fails against a parsed/re-serialized body. This route is public (Stripe is
- * unauthenticated; the signature is the auth) - the Clerk middleware only
+ * unauthenticated; the signature is the auth) - the Clerk proxy only
  * protects /account, so no allow-list entry is needed.
  */
 export const runtime = 'nodejs'

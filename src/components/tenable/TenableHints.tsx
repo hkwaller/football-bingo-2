@@ -34,7 +34,7 @@ interface Props {
   /** Hide the button (e.g. not your turn) but keep showing active hints. */
   canRequest?: boolean
   /** Multiplayer: label who used each hint. */
-  byLabel?: (connId: number) => string
+  byLabel?: (playerId: string) => string
 }
 
 /** Hint button + a card of clues for each hinted answer that's still unfound. */

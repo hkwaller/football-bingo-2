@@ -1,4 +1,5 @@
 import type { TenableGroup, TenableQuestion } from '@/data/tenable'
+import type { RoomPlayMode } from '@/lib/roomMode'
 
 export type TenableDifficultyFilter = 'easy' | 'medium' | 'hard' | 'mixed'
 export type TenableMultiplayerMechanic = 'turn-based'
@@ -15,7 +16,9 @@ export interface TenableConfig {
   /** Whether answers may be named in any order or must go top-down. */
   answerOrder?: TenableAnswerOrder
   multiplayerMechanic: TenableMultiplayerMechanic
-  /** Hints available for the whole run (solo) or the whole room (multiplayer). */
+  /** Multiplayer: own lives/hints/points (versus) or one team pool and score (co-op). */
+  playMode?: RoomPlayMode
+  /** Hints for the whole run - solo, per player (versus) or per team (co-op). 0 = off. */
   hints: number
   /** Picked from the setup gallery: play just this list, ignoring the filters above. */
   selectedQuestionId?: string
@@ -31,6 +34,7 @@ export const DEFAULT_TENABLE_CONFIG: TenableConfig = {
   difficulty: 'mixed',
   answerOrder: 'any',
   multiplayerMechanic: 'turn-based',
+  playMode: 'versus',
   hints: 3,
 }
 
@@ -45,8 +49,8 @@ export interface TenableHint {
   /** The answer this hint points at. */
   rank: number
   clues: string[]
-  /** Multiplayer: connection id of whoever used the hint. */
-  by?: number
+  /** Multiplayer: player id of whoever used the hint. */
+  by?: string
 }
 
 /** Points a correct answer is worth, given the hints taken this category. */

@@ -1,4 +1,5 @@
 import type { Famous11sLineup, LineupDifficulty, LineupEra, LineupKind } from '@/data/famous11s'
+import type { RoomPlayMode } from '@/lib/roomMode'
 
 export type { Famous11sLineup }
 
@@ -35,6 +36,8 @@ export interface Famous11sConfig {
   selectedLineupId?: string
   /** Multiplayer mechanic - always turn-based. */
   multiplayerMechanic: 'turn-based'
+  /** Multiplayer: own lives and points (versus) or shared lives and a team score (co-op). */
+  playMode?: RoomPlayMode
 }
 
 export const DEFAULT_FAMOUS11S_CONFIG: Famous11sConfig = {
@@ -47,6 +50,7 @@ export const DEFAULT_FAMOUS11S_CONFIG: Famous11sConfig = {
   penaltyOnMiss: false,
   turnSeconds: 0,
   multiplayerMechanic: 'turn-based',
+  playMode: 'versus',
 }
 
 /** Outcome of a single name guess. */

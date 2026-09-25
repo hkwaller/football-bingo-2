@@ -5,6 +5,7 @@
  */
 import * as fs from 'fs'
 import * as path from 'path'
+import { writeDerivedPlayerData } from './writeDerivedPlayerData'
 
 const RESULT_FILE = path.join(__dirname, 'output', 'players.json')
 const OUT_FILE = path.join(__dirname, '..', 'src', 'data', 'players.ts')
@@ -26,3 +27,5 @@ export const enrichedFootballPlayers: Player[] = ${JSON.stringify(players, null,
 
 fs.writeFileSync(OUT_FILE, ts)
 console.log(`✓ Wrote ${players.length} players to src/data/players.ts`)
+
+writeDerivedPlayerData(players)

@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import {
   RoomProvider,
@@ -22,6 +22,9 @@ import {
 import { bingoRoomConfigToStorage, loadBingoRoomConfig } from '@/lib/bingoRoomConfig'
 import { BingoBoard } from '@/components/BingoBoard'
 import { RoomInvite } from '@/components/RoomInvite'
+import { LobbyBar } from '@/components/setup/LobbyBar'
+import { LobbyLayout } from '@/components/LobbyLayout'
+import { LobbySettingRow, LobbySquad } from '@/components/LobbySquad'
 import type { CellPick } from '@/lib/cellPick'
 import { DrawnPlayerPanel, type DrawnPlayer } from '@/components/DrawnPlayerPanel'
 import { PlayerPickModal } from '@/components/PlayerPickModal'
@@ -51,18 +54,9 @@ import type { PlayMode } from '@/lib/playMode'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
-
-const ROUNDEL_COLORS = PLAYER_COLORS.map((c) => `${c} text-ink border-2 border-ink`)
-
-/** A label/value row in the host's read-only match-settings summary. */
-function SummaryRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center justify-between gap-3 py-2.5">
-      <dt className="text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">{label}</dt>
-      <dd className="font-display text-[15px] uppercase leading-none text-card-ink">{value}</dd>
-    </div>
-  )
-}
+import { useSpaceToSkip } from '@/lib/useSpaceToSkip'
+import { LobbyNameField } from '@/components/LobbyNameField'
+import { RoomConnecting } from '@/components/RoomConnecting'
 
 function RoomInner({ roomId }: { roomId: string }) {
   const status = useStatus()
@@ -312,7 +306,8 @@ function RoomInner({ roomId }: { roomId: string }) {
     return () => window.clearInterval(id)
   }, [phase])
 
-  const activeSeed = phase === 'playing' && seed ? seed : ''
+  // Kept through 'finished' so the final board stays on screen under the full-time banner.
+  const activeSeed = (phase === 'playing' || phase === 'finished') && seed ? seed : ''
 
   // Individual boards derive a per-player seed so every player gets a different
   // grid. Shared boards use the one room seed.
@@ -342,8 +337,72 @@ function RoomInner({ roomId }: { roomId: string }) {
     [solvedForDisplay],
   )
 
+  const boardWon = useMemo(() => {
+    const set = new Set(solvedForDisplay.keys())
+    set.add(freeIndexForConfig(boardConfig))
+    return hasBingoForConfig(set, boardConfig)
+  }, [solvedForDisplay, boardConfig])
+  // Once the game is over, keep the last drawn player instead of drawing another.
+  const drawFrozen = boardWon || phase === 'finished'
+
+  // The draw is keyed on the exact request, so state that doesn't feed it (e.g. my
+  // own placements under shared draw) can't refetch and re-animate the same player.
+  const draftUrl = useMemo(() => {
+    if (playMode !== 'draft' || !activeSeed || phase !== 'playing' || boardWon) return null
+    // Shared-draw individual boards must draw the SAME player for everyone, so the
+    // draw is keyed only on the room seed + room round with no per-board occupancy.
+    return isIndividual && drawShared
+      ? draftApiUrl({
+          seed: activeSeed,
+          round: draftRound,
+          policy: 'open',
+          boardConfig,
+          occupiedIndices: [],
+          placedPlayerIds: [],
+          drawnPlayerIds,
+        })
+      : isIndividual
+        ? draftApiUrl({
+            seed: myBoardSeed,
+            round: indyRound,
+            policy: 'open',
+            boardConfig,
+            occupiedIndices: occupiedForDraft,
+            placedPlayerIds: placedPlayerIdsForDraft,
+            drawnPlayerIds,
+          })
+        : draftApiUrl({
+            seed: activeSeed,
+            round: draftRound,
+            policy: effectiveDraftPolicy,
+            boardConfig,
+            occupiedIndices: occupiedForDraft,
+            placedPlayerIds: placedPlayerIdsForDraft,
+            drawnPlayerIds,
+          })
+  }, [
+    playMode,
+    activeSeed,
+    draftRound,
+    phase,
+    effectiveDraftPolicy,
+    boardConfig,
+    occupiedForDraft,
+    placedPlayerIdsForDraft,
+    drawnPlayerIds,
+    isIndividual,
+    drawShared,
+    myBoardSeed,
+    indyRound,
+    boardWon,
+  ])
+
   useEffect(() => {
-    if (playMode !== 'draft' || !activeSeed || phase !== 'playing') {
+    if (drawFrozen) {
+      setDraftLoading(false)
+      return
+    }
+    if (!draftUrl) {
       setDrawn(null)
       setDraftLoading(false)
       setDraftTargetCells(null)
@@ -354,39 +413,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     let cancelled = false
     setDraftLoading(true)
     setDraftError(null)
-    // Shared-draw individual boards must draw the SAME player for everyone, so the
-    // draw is keyed only on the room seed + room round with no per-board occupancy.
-    const url =
-      isIndividual && drawShared
-        ? draftApiUrl({
-            seed: activeSeed,
-            round: draftRound,
-            policy: 'open',
-            boardConfig,
-            occupiedIndices: [],
-            placedPlayerIds: [],
-            drawnPlayerIds,
-          })
-        : isIndividual
-          ? draftApiUrl({
-              seed: myBoardSeed,
-              round: indyRound,
-              policy: 'open',
-              boardConfig,
-              occupiedIndices: occupiedForDraft,
-              placedPlayerIds: placedPlayerIdsForDraft,
-              drawnPlayerIds,
-            })
-          : draftApiUrl({
-              seed: activeSeed,
-              round: draftRound,
-              policy: effectiveDraftPolicy,
-              boardConfig,
-              occupiedIndices: occupiedForDraft,
-              placedPlayerIds: placedPlayerIdsForDraft,
-              drawnPlayerIds,
-            })
-    void fetch(url)
+    void fetch(draftUrl)
       .then(async (res) => {
         const j = (await res.json()) as {
           player?: DrawnPlayer
@@ -429,21 +456,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     return () => {
       cancelled = true
     }
-  }, [
-    playMode,
-    activeSeed,
-    draftRound,
-    phase,
-    effectiveDraftPolicy,
-    boardConfig,
-    occupiedForDraft,
-    placedPlayerIdsForDraft,
-    drawnPlayerIds,
-    isIndividual,
-    drawShared,
-    myBoardSeed,
-    indyRound,
-  ])
+  }, [draftUrl, drawFrozen])
 
   const participantIds = useMemo(() => {
     const ids = [self?.connectionId, ...others.map((o) => o.connectionId)].filter(
@@ -809,6 +822,13 @@ function RoomInner({ roomId }: { roomId: string }) {
     updatePresence,
   ])
 
+  const skipViaKey = useCallback(() => {
+    if (isIndividual) handleIndividualSkip()
+    else if (!draftLoading) submitDraftVote({ type: 'skip' })
+  }, [isIndividual, handleIndividualSkip, draftLoading, submitDraftVote])
+
+  useSpaceToSkip(playMode === 'draft' && phase === 'playing' && !localBingo, skipViaKey)
+
   // Shared-draw individual boards: the leader bumps the room round once every
   // participant has placed or skipped, so the next player is drawn for everyone.
   useEffect(() => {
@@ -987,16 +1007,18 @@ function RoomInner({ roomId }: { roomId: string }) {
       : ''
   }`
 
-  const saveName = () => {
-    updatePresence({ displayName: nameDraft.trim() || 'Player', bingoAt: null })
+  const saveName = (name = nameDraft) => {
+    const displayName = name.trim() || 'Player'
+    setNameDraft(displayName)
+    updatePresence({ displayName, bingoAt: null })
   }
 
   if (phase === null || status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[40vh] items-center justify-center gap-3 text-sm font-semibold text-on-green-dim">
-        <span className="inline-block size-2 animate-pulse rounded-full bg-yellow" />
-        Connecting to room…
-      </div>
+      <RoomConnecting
+        mode="bingo"
+        state={status === 'reconnecting' ? 'reconnecting' : 'connecting'}
+      />
     )
   }
 
@@ -1011,214 +1033,107 @@ function RoomInner({ roomId }: { roomId: string }) {
     )
   }
 
-  return (
-    <div
-      className={`mx-auto px-2.5 pt-1 sm:px-6 ${
-        phase === 'lobby' ? 'max-w-5xl pb-16' : 'max-w-[1440px] pb-36 lg:px-16 lg:pb-16'
-      }`}
-    >
-      {phase === 'lobby' ? (
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <span className="eyebrow mb-3">Pre-match · in the tunnel</span>
-            <h1 className="font-display text-[56px] font-black uppercase leading-[0.86] text-on-green md:text-[96px]">
-              Get your mates <span className="text-yellow">in.</span>
-            </h1>
-            {/* <h1 className="font-display text-[48px] font-black uppercase leading-[0.9] text-on-green md:text-[56px]">
-            {phase === 'lobby' ? 'The squad gathers' : 'Race room'}
-          </h1> */}
-            <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
-              {phase === 'lobby'
-                ? "Share the room code. The gaffer kicks off when everyone's in the tunnel."
-                : 'Same clues for everyone - draft uses votes + skip.'}
-            </p>
-          </div>
+  if (phase === 'lobby') {
+    const lobbyName = presence?.displayName || nameDraft
+    return (
+      <LobbyLayout
+        isHost={isHost}
+        eyebrow="Pre-match · in the tunnel"
+        eyebrowTone="yellow"
+        title={
+          <>
+            Get your mates <span className="text-yellow">in.</span>
+          </>
+        }
+        subtitle="Share the room code. The gaffer kicks off when everyone's in the tunnel."
+        headerAction={
           <Link href="/" className="btn btn-outline-light btn-sm">
             Home
           </Link>
-        </div>
-      ) : null}
+        }
+        invite={<RoomInvite roomId={roomId} />}
+        squad={
+          <LobbySquad
+            players={roomPlayers.map((p) => ({
+              id: p.id,
+              displayName: p.name,
+              isHost: hostConnectionId === p.id,
+              isSelf: p.isSelf,
+              ready: p.name !== 'Guest',
+            }))}
+          />
+        }
+        settings={
+          <>
+            <dl>
+              <LobbySettingRow label="Mode" value={PLAY_MODE_LABEL[playMode]} />
+              <LobbySettingRow
+                label="Boards"
+                value={boardLayout === 'shared' ? 'Shared board' : 'Individual boards'}
+              />
+              {playMode === 'draft' && isIndividual ? (
+                <>
+                  <LobbySettingRow label="Draw" value={drawShared ? 'Same player' : 'Own draws'} />
+                  <LobbySettingRow
+                    label="Guesses"
+                    value={singleGuess ? 'One per turn' : 'Unlimited'}
+                  />
+                </>
+              ) : null}
+              {playMode === 'draft' && !isIndividual ? (
+                <LobbySettingRow label="Draft" value={DRAFT_POLICY_LABEL[effectiveDraftPolicy]} />
+              ) : null}
+              <LobbySettingRow label="Grid" value={`${boardSize}×${boardSize}`} />
+              <LobbySettingRow label="Categories" value={categorySummary} />
+              <LobbySettingRow
+                label="Star quality"
+                value={
+                  minFameScore === 0 ? 'Anyone' : `≥ ${minFameScore} · ${eligiblePlayerCount} in`
+                }
+              />
+            </dl>
+            {isHost ? (
+              <p
+                className={`mt-2 font-mono text-xs font-bold ${configOk ? 'text-card-muted' : 'text-pink'}`}
+              >
+                {configOk
+                  ? `${poolCount} in pool · ${needCount} needed ✓`
+                  : `Need at least ${needCount} clues - reopen setup to add categories.`}
+              </p>
+            ) : null}
+          </>
+        }
+        changeSettingsHref="/play/setup?mode=multiplayer"
+        nameField={
+          <LobbyNameField value={lobbyName} onSave={saveName} autoFocus={!isHost && !lobbyName} />
+        }
+        bar={
+          <LobbyBar
+            isHost={isHost}
+            playerCount={others.length + 1}
+            fields={[
+              { label: 'Mode', value: PLAY_MODE_LABEL[playMode] },
+              { label: 'Grid', value: `${boardSize}×${boardSize}` },
+              { label: 'Boards', value: boardLayout === 'shared' ? 'Shared' : 'Individual' },
+            ]}
+            mobileDetail={`${PLAY_MODE_LABEL[playMode]} · ${boardSize}×${boardSize} · ${
+              boardLayout === 'shared' ? 'shared board' : 'own boards'
+            }`}
+            hint="First full line wins the match"
+            startLabel={starting ? 'Starting…' : 'Kick off'}
+            onStart={() => {
+              saveName()
+              void handleStart()
+            }}
+            disabled={starting || !configOk}
+          />
+        }
+      />
+    )
+  }
 
-      {phase === 'lobby' ? (
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="mb-8 space-y-6"
-        >
-          {/* Non-host: simple waiting lobby - just name + player list */}
-          {!isHost ? (
-            <div className="panel space-y-6 p-6">
-              <div>
-                <p className="eyebrow mb-2">In the room</p>
-                <p className="font-display text-[28px] uppercase leading-none text-green">
-                  You&apos;re in the room
-                </p>
-                <p className="mt-1.5 text-sm font-medium text-muted">
-                  The host is setting things up. You&apos;ll start automatically when they&apos;re
-                  ready.
-                </p>
-              </div>
-              <label className="block text-sm font-bold text-ink">
-                Your name
-                <input
-                  value={nameDraft}
-                  onChange={(e) => setNameDraft(e.target.value)}
-                  onBlur={saveName}
-                  className="input mt-1.5 max-w-sm"
-                  placeholder="Enter your name"
-                  autoFocus
-                />
-              </label>
-              <div className="flex items-center justify-between border-t border-line pt-4">
-                <span className="chip">
-                  {others.length + 1} player{others.length === 0 ? '' : 's'} in room
-                </span>
-                <span className="flex items-center gap-2 text-sm font-semibold text-card-muted">
-                  <span className="inline-block size-2 animate-pulse rounded-full bg-pink" />
-                  In the tunnel…
-                </span>
-              </div>
-            </div>
-          ) : (
-            /* Host: full settings panel */
-            <div className="grid gap-5 md:grid-cols-[1fr_1.2fr] md:items-start">
-              {/* Left column */}
-              <div className="flex flex-col gap-5">
-                <RoomInvite roomId={roomId} />
-
-                {/* In the room */}
-                <div className="panel p-6">
-                  <p className="eyebrow eyebrow-sky mb-4">Starting XI · {others.length + 1}</p>
-                  <ul className="flex flex-col gap-3">
-                    {[
-                      {
-                        id: self?.connectionId ?? -1,
-                        name: (presence?.displayName || nameDraft).trim() || 'You',
-                        host: isHost,
-                      },
-                      ...others.map((o) => ({
-                        id: o.connectionId,
-                        name: (o.presence?.displayName ?? '').trim() || 'Guest',
-                        host: hostConnectionId === o.connectionId,
-                      })),
-                    ].map((p, i) => {
-                      const ready = p.name !== 'Guest'
-                      return (
-                        <li key={p.id} className="flex items-center gap-3">
-                          <span
-                            className={`flex h-9 w-9 items-center justify-center rounded-full font-display text-[15px] uppercase ${
-                              ROUNDEL_COLORS[i % ROUNDEL_COLORS.length]
-                            }`}
-                          >
-                            {p.name.charAt(0) || '?'}
-                          </span>
-                          <span className="text-sm font-bold text-card-ink">{p.name}</span>
-                          {p.host ? (
-                            <span className="ml-auto -rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-ink shadow-[0_2px_0_#0a2417]">
-                              Gaffer
-                            </span>
-                          ) : (
-                            <span
-                              className={`ml-auto text-xs font-bold ${
-                                ready ? 'text-green-go' : 'text-card-muted'
-                              }`}
-                            >
-                              {ready ? '✓ Ready' : 'In the tunnel…'}
-                            </span>
-                          )}
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Right column */}
-              <div className="flex flex-col gap-5">
-                <div className="panel flex flex-col gap-4 p-6">
-                  <p className="eyebrow eyebrow-sky">Match settings</p>
-                  <dl className="flex flex-col divide-y divide-card-tint/70">
-                    <SummaryRow label="Mode" value={PLAY_MODE_LABEL[playMode]} />
-                    <SummaryRow
-                      label="Boards"
-                      value={boardLayout === 'shared' ? 'Shared board' : 'Individual boards'}
-                    />
-                    {playMode === 'draft' && isIndividual ? (
-                      <>
-                        <SummaryRow label="Draw" value={drawShared ? 'Same player' : 'Own draws'} />
-                        <SummaryRow
-                          label="Guesses"
-                          value={singleGuess ? 'One per turn' : 'Unlimited'}
-                        />
-                      </>
-                    ) : null}
-                    {playMode === 'draft' && !isIndividual ? (
-                      <SummaryRow label="Draft" value={DRAFT_POLICY_LABEL[effectiveDraftPolicy]} />
-                    ) : null}
-                    <SummaryRow label="Grid" value={`${boardSize}×${boardSize}`} />
-                    <SummaryRow label="Categories" value={categorySummary} />
-                    <SummaryRow
-                      label="Star quality"
-                      value={
-                        minFameScore === 0
-                          ? 'Anyone'
-                          : `≥ ${minFameScore} · ${eligiblePlayerCount} in`
-                      }
-                    />
-                  </dl>
-                  <p
-                    className={`font-mono text-xs font-bold ${configOk ? 'text-card-muted' : 'text-pink'}`}
-                  >
-                    {configOk
-                      ? `${poolCount} in pool · ${needCount} needed ✓`
-                      : `Need at least ${needCount} clues - reopen setup to add categories.`}
-                  </p>
-                  <Link
-                    href="/play/setup?mode=multiplayer"
-                    className="text-[12.5px] font-bold text-ink underline underline-offset-2 hover:opacity-70"
-                  >
-                    Change settings (opens a fresh room)
-                  </Link>
-
-                  {/* Display name */}
-                  <label className="block text-sm font-bold text-ink">
-                    Display name
-                    <input
-                      value={nameDraft}
-                      onChange={(e) => setNameDraft(e.target.value)}
-                      onBlur={saveName}
-                      className="input mt-1.5 max-w-sm"
-                      placeholder="Your name"
-                    />
-                  </label>
-                </div>
-
-                {/* Footer strip */}
-                <div className="flex flex-wrap items-center justify-between gap-4 rounded-[12px] border-[3px] border-dashed border-surface/40 p-5">
-                  <span className="text-[13.5px] font-semibold text-on-green-soft">
-                    {boardLayout === 'shared'
-                      ? 'One shared board for the room. First full line wins the match.'
-                      : 'Everyone gets their own board. First full line wins the match.'}
-                  </span>
-                  <button
-                    type="button"
-                    disabled={starting || !configOk}
-                    onClick={() => {
-                      saveName()
-                      void handleStart()
-                    }}
-                    className="btn btn-primary"
-                  >
-                    {starting ? 'Starting…' : 'Kick off'}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-        </motion.div>
-      ) : null}
-
+  return (
+    <div className="mx-auto max-w-[1440px] px-2.5 pb-36 pt-1 sm:px-6 lg:px-16 lg:pb-16">
       {(phase === 'playing' || phase === 'finished') && activeSeed ? (
         <>
           {phase === 'finished' ? (
@@ -1352,45 +1267,6 @@ function RoomInner({ roomId }: { roomId: string }) {
           />
         ) : null}
       </AnimatePresence>
-
-      {phase === 'lobby' && !isHost ? (
-        <div className="panel mt-8 p-6">
-          <p className="eyebrow eyebrow-sky mb-4">Starting XI · {roomPlayers.length}</p>
-          <ul className="flex flex-col">
-            {roomPlayers.map((p, i) => (
-              <li
-                key={p.id}
-                className="flex h-14 items-center gap-3.5 border-b-[1.5px] border-dashed border-ink/20 last:border-b-0"
-              >
-                <span className="w-6 font-mono text-[13px] font-semibold text-card-muted">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[16px] font-black uppercase ${
-                    ROUNDEL_COLORS[i % ROUNDEL_COLORS.length]
-                  }`}
-                >
-                  {p.name.charAt(0) || '?'}
-                </span>
-                <span className="min-w-0 truncate font-display text-[22px] font-black uppercase leading-none text-ink">
-                  {p.isSelf ? `${p.name} (you)` : p.name}
-                </span>
-                <span className="ml-auto shrink-0">
-                  {hostConnectionId === p.id ? (
-                    <span className="inline-block -rotate-2 rounded bg-yellow px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-ink">
-                      Gaffer
-                    </span>
-                  ) : p.name !== 'Guest' ? (
-                    <span className="text-xs font-bold text-ink">✓ Ready</span>
-                  ) : (
-                    <span className="text-xs font-bold text-card-muted">In the tunnel…</span>
-                  )}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
     </div>
   )
 }
@@ -1410,12 +1286,7 @@ export function RoomGame({ roomId }: { roomId: string }) {
   }, [])
 
   if (!ready) {
-    return (
-      <div className="flex min-h-[30vh] items-center justify-center gap-3 text-sm font-medium text-muted">
-        <span className="inline-block size-2 animate-pulse rounded-full bg-red" />
-        Preparing…
-      </div>
-    )
+    return <RoomConnecting mode="bingo" />
   }
 
   return (

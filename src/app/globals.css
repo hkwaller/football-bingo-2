@@ -71,7 +71,13 @@ body {
   background-color: var(--pitch);
   background-image:
     linear-gradient(180deg, rgba(9, 56, 32, 0) 0%, rgba(9, 56, 32, 0.6) 100%),
-    repeating-linear-gradient(90deg, #0f5030 0, #0f5030 var(--stripe), #0d472a var(--stripe), #0d472a calc(var(--stripe) * 2));
+    repeating-linear-gradient(
+      90deg,
+      #0f5030 0,
+      #0f5030 var(--stripe),
+      #0d472a var(--stripe),
+      #0d472a calc(var(--stripe) * 2)
+    );
   background-attachment: fixed;
   color: var(--on-green);
 }
@@ -257,6 +263,47 @@ body {
     background-color: #052a15;
   }
 
+  /* ── Room connecting: the walk up the tunnel ─────────────────────────
+     Ribs scale out from the vanishing point (200, 122.5) with an ease-in so
+     they accelerate past you while the pitch eases a touch closer. */
+  .room-connecting {
+    animation: room-connecting-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+  }
+  .tunnel-rib {
+    transform-box: view-box;
+    transform-origin: 200px 122.5px;
+    opacity: 0;
+    animation: tunnel-rib 2.4s cubic-bezier(0.55, 0, 1, 0.45) infinite;
+  }
+  .tunnel-approach {
+    transform-box: view-box;
+    transform-origin: 200px 122.5px;
+    animation: tunnel-approach 3.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .tunnel-glow {
+    animation: tunnel-glow 2.4s ease-in-out infinite;
+  }
+  .tunnel-flood {
+    animation: tunnel-flood 2.2s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .room-connecting {
+      animation-name: room-connecting-fade;
+    }
+    .tunnel-rib {
+      animation: none;
+      opacity: 0.3;
+      transform: scale(var(--rib-s));
+    }
+    .tunnel-approach,
+    .tunnel-glow,
+    .tunnel-flood {
+      animation: none;
+    }
+  }
+
   /* Legacy classes kept for any unconverted callers */
   .fb-brutal-btn {
     @apply btn btn-primary;
@@ -313,5 +360,68 @@ body {
   }
   a {
     color: inherit;
+  }
+}
+
+@keyframes room-connecting-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes room-connecting-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes tunnel-rib {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.32;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes tunnel-glow {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes tunnel-flood {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.6);
+  }
+}
+@keyframes tunnel-approach {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.14);
   }
 }

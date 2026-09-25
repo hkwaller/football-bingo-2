@@ -1325,5 +1325,799 @@
   "england-euro24-final#st": {
     "playerId": "132098",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg/500px-Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg"
+  },
+  "france-wc22-final#gk": {
+    "playerId": "17965",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Lloris_2018_%28cropped%29.jpg/500px-Lloris_2018_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "france-wc22-final#rb": {
+    "playerId": "411975",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jules_Kounde_France_v_Senegal_16_June_2026-449_%28cropped%29.jpg/500px-Jules_Kounde_France_v_Senegal_16_June_2026-449_%28cropped%29.jpg"
+  },
+  "france-wc22-final#cb1": {
+    "playerId": "164770",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Rapha%C3%ABl_Varane_2018_%28cropped%29.jpg"
+  },
+  "france-wc22-final#cb2": {
+    "playerId": "344695",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Dayot_Upamecano_France_v_Senegal_16_June_2026-402_%28cropped%29.jpg/500px-Dayot_Upamecano_France_v_Senegal_16_June_2026-402_%28cropped%29.jpg"
+  },
+  "france-wc22-final#lb": {
+    "playerId": "339808",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Theo_Hernandez_France_v_Norway_26_June_26-122.jpg/500px-Theo_Hernandez_France_v_Norway_26_June_26-122.jpg"
+  },
+  "france-wc22-final#dm1": {
+    "playerId": "413112",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Aurelien_Tchouameni_France_v_Senegal_16_June_2026-447_%28cropped%29.jpg/500px-Aurelien_Tchouameni_France_v_Senegal_16_June_2026-447_%28cropped%29.jpg"
+  },
+  "france-wc22-final#dm2": {
+    "playerId": "182913",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Adrien_Rabiot_France_v_Senegal_16_June_2026-371_%28cropped%29.jpg/500px-Adrien_Rabiot_France_v_Senegal_16_June_2026-371_%28cropped%29.jpg"
+  },
+  "france-wc22-final#rm": {
+    "playerId": "288230",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ousmane_Dembele_France_v_Senegal_16_June_2026-341_%28cropped%29.jpg/500px-Ousmane_Dembele_France_v_Senegal_16_June_2026-341_%28cropped%29.jpg"
+  },
+  "france-wc22-final#cam": {
+    "playerId": "125781",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Antoine_Griezmann_%2851100409504%29_%28cropped%29.jpg/500px-Antoine_Griezmann_%2851100409504%29_%28cropped%29.jpg"
+  },
+  "france-wc22-final#lm": {
+    "playerId": "342229",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg/500px-Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg"
+  },
+  "france-wc22-final#st": {
+    "playerId": "82442",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Olivier_Giroud_2018.jpg/500px-Olivier_Giroud_2018.jpg"
+  },
+  "france-wc22-final#manager": {
+    "playerId": "75553",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Didier_Deschamps_France_v_Senegal_16_June_2026-519_%28cropped%29.jpg/500px-Didier_Deschamps_France_v_Senegal_16_June_2026-519_%28cropped%29.jpg"
+  },
+  "liverpool-cl-final-2022#gk": {
+    "playerId": "105470",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Alisson_Becker_Brazil_V_Morocco_13_June_2026-117_%28cropped%29.jpg/500px-Alisson_Becker_Brazil_V_Morocco_13_June_2026-117_%28cropped%29.jpg"
+  },
+  "liverpool-cl-final-2022#rb": {
+    "playerId": "314353",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Trent_Alexander-Arnold_2018_%28cropped%29.jpg"
+  },
+  "liverpool-cl-final-2022#cb1": {
+    "playerId": "357119",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Ibrahima_Konate_France_v_Senegal_16_June_2026-516_%28cropped%29.jpg/500px-Ibrahima_Konate_France_v_Senegal_16_June_2026-516_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "liverpool-cl-final-2022#cb2": {
+    "playerId": "139208",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg"
+  },
+  "liverpool-cl-final-2022#lb": {
+    "playerId": "234803",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Andy_Robertson_Scotland_v_Bolivia_6_June_2026-43.jpg/500px-Andy_Robertson_Scotland_v_Bolivia_6_June_2026-43.jpg"
+  },
+  "liverpool-cl-final-2022#cm1": {
+    "playerId": "61651",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Jordan_Henderson_England_v_Ghana_23_June_2026-029_%28cropped%29.jpg/500px-Jordan_Henderson_England_v_Ghana_23_June_2026-029_%28cropped%29.jpg"
+  },
+  "liverpool-cl-final-2022#cm3": {
+    "playerId": "60444",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Thiago_Alcantara_13_%28cropped%29.jpg/500px-UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Thiago_Alcantara_13_%28cropped%29.jpg"
+  },
+  "liverpool-cl-final-2022#rw": {
+    "playerId": "148455",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg"
+  },
+  "liverpool-cl-final-2022#cf": {
+    "playerId": "200512",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg/500px-Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg"
+  },
+  "liverpool-cl-final-2022#lw": {
+    "playerId": "480692",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/FC_RB_Salzburg_gegen_FC_Bayern_M%C3%BCnchen_%282026-01-06_Testspiel%29_40_%28Luiz_D%C3%ADaz%29.jpg/500px-FC_RB_Salzburg_gegen_FC_Bayern_M%C3%BCnchen_%282026-01-06_Testspiel%29_40_%28Luiz_D%C3%ADaz%29.jpg"
+  },
+  "inter-cl-final-2023#gk": {
+    "playerId": "234509",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Andr%C3%A9_Onana.jpg/500px-Andr%C3%A9_Onana.jpg"
+  },
+  "inter-cl-final-2023#cb1": {
+    "playerId": "54906",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Matteo_Darmian_1.jpg/500px-20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Matteo_Darmian_1.jpg"
+  },
+  "inter-cl-final-2023#cb2": {
+    "playerId": "131075",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Francesco_Acerbi_2021.jpg/500px-Francesco_Acerbi_2021.jpg"
+  },
+  "inter-cl-final-2023#cb3": {
+    "playerId": "315853",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Norway_Italy_-_June_2025_A_36_%28cropped%29.jpg/500px-Norway_Italy_-_June_2025_A_36_%28cropped%29.jpg"
+  },
+  "inter-cl-final-2023#rm": {
+    "playerId": "321528",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Edison_ndreca_inter_egnati_%28cropped_Denzel_Dumfries%29.jpg"
+  },
+  "inter-cl-final-2023#cm1": {
+    "playerId": "255942",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Nicol%C3%B2_Barella_in_2021.jpg/500px-Nicol%C3%B2_Barella_in_2021.jpg"
+  },
+  "inter-cl-final-2023#cm2": {
+    "playerId": "156617",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Marcelo_Brozovi%C4%87_2021_%28cropped%29.jpg"
+  },
+  "inter-cl-final-2023#cm3": {
+    "playerId": "126414",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/AUT_vs._TUR_2016-03-29_%28342%29.jpg/500px-AUT_vs._TUR_2016-03-29_%28342%29.jpg"
+  },
+  "inter-cl-final-2023#lm": {
+    "playerId": "198116",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Norway_Italy_-_June_2025_A_26_%28cropped%29.jpg/500px-Norway_Italy_-_June_2025_A_26_%28cropped%29.jpg"
+  },
+  "inter-cl-final-2023#st1": {
+    "playerId": "406625",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lautaro_Martinez_Argentina_v_Egypt_7_July_2026-041.jpg/500px-Lautaro_Martinez_Argentina_v_Egypt_7_July_2026-041.jpg"
+  },
+  "inter-cl-final-2023#st2": {
+    "playerId": "28396",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/20150331_2026_AUT_BIH_2177_Edin_D%C5%BEeko_%28cropped%29.jpg/500px-20150331_2026_AUT_BIH_2177_Edin_D%C5%BEeko_%28cropped%29.jpg"
+  },
+  "england-euro20-final#gk": {
+    "playerId": "130164",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Jordan_Pickford_England_v_Ghana_23_June_2026-049.jpg/500px-Jordan_Pickford_England_v_Ghana_23_June_2026-049.jpg"
+  },
+  "england-euro20-final#cb1": {
+    "playerId": "95424",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Kyle_Walker.jpg/500px-Kyle_Walker.jpg"
+  },
+  "england-euro20-final#cb2": {
+    "playerId": "186590",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/John_Stones_England_v_Ghana_23_June_2026-038.jpg/500px-John_Stones_England_v_Ghana_23_June_2026-038.jpg"
+  },
+  "england-euro20-final#cb3": {
+    "playerId": "177907",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Harry_Maguire_2023_%28cropped%29.jpg/500px-Harry_Maguire_2023_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "england-euro20-final#rwb": {
+    "playerId": "95810",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Kieran_Trippier_2018-07-14_1.jpg"
+  },
+  "england-euro20-final#cm1": {
+    "playerId": "351749",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Kalvin_Phillips_2022-11-21_1.jpg"
+  },
+  "england-euro20-final#cm2": {
+    "playerId": "357662",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Declan_Rice_England_v_Ghana_23_June_2026-150.jpg/500px-Declan_Rice_England_v_Ghana_23_June_2026-150.jpg"
+  },
+  "england-euro20-final#lwb": {
+    "playerId": "183288",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Luke_Shaw%2C_Manchester_United_v_Newcastle_United%2C_11_September_2021_%2844%29_%28cropped%29.jpg/500px-Luke_Shaw%2C_Manchester_United_v_Newcastle_United%2C_11_September_2021_%2844%29_%28cropped%29.jpg"
+  },
+  "england-euro20-final#rw": {
+    "playerId": "134425",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Raheem_Sterling_2018.jpg/500px-Raheem_Sterling_2018.jpg"
+  },
+  "england-euro20-final#lw": {
+    "playerId": "346483",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mountbrightonoct3_2019_%28cropped%29.jpg/500px-Mountbrightonoct3_2019_%28cropped%29.jpg"
+  },
+  "england-euro20-final#st": {
+    "playerId": "132098",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg/500px-Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg"
+  },
+  "argentina-wc14-final#rb": {
+    "playerId": "20007",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Hertha_BSC_vs._West_Ham_United_20190731_%28127%29.jpg/500px-Hertha_BSC_vs._West_Ham_United_20190731_%28127%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "argentina-wc14-final#dm1": {
+    "playerId": "19981",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Javier_Mascherano_NE_Revolution_Inter_Miami_7.9.25-040_%28cropped%29.jpg/500px-Javier_Mascherano_NE_Revolution_Inter_Miami_7.9.25-040_%28cropped%29.jpg"
+  },
+  "argentina-wc14-final#cam": {
+    "playerId": "28003",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg"
+  },
+  "argentina-wc14-final#lm": {
+    "playerId": "50570",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Ezequiel_Lavezzi_-_SSC_Neapel_%282%29_%28cropped%29.jpg/500px-Ezequiel_Lavezzi_-_SSC_Neapel_%282%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "argentina-wc14-final#st": {
+    "playerId": "39153",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Higua%C3%ADn_20180626.jpg/500px-Higua%C3%ADn_20180626.jpg"
+  },
+  "dortmund-cl-final-2013#gk": {
+    "playerId": "26",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Roman_Weidenfeller_2014_%28cropped%29.jpg/500px-Roman_Weidenfeller_2014_%28cropped%29.jpg"
+  },
+  "dortmund-cl-final-2013#cb2": {
+    "playerId": "39728",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93103_%28cropped%29.jpg/500px-2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93103_%28cropped%29.jpg"
+  },
+  "dortmund-cl-final-2013#dm2": {
+    "playerId": "53622",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/20180602_FIFA_Friendly_Match_Austria_vs._Germany_%C4%B0lkay_G%C3%BCndo%C4%9Fan_850_0728.jpg/500px-20180602_FIFA_Friendly_Match_Austria_vs._Germany_%C4%B0lkay_G%C3%BCndo%C4%9Fan_850_0728.jpg"
+  },
+  "dortmund-cl-final-2013#rm": {
+    "playerId": "29835",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Jakub_B%C5%82aszczykowski_2019.jpg"
+  },
+  "dortmund-cl-final-2013#cam": {
+    "playerId": "35207",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93126.jpg/500px-2023-08-12_TSV_Schott_Mainz_gegen_Borussia_Dortmund_%28DFB-Pokal_2023-24%29_by_Sandro_Halank%E2%80%93126.jpg"
+  },
+  "dortmund-cl-final-2013#st": {
+    "playerId": "38253",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg/500px-Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg"
+  },
+  "bayern-cl-final-2012#gk": {
+    "playerId": "17259",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Manuel_Neuer_Ecuador_v_Germany_25_June_2026-148.jpg/500px-Manuel_Neuer_Ecuador_v_Germany_25_June_2026-148.jpg"
+  },
+  "bayern-cl-final-2012#rb": {
+    "playerId": "2219",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Philipp_Lahm_auf_der_Berlinale_2024%2C_Ausschnitt.jpg/500px-Philipp_Lahm_auf_der_Berlinale_2024%2C_Ausschnitt.jpg"
+  },
+  "bayern-cl-final-2012#cb1": {
+    "playerId": "26485",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/MJK30405_J%C3%A9r%C3%B4me_Boateng_%28Berlinale_2017%29.jpg/500px-MJK30405_J%C3%A9r%C3%B4me_Boateng_%28Berlinale_2017%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bayern-cl-final-2012#dm1": {
+    "playerId": "2514",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Re-publica_23_-_Tag_3_%2852957826298%29_%28cropped%29.jpg/500px-Re-publica_23_-_Tag_3_%2852957826298%29_%28cropped%29.jpg"
+  },
+  "bayern-cl-final-2012#dm2": {
+    "playerId": "31909",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Toni_Kroos_Real_Madrid_2021.jpg/500px-Toni_Kroos_Real_Madrid_2021.jpg"
+  },
+  "bayern-cl-final-2012#rm": {
+    "playerId": "4360",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Arjen_Robben_2013.jpg"
+  },
+  "bayern-cl-final-2012#cam": {
+    "playerId": "58358",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Thomas_M%C3%BCller_2022_%28cropped%29.jpg/500px-Thomas_M%C3%BCller_2022_%28cropped%29.jpg"
+  },
+  "bayern-cl-final-2012#lm": {
+    "playerId": "22068",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Franck_Ribery_2019_%28cropped%29.jpg/500px-Franck_Ribery_2019_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bayern-cl-final-2012#st": {
+    "playerId": "6288",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Mario_gomez.jpg/500px-Mario_gomez.jpg"
+  },
+  "ac-milan-cl-final-2005#gk": {
+    "playerId": "5800",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Dida-wikipedia_%28cropped_2%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "ac-milan-cl-final-2005#rb": {
+    "playerId": "5937",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cafu_-_26.02.2026_-_Cerim%C3%B4nia_de_apresenta%C3%A7%C3%A3o_das_ta%C3%A7as_da_Copa_do_Mundo_de_2026.jpg/500px-Cafu_-_26.02.2026_-_Cerim%C3%B4nia_de_apresenta%C3%A7%C3%A3o_das_ta%C3%A7as_da_Copa_do_Mundo_de_2026.jpg"
+  },
+  "ac-milan-cl-final-2005#cb1": {
+    "playerId": "3557",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Jaap_Stam_met_fan_cropped.jpg/500px-Jaap_Stam_met_fan_cropped.jpg"
+  },
+  "ac-milan-cl-final-2005#cb2": {
+    "playerId": "4171",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Alessandro_Nesta_as_Miami_FC_Manager.jpg/500px-Alessandro_Nesta_as_Miami_FC_Manager.jpg"
+  },
+  "ac-milan-cl-final-2005#lb": {
+    "playerId": "5803",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paolo_Maldini_press_conference_in_Tehran_%28cropped%29.jpg"
+  },
+  "ac-milan-cl-final-2005#dm": {
+    "playerId": "5817",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Andrea_Pirlo_%28cropped%29.jpg"
+  },
+  "ac-milan-cl-final-2005#rm": {
+    "playerId": "5813",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Gennaro_Gattuso_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "ac-milan-cl-final-2005#lm": {
+    "playerId": "4168",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Clarence_Seedorf_2021.jpg/500px-Clarence_Seedorf_2021.jpg"
+  },
+  "ac-milan-cl-final-2005#cam": {
+    "playerId": "3366",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Ricardo_Izecson_dos_Santos_Leite_%28Kak%C3%A1%29_01.jpg"
+  },
+  "ac-milan-cl-final-2005#st1": {
+    "playerId": "3522",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/%D0%90%D0%BD%D0%B4%D1%80%D1%96%D0%B9_%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%BE_2024_%28cropped%29.png"
+  },
+  "ac-milan-cl-final-2005#st2": {
+    "playerId": "3410",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Hern%C3%A1n_Crespo.png"
+  },
+  "ac-milan-cl-final-2005#manager": {
+    "playerId": "116679",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Carlo_Ancelotti_Brazil_V_Morocco_13_June_2026-47.jpg/500px-Carlo_Ancelotti_Brazil_V_Morocco_13_June_2026-47.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "france-wc06-final#gk": {
+    "playerId": "3289",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Fabien_Barthez_at_OM.jpg"
+  },
+  "france-wc06-final#cb1": {
+    "playerId": "3521",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lilian_Thuram_-_F%C3%A9vrier_2013.jpg/500px-Lilian_Thuram_-_F%C3%A9vrier_2013.jpg"
+  },
+  "france-wc06-final#cb2": {
+    "playerId": "3156",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/William_Gallas_2018_%282%29.jpg/500px-William_Gallas_2018_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "france-wc06-final#lb": {
+    "playerId": "5283",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/%C3%89ric_Abidal_-_001.jpg/500px-%C3%89ric_Abidal_-_001.jpg"
+  },
+  "france-wc06-final#dm1": {
+    "playerId": "3183",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Patrick_Vieira_NYCFC.JPG/500px-Patrick_Vieira_NYCFC.JPG"
+  },
+  "france-wc06-final#dm2": {
+    "playerId": "4182",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Claude_Mak%C3%A9l%C3%A9l%C3%A9_%2853557564951%29_%28cropped%29.jpg/500px-Claude_Mak%C3%A9l%C3%A9l%C3%A9_%2853557564951%29_%28cropped%29.jpg"
+  },
+  "france-wc06-final#rm": {
+    "playerId": "22068",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Franck_Ribery_2019_%28cropped%29.jpg/500px-Franck_Ribery_2019_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "france-wc06-final#cam": {
+    "playerId": "3111",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg"
+  },
+  "france-wc06-final#lm": {
+    "playerId": "5461",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Malouda2012.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "france-wc06-final#st": {
+    "playerId": "3207",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Thierry_Henry_%2851649035951%29_%28cropped%29.jpg/500px-Thierry_Henry_%2851649035951%29_%28cropped%29.jpg"
+  },
+  "netherlands-wc10-final#lb": {
+    "playerId": "3191",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Giovanni_van_Brocnkhorst_20240803.jpg/500px-Giovanni_van_Brocnkhorst_20240803.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "netherlands-wc10-final#dm1": {
+    "playerId": "3515",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/2010_Mark_van_Bommel.jpg_%28cropped%29.jpg/500px-2010_Mark_van_Bommel.jpg_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "netherlands-wc10-final#dm2": {
+    "playerId": "4672",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Nigel_de_Jong_2011_%282%29.jpg/500px-Nigel_de_Jong_2011_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "netherlands-wc10-final#rm": {
+    "playerId": "4360",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Arjen_Robben_2013.jpg"
+  },
+  "netherlands-wc10-final#cam": {
+    "playerId": "4673",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Wesley2012.JPG"
+  },
+  "netherlands-wc10-final#lm": {
+    "playerId": "4010",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Dirk_Kuyt_2012.jpg"
+  },
+  "netherlands-wc10-final#st": {
+    "playerId": "4380",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Loco-Fener_%2810%29.jpg"
+  },
+  "germany-wc02-final#gk": {
+    "playerId": "206",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3179_by_Stepro.jpg/500px-2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3179_by_Stepro.jpg"
+  },
+  "germany-wc02-final#rm": {
+    "playerId": "528",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Audi_quattro-Cup_37.JPG/500px-Audi_quattro-Cup_37.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "germany-wc02-final#cm1": {
+    "playerId": "919",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Hamann%2C_Dietmar_%28cropped%29.jpg"
+  },
+  "germany-wc02-final#cam": {
+    "playerId": "90",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Bernd_Schneider_%28cropped%29.JPG/500px-Bernd_Schneider_%28cropped%29.JPG"
+  },
+  "germany-wc02-final#st1": {
+    "playerId": "10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/2016209185719_2016-07-27_Champions_for_Charity_-_Sven_-_1D_X_-_0149_-_DV3P4742_mod.jpg/500px-2016209185719_2016-07-27_Champions_for_Charity_-_Sven_-_1D_X_-_0149_-_DV3P4742_mod.jpg"
+  },
+  "germany-wc02-final#manager": {
+    "playerId": "13775",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Rudi_V%C3%B6ller_B%C3%BChne_%28cropped%29.jpg/500px-Rudi_V%C3%B6ller_B%C3%BChne_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bayern-cl-final-2010#rb": {
+    "playerId": "2219",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Philipp_Lahm_auf_der_Berlinale_2024%2C_Ausschnitt.jpg/500px-Philipp_Lahm_auf_der_Berlinale_2024%2C_Ausschnitt.jpg"
+  },
+  "bayern-cl-final-2010#rm": {
+    "playerId": "4360",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Arjen_Robben_2013.jpg"
+  },
+  "bayern-cl-final-2010#cm1": {
+    "playerId": "3515",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/2010_Mark_van_Bommel.jpg_%28cropped%29.jpg/500px-2010_Mark_van_Bommel.jpg_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bayern-cl-final-2010#cm2": {
+    "playerId": "2514",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Re-publica_23_-_Tag_3_%2852957826298%29_%28cropped%29.jpg/500px-Re-publica_23_-_Tag_3_%2852957826298%29_%28cropped%29.jpg"
+  },
+  "bayern-cl-final-2010#st1": {
+    "playerId": "58358",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Thomas_M%C3%BCller_2022_%28cropped%29.jpg/500px-Thomas_M%C3%BCller_2022_%28cropped%29.jpg"
+  },
+  "bayern-cl-final-2010#st2": {
+    "playerId": "7427",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Ivica_Oli%C4%87_2021.jpg/500px-Ivica_Oli%C4%87_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tottenham-cl-final-2019#gk": {
+    "playerId": "17965",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Lloris_2018_%28cropped%29.jpg/500px-Lloris_2018_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tottenham-cl-final-2019#rb": {
+    "playerId": "95810",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Kieran_Trippier_2018-07-14_1.jpg"
+  },
+  "tottenham-cl-final-2019#cb1": {
+    "playerId": "42710",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3693_by_Stepro.jpg/500px-2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3693_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tottenham-cl-final-2019#cb2": {
+    "playerId": "43250",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jan_Vertonghen_Belgium.jpg/500px-Jan_Vertonghen_Belgium.jpg"
+  },
+  "tottenham-cl-final-2019#rm": {
+    "playerId": "207929",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/2020-03-10_Dele_Alli_%28cropped%29.jpg/500px-2020-03-10_Dele_Alli_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tottenham-cl-final-2019#cam": {
+    "playerId": "69633",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/20140904_-_Christian_Eriksen_%28cropped%29.jpg/500px-20140904_-_Christian_Eriksen_%28cropped%29.jpg"
+  },
+  "tottenham-cl-final-2019#lm": {
+    "playerId": "91845",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/500px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg"
+  },
+  "tottenham-cl-final-2019#st": {
+    "playerId": "132098",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg/500px-Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg"
+  },
+  "atletico-cl-final-2014#gk": {
+    "playerId": "108390",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Courtois_2018_%28cropped%29.jpg"
+  },
+  "atletico-cl-final-2014#rb": {
+    "playerId": "16635",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Juanfran_2012.jpg"
+  },
+  "atletico-cl-final-2014#cb2": {
+    "playerId": "54928",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Diego_God%C3%ADn_2018_%28cropped%29.jpg"
+  },
+  "atletico-cl-final-2014#lm": {
+    "playerId": "74229",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Koke_2019.jpg/500px-Koke_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "atletico-cl-final-2014#st1": {
+    "playerId": "44779",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Iran_and_Spain_match_at_the_FIFA_World_Cup_23.jpg/500px-Iran_and_Spain_match_at_the_FIFA_World_Cup_23.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "atletico-cl-final-2014#st2": {
+    "playerId": "7980",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Spain-Tahiti%2C_Confederations_Cup_2013_%2802%29_%28Villa_crop%29.jpg"
+  },
+  "atletico-cl-final-2014#manager": {
+    "playerId": "5841",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Diego_Simeone_-_240422_192621-2_%28cropped%29.jpg/500px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Diego_Simeone_-_240422_192621-2_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "man-utd-cl-final-2011#gk": {
+    "playerId": "3516",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Edwin_van_der_Sar_side.jpg"
+  },
+  "man-utd-cl-final-2011#rb": {
+    "playerId": "61891",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Fabio_Pereira_da_Silva_2014.jpg/500px-Fabio_Pereira_da_Silva_2014.jpg"
+  },
+  "man-utd-cl-final-2011#cb1": {
+    "playerId": "3235",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Web_Summit_2015_-_Dublin%2C_Ireland_-_22183056474_%28cropped%29.jpg/500px-Web_Summit_2015_-_Dublin%2C_Ireland_-_22183056474_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2011#cb2": {
+    "playerId": "19726",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nemanja_Vidi%C4%87.jpg/500px-Nemanja_Vidi%C4%87.jpg"
+  },
+  "man-utd-cl-final-2011#lb": {
+    "playerId": "5285",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Patrice_Evra_%2852472689279%29_%28cropped%29.jpg/500px-Patrice_Evra_%2852472689279%29_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2011#rm": {
+    "playerId": "33544",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Antonio_Valencia_cropped.jpg"
+  },
+  "man-utd-cl-final-2011#cm1": {
+    "playerId": "3878",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Michael_Carrick_12042025_%285%29_%28cropped%29.jpg/500px-Michael_Carrick_12042025_%285%29_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2011#cm2": {
+    "playerId": "3406",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ryan_Giggs_in_2008.jpg/500px-Ryan_Giggs_in_2008.jpg"
+  },
+  "man-utd-cl-final-2011#lm": {
+    "playerId": "4592",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Park_Ji-sung_G20_Seoul_Summit_Ambassador_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2011#ss": {
+    "playerId": "3332",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wayne-Rooney-2015-10-21.jpg"
+  },
+  "man-utd-cl-final-2011#st": {
+    "playerId": "50935",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hertha_BSC_vs._West_Ham_United_20190731_%28139%29.jpg/500px-Hertha_BSC_vs._West_Ham_United_20190731_%28139%29.jpg"
+  },
+  "man-utd-cl-final-2009#gk": {
+    "playerId": "3516",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Edwin_van_der_Sar_side.jpg"
+  },
+  "man-utd-cl-final-2009#rb": {
+    "playerId": "3540",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Manchester_-_Old_Trafford_-_Manchester_United_vs_Crawley_Town.jpg/500px-Manchester_-_Old_Trafford_-_Manchester_United_vs_Crawley_Town.jpg"
+  },
+  "man-utd-cl-final-2009#cb1": {
+    "playerId": "3235",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Web_Summit_2015_-_Dublin%2C_Ireland_-_22183056474_%28cropped%29.jpg/500px-Web_Summit_2015_-_Dublin%2C_Ireland_-_22183056474_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2009#cb2": {
+    "playerId": "19726",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nemanja_Vidi%C4%87.jpg/500px-Nemanja_Vidi%C4%87.jpg"
+  },
+  "man-utd-cl-final-2009#lb": {
+    "playerId": "5285",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Patrice_Evra_%2852472689279%29_%28cropped%29.jpg/500px-Patrice_Evra_%2852472689279%29_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2009#cm1": {
+    "playerId": "31645",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Anderson_2013.jpg"
+  },
+  "man-utd-cl-final-2009#cm2": {
+    "playerId": "3878",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Michael_Carrick_12042025_%285%29_%28cropped%29.jpg/500px-Michael_Carrick_12042025_%285%29_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2009#cm3": {
+    "playerId": "3406",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ryan_Giggs_in_2008.jpg/500px-Ryan_Giggs_in_2008.jpg"
+  },
+  "man-utd-cl-final-2009#rw": {
+    "playerId": "4592",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Park_Ji-sung_G20_Seoul_Summit_Ambassador_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2009#cf": {
+    "playerId": "8198",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg"
+  },
+  "man-utd-cl-final-2009#lw": {
+    "playerId": "3332",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wayne-Rooney-2015-10-21.jpg"
+  },
+  "bayern-cl-final-1999#gk": {
+    "playerId": "206",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3179_by_Stepro.jpg/500px-2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3179_by_Stepro.jpg"
+  },
+  "bayern-cl-final-1999#sw": {
+    "playerId": "1527",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/2019_Lothar_Matth%C3%A4us.jpg/500px-2019_Lothar_Matth%C3%A4us.jpg"
+  },
+  "bayern-cl-final-1999#rb": {
+    "playerId": "192",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Markus_Babbel_%E2%80%93_Tag_der_Legenden_2016_01.jpg/500px-Markus_Babbel_%E2%80%93_Tag_der_Legenden_2016_01.jpg"
+  },
+  "bayern-cl-final-1999#cb2": {
+    "playerId": "208",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Samuel-Kuffour.jpg/500px-Samuel-Kuffour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bayern-cl-final-1999#cm1": {
+    "playerId": "197"
+  },
+  "barcelona-cl-final-1994#gk": {
+    "playerId": "8117",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Andoni_Zubizarreta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "barcelona-cl-final-1994#cb1": {
+    "playerId": "7940",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Ronald_Koeman_%282014%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "barcelona-cl-final-1994#cm2": {
+    "playerId": "5950",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Josep_Guardiola_2023-10-04_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2797_%28cropped%29.jpg/500px-Josep_Guardiola_2023-10-04_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2797_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "barcelona-cl-final-1994#rw": {
+    "playerId": "7938",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Stoichkov_in_2016.jpg/500px-Stoichkov_in_2016.jpg"
+  },
+  "barcelona-cl-final-1994#cf": {
+    "playerId": "7942",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Senadores_da_57%C2%AA_Legislatura_%2852689451805%29.jpg/500px-Senadores_da_57%C2%AA_Legislatura_%2852689451805%29.jpg"
+  },
+  "barcelona-cl-final-1994#manager": {
+    "playerId": "8021",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Johan_Cruijff_%281974%29.jpg/500px-Johan_Cruijff_%281974%29.jpg"
+  },
+  "france-euro16-final#gk": {
+    "playerId": "17965",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Lloris_2018_%28cropped%29.jpg/500px-Lloris_2018_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "france-euro16-final#lb": {
+    "playerId": "5285",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Patrice_Evra_%2852472689279%29_%28cropped%29.jpg/500px-Patrice_Evra_%2852472689279%29_%28cropped%29.jpg"
+  },
+  "france-euro16-final#dm1": {
+    "playerId": "122153",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Paul_Pogba_at_the_2025_Cannes_Film_Festival_02.jpg/500px-Paul_Pogba_at_the_2025_Cannes_Film_Festival_02.jpg"
+  },
+  "france-euro16-final#dm2": {
+    "playerId": "33923",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Matuidi_PSG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "france-euro16-final#cam": {
+    "playerId": "125781",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Antoine_Griezmann_%2851100409504%29_%28cropped%29.jpg/500px-Antoine_Griezmann_%2851100409504%29_%28cropped%29.jpg"
+  },
+  "france-euro16-final#st": {
+    "playerId": "82442",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Olivier_Giroud_2018.jpg/500px-Olivier_Giroud_2018.jpg"
+  },
+  "france-euro16-final#manager": {
+    "playerId": "75553",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Didier_Deschamps_France_v_Senegal_16_June_2026-519_%28cropped%29.jpg/500px-Didier_Deschamps_France_v_Senegal_16_June_2026-519_%28cropped%29.jpg"
+  },
+  "italy-euro12-final#gk": {
+    "playerId": "5023",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Gianluigi_Buffon_%2831784615942%29_%28cropped%29.jpg/500px-Gianluigi_Buffon_%2831784615942%29_%28cropped%29.jpg"
+  },
+  "italy-euro12-final#cb1": {
+    "playerId": "7109",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Andrea_Barzagli_BGR-ITA_2012.jpg"
+  },
+  "italy-euro12-final#cb2": {
+    "playerId": "39983",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/62/20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Leonardo_Bonucci.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "italy-euro12-final#lb": {
+    "playerId": "29260",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sergio_Mattarella_meets_Italy_national_football_team_and_Matteo_Berrettini_%2812_July_2021%29_30_-_Chiellini_%28cropped%29.jpg/500px-Sergio_Mattarella_meets_Italy_national_football_team_and_Matteo_Berrettini_%2812_July_2021%29_30_-_Chiellini_%28cropped%29.jpg"
+  },
+  "italy-euro12-final#dm": {
+    "playerId": "5817",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Andrea_Pirlo_%28cropped%29.jpg"
+  },
+  "italy-euro12-final#rm": {
+    "playerId": "44716",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Claudio_Marchisio%2C_2019_%28cropped%29.jpg"
+  },
+  "italy-euro12-final#lm": {
+    "playerId": "5947",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Daniele_De_Rossi_BGR-ITA_2012.jpg"
+  },
+  "italy-euro12-final#st1": {
+    "playerId": "45146",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Mario_Balotelli_%2815440231808%29_%28cropped%29_%28cropped%29.jpg/500px-Mario_Balotelli_%2815440231808%29_%28cropped%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "portugal-euro04-final#cb2": {
+    "playerId": "9828",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Carvalho_in_2010-11_Real_Madrid.jpg/500px-Carvalho_in_2010-11_Real_Madrid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "portugal-euro04-final#dm1": {
+    "playerId": "9822",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Portugal_2-3_Denmark%2C_Maniche.jpg/500px-Portugal_2-3_Denmark%2C_Maniche.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "portugal-euro04-final#rm": {
+    "playerId": "8198",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg"
+  },
+  "portugal-euro04-final#cam": {
+    "playerId": "8564",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Deco_21dec2006.jpg"
+  },
+  "portugal-euro04-final#lm": {
+    "playerId": "3446",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/L._Figo_2017_%28cropped%29.jpg/500px-L._Figo_2017_%28cropped%29.jpg"
+  },
+  "portugal-euro04-final#st": {
+    "playerId": "3623",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/13/Pauleta2011.JPG"
+  },
+  "germany-euro92-final#gk": {
+    "playerId": "24474",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/6640Bodo_Illgner.JPG/500px-6640Bodo_Illgner.JPG"
+  },
+  "germany-euro92-final#cb1": {
+    "playerId": "119",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/J%C3%BCrgen_Kohler_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "germany-euro92-final#lwb": {
+    "playerId": "16056",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Andreas_Brehme.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "germany-euro92-final#cm1": {
+    "playerId": "77010",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Matthias_Sammer_2722.jpg/500px-Matthias_Sammer_2722.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "germany-euro92-final#cm2": {
+    "playerId": "197"
+  },
+  "germany-euro92-final#cam": {
+    "playerId": "553",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Thomas_H%C3%A4%C3%9Fler_%282%29_%28cropped%29.JPG/500px-Thomas_H%C3%A4%C3%9Fler_%282%29_%28cropped%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "germany-euro92-final#st2": {
+    "playerId": "16980",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/J%C3%BCrgen_Klinsmann_14021113000678638425063004371092_64131.jpg/500px-J%C3%BCrgen_Klinsmann_14021113000678638425063004371092_64131.jpg"
+  },
+  "netherlands-wc74-final#cm2": {
+    "playerId": "135643",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Johan_Neeskens_1974.jpg/500px-Johan_Neeskens_1974.jpg"
+  },
+  "netherlands-wc74-final#cf": {
+    "playerId": "8021",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Johan_Cruijff_%281974%29.jpg/500px-Johan_Cruijff_%281974%29.jpg"
+  },
+  "west-germany-wc82-final#cm2": {
+    "playerId": "13766",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Paul_Breitner_2011.jpg"
+  },
+  "west-germany-wc82-final#rw": {
+    "playerId": "72343",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/2015-02-06_Rummenigge_0400.JPG/500px-2015-02-06_Rummenigge_0400.JPG"
+  },
+  "west-germany-wc86-final#cb1": {
+    "playerId": "16056",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Andreas_Brehme.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "west-germany-wc86-final#cm2": {
+    "playerId": "1527",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/2019_Lothar_Matth%C3%A4us.jpg/500px-2019_Lothar_Matth%C3%A4us.jpg"
+  },
+  "west-germany-wc86-final#st1": {
+    "playerId": "72343",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/2015-02-06_Rummenigge_0400.JPG/500px-2015-02-06_Rummenigge_0400.JPG"
+  },
+  "west-germany-wc86-final#manager": {
+    "playerId": "72347",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Franz_Beckenbauer_%281975%29.jpg/500px-Franz_Beckenbauer_%281975%29.jpg"
+  },
+  "brazil-wc98-final#gk": {
+    "playerId": "5855",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Taffarel_2018.png/500px-Taffarel_2018.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "brazil-wc98-final#rb": {
+    "playerId": "5937",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cafu_-_26.02.2026_-_Cerim%C3%B4nia_de_apresenta%C3%A7%C3%A3o_das_ta%C3%A7as_da_Copa_do_Mundo_de_2026.jpg/500px-Cafu_-_26.02.2026_-_Cerim%C3%B4nia_de_apresenta%C3%A7%C3%A3o_das_ta%C3%A7as_da_Copa_do_Mundo_de_2026.jpg"
+  },
+  "brazil-wc98-final#cb2": {
+    "playerId": "4151",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Aldair.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "brazil-wc98-final#lb": {
+    "playerId": "7518",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/LS3_1288_%2853332367864%29_%28cropped%29.jpg/500px-LS3_1288_%2853332367864%29_%28cropped%29.jpg"
+  },
+  "brazil-wc98-final#cm1": {
+    "playerId": "96342",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Dunga061115.jpg/500px-Dunga061115.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "brazil-wc98-final#cam1": {
+    "playerId": "102586",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Leonardo_Nascimento_de_Ara%C3%BAjo_2013-01-01_%28cropped%29.jpg/500px-Leonardo_Nascimento_de_Ara%C3%BAjo_2013-01-01_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "brazil-wc98-final#cam2": {
+    "playerId": "3372",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Rivaldo_bunyodkor_2010.jpg"
+  },
+  "brazil-wc98-final#st1": {
+    "playerId": "26541",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Bebeto_brazil_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "brazil-wc98-final#st2": {
+    "playerId": "3140",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/051119SMcC0014.jpg/500px-051119SMcC0014.jpg"
+  },
+  "bulgaria-wc94-bronze#st2": {
+    "playerId": "7938",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Stoichkov_in_2016.jpg/500px-Stoichkov_in_2016.jpg"
   }
 }

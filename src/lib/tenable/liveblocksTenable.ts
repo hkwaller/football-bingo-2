@@ -15,33 +15,35 @@ export type TenableRoomPhase = 'lobby' | 'playing' | 'finished'
 /** Liveblocks storage. Complex values are JSON strings to satisfy the LsonObject constraint. */
 export type TenableGameStorage = {
   phase: TenableRoomPhase
-  hostConnectionId: number | null
+  /** Stable per-tab player id (see roomPlayer.ts) - connection ids change on reconnect. */
+  hostPlayerId: string | null
   configJson: string // TenableConfig
   seed: string
   questionsJson: string // TenableQuestion[]
   currentQuestionIndex: number
   foundRanksJson: string // number[] found in the current category
-  livesLeft: number // shared across the room
-  hintsLeft: number // shared across the room, for the whole game
+  livesLostJson: string // UsedCounts - lives lost this category, per player (versus) or team (co-op)
+  hintsUsedJson: string // UsedCounts - hints used this game, per player (versus) or team (co-op)
   hintsJson: string // TenableHint[] taken in the current category
-  currentTurnConnectionId: number | null
-  turnOrderJson: string // number[] connection ids
+  currentTurnPlayerId: string | null
+  turnOrderJson: string // string[] player ids
   resultsJson: string // TenableQuestionResult[]
   lastGuessJson: string // TenableLastGuess - most recent guess, for shared feedback
   startedAt: number
-  playerNames: LiveMap<string, string> // connId → displayName
-  playerScores: LiveMap<string, string> // connId → score (number as string)
+  playerNames: LiveMap<string, string> // playerId → displayName
+  playerScores: LiveMap<string, string> // playerId → score (number as string)
 }
 
 export type TenableGamePresence = {
   displayName: string
+  playerId: string
 }
 
 const tenableClient = createClient({
   authEndpoint: async (room) => {
     const anonId =
       typeof window !== 'undefined'
-        ? window.localStorage.getItem('fb_anon_id') ?? undefined
+        ? (window.localStorage.getItem('fb_anon_id') ?? undefined)
         : undefined
     const res = await fetch('/api/liveblocks-auth', {
       method: 'POST',
@@ -66,16 +68,16 @@ export const {
 export function createInitialTenableStorage(): TenableGameStorage {
   return {
     phase: 'lobby',
-    hostConnectionId: null,
+    hostPlayerId: null,
     configJson: JSON.stringify(DEFAULT_TENABLE_CONFIG),
     seed: '',
     questionsJson: '[]',
     currentQuestionIndex: 0,
     foundRanksJson: '[]',
-    livesLeft: DEFAULT_TENABLE_CONFIG.lives,
-    hintsLeft: DEFAULT_TENABLE_CONFIG.hints,
+    livesLostJson: '{}',
+    hintsUsedJson: '{}',
     hintsJson: '[]',
-    currentTurnConnectionId: null,
+    currentTurnPlayerId: null,
     turnOrderJson: '[]',
     resultsJson: '[]',
     lastGuessJson: '',
@@ -114,8 +116,8 @@ export function parseNumberArray(json: string): number[] {
 export type TenableLastGuess = {
   /** Monotonic counter so the UI can re-trigger its animation on repeated outcomes. */
   seq: number
-  /** Connection id of the guesser. */
-  by: number
+  /** Player id of the guesser. */
+  by: string
   /** The name the player typed. */
   name: string
   kind: 'correct' | 'wrong' | 'already-found'

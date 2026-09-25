@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { normalize } from '@/lib/tenable/normalize'
 
 interface Props {
   onGuess: (name: string) => void
@@ -17,12 +18,14 @@ interface Props {
 /**
  * Text input with debounced suggestions from /api/famous-11s/name-search.
  * Pool includes all Famous 11s names + enrichedFootballPlayers for decoy
- * coverage. Free-typed names still submit even when not suggested.
+ * coverage. Free-typed names still submit when nothing is suggested.
  */
 export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a player…', focusKey, variant = 'default' }: Props) {
   const isBar = variant === 'bar'
   const [query, setQuery] = useState('')
   const [suggestions, setSuggestions] = useState<string[]>([])
+  /** The query the current suggestions were fetched for, so stale lists aren't auto-picked. */
+  const [suggestionsFor, setSuggestionsFor] = useState('')
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -45,6 +48,7 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
         const data = (await res.json()) as { suggestions?: { name: string }[] }
         if (!cancelled) {
           setSuggestions((data.suggestions ?? []).map((s) => s.name))
+          setSuggestionsFor(q)
           setActive(-1)
           setOpen(true)
         }
@@ -71,6 +75,21 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
     [onGuess, disabled],
   )
 
+  /**
+   * What Enter submits: the highlighted suggestion, else an exact match in the list,
+   * else the top suggestion (a partial like "viei" can never be right), else the
+   * raw query. Suggestions fetched for an older query are ignored.
+   */
+  function bestGuess(): string {
+    if (active >= 0 && suggestions[active]) return suggestions[active]
+    const q = query.trim()
+    if (suggestionsFor !== q) return query
+    const key = normalize(q)
+    const exact = suggestions.find((s) => normalize(s) === key)
+    if (exact) return exact
+    return suggestions[0] ?? query
+  }
+
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'ArrowDown') {
       e.preventDefault()
@@ -80,16 +99,10 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
       e.preventDefault()
       setActive((i) => Math.max(i - 1, -1))
     } else if (e.key === 'Enter') {
-      // Highlighted suggestion → submit it.
-      if (active >= 0 && suggestions[active]) {
-        e.preventDefault()
-        submit(suggestions[active])
-      } else if (open && suggestions.length === 1) {
-        // Only one suggestion visible → treat it as if it were selected.
-        e.preventDefault()
-        submit(suggestions[0])
-      }
-      // Otherwise fall through to the form's onSubmit.
+      // Also handled by the form's onSubmit; this covers environments where
+      // implicit form submit doesn't fire.
+      e.preventDefault()
+      submit(bestGuess())
     } else if (e.key === 'Escape') {
       setOpen(false)
       setActive(-1)
@@ -100,14 +113,7 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
     <form
       onSubmit={(e) => {
         e.preventDefault()
-        // Use highlighted suggestion, or the only visible one, or raw query.
-        const best =
-          active >= 0 && suggestions[active]
-            ? suggestions[active]
-            : open && suggestions.length === 1
-              ? suggestions[0]
-              : query
-        submit(best)
+        submit(bestGuess())
       }}
       className="relative"
     >

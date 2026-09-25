@@ -1,15 +1,18 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
-import { QRCodeSVG } from 'qrcode.react'
-import { motion } from 'framer-motion'
 import type { TriviaConfig } from '@/lib/trivia/types'
 import { DIFFICULTY_LABELS } from '@/lib/trivia/difficulty'
+import { RoomInvite } from '@/components/RoomInvite'
+import { LobbyNameField } from '@/components/LobbyNameField'
+import { LobbySettingRow, LobbySquad } from '@/components/LobbySquad'
+import { LobbyLayout } from '@/components/LobbyLayout'
+import { LobbyBar } from '@/components/setup/LobbyBar'
 
 interface Player {
   connectionId: number
   displayName: string
   isHost: boolean
+  isSelf?: boolean
 }
 
 interface Props {
@@ -32,36 +35,6 @@ export function TriviaLobby({
   myName = '',
   onRename,
 }: Props) {
-  const [origin, setOrigin] = useState('')
-  const [copied, setCopied] = useState(false)
-  const [nameDraft, setNameDraft] = useState(myName)
-
-  useEffect(() => {
-    setOrigin(window.location.origin)
-  }, [])
-
-  // Keep the field in sync when the stored name loads/changes, but don't clobber
-  // what the user is actively typing.
-  useEffect(() => {
-    if (myName) setNameDraft(myName)
-  }, [myName])
-
-  const saveName = () => {
-    onRename?.(nameDraft)
-  }
-
-  const joinUrl = origin ? `${origin}/trivia/room/${roomId}` : `/trivia/room/${roomId}`
-
-  const copy = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(joinUrl)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch {
-      /* ignore */
-    }
-  }, [joinUrl])
-
   const sessionLabel: Record<string, string> = {
     fixed: `Fixed (${config.questionCount} questions)`,
     survival: 'Survival',
@@ -75,118 +48,66 @@ export function TriviaLobby({
     'turn-based': 'Turn-based',
   }
 
+  const shortSession: Record<string, string> = {
+    fixed: `${config.questionCount} questions`,
+    survival: 'Survival',
+    timed: `${config.timeLimitSeconds}s timed`,
+    category: config.category ?? 'Category',
+  }
+  const shortMechanic: Record<string, string> = {
+    race: 'Race',
+    simultaneous: 'Simultaneous',
+    'turn-based': 'Turn-based',
+  }
+  const sessionValue = shortSession[config.sessionType] ?? config.sessionType
+  const mechanicValue = shortMechanic[config.multiplayerMechanic] ?? config.multiplayerMechanic
+  const difficultyValue = DIFFICULTY_LABELS[config.difficulty]
+
   return (
-    <div className="mx-auto flex w-full max-w-[720px] flex-col gap-[18px] px-6 py-8 md:px-9">
-      <motion.div
-        initial={{ y: 12, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
-      >
-        <span className="eyebrow">Pre-match · tunnel</span>
-        <h1 className="mt-2.5 font-display text-[48px] font-black uppercase leading-[0.9] text-on-green md:text-[56px]">
-          The squad gathers
-        </h1>
-        <p className="mt-2 text-[14.5px] font-semibold text-on-green-soft">
-          Share the code below - everyone plays from their own device.
-        </p>
-      </motion.div>
-
-      {/* Config summary */}
-      <div className="panel flex flex-col gap-3 p-6">
-        <p className="eyebrow">Game settings</p>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
-          <span className="text-muted">Session</span>
-          <span className="font-semibold text-ink">
-            {sessionLabel[config.sessionType] ?? config.sessionType}
-          </span>
-          <span className="text-muted">Difficulty</span>
-          <span className="font-semibold text-ink">{DIFFICULTY_LABELS[config.difficulty]}</span>
-          <span className="text-muted">Mechanic</span>
-          <span className="font-semibold text-ink">
-            {mechanicLabel[config.multiplayerMechanic] ?? config.multiplayerMechanic}
-          </span>
-        </div>
-        {isHost && (
-          <a
-            href="/trivia/setup"
-            className="mt-1 w-fit text-xs font-bold uppercase tracking-[0.06em] text-red hover:underline"
-          >
-            Change settings →
-          </a>
-        )}
-      </div>
-
-      {/* Invite */}
-      <div className="panel p-6">
-        <p className="eyebrow mb-4">Room code</p>
-        <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-          <div className="shrink-0 rounded-[12px] border-[3px] border-card-ink bg-surface p-2">
-            <QRCodeSVG value={joinUrl} size={140} bgColor="#ffffff" fgColor="#0a2417" />
-          </div>
-          <div className="flex flex-1 flex-col gap-3">
-            <code className="block break-all rounded-xl border-[3px] border-card-ink bg-card-tint px-3 py-2 font-mono text-sm font-bold text-card-ink">
-              {roomId}
-            </code>
-            <button type="button" onClick={copy} className="btn btn-outline btn-sm w-fit">
-              {copied ? 'Copied!' : 'Copy invite link'}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Your name */}
-      <div className="panel p-6">
-        <label className="block text-sm font-bold text-card-ink">
-          Your name
-          <input
-            value={nameDraft}
-            onChange={(e) => setNameDraft(e.target.value)}
-            onBlur={saveName}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.preventDefault()
-                e.currentTarget.blur()
-              }
-            }}
-            className="input mt-1.5 max-w-sm"
-            placeholder="Enter your name"
-            maxLength={24}
+    <LobbyLayout
+      isHost={isHost}
+      eyebrow="Pre-match · tunnel"
+      title="The squad gathers"
+      subtitle="Share the code - everyone plays from their own device."
+      invite={<RoomInvite roomId={roomId} joinPath={`/trivia/room/${roomId}`} />}
+      squad={<LobbySquad players={players.map((p) => ({ ...p, id: p.connectionId }))} />}
+      settings={
+        <dl>
+          <LobbySettingRow
+            label="Session"
+            value={sessionLabel[config.sessionType] ?? config.sessionType}
           />
-        </label>
-      </div>
-
-      {/* Players */}
-      <div className="flex flex-col gap-2.5">
-        <p className="eyebrow">In the room ({players.length})</p>
-        {players.map((p) => (
-          <div key={p.connectionId} className="panel flex items-center gap-3 px-4 py-3">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-go font-display text-lg font-black uppercase leading-none text-ink">
-              {p.displayName.charAt(0) || '?'}
-            </span>
-            <span className="flex-1 text-sm font-bold text-card-ink">{p.displayName}</span>
-            {p.isHost && (
-              <span className="-rotate-2 rounded-md bg-yellow px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-[0.14em] text-ink shadow-[0_2px_0_#0a2417]">
-                Gaffer
-              </span>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Start button (host only) */}
-      {isHost ? (
-        <button
-          onClick={onStart}
+          <LobbySettingRow label="Difficulty" value={difficultyValue} />
+          <LobbySettingRow
+            label="Mechanic"
+            value={mechanicLabel[config.multiplayerMechanic] ?? config.multiplayerMechanic}
+          />
+        </dl>
+      }
+      changeSettingsHref="/trivia/setup"
+      nameField={
+        <LobbyNameField
+          value={myName}
+          onSave={(n) => onRename?.(n)}
+          autoFocus={!isHost && !myName}
+        />
+      }
+      bar={
+        <LobbyBar
+          isHost={isHost}
+          playerCount={players.length}
+          fields={[
+            { label: 'Session', value: sessionValue },
+            { label: 'Difficulty', value: difficultyValue },
+            { label: 'Mechanic', value: mechanicValue },
+          ]}
+          mobileDetail={`${sessionValue} · ${difficultyValue} · ${mechanicValue}`}
+          hint="Everyone plays from their own device"
+          startLabel="Start match"
+          onStart={onStart}
           disabled={players.length < 1}
-          className="btn btn-primary btn-lg disabled:cursor-not-allowed"
-        >
-          Start match
-        </button>
-      ) : (
-        <p className="text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">
-          In the tunnel - waiting for the gaffer…
-        </p>
-      )}
-    </div>
+        />
+      }
+    />
   )
 }

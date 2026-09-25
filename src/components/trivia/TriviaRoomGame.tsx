@@ -19,11 +19,12 @@ import { randomUUID } from '@/lib/randomUUID'
 import { loadTriviaConfig } from '@/lib/trivia/triviaStorage'
 import { generateQuestions } from '@/lib/trivia/questionGenerators'
 import { computePoints } from '@/lib/trivia/sessionEngine'
-import type { TriviaQuestion, TriviaPlayerAnswer } from '@/lib/trivia/types'
+import type { TriviaConfig, TriviaQuestion, TriviaPlayerAnswer } from '@/lib/trivia/types'
 import { TriviaLobby } from './TriviaLobby'
 import { TriviaHUD } from './TriviaHUD'
 import { TriviaQuestion as TriviaQuestionComp } from './TriviaQuestion'
 import { TriviaEndScreen } from './TriviaEndScreen'
+import { RoomConnecting } from '@/components/RoomConnecting'
 
 const REVIEW_DELAY_MS = 3000
 
@@ -153,11 +154,16 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   // Host claim takes the connection id explicitly (rather than closing over
   // `self`) and uses a null check so connection id 0 can't be mistaken for
   // "unclaimed". The effect below gates on self being ready and re-runs when it
-  // becomes available, so the first player in the room reliably wins host.
+  // becomes available, so the first player in the room reliably wins host. The
+  // host also seeds the room with their setup-screen config so the lobby shows it.
   const claimHost = useTriviaM(
-    ({ storage }, { id, displayName }: { id: number; displayName: string }) => {
+    (
+      { storage },
+      { id, displayName, config }: { id: number; displayName: string; config: TriviaConfig },
+    ) => {
       if (storage.get('hostConnectionId') == null) {
         storage.set('hostConnectionId', id)
+        storage.set('configJson', JSON.stringify(config))
       }
       storage.get('playerNames').set(String(id), displayName)
     },
@@ -171,8 +177,9 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     [],
   )
 
+  // Plays the config stored in the room (the host's), never the clicker's local one.
   const startGame = useTriviaM(({ storage }) => {
-    const savedConfig = loadTriviaConfig()
+    const savedConfig = parseConfigJson(storage.get('configJson') ?? '{}')
     const newSessionId = randomUUID()
     const count =
       savedConfig.sessionType === 'fixed' || savedConfig.sessionType === 'category'
@@ -180,7 +187,6 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
         : 20
     const qs = generateQuestions(savedConfig, newSessionId, count)
     const now = Date.now()
-    storage.set('configJson', JSON.stringify(savedConfig))
     storage.set('sessionId', newSessionId)
     storage.set('questionsJson', JSON.stringify(qs))
     storage.set('currentQuestionIndex', 0)
@@ -296,7 +302,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       // Persist the fallback so a reconnect (new connection id) keeps the same name.
       if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', displayName)
     }
-    claimHost({ id: self.connectionId, displayName })
+    claimHost({ id: self.connectionId, displayName, config: loadTriviaConfig() })
     updatePresence({ displayName, answeredCurrentQuestion: false, score: 0, streak: 0 })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, self?.connectionId])
@@ -443,6 +449,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       connectionId: p.connectionId,
       displayName: p.presence!.displayName,
       isHost: p.connectionId === hostConnectionId,
+      isSelf: p.connectionId === self?.connectionId,
     }))
 
   // ── Render ─────────────────────────────────────────────────────────────────
@@ -459,9 +466,10 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   if (status === 'connecting' || status === 'reconnecting') {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center text-sm text-muted animate-pulse-soft">
-        Connecting…
-      </div>
+      <RoomConnecting
+        mode="trivia"
+        state={status === 'reconnecting' ? 'reconnecting' : 'connecting'}
+      />
     )
   }
 
