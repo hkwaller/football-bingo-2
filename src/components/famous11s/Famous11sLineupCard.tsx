@@ -1,6 +1,7 @@
 'use client'
 
 import type { Famous11sLineup } from '@/data/famous11s'
+import type { Famous11sFixture } from '@/lib/famous11s/setupMeta'
 import { lineupCrest } from '@/lib/famous11s/crest'
 
 function initials(name: string): string {
@@ -9,15 +10,9 @@ function initials(name: string): string {
   return `${parts[0]![0] ?? ''}${parts[parts.length - 1]![0] ?? ''}`.toUpperCase()
 }
 
-function Crest({
-  name,
-  size,
-}: {
-  name: string
-  size: 'lg' | 'sm'
-}) {
+function Crest({ name, size }: { name: string; size: 'lg' | 'sm' }) {
   const src = lineupCrest(name)
-  const px = size === 'lg' ? 'h-14 w-14 md:h-16 md:w-16' : 'h-7 w-7'
+  const px = size === 'lg' ? 'h-12 w-12 md:h-14 md:w-14' : 'h-7 w-7'
   if (src) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
@@ -40,7 +35,7 @@ const DIFF_CLASS = {
   hard: 'bg-red/20 text-red',
 } as const
 
-export function Famous11sLineupCard({
+function TeamPick({
   lineup,
   onPick,
 }: {
@@ -51,53 +46,94 @@ export function Famous11sLineupCard({
     <button
       type="button"
       onClick={onPick}
-      className="flex h-full w-full flex-col rounded-[14px] bg-surface p-4 text-left shadow-[0_6px_0_#0a2417] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_0_#0a2417] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch active:translate-y-[3px] active:shadow-[0_2px_0_#0a2417]"
+      className="flex min-w-0 flex-1 flex-col items-center rounded-[12px] bg-card-tint/80 px-2 py-3.5 text-center transition-all duration-150 hover:-translate-y-0.5 hover:bg-yellow/40 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:translate-y-[2px]"
     >
+      <Crest name={lineup.side} size="lg" />
+      <p className="mt-2.5 min-w-0 font-display text-[18px] font-black uppercase leading-[0.9] text-card-ink md:text-[20px]">
+        {lineup.side}
+      </p>
+      <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-card-muted-2">
+        {lineup.formation}
+      </p>
+      <span
+        className={`mt-2 rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase ${DIFF_CLASS[lineup.difficulty]}`}
+      >
+        {lineup.difficulty}
+      </span>
+    </button>
+  )
+}
+
+function GhostTeam({ name }: { name: string }) {
+  return (
+    <div className="flex min-w-0 flex-1 flex-col items-center rounded-[12px] bg-card-tint/40 px-2 py-3.5 text-center opacity-50">
+      <Crest name={name} size="lg" />
+      <p className="mt-2.5 font-display text-[18px] font-black uppercase leading-[0.9] text-card-ink md:text-[20px]">
+        {name}
+      </p>
+      <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-card-muted-2">
+        XI not in the bank
+      </p>
+    </div>
+  )
+}
+
+export function Famous11sFixtureCard({
+  fixture,
+  onPick,
+}: {
+  fixture: Famous11sFixture
+  onPick: (id: string) => void
+}) {
+  const isMatch = fixture.sides.length > 1 || Boolean(fixture.missingOpponent)
+  const seasonTag = !isMatch
+    ? (fixture.sides[0]?.title.split('·')[1]?.trim() ?? null)
+    : null
+
+  return (
+    <article className="flex h-full w-full flex-col rounded-[14px] bg-surface p-4 shadow-[0_6px_0_#0a2417]">
       <div className="flex items-center justify-between gap-2">
         <span
           className={`rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase ${
-            lineup.era === 'classic' ? 'bg-yellow/40 text-card-ink' : 'bg-pink/20 text-pink'
+            fixture.era === 'classic' ? 'bg-yellow/40 text-card-ink' : 'bg-pink/20 text-pink'
           }`}
         >
-          {lineup.era === 'classic' ? 'Classic' : 'Big Night'}
+          {fixture.era === 'classic' ? 'Classic' : 'Big Night'}
         </span>
-        <span
-          className={`rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase ${DIFF_CLASS[lineup.difficulty]}`}
-        >
-          {lineup.difficulty}
+        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-card-muted-2">
+          {fixture.year}
         </span>
       </div>
 
-      <div className="mt-4 flex items-center gap-3">
-        <Crest name={lineup.side} size="lg" />
-        <p className="min-w-0 font-display text-[26px] font-black uppercase leading-[0.88] text-card-ink md:text-[30px]">
-          {lineup.side}
+      <p className="mt-3 font-display text-[16px] font-black uppercase leading-tight text-card-ink md:text-[18px]">
+        {fixture.competition}
+      </p>
+      {seasonTag ? (
+        <p className="mt-1 text-[13px] font-extrabold uppercase leading-none text-card-muted">
+          {seasonTag}
         </p>
-      </div>
+      ) : null}
+      <p className="mt-1 text-[12px] font-semibold leading-snug text-card-muted">{fixture.detail}</p>
 
-      {lineup.opponent ? (
-        <div className="mt-3 flex items-center gap-2">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-card-muted-2">
+      {isMatch ? (
+        <div className="relative mt-4 flex gap-2">
+          {fixture.sides[0] ? (
+            <TeamPick lineup={fixture.sides[0]} onPick={() => onPick(fixture.sides[0]!.id)} />
+          ) : null}
+          {fixture.sides[1] ? (
+            <TeamPick lineup={fixture.sides[1]} onPick={() => onPick(fixture.sides[1]!.id)} />
+          ) : fixture.missingOpponent ? (
+            <GhostTeam name={fixture.missingOpponent} />
+          ) : null}
+          <span className="pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface px-2 py-0.5 font-mono text-[10px] font-black uppercase tracking-[0.14em] text-card-muted-2 shadow-[0_2px_0_#0a2417]">
             vs
-          </span>
-          <Crest name={lineup.opponent} size="sm" />
-          <span className="truncate text-[13px] font-extrabold uppercase leading-none text-card-muted">
-            {lineup.opponent}
           </span>
         </div>
       ) : (
-        <p className="mt-3 text-[13px] font-extrabold uppercase leading-none text-card-muted">
-          {lineup.title.split('·')[1]?.trim() ?? lineup.competition}
-        </p>
+        <div className="mt-4">
+          <TeamPick lineup={fixture.sides[0]!} onPick={() => onPick(fixture.sides[0]!.id)} />
+        </div>
       )}
-
-      <p className="mt-4 font-display text-[15px] font-black uppercase leading-tight text-card-ink">
-        {lineup.competition} · {lineup.year}
-      </p>
-      <p className="mt-1 text-[12px] font-semibold leading-snug text-card-muted">{lineup.prompt}</p>
-      <p className="mt-auto pt-3 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-card-muted-2">
-        {lineup.formation}
-      </p>
-    </button>
+    </article>
   )
 }

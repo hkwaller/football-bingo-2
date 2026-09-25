@@ -16,6 +16,7 @@
 
 import type { Famous11sLineup } from './types'
 import { extraLineups } from './extraLineups'
+import { reverseLineups } from './reverseLineups'
 
 export const famousLineups: Famous11sLineup[] = [
   // ── NATIONAL TEAMS - WORLD CUP ───────────────────────────────────────────
@@ -2010,4 +2011,5 @@ export const famousLineups: Famous11sLineup[] = [
   },
 
   ...extraLineups,
+  ...reverseLineups,
 ]

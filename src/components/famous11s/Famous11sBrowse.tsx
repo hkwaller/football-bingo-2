@@ -1,14 +1,14 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { browseLineups, pluralLineups } from '@/lib/famous11s/setupMeta'
+import { browseFixtures, pluralFixtures, pluralLineups } from '@/lib/famous11s/setupMeta'
 import type {
   Famous11sBrowseSort,
   Famous11sDifficultyFilter,
   Famous11sEraFilter,
   Famous11sKindFilter,
 } from '@/lib/famous11s/types'
-import { Famous11sLineupCard } from './Famous11sLineupCard'
+import { Famous11sFixtureCard } from './Famous11sLineupCard'
 
 type Chip<T extends string> = { value: T; label: string }
 
@@ -83,10 +83,11 @@ export function Famous11sBrowse({ onPick }: { onPick: (id: string) => void }) {
   const [difficulty, setDifficulty] = useState<Famous11sDifficultyFilter>('mixed')
   const [sort, setSort] = useState<Famous11sBrowseSort>('year-desc')
 
-  const lineups = useMemo(
-    () => browseLineups({ query, era, kind, difficulty, sort }),
+  const fixtures = useMemo(
+    () => browseFixtures({ query, era, kind, difficulty, sort }),
     [query, era, kind, difficulty, sort],
   )
+  const xiCount = fixtures.reduce((n, f) => n + f.sides.length, 0)
 
   const hasFilters = Boolean(query) || era !== 'all' || kind !== 'all' || difficulty !== 'mixed'
 
@@ -118,10 +119,11 @@ export function Famous11sBrowse({ onPick }: { onPick: (id: string) => void }) {
       </div>
 
       <p className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-on-green-dim">
-        {pluralLineups(lineups.length)}
+        {pluralFixtures(fixtures.length)}
+        {xiCount !== fixtures.length ? ` · ${pluralLineups(xiCount)}` : ''}
       </p>
 
-      {lineups.length === 0 ? (
+      {fixtures.length === 0 ? (
         <div className="mt-6 rounded-[14px] bg-surface px-6 py-10 text-center shadow-[0_6px_0_#0a2417]">
           <p className="font-display text-[22px] font-black uppercase leading-none text-card-ink">
             No XIs match
@@ -140,9 +142,9 @@ export function Famous11sBrowse({ onPick }: { onPick: (id: string) => void }) {
           )}
         </div>
       ) : (
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {lineups.map((l) => (
-            <Famous11sLineupCard key={l.id} lineup={l} onPick={() => onPick(l.id)} />
+        <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {fixtures.map((f) => (
+            <Famous11sFixtureCard key={f.key} fixture={f} onPick={onPick} />
           ))}
         </div>
       )}
