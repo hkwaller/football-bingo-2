@@ -42,7 +42,7 @@ Restart the dev server after editing `.env.local`.
 - `src/components/AdsterraBanner.tsx` / `AdsterraPopunder.tsx` - self-gating ads.
 - `src/app/go-ad-free/page.tsx` - pricing page (Prime Time Green design).
 
-Middleware (`src/middleware.ts`) only protects `/account(.*)`, so `/go-ad-free` and `/api/stripe/*` are already public. The webhook is authed by its signature.
+Proxy (`src/proxy.ts`, formerly middleware) only protects `/account(.*)`, so `/go-ad-free` and `/api/stripe/*` are already public. The webhook is authed by its signature.
 
 ## Ad placement (non-invasive - never during active play)
 
