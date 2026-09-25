@@ -51,6 +51,7 @@ import type { PlayMode } from '@/lib/playMode'
 import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
+import { LobbyNameField } from '@/components/LobbyNameField'
 
 const ROUNDEL_COLORS = PLAYER_COLORS.map((c) => `${c} text-ink border-2 border-ink`)
 
@@ -987,8 +988,10 @@ function RoomInner({ roomId }: { roomId: string }) {
       : ''
   }`
 
-  const saveName = () => {
-    updatePresence({ displayName: nameDraft.trim() || 'Player', bingoAt: null })
+  const saveName = (name = nameDraft) => {
+    const displayName = name.trim() || 'Player'
+    setNameDraft(displayName)
+    updatePresence({ displayName, bingoAt: null })
   }
 
   if (phase === null || status === 'connecting' || status === 'reconnecting') {
@@ -1059,17 +1062,11 @@ function RoomInner({ roomId }: { roomId: string }) {
                   ready.
                 </p>
               </div>
-              <label className="block text-sm font-bold text-ink">
-                Your name
-                <input
-                  value={nameDraft}
-                  onChange={(e) => setNameDraft(e.target.value)}
-                  onBlur={saveName}
-                  className="input mt-1.5 max-w-sm"
-                  placeholder="Enter your name"
-                  autoFocus
-                />
-              </label>
+              <LobbyNameField
+                value={presence?.displayName || nameDraft}
+                onSave={saveName}
+                autoFocus
+              />
               <div className="flex items-center justify-between border-t border-line pt-4">
                 <span className="chip">
                   {others.length + 1} player{others.length === 0 ? '' : 's'} in room
@@ -1182,16 +1179,9 @@ function RoomInner({ roomId }: { roomId: string }) {
                   </Link>
 
                   {/* Display name */}
-                  <label className="block text-sm font-bold text-ink">
-                    Display name
-                    <input
-                      value={nameDraft}
-                      onChange={(e) => setNameDraft(e.target.value)}
-                      onBlur={saveName}
-                      className="input mt-1.5 max-w-sm"
-                      placeholder="Your name"
-                    />
-                  </label>
+                  <div className="border-t-2 border-dashed border-card-tint pt-5">
+                    <LobbyNameField value={presence?.displayName || nameDraft} onSave={saveName} />
+                  </div>
                 </div>
 
                 {/* Footer strip */}

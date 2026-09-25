@@ -27,6 +27,7 @@ import { PresetPills, type Preset } from '@/components/setup/PresetPills'
 import { SegmentedNumbers } from '@/components/setup/SegmentedNumbers'
 import { TopicPicker, type TopicItem } from '@/components/setup/TopicPicker'
 import { KickoffBar } from '@/components/setup/KickoffBar'
+import { RoomModePicker } from '@/components/setup/RoomModePicker'
 import { ControlLabel, ReadoutTile, SelectRow } from '@/components/setup/primitives'
 import { TenableBrowse } from './TenableBrowse'
 
@@ -197,7 +198,13 @@ export function TenableSetup() {
           helper={
             <span className="flex items-center gap-1.5">
               <span aria-hidden>{'❤️'.repeat(config.lives)}</span>
-              <span>{config.lives} wrong and the run is over</span>
+              <span>
+                {!isMultiplayer
+                  ? `${config.lives} wrong and the run is over`
+                  : config.playMode === 'coop'
+                    ? `${config.lives} wrong between you and the list is over`
+                    : `${config.lives} wrong each and you sit the list out`}
+              </span>
             </span>
           }
         />
@@ -213,7 +220,7 @@ export function TenableSetup() {
           helper={
             config.hints === 0
               ? 'No hints - pure recall'
-              : `${config.hints} per game · a hinted answer scores ${HINTED_POINTS}, not ${POINTS_PER_ANSWER}`
+              : `${config.hints} per ${!isMultiplayer ? 'game' : config.playMode === 'coop' ? 'team' : 'player'} · a hinted answer scores ${HINTED_POINTS}, not ${POINTS_PER_ANSWER}`
           }
         />
       </div>
@@ -272,7 +279,12 @@ export function TenableSetup() {
 
   const fields = [
     { label: 'The run', value: `${config.questionCount} lists · ${answers} answers` },
-    { label: 'Lives', value: `${config.lives} wrong · ${config.hints} hints` },
+    {
+      label: 'Lives',
+      value: isMultiplayer
+        ? `${config.lives} ${config.playMode === 'coop' ? 'shared' : 'each'} · ${config.hints} hints`
+        : `${config.lives} wrong · ${config.hints} hints`,
+    },
     { label: 'Difficulty', value: `${diffLabel} · ≈${minutes} min` },
     { label: 'Topics', value: `${groupCount} of ${ALL_GROUP_IDS.length}` },
   ]
@@ -293,6 +305,13 @@ export function TenableSetup() {
             <PresetPills presets={PRESETS} activeId={activePreset} onSelect={applyPreset} />
           )}
         </SetupHeader>
+
+        {isMultiplayer && (
+          <RoomModePicker
+            value={config.playMode ?? 'versus'}
+            onChange={(v) => update('playMode', v)}
+          />
+        )}
 
         <div
           role="tablist"

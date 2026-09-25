@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   ElevenRoomProvider,
@@ -23,7 +22,12 @@ import {
 import { loadFamous11sConfig } from '@/lib/famous11s/storage'
 import { getLineupById, selectLineups, lineupTarget } from '@/data/famous11s'
 import { matchSlot } from '@/lib/famous11s/matching'
-import { POINTS_PER_SLOT, CLEAR_BONUS, MISS_PENALTY } from '@/lib/famous11s/types'
+import {
+  POINTS_PER_SLOT,
+  CLEAR_BONUS,
+  MISS_PENALTY,
+  type Famous11sConfig,
+} from '@/lib/famous11s/types'
 import { randomUUID } from '@/lib/randomUUID'
 import {
   getTabDisplayName,
@@ -35,15 +39,18 @@ import { Famous11sLobby } from './Famous11sLobby'
 import { PitchBoard } from './PitchBoard'
 import { Famous11sAutocomplete } from './Famous11sAutocomplete'
 import { LivesRow } from '@/components/LivesRow'
-
-function nextTurn(current: string | null, presentIds: string[]): string | null {
-  if (!presentIds.length) return null
-  const ring = [...presentIds].sort()
-  if (current === null) return ring[0]
-  const i = ring.indexOf(current)
-  if (i === -1) return ring[0]
-  return ring[(i + 1) % ring.length]
-}
+import { RoomResults } from '@/components/RoomResults'
+import { RoomPlayersStrip } from '@/components/RoomPlayersStrip'
+import {
+  bumpUsed,
+  everyoneOutOfLives,
+  isOutOfLives,
+  leftFor,
+  nextTurnPlayer,
+  parseUsedCounts,
+  poolKey,
+  teamScore,
+} from '@/lib/roomMode'
 
 const ABSENT_TURN_GRACE_MS = 8000
 
@@ -109,7 +116,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   const currentLineupIndex = useElevenStorage((s) => s.currentLineupIndex)
   const foundSlotIdsJson = useElevenStorage((s) => s.foundSlotIdsJson)
   const lastGuessJson = useElevenStorage((s) => s.lastGuessJson)
-  const livesLeft = useElevenStorage((s) => s.livesLeft)
+  const livesLostJson = useElevenStorage((s) => s.livesLostJson)
   const currentTurnPlayerId = useElevenStorage((s) => s.currentTurnPlayerId ?? null)
   const playerNames = useElevenStorage((s) => s.playerNames)
   const playerScores = useElevenStorage((s) => s.playerScores)
@@ -132,15 +139,26 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
 
   const isMyTurn = myId != null && myId === currentTurnPlayerId
   const totalSlots = currentLineup ? lineupTarget(currentLineup, config.includeManager) : 0
-  const lineupOver = !!currentLineup && (foundSlotIds.length >= totalSlots || (livesLeft ?? 0) <= 0)
+  const mode = config.playMode ?? 'versus'
+  const livesLost = useMemo(() => parseUsedCounts(livesLostJson), [livesLostJson])
   const cleared = !!currentLineup && foundSlotIds.length >= totalSlots
+  const lineupOver =
+    !!currentLineup && (cleared || everyoneOutOfLives(mode, livesLost, presentIds, config.lives))
+  const livesLeftOf = (id: string) => leftFor(livesLost, poolKey(mode, id), config.lives)
+  const myLivesLeft = myId != null ? livesLeftOf(myId) : 0
+  const iAmOut = mode === 'versus' && myId != null && myLivesLeft <= 0
 
   // ── Mutations ──────────────────────────────────────────────────────────────
 
+  // The first player in the room becomes host and seeds the room with the
+  // settings they picked on the setup screen, so the lobby shows what will be played.
   const claimHost = useElevenM(
-    ({ storage }, displayName: string) => {
+    ({ storage }, { displayName, config }: { displayName: string; config: Famous11sConfig }) => {
       if (myId == null) return
-      if (!storage.get('hostPlayerId')) storage.set('hostPlayerId', myId)
+      if (!storage.get('hostPlayerId')) {
+        storage.set('hostPlayerId', myId)
+        storage.set('configJson', JSON.stringify(config))
+      }
       storage.get('playerNames').set(myId, displayName)
       if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
     },
@@ -154,8 +172,9 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     [myId],
   )
 
+  // Plays the config stored in the room (the host's), never the clicker's local one.
   const startGame = useElevenM(({ storage }, ids: string[]) => {
-    const cfg = loadFamous11sConfig()
+    const cfg = parseElevenConfig(storage.get('configJson') ?? '{}')
     const seed = randomUUID()
     const picked = cfg.selectedLineupId
       ? (() => {
@@ -167,12 +186,11 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
           era: cfg.era,
           difficulty: cfg.difficulty,
         })
-    storage.set('configJson', JSON.stringify(cfg))
     storage.set('seed', seed)
     storage.set('lineupsJson', JSON.stringify(picked))
     storage.set('currentLineupIndex', 0)
     storage.set('foundSlotIdsJson', '[]')
-    storage.set('livesLeft', cfg.lives)
+    storage.set('livesLostJson', '{}')
     storage.set('resultsJson', '[]')
     storage.set('lastGuessJson', '')
     storage.set('startedAt', Date.now())
@@ -195,7 +213,9 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
       const found = parseStringArray(storage.get('foundSlotIdsJson') ?? '[]')
       const cfg = parseElevenConfig(storage.get('configJson') ?? '{}')
       const target = lineupTarget(lineup, cfg.includeManager)
-      if (found.length >= target || (storage.get('livesLeft') ?? 0) <= 0) return
+      const roomMode = cfg.playMode ?? 'versus'
+      let lost = parseUsedCounts(storage.get('livesLostJson'))
+      if (found.length >= target || isOutOfLives(roomMode, lost, myId, cfg.lives)) return
 
       const outcome = matchSlot(name, lineup, found, cfg.includeManager)
       const connId = myId
@@ -209,10 +229,16 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
           .get('playerScores')
           .set(connId, String(prev + POINTS_PER_SLOT + (clearedNow ? CLEAR_BONUS : 0)))
       } else if (outcome.kind === 'wrong') {
-        storage.set('livesLeft', Math.max(0, (storage.get('livesLeft') ?? 0) - 1))
+        lost = bumpUsed(lost, poolKey(roomMode, myId))
+        storage.set('livesLostJson', JSON.stringify(lost))
+        // Versus floors a player's score at 0. In co-op the penalty lands on the
+        // guesser's contribution uncapped, so it always comes off the team total.
         if (cfg.penaltyOnMiss) {
           const prev = Number(storage.get('playerScores').get(connId) ?? '0')
-          storage.get('playerScores').set(connId, String(Math.max(0, prev - MISS_PENALTY)))
+          const next = prev - MISS_PENALTY
+          storage
+            .get('playerScores')
+            .set(connId, String(roomMode === 'coop' ? next : Math.max(0, next)))
         }
       }
 
@@ -229,51 +255,66 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
         } satisfies ElevenLastGuess),
       )
 
+      // Players out of lives (versus) are skipped.
       if (outcome.kind !== 'already-found') {
-        storage.set('currentTurnPlayerId', nextTurn(myId, ids))
-        const cfgParsed = parseElevenConfig(storage.get('configJson') ?? '{}')
-        const deadline = cfgParsed.turnSeconds > 0 ? Date.now() + cfgParsed.turnSeconds * 1000 : 0
+        storage.set(
+          'currentTurnPlayerId',
+          nextTurnPlayer(myId, ids, (id) => !isOutOfLives(roomMode, lost, id, cfg.lives)),
+        )
+        const deadline = cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0
         storage.set('turnDeadline', deadline)
       }
     },
     [myId],
   )
 
-  const skipTurn = useElevenM(({ storage }, ids: string[]) => {
-    const current = storage.get('currentTurnPlayerId')
-    if (current == null) return
-    const found = parseStringArray(storage.get('foundSlotIdsJson') ?? '[]')
-    const cfg = parseElevenConfig(storage.get('configJson') ?? '{}')
-    storage.set('livesLeft', Math.max(0, (storage.get('livesLeft') ?? 0) - 1))
-    const prevSeq = parseLastGuess(storage.get('lastGuessJson') ?? '')?.seq ?? 0
-    const name = storage.get('playerNames').get(current) ?? 'Player'
-    storage.set(
-      'lastGuessJson',
-      JSON.stringify({
-        seq: prevSeq + 1,
-        by: current,
-        name: `[${name} timed out]`,
-        kind: 'wrong',
-      } satisfies ElevenLastGuess),
-    )
-    // Check if lineup is now over
-    const lns = parseElevenLineups(storage.get('lineupsJson') ?? '[]')
-    const idx = storage.get('currentLineupIndex') ?? 0
-    const lineup = lns[idx]
-    if (!lineup) return
-    const target = lineupTarget(lineup, cfg.includeManager)
-    const livesAfter = Math.max(0, storage.get('livesLeft') ?? 0)
-    const nextConnId = found.length < target && livesAfter > 0 ? nextTurn(current, ids) : current
-    storage.set('currentTurnPlayerId', nextConnId)
-    const deadline = cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0
-    storage.set('turnDeadline', deadline)
-  }, [])
+  // Every client watches the timer, so only act on the deadline that actually
+  // expired - otherwise one timeout could cost several lives.
+  const skipTurn = useElevenM(
+    ({ storage }, { ids, deadline }: { ids: string[]; deadline: number }) => {
+      const current = storage.get('currentTurnPlayerId')
+      if (current == null || storage.get('turnDeadline') !== deadline) return
+      const found = parseStringArray(storage.get('foundSlotIdsJson') ?? '[]')
+      const cfg = parseElevenConfig(storage.get('configJson') ?? '{}')
+      const roomMode = cfg.playMode ?? 'versus'
+      const lost = bumpUsed(
+        parseUsedCounts(storage.get('livesLostJson')),
+        poolKey(roomMode, current),
+      )
+      storage.set('livesLostJson', JSON.stringify(lost))
+      const prevSeq = parseLastGuess(storage.get('lastGuessJson') ?? '')?.seq ?? 0
+      const name = storage.get('playerNames').get(current) ?? 'Player'
+      storage.set(
+        'lastGuessJson',
+        JSON.stringify({
+          seq: prevSeq + 1,
+          by: current,
+          name: `[${name} timed out]`,
+          kind: 'wrong',
+        } satisfies ElevenLastGuess),
+      )
+      // Check if lineup is now over
+      const lns = parseElevenLineups(storage.get('lineupsJson') ?? '[]')
+      const idx = storage.get('currentLineupIndex') ?? 0
+      const lineup = lns[idx]
+      if (!lineup) return
+      const target = lineupTarget(lineup, cfg.includeManager)
+      const canPlay = (id: string) => !isOutOfLives(roomMode, lost, id, cfg.lives)
+      const over = found.length >= target || everyoneOutOfLives(roomMode, lost, ids, cfg.lives)
+      storage.set('currentTurnPlayerId', over ? current : nextTurnPlayer(current, ids, canPlay))
+      storage.set('turnDeadline', cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0)
+    },
+    [],
+  )
 
-  const passAbsentTurn = useElevenM(({ storage }, ids: string[]) => {
-    const current = storage.get('currentTurnPlayerId')
-    if (current != null && ids.includes(current)) return
-    storage.set('currentTurnPlayerId', nextTurn(current, ids))
+  // Only passes the turn if its holder is still missing (or out of lives) when this runs.
+  const passStuckTurn = useElevenM(({ storage }, ids: string[]) => {
     const cfg = parseElevenConfig(storage.get('configJson') ?? '{}')
+    const lost = parseUsedCounts(storage.get('livesLostJson'))
+    const canPlay = (id: string) => !isOutOfLives(cfg.playMode ?? 'versus', lost, id, cfg.lives)
+    const current = storage.get('currentTurnPlayerId')
+    if (current != null && ids.includes(current) && canPlay(current)) return
+    storage.set('currentTurnPlayerId', nextTurnPlayer(current, ids, canPlay))
     storage.set('turnDeadline', cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0)
   }, [])
 
@@ -299,7 +340,10 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
       foundSlotIds: found,
       slotsTotal: target,
       managerFound: found.includes('manager'),
-      livesUsed: cfg.lives - (storage.get('livesLeft') ?? 0),
+      livesUsed: Object.values(parseUsedCounts(storage.get('livesLostJson'))).reduce(
+        (a, b) => a + b,
+        0,
+      ),
       cleared: found.length >= target,
     })
     storage.set('resultsJson', JSON.stringify(results))
@@ -311,7 +355,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     }
     storage.set('currentLineupIndex', nextIdx)
     storage.set('foundSlotIdsJson', '[]')
-    storage.set('livesLeft', cfg.lives)
+    storage.set('livesLostJson', '{}')
     storage.set('lastGuessJson', '')
     const deadline = cfg.turnSeconds > 0 ? Date.now() + cfg.turnSeconds * 1000 : 0
     storage.set('turnDeadline', deadline)
@@ -325,7 +369,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
 
     timerRef.current = setInterval(() => {
       if (Date.now() > turnDeadline && !lineupOver) {
-        skipTurn(presentIds)
+        skipTurn({ ids: presentIds, deadline: turnDeadline })
       }
     }, 500)
     return () => {
@@ -342,20 +386,31 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     !lineupOver &&
     presentIds.length > 0 &&
     (currentTurnPlayerId == null || !presentIds.includes(currentTurnPlayerId))
+  // Holder out of lives (versus) - skipped straight away rather than after the grace period.
+  const turnHolderOut =
+    phase === 'playing' &&
+    !lineupOver &&
+    currentTurnPlayerId != null &&
+    isOutOfLives(mode, livesLost, currentTurnPlayerId, config.lives)
   const iAmTurnJanitor = myId != null && [...presentIds].sort()[0] === myId
 
   useEffect(() => {
-    if (!turnHolderAbsent || !iAmTurnJanitor) return
-    const t = window.setTimeout(() => passAbsentTurn(presentIds), ABSENT_TURN_GRACE_MS)
+    if ((!turnHolderAbsent && !turnHolderOut) || !iAmTurnJanitor) return
+    const t = window.setTimeout(
+      () => passStuckTurn(presentIds),
+      turnHolderOut ? 0 : ABSENT_TURN_GRACE_MS,
+    )
     return () => window.clearTimeout(t)
-  }, [turnHolderAbsent, iAmTurnJanitor, presentIds, passAbsentTurn])
+  }, [turnHolderAbsent, turnHolderOut, iAmTurnJanitor, presentIds, passStuckTurn])
 
   // ── Init ──────────────────────────────────────────────────────────────────
 
   useEffect(() => {
     if (phase == null || myId == null) return
-    const displayName = getTabDisplayName()
-    if (phase === 'lobby') claimHost(displayName)
+    // Keep the name already shown in the room; the stored one can be stale when
+    // another tab in this browser renamed itself.
+    const displayName = self?.presence.displayName || getTabDisplayName()
+    if (phase === 'lobby') claimHost({ displayName, config: loadFamous11sConfig() })
     else setPlayerName(displayName)
     updatePresence({ displayName })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -437,54 +492,18 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   const scoreFor = (id: string) => Number(playerScores?.get(id) ?? '0')
 
   if (phase === 'finished') {
-    const leaderboard = players
-      .map((p) => ({
-        name: nameFor(p.id),
-        score: scoreFor(p.id),
-        isMe: p.id === myId,
-      }))
-      .sort((a, b) => b.score - a.score)
     return (
-      <div className="mx-auto flex w-full max-w-[720px] flex-col gap-8 px-6 py-8 md:px-9">
-        <div className="text-center">
-          <span className="eyebrow eyebrow-yellow">Full time</span>
-          <h1 className="mt-2 font-display text-[56px] font-black uppercase leading-none text-on-green">
-            Results
-          </h1>
-        </div>
-        <div className="flex flex-col gap-3">
-          {leaderboard.map((e, i) => (
-            <div
-              key={e.name + i}
-              className={`panel flex items-center gap-4 px-4 py-3 ${i === 0 ? 'border-2 border-foil' : e.isMe ? 'border-2 border-green' : ''}`}
-            >
-              <span
-                className={`w-8 font-display text-2xl uppercase leading-none tabular-nums ${i === 0 ? 'text-gold' : 'text-muted'}`}
-              >
-                {i + 1}
-              </span>
-              <span className="flex-1 text-sm font-bold text-ink">
-                {i === 0 && <span className="mr-1.5">🏆</span>}
-                {e.name}
-                {e.isMe && ' (you)'}
-              </span>
-              <span
-                className={`font-display text-xl uppercase leading-none tabular-nums ${i === 0 ? 'text-gold' : 'text-ink'}`}
-              >
-                {e.score.toLocaleString()}
-              </span>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/famous-11s/setup?mode=multiplayer" className="btn btn-outline-light btn-lg">
-            New room
-          </Link>
-          <Link href="/" className="btn btn-ghost btn-lg">
-            Home
-          </Link>
-        </div>
-      </div>
+      <RoomResults
+        mode={mode}
+        entries={players.map((p) => ({
+          id: p.id,
+          name: nameFor(p.id),
+          score: scoreFor(p.id),
+          isMe: p.id === myId,
+        }))}
+        newRoomHref="/famous-11s/setup?mode=multiplayer"
+        eyebrowClass="eyebrow-yellow"
+      />
     )
   }
 
@@ -497,6 +516,14 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   }
 
   const turnName = currentTurnPlayerId != null ? nameFor(currentTurnPlayerId) : '-'
+  const stripPlayers = players.map((p) => ({
+    id: p.id,
+    name: nameFor(p.id),
+    score: scoreFor(p.id),
+    livesLeft: livesLeftOf(p.id),
+    isMe: p.id === myId,
+    isTurn: p.id === currentTurnPlayerId,
+  }))
   const timerSeconds =
     config.turnSeconds > 0 && turnDeadline && turnDeadline > 0
       ? Math.max(0, Math.round((turnDeadline - Date.now()) / 1000))
@@ -518,7 +545,12 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
               {currentLineup.prompt}
             </p>
           </div>
-          <LivesRow livesLeft={livesLeft ?? 0} maxLives={config.lives} />
+          <div className="flex shrink-0 flex-col items-end gap-1">
+            <LivesRow livesLeft={myLivesLeft} maxLives={config.lives} />
+            <span className="text-[10.5px] font-extrabold uppercase tracking-[0.12em] text-on-green-dim">
+              {mode === 'coop' ? 'Team lives' : 'Your lives'}
+            </span>
+          </div>
         </div>
         <div className="flex items-center justify-between gap-4">
           <span
@@ -541,6 +573,11 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
             </span>
           </div>
         </div>
+        <RoomPlayersStrip
+          mode={mode}
+          players={stripPlayers}
+          teamTotal={teamScore(stripPlayers.map((p) => p.score))}
+        />
       </div>
 
       {/* Input */}
@@ -548,7 +585,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
         {lineupOver ? (
           <div className="flex flex-col items-center gap-3 rounded-[12px] bg-black/20 px-4 py-4 text-center">
             <p className="font-display text-2xl font-black uppercase leading-none text-on-green">
-              {cleared ? '🎉 Full XI!' : '💔 Out of lives'}
+              {cleared ? '🎉 Full XI!' : mode === 'coop' ? '💔 Out of lives' : "💔 Everyone's out"}
             </p>
             {isHost ? (
               <button onClick={() => advanceLineupRoom()} className="btn btn-primary btn-lg">
@@ -567,22 +604,16 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
               focusKey={focusKey}
               placeholder="Name a player…"
             />
-            <GuessFeedback
-              guess={lastGuess}
-              nameFor={nameFor}
-              selfId={myId}
-            />
+            <GuessFeedback guess={lastGuess} nameFor={nameFor} selfId={myId} />
           </>
         ) : (
           <>
             <p className="py-4 text-center text-sm font-semibold text-on-green-soft animate-pulse-soft">
-              {turnName} is naming one…
+              {iAmOut
+                ? `You're out of lives this lineup - ${turnName} is naming one…`
+                : `${turnName} is naming one…`}
             </p>
-            <GuessFeedback
-              guess={lastGuess}
-              nameFor={nameFor}
-              selfId={myId}
-            />
+            <GuessFeedback guess={lastGuess} nameFor={nameFor} selfId={myId} />
           </>
         )}
       </div>

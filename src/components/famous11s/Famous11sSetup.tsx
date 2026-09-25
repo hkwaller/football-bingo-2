@@ -2,7 +2,11 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import type { Famous11sDifficultyFilter, Famous11sEraFilter, Famous11sKindFilter } from '@/lib/famous11s/types'
+import type {
+  Famous11sDifficultyFilter,
+  Famous11sEraFilter,
+  Famous11sKindFilter,
+} from '@/lib/famous11s/types'
 import { DEFAULT_FAMOUS11S_CONFIG, type Famous11sConfig } from '@/lib/famous11s/types'
 import {
   clearFamous11sSession,
@@ -14,6 +18,7 @@ import { SetupPageFrame, SetupHeader, TacticsBoard } from '@/components/setup/Se
 import { PresetPills, type Preset } from '@/components/setup/PresetPills'
 import { SegmentedNumbers } from '@/components/setup/SegmentedNumbers'
 import { KickoffBar } from '@/components/setup/KickoffBar'
+import { RoomModePicker } from '@/components/setup/RoomModePicker'
 import { ControlLabel, ReadoutTile, SelectRow } from '@/components/setup/primitives'
 import { Famous11sBrowse } from './Famous11sBrowse'
 
@@ -161,7 +166,13 @@ export function Famous11sSetup() {
           helper={
             <span className="flex items-center gap-1.5">
               <span aria-hidden>{'❤️'.repeat(config.lives)}</span>
-              <span>{config.lives} wrong and the lineup ends</span>
+              <span>
+                {!isMultiplayer
+                  ? `${config.lives} wrong and the lineup ends`
+                  : config.playMode === 'coop'
+                    ? `${config.lives} wrong between you and the lineup ends`
+                    : `${config.lives} wrong each and you sit the lineup out`}
+              </span>
             </span>
           }
         />
@@ -269,7 +280,12 @@ export function Famous11sSetup() {
 
   const fields = [
     { label: 'Lineups', value: `${config.lineupCount} XI${config.lineupCount === 1 ? '' : 's'}` },
-    { label: 'Lives', value: `${config.lives} wrong` },
+    {
+      label: 'Lives',
+      value: isMultiplayer
+        ? `${config.lives} ${config.playMode === 'coop' ? 'shared' : 'each'}`
+        : `${config.lives} wrong`,
+    },
     { label: 'Difficulty', value: diffLabel },
     { label: 'Era', value: eraLabel },
   ]
@@ -294,6 +310,13 @@ export function Famous11sSetup() {
             <PresetPills presets={PRESETS} activeId={activePreset} onSelect={applyPreset} />
           )}
         </SetupHeader>
+
+        {isMultiplayer && (
+          <RoomModePicker
+            value={config.playMode ?? 'versus'}
+            onChange={(v) => update('playMode', v)}
+          />
+        )}
 
         <div
           role="tablist"

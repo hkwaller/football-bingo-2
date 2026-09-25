@@ -27,7 +27,7 @@ export type ElevenGameStorage = {
   lineupsJson: string // Famous11sLineup[]
   currentLineupIndex: number
   foundSlotIdsJson: string // string[] - current lineup slot IDs found
-  livesLeft: number
+  livesLostJson: string // UsedCounts - lives lost this lineup, per player (versus) or team (co-op)
   currentTurnPlayerId: string | null
   turnOrderJson: string // string[] - player ids, ring order
   resultsJson: string // LineupResult[]
@@ -90,7 +90,7 @@ export function createInitialElevenStorage(): ElevenGameStorage {
     lineupsJson: '[]',
     currentLineupIndex: 0,
     foundSlotIdsJson: '[]',
-    livesLeft: DEFAULT_FAMOUS11S_CONFIG.lives,
+    livesLostJson: '{}',
     currentTurnPlayerId: null,
     turnOrderJson: '[]',
     resultsJson: '[]',
