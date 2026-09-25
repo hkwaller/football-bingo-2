@@ -1,26 +1,32 @@
 import type { Metadata, Viewport } from 'next'
-import { Big_Shoulders, Archivo, IBM_Plex_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { AppShell } from '@/components/AppShell'
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/seo'
 import './globals.css'
 
+// Fonts are self-hosted (see src/app/fonts/README.md) so builds never depend on
+// Google Fonts, whose occasional /l/font?kit= responses break next/font/google.
+
 // Variable font with an optical-size axis: large headlines get the Display cut.
-const display = Big_Shoulders({
-  axes: ['opsz'],
+const display = localFont({
+  src: './fonts/BigShoulders-Variable.woff2',
+  weight: '100 900',
   variable: '--font-display',
-  subsets: ['latin'],
 })
 
-const sans = Archivo({
-  weight: ['400', '500', '600', '700', '800'],
+const sans = localFont({
+  src: './fonts/Archivo-Variable.woff2',
+  weight: '400 800',
   variable: '--font-sans',
-  subsets: ['latin'],
 })
 
-const mono = IBM_Plex_Mono({
-  weight: ['500', '600', '700'],
+const mono = localFont({
+  src: [
+    { path: './fonts/IBMPlexMono-Medium.woff2', weight: '500' },
+    { path: './fonts/IBMPlexMono-SemiBold.woff2', weight: '600' },
+    { path: './fonts/IBMPlexMono-Bold.woff2', weight: '700' },
+  ],
   variable: '--font-mono',
-  subsets: ['latin'],
 })
 
 export const viewport: Viewport = {
