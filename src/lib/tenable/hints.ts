@@ -40,7 +40,6 @@ const PRESTIGE = [
   'African Cup of Nations winner',
   'European Golden Boot winner',
   'CL top scorer',
-  '500+ career goals',
   'Copa Libertadores winner',
   'Premier League top scorer',
   'La Liga top scorer',

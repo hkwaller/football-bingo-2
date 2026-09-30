@@ -11,6 +11,7 @@
     "enrich": "tsx scripts/enrichPlayers.ts",
     "enrich:refresh": "tsx scripts/enrichPlayers.ts --refresh",
     "parse": "tsx scripts/parsePlayers.ts",
+    "wiki:career": "tsx scripts/fetchWikiCareerStats.ts",
     "write-players": "tsx scripts/writePlayers.ts",
     "write-derived": "tsx scripts/writeDerivedPlayerData.ts",
     "fetch-logos": "tsx scripts/fetchLogos.ts",

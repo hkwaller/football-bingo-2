@@ -31,8 +31,8 @@ export const DEFAULT_BOARD_CONFIG: BoardConfig = {
   categoryKinds: {
     nationalities: true,
     clubs: true,
-    achievements: true,
-    traits: true,
+    achievements: false,
+    traits: false,
     managers: true,
   },
   minFameScore: 0,

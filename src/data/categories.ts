@@ -59,7 +59,6 @@ export const achievements = [
   'Euro champion',
   'Club World Cup winner',
   '100+ CL appearances',
-  '500+ career goals',
   'UEFA Cup/Europa League winner',
   'Conference League winner',
   'CL winner with different clubs',

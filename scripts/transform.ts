@@ -10,6 +10,8 @@ import { managers } from './data/managers'
 import { LEGEND_OVERRIDES } from './data/legendOverrides'
 import { DISPLAY_NAMES, MANUAL_PLAYER_IDS } from './data/manualPlayers'
 import { FAME_OVERRIDES, CURATED_FAME_FLOOR } from './data/fameOverrides'
+import { wikiCareerStats } from './data/wikiCareerStats.generated'
+import { TM_STUB_APPEARANCES } from './wikiCareerStats'
 
 // ─── Club canonicalisation (by Transfermarkt club ID) ────────────────────────
 // The transfers feed carries stable club IDs (t.clubFrom.id / t.clubTo.id).
@@ -193,14 +195,16 @@ function mapAchievements(raw: any): string[] {
   }
 
   const totals = computeCareerStats(raw)
-  if (raw.stats?.stats) {
-    if (totals.goals >= 500) mapped.add('500+ career goals')
-    else if (totals.goals >= 200) mapped.add('200+ career goals')
+  // Thresholds still apply when the numbers came from the Wikipedia fallback
+  // (Transfermarkt's stats table is empty for a lot of icons).
+  if (raw.stats?.stats || totals.appearances > 0) {
+    if (totals.goals >= 200) mapped.add('200+ career goals')
     if (totals.assists >= 200) mapped.add('200+ career assists')
     if (totals.championsLeagueGames >= 100) mapped.add('100+ CL appearances')
   }
-  // NB: the stats endpoint returns club competitions only - no national-team
-  // rows - so international caps/goals are not derivable here.
+  // NB: the Transfermarkt stats feed is club competitions only - no national-team
+  // rows - so international caps/goals are not derivable here. The Wikipedia
+  // fallback is the same shape: club career, not country.
 
   return Array.from(mapped)
 }
@@ -230,6 +234,11 @@ function computeCareerStats(raw: any) {
       out.championsLeagueGames += s.appearances ?? 0
       out.championsLeagueGoals += s.goals ?? 0
     }
+  }
+  const wiki = wikiCareerStats[raw.playerId as string]
+  if (wiki && out.appearances < TM_STUB_APPEARANCES && wiki.appearances > out.appearances) {
+    out.appearances = wiki.appearances
+    out.goals = wiki.goals
   }
   return out
 }
@@ -308,24 +317,56 @@ function isYouthOrReserveClub(name: string): boolean {
 
 const RETIRED_RE = /retired|without club|career break/i
 
+/** "26/27" → 2026. Anything else sorts before real seasons. */
+function seasonStartYear(season: string): number {
+  const m = /^(\d{2})\/\d{2}$/.exec(season)
+  if (!m) return -1
+  const yy = parseInt(m[1], 10)
+  return yy >= 50 ? 1900 + yy : 2000 + yy
+}
+
+/**
+ * Tracked clubs on the newest shirt-number season.
+ * Transfermarkt's transfer list sometimes lags a completed move; the squad
+ * number list does not. National-team numbers are ignored (their ids are not
+ * in our club map).
+ */
+function clubsFromLatestJersey(raw: any): string[] {
+  const jerseys: { season?: string; club?: string }[] =
+    raw.jerseyNumbers?.jerseyNumbers ?? []
+  let latest = -1
+  for (const j of jerseys) latest = Math.max(latest, seasonStartYear(j.season ?? ''))
+  if (latest < 0) return []
+  const clubs = new Set<string>()
+  for (const j of jerseys) {
+    if (seasonStartYear(j.season ?? '') !== latest) continue
+    const name = j.club ? CLUB_ID_TO_CANONICAL.get(String(j.club)) : undefined
+    if (name) clubs.add(name)
+  }
+  return Array.from(clubs)
+}
+
 function deriveClubs(raw: any): string[] {
+  const clubs = new Set<string>()
   if (!raw.transfers?.transfers?.length) {
     if (raw.discoveredFromClubs?.length) {
-      return (raw.discoveredFromClubs as string[]).filter((c) => c !== 'existing')
+      for (const c of raw.discoveredFromClubs as string[]) {
+        if (c !== 'existing') clubs.add(c)
+      }
+    } else if (raw.profile?.club?.name) {
+      clubs.add(canonicalClubName(raw.profile.club.id, raw.profile.club.name))
     }
-    return raw.profile?.club?.name
-      ? [canonicalClubName(raw.profile.club.id, raw.profile.club.name)]
-      : []
-  }
-  const clubs = new Set<string>()
-  for (const t of raw.transfers.transfers) {
-    for (const side of [t.clubFrom, t.clubTo]) {
-      const name = side?.name
-      if (name && !RETIRED_RE.test(name) && !isYouthOrReserveClub(name)) {
-        clubs.add(canonicalClubName(side?.id, name))
+  } else {
+    for (const t of raw.transfers.transfers) {
+      for (const side of [t.clubFrom, t.clubTo]) {
+        const name = side?.name
+        if (name && !RETIRED_RE.test(name) && !isYouthOrReserveClub(name)) {
+          clubs.add(canonicalClubName(side?.id, name))
+        }
       }
     }
   }
+  for (const name of clubsFromLatestJersey(raw)) clubs.add(name)
   return Array.from(clubs)
 }
 
