@@ -33,8 +33,15 @@ let armedCount = 0
 const ARMED_ATTR = 'data-popunder-armed'
 const TAG_ATTR = 'data-third-party'
 // The overlay selector is a fallback for elements inserted some way we don't patch.
+// While armed, the overlay still exists but lets taps through: otherwise the
+// first tap on the end screen (e.g. "Play again") lands on the overlay, opens
+// the ad and never reaches the button. The page-wide listeners still see that
+// same tap, so the popunder fires and the button works.
+const OVERLAY = `[style*="2147483647"]`
 const HIDE_CSS = `html:not([${ARMED_ATTR}]) [${TAG_ATTR}],
-html:not([${ARMED_ATTR}]) body > [style*="2147483647"] { display: none !important; }`
+html:not([${ARMED_ATTR}]) body > ${OVERLAY} { display: none !important; }
+html[${ARMED_ATTR}] [${TAG_ATTR}]${OVERLAY},
+html[${ARMED_ATTR}] body > ${OVERLAY} { pointer-events: none !important; }`
 
 const nativeAdd = typeof EventTarget !== 'undefined' ? EventTarget.prototype.addEventListener : null
 const nativeRemove =

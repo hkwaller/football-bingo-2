@@ -117,9 +117,7 @@ export function MultipleChoice({ question, onAnswer, disabled, lastResult }: Pro
                 lastResult.correct ? 'bg-yellow text-ink' : 'bg-pink text-ink'
               }`}
             >
-              {lastResult.correct
-                ? 'GOOOAL! Correct!'
-                : `Off the post - ${lastResult.correctAnswer}`}
+              {lastResult.correct ? 'Correct!' : `Off the post - ${lastResult.correctAnswer}`}
             </span>
           </motion.div>
         )}
