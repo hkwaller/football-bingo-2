@@ -1,8 +1,6 @@
 /**
- * Fill club career totals from Wikipedia for icons whose Transfermarkt stats
- * are missing or a stub.
- *
- * Icons = fameScore >= 70 (the Legends preset). A stub is under 50 appearances.
+ * Fill club career totals from Wikipedia for every player whose Transfermarkt
+ * stats are missing or a stub (under 50 appearances).
  *
  * Usage: npx tsx scripts/fetchWikiCareerStats.ts
  */
@@ -10,8 +8,9 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { enrichedFootballPlayers } from '../src/data/players'
 import {
-  ICON_FAME,
   TM_STUB_APPEARANCES,
+  articleFits,
+  cachedWikitext,
   parseClubCareer,
   readWikiCareerStats,
   wikiCareerFor,
@@ -76,15 +75,44 @@ function patchPlayers(updates: { id: string; name: string; appearances: number; 
 async function main() {
   assertParser()
   const existing = readWikiCareerStats()
-  const icons = enrichedFootballPlayers.filter(
-    (p) => p.fameScore >= ICON_FAME && p.careerStats.appearances < TM_STUB_APPEARANCES,
+  const missesFile = path.join(__dirname, 'output', 'wiki-career-misses.json')
+  const misses = new Set<string>(
+    fs.existsSync(missesFile) ? JSON.parse(fs.readFileSync(missesFile, 'utf8')) : [],
   )
-  console.log(`${icons.length} icons under ${TM_STUB_APPEARANCES} Transfermarkt appearances`)
+  const pending = enrichedFootballPlayers.filter(
+    (p) => p.careerStats.appearances < TM_STUB_APPEARANCES && !misses.has(p.playerId),
+  )
+  console.log(`${pending.length} players under ${TM_STUB_APPEARANCES} Transfermarkt appearances`)
 
   const stats: Record<string, WikiCareer> = { ...existing }
-  const applied: { id: string; name: string; appearances: number; goals: number }[] = []
+  const byId = new Map(enrichedFootballPlayers.map((p) => [p.playerId, p]))
+  for (const [id, wiki] of Object.entries(stats)) {
+    const p = byId.get(id)
+    const hint = p
+      ? {
+          name: p.name,
+          nationality: p.nationality,
+          birthYear: Number(p.dateOfBirth?.slice(0, 4)) || null,
+          clubs: p.clubs,
+        }
+      : null
+    // A missing cache, or a redirect stub, is not evidence the record is wrong.
+    // Only drop a record when the cached article itself fails the identity check.
+    const text = cachedWikitext(wiki.page)
+    const ok = !hint || !text || /^#REDIRECT/i.test(text) || articleFits(text, wiki.page, hint, true)
+    if (!ok) {
+      console.log(`  drop ${p?.name ?? id} → ${wiki.page}`)
+      delete stats[id]
+    }
+  }
+  writeWikiCareerStats(stats)
 
-  for (const p of icons) {
+  const applied: { id: string; name: string; appearances: number; goals: number }[] = []
+  let done = 0
+
+  for (const p of pending) {
+    done++
+    const birthYear = Number(p.dateOfBirth?.slice(0, 4)) || null
     if (stats[p.playerId] && stats[p.playerId].appearances > p.careerStats.appearances) {
       applied.push({
         id: p.playerId,
@@ -92,14 +120,20 @@ async function main() {
         appearances: stats[p.playerId].appearances,
         goals: stats[p.playerId].goals,
       })
-      console.log(`  cached ${p.name}: ${stats[p.playerId].appearances} apps, ${stats[p.playerId].goals} goals`)
       continue
     }
-    process.stdout.write(`  ${p.name}... `)
-    await new Promise((r) => setTimeout(r, 1100))
-    const wiki = await wikiCareerFor(p.name)
+    process.stdout.write(`  [${done}/${pending.length}] ${p.name}... `)
+    const wiki = await wikiCareerFor({
+      name: p.name,
+      nationality: p.nationality,
+      birthYear,
+      clubs: p.clubs,
+    })
     if (!wiki || wiki.appearances <= p.careerStats.appearances) {
-      console.log(wiki ? `wiki ${wiki.appearances} not higher than TM` : 'no football article total')
+      misses.add(p.playerId)
+      fs.mkdirSync(path.dirname(missesFile), { recursive: true })
+      fs.writeFileSync(missesFile, JSON.stringify([...misses]))
+      console.log('no matching career')
       continue
     }
     stats[p.playerId] = wiki
