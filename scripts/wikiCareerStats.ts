@@ -168,7 +168,10 @@ export function cachedWikitext(title: string): string | null {
 }
 
 function rawCachePath(title: string): string {
-  const safe = title.replace(/[^a-z0-9]+/gi, '_').replace(/^_|_$/g, '').slice(0, 40)
+  const safe = title
+    .replace(/[^a-z0-9]+/gi, '_')
+    .replace(/^_|_$/g, '')
+    .slice(0, 40)
   // Hash the whole title. A short prefix collided for names that only differ
   // by an accent or hyphen near the end (Handanovič / Handanović), so a redirect
   // stub was read back as the target article.
@@ -302,7 +305,7 @@ export function articleFits(
   return words >= 2 && page.toLowerCase().startsWith(hint.name.toLowerCase())
 }
 
-async function resolveArticle(hint: WikiHint): Promise<{ page: string; text: string } | null> {
+async function resolveArticle(hint: WikiHint): Promise<{ title: string; text: string } | null> {
   const direct = await fetchWikitext(hint.name)
   if (direct && articleFits(direct.text, direct.title, hint, true)) return direct
   const query = hint.birthYear
