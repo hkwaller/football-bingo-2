@@ -58,6 +58,12 @@ export interface TenableQuestion {
   /** true = rank order is meaningful (answers fill their exact slot). Always false for 'open'. */
   ordered: boolean
   difficulty: TenableDifficulty
+  /**
+   * ISO date (YYYY-MM-DD) the figures were last checked against the cited source.
+   * Set on every list that can still change (active players, open sets that grow);
+   * omit only for closed historical lists. Shown to players as "Figures as of …".
+   */
+  asOf?: string
   /** 'ranked' → exactly 10, ordered by `rank`. 'open' → the full valid set (≥10). */
   answers: TenableAnswer[]
   /**

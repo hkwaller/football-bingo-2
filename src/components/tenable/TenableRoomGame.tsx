@@ -35,6 +35,7 @@ import { TenableBoard } from './TenableBoard'
 import { NameAutocomplete } from './NameAutocomplete'
 import { TenableHints, fetchTenableHint } from './TenableHints'
 import { LivesRow } from '@/components/LivesRow'
+import { asOfLabel } from '@/lib/tenable/asOf'
 import { RoomResults } from '@/components/RoomResults'
 import { RoomPlayersStrip } from '@/components/RoomPlayersStrip'
 import {
@@ -499,6 +500,11 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
             <p className="mt-1.5 text-sm font-semibold text-on-green-soft">
               {currentQuestion.prompt}
             </p>
+            {currentQuestion.asOf && (
+              <p className="mt-1 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-on-green-dim">
+                {asOfLabel(currentQuestion.asOf)}
+              </p>
+            )}
           </div>
           <div className="flex shrink-0 flex-col items-end gap-1">
             <LivesRow livesLeft={myLivesLeft} maxLives={config.lives} />

@@ -19,6 +19,7 @@ The **Tenable** game mode: a category with exactly ten correct answers; the play
      ],
    }
    ```
+   Add `asOf: 'YYYY-MM-DD'` (the date you checked the figures) to any list that can still change: active players, current records, or open sets that grow. The UI shows it as "Figures as of Oct 2026". Leave it off only for closed historical lists. When you refresh a list after a season, tournament or window, bump its `asOf`.
 2. **`npm run tenable:verify`** - validates structure and backfills portraits into `enrichment.json`. It **warns** on any name it can't resolve to a portrait; a miss just means "no image" (a name chip renders instead), not "unplayable". Fix genuine typos, or add an `aliases` entry for alternate spellings.
 3. Play it. Answers are matched via the shared `normalize()` (accents, ø/ß/ł, punctuation all folded), so a user can type "orjan"/"muller" without the special keys. Only add `aliases` for genuinely different spellings or nicknames.
 

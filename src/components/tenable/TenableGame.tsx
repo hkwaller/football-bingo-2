@@ -132,6 +132,7 @@ export function TenableGame() {
       <TenableHUD
         category={currentQuestion.category}
         prompt={currentQuestion.prompt}
+        asOf={currentQuestion.asOf}
         questionNumber={session.currentIndex + 1}
         totalQuestions={session.questions.length}
         foundCount={foundCount}

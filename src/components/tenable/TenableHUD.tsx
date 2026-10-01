@@ -1,10 +1,12 @@
 'use client'
 
 import { LivesRow } from '@/components/LivesRow'
+import { asOfLabel } from '@/lib/tenable/asOf'
 
 interface Props {
   category: string
   prompt: string
+  asOf?: string
   questionNumber: number
   totalQuestions: number
   foundCount: number
@@ -17,6 +19,7 @@ interface Props {
 export function TenableHUD({
   category,
   prompt,
+  asOf,
   questionNumber,
   totalQuestions,
   foundCount,
@@ -36,6 +39,11 @@ export function TenableHUD({
             {category}
           </h1>
           <p className="mt-1.5 text-sm font-semibold text-on-green-soft">{prompt}</p>
+          {asOf && (
+            <p className="mt-1 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-on-green-dim">
+              {asOfLabel(asOf)}
+            </p>
+          )}
         </div>
         <span className="inline-flex shrink-0 items-center rounded-lg bg-black/25 px-4 py-2 font-mono text-sm font-bold tabular-nums text-yellow">
           {score.toLocaleString()} pts

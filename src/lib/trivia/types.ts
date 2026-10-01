@@ -53,9 +53,9 @@ export type StatKey = keyof Pick<
 >
 
 export const STAT_KEY_LABELS: Record<StatKey, string> = {
-  goals: 'career goals',
-  appearances: 'career appearances',
-  assists: 'career assists',
+  goals: 'club career goals',
+  appearances: 'club career appearances',
+  assists: 'club career assists',
   championsLeagueGoals: 'CL goals',
   championsLeagueGames: 'CL appearances',
 }

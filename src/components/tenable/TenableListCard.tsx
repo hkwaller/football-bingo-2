@@ -1,6 +1,7 @@
 'use client'
 
 import type { TenableQuestion } from '@/data/tenable'
+import { formatAsOf } from '@/lib/tenable/asOf'
 import { groupLabel } from '@/lib/tenable/setupMeta'
 
 const DIFF_CLASS = {
@@ -58,6 +59,7 @@ export function TenableListCard({
           : question.ordered
             ? 'Ranked top 10'
             : 'Top 10'}
+        {question.asOf && ` · As of ${formatAsOf(question.asOf)}`}
       </p>
     </button>
   )

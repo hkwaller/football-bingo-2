@@ -382,11 +382,11 @@ export const reverseLineups: Famous11sLineup[] = [
 
   {
     id: 'atletico-cl-final-2014',
-    title: 'Atletico Madrid 2014 · Champions League Final',
+    title: 'Atlético Madrid 2014 · Champions League Final',
     prompt: 'vs Real Madrid · 24 May 2014 · Estádio da Luz, Lisbon',
     kind: 'club',
     era: 'classic',
-    side: 'Atletico Madrid',
+    side: 'Atlético Madrid',
     opponent: 'Real Madrid',
     year: 2014,
     competition: 'Champions League',
@@ -782,7 +782,7 @@ export const reverseLineups: Famous11sLineup[] = [
     opponent: 'Sweden',
     year: 1994,
     competition: 'World Cup',
-    formation: '4-3-1-2',
+    formation: '4-3-3',
     difficulty: 'hard',
     manager: { name: 'Dimitar Penev', aliases: ['Penev'] },
     slots: [
@@ -794,9 +794,9 @@ export const reverseLineups: Famous11sLineup[] = [
       slot('dm', 'DM', 50, 57, 'Zlatko Yankov', ['Yankov']),
       slot('cm1', 'CM', 70, 48, 'Yordan Letchkov', ['Letchkov']),
       slot('cm2', 'CM', 30, 48, 'Krasimir Balakov', ['Balakov']),
-      slot('cam', 'CAM', 50, 33, 'Nasko Sirakov', ['Sirakov']),
-      slot('st1', 'ST', 63, 14, 'Emil Kostadinov', ['Kostadinov']),
-      slot('st2', 'ST', 37, 14, 'Hristo Stoichkov', ['Stoichkov']),
+      slot('rw', 'RW', 78, 17, 'Emil Kostadinov', ['Kostadinov']),
+      slot('cf', 'CF', 50, 13, 'Nasko Sirakov', ['Sirakov']),
+      slot('lw', 'LW', 22, 17, 'Hristo Stoichkov', ['Stoichkov']),
     ],
   },
 ]

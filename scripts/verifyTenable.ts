@@ -55,6 +55,9 @@ function main() {
     }
     const ranks = new Set(q.answers.map((a) => a.rank))
     if (ranks.size !== q.answers.length) structural.push(`"${q.category}" has duplicate ranks`)
+    if (q.asOf !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(q.asOf)) {
+      structural.push(`"${q.category}" asOf "${q.asOf}" is not YYYY-MM-DD`)
+    }
 
     for (const a of q.answers) {
       total++

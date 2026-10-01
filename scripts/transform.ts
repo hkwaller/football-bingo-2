@@ -228,9 +228,9 @@ function computeCareerStats(raw: any) {
     out.yellowCards += s.yellowCards ?? 0
     out.redCards += s.redCards ?? 0
     out.minutesPlayed += s.minutesPlayed ?? 0
-    const comp = (s.competitionId ?? '').toUpperCase()
-    const compName = (s.competitionName ?? '').toLowerCase()
-    if (comp === 'CL' || compName.includes('champions league')) {
+    // UEFA Champions League proper only (TM id "CL"). A name match would also pull in
+    // CL qualifying ("CLQ"), the AFC/CAF Champions Leagues and AFC Champions League Two.
+    if ((s.competitionId ?? '').toUpperCase() === 'CL') {
       out.championsLeagueGames += s.appearances ?? 0
       out.championsLeagueGoals += s.goals ?? 0
     }

@@ -83,9 +83,9 @@ const TRIVIA_DUELS: [string, string, StatKey][] = [
 ]
 
 const STAT_PROMPTS: Record<StatKey, string> = {
-  goals: 'Who has scored more career goals?',
-  appearances: 'Who has more career appearances?',
-  assists: 'Who has more career assists?',
+  goals: 'Who has scored more club career goals?',
+  appearances: 'Who has more club career appearances?',
+  assists: 'Who has more club career assists?',
   championsLeagueGoals: 'Who has scored more CL goals?',
   championsLeagueGames: 'Who has played more CL games?',
 }

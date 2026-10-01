@@ -122,4 +122,6 @@ All lineups must be sourced. Acceptable sources:
 | `brazil-wc98-final` | [Wikipedia – 1998 FIFA World Cup final](https://en.wikipedia.org/wiki/1998_FIFA_World_Cup_final) |
 | `bulgaria-wc94-bronze` | [Wikipedia – 1994 FIFA World Cup knockout stage](https://en.wikipedia.org/wiki/1994_FIFA_World_Cup_knockout_stage) |
 
-> **Note:** Lineup slot names should be verified against the Wikipedia match report infobox before shipping. History from memory may be slightly off (e.g. a backup defender who started instead of the usual starter in a specific final).
+> **Note:** Lineup slot names must be verified against the Wikipedia match report infobox before shipping. Line-ups written from memory were wrong in practice: suspended players (Dani Alves and Abidal in 2009, Baresi and Costacurta in 1994, Xabi Alonso in 2014), the usual starter instead of the actual one, and swapped wings.
+>
+> **Last full audit: 2026-10-01.** All 64 match line-ups were checked slot by slot against the cited infobox (the two 2024 Clásico line-ups against ESPN). Positions follow the infobox labels (RB/CB/LB, RW/LW, and so on). `arsenal-invincibles-0304` and `leicester-pl-1516` are season XIs (the most-used side), so no single match report applies.
