@@ -6,6 +6,7 @@ import confetti from 'canvas-confetti'
 import { accuracyPct, formatDuration, totalGuesses, type SoloStats } from '@/lib/soloStats'
 import { AdsterraBanner } from '@/components/AdsterraBanner'
 import { AdsterraPopunder } from '@/components/AdsterraPopunder'
+import { BANNER_ENABLED } from '@/lib/ads'
 import Link from 'next/link'
 
 interface Props {
@@ -175,9 +176,11 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                 </Link>
               </motion.div>
 
-              <div className="mt-6">
-                <AdsterraBanner tone="card" />
-              </div>
+              {BANNER_ENABLED && (
+                <div className="mt-6">
+                  <AdsterraBanner tone="card" />
+                </div>
+              )}
             </div>
           </motion.div>
           <AdsterraPopunder />

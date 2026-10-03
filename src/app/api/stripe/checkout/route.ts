@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth, currentUser, clerkClient } from '@clerk/nextjs/server'
 
+import { ADS_ENABLED } from '@/lib/ads'
 import { stripe, priceIdForPlan, checkoutModeForPlan, type PlanKey } from '@/lib/stripe'
 
 /**
@@ -9,6 +10,11 @@ import { stripe, priceIdForPlan, checkoutModeForPlan, type PlanKey } from '@/lib
  * The Stripe customer is created once and cached in the user's privateMetadata.
  */
 export async function POST(req: NextRequest) {
+  // No ads, nothing to remove: never sell an ad-free pass while ads are off.
+  if (!ADS_ENABLED) {
+    return NextResponse.json({ error: 'Not found.' }, { status: 404 })
+  }
+
   const { userId } = await auth()
   if (!userId) {
     return NextResponse.json({ error: 'Sign in to remove ads.' }, { status: 401 })

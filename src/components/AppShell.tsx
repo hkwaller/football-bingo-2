@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ClerkProvider } from '@clerk/nextjs'
 import { SiteHeader } from '@/components/SiteHeader'
 import { TwinkleDots } from '@/components/TwinkleDots'
+import { ADS_ENABLED } from '@/lib/ads'
 
 function SiteFooter() {
   return (
@@ -15,11 +16,16 @@ function SiteFooter() {
       ·{' '}
       <Link href="/credits" className="underline">
         Photo credits
-      </Link>{' '}
-      ·{' '}
-      <Link href="/go-ad-free" className="underline">
-        Go ad-free
       </Link>
+      {ADS_ENABLED && (
+        <>
+          {' '}
+          ·{' '}
+          <Link href="/go-ad-free" className="underline">
+            Go ad-free
+          </Link>
+        </>
+      )}
     </footer>
   )
 }

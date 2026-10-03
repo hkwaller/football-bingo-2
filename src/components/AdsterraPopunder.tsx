@@ -3,9 +3,8 @@
 import { useEffect } from 'react'
 
 import { useAdFree } from '@/hooks/useAdFree'
+import { ADSTERRA_POPUNDER_SRC as POPUNDER_SRC } from '@/lib/ads'
 import { armPopunder } from '@/lib/popunder'
-
-const POPUNDER_SRC = process.env.NEXT_PUBLIC_ADSTERRA_POPUNDER_SRC
 
 /**
  * Adsterra popunder, active only while mounted. Self-gating: never injected for

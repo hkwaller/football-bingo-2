@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { ADS_ENABLED } from '@/lib/ads'
 import { SITE_URL } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/trivia/setup', // start a Trivia game
     '/tenable/setup', // start a Tenable game
     '/famous-11s/setup', // start a Famous 11s game
-    '/go-ad-free', // pricing / remove ads
+    ...(ADS_ENABLED ? ['/go-ad-free'] : []), // pricing / remove ads
     '/credits', // photo credits
   ]
 
