@@ -1,6 +1,8 @@
 'use client'
 
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
+
+import { canAutoFocus } from '@/lib/autoFocus'
 
 interface Props {
   /** The name currently saved for this player. */
@@ -14,6 +16,7 @@ export function LobbyNameField({ value, onSave, autoFocus }: Props) {
   const id = useId()
   const [draft, setDraft] = useState(value)
   const [justSaved, setJustSaved] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
   const dirty = draft.trim() !== '' && draft.trim() !== value
 
   // Pick up the stored name once it loads, but never clobber unsaved typing.
@@ -21,6 +24,12 @@ export function LobbyNameField({ value, onSave, autoFocus }: Props) {
     setDraft((d) => (d.trim() === '' || !dirty ? value : d))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
+
+  // Not the autoFocus attribute: on a phone the keyboard would cover the lobby.
+  useEffect(() => {
+    if (autoFocus && canAutoFocus()) inputRef.current?.focus()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     if (!justSaved) return
@@ -57,7 +66,7 @@ export function LobbyNameField({ value, onSave, autoFocus }: Props) {
           placeholder="Enter your name"
           maxLength={24}
           autoComplete="nickname"
-          autoFocus={autoFocus}
+          ref={inputRef}
         />
         <button
           type="submit"

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { normalize } from '@/lib/tenable/normalize'
+import { canAutoFocus } from '@/lib/autoFocus'
 
 interface Props {
   /** Called with the chosen/typed name. Return value ignored (parent handles matching). */
@@ -44,7 +45,7 @@ export function NameAutocomplete({
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (!disabled) inputRef.current?.focus()
+    if (!disabled && canAutoFocus()) inputRef.current?.focus()
   }, [focusKey, disabled])
 
   useEffect(() => setGuessed(new Set()), [resetKey])

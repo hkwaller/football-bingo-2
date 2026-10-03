@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { normalize } from '@/lib/tenable/normalize'
+import { canAutoFocus } from '@/lib/autoFocus'
 
 interface Props {
   onGuess: (name: string) => void
@@ -31,7 +32,7 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (!disabled) inputRef.current?.focus()
+    if (!disabled && canAutoFocus()) inputRef.current?.focus()
   }, [focusKey, disabled])
 
   useEffect(() => {
