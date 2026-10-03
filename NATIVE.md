@@ -67,6 +67,7 @@ Use the dev server's actual port in `CAP_SERVER_URL`. Web changes hot-reload int
 1. **Apply migration `004_delete_identity.sql`** to the Supabase project (until then deleting an account fails at the RPC and deletes nothing).
 2. **Clerk production instance.** bingo.playam.app and footballbingo.cc both run on a development instance (`handy-louse-97.clerk.accounts.dev`). Move to production, then check `allowNavigation` in `capacitor.config.ts` matches the production Frontend API host and re-sync.
 3. **Apple Developer**: set the Team in Xcode, add the Associated Domains capability (the entitlement file is in place), set `APPLE_TEAM_ID` on Vercel.
+   Debug builds sign with `App.Debug.entitlements` (no Associated Domains), so a free personal team can run the app on a device. Universal links only work in Release, which needs the paid team.
 4. **Google Play**: closed test with 12 testers for 14 days (new personal accounts), set `ANDROID_CERT_SHA256` from Play Console > App integrity.
 5. **Store listings**: copy, screenshots (6.9" iPhone, Android phone), privacy labels (PostHog analytics, Clerk email, Supabase game stats, Adsterra only if ads are on in production), age rating, privacy policy URL. The site has no privacy page yet; the stores require one.
 6. **A real-device pass**: the QR scanner (the simulator has no camera), haptics, the share sheet, sign-in by email.
