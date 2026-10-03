@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 import { useAdFree } from '@/hooks/useAdFree'
+import { useIsNativeApp } from '@/hooks/useNative'
 import { ADSTERRA_BANNER_KEY as BANNER_KEY } from '@/lib/ads'
 
 /**
@@ -26,6 +27,8 @@ export function AdsterraBanner({
   tone?: 'green' | 'card'
 }) {
   const { adFree, loading } = useAdFree()
+  // Store billing rules: the app sells nothing, so no upsell link there.
+  const native = useIsNativeApp()
   const containerRef = useRef<HTMLDivElement>(null)
   // No key configured → no ad to show, so render nothing (incl. the upsell link).
   const hidden = adFree || loading || suppressed || !BANNER_KEY
@@ -64,16 +67,18 @@ export function AdsterraBanner({
   return (
     <div className="flex flex-col items-center gap-1.5">
       <div ref={containerRef} className="flex justify-center" style={{ minHeight: 60 }} />
-      <Link
-        href="/go-ad-free"
-        className={
-          tone === 'card'
-            ? 'text-xs font-bold uppercase tracking-wide text-card-muted underline decoration-dotted underline-offset-2 hover:text-card-ink'
-            : 'text-xs font-bold uppercase tracking-wide text-on-green-dim underline decoration-dotted underline-offset-2 hover:text-on-green'
-        }
-      >
-        Remove ads
-      </Link>
+      {!native && (
+        <Link
+          href="/go-ad-free"
+          className={
+            tone === 'card'
+              ? 'text-xs font-bold uppercase tracking-wide text-card-muted underline decoration-dotted underline-offset-2 hover:text-card-ink'
+              : 'text-xs font-bold uppercase tracking-wide text-on-green-dim underline decoration-dotted underline-offset-2 hover:text-on-green'
+          }
+        >
+          Remove ads
+        </Link>
+      )}
     </div>
   )
 }

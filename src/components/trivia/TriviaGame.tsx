@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { generateQuestions } from '@/lib/trivia/questionGenerators'
+import { haptic } from '@/lib/native'
 import { advanceSession, isSessionOver } from '@/lib/trivia/sessionEngine'
 import {
   loadTriviaConfig,
@@ -136,6 +137,7 @@ export function TriviaGame() {
           : value === currentQuestion.correctAnswer
 
       setLastResult({ correct, correctAnswer })
+      haptic(correct ? 'right' : 'wrong')
       setAnswerLocked(true)
 
       const now = Date.now()

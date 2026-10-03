@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Football Bingo</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0E4A2C; color: #F5F0E1;
+    font-family: -apple-system, system-ui, sans-serif; }
+  main { height: 100%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 20px; padding: 0 32px; text-align: center; box-sizing: border-box; }
+  .ring { width: 72px; height: 72px; border-radius: 50%; border: 16px solid #FFD62E; box-sizing: border-box; }
+  h1 { margin: 0; font-size: 24px; font-weight: 800; }
+  p { margin: 0; color: #B7D3C1; font-size: 16px; line-height: 1.4; }
+  button { margin-top: 8px; border: 0; border-radius: 999px; background: #FFD62E; color: #0E4A2C;
+    font: inherit; font-weight: 800; font-size: 17px; padding: 14px 32px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="ring"></div>
+  <h1 id="title">No connection</h1>
+  <p id="body">Football Bingo needs the internet to play. Check your connection and try again.</p>
+  <button id="retry" type="button">Try again</button>
+</main>
+<script>
+  // Keep in step with server.url in capacitor.config.ts.
+  var APP_URL = 'https://bingo.playam.app'
+  document.getElementById('retry').onclick = function () { window.location.replace(APP_URL) }
+</script>
+</body>
+</html>

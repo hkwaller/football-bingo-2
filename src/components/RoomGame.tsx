@@ -19,6 +19,7 @@ import {
   type DraftVote,
   type InitialGameConfig,
 } from '@/lib/liveblocks/client'
+import { haptic } from '@/lib/native'
 import { bingoRoomConfigToStorage, loadBingoRoomConfig } from '@/lib/bingoRoomConfig'
 import { BingoBoard } from '@/components/BingoBoard'
 import { RoomInvite } from '@/components/RoomInvite'
@@ -650,8 +651,10 @@ function RoomInner({ roomId }: { roomId: string }) {
         player?: { playerId: string; name: string; imageUrl?: string }
       }
       if (!j.ok || !j.player) {
+        haptic('wrong')
         return { ok: false as const, error: j.reason ?? 'No match' }
       }
+      haptic('right')
       const pick: CellPick = {
         playerId: j.player.playerId,
         name: j.player.name,
@@ -724,6 +727,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       const guessCount = (presence?.guesses ?? 0) + 1
       const now = Date.now()
       if (!j.ok || !j.player) {
+        haptic('wrong')
         setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
         // A single-guess turn is consumed even on a miss: advance past this player.
         if (singleGuess) {
@@ -743,6 +747,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         }
         return
       }
+      haptic('right')
       const pick: CellPick = {
         playerId: j.player.playerId,
         name: j.player.name,
@@ -913,10 +918,12 @@ function RoomInner({ roomId }: { roomId: string }) {
           player?: { playerId: string; name: string; imageUrl?: string }
         }
         if (!j.ok || !j.player) {
+          haptic('wrong')
           clearDraftVotes()
           setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
           return
         }
+        haptic('right')
         const pick: CellPick = {
           playerId: j.player.playerId,
           name: j.player.name,

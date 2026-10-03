@@ -1,0 +1,13 @@
+{
+  "appId": "app.playam.bingo",
+  "appName": "Football Bingo",
+  "siteUrl": "https://bingo.playam.app",
+  "bg": "#0E4A2C",
+  "accent": "#FFD62E",
+  "text": "#F5F0E1",
+  "textMuted": "#B7D3C1",
+  "ua": "FootballBingoApp",
+  "clerkHosts": ["*.clerk.accounts.dev", "clerk.playam.app", "accounts.playam.app"],
+  "schema": "football_bingo",
+  "cameraText": "Football Bingo uses the camera to scan a room's QR code so you can join the game."
+}

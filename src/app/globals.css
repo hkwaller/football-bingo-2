@@ -425,3 +425,34 @@ body {
     transform: scale(1.14);
   }
 }
+
+/* ── Native app (Capacitor, see NATIVE.md) ──────────────────────────────────
+   The app's web view runs edge to edge, so the page starts below the status
+   bar and a pitch-coloured strip sits behind it. Both are 0 in a browser tab
+   (no notch inset there). */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+body {
+  padding-top: var(--safe-top);
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0 0 auto;
+  height: var(--safe-top);
+  background: var(--pitch-deep);
+  z-index: 60;
+  pointer-events: none;
+}
+.pt-safe {
+  padding-top: max(var(--safe-top), 1.5rem);
+}
+
+/* Google blocks sign-in inside app web views (disallowed_useragent), so the
+   app offers email only. Unlayered on purpose, or Clerk's own CSS wins. */
+.native-app .cl-socialButtonsBlockButton__google,
+.native-app .cl-socialButtonsIconButton__google,
+.native-app .cl-dividerRow {
+  display: none !important;
+}

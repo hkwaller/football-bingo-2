@@ -8,6 +8,7 @@ import {
   isLineupOver,
   submitGuess,
 } from '@/lib/famous11s/sessionEngine'
+import { haptic } from '@/lib/native'
 import { lineupTarget } from '@/data/famous11s'
 import {
   clearFamous11sSession,
@@ -74,6 +75,8 @@ export function Famous11sGame() {
       setSession(state)
       feedbackSeq.current += 1
       setFeedback({ outcome, id: feedbackSeq.current })
+      if (outcome.kind === 'correct') haptic('right')
+      else if (outcome.kind === 'wrong') haptic('wrong')
       if (outcome.kind === 'correct') {
         setJustFoundSlotId(outcome.slotId)
         setActiveSlotId(null)
