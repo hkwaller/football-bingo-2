@@ -1,12 +1,13 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import meta from '@/data/careers/meta.json'
 import {
   CLUE_COST,
   CLUE_ORDER,
   DEFAULT_CAREERS_CONFIG,
+  FIRST_BONUS,
   MAX_POINTS,
   type CareersConfig,
   type CareersDifficultyFilter,
@@ -60,10 +61,12 @@ const PRESETS: Array<Preset & { patch: PresetPatch }> = [
 ]
 
 const plural = (n: number) => `${n} player${n === 1 ? '' : 's'}`
+const pluralCareers = (n: number) => `${n} career${n === 1 ? '' : 's'}`
 const estimatedMinutes = (count: number) => Math.max(1, Math.round(count * 0.6))
 
 export function CareersSetup() {
   const router = useRouter()
+  const isMultiplayer = useSearchParams().get('mode') === 'multiplayer'
   const [config, setConfig] = useState<CareersConfig>(DEFAULT_CAREERS_CONFIG)
   const [hydrated, setHydrated] = useState(false)
 
@@ -84,8 +87,12 @@ export function CareersSetup() {
     if (preset) persist({ ...config, ...preset.patch })
   }
   function launch() {
-    clearCareersSession()
     saveCareersConfig(config)
+    if (isMultiplayer) {
+      router.push('/careers/room/new')
+      return
+    }
+    clearCareersSession()
     router.push('/careers/play')
   }
 
@@ -106,9 +113,9 @@ export function CareersSetup() {
   const col1 = (
     <>
       <div>
-        <ControlLabel className="mb-3">How many players</ControlLabel>
+        <ControlLabel className="mb-3">How many careers</ControlLabel>
         <SegmentedNumbers
-          ariaLabel="How many players"
+          ariaLabel="How many careers"
           numberClass="text-[30px]"
           options={[{ value: 5 }, { value: 10 }, { value: 15 }]}
           value={config.playerCount}
@@ -127,10 +134,33 @@ export function CareersSetup() {
           helper={
             config.guesses === 1
               ? 'One shot, no clues'
-              : `Each miss reveals a clue · ${config.guesses} wrong and he's revealed`
+              : `Each miss reveals a clue · ${config.guesses} wrong and ${
+                  isMultiplayer ? "you're out" : "he's revealed"
+                }`
           }
         />
       </div>
+      {isMultiplayer && (
+        <div>
+          <ControlLabel className="mb-3">Clock per career</ControlLabel>
+          <SegmentedNumbers
+            ariaLabel="Clock per career"
+            numberClass="text-[26px]"
+            options={[
+              { value: 0, sub: 'Off' },
+              { value: 30, sub: '30s' },
+              { value: 60, sub: '60s' },
+            ]}
+            value={config.roundSeconds}
+            onChange={(v) => update('roundSeconds', v)}
+            helper={
+              config.roundSeconds > 0
+                ? `Revealed after ${config.roundSeconds}s, or once everyone's done`
+                : "Revealed once everyone's done (or the host calls it)"
+            }
+          />
+        </div>
+      )}
     </>
   )
 
@@ -165,6 +195,8 @@ export function CareersSetup() {
         <p className="text-[13.5px] font-semibold leading-relaxed text-card-muted">
           You get the years and clubs, loans included. Name the player. A first-guess answer scores{' '}
           {MAX_POINTS}, each clue you need costs {CLUE_COST}.
+          {isMultiplayer &&
+            ` Everyone races the same career with their own guesses and clues - the first to name him gets +${FIRST_BONUS}.`}
         </p>
       </div>
       <div>
@@ -201,7 +233,11 @@ export function CareersSetup() {
   return (
     <>
       <SetupPageFrame kickoff>
-        <SetupHeader badge="Careers · Solo" title="Whose career?" badgeTone="sky">
+        <SetupHeader
+          badge={`Careers · ${isMultiplayer ? 'Multiplayer' : 'Solo'}`}
+          title="Whose career?"
+          badgeTone="sky"
+        >
           <PresetPills presets={PRESETS} activeId={activePreset} onSelect={applyPreset} />
         </SetupHeader>
         <div className="mt-5">
@@ -211,14 +247,17 @@ export function CareersSetup() {
 
       <KickoffBar
         fields={[
-          { label: 'Players', value: plural(config.playerCount) },
+          { label: 'Careers', value: pluralCareers(config.playerCount) },
           { label: 'Guesses', value: `${config.guesses} each` },
           { label: 'Difficulty', value: diffLabel },
-          { label: 'Length', value: `≈ ${minutes} min` },
+          isMultiplayer
+            ? { label: 'Clock', value: config.roundSeconds ? `${config.roundSeconds}s` : 'Off' }
+            : { label: 'Length', value: `≈ ${minutes} min` },
         ]}
-        mobilePrimary={plural(config.playerCount)}
+        mobilePrimary={pluralCareers(config.playerCount)}
         mobileDetail={`${config.guesses} guesses · ${diffLabel} · ≈${minutes} min`}
-        ctaLabel="Kick off"
+        hint={isMultiplayer ? 'Room code comes next' : undefined}
+        ctaLabel={isMultiplayer ? 'Create room' : 'Kick off'}
         onCta={launch}
         disabled={pool === 0}
       />

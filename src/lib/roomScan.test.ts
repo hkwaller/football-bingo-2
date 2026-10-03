@@ -39,3 +39,14 @@ test('rejects anything else', () => {
   assert.equal(roomPathFromScan(`javascript:alert(1)//room/${id}`), null)
   assert.equal(roomPathFromScan('WIFI:S:home;T:WPA;P:secret;;'), null)
 })
+
+test('accepts prefixed room ids (trivia, tenable, famous 11s, careers)', () => {
+  for (const path of [
+    `/trivia/room/trivia-${id}`,
+    `/tenable/room/tenable-${id}`,
+    `/famous-11s/room/eleven-${id}`,
+    `/careers/room/careers-${id}`,
+  ]) {
+    assert.equal(roomPathFromScan(`https://footballbingo.cc${path}`), path)
+  }
+})

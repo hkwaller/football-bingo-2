@@ -24,7 +24,7 @@ const ACCENT: Record<GameModeId, { bg: string; border: string }> = {
   trivia: { bg: 'bg-coral', border: 'border-coral' },
   tenable: { bg: 'bg-sky', border: 'border-sky' },
   famous11s: { bg: 'bg-green-go', border: 'border-green-go' },
-  careers: { bg: 'bg-pink', border: 'border-pink' },
+  careers: { bg: 'bg-surface', border: 'border-surface' },
 }
 
 export default function GamesPage() {

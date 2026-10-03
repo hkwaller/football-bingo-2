@@ -122,8 +122,9 @@ export const GAME_MODES: GameMode[] = [
     tagline: 'Whose career is it?',
     blurb:
       'Years and clubs, nothing else. Name the footballer from his career path - loans included.',
-    soloHref: '/careers/setup',
-    tags: ['Solo', 'Easy to hard', 'Clues on a miss'],
+    soloHref: '/careers/setup?mode=solo',
+    multiHref: '/careers/setup?mode=multiplayer',
+    tags: ['Solo or room', 'Race to name him', 'Clues on a miss'],
     isNew: true,
     steps: [
       {
@@ -136,7 +137,7 @@ export const GAME_MODES: GameMode[] = [
       },
       {
         title: 'Fewer clues, more points',
-        body: 'A first-guess answer scores 100, and every clue you needed costs 25. Run out of guesses and he is revealed.',
+        body: 'A first-guess answer scores 100, and every clue you needed costs 25. In a room you all race the same career, and the first to name him takes a bonus.',
       },
     ],
   },

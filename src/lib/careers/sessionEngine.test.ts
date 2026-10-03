@@ -20,7 +20,7 @@ const zlatan: CareerPlayer = {
   difficulty: 'easy',
   career: [],
 }
-const config = { difficulty: 'mixed' as const, playerCount: 2, guesses: 3 }
+const config = { difficulty: 'mixed' as const, playerCount: 2, guesses: 3, roundSeconds: 0 }
 
 test('first-guess answer scores full points, accents optional', () => {
   const s = buildSession(config, [zlatan, zlatan])

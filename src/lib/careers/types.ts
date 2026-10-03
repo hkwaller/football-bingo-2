@@ -34,18 +34,23 @@ export interface CareersConfig {
   playerCount: number
   /** Guesses per player; each miss reveals the next clue. */
   guesses: number
+  /** Multiplayer: seconds per career before it's revealed. 0 = no clock. */
+  roundSeconds: number
 }
 
 export const DEFAULT_CAREERS_CONFIG: CareersConfig = {
   difficulty: 'mixed',
   playerCount: 5,
   guesses: 3,
+  roundSeconds: 60,
 }
 
 /** Points for a first-guess answer; each clue revealed costs CLUE_COST. */
 export const MAX_POINTS = 100
 export const CLUE_COST = 25
 export const MIN_POINTS = 25
+/** Multiplayer: extra points for the first player to name him. */
+export const FIRST_BONUS = 25
 
 export type CareersClueKind = 'nationality' | 'position' | 'initials'
 export const CLUE_ORDER: CareersClueKind[] = ['nationality', 'position', 'initials']
