@@ -32,6 +32,8 @@ const mono = localFont({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  // Edge to edge in the native app; globals.css keeps content below the status bar.
+  viewportFit: 'cover',
   themeColor: '#0e4a2c',
 }
 

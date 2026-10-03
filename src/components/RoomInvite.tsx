@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
+import { useIsNativeApp } from '@/hooks/useNative'
+import { shareText } from '@/lib/native'
 
 type RoomInviteProps = {
   roomId: string
@@ -12,6 +14,8 @@ type RoomInviteProps = {
 export function RoomInvite({ roomId, joinPath = `/room/${roomId}` }: RoomInviteProps) {
   const [origin, setOrigin] = useState('')
   const [copied, setCopied] = useState<'link' | 'id' | null>(null)
+  // In the app the invite goes through the share sheet (Messages, WhatsApp...).
+  const native = useIsNativeApp()
 
   useEffect(() => {
     setOrigin(window.location.origin)
@@ -53,13 +57,23 @@ export function RoomInvite({ roomId, joinPath = `/room/${roomId}` }: RoomInviteP
             </code>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => copy('link')}
-              className="btn btn-primary btn-sm"
-            >
-              {copied === 'link' ? 'Copied link!' : 'Copy invite link'}
-            </button>
+            {native ? (
+              <button
+                type="button"
+                onClick={() => void shareText(`Join my Football Bingo room: ${joinUrl}`)}
+                className="btn btn-primary btn-sm"
+              >
+                Share invite
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => copy('link')}
+                className="btn btn-primary btn-sm"
+              >
+                {copied === 'link' ? 'Copied link!' : 'Copy invite link'}
+              </button>
+            )}
             <button
               type="button"
               onClick={() => copy('id')}

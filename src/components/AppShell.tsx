@@ -2,11 +2,14 @@
 
 import Link from 'next/link'
 import { ClerkProvider } from '@clerk/nextjs'
+import { NativeBoot } from '@/components/NativeBoot'
 import { SiteHeader } from '@/components/SiteHeader'
 import { TwinkleDots } from '@/components/TwinkleDots'
+import { useIsNativeApp } from '@/hooks/useNative'
 import { ADS_ENABLED } from '@/lib/ads'
 
 function SiteFooter() {
+  const native = useIsNativeApp()
   return (
     <footer className="mt-10 border-t border-surface/15 px-6 py-5 text-center text-xs text-on-green-dim">
       Player photos from{' '}
@@ -17,7 +20,7 @@ function SiteFooter() {
       <Link href="/credits" className="underline">
         Photo credits
       </Link>
-      {ADS_ENABLED && (
+      {ADS_ENABLED && !native && (
         <>
           {' '}
           ·{' '}
@@ -35,6 +38,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   const inner = (
     <>
+      <NativeBoot />
       <TwinkleDots />
       <SiteHeader />
       <main className="relative z-10">{children}</main>

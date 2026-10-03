@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { Settings } from 'lucide-react'
 import { BingoBoard } from '@/components/BingoBoard'
+import { haptic } from '@/lib/native'
 import {
   CategoryLegend,
   ClosestLines,
@@ -343,9 +344,11 @@ export function SoloGame() {
         player?: { playerId: string; name: string; imageUrl?: string }
       }
       if (!j.ok || !j.player) {
+        haptic('wrong')
         setWrongCount((c) => c + 1)
         return { ok: false as const, error: j.reason ?? 'No match' }
       }
+      haptic('right')
       const pick: CellPick = {
         playerId: j.player.playerId,
         name: j.player.name,
@@ -385,11 +388,13 @@ export function SoloGame() {
         player?: { playerId: string; name: string; imageUrl?: string }
       }
       if (!j.ok || !j.player) {
+        haptic('wrong')
         setWrongCell((w) => ({ cell: cellIndex, nonce: (w?.nonce ?? 0) + 1 }))
         setWrongCount((c) => c + 1)
         missesThisRoundRef.current += 1
         return
       }
+      haptic('right')
       const pick: CellPick = {
         playerId: j.player.playerId,
         name: j.player.name,
@@ -508,7 +513,7 @@ export function SoloGame() {
                 onClick={() => setSettingsOpen(false)}
               />
               <motion.aside
-                className="fixed right-0 top-0 z-[100] flex h-full w-[min(360px,90vw)] flex-col gap-6 overflow-y-auto bg-surface p-6 shadow-[-10px_0_0_rgba(10,36,23,0.22)]"
+                className="fixed right-0 top-0 z-[100] flex h-full w-[min(360px,90vw)] flex-col gap-6 overflow-y-auto bg-surface p-6 pt-safe shadow-[-10px_0_0_rgba(10,36,23,0.22)]"
                 role="dialog"
                 aria-label="Game settings"
                 initial={{ x: '100%' }}

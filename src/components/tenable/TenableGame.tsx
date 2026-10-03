@@ -9,6 +9,7 @@ import {
   isQuestionOver,
   submitGuess,
 } from '@/lib/tenable/sessionEngine'
+import { haptic } from '@/lib/native'
 import { foundAnswerNames } from '@/lib/tenable/matching'
 import { tenableTarget } from '@/data/tenable'
 import {
@@ -68,6 +69,8 @@ export function TenableGame() {
       setSession(state)
       feedbackSeq.current += 1
       setFeedback({ outcome, id: feedbackSeq.current })
+      if (outcome.kind === 'correct') haptic('right')
+      else if (outcome.kind === 'wrong') haptic('wrong')
       if (outcome.kind === 'correct') {
         setJustFound(outcome.rank)
         window.setTimeout(() => setJustFound(null), 900)

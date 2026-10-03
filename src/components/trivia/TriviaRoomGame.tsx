@@ -15,6 +15,7 @@ import {
   parseQuestionsJson,
   parseConfigJson,
 } from '@/lib/trivia/liveblocksTrivia'
+import { haptic } from '@/lib/native'
 import { randomUUID } from '@/lib/randomUUID'
 import { loadTriviaConfig } from '@/lib/trivia/triviaStorage'
 import { generateQuestions } from '@/lib/trivia/questionGenerators'
@@ -417,6 +418,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
     updatePresence({ answeredCurrentQuestion: true })
 
     const correct = checkCorrect(currentQuestion, value)
+    haptic(correct ? 'right' : 'wrong')
     const myStreak = presence.streak ?? 0
     const newStreak = correct ? myStreak + 1 : 0
     const elapsed = Date.now() - questionStartedAt

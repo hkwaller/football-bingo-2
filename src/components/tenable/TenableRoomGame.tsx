@@ -19,6 +19,7 @@ import {
   parseHints,
   type TenableLastGuess,
 } from '@/lib/tenable/liveblocksTenable'
+import { haptic } from '@/lib/native'
 import { loadTenableConfig } from '@/lib/tenable/tenableStorage'
 import {
   getTabDisplayName,
@@ -216,6 +217,8 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
       if (found.length >= tenableTarget(q) || isOutOfLives(roomMode, lost, myId, cfg.lives)) return
 
       const outcome = matchAnswer(name, q, found)
+      if (outcome.kind === 'correct') haptic('right')
+      else if (outcome.kind === 'wrong') haptic('wrong')
 
       if (outcome.kind === 'correct') {
         const nextFound = [...found, outcome.rank]

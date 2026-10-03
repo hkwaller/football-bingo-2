@@ -14,5 +14,5 @@ export default defineConfig([
       'react-hooks/preserve-manual-memoization': 'warn',
     },
   },
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'datasets/**']),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'datasets/**', 'ios/**', 'android/**']),
 ])

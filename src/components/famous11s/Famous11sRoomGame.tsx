@@ -19,6 +19,7 @@ import {
   parseLastGuess,
   type ElevenLastGuess,
 } from '@/lib/famous11s/liveblocksEleven'
+import { haptic } from '@/lib/native'
 import { loadFamous11sConfig } from '@/lib/famous11s/storage'
 import { getLineupById, selectLineups, lineupTarget } from '@/data/famous11s'
 import { matchSlot } from '@/lib/famous11s/matching'
@@ -219,6 +220,8 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
       if (found.length >= target || isOutOfLives(roomMode, lost, myId, cfg.lives)) return
 
       const outcome = matchSlot(name, lineup, found, cfg.includeManager)
+      if (outcome.kind === 'correct') haptic('right')
+      else if (outcome.kind === 'wrong') haptic('wrong')
       const connId = myId
 
       if (outcome.kind === 'correct') {

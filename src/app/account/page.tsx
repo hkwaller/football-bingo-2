@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import { DeleteAccount } from '@/components/DeleteAccount'
 import { isClerkConfigured } from '@/lib/env'
 import { getSupabaseAdmin } from '@/lib/supabase/admin'
 import { FB_TABLES } from '@/lib/supabase/tables'
@@ -219,6 +220,8 @@ export default async function AccountPage() {
           </div>
         </section>
       )}
+
+      <DeleteAccount />
 
       <Link
         href="/"

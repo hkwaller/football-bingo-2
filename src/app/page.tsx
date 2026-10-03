@@ -8,6 +8,7 @@ import { AdsterraBanner } from '@/components/AdsterraBanner'
 import { BANNER_ENABLED } from '@/lib/ads'
 import { HeroTrivia } from '@/components/HeroTrivia'
 import { GameModeGrid } from '@/components/GameModeGrid'
+import { ScanToJoin } from '@/components/ScanToJoin'
 import { GAME_MODES, type GameModeId } from '@/lib/gameModes'
 
 const fadeUp = {
@@ -137,6 +138,7 @@ export default function HomePage() {
               A player is drawn, the room goes wild. Slap him on the right square - club, nation or
               honour - and race to a line. No luck, just football knowledge.
             </p>
+            <ScanToJoin className="mt-7" />
             {/* <div className="mt-8 flex flex-wrap gap-3.5">
               <Link href="/play/setup" className="btn btn-primary btn-lg">
                 Play Bingo
