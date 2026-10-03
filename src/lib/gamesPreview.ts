@@ -4,6 +4,8 @@
  * ever sent to the client as props.
  */
 import { enrichedFootballPlayers } from '@/data/players'
+import { careerPlayers } from '@/data/careers'
+import type { CareerSpell } from '@/lib/careers/types'
 import { getLineupById, type Famous11sLineup } from '@/data/famous11s'
 import { getTenableQuestionById, type TenableQuestion } from '@/data/tenable'
 import { DEFAULT_BOARD_CONFIG, freeIndexForConfig, generateBoard } from '@/lib/board'
@@ -28,13 +30,18 @@ export interface GamesPreviewData {
   trivia: StatComparisonQuestion[]
   tenable: { question: TenableQuestion; foundOrder: number[] } | null
   famous11s: { lineup: Famous11sLineup; foundOrder: string[] } | null
+  careers: { career: CareerSpell[]; nationality: string; wrongGuess: string } | null
 }
 
 const byFame = [...enrichedFootballPlayers]
   .filter((p) => p.imageUrl)
   .sort((a, b) => b.fameScore - a.fameScore)
 
-const toPick = (p: Player): CellPick => ({ playerId: p.playerId, name: p.name, imageUrl: p.imageUrl })
+const toPick = (p: Player): CellPick => ({
+  playerId: p.playerId,
+  name: p.name,
+  imageUrl: p.imageUrl,
+})
 
 /**
  * Find a seed whose middle row (through the FREE square) can be filled with
@@ -120,9 +127,27 @@ function buildTenable(): GamesPreviewData['tenable'] {
 function buildFamous11s(): GamesPreviewData['famous11s'] {
   const lineup = getLineupById('barcelona-cl-final-2011')
   if (!lineup) return null
-  const order = ['Lionel Messi', 'Xavi', 'Andrés Iniesta', 'David Villa', 'Sergio Busquets', 'Gerard Piqué', 'Dani Alves']
-  const foundOrder = order.flatMap((name) => lineup.slots.find((s) => s.name === name)?.slotId ?? [])
+  const order = [
+    'Lionel Messi',
+    'Xavi',
+    'Andrés Iniesta',
+    'David Villa',
+    'Sergio Busquets',
+    'Gerard Piqué',
+    'Dani Alves',
+  ]
+  const foundOrder = order.flatMap(
+    (name) => lineup.slots.find((s) => s.name === name)?.slotId ?? [],
+  )
   return { lineup, foundOrder }
+}
+
+/** Lukaku: two Chelsea spells, each with loans nested under it. */
+function buildCareers(): GamesPreviewData['careers'] {
+  const player = careerPlayers.find((p) => p.name === 'Romelu Lukaku') ?? careerPlayers[0]
+  return player
+    ? { career: player.career, nationality: player.nationality, wrongGuess: 'Christian Benteke' }
+    : null
 }
 
 export function getGamesPreviewData(): GamesPreviewData {
@@ -131,5 +156,6 @@ export function getGamesPreviewData(): GamesPreviewData {
     trivia: buildTrivia(),
     tenable: buildTenable(),
     famous11s: buildFamous11s(),
+    careers: buildCareers(),
   }
 }

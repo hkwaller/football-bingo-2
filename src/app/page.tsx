@@ -171,7 +171,7 @@ export default function HomePage() {
         </div>
         {/* ── Mode cards ───────────────────────────────────────── */}
         <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8 md:pb-20">
-          <SectionHead eyebrow="Pick your game" tone="pink" title="Four ways to play" />
+          <SectionHead eyebrow="Pick your game" tone="pink" title="Five ways to play" />
           <GameModeGrid />
         </section>
         {/* ── Full-bleed sticker marquee ─────────── */}

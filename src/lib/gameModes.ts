@@ -3,7 +3,7 @@
  * story. Shared by the home page (mode cards + walkthrough) and /games.
  */
 
-export type GameModeId = 'bingo' | 'trivia' | 'tenable' | 'famous11s'
+export type GameModeId = 'bingo' | 'trivia' | 'tenable' | 'famous11s' | 'careers'
 
 export interface GameMode {
   id: GameModeId
@@ -12,7 +12,8 @@ export interface GameMode {
   tagline: string
   blurb: string
   soloHref: string
-  multiHref: string
+  /** Omitted for solo-only modes. */
+  multiHref?: string
   /** Short facts shown as chips on /games. */
   tags: string[]
   steps: { title: string; body: string }[]
@@ -24,7 +25,8 @@ export const GAME_MODES: GameMode[] = [
     id: 'bingo',
     title: 'Bingo',
     tagline: 'Three squares from glory',
-    blurb: 'Fill your board with the players drawn and be first to a full line. The signature mode.',
+    blurb:
+      'Fill your board with the players drawn and be first to a full line. The signature mode.',
     soloHref: '/play/setup',
     multiHref: '/play/setup?mode=multiplayer',
     tags: ['Solo or room', 'Draft or free pick', 'Custom boards'],
@@ -99,7 +101,6 @@ export const GAME_MODES: GameMode[] = [
     soloHref: '/famous-11s/setup?mode=solo',
     multiHref: '/famous-11s/setup?mode=multiplayer',
     tags: ['Solo or room', 'Versus or co-op', 'Nicknames count'],
-    isNew: true,
     steps: [
       {
         title: 'An iconic XI loads',
@@ -112,6 +113,30 @@ export const GAME_MODES: GameMode[] = [
       {
         title: 'Beat the lineup',
         body: 'Wrong guesses cost a life, so dig deep before you swing. Complete the eleven for the full clear bonus.',
+      },
+    ],
+  },
+  {
+    id: 'careers',
+    title: 'Careers',
+    tagline: 'Whose career is it?',
+    blurb:
+      'Years and clubs, nothing else. Name the footballer from his career path - loans included.',
+    soloHref: '/careers/setup',
+    tags: ['Solo', 'Easy to hard', 'Clues on a miss'],
+    isNew: true,
+    steps: [
+      {
+        title: 'A career appears',
+        body: 'Every club and the years he was there, loans tucked under the club that sent him out. No name, no photo.',
+      },
+      {
+        title: 'Name him',
+        body: 'Guess the player. Each miss reveals a clue - nationality, then position, then initials.',
+      },
+      {
+        title: 'Fewer clues, more points',
+        body: 'A first-guess answer scores 100, and every clue you needed costs 25. Run out of guesses and he is revealed.',
       },
     ],
   },

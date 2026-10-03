@@ -22,6 +22,7 @@ export default function robots(): MetadataRoute.Robots {
           '/tenable/play',
           '/famous-11s/room/',
           '/famous-11s/play',
+          '/careers/play',
         ],
       },
     ],

@@ -71,7 +71,7 @@ Category bars (5px bar at the top of the square): Club `green-go`, Nation `sky`,
 
 ### Mode colours
 
-Bingo = `yellow`, Trivia = `coral`, Tenable = `sky`. All three take **ink** text. Home mode cards use the full colour as the card background with a `MODE 0X` mono tag and a 104px Big Shoulders title.
+Bingo = `yellow`, Trivia = `coral`, Tenable = `sky`, Famous 11s = `green-go`, Careers = `pink`. All take **ink** text. Home mode cards use the full colour as the card background with a `MODE 0X` mono tag and a 104px Big Shoulders title.
 
 ### Chrome
 

@@ -8,7 +8,7 @@ const ROTATIONS = [-0.6, 0.6, -0.4, 0.5]
 
 export function GameModeGrid() {
   return (
-    <div className="mt-9 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+    <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {GAME_MODES.map((m, i) => (
         <ModeCard
           key={m.id}
@@ -35,7 +35,7 @@ function ModeCard({
   title: string
   blurb: string
   soloHref: string
-  multiHref: string
+  multiHref?: string
   rot: number
   isNew?: boolean
 }) {
@@ -58,12 +58,20 @@ function ModeCard({
       </p>
       <p className="mt-2 text-[14.5px] font-semibold leading-relaxed text-card-muted">{blurb}</p>
       <div className="mt-auto flex flex-col gap-3 pt-[18px]">
-        <Link href={multiHref} className="btn btn-primary">
-          Multiplayer
-        </Link>
-        <Link href={soloHref} className="btn btn-outline">
-          Solo
-        </Link>
+        {multiHref ? (
+          <>
+            <Link href={multiHref} className="btn btn-primary">
+              Multiplayer
+            </Link>
+            <Link href={soloHref} className="btn btn-outline">
+              Solo
+            </Link>
+          </>
+        ) : (
+          <Link href={soloHref} className="btn btn-primary">
+            Play solo
+          </Link>
+        )}
       </div>
     </motion.div>
   )

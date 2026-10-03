@@ -20,6 +20,8 @@
     "tenable:images": "tsx scripts/fetchTenableWikiImages.ts",
     "tenable:open": "tsx scripts/buildTenableOpenSets.ts && tsx scripts/verifyTenable.ts",
     "famous11s:verify": "tsx scripts/verifyFamous11s.ts",
+    "careers:fetch": "tsx scripts/fetchCareerTransfers.ts",
+    "careers:build": "tsx scripts/buildCareers.ts",
     "native:sync": "cap sync",
     "native:dev": "CAP_SERVER_URL=${CAP_SERVER_URL:-http://localhost:3000} cap sync",
     "native:icons": "node scripts/native/icons.mjs && capacitor-assets generate --ios --android --assetPath native/assets --iconBackgroundColor '#0E4A2C' --iconBackgroundColorDark '#0E4A2C' --splashBackgroundColor '#0E4A2C' --splashBackgroundColorDark '#0E4A2C'",

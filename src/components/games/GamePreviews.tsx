@@ -9,6 +9,7 @@ import { TenableHUD } from '@/components/tenable/TenableHUD'
 import { TenableBoard } from '@/components/tenable/TenableBoard'
 import { Famous11sHUD } from '@/components/famous11s/Famous11sHUD'
 import { PitchBoard } from '@/components/famous11s/PitchBoard'
+import { CareerCard } from '@/components/careers/CareerCard'
 import type { CellPick } from '@/lib/cellPick'
 import type { GamesPreviewData } from '@/lib/gamesPreview'
 import { POINTS_PER_ANSWER } from '@/lib/tenable/types'
@@ -88,7 +89,10 @@ function useDemoStep(total: number, { start = 1, interval = 1300, hold = 3200 } 
 
   useEffect(() => {
     if (reduceMotion || !inView) return
-    const t = setTimeout(() => setStep((s) => (s >= total ? 0 : s + 1)), step >= total ? hold : interval)
+    const t = setTimeout(
+      () => setStep((s) => (s >= total ? 0 : s + 1)),
+      step >= total ? hold : interval,
+    )
     return () => clearTimeout(t)
   }, [step, total, inView, reduceMotion, interval, hold])
 
@@ -105,7 +109,11 @@ export function BingoPreview({ data }: { data: NonNullable<GamesPreviewData['bin
 
   return (
     <div ref={ref} className="relative">
-      <ScaledPreview width={760} maxHeight={520} label="A Bingo board filling up with player stickers">
+      <ScaledPreview
+        width={760}
+        maxHeight={520}
+        label="A Bingo board filling up with player stickers"
+      >
         <BingoBoardView
           cells={data.cells}
           size={data.size}
@@ -159,10 +167,17 @@ export function TriviaPreview({ questions }: { questions: GamesPreviewData['triv
         <div className="px-2 py-4">
           <p className="mb-4 flex items-center justify-between font-mono text-sm font-bold uppercase tracking-[0.1em] text-on-green-dim">
             <span>Question {step + 3} of 10</span>
-            <span className="rounded-lg bg-black/25 px-3 py-1.5 text-yellow">{(step + 2) * 850} pts</span>
+            <span className="rounded-lg bg-black/25 px-3 py-1.5 text-yellow">
+              {(step + 2) * 850} pts
+            </span>
           </p>
           {/* keyed so each duel replays its entrance */}
-          <StatComparison key={question.id} question={question} onAnswer={() => {}} disabled={false} />
+          <StatComparison
+            key={question.id}
+            question={question}
+            onAnswer={() => {}}
+            disabled={false}
+          />
         </div>
       </ScaledPreview>
     </div>
@@ -195,7 +210,9 @@ export function TenablePreview({ data }: { data: NonNullable<GamesPreviewData['t
             score={1200 + found.length * POINTS_PER_ANSWER}
           />
           <div className="input mb-2 flex items-center text-card-muted-2">Name a player…</div>
-          <p className="mb-4 h-5 text-center text-sm font-bold text-yellow">{last ? `✓ ${last.name}` : ''}</p>
+          <p className="mb-4 h-5 text-center text-sm font-bold text-yellow">
+            {last ? `✓ ${last.name}` : ''}
+          </p>
           <TenableBoard question={question} foundRanks={found} justFound={found.at(-1) ?? null} />
         </div>
       </ScaledPreview>
@@ -212,7 +229,11 @@ export function Famous11sPreview({ data }: { data: NonNullable<GamesPreviewData[
 
   return (
     <div ref={ref}>
-      <ScaledPreview width={440} maxHeight={560} label="A Famous 11s pitch with part of the lineup named">
+      <ScaledPreview
+        width={440}
+        maxHeight={560}
+        label="A Famous 11s pitch with part of the lineup named"
+      >
         <div className="px-2 py-4">
           <Famous11sHUD
             lineup={lineup}
@@ -232,6 +253,28 @@ export function Famous11sPreview({ data }: { data: NonNullable<GamesPreviewData[
           />
         </div>
       </ScaledPreview>
+    </div>
+  )
+}
+
+export function CareersPreview({ data }: { data: NonNullable<GamesPreviewData['careers']> }) {
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex items-center justify-between gap-3">
+        <span className="font-display text-[22px] font-black uppercase leading-none text-on-green">
+          Whose career?
+        </span>
+        <span className="truncate text-[12px] font-bold text-pink">✗ Not {data.wrongGuess}</span>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <span className="inline-flex items-baseline gap-1.5 rounded-full bg-black/25 px-3 py-1.5">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-on-green-dim">
+            Nationality
+          </span>
+          <span className="text-[13px] font-bold text-on-green">{data.nationality}</span>
+        </span>
+      </div>
+      <CareerCard career={data.career} />
     </div>
   )
 }

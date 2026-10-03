@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import Link from 'next/link'
 import {
   BingoPreview,
+  CareersPreview,
   Famous11sPreview,
   TenablePreview,
   TriviaPreview,
@@ -13,7 +14,7 @@ import { getGamesPreviewData } from '@/lib/gamesPreview'
 export const metadata: Metadata = {
   title: 'Games',
   description:
-    'Bingo, Trivia, Tenable and Famous 11s - pick a football knowledge game and play solo or against a full room.',
+    'Bingo, Trivia, Tenable, Famous 11s and Careers - pick a football knowledge game and play solo or against a full room.',
   alternates: { canonical: '/games' },
 }
 
@@ -23,6 +24,7 @@ const ACCENT: Record<GameModeId, { bg: string; border: string }> = {
   trivia: { bg: 'bg-coral', border: 'border-coral' },
   tenable: { bg: 'bg-sky', border: 'border-sky' },
   famous11s: { bg: 'bg-green-go', border: 'border-green-go' },
+  careers: { bg: 'bg-pink', border: 'border-pink' },
 }
 
 export default function GamesPage() {
@@ -33,6 +35,7 @@ export default function GamesPage() {
     trivia: data.trivia.length ? <TriviaPreview questions={data.trivia} /> : null,
     tenable: data.tenable ? <TenablePreview data={data.tenable} /> : null,
     famous11s: data.famous11s ? <Famous11sPreview data={data.famous11s} /> : null,
+    careers: data.careers ? <CareersPreview data={data.careers} /> : null,
   }
 
   return (
@@ -44,7 +47,7 @@ export default function GamesPage() {
       <header className="relative mx-auto max-w-5xl px-6 pt-12 text-center md:px-9">
         <span className="eyebrow">Pick your game</span>
         <h1 className="mt-4 font-display text-[clamp(2.75rem,8vw,80px)] font-black uppercase leading-[0.9] text-on-green">
-          Four ways to play
+          Five ways to play
         </h1>
         <p className="mx-auto mt-4 max-w-[480px] text-[15.5px] font-semibold leading-relaxed text-on-green-soft">
           Go solo to sharpen up, or open a room and send the link to your mates. Every game runs on
@@ -75,7 +78,9 @@ export default function GamesPage() {
               key={m.id}
               id={m.id}
               aria-labelledby={`${m.id}-title`}
-              className={`grid scroll-mt-8 items-center gap-10 lg:gap-16 ${flip ? 'lg:grid-cols-[0.9fr_1.1fr]' : 'lg:grid-cols-[1.1fr_0.9fr]'}`}
+              className={`grid scroll-mt-8 items-center gap-10 lg:gap-16 ${
+                flip ? 'lg:grid-cols-[0.9fr_1.1fr]' : 'lg:grid-cols-[1.1fr_0.9fr]'
+              }`}
             >
               {/* Preview frame */}
               <div className={flip ? 'lg:order-2' : ''}>
@@ -153,12 +158,20 @@ export default function GamesPage() {
                 </ul>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href={m.multiHref} className="btn btn-primary btn-lg">
-                    Multiplayer
-                  </Link>
-                  <Link href={m.soloHref} className="btn btn-outline-light btn-lg">
-                    Solo
-                  </Link>
+                  {m.multiHref ? (
+                    <>
+                      <Link href={m.multiHref} className="btn btn-primary btn-lg">
+                        Multiplayer
+                      </Link>
+                      <Link href={m.soloHref} className="btn btn-outline-light btn-lg">
+                        Solo
+                      </Link>
+                    </>
+                  ) : (
+                    <Link href={m.soloHref} className="btn btn-primary btn-lg">
+                      Play solo
+                    </Link>
+                  )}
                 </div>
               </div>
             </section>

@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/trivia/setup', // start a Trivia game
     '/tenable/setup', // start a Tenable game
     '/famous-11s/setup', // start a Famous 11s game
+    '/careers/setup', // start a Careers game
     ...(ADS_ENABLED ? ['/go-ad-free'] : []), // pricing / remove ads
     '/credits', // photo credits
   ]
