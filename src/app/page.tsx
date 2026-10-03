@@ -10,98 +10,12 @@ import { HeroTrivia } from '@/components/HeroTrivia'
 import { GameModeGrid } from '@/components/GameModeGrid'
 import { ScanToJoin } from '@/components/ScanToJoin'
 import { GAME_MODES, type GameModeId } from '@/lib/gameModes'
+import { DECK } from '@/lib/stickerDeck'
 
 const fadeUp = {
   initial: { opacity: 0, y: 14 },
   animate: { opacity: 1, y: 0 },
 }
-
-/**
- * Curated deck of real portraits - the album's headline stickers.
- * Images are Wikimedia Commons (free-licensed); credited on /credits along
- * with every other player photo.
- */
-const DECK: { name: string; imageUrl: string }[] = [
-  {
-    name: 'Messi',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg/500px-Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg',
-  },
-  {
-    name: 'Ronaldo',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg/500px-Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg',
-  },
-  {
-    name: 'Mbappé',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg/500px-Kylian_Mbappe_-_France_v_Senegal_-_16_June_2026.jpg',
-  },
-  {
-    name: 'Haaland',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg/500px-Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg',
-  },
-  {
-    name: 'Salah',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg',
-  },
-  {
-    name: 'De Bruyne',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg/500px-Kevin_De_Bruyne_USMNT_v_Belgium_Mar_28_2026-64_%28cropped%29.jpg',
-  },
-  {
-    name: 'Vinícius',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg/500px-Vin%C3%ADcius_J%C3%BAnior_Brazil_V_Morocco_13_June_2026-207_%28cropped%29.jpg',
-  },
-  {
-    name: 'Bellingham',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg/500px-Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg',
-  },
-  {
-    name: 'Lewandowski',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg/500px-Robert_Lewandowski_2018%2C_JAP-POL_%28cropped%29.jpg',
-  },
-  {
-    name: 'Modrić',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg/500px-Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg',
-  },
-  {
-    name: 'Van Dijk',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20160604_AUT_NED_8876_%28cropped%29.jpg/500px-20160604_AUT_NED_8876_%28cropped%29.jpg',
-  },
-  {
-    name: 'Saka',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg/500px-Bukayo_Saka_England_v_Ghana_23_June_2026-057_%28cropped%29.jpg',
-  },
-  {
-    name: 'Wirtz',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg/500px-Florian_Wirtz_Ecuador_v_Germany_25_June_2026-007.jpg',
-  },
-  {
-    name: 'Pedri',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Pedri.jpg/500px-Pedri.jpg',
-  },
-  {
-    name: 'Ronaldinho',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg/500px-2019_-_Press_conferences_-_Day_1_ENX_6950_%2849019873887%29_%28cropped%29.jpg',
-  },
-  {
-    name: 'Zidane',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/f/f3/Zinedine_Zidane_by_Tasnim_03.jpg',
-  },
-]
 
 /** deterministic tilt used across the marquee */
 const tilt = (i: number) => (((i * 7) % 5) - 2) * 1.4
@@ -116,14 +30,14 @@ export default function HomePage() {
   const activeHowItPlays = GAME_MODES.find((m) => m.id === howItPlays) ?? GAME_MODES[0]
 
   return (
-    <div className="flex flex-col gap-24 pb-0">
+    <div className="flex flex-col gap-16 pb-0 md:gap-24">
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative w-full overflow-hidden">
         {/* decorative chalk center circle + halfway line */}
         <div className="pointer-events-none absolute left-1/2 top-[-260px] h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-surface/[0.18]" />
         <div className="pointer-events-none absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-surface/[0.08]" />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pb-12 pt-16 md:px-9 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 pb-10 pt-6 sm:px-6 md:gap-12 md:px-9 md:pb-12 md:pt-16 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Left column */}
           <motion.div {...fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }}>
             <span className="eyebrow">The football knowledge game</span>
@@ -170,7 +84,7 @@ export default function HomePage() {
           </motion.div>
         </div>
         {/* ── Mode cards ───────────────────────────────────────── */}
-        <section className="mx-auto w-full max-w-5xl px-6 md:px-9 pb-8 md:pb-20">
+        <section className="mx-auto w-full max-w-5xl px-5 pb-8 sm:px-6 md:px-9 md:pb-20">
           <SectionHead eyebrow="Pick your game" tone="pink" title="Five ways to play" />
           <GameModeGrid />
         </section>
@@ -197,7 +111,7 @@ export default function HomePage() {
       </section>
 
       {/* ── How it plays ─────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-5xl px-6 md:px-9">
+      <section className="mx-auto w-full max-w-5xl px-5 sm:px-6 md:px-9">
         <SectionHead eyebrow="How it plays" tone="sky" title={activeHowItPlays.tagline} />
         <ModeTabs active={howItPlays} onSelect={setHowItPlays} />
         <div className="mt-7 grid gap-5 sm:grid-cols-3">
@@ -215,7 +129,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden border-t-[3px] border-surface/35 bg-black/[0.16] px-6 py-20 md:px-9">
+      <section className="relative w-full overflow-hidden border-t-[3px] border-surface/35 bg-black/[0.16] px-5 py-16 sm:px-6 md:px-9 md:py-20">
         <div className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full border-[3px] border-surface/[0.16]" />
         <div className="relative mx-auto max-w-[640px] text-center">
           <h2 className="font-display text-[clamp(2.5rem,8vw,60px)] font-black uppercase leading-[0.9] text-on-green">
@@ -350,7 +264,7 @@ function StepCard({
       whileInView="animate"
       initial="initial"
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="rounded-[14px] bg-surface p-[26px] shadow-[0_10px_0_#0a2417]"
+      className="rounded-[14px] bg-surface p-5 shadow-[0_10px_0_#0a2417] sm:p-[26px]"
       style={{ transform: `rotate(${rot}deg)` }}
     >
       <span

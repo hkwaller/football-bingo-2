@@ -8,7 +8,7 @@ const ROTATIONS = [-0.6, 0.6, -0.4, 0.5]
 
 export function GameModeGrid() {
   return (
-    <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+    <div className="mt-7 grid gap-5 md:mt-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {GAME_MODES.map((m, i) => (
         <ModeCard
           key={m.id}
@@ -45,7 +45,7 @@ function ModeCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="relative flex flex-col rounded-[14px] bg-surface p-7 shadow-[0_10px_0_#0a2417]"
+      className="relative flex flex-col rounded-[14px] bg-surface p-5 sm:p-7 shadow-[0_10px_0_#0a2417]"
       style={{ transform: `rotate(${rot}deg)` }}
     >
       {isNew && (
@@ -57,7 +57,8 @@ function ModeCard({
         {title}
       </p>
       <p className="mt-2 text-[14.5px] font-semibold leading-relaxed text-card-muted">{blurb}</p>
-      <div className="mt-auto flex flex-col gap-3 pt-[18px]">
+      {/* Side by side on phones keeps five cards from becoming a ten-button scroll */}
+      <div className="mt-auto grid grid-cols-2 gap-2.5 pt-[18px] sm:flex sm:flex-col sm:gap-3">
         {multiHref ? (
           <>
             <Link href={multiHref} className="btn btn-primary">
@@ -68,7 +69,7 @@ function ModeCard({
             </Link>
           </>
         ) : (
-          <Link href={soloHref} className="btn btn-primary">
+          <Link href={soloHref} className="btn btn-primary col-span-2">
             Play solo
           </Link>
         )}
