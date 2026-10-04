@@ -11,6 +11,8 @@ import {
   useElevenStatus,
   useElevenErrorListener,
   useElevenSelf,
+  useElevenBroadcast,
+  useElevenEventListener,
   createInitialElevenStorage,
   parseElevenConfig,
   parseElevenLineups,
@@ -53,6 +55,7 @@ import {
   teamScore,
 } from '@/lib/roomMode'
 import { RoomConnecting } from '@/components/RoomConnecting'
+import { RoomKickGate, isKickFor, useLeaveAsRemoved } from '@/components/RoomKickGate'
 
 const ABSENT_TURN_GRACE_MS = 8000
 
@@ -161,7 +164,7 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
         storage.set('hostPlayerId', myId)
         storage.set('configJson', JSON.stringify(config))
       }
-      storage.get('playerNames').set(myId, displayName)
+      if (displayName) storage.get('playerNames').set(myId, displayName)
       if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
     },
     [myId],
@@ -412,8 +415,9 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   useEffect(() => {
     if (phase == null || myId == null) return
     // Keep the name already shown in the room; the stored one can be stale when
-    // another tab in this browser renamed itself.
-    const displayName = self?.presence.displayName || getTabDisplayName()
+    // another tab in this browser renamed itself. Lobby guests type their own
+    // name - only players still unnamed at kick-off (or joining mid-game) get one.
+    const displayName = self?.presence.displayName || (phase === 'lobby' ? '' : getTabDisplayName())
     if (phase === 'lobby') claimHost({ displayName, config: loadFamous11sConfig() })
     else setPlayerName(displayName)
     updatePresence({ displayName })
@@ -423,6 +427,23 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
   useEffect(() => {
     setFocusKey((k) => k + 1)
   }, [currentTurnPlayerId, currentLineupIndex])
+
+  const leaveAsRemoved = useLeaveAsRemoved()
+  const broadcast = useElevenBroadcast()
+  useElevenEventListener(({ event }) => {
+    if (isKickFor(event, myId)) leaveAsRemoved()
+  })
+  const dropPlayer = useElevenM(({ storage }, id: string) => {
+    storage.get('playerNames').delete(id)
+    storage.get('playerScores').delete(id)
+  }, [])
+  const handleRemovePlayer = useCallback(
+    (id: string | number) => {
+      dropPlayer(String(id))
+      broadcast({ type: 'kick', id: String(id) })
+    },
+    [dropPlayer, broadcast],
+  )
 
   const handleRename = useCallback(
     (name: string) => {
@@ -476,15 +497,22 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
     .filter((p, i, arr) => arr.findIndex((q) => q.id === p.id) === i)
 
   if (phase === 'lobby') {
+    // Unnamed players still show, as "in the tunnel", so the host sees everyone.
+    const lobbyPlayers = [
+      ...(self ? [{ id: playerIdOf(self), name: self.presence.displayName }] : []),
+      ...others.map((o) => ({ id: playerIdOf(o), name: o.presence.displayName })),
+    ].filter((p, i, arr) => arr.findIndex((q) => q.id === p.id) === i)
     return (
       <Famous11sLobby
         roomId={roomId}
-        players={players.map((p) => ({
+        players={lobbyPlayers.map((p) => ({
           id: p.id,
-          displayName: p.name,
+          displayName: p.name || (p.id === myId ? 'You' : 'Guest'),
           isHost: p.id === hostPlayerId,
           isSelf: p.id === myId,
+          ready: !!p.name,
         }))}
+        onRemovePlayer={isHost ? handleRemovePlayer : undefined}
         isHost={isHost}
         config={config}
         onStart={() => startGame(presentIds)}
@@ -569,7 +597,9 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
           <div className="flex items-center gap-3">
             {timerSeconds !== undefined && (
               <span
-                className={`font-mono text-[13px] font-bold tabular-nums ${timerSeconds <= 5 ? 'animate-pulse text-pink' : 'text-on-green-dim'}`}
+                className={`font-mono text-[13px] font-bold tabular-nums ${
+                  timerSeconds <= 5 ? 'animate-pulse text-pink' : 'text-on-green-dim'
+                }`}
               >
                 {timerSeconds}s
               </span>
@@ -637,12 +667,14 @@ function Famous11sRoomInner({ roomId }: { roomId: string }) {
 
 export function Famous11sRoomGame({ roomId }: { roomId: string }) {
   return (
-    <ElevenRoomProvider
-      id={roomId}
-      initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
-      initialStorage={createInitialElevenStorage}
-    >
-      <Famous11sRoomInner roomId={roomId} />
-    </ElevenRoomProvider>
+    <RoomKickGate roomId={roomId} mode="famous11s">
+      <ElevenRoomProvider
+        id={roomId}
+        initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
+        initialStorage={createInitialElevenStorage}
+      >
+        <Famous11sRoomInner roomId={roomId} />
+      </ElevenRoomProvider>
+    </RoomKickGate>
   )
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useId, useRef, useState } from 'react'
 import { PLAYER_COLORS } from './RoomPanels'
 
 export interface LobbySquadPlayer {
@@ -28,8 +29,76 @@ export function LobbySettingRow({ label, value }: { label: string; value: string
   )
 }
 
-/** The "Starting XI" team sheet: everyone in the room, then open spots. */
-export function LobbySquad({ players }: { players: LobbySquadPlayer[] }) {
+/** Host-only "⋯" popover on a team-sheet row. */
+function PlayerMenu({ name, onRemove }: { name: string; onRemove: () => void }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+  const menuId = useId()
+
+  useEffect(() => {
+    if (!open) return
+    const onDown = (e: PointerEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('pointerdown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        aria-label={`Options for ${name}`}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-controls={open ? menuId : undefined}
+        onClick={() => setOpen((o) => !o)}
+        className="flex size-8 items-center justify-center rounded-full font-display text-[18px] font-black leading-none text-card-ink hover:bg-card-ink/10"
+      >
+        ⋯
+      </button>
+      {open && (
+        <div
+          id={menuId}
+          role="menu"
+          className="absolute right-0 top-full z-20 mt-1 min-w-[180px] overflow-hidden rounded-[10px] border-2 border-card-ink bg-surface-hi shadow-[0_3px_0_#0a2417]"
+        >
+          <button
+            type="button"
+            role="menuitem"
+            autoFocus
+            onClick={() => {
+              setOpen(false)
+              onRemove()
+            }}
+            className="block w-full px-4 py-3 text-left text-[13.5px] font-bold text-coral-ink hover:bg-card-ink/10"
+          >
+            Remove from room
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/**
+ * The "Starting XI" team sheet: everyone in the room, then open spots. Pass
+ * `onRemove` (host only) to give other players' rows a remove menu.
+ */
+export function LobbySquad({
+  players,
+  onRemove,
+}: {
+  players: LobbySquadPlayer[]
+  onRemove?: (id: LobbySquadPlayer['id']) => void
+}) {
   const openSpots = Math.max(0, MIN_ROWS - players.length)
 
   return (
@@ -68,6 +137,11 @@ export function LobbySquad({ players }: { players: LobbySquadPlayer[] }) {
                 <span className="text-xs font-bold text-card-ink">✓ Ready</span>
               )}
             </span>
+            {onRemove && !p.isSelf && !p.isHost && (
+              <span className="-mr-2 shrink-0">
+                <PlayerMenu name={p.displayName} onRemove={() => onRemove(p.id)} />
+              </span>
+            )}
           </li>
         ))}
         {Array.from({ length: openSpots }, (_, i) => (

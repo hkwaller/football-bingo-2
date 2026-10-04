@@ -7,6 +7,7 @@ import {
   LiveMap,
 } from '@liveblocks/client'
 import { createRoomContext } from '@liveblocks/react'
+import type { KickEvent } from '@/components/RoomKickGate'
 import type { CellPick } from '@/lib/cellPick'
 import type { DraftPolicy } from '@/lib/draftPolicy'
 import type { PlayMode } from '@/lib/playMode'
@@ -18,6 +19,7 @@ export type DraftVote =
 export type RoomEvent =
   | { type: 'draft_place'; cellIndex: number; pick: CellPick }
   | { type: 'draft_skip' }
+  | KickEvent
 
 export type GameStorage = {
   phase: 'lobby' | 'playing' | 'finished'

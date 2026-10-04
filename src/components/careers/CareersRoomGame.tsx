@@ -14,6 +14,8 @@ import {
   useCareersMyPresence,
   useCareersOthers,
   useCareersSelf,
+  useCareersBroadcast,
+  useCareersEventListener,
   useCareersStatus,
   useCareersStorage,
   type CareersRoomResult,
@@ -39,6 +41,7 @@ import {
 } from '@/lib/roomPlayer'
 import { LivesRow } from '@/components/LivesRow'
 import { RoomConnecting } from '@/components/RoomConnecting'
+import { RoomKickGate, isKickFor, useLeaveAsRemoved } from '@/components/RoomKickGate'
 import { RoomResults } from '@/components/RoomResults'
 import { NameAutocomplete } from '@/components/tenable/NameAutocomplete'
 import { CareerCard } from './CareerCard'
@@ -142,7 +145,7 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
         storage.set('hostPlayerId', myId)
         storage.set('configJson', JSON.stringify(config))
       }
-      storage.get('playerNames').set(myId, displayName)
+      if (displayName) storage.get('playerNames').set(myId, displayName)
       if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
     },
     [myId],
@@ -242,8 +245,9 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
   useEffect(() => {
     if (phase == null || myId == null) return
     // Keep the name already shown in the room; the stored one can be stale when
-    // another tab in this browser renamed itself.
-    const displayName = self?.presence.displayName || getTabDisplayName()
+    // another tab in this browser renamed itself. Lobby guests type their own
+    // name - only players still unnamed at kick-off (or joining mid-game) get one.
+    const displayName = self?.presence.displayName || (phase === 'lobby' ? '' : getTabDisplayName())
     if (phase === 'lobby') claimHost({ displayName, config: loadCareersConfig() })
     else setPlayerName(displayName)
     updatePresence({ displayName })
@@ -256,6 +260,23 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
     if (phase !== 'playing' || roundClosed || !canDrive) return
     if (timeUp || allDone) closeRound(currentIndex)
   }, [phase, roundClosed, canDrive, timeUp, allDone, closeRound, currentIndex])
+
+  const leaveAsRemoved = useLeaveAsRemoved()
+  const broadcast = useCareersBroadcast()
+  useCareersEventListener(({ event }) => {
+    if (isKickFor(event, myId)) leaveAsRemoved()
+  })
+  const dropPlayer = useCareersMutation(({ storage }, id: string) => {
+    storage.get('playerNames').delete(id)
+    storage.get('playerScores').delete(id)
+  }, [])
+  const handleRemovePlayer = useCallback(
+    (id: string | number) => {
+      dropPlayer(String(id))
+      broadcast({ type: 'kick', id: String(id) })
+    },
+    [dropPlayer, broadcast],
+  )
 
   const handleRename = useCallback(
     (name: string) => {
@@ -320,15 +341,22 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
     .filter((p, i, arr) => arr.findIndex((q) => q.id === p.id) === i)
 
   if (phase === 'lobby') {
+    // Unnamed players still show, as "in the tunnel", so the host sees everyone.
+    const lobbyPlayers = [
+      ...(self ? [{ id: playerIdOf(self), name: self.presence.displayName }] : []),
+      ...others.map((o) => ({ id: playerIdOf(o), name: o.presence.displayName })),
+    ].filter((p, i, arr) => arr.findIndex((q) => q.id === p.id) === i)
     return (
       <CareersLobby
         roomId={roomId}
-        players={players.map((p) => ({
+        players={lobbyPlayers.map((p) => ({
           id: p.id,
-          displayName: p.name,
+          displayName: p.name || (p.id === myId ? 'You' : 'Guest'),
           isHost: p.id === hostPlayerId,
           isSelf: p.id === myId,
+          ready: !!p.name,
         }))}
+        onRemovePlayer={isHost ? handleRemovePlayer : undefined}
         isHost={isHost}
         config={config}
         onStart={handleStart}
@@ -422,8 +450,8 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
                 ? `✓ +${r.points}`
                 : '✓'
               : r?.out
-              ? 'out'
-              : `♥${config.guesses - (r?.wrong.length ?? 0)}`
+                ? 'out'
+                : `♥${config.guesses - (r?.wrong.length ?? 0)}`
             return (
               <span
                 key={p.id}
@@ -468,8 +496,8 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
                   {firstSolverId
                     ? `${firstSolverId === myId ? 'You' : nameFor(firstSolverId)} named him first`
                     : timeUp && !allDone
-                    ? "Time's up - it was"
-                    : 'Nobody got him - it was'}
+                      ? "Time's up - it was"
+                      : 'Nobody got him - it was'}
                 </p>
                 <p className="font-display text-[28px] font-black uppercase leading-none text-on-green">
                   {career.name}
@@ -565,12 +593,14 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
 
 export function CareersRoomGame({ roomId }: { roomId: string }) {
   return (
-    <CareersRoomProvider
-      id={roomId}
-      initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
-      initialStorage={createInitialCareersStorage}
-    >
-      <CareersRoomInner roomId={roomId} />
-    </CareersRoomProvider>
+    <RoomKickGate roomId={roomId} mode="careers">
+      <CareersRoomProvider
+        id={roomId}
+        initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
+        initialStorage={createInitialCareersStorage}
+      >
+        <CareersRoomInner roomId={roomId} />
+      </CareersRoomProvider>
+    </RoomKickGate>
   )
 }

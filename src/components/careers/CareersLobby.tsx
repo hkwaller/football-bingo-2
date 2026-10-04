@@ -12,11 +12,14 @@ interface Player {
   displayName: string
   isHost: boolean
   isSelf?: boolean
+  ready?: boolean
 }
 
 interface Props {
   roomId: string
   players: Player[]
+  /** Host only: remove a player from the room. */
+  onRemovePlayer?: (id: string | number) => void
   isHost: boolean
   config: CareersConfig
   onStart: () => void
@@ -29,6 +32,7 @@ interface Props {
 export function CareersLobby({
   roomId,
   players,
+  onRemovePlayer,
   isHost,
   config,
   onStart,
@@ -46,7 +50,7 @@ export function CareersLobby({
       eyebrowTone="sky"
       title="Waiting room"
       invite={<RoomInvite roomId={roomId} joinPath={`/careers/room/${roomId}`} />}
-      squad={<LobbySquad players={players} />}
+      squad={<LobbySquad players={players} onRemove={onRemovePlayer} />}
       settings={
         <dl>
           <LobbySettingRow label="Careers" value={String(config.playerCount)} />

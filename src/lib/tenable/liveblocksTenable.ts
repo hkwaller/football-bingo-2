@@ -2,6 +2,7 @@
 
 import { type BaseUserMeta, createClient, LiveMap } from '@liveblocks/client'
 import { createRoomContext } from '@liveblocks/react'
+import type { KickEvent } from '@/components/RoomKickGate'
 import type { TenableQuestion } from '@/data/tenable'
 import {
   DEFAULT_TENABLE_CONFIG,
@@ -63,7 +64,11 @@ export const {
   useStatus: useTenableStatus,
   useErrorListener: useTenableErrorListener,
   useSelf: useTenableSelf,
-} = createRoomContext<TenableGamePresence, TenableGameStorage, BaseUserMeta>(tenableClient)
+  useBroadcastEvent: useTenableBroadcast,
+  useEventListener: useTenableEventListener,
+} = createRoomContext<TenableGamePresence, TenableGameStorage, BaseUserMeta, KickEvent>(
+  tenableClient,
+)
 
 export function createInitialTenableStorage(): TenableGameStorage {
   return {

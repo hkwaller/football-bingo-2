@@ -2,6 +2,7 @@
 
 import { type BaseUserMeta, createClient, LiveMap } from '@liveblocks/client'
 import { createRoomContext } from '@liveblocks/react'
+import type { KickEvent } from '@/components/RoomKickGate'
 import type { Famous11sLineup } from '@/data/famous11s'
 import { randomUUID } from '@/lib/randomUUID'
 import { DEFAULT_FAMOUS11S_CONFIG, type Famous11sConfig, type LineupResult } from './types'
@@ -79,7 +80,9 @@ export const {
   useStatus: useElevenStatus,
   useErrorListener: useElevenErrorListener,
   useSelf: useElevenSelf,
-} = createRoomContext<ElevenGamePresence, ElevenGameStorage, BaseUserMeta>(elevenClient)
+  useBroadcastEvent: useElevenBroadcast,
+  useEventListener: useElevenEventListener,
+} = createRoomContext<ElevenGamePresence, ElevenGameStorage, BaseUserMeta, KickEvent>(elevenClient)
 
 export function createInitialElevenStorage(): ElevenGameStorage {
   return {

@@ -2,12 +2,14 @@
 
 import { type BaseUserMeta, createClient, LiveMap } from '@liveblocks/client'
 import { createRoomContext } from '@liveblocks/react'
+import type { KickEvent } from '@/components/RoomKickGate'
 import type { TriviaConfig, TriviaQuestion, TriviaRoomPhase } from './types'
 
 export type TriviaRoomEvent =
   | { type: 'question_advance'; index: number }
   | { type: 'race_lock'; connectionId: number; questionIndex: number }
   | { type: 'session_end' }
+  | KickEvent
 
 // Config is stored as a JSON string to satisfy Liveblocks LsonObject constraint
 export type TriviaGameStorage = {
@@ -41,7 +43,7 @@ const triviaClient = createClient({
   authEndpoint: async (room) => {
     const anonId =
       typeof window !== 'undefined'
-        ? window.localStorage.getItem('fb_anon_id') ?? undefined
+        ? (window.localStorage.getItem('fb_anon_id') ?? undefined)
         : undefined
     const res = await fetch('/api/liveblocks-auth', {
       method: 'POST',

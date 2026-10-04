@@ -2,6 +2,7 @@
 
 import { type BaseUserMeta, createClient, LiveMap } from '@liveblocks/client'
 import { createRoomContext } from '@liveblocks/react'
+import type { KickEvent } from '@/components/RoomKickGate'
 import { randomUUID } from '@/lib/randomUUID'
 import { DEFAULT_CAREERS_CONFIG, type CareerPlayer, type CareersConfig } from './types'
 
@@ -74,7 +75,11 @@ export const {
   useStatus: useCareersStatus,
   useErrorListener: useCareersErrorListener,
   useSelf: useCareersSelf,
-} = createRoomContext<CareersGamePresence, CareersGameStorage, BaseUserMeta>(careersClient)
+  useBroadcastEvent: useCareersBroadcast,
+  useEventListener: useCareersEventListener,
+} = createRoomContext<CareersGamePresence, CareersGameStorage, BaseUserMeta, KickEvent>(
+  careersClient,
+)
 
 export function createInitialCareersStorage(): CareersGameStorage {
   return {

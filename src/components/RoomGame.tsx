@@ -58,6 +58,8 @@ import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 import { useSpaceToSkip } from '@/lib/useSpaceToSkip'
 import { LobbyNameField } from '@/components/LobbyNameField'
 import { RoomConnecting } from '@/components/RoomConnecting'
+import { RoomKickGate, isKickFor, useLeaveAsRemoved } from '@/components/RoomKickGate'
+import { saveTabDisplayName } from '@/lib/roomPlayer'
 
 function RoomInner({ roomId }: { roomId: string }) {
   const status = useStatus()
@@ -263,7 +265,9 @@ function RoomInner({ roomId }: { roomId: string }) {
     return () => mq.removeEventListener('change', fn)
   }, [])
 
+  const leaveAsRemoved = useLeaveAsRemoved()
   useEventListener(({ event }) => {
+    if (isKickFor(event, self?.connectionId)) return leaveAsRemoved()
     if (!event || typeof event !== 'object' || !('type' in event)) return
     const e = event as { type: string; cellIndex?: number; pick?: CellPick }
     if (e.type === 'draft_place' && e.pick != null && typeof e.cellIndex === 'number') {
@@ -1006,7 +1010,9 @@ function RoomInner({ roomId }: { roomId: string }) {
     }
   }
 
-  const roomModeLabel = `${PLAY_MODE_LABEL[playMode]} · ${boardLayout === 'shared' ? 'Shared board' : 'Own boards'}${
+  const roomModeLabel = `${PLAY_MODE_LABEL[playMode]} · ${
+    boardLayout === 'shared' ? 'Shared board' : 'Own boards'
+  }${
     playMode === 'draft'
       ? isIndividual
         ? ` · ${drawShared ? 'Same player' : 'Own draws'}${singleGuess ? ' · 1 try' : ''}`
@@ -1018,6 +1024,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     const displayName = name.trim() || 'Player'
     setNameDraft(displayName)
     updatePresence({ displayName, bingoAt: null })
+    if (name.trim()) saveTabDisplayName(displayName)
   }
 
   if (phase === null || status === 'connecting' || status === 'reconnecting') {
@@ -1068,6 +1075,7 @@ function RoomInner({ roomId }: { roomId: string }) {
               isSelf: p.isSelf,
               ready: p.name !== 'Guest',
             }))}
+            onRemove={isHost ? (id) => broadcast({ type: 'kick', id: String(id) }) : undefined}
           />
         }
         settings={
@@ -1101,7 +1109,9 @@ function RoomInner({ roomId }: { roomId: string }) {
             </dl>
             {isHost ? (
               <p
-                className={`mt-2 font-mono text-xs font-bold ${configOk ? 'text-card-muted' : 'text-pink'}`}
+                className={`mt-2 font-mono text-xs font-bold ${
+                  configOk ? 'text-card-muted' : 'text-pink'
+                }`}
               >
                 {configOk
                   ? `${poolCount} in pool · ${needCount} needed ✓`
@@ -1297,22 +1307,24 @@ export function RoomGame({ roomId }: { roomId: string }) {
   }
 
   return (
-    <RoomProvider
-      key={roomId}
-      id={roomId}
-      initialPresence={{
-        displayName: '',
-        bingoAt: null,
-        guesses: 0,
-        solvedCount: 0,
-        solvedCells: [],
-        actedRound: null,
-        lastAction: null,
-        lastActionAt: null,
-      }}
-      initialStorage={createInitialGameStorage(initialConfig)}
-    >
-      <RoomInner roomId={roomId} />
-    </RoomProvider>
+    <RoomKickGate roomId={roomId} mode="bingo">
+      <RoomProvider
+        key={roomId}
+        id={roomId}
+        initialPresence={{
+          displayName: '',
+          bingoAt: null,
+          guesses: 0,
+          solvedCount: 0,
+          solvedCells: [],
+          actedRound: null,
+          lastAction: null,
+          lastActionAt: null,
+        }}
+        initialStorage={createInitialGameStorage(initialConfig)}
+      >
+        <RoomInner roomId={roomId} />
+      </RoomProvider>
+    </RoomKickGate>
   )
 }

@@ -11,6 +11,8 @@ import {
   useTenableStatus,
   useTenableErrorListener,
   useTenableSelf,
+  useTenableBroadcast,
+  useTenableEventListener,
   createInitialTenableStorage,
   parseTenableConfig,
   parseTenableQuestions,
@@ -50,6 +52,7 @@ import {
   teamScore,
 } from '@/lib/roomMode'
 import { RoomConnecting } from '@/components/RoomConnecting'
+import { RoomKickGate, isKickFor, useLeaveAsRemoved } from '@/components/RoomKickGate'
 
 /** How long a missing turn-holder gets to reconnect before the turn moves on. */
 const ABSENT_TURN_GRACE_MS = 8000
@@ -165,7 +168,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
         storage.set('hostPlayerId', myId)
         storage.set('configJson', JSON.stringify(config))
       }
-      storage.get('playerNames').set(myId, displayName)
+      if (displayName) storage.get('playerNames').set(myId, displayName)
       if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
     },
     [myId],
@@ -365,13 +368,31 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   useEffect(() => {
     if (phase == null || myId == null) return
     // Keep the name already shown in the room; the stored one can be stale when
-    // another tab in this browser renamed itself.
-    const displayName = self?.presence.displayName || getTabDisplayName()
+    // another tab in this browser renamed itself. Lobby guests type their own
+    // name - only players still unnamed at kick-off (or joining mid-game) get one.
+    const displayName = self?.presence.displayName || (phase === 'lobby' ? '' : getTabDisplayName())
     if (phase === 'lobby') claimHost({ displayName, config: loadTenableConfig() })
     else setPlayerName(displayName)
     updatePresence({ displayName })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase === 'lobby', phase == null, myId])
+
+  const leaveAsRemoved = useLeaveAsRemoved()
+  const broadcast = useTenableBroadcast()
+  useTenableEventListener(({ event }) => {
+    if (isKickFor(event, myId)) leaveAsRemoved()
+  })
+  const dropPlayer = useTenableM(({ storage }, id: string) => {
+    storage.get('playerNames').delete(id)
+    storage.get('playerScores').delete(id)
+  }, [])
+  const handleRemovePlayer = useCallback(
+    (id: string | number) => {
+      dropPlayer(String(id))
+      broadcast({ type: 'kick', id: String(id) })
+    },
+    [dropPlayer, broadcast],
+  )
 
   const handleRename = useCallback(
     (name: string) => {
@@ -435,15 +456,22 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
     .filter((p, i, arr) => arr.findIndex((q) => q.id === p.id) === i)
 
   if (phase === 'lobby') {
+    // Unnamed players still show, as "in the tunnel", so the host sees everyone.
+    const lobbyPlayers = [
+      ...(self ? [{ id: playerIdOf(self), name: self.presence.displayName }] : []),
+      ...others.map((o) => ({ id: playerIdOf(o), name: o.presence.displayName })),
+    ].filter((p, i, arr) => arr.findIndex((q) => q.id === p.id) === i)
     return (
       <TenableLobby
         roomId={roomId}
-        players={players.map((p) => ({
+        players={lobbyPlayers.map((p) => ({
           id: p.id,
-          displayName: p.name,
+          displayName: p.name || (p.id === myId ? 'You' : 'Guest'),
           isHost: p.id === hostPlayerId,
           isSelf: p.id === myId,
+          ready: !!p.name,
         }))}
+        onRemovePlayer={isHost ? handleRemovePlayer : undefined}
         isHost={isHost}
         config={config}
         onStart={() => startGame(presentIds)}
@@ -599,12 +627,14 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
 
 export function TenableRoomGame({ roomId }: { roomId: string }) {
   return (
-    <TenableRoomProvider
-      id={roomId}
-      initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
-      initialStorage={createInitialTenableStorage}
-    >
-      <TenableRoomInner roomId={roomId} />
-    </TenableRoomProvider>
+    <RoomKickGate roomId={roomId} mode="tenable">
+      <TenableRoomProvider
+        id={roomId}
+        initialPresence={() => ({ displayName: '', playerId: getTabPlayerId() })}
+        initialStorage={createInitialTenableStorage}
+      >
+        <TenableRoomInner roomId={roomId} />
+      </TenableRoomProvider>
+    </RoomKickGate>
   )
 }

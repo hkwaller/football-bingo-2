@@ -11,6 +11,7 @@ import { randomUUID } from '@/lib/randomUUID'
  */
 const PLAYER_ID_KEY = 'fb_room_player_id'
 const NAME_KEY = 'fb_display_name'
+const FALLBACK_NAME_KEY = 'fb_fallback_name'
 
 export function getTabPlayerId(): string {
   if (typeof window === 'undefined') return ''
@@ -34,18 +35,31 @@ export function roomPlayerIdOf(user: {
   return user.presence.playerId || `conn:${user.connectionId}`
 }
 
+/** The name this tab (or, failing that, this browser) last chose, or '' if none. */
+export function getSavedDisplayName(): string {
+  if (typeof window === 'undefined') return ''
+  try {
+    return window.sessionStorage.getItem(NAME_KEY) ?? window.localStorage.getItem(NAME_KEY) ?? ''
+  } catch {
+    return ''
+  }
+}
+
 /**
- * This tab's display name. A random fallback is kept per tab only, so two tabs
- * in one browser don't end up with the same generated name.
+ * Name for a player who never picked one (joined mid-game, or kick-off came
+ * before they typed). Never shown in the lobby field - guests type their own.
+ * The random fallback is kept per tab, so two tabs don't share a generated name.
  */
 export function getTabDisplayName(): string {
   if (typeof window === 'undefined') return 'Player'
+  const saved = getSavedDisplayName()
+  if (saved) return saved
   try {
-    const name =
-      window.sessionStorage.getItem(NAME_KEY) ?? window.localStorage.getItem(NAME_KEY)
-    if (name) return name
-    const fallback = `Player ${Math.floor(Math.random() * 1000)}`
-    window.sessionStorage.setItem(NAME_KEY, fallback)
+    let fallback = window.sessionStorage.getItem(FALLBACK_NAME_KEY)
+    if (!fallback) {
+      fallback = `Player ${Math.floor(Math.random() * 1000)}`
+      window.sessionStorage.setItem(FALLBACK_NAME_KEY, fallback)
+    }
     return fallback
   } catch {
     return 'Player'

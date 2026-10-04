@@ -14,11 +14,14 @@ interface Player {
   displayName: string
   isHost: boolean
   isSelf?: boolean
+  ready?: boolean
 }
 
 interface Props {
   roomId: string
   players: Player[]
+  /** Host only: remove a player from the room. */
+  onRemovePlayer?: (id: string | number) => void
   isHost: boolean
   config: Famous11sConfig
   onStart: () => void
@@ -29,6 +32,7 @@ interface Props {
 export function Famous11sLobby({
   roomId,
   players,
+  onRemovePlayer,
   isHost,
   config,
   onStart,
@@ -49,7 +53,7 @@ export function Famous11sLobby({
       eyebrowTone="yellow"
       title="Waiting room"
       invite={<RoomInvite roomId={roomId} joinPath={`/famous-11s/room/${roomId}`} />}
-      squad={<LobbySquad players={players} />}
+      squad={<LobbySquad players={players} onRemove={onRemovePlayer} />}
       settings={
         <>
           {picked && <LobbyPickedCard label="The lineup" title={picked.title} />}
@@ -83,7 +87,9 @@ export function Famous11sLobby({
             { label: picked ? 'The lineup' : 'Lineups', value: lineupLabel },
             { label: 'Lives', value: livesLabel },
           ]}
-          mobileDetail={`${modeLabel} · ${lineupLabel} · ${config.lives} lives ${config.playMode === 'coop' ? 'shared' : 'each'}`}
+          mobileDetail={`${modeLabel} · ${lineupLabel} · ${config.lives} lives ${
+            config.playMode === 'coop' ? 'shared' : 'each'
+          }`}
           hint="Name the famous XI"
           startLabel={players.length < 2 ? 'Start (solo test)' : 'Kick off'}
           onStart={onStart}

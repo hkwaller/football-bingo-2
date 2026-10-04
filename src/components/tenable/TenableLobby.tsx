@@ -14,11 +14,14 @@ interface Player {
   displayName: string
   isHost: boolean
   isSelf?: boolean
+  ready?: boolean
 }
 
 interface Props {
   roomId: string
   players: Player[]
+  /** Host only: remove a player from the room. */
+  onRemovePlayer?: (id: string | number) => void
   isHost: boolean
   config: TenableConfig
   onStart: () => void
@@ -29,6 +32,7 @@ interface Props {
 export function TenableLobby({
   roomId,
   players,
+  onRemovePlayer,
   isHost,
   config,
   onStart,
@@ -58,7 +62,7 @@ export function TenableLobby({
           : 'Take turns naming the ten. Own lives, own points - top scorer wins.'
       }
       invite={<RoomInvite roomId={roomId} joinPath={`/tenable/room/${roomId}`} />}
-      squad={<LobbySquad players={players} />}
+      squad={<LobbySquad players={players} onRemove={onRemovePlayer} />}
       settings={
         <>
           {picked && <LobbyPickedCard label="The list" title={picked.category} />}
@@ -95,7 +99,9 @@ export function TenableLobby({
             { label: picked ? 'The list' : 'Lists', value: listLabel },
             { label: 'Lives', value: livesLabel },
           ]}
-          mobileDetail={`${modeLabel} · ${listLabel} · ${config.lives} lives ${coop ? 'shared' : 'each'}`}
+          mobileDetail={`${modeLabel} · ${listLabel} · ${config.lives} lives ${
+            coop ? 'shared' : 'each'
+          }`}
           hint="Take turns naming the ten"
           startLabel="Start match"
           onStart={onStart}

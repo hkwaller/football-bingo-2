@@ -11,6 +11,8 @@ import {
   useTriviaStatus,
   useTriviaErrorListener,
   useTriviaeSelf,
+  useTriviaBroadcast,
+  useTriviaEventListener,
   createInitialTriviaStorage,
   parseQuestionsJson,
   parseConfigJson,
@@ -26,6 +28,8 @@ import { TriviaHUD } from './TriviaHUD'
 import { TriviaQuestion as TriviaQuestionComp } from './TriviaQuestion'
 import { TriviaEndScreen } from './TriviaEndScreen'
 import { RoomConnecting } from '@/components/RoomConnecting'
+import { RoomKickGate, isKickFor, useLeaveAsRemoved } from '@/components/RoomKickGate'
+import { getTabDisplayName, saveTabDisplayName } from '@/lib/roomPlayer'
 
 const REVIEW_DELAY_MS = 3000
 
@@ -166,7 +170,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
         storage.set('hostConnectionId', id)
         storage.set('configJson', JSON.stringify(config))
       }
-      storage.get('playerNames').set(String(id), displayName)
+      if (displayName) storage.get('playerNames').set(String(id), displayName)
     },
     [],
   )
@@ -294,19 +298,24 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   // null until Liveblocks storage has fully loaded. Calling a mutation before
   // storage loads throws "This mutation cannot be used until storage has been loaded".
 
+  // Lobby guests type their own name; nothing is prefilled.
   useEffect(() => {
     if (phase !== 'lobby' || self?.connectionId == null) return
-    let displayName =
-      typeof window !== 'undefined' ? window.localStorage.getItem('fb_display_name') : null
-    if (!displayName) {
-      displayName = `Player ${Math.floor(Math.random() * 1000)}`
-      // Persist the fallback so a reconnect (new connection id) keeps the same name.
-      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', displayName)
-    }
+    const displayName = presence.displayName ?? ''
     claimHost({ id: self.connectionId, displayName, config: loadTriviaConfig() })
     updatePresence({ displayName, answeredCurrentQuestion: false, score: 0, streak: 0 })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, self?.connectionId])
+
+  // Still unnamed at kick-off (or joined mid-game): fall back to a generated name.
+  useEffect(() => {
+    if (phase == null || phase === 'lobby' || self?.connectionId == null) return
+    if (presence.displayName) return
+    const displayName = getTabDisplayName()
+    setPlayerName({ id: self.connectionId, displayName })
+    updatePresence({ displayName })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, self?.connectionId, presence.displayName])
 
   // Reset local answer when question changes
   useEffect(() => {
@@ -405,9 +414,25 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       const trimmed = name.trim() || 'Player'
       if (self?.connectionId != null) setPlayerName({ id: self.connectionId, displayName: trimmed })
       updatePresence({ displayName: trimmed })
-      if (typeof window !== 'undefined') window.localStorage.setItem('fb_display_name', trimmed)
+      saveTabDisplayName(trimmed)
     },
     [self?.connectionId, setPlayerName, updatePresence],
+  )
+
+  const leaveAsRemoved = useLeaveAsRemoved()
+  const broadcast = useTriviaBroadcast()
+  useTriviaEventListener(({ event }) => {
+    if (isKickFor(event, self?.connectionId)) leaveAsRemoved()
+  })
+  const dropPlayer = useTriviaM(({ storage }, id: string) => {
+    storage.get('playerNames').delete(id)
+  }, [])
+  const handleRemovePlayer = useCallback(
+    (id: string | number) => {
+      dropPlayer(String(id))
+      broadcast({ type: 'kick', id: String(id) })
+    },
+    [dropPlayer, broadcast],
   )
 
   // ── Answer handler ────────────────────────────────────────────────────────
@@ -445,14 +470,17 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   // ── Players list ──────────────────────────────────────────────────────────
 
-  const playersList = allPlayerPresences
-    .filter((p) => p.presence?.displayName)
-    .map((p) => ({
+  // Unnamed players still show in the lobby, as "in the tunnel".
+  const playersList = allPlayerPresences.map((p) => {
+    const isSelf = p.connectionId === self?.connectionId
+    return {
       connectionId: p.connectionId,
-      displayName: p.presence!.displayName,
+      displayName: p.presence?.displayName || (isSelf ? 'You' : 'Guest'),
       isHost: p.connectionId === hostConnectionId,
-      isSelf: p.connectionId === self?.connectionId,
-    }))
+      isSelf,
+      ready: !!p.presence?.displayName,
+    }
+  })
 
   // ── Render ─────────────────────────────────────────────────────────────────
 
@@ -480,6 +508,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
       <TriviaLobby
         roomId={roomId}
         players={playersList}
+        onRemovePlayer={isHost ? handleRemovePlayer : undefined}
         isHost={isHost}
         config={config}
         onStart={startGame}
@@ -654,12 +683,14 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
 export function TriviaRoomGame({ roomId }: { roomId: string }) {
   return (
-    <TriviaRoomProvider
-      id={roomId}
-      initialPresence={{ displayName: '', answeredCurrentQuestion: false, score: 0, streak: 0 }}
-      initialStorage={createInitialTriviaStorage}
-    >
-      <TriviaRoomInner roomId={roomId} />
-    </TriviaRoomProvider>
+    <RoomKickGate roomId={roomId} mode="trivia">
+      <TriviaRoomProvider
+        id={roomId}
+        initialPresence={{ displayName: '', answeredCurrentQuestion: false, score: 0, streak: 0 }}
+        initialStorage={createInitialTriviaStorage}
+      >
+        <TriviaRoomInner roomId={roomId} />
+      </TriviaRoomProvider>
+    </RoomKickGate>
   )
 }

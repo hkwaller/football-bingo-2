@@ -13,11 +13,14 @@ interface Player {
   displayName: string
   isHost: boolean
   isSelf?: boolean
+  ready?: boolean
 }
 
 interface Props {
   roomId: string
   players: Player[]
+  /** Host only: remove a player from the room. */
+  onRemovePlayer?: (id: string | number) => void
   isHost: boolean
   config: TriviaConfig
   onStart: () => void
@@ -29,6 +32,7 @@ interface Props {
 export function TriviaLobby({
   roomId,
   players,
+  onRemovePlayer,
   isHost,
   config,
   onStart,
@@ -70,7 +74,12 @@ export function TriviaLobby({
       title="The squad gathers"
       subtitle="Share the code - everyone plays from their own device."
       invite={<RoomInvite roomId={roomId} joinPath={`/trivia/room/${roomId}`} />}
-      squad={<LobbySquad players={players.map((p) => ({ ...p, id: p.connectionId }))} />}
+      squad={
+        <LobbySquad
+          players={players.map((p) => ({ ...p, id: p.connectionId }))}
+          onRemove={onRemovePlayer}
+        />
+      }
       settings={
         <dl>
           <LobbySettingRow
