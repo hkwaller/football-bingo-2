@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import type { TenableQuestion } from '@/data/tenable/types'
 import { tenableTarget } from '@/lib/tenable/target'
+import { useFitText } from '@/hooks/useFitText'
 
 interface Props {
   question: TenableQuestion
@@ -11,6 +12,17 @@ interface Props {
   revealMissed?: boolean
   /** The most recently found rank - briefly highlighted. */
   justFound?: number | null
+}
+
+/** Shrinks long names to fit the slot instead of truncating them. Own
+ *  component so the fit runs when the name mounts on reveal. */
+function SlotName({ name, tone }: { name?: string; tone: string }) {
+  const ref = useFitText<HTMLParagraphElement>(name ?? '', 10)
+  return (
+    <p ref={ref} className={`truncate font-display text-[15px] font-black uppercase leading-tight ${tone}`}>
+      {name}
+    </p>
+  )
 }
 
 function Slot({
@@ -68,13 +80,10 @@ function Slot({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.22 }}
             >
-              <p
-                className={`truncate font-display text-[15px] font-black uppercase leading-tight ${
-                  state === 'missed' ? 'text-red' : highlight ? 'text-green' : 'text-ink'
-                }`}
-              >
-                {name}
-              </p>
+              <SlotName
+                name={name}
+                tone={state === 'missed' ? 'text-red' : highlight ? 'text-green' : 'text-ink'}
+              />
               {detail && <p className="truncate text-[11px] font-semibold text-muted">{detail}</p>}
             </motion.div>
           ) : (

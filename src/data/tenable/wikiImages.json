@@ -147,6 +147,10 @@
   "title": "Bernard Lama",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Bernard_Lama_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
  },
+ "billy liddell": {
+  "title": "Billy Liddell",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Billy_Liddell.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+ },
  "billy wright": {
   "title": "Billy Wright (footballer, born 1924)",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Billy_Wright_%281961%29.jpg/500px-Billy_Wright_%281961%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
@@ -322,6 +326,10 @@
  "diego tristan": {
   "title": "Diego Tristán",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Diegotristan.jpg/500px-Diegotristan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+ },
+ "dieter hoeness": {
+  "title": "Dieter Hoeneß",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Dieter_Hoene%C3%9F_vor_Hertha_BSC_Geschaeftsstelle_001_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
  },
  "dietmar hamann": {
   "title": "Dietmar Hamann",
@@ -587,6 +595,10 @@
   "title": "Giuseppe Meazza",
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Giuseppe_Meazza_1935.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
  },
+ "giuseppe santagostino": {
+  "title": "Giuseppe Santagostino",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Giuseppesantagostino.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+ },
  "glenn helder": {
   "title": "Glenn Helder",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/GlennHelder2019.jpg/500px-GlennHelder2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
@@ -618,10 +630,6 @@
  "harry chambers": {
   "title": "Harry Chambers",
   "image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Harry_Chambers.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
- },
- "harry kane": {
-  "title": "Harry Kane",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg/500px-Harry_Kane_England_v_Ghana_23_June_2026-219_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
  },
  "hector rial": {
   "title": "Héctor Rial",
@@ -839,6 +847,10 @@
   "title": "Josef Masopust",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Josef_Masopust_official_photo.jpg/500px-Josef_Masopust_official_photo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
  },
+ "josep escola": {
+  "title": "Josep Escolà",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Josep_Escol%C3%A0_i_Segal%C3%A9s_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+ },
  "josep samitier": {
   "title": "Josep Samitier",
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/86/Josep_Samitier.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
@@ -862,10 +874,6 @@
  "just fontaine": {
   "title": "Just Fontaine",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Just_Fontaine_en_1958.jpg/500px-Just_Fontaine_en_1958.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
- },
- "kaka": {
-  "title": "Kaká",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kak%C3%A1_visited_Stadium_St._Petersburg.jpg/500px-Kak%C3%A1_visited_Stadium_St._Petersburg.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
  },
  "kare ingebrigtsen": {
   "title": "Kåre Ingebrigtsen",
@@ -1155,10 +1163,6 @@
   "title": "Mikel Alonso",
   "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/FUTBOLISTAS_LA_VIDA_FUERA_DEL_FUTBOL-KORNER_2020_%2849546560458%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
  },
- "mohamed salah": {
-  "title": "Mohamed Salah",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg/500px-Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
- },
  "mokhtar dahari": {
   "title": "Mokhtar Dahari",
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_late_Mokhtar_Dahari_training_at_the_field%2C_c._1970s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
@@ -1291,13 +1295,13 @@
   "title": "Pauleta",
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Pedro_Pauleta_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
  },
+ "paulino alcantara": {
+  "title": "Paulino Alcántara",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Paulino_alcantara_barca_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+ },
  "pavel nedved": {
   "title": "Pavel Nedvěd",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Pavel_Nedv%C4%9Bd.jpg/500px-Pavel_Nedv%C4%9Bd.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
- },
- "pele": {
-  "title": "Pelé",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Pele_con_brasil_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
  },
  "peter lovenkrands": {
   "title": "Peter Løvenkrands",
@@ -1355,6 +1359,10 @@
   "title": "Rasmus Kristensen",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Rasmus_Nissen%2C_FC_RB_Salzburg_versus_Wolfsberger_AC_%2810._August_2019%29.jpg/500px-Rasmus_Nissen%2C_FC_RB_Salzburg_versus_Wolfsberger_AC_%2810._August_2019%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
  },
+ "raul footballer": {
+  "title": "Raúl González",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/25th_Laureus_World_Sports_Awards_-_Ra%C3%BAl_-_240422_132916-2_%28cropped%29.jpg/500px-25th_Laureus_World_Sports_Awards_-_Ra%C3%BAl_-_240422_132916-2_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+ },
  "ray houghton": {
   "title": "Ray Houghton",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Ray_Houghton_1995.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
@@ -1379,10 +1387,6 @@
   "title": "Riga Mustapha",
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Mustapha_Riga.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
  },
- "rivaldo": {
-  "title": "Rivaldo",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Rivaldo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
- },
  "robbie fowler": {
   "title": "Robbie Fowler",
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Fowler%2C_Robbie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
@@ -1390,10 +1394,6 @@
  "robbie keane": {
   "title": "Robbie Keane",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/2013_Robbie_Keane_%28cropped%29.jpg/500px-2013_Robbie_Keane_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
- },
- "robert lewandowski": {
-  "title": "Robert Lewandowski",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/2019147183134_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0228_-_B70I8527_%28cropped%29.jpg/500px-2019147183134_2019-05-27_Fussball_1.FC_Kaiserslautern_vs_FC_Bayern_M%C3%BCnchen_-_Sven_-_1D_X_MK_II_-_0228_-_B70I8527_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
  },
  "robert molenaar": {
   "title": "Robert Molenaar",
@@ -1474,10 +1474,6 @@
  "salva": {
   "title": "Salva Ballesta",
   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Salva_Ballesta_29abr2007.jpg/500px-Salva_Ballesta_29abr2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
- },
- "samuel etoo": {
-  "title": "Samuel Eto'o",
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Sammuel_Eto%27o_Fils_02.jpg/500px-Sammuel_Eto%27o_Fils_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
  },
  "sander westerveld": {
   "title": "Sander Westerveld",

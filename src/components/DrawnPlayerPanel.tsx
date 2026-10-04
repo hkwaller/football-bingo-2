@@ -4,6 +4,7 @@ import { useEffect, useState, type ReactNode } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SkipForward } from 'lucide-react'
+import { useFitText } from '@/hooks/useFitText'
 import { wikimediaLoader } from '@/lib/playerImage'
 import type { PlayMode } from '@/lib/playMode'
 import type { PhotoAttribution } from '@/types/player'
@@ -206,16 +207,11 @@ export function DrawnPlayerPanel({
               in place so a longer name can't push the button or the board. */}
           <div className="grid">
             <AnimatePresence initial={false}>
-              <motion.p
+              <DrawnName
                 key={loading ? 'loading' : drawKey}
-                initial={reduceMotion ? false : { opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: reduceMotion ? 0 : 0.18, ease: 'easeOut' }}
-                className="col-start-1 row-start-1 min-h-[0.95em] font-display text-[26px] font-black uppercase leading-[0.95] text-ink max-lg:truncate lg:line-clamp-2 lg:min-h-[1.9em] lg:text-[34px]"
-              >
-                {loading ? 'Drawing…' : (player?.name ?? 'No player')}
-              </motion.p>
+                text={loading ? 'Drawing…' : (player?.name ?? 'No player')}
+                reduceMotion={reduceMotion}
+              />
             </AnimatePresence>
           </div>
           {error ? (
@@ -255,5 +251,23 @@ export function DrawnPlayerPanel({
         </div>
       </motion.section>
     </div>
+  )
+}
+
+/** Drawn name: shrinks to fit (one line on the bar, two on the card) rather
+ *  than truncating. Heights are px so a shrunk name keeps the slot size. */
+function DrawnName({ text, reduceMotion }: { text: string; reduceMotion: boolean | null }) {
+  const ref = useFitText<HTMLParagraphElement>(text)
+  return (
+    <motion.p
+      ref={ref}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: reduceMotion ? 0 : 0.18, ease: 'easeOut' }}
+      className="col-start-1 row-start-1 min-h-[25px] font-display text-[26px] font-black uppercase leading-[0.95] text-ink max-lg:truncate lg:line-clamp-2 lg:min-h-[65px] lg:text-[34px]"
+    >
+      {text}
+    </motion.p>
   )
 }

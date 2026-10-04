@@ -1,6 +1,7 @@
 'use client'
 
 import { Check, SkipForward } from 'lucide-react'
+import { useFitText } from '@/hooks/useFitText'
 import type { BoardConfig } from '@/lib/boardConfig'
 import { bingoLinesForConfig, freeIndexForConfig } from '@/lib/board'
 
@@ -115,9 +116,7 @@ export function RecentDraws({ draws, className = '' }: { draws: DrawOutcome[]; c
               )}
             </span>
             <span className="min-w-0 flex-1">
-              <span className="block truncate font-display text-[20px] font-extrabold uppercase leading-none text-ink">
-                {d.name}
-              </span>
+              <HistoryName name={d.name} />
               {d.detail ? (
                 <span className="mt-0.5 block truncate text-[13px] text-card-muted">{d.detail}</span>
               ) : null}
@@ -151,3 +150,15 @@ export function CategoryLegend({ className = '' }: { className?: string }) {
   )
 }
 
+/** Shrinks long names to fit the row instead of truncating them. */
+function HistoryName({ name }: { name: string }) {
+  const ref = useFitText<HTMLSpanElement>(name, 12)
+  return (
+    <span
+      ref={ref}
+      className="block min-h-[20px] truncate font-display text-[20px] font-extrabold uppercase leading-none text-ink"
+    >
+      {name}
+    </span>
+  )
+}
