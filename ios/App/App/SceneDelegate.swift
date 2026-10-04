@@ -28,5 +28,8 @@ class MainViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         // Edge swipe goes back through the web history, like Safari.
         webView?.allowsBackForwardNavigationGestures = true
+        // Capacitor turns off the web view's bounce while building it, so a page
+        // that scrolls the document (not an inner overflow panel) felt dead.
+        webView?.scrollView.bounces = true
     }
 }
