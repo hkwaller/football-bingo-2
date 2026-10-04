@@ -62,7 +62,7 @@ export function LobbyNameField({ value, onSave, autoFocus }: Props) {
             setDraft(e.target.value)
             setJustSaved(false)
           }}
-          className="input sm:flex-1"
+          className="input sm:flex-1 text-[16px]"
           placeholder="Enter your name"
           maxLength={24}
           autoComplete="nickname"
