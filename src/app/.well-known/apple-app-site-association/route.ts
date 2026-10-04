@@ -1,5 +1,5 @@
-/** Bundle id / package name of the native app (capacitor.config.ts). */
-const NATIVE_APP_ID = 'app.playam.bingo'
+/** iOS bundle id (Xcode PRODUCT_BUNDLE_IDENTIFIER; differs from the Android package). */
+const IOS_BUNDLE_ID = 'app.playam.football-bingo'
 
 /**
  * iOS universal links: links to this site (room QR codes, invite links) open
@@ -12,7 +12,7 @@ export function GET() {
     applinks: {
       details: [
         {
-          appIDs: [`${team}.${NATIVE_APP_ID}`],
+          appIDs: [`${team}.${IOS_BUNDLE_ID}`],
           components: [{ '/': '/*', comment: 'Every page opens in the app' }],
         },
       ],

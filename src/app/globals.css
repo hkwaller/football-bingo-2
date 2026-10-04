@@ -456,3 +456,13 @@ body::before {
 .native-app .cl-dividerRow {
   display: none !important;
 }
+
+/* No scroll bars in the app, like a native app (the page's own bar is off in
+   MainViewController / MainActivity). Unlayered so it wins. */
+.native-app,
+.native-app * {
+  scrollbar-width: none;
+}
+.native-app ::-webkit-scrollbar {
+  display: none;
+}

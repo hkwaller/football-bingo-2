@@ -31,5 +31,8 @@ class MainViewController: CAPBridgeViewController {
         // Capacitor turns off the web view's bounce while building it, so a page
         // that scrolls the document (not an inner overflow panel) felt dead.
         webView?.scrollView.bounces = true
+        // No scroll bars, like a native app. Inner overflow panels are hidden in CSS (.native-app).
+        webView?.scrollView.showsVerticalScrollIndicator = false
+        webView?.scrollView.showsHorizontalScrollIndicator = false
     }
 }
