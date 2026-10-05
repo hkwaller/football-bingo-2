@@ -25,7 +25,7 @@
     "native:sync": "cap sync",
     "native:dev": "CAP_SERVER_URL=${CAP_SERVER_URL:-http://localhost:3000} cap sync",
     "native:icons": "node scripts/native/icons.mjs && capacitor-assets generate --ios --android --assetPath native/assets --iconBackgroundColor '#0E4A2C' --iconBackgroundColorDark '#0E4A2C' --splashBackgroundColor '#0E4A2C' --splashBackgroundColorDark '#0E4A2C'",
-    "native:ios": "cap open ios",
+    "native:ios": "open ios/App/FootballBingo.xcworkspace",
     "native:android": "cap open android",
     "test": "tsx --test 'src/**/*.test.ts'"
   },

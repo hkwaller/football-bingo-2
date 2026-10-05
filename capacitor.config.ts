@@ -34,6 +34,11 @@ const config: CapacitorConfig = {
     errorPath: 'offline.html',
   },
   ios: {
+    // The Xcode target, product and scheme are "FootballBingo" so the games tell apart
+    // in Xcode, Organizer and the simulator. The file names stay
+    // ios/App/App.xcodeproj because the Capacitor CLI hardcodes them; open
+    // ios/App/FootballBingo.xcworkspace (npm run native:ios) for a named window.
+    scheme: 'FootballBingo',
     contentInset: 'never',
     // Long-press link previews make the game feel like a web page.
     allowsLinkPreview: false,

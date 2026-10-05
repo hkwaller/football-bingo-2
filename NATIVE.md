@@ -16,6 +16,7 @@ The App Store and Google Play builds are a Capacitor shell around the live site,
 | `native.config.json` | The values the game-native-app skill filled into the templates. |
 | `native/www/` | `index.html` (required by Capacitor, never shown) and `offline.html` (shown when the site can't load, with retry). |
 | `native/assets/` | Icon and splash sources. `npm run native:icons` redraws them (`scripts/native/icons.mjs`, the favicon's ball on a yellow tile) and generates every size. |
+| `ios/App/FootballBingo.xcworkspace` | Open this one (`npm run native:ios`). It wraps `ios/App/App.xcodeproj`, whose file and folder names the Capacitor CLI hardcodes; the target, product and scheme inside are named FootballBingo (`ios.scheme` in `capacitor.config.ts`). Don't rename `App.xcodeproj`: `cap sync` then can't update the plugin package. |
 | `ios/`, `android/` | Generated native projects, committed. Edits: `ios/App/App/App.entitlements` (universal links), camera text in `Info.plist`, App Links and `CAMERA` in `android/app/src/main/AndroidManifest.xml`. |
 | `src/lib/native.ts` | `isNativeApp`, `nativePlatform`, `haptic`, `shareText`, `scanQr`, `restoreDeviceStorage` / `backupDeviceStorage`. |
 | `src/hooks/useNative.ts` | `useIsNativeApp()` / `useNativePlatform()` (hydration-safe), `useHaptic(kind, key)`. |
@@ -55,7 +56,7 @@ npm run native:ios
 Then run on a simulator from Xcode, or build from the command line:
 
 ```bash
-xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'name=iPhone 17 Pro' -derivedDataPath ios/App/build CODE_SIGNING_ALLOWED=NO build
+xcodebuild -workspace ios/App/FootballBingo.xcworkspace -scheme FootballBingo -configuration Debug -sdk iphonesimulator -destination 'name=iPhone 17 Pro' -derivedDataPath ios/App/build CODE_SIGNING_ALLOWED=NO build
 ```
 
 Use the dev server's actual port in `CAP_SERVER_URL`. Web changes hot-reload into the app; only `capacitor.config.ts`, plugins and native files need a new sync and build. The "1 Issue" dev overlay after closing the scanner is Capacitor's debug bridge logging the cancelled call; it is handled.

@@ -1,6 +1,7 @@
 {
   "appId": "app.playam.bingo",
   "appName": "Football Bingo",
+  "xcodeName": "FootballBingo",
   "siteUrl": "https://bingo.playam.app",
   "bg": "#0E4A2C",
   "accent": "#FFD62E",
