@@ -7,12 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // pages are intentionally excluded (and disallowed in robots.ts).
   const routes = ['/privacy', '/terms',
     '/', // home
-    '/games', // game overview
-    '/play/setup', // start a Bingo game
-    '/trivia/setup', // start a Trivia game
-    '/tenable/setup', // start a Tenable game
-    '/famous-11s/setup', // start a Famous 11s game
-    '/careers/setup', // start a Careers game
+    '/games', // public rules and previews for every game mode
     ...(ADS_ENABLED ? ['/go-ad-free'] : []), // pricing / remove ads
     '/credits', // photo credits
   ]
