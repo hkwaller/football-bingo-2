@@ -1,3 +1,5 @@
+> Historical implementation notes. Superseded on 11 October 2026: Adsterra was completely removed. No web ads are active. See `adsense-readiness.md` for the current policy; do not re-enable this provider.
+
 # Monetization - ads + remove-ads subscription
 
 Adsterra ads for guests/free users, with a Stripe upsell to remove them. Built on the game-monetization skill. Entitlement is one Clerk `publicMetadata` field.

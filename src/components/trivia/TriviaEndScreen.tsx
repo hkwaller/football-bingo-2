@@ -1,10 +1,12 @@
 'use client'
 
+// Future monetization boundary: only after the entire session has completed and final results are visible.
+// Consult playam-monetization.monetizationBreakReached; no ad SDK or event is invoked here.
+
+
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { TriviaAnswer, TriviaQuestion, TriviaScoreState } from '@/lib/trivia/types'
-import { AdsterraBanner } from '@/components/AdsterraBanner'
-import { AdsterraPopunder } from '@/components/AdsterraPopunder'
 
 interface LeaderboardEntry {
   displayName: string
@@ -186,8 +188,8 @@ export function TriviaEndScreen({ questions, answers, scoreState, onPlayAgain, l
         </Link>
       </div>
 
-      <AdsterraBanner />
-      <AdsterraPopunder />
+
+
     </div>
   )
 }

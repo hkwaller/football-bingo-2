@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Sticker } from '@/components/Sticker'
-import { AdsterraBanner } from '@/components/AdsterraBanner'
-import { BANNER_ENABLED } from '@/lib/ads'
 import { HeroTrivia } from '@/components/HeroTrivia'
 import { GameModeGrid } from '@/components/GameModeGrid'
 import { ScanToJoin } from '@/components/ScanToJoin'
@@ -152,11 +150,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Ad (guests only; hidden for ad-free) ─────────────── */}
-      {BANNER_ENABLED && (
-        <section className="w-full px-6 pb-10">
-          <AdsterraBanner />
-        </section>
-      )}
+
     </div>
   )
 }

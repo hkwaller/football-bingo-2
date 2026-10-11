@@ -1,12 +1,13 @@
 'use client'
 
+// Future monetization boundary: only after the entire session has completed and final results are visible.
+// Consult playam-monetization.monetizationBreakReached; no ad SDK or event is invoked here.
+
+
 import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import { accuracyPct, formatDuration, totalGuesses, type SoloStats } from '@/lib/soloStats'
-import { AdsterraBanner } from '@/components/AdsterraBanner'
-import { AdsterraPopunder } from '@/components/AdsterraPopunder'
-import { BANNER_ENABLED } from '@/lib/ads'
 import Link from 'next/link'
 
 interface Props {
@@ -176,14 +177,10 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                 </Link>
               </motion.div>
 
-              {BANNER_ENABLED && (
-                <div className="mt-6">
-                  <AdsterraBanner tone="card" />
-                </div>
-              )}
+
             </div>
           </motion.div>
-          <AdsterraPopunder />
+
         </>
       )}
     </AnimatePresence>

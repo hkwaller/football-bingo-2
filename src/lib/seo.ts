@@ -2,15 +2,9 @@
  * Canonical site origin for metadata, sitemap, robots and OG images.
  *
  * Prefers an explicit NEXT_PUBLIC_APP_URL (set this to the real domain in the
- * Vercel production env), then falls back to the Vercel-provided production URL,
- * then localhost for dev. Always an absolute origin with no trailing slash.
+ * Vercel production env), then falls back to the canonical Playam subdomain. Always an absolute origin with no trailing slash.
  */
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_APP_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : 'http://localhost:3000')
-).replace(/\/$/, '')
+export const SITE_URL = (process.env.NEXT_PUBLIC_APP_URL || 'https://bingo.playam.app').replace(/\/$/, '')
 
 export const SITE_NAME = 'Football Bingo'
 

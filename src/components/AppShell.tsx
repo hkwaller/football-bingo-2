@@ -29,6 +29,7 @@ function SiteFooter() {
           </Link>
         </>
       )}
+      <nav aria-label="Legal and Playam" className="mt-3 flex flex-wrap justify-center gap-4"><a href="/privacy" style={{ textDecoration: "underline" }}>Privacy</a> · <a href="/terms" style={{ textDecoration: "underline" }}>Terms</a> · <a href="https://playam.app" style={{ textDecoration: "underline" }}>A game from Playam</a></nav>
     </footer>
   )
 }

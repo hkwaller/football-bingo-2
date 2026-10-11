@@ -1,12 +1,14 @@
 'use client'
 
+// Future monetization boundary: only after the entire session has completed and final results are visible.
+// Consult playam-monetization.monetizationBreakReached; no ad SDK or event is invoked here.
+
+
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import type { CareersSessionState } from '@/lib/careers/types'
-import { AdsterraBanner } from '@/components/AdsterraBanner'
-import { AdsterraPopunder } from '@/components/AdsterraPopunder'
 
 interface Props {
   session: CareersSessionState
@@ -81,8 +83,8 @@ export function CareersEndScreen({ session, onPlayAgain }: Props) {
         </Link>
       </div>
 
-      <AdsterraBanner />
-      <AdsterraPopunder />
+
+
     </div>
   )
 }

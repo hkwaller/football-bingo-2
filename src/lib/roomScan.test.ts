@@ -47,6 +47,6 @@ test('accepts prefixed room ids (trivia, tenable, famous 11s, careers)', () => {
     `/famous-11s/room/eleven-${id}`,
     `/careers/room/careers-${id}`,
   ]) {
-    assert.equal(roomPathFromScan(`https://footballbingo.cc${path}`), path)
+    assert.equal(roomPathFromScan(`https://bingo.playam.app${path}`), path)
   }
 })
