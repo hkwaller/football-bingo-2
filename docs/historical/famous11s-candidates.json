@@ -1,0 +1,5635 @@
+[
+  {
+    "matchId": "987192",
+    "title": "England vs Germany",
+    "date": "1966-07-30T14:00:00Z",
+    "competition": {
+      "id": "FIWC",
+      "name": "World Cup"
+    },
+    "reason": "1966 World Cup final: England's home triumph and Hurst's hat-trick.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/987192",
+      "https://www.transfermarkt.com/weltmeisterschaft/alleEndspiele/pokalwettbewerb/FIWC"
+    ],
+    "teams": [
+      {
+        "teamId": "3299",
+        "name": "England",
+        "manager": {
+          "id": "20977",
+          "name": "Sir Alf Ramsey"
+        },
+        "formation": "4-4-2 Diamond",
+        "starters": [
+          {
+            "id": "200627",
+            "name": "Gordon Banks",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "102502",
+            "name": "Jack Charlton",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "136162",
+            "name": "George Cohen",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "196086",
+            "name": "Bobby Moore",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "177246",
+            "name": "Ray Wilson",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "135908",
+            "name": "Alan Ball",
+            "shirtNumber": 7,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "174874",
+            "name": "Sir Bobby Charlton",
+            "shirtNumber": 9,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "200635",
+            "name": "Martin Peters",
+            "shirtNumber": 16,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "176283",
+            "name": "Nobby Stiles",
+            "shirtNumber": 4,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "176053",
+            "name": "Roger Hunt",
+            "shirtNumber": 21,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "200633",
+            "name": "Sir Geoff Hurst",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 5,
+          "missing": [
+            {
+              "id": "102502",
+              "name": "Jack Charlton",
+              "shirtNumber": 5,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "136162",
+              "name": "George Cohen",
+              "shirtNumber": 2,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "177246",
+              "name": "Ray Wilson",
+              "shirtNumber": 3,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "135908",
+              "name": "Alan Ball",
+              "shirtNumber": 7,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "200635",
+              "name": "Martin Peters",
+              "shirtNumber": 16,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "176053",
+              "name": "Roger Hunt",
+              "shirtNumber": 21,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "3262",
+        "name": "Germany",
+        "manager": {
+          "id": "1449",
+          "name": "Helmut Schön"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "96604",
+            "name": "Hans Tilkowski",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "72347",
+            "name": "Franz Beckenbauer",
+            "shirtNumber": 4,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "72379",
+            "name": "Horst-Dieter Höttges",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "72381",
+            "name": "Karl-Heinz Schnellinger",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "96033",
+            "name": "Wolfgang Weber",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "96268",
+            "name": "Sigfried Held",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "72284",
+            "name": "Wolfgang Overath",
+            "shirtNumber": 12,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "94086",
+            "name": "Willi Schulz",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "96563",
+            "name": "Lothar Emmerich",
+            "shirtNumber": 11,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "72380",
+            "name": "Helmut Haller",
+            "shirtNumber": 8,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "38191",
+            "name": "Uwe Seeler",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": true
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 2,
+          "missing": [
+            {
+              "id": "96604",
+              "name": "Hans Tilkowski",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "72379",
+              "name": "Horst-Dieter Höttges",
+              "shirtNumber": 2,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "72381",
+              "name": "Karl-Heinz Schnellinger",
+              "shirtNumber": 3,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "96033",
+              "name": "Wolfgang Weber",
+              "shirtNumber": 6,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "96268",
+              "name": "Sigfried Held",
+              "shirtNumber": 10,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "72284",
+              "name": "Wolfgang Overath",
+              "shirtNumber": 12,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "94086",
+              "name": "Willi Schulz",
+              "shirtNumber": 5,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "96563",
+              "name": "Lothar Emmerich",
+              "shirtNumber": 11,
+              "position": "Left Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "72380",
+              "name": "Helmut Haller",
+              "shirtNumber": 8,
+              "position": "Right Winger",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "936193",
+    "title": "Brazil vs Italy",
+    "date": "1994-07-17T19:30:00Z",
+    "competition": {
+      "id": "FIWC",
+      "name": "World Cup"
+    },
+    "reason": "1994 World Cup final: Brazil–Italy decided by a shootout.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/936193",
+      "https://www.transfermarkt.com/weltmeisterschaft/elfmeterschiessen/pokalwettbewerb/FIWC",
+      "https://www.transfermarkt.com/weltmeisterschaft/alleEndspiele/pokalwettbewerb/FIWC",
+      "https://www.transfermarkt.com/weltmeisterschaft/gesamtspielplan/pokalwettbewerb/FIWC/saison_id/1993"
+    ],
+    "teams": [
+      {
+        "teamId": "3439",
+        "name": "Brazil",
+        "manager": {
+          "id": "2121",
+          "name": "Carlos Alberto Parreira"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "5855",
+            "name": "Claudio Taffarel",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "4151",
+            "name": "Aldair",
+            "shirtNumber": 13,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "102590",
+            "name": "Branco",
+            "shirtNumber": 6,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "17166",
+            "name": "Jorginho",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "16326",
+            "name": "Márcio Santos",
+            "shirtNumber": 15,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "96342",
+            "name": "Dunga",
+            "shirtNumber": 8,
+            "position": "Central Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "15476",
+            "name": "Mauro Silva",
+            "shirtNumber": 5,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "102588",
+            "name": "Mazinho",
+            "shirtNumber": 17,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "27766",
+            "name": "Zinho",
+            "shirtNumber": 9,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "26541",
+            "name": "Bebeto",
+            "shirtNumber": 7,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "7942",
+            "name": "Romário",
+            "shirtNumber": 11,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 6,
+          "missing": [
+            {
+              "id": "17166",
+              "name": "Jorginho",
+              "shirtNumber": 2,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "16326",
+              "name": "Márcio Santos",
+              "shirtNumber": 15,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "15476",
+              "name": "Mauro Silva",
+              "shirtNumber": 5,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "102588",
+              "name": "Mazinho",
+              "shirtNumber": 17,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "27766",
+              "name": "Zinho",
+              "shirtNumber": 9,
+              "position": "Left Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "3376",
+        "name": "Italy",
+        "manager": {
+          "id": "2728",
+          "name": "Arrigo Sacchi"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "5985",
+            "name": "Gianluca Pagliuca",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "42049",
+            "name": "Franco Baresi",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "5857",
+            "name": "Antonio Benarrivo",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5803",
+            "name": "Paolo Maldini",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "102482",
+            "name": "Roberto Mussi",
+            "shirtNumber": 8,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3390",
+            "name": "Demetrio Albertini",
+            "shirtNumber": 11,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5843",
+            "name": "Dino Baggio",
+            "shirtNumber": 13,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "4153",
+            "name": "Roberto Baggio",
+            "shirtNumber": 10,
+            "position": "Second Striker",
+            "isCaptain": false
+          },
+          {
+            "id": "102473",
+            "name": "Nicola Berti",
+            "shirtNumber": 14,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "102474",
+            "name": "Roberto Donadoni",
+            "shirtNumber": 16,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "102480",
+            "name": "Daniele Massaro",
+            "shirtNumber": 19,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 5,
+          "missing": [
+            {
+              "id": "5985",
+              "name": "Gianluca Pagliuca",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "5857",
+              "name": "Antonio Benarrivo",
+              "shirtNumber": 3,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "102482",
+              "name": "Roberto Mussi",
+              "shirtNumber": 8,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "5843",
+              "name": "Dino Baggio",
+              "shirtNumber": 13,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "102473",
+              "name": "Nicola Berti",
+              "shirtNumber": 14,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "102480",
+              "name": "Daniele Massaro",
+              "shirtNumber": 19,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "928085",
+    "title": "Germany vs Argentina",
+    "date": "1990-07-08T18:00:00Z",
+    "competition": {
+      "id": "FIWC",
+      "name": "World Cup"
+    },
+    "reason": "1990 World Cup final: Germany's third world title.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/928085",
+      "https://www.transfermarkt.com/weltmeisterschaft/alleEndspiele/pokalwettbewerb/FIWC"
+    ],
+    "teams": [
+      {
+        "teamId": "3262",
+        "name": "Germany",
+        "manager": {
+          "id": "896",
+          "name": "Franz Beckenbauer"
+        },
+        "formation": "5-3-2",
+        "starters": [
+          {
+            "id": "24474",
+            "name": "Bodo Illgner",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "85968",
+            "name": "Klaus Augenthaler",
+            "shirtNumber": 5,
+            "position": "Sweeper",
+            "isCaptain": false
+          },
+          {
+            "id": "57",
+            "name": "Thomas Berthold",
+            "shirtNumber": 14,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "16056",
+            "name": "Andreas Brehme",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "79561",
+            "name": "Guido Buchwald",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "119",
+            "name": "Jürgen Kohler",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "1527",
+            "name": "Lothar Matthäus",
+            "shirtNumber": 10,
+            "position": "Defensive Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "553",
+            "name": "Thomas Häßler",
+            "shirtNumber": 8,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "87902",
+            "name": "Pierre Littbarski",
+            "shirtNumber": 7,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "16980",
+            "name": "Jürgen Klinsmann",
+            "shirtNumber": 18,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "13775",
+            "name": "Rudi Völler",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 7,
+          "missing": [
+            {
+              "id": "85968",
+              "name": "Klaus Augenthaler",
+              "shirtNumber": 5,
+              "position": "Sweeper",
+              "isCaptain": false
+            },
+            {
+              "id": "57",
+              "name": "Thomas Berthold",
+              "shirtNumber": 14,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "79561",
+              "name": "Guido Buchwald",
+              "shirtNumber": 6,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "87902",
+              "name": "Pierre Littbarski",
+              "shirtNumber": 7,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "3437",
+        "name": "Argentina",
+        "manager": {
+          "id": "9607",
+          "name": "Carlos Bilardo"
+        },
+        "formation": "3-4-2-1",
+        "starters": [
+          {
+            "id": "102200",
+            "name": "Sergio Goycochea",
+            "shirtNumber": 12,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "106977",
+            "name": "Néstor Lorenzo",
+            "shirtNumber": 13,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "102214",
+            "name": "Oscar Ruggeri",
+            "shirtNumber": 19,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5882",
+            "name": "Roberto Sensini",
+            "shirtNumber": 17,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "106980",
+            "name": "Juan Simón",
+            "shirtNumber": 20,
+            "position": "Sweeper",
+            "isCaptain": false
+          },
+          {
+            "id": "84624",
+            "name": "José Basualdo",
+            "shirtNumber": 4,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "106972",
+            "name": "Jorge Burruchaga",
+            "shirtNumber": 7,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "8024",
+            "name": "Diego Maradona",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "106981",
+            "name": "Pedro Troglio",
+            "shirtNumber": 21,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "106975",
+            "name": "Gustavo Dezotti",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "107832",
+            "name": "José Serrizuela",
+            "shirtNumber": 18,
+            "position": "Centre-Back",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 2,
+          "missing": [
+            {
+              "id": "106977",
+              "name": "Néstor Lorenzo",
+              "shirtNumber": 13,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "102214",
+              "name": "Oscar Ruggeri",
+              "shirtNumber": 19,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "5882",
+              "name": "Roberto Sensini",
+              "shirtNumber": 17,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "106980",
+              "name": "Juan Simón",
+              "shirtNumber": 20,
+              "position": "Sweeper",
+              "isCaptain": false
+            },
+            {
+              "id": "84624",
+              "name": "José Basualdo",
+              "shirtNumber": 4,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "106972",
+              "name": "Jorge Burruchaga",
+              "shirtNumber": 7,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "106981",
+              "name": "Pedro Troglio",
+              "shirtNumber": 21,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "106975",
+              "name": "Gustavo Dezotti",
+              "shirtNumber": 9,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "107832",
+              "name": "José Serrizuela",
+              "shirtNumber": 18,
+              "position": "Centre-Back",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "987259",
+    "title": "Brazil vs Sweden",
+    "date": "1958-06-29T14:00:00Z",
+    "competition": {
+      "id": "FIWC",
+      "name": "World Cup"
+    },
+    "reason": "1958 World Cup final: Brazil's first title and the teenage Pelé.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/987259",
+      "https://www.transfermarkt.com/weltmeisterschaft/alleEndspiele/pokalwettbewerb/FIWC"
+    ],
+    "teams": [
+      {
+        "teamId": "3439",
+        "name": "Brazil",
+        "manager": {
+          "id": "25282",
+          "name": "Vicente Feola"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "236128",
+            "name": "Gilmar",
+            "shirtNumber": 3,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "236106",
+            "name": "Hilderaldo Bellini",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "137269",
+            "name": "Djalma Santos",
+            "shirtNumber": 4,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "137265",
+            "name": "Nílton Santos",
+            "shirtNumber": 12,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "236186",
+            "name": "Orlando",
+            "shirtNumber": 15,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "137264",
+            "name": "Didi",
+            "shirtNumber": 6,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "236132",
+            "name": "Zito",
+            "shirtNumber": 19,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "151263",
+            "name": "Mané Garrincha",
+            "shirtNumber": 11,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "17121",
+            "name": "Pelé",
+            "shirtNumber": 10,
+            "position": "Second Striker",
+            "isCaptain": false
+          },
+          {
+            "id": "151248",
+            "name": "Vavá",
+            "shirtNumber": 20,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "237728",
+            "name": "Mario Zagallo",
+            "shirtNumber": 7,
+            "position": "Left Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 2,
+          "missing": [
+            {
+              "id": "236128",
+              "name": "Gilmar",
+              "shirtNumber": 3,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "236106",
+              "name": "Hilderaldo Bellini",
+              "shirtNumber": 2,
+              "position": "Centre-Back",
+              "isCaptain": true
+            },
+            {
+              "id": "137269",
+              "name": "Djalma Santos",
+              "shirtNumber": 4,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "137265",
+              "name": "Nílton Santos",
+              "shirtNumber": 12,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "236186",
+              "name": "Orlando",
+              "shirtNumber": 15,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "137264",
+              "name": "Didi",
+              "shirtNumber": 6,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "236132",
+              "name": "Zito",
+              "shirtNumber": 19,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "151248",
+              "name": "Vavá",
+              "shirtNumber": 20,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "237728",
+              "name": "Mario Zagallo",
+              "shirtNumber": 7,
+              "position": "Left Winger",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "3557",
+        "name": "Sweden",
+        "manager": {
+          "id": "26338",
+          "name": "George Raynor"
+        },
+        "formation": "3-4-2-1",
+        "starters": [
+          {
+            "id": "246998",
+            "name": "Kalle Svensson",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "246882",
+            "name": "Sven Axbom",
+            "shirtNumber": 3,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "182008",
+            "name": "Orvar Bergmark",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "246888",
+            "name": "Reino Börjesson",
+            "shirtNumber": 15,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "246926",
+            "name": "Bengt Gustavsson",
+            "shirtNumber": 14,
+            "position": "Sweeper",
+            "isCaptain": false
+          },
+          {
+            "id": "174158",
+            "name": "Nils Liedholm",
+            "shirtNumber": 4,
+            "position": "Attacking Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "246967",
+            "name": "Sigvard Parling",
+            "shirtNumber": 6,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "246924",
+            "name": "Gunnar Gren",
+            "shirtNumber": 8,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "182033",
+            "name": "Kurt Hamrin",
+            "shirtNumber": 7,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "182042",
+            "name": "Agne Simonsson",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "246990",
+            "name": "Lennart Skoglund",
+            "shirtNumber": 11,
+            "position": "Left Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 0,
+          "missing": [
+            {
+              "id": "246998",
+              "name": "Kalle Svensson",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "246882",
+              "name": "Sven Axbom",
+              "shirtNumber": 3,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "182008",
+              "name": "Orvar Bergmark",
+              "shirtNumber": 2,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "246888",
+              "name": "Reino Börjesson",
+              "shirtNumber": 15,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "246926",
+              "name": "Bengt Gustavsson",
+              "shirtNumber": 14,
+              "position": "Sweeper",
+              "isCaptain": false
+            },
+            {
+              "id": "174158",
+              "name": "Nils Liedholm",
+              "shirtNumber": 4,
+              "position": "Attacking Midfield",
+              "isCaptain": true
+            },
+            {
+              "id": "246967",
+              "name": "Sigvard Parling",
+              "shirtNumber": 6,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "246924",
+              "name": "Gunnar Gren",
+              "shirtNumber": 8,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "182033",
+              "name": "Kurt Hamrin",
+              "shirtNumber": 7,
+              "position": "Right Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "182042",
+              "name": "Agne Simonsson",
+              "shirtNumber": 9,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "246990",
+              "name": "Lennart Skoglund",
+              "shirtNumber": 11,
+              "position": "Left Winger",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "981173",
+    "title": "Argentina vs Netherlands",
+    "date": "1978-06-25T18:00:00Z",
+    "competition": {
+      "id": "FIWC",
+      "name": "World Cup"
+    },
+    "reason": "1978 World Cup final: Argentina's first title, won in extra time.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/981173",
+      "https://www.transfermarkt.com/weltmeisterschaft/alleEndspiele/pokalwettbewerb/FIWC"
+    ],
+    "teams": [
+      {
+        "teamId": "3437",
+        "name": "Argentina",
+        "manager": {
+          "id": "2923",
+          "name": "César Menotti"
+        },
+        "formation": "4-3-3 Sweeper",
+        "starters": [
+          {
+            "id": "135806",
+            "name": "Ubaldo Fillol",
+            "shirtNumber": 5,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "135808",
+            "name": "Luis Galván",
+            "shirtNumber": 7,
+            "position": "Sweeper",
+            "isCaptain": false
+          },
+          {
+            "id": "135812",
+            "name": "Jorge Olguín",
+            "shirtNumber": 15,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "116735",
+            "name": "Daniel Passarella",
+            "shirtNumber": 19,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "135844",
+            "name": "Alberto Tarantini",
+            "shirtNumber": 20,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "135800",
+            "name": "Osvaldo Ardiles",
+            "shirtNumber": 2,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "135810",
+            "name": "Américo Gallego",
+            "shirtNumber": 6,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "141862",
+            "name": "Oscar Alberto Ortiz",
+            "shirtNumber": 16,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "135804",
+            "name": "Daniel Bertoni",
+            "shirtNumber": 4,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "37264",
+            "name": "Mario Kempes",
+            "shirtNumber": 10,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "141861",
+            "name": "Leopoldo Luque",
+            "shirtNumber": 14,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 2,
+          "missing": [
+            {
+              "id": "135806",
+              "name": "Ubaldo Fillol",
+              "shirtNumber": 5,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "135808",
+              "name": "Luis Galván",
+              "shirtNumber": 7,
+              "position": "Sweeper",
+              "isCaptain": false
+            },
+            {
+              "id": "135812",
+              "name": "Jorge Olguín",
+              "shirtNumber": 15,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "135844",
+              "name": "Alberto Tarantini",
+              "shirtNumber": 20,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "135800",
+              "name": "Osvaldo Ardiles",
+              "shirtNumber": 2,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "135810",
+              "name": "Américo Gallego",
+              "shirtNumber": 6,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "141862",
+              "name": "Oscar Alberto Ortiz",
+              "shirtNumber": 16,
+              "position": "Left Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "135804",
+              "name": "Daniel Bertoni",
+              "shirtNumber": 4,
+              "position": "Right Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "141861",
+              "name": "Leopoldo Luque",
+              "shirtNumber": 14,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "3379",
+        "name": "Netherlands",
+        "manager": {
+          "id": "862",
+          "name": "Ernst Happel"
+        },
+        "formation": "4-3-3 Sweeper",
+        "starters": [
+          {
+            "id": "135633",
+            "name": "Jan Jongbloed",
+            "shirtNumber": 8,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "135647",
+            "name": "Ernie Brandts",
+            "shirtNumber": 22,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "135621",
+            "name": "Ruud Krol",
+            "shirtNumber": 5,
+            "position": "Sweeper",
+            "isCaptain": true
+          },
+          {
+            "id": "135625",
+            "name": "Jan Poortvliet",
+            "shirtNumber": 2,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "133921",
+            "name": "Arie Haan",
+            "shirtNumber": 9,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "135630",
+            "name": "Wim Jansen",
+            "shirtNumber": 6,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "135643",
+            "name": "Johan Neeskens",
+            "shirtNumber": 13,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "135638",
+            "name": "Willy van de Kerkhof",
+            "shirtNumber": 11,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "135644",
+            "name": "Rob Rensenbrink",
+            "shirtNumber": 12,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "135645",
+            "name": "Johnny Rep",
+            "shirtNumber": 16,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "135637",
+            "name": "René van de Kerkhof",
+            "shirtNumber": 10,
+            "position": "Right Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 3,
+          "missing": [
+            {
+              "id": "135633",
+              "name": "Jan Jongbloed",
+              "shirtNumber": 8,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "135647",
+              "name": "Ernie Brandts",
+              "shirtNumber": 22,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "135621",
+              "name": "Ruud Krol",
+              "shirtNumber": 5,
+              "position": "Sweeper",
+              "isCaptain": true
+            },
+            {
+              "id": "135625",
+              "name": "Jan Poortvliet",
+              "shirtNumber": 2,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "133921",
+              "name": "Arie Haan",
+              "shirtNumber": 9,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "135630",
+              "name": "Wim Jansen",
+              "shirtNumber": 6,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "135644",
+              "name": "Rob Rensenbrink",
+              "shirtNumber": 12,
+              "position": "Left Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "135645",
+              "name": "Johnny Rep",
+              "shirtNumber": 16,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "946329",
+    "title": "Soviet Union (-1991) vs Netherlands",
+    "date": "1988-06-25T13:30:00Z",
+    "competition": {
+      "id": "EURO",
+      "name": "UEFA Euro"
+    },
+    "reason": "Euro 1988 final: the Netherlands' title-winning team.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/946329",
+      "https://www.transfermarkt.com/europameisterschaft/alleEndspiele/pokalwettbewerb/EURO"
+    ],
+    "teams": [
+      {
+        "teamId": "17203",
+        "name": "Soviet Union (-1991)",
+        "manager": {
+          "id": "5563",
+          "name": "Valeriy Lobanovskyi"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "117377",
+            "name": "Rinat Dasaev",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": true
+          },
+          {
+            "id": "117378",
+            "name": "Anatoliy Demyanenko",
+            "shirtNumber": 5,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "118260",
+            "name": "Sergey Gotsmanov",
+            "shirtNumber": 18,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "118261",
+            "name": "Vagiz Khidiyatullin",
+            "shirtNumber": 3,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "88142",
+            "name": "Gennadiy Lytovchenko",
+            "shirtNumber": 8,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "101040",
+            "name": "Oleksiy Mykhaylychenko",
+            "shirtNumber": 15,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "106540",
+            "name": "Vasyl Rats",
+            "shirtNumber": 6,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "107149",
+            "name": "Oleksandr Zavarov",
+            "shirtNumber": 9,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "85752",
+            "name": "Igor Belanov",
+            "shirtNumber": 11,
+            "position": "Second Striker",
+            "isCaptain": false
+          },
+          {
+            "id": "106921",
+            "name": "Oleg Protasov",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "88122",
+            "name": "Sergey Aleynikov",
+            "shirtNumber": 7,
+            "position": "Centre-Back",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 1,
+          "missing": [
+            {
+              "id": "117378",
+              "name": "Anatoliy Demyanenko",
+              "shirtNumber": 5,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "118260",
+              "name": "Sergey Gotsmanov",
+              "shirtNumber": 18,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "118261",
+              "name": "Vagiz Khidiyatullin",
+              "shirtNumber": 3,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "88142",
+              "name": "Gennadiy Lytovchenko",
+              "shirtNumber": 8,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "101040",
+              "name": "Oleksiy Mykhaylychenko",
+              "shirtNumber": 15,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "106540",
+              "name": "Vasyl Rats",
+              "shirtNumber": 6,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "107149",
+              "name": "Oleksandr Zavarov",
+              "shirtNumber": 9,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "85752",
+              "name": "Igor Belanov",
+              "shirtNumber": 11,
+              "position": "Second Striker",
+              "isCaptain": false
+            },
+            {
+              "id": "106921",
+              "name": "Oleg Protasov",
+              "shirtNumber": 10,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "88122",
+              "name": "Sergey Aleynikov",
+              "shirtNumber": 7,
+              "position": "Centre-Back",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "3379",
+        "name": "Netherlands",
+        "manager": {
+          "id": "1343",
+          "name": "Rinus Michels"
+        },
+        "formation": "4-4-1-1",
+        "starters": [
+          {
+            "id": "101051",
+            "name": "Hans van Breukelen",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "7940",
+            "name": "Ronald Koeman",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "101050",
+            "name": "Berry van Aerle",
+            "shirtNumber": 6,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "101052",
+            "name": "Adri van Tiggelen",
+            "shirtNumber": 2,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "6668",
+            "name": "Gerald Vanenburg",
+            "shirtNumber": 7,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "101045",
+            "name": "Ruud Gullit",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "101999",
+            "name": "Erwin Koeman",
+            "shirtNumber": 13,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "117258",
+            "name": "Arnold Mühren",
+            "shirtNumber": 8,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "70667",
+            "name": "Frank Rijkaard",
+            "shirtNumber": 17,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "39671",
+            "name": "Jan Wouters",
+            "shirtNumber": 20,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "74471",
+            "name": "Marco van Basten",
+            "shirtNumber": 12,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 4,
+          "missing": [
+            {
+              "id": "101051",
+              "name": "Hans van Breukelen",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "101050",
+              "name": "Berry van Aerle",
+              "shirtNumber": 6,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "101052",
+              "name": "Adri van Tiggelen",
+              "shirtNumber": 2,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "6668",
+              "name": "Gerald Vanenburg",
+              "shirtNumber": 7,
+              "position": "Right Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "101999",
+              "name": "Erwin Koeman",
+              "shirtNumber": 13,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "117258",
+              "name": "Arnold Mühren",
+              "shirtNumber": 8,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "39671",
+              "name": "Jan Wouters",
+              "shirtNumber": 20,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "935961",
+    "title": "France vs Italy",
+    "date": "2000-07-02T18:00:00Z",
+    "competition": {
+      "id": "EURO",
+      "name": "UEFA Euro"
+    },
+    "reason": "Euro 2000 final: France's late recovery and golden-goal victory.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/935961",
+      "https://www.transfermarkt.com/europameisterschaft/alleEndspiele/pokalwettbewerb/EURO"
+    ],
+    "teams": [
+      {
+        "teamId": "3377",
+        "name": "France",
+        "manager": {
+          "id": "1051",
+          "name": "Roger Lemerre"
+        },
+        "formation": "4-2-3-1",
+        "starters": [
+          {
+            "id": "3289",
+            "name": "Fabien Barthez",
+            "shirtNumber": 16,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "3113",
+            "name": "Laurent Blanc",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3154",
+            "name": "Marcel Desailly",
+            "shirtNumber": 8,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "210",
+            "name": "Bixente Lizarazu",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3521",
+            "name": "Lilian Thuram",
+            "shirtNumber": 15,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "75553",
+            "name": "Didier Deschamps",
+            "shirtNumber": 7,
+            "position": "Defensive Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "4",
+            "name": "Youri Djorkaeff",
+            "shirtNumber": 6,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "3183",
+            "name": "Patrick Vieira",
+            "shirtNumber": 4,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3111",
+            "name": "Zinédine Zidane",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3237",
+            "name": "Christophe Dugarry",
+            "shirtNumber": 21,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "3207",
+            "name": "Thierry Henry",
+            "shirtNumber": 12,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 11,
+          "missing": []
+        }
+      },
+      {
+        "teamId": "3376",
+        "name": "Italy",
+        "manager": {
+          "id": "2049",
+          "name": "Dino Zoff"
+        },
+        "formation": "3-4-1-2",
+        "starters": [
+          {
+            "id": "5769",
+            "name": "Francesco Toldo",
+            "shirtNumber": 12,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "5775",
+            "name": "Fabio Cannavaro",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "7927",
+            "name": "Luigi Di Biagio",
+            "shirtNumber": 14,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5750",
+            "name": "Mark Iuliano",
+            "shirtNumber": 15,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5803",
+            "name": "Paolo Maldini",
+            "shirtNumber": 3,
+            "position": "Left Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "4171",
+            "name": "Alessandro Nesta",
+            "shirtNumber": 13,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5751",
+            "name": "Gianluca Pessotto",
+            "shirtNumber": 11,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3390",
+            "name": "Demetrio Albertini",
+            "shirtNumber": 4,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5842",
+            "name": "Stefano Fiore",
+            "shirtNumber": 18,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5961",
+            "name": "Marco Delvecchio",
+            "shirtNumber": 21,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "5958",
+            "name": "Francesco Totti",
+            "shirtNumber": 20,
+            "position": "Second Striker",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 6,
+          "missing": [
+            {
+              "id": "7927",
+              "name": "Luigi Di Biagio",
+              "shirtNumber": 14,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "5750",
+              "name": "Mark Iuliano",
+              "shirtNumber": 15,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "5751",
+              "name": "Gianluca Pessotto",
+              "shirtNumber": 11,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "5842",
+              "name": "Stefano Fiore",
+              "shirtNumber": 18,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "5961",
+              "name": "Marco Delvecchio",
+              "shirtNumber": 21,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "935930",
+    "title": "Germany vs Czechia",
+    "date": "1996-06-30T17:00:00Z",
+    "competition": {
+      "id": "EURO",
+      "name": "UEFA Euro"
+    },
+    "reason": "Euro 1996 final: Germany's golden-goal victory.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/935930",
+      "https://www.transfermarkt.com/europameisterschaft/alleEndspiele/pokalwettbewerb/EURO"
+    ],
+    "teams": [
+      {
+        "teamId": "3262",
+        "name": "Germany",
+        "manager": {
+          "id": "272",
+          "name": "Berti Vogts"
+        },
+        "formation": "3-5-2 Attacking",
+        "starters": [
+          {
+            "id": "1445",
+            "name": "Andreas Köpke",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "192",
+            "name": "Markus Babbel",
+            "shirtNumber": 14,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "12405",
+            "name": "Thomas Helmer",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "525",
+            "name": "Dieter Eilts",
+            "shirtNumber": 21,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "553",
+            "name": "Thomas Häßler",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "77010",
+            "name": "Matthias Sammer",
+            "shirtNumber": 6,
+            "position": "Sweeper",
+            "isCaptain": false
+          },
+          {
+            "id": "217",
+            "name": "Mehmet Scholl",
+            "shirtNumber": 8,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "221",
+            "name": "Thomas Strunz",
+            "shirtNumber": 19,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "916",
+            "name": "Christian Ziege",
+            "shirtNumber": 17,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "16980",
+            "name": "Jürgen Klinsmann",
+            "shirtNumber": 18,
+            "position": "Centre-Forward",
+            "isCaptain": true
+          },
+          {
+            "id": "8194",
+            "name": "Stefan Kuntz",
+            "shirtNumber": 11,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 6,
+          "missing": [
+            {
+              "id": "1445",
+              "name": "Andreas Köpke",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "12405",
+              "name": "Thomas Helmer",
+              "shirtNumber": 5,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "525",
+              "name": "Dieter Eilts",
+              "shirtNumber": 21,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "221",
+              "name": "Thomas Strunz",
+              "shirtNumber": 19,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "8194",
+              "name": "Stefan Kuntz",
+              "shirtNumber": 11,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "3445",
+        "name": "Czechia",
+        "manager": {
+          "id": "1222",
+          "name": "Dusan Uhrin"
+        },
+        "formation": "5-4-1",
+        "starters": [
+          {
+            "id": "9520",
+            "name": "Petr Kouba",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "103480",
+            "name": "Michal Hornak",
+            "shirtNumber": 15,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "8193",
+            "name": "Miroslav Kadlec",
+            "shirtNumber": 5,
+            "position": "Sweeper",
+            "isCaptain": true
+          },
+          {
+            "id": "733",
+            "name": "Karel Rada",
+            "shirtNumber": 19,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "103479",
+            "name": "Jan Suchoparek",
+            "shirtNumber": 3,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3421",
+            "name": "Radek Bejbl",
+            "shirtNumber": 13,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3218",
+            "name": "Patrik Berger",
+            "shirtNumber": 14,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3603",
+            "name": "Pavel Nedved",
+            "shirtNumber": 4,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "274",
+            "name": "Jiri Nemec",
+            "shirtNumber": 7,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3420",
+            "name": "Karel Poborský",
+            "shirtNumber": 8,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "457",
+            "name": "Pavel Kuka",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 3,
+          "missing": [
+            {
+              "id": "9520",
+              "name": "Petr Kouba",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "103480",
+              "name": "Michal Hornak",
+              "shirtNumber": 15,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "8193",
+              "name": "Miroslav Kadlec",
+              "shirtNumber": 5,
+              "position": "Sweeper",
+              "isCaptain": true
+            },
+            {
+              "id": "733",
+              "name": "Karel Rada",
+              "shirtNumber": 19,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "103479",
+              "name": "Jan Suchoparek",
+              "shirtNumber": 3,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "3421",
+              "name": "Radek Bejbl",
+              "shirtNumber": 13,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "274",
+              "name": "Jiri Nemec",
+              "shirtNumber": 7,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "457",
+              "name": "Pavel Kuka",
+              "shirtNumber": 9,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "1004719",
+    "title": "Bayer 04 Leverkusen vs Real Madrid",
+    "date": "2002-05-15T18:45:00Z",
+    "competition": {
+      "id": "CL",
+      "name": "UEFA Champions League"
+    },
+    "reason": "2002 Champions League final: Real Madrid's Glasgow victory.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/1004719",
+      "https://www.transfermarkt.com/uefa-champions-league/alleEndspiele/pokalwettbewerb/CL"
+    ],
+    "teams": [
+      {
+        "teamId": "15",
+        "name": "Bayer 04 Leverkusen",
+        "manager": {
+          "id": "261",
+          "name": "Klaus Toppmöller"
+        },
+        "formation": "4-2-3-1",
+        "starters": [
+          {
+            "id": "294",
+            "name": "Hans Jörg Butt",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "77",
+            "name": "Lúcio",
+            "shirtNumber": 19,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "76",
+            "name": "Diego Placente",
+            "shirtNumber": 35,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "673",
+            "name": "Zoltan Sebescen",
+            "shirtNumber": 26,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "94",
+            "name": "Boris Zivkovic",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "63",
+            "name": "Michael Ballack",
+            "shirtNumber": 13,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "618",
+            "name": "Yıldıray Baştürk",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "86",
+            "name": "Carsten Ramelow",
+            "shirtNumber": 28,
+            "position": "Defensive Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "90",
+            "name": "Bernd Schneider",
+            "shirtNumber": 25,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "66",
+            "name": "Thomas Brdaric",
+            "shirtNumber": 23,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "81",
+            "name": "Oliver Neuville",
+            "shirtNumber": 27,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 4,
+          "missing": [
+            {
+              "id": "294",
+              "name": "Hans Jörg Butt",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "673",
+              "name": "Zoltan Sebescen",
+              "shirtNumber": 26,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "94",
+              "name": "Boris Zivkovic",
+              "shirtNumber": 6,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "618",
+              "name": "Yıldıray Baştürk",
+              "shirtNumber": 10,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "86",
+              "name": "Carsten Ramelow",
+              "shirtNumber": 28,
+              "position": "Defensive Midfield",
+              "isCaptain": true
+            },
+            {
+              "id": "66",
+              "name": "Thomas Brdaric",
+              "shirtNumber": 23,
+              "position": "Left Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "81",
+              "name": "Oliver Neuville",
+              "shirtNumber": 27,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "418",
+        "name": "Real Madrid",
+        "manager": {
+          "id": "40",
+          "name": "Vicente del Bosque"
+        },
+        "formation": "4-4-2 Diamond",
+        "starters": [
+          {
+            "id": "7510",
+            "name": "César Sánchez",
+            "shirtNumber": 13,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "7518",
+            "name": "Roberto Carlos",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "7514",
+            "name": "Iván Helguera",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "7513",
+            "name": "Fernando Hierro",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "7515",
+            "name": "Míchel Salgado",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3446",
+            "name": "Luís Figo",
+            "shirtNumber": 10,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "4182",
+            "name": "Claude Makélélé",
+            "shirtNumber": 24,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "7527",
+            "name": "Santiago Solari",
+            "shirtNumber": 21,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3111",
+            "name": "Zinédine Zidane",
+            "shirtNumber": 5,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "7349",
+            "name": "Raúl",
+            "shirtNumber": 7,
+            "position": "Second Striker",
+            "isCaptain": false
+          },
+          {
+            "id": "7531",
+            "name": "Fernando Morientes",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 11,
+          "missing": []
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "1019806",
+    "title": "Ajax Amsterdam vs AC Milan",
+    "date": "1995-05-24T18:30:00Z",
+    "competition": {
+      "id": "CL",
+      "name": "UEFA Champions League"
+    },
+    "reason": "1995 Champions League final: Ajax's young title-winning side.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/1019806",
+      "https://www.transfermarkt.com/uefa-champions-league/alleEndspiele/pokalwettbewerb/CL"
+    ],
+    "teams": [
+      {
+        "teamId": "610",
+        "name": "Ajax Amsterdam",
+        "manager": {
+          "id": "2029",
+          "name": "Louis van Gaal"
+        },
+        "formation": "3-4-3 Diamond",
+        "starters": [
+          {
+            "id": "3516",
+            "name": "Edwin van der Sar",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "101044",
+            "name": "Danny Blind",
+            "shirtNumber": 3,
+            "position": "Sweeper",
+            "isCaptain": true
+          },
+          {
+            "id": "3518",
+            "name": "Frank de Boer",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "4375",
+            "name": "Michael Reiziger",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5758",
+            "name": "Edgar Davids",
+            "shirtNumber": 8,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3519",
+            "name": "Ronald de Boer",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "13241",
+            "name": "Finidi George",
+            "shirtNumber": 7,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "4675",
+            "name": "Jari Litmanen",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "70667",
+            "name": "Frank Rijkaard",
+            "shirtNumber": 4,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "4168",
+            "name": "Clarence Seedorf",
+            "shirtNumber": 6,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3513",
+            "name": "Marc Overmars",
+            "shirtNumber": 11,
+            "position": "Left Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 8,
+          "missing": [
+            {
+              "id": "101044",
+              "name": "Danny Blind",
+              "shirtNumber": 3,
+              "position": "Sweeper",
+              "isCaptain": true
+            },
+            {
+              "id": "4375",
+              "name": "Michael Reiziger",
+              "shirtNumber": 2,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "13241",
+              "name": "Finidi George",
+              "shirtNumber": 7,
+              "position": "Right Winger",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "5",
+        "name": "AC Milan",
+        "manager": {
+          "id": "518",
+          "name": "Fabio Capello"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "106923",
+            "name": "Sebastiano Rossi",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "42049",
+            "name": "Franco Baresi",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "10055",
+            "name": "Alessandro Costacurta",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3154",
+            "name": "Marcel Desailly",
+            "shirtNumber": 8,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5803",
+            "name": "Paolo Maldini",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5940",
+            "name": "Christian Panucci",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3390",
+            "name": "Demetrio Albertini",
+            "shirtNumber": 4,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "89545",
+            "name": "Zvonimir Boban",
+            "shirtNumber": 10,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "102474",
+            "name": "Roberto Donadoni",
+            "shirtNumber": 7,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "102480",
+            "name": "Daniele Massaro",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "3524",
+            "name": "Marco Simone",
+            "shirtNumber": 11,
+            "position": "Second Striker",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 7,
+          "missing": [
+            {
+              "id": "106923",
+              "name": "Sebastiano Rossi",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "5940",
+              "name": "Christian Panucci",
+              "shirtNumber": 2,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "102480",
+              "name": "Daniele Massaro",
+              "shirtNumber": 9,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "3524",
+              "name": "Marco Simone",
+              "shirtNumber": 11,
+              "position": "Second Striker",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "990547",
+    "title": "Borussia Dortmund vs Juventus FC",
+    "date": "1997-05-28T18:30:00Z",
+    "competition": {
+      "id": "CL",
+      "name": "UEFA Champions League"
+    },
+    "reason": "1997 Champions League final: Dortmund defeat Juventus.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/990547",
+      "https://www.transfermarkt.com/uefa-champions-league/alleEndspiele/pokalwettbewerb/CL"
+    ],
+    "teams": [
+      {
+        "teamId": "16",
+        "name": "Borussia Dortmund",
+        "manager": {
+          "id": "92",
+          "name": "Ottmar Hitzfeld"
+        },
+        "formation": "3-5-2",
+        "starters": [
+          {
+            "id": "3442",
+            "name": "Stefan Klos",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "119",
+            "name": "Jürgen Kohler",
+            "shirtNumber": 15,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "84184",
+            "name": "Martin Kree",
+            "shirtNumber": 16,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "130",
+            "name": "Stefan Reuter",
+            "shirtNumber": 7,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "113",
+            "name": "Jörg Heinrich",
+            "shirtNumber": 17,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3982",
+            "name": "Paul Lambert",
+            "shirtNumber": 14,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "124",
+            "name": "Andreas Möller",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "1536",
+            "name": "Paulo Sousa",
+            "shirtNumber": 19,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "77010",
+            "name": "Matthias Sammer",
+            "shirtNumber": 6,
+            "position": "Sweeper",
+            "isCaptain": true
+          },
+          {
+            "id": "3501",
+            "name": "Stéphane Chapuisat",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "13806",
+            "name": "Karl-Heinz Riedle",
+            "shirtNumber": 13,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 4,
+          "missing": [
+            {
+              "id": "3442",
+              "name": "Stefan Klos",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "84184",
+              "name": "Martin Kree",
+              "shirtNumber": 16,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "130",
+              "name": "Stefan Reuter",
+              "shirtNumber": 7,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "113",
+              "name": "Jörg Heinrich",
+              "shirtNumber": 17,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3982",
+              "name": "Paul Lambert",
+              "shirtNumber": 14,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "1536",
+              "name": "Paulo Sousa",
+              "shirtNumber": 19,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "13806",
+              "name": "Karl-Heinz Riedle",
+              "shirtNumber": 13,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "506",
+        "name": "Juventus FC",
+        "manager": {
+          "id": "525",
+          "name": "Marcello Lippi"
+        },
+        "formation": "4-4-2 Diamond",
+        "starters": [
+          {
+            "id": "5826",
+            "name": "Angelo Peruzzi",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": true
+          },
+          {
+            "id": "5749",
+            "name": "Ciro Ferrara",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5750",
+            "name": "Mark Iuliano",
+            "shirtNumber": 13,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5747",
+            "name": "Paolo Montero",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "106220",
+            "name": "Sergio Porrini",
+            "shirtNumber": 5,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "75553",
+            "name": "Didier Deschamps",
+            "shirtNumber": 14,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "21148",
+            "name": "Angelo Di Livio",
+            "shirtNumber": 7,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5297",
+            "name": "Vladimir Jugovic",
+            "shirtNumber": 18,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3111",
+            "name": "Zinédine Zidane",
+            "shirtNumber": 21,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3571",
+            "name": "Alen Bokšić",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "5797",
+            "name": "Christian Vieri",
+            "shirtNumber": 15,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 3,
+          "missing": [
+            {
+              "id": "5826",
+              "name": "Angelo Peruzzi",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": true
+            },
+            {
+              "id": "5749",
+              "name": "Ciro Ferrara",
+              "shirtNumber": 2,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "5750",
+              "name": "Mark Iuliano",
+              "shirtNumber": 13,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "5747",
+              "name": "Paolo Montero",
+              "shirtNumber": 4,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "106220",
+              "name": "Sergio Porrini",
+              "shirtNumber": 5,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "21148",
+              "name": "Angelo Di Livio",
+              "shirtNumber": 7,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "5297",
+              "name": "Vladimir Jugovic",
+              "shirtNumber": 18,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3571",
+              "name": "Alen Bokšić",
+              "shirtNumber": 9,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "303",
+    "title": "AS Monaco vs FC Porto",
+    "date": "2004-05-26T18:45:00Z",
+    "competition": {
+      "id": "CL",
+      "name": "UEFA Champions League"
+    },
+    "reason": "2004 Champions League final: Porto's title under Mourinho.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/303",
+      "https://www.transfermarkt.com/uefa-champions-league/alleEndspiele/pokalwettbewerb/CL"
+    ],
+    "teams": [
+      {
+        "teamId": "162",
+        "name": "AS Monaco",
+        "manager": {
+          "id": "1229",
+          "name": "Didier Deschamps"
+        },
+        "formation": "4-5-1 flat",
+        "starters": [
+          {
+            "id": "5281",
+            "name": "Flavio Roma",
+            "shirtNumber": 30,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "5285",
+            "name": "Patrice Evra",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5286",
+            "name": "Gaël Givet",
+            "shirtNumber": 32,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "6985",
+            "name": "Hugo Ibarra",
+            "shirtNumber": 4,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5292",
+            "name": "Julien Rodriguez",
+            "shirtNumber": 27,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "5294",
+            "name": "Lucas Bernardi",
+            "shirtNumber": 7,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3800",
+            "name": "Édouard Cissé",
+            "shirtNumber": 14,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5300",
+            "name": "Jérôme Rothen",
+            "shirtNumber": 25,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5302",
+            "name": "Akis Zikos",
+            "shirtNumber": 15,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "7531",
+            "name": "Fernando Morientes",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "5299",
+            "name": "Ludovic Giuly",
+            "shirtNumber": 8,
+            "position": "Right Winger",
+            "isCaptain": true
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 3,
+          "missing": [
+            {
+              "id": "5281",
+              "name": "Flavio Roma",
+              "shirtNumber": 30,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "5286",
+              "name": "Gaël Givet",
+              "shirtNumber": 32,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "6985",
+              "name": "Hugo Ibarra",
+              "shirtNumber": 4,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "5292",
+              "name": "Julien Rodriguez",
+              "shirtNumber": 27,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "5294",
+              "name": "Lucas Bernardi",
+              "shirtNumber": 7,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3800",
+              "name": "Édouard Cissé",
+              "shirtNumber": 14,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "5300",
+              "name": "Jérôme Rothen",
+              "shirtNumber": 25,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "5302",
+              "name": "Akis Zikos",
+              "shirtNumber": 15,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "720",
+        "name": "FC Porto",
+        "manager": {
+          "id": "781",
+          "name": "José Mourinho"
+        },
+        "formation": "4-4-2 Diamond",
+        "starters": [
+          {
+            "id": "8016",
+            "name": "Vítor Baía",
+            "shirtNumber": 99,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "9810",
+            "name": "Jorge Costa",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "9831",
+            "name": "Nuno Valente",
+            "shirtNumber": 8,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "9832",
+            "name": "Paulo Ferreira",
+            "shirtNumber": 22,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "9828",
+            "name": "Ricardo Carvalho",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "15783",
+            "name": "Carlos Alberto",
+            "shirtNumber": 19,
+            "position": "Second Striker",
+            "isCaptain": false
+          },
+          {
+            "id": "9826",
+            "name": "Costinha",
+            "shirtNumber": 6,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "8564",
+            "name": "Deco",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "9822",
+            "name": "Maniche",
+            "shirtNumber": 18,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "9811",
+            "name": "Pedro Mendes",
+            "shirtNumber": 23,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "9809",
+            "name": "Derlei",
+            "shirtNumber": 11,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 4,
+          "missing": [
+            {
+              "id": "9810",
+              "name": "Jorge Costa",
+              "shirtNumber": 2,
+              "position": "Centre-Back",
+              "isCaptain": true
+            },
+            {
+              "id": "9831",
+              "name": "Nuno Valente",
+              "shirtNumber": 8,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "9832",
+              "name": "Paulo Ferreira",
+              "shirtNumber": 22,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "15783",
+              "name": "Carlos Alberto",
+              "shirtNumber": 19,
+              "position": "Second Striker",
+              "isCaptain": false
+            },
+            {
+              "id": "9826",
+              "name": "Costinha",
+              "shirtNumber": 6,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "9811",
+              "name": "Pedro Mendes",
+              "shirtNumber": 23,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "9809",
+              "name": "Derlei",
+              "shirtNumber": 11,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "53463",
+    "title": "FC Barcelona vs Arsenal FC",
+    "date": "2006-05-17T18:45:00Z",
+    "competition": {
+      "id": "CL",
+      "name": "UEFA Champions League"
+    },
+    "reason": "2006 Champions League final: Barcelona's comeback against Arsenal.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/53463",
+      "https://www.transfermarkt.com/uefa-champions-league/alleEndspiele/pokalwettbewerb/CL"
+    ],
+    "teams": [
+      {
+        "teamId": "131",
+        "name": "FC Barcelona",
+        "manager": {
+          "id": "570",
+          "name": "Frank Rijkaard"
+        },
+        "formation": "4-3-3 Attacking",
+        "starters": [
+          {
+            "id": "7589",
+            "name": "Víctor Valdés",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "5343",
+            "name": "Edmílson",
+            "shirtNumber": 15,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "2904",
+            "name": "Rafa Márquez",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "7916",
+            "name": "Oleguer",
+            "shirtNumber": 23,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "7594",
+            "name": "Carles Puyol",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "3191",
+            "name": "Giovanni van Bronckhorst",
+            "shirtNumber": 12,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "8564",
+            "name": "Deco",
+            "shirtNumber": 20,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "5299",
+            "name": "Ludovic Giuly",
+            "shirtNumber": 8,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "3515",
+            "name": "Mark van Bommel",
+            "shirtNumber": 17,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3373",
+            "name": "Ronaldinho",
+            "shirtNumber": 10,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "4257",
+            "name": "Samuel Eto'o",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 9,
+          "missing": [
+            {
+              "id": "5343",
+              "name": "Edmílson",
+              "shirtNumber": 15,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "7916",
+              "name": "Oleguer",
+              "shirtNumber": 23,
+              "position": "Right-Back",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "11",
+        "name": "Arsenal FC",
+        "manager": {
+          "id": "280",
+          "name": "Arsène Wenger"
+        },
+        "formation": "4-2-3-1",
+        "starters": [
+          {
+            "id": "122",
+            "name": "Jens Lehmann",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "3198",
+            "name": "Sol Campbell",
+            "shirtNumber": 23,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3182",
+            "name": "Ashley Cole",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "13058",
+            "name": "Emmanuel Eboué",
+            "shirtNumber": 27,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3202",
+            "name": "Kolo Touré",
+            "shirtNumber": 28,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "8806",
+            "name": "Cesc Fàbregas",
+            "shirtNumber": 15,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "597",
+            "name": "Aleksandr Hleb",
+            "shirtNumber": 13,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3134",
+            "name": "Freddie Ljungberg",
+            "shirtNumber": 8,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3185",
+            "name": "Robert Pirès",
+            "shirtNumber": 7,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3194",
+            "name": "Gilberto Silva",
+            "shirtNumber": 19,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3207",
+            "name": "Thierry Henry",
+            "shirtNumber": 14,
+            "position": "Centre-Forward",
+            "isCaptain": true
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 9,
+          "missing": [
+            {
+              "id": "13058",
+              "name": "Emmanuel Eboué",
+              "shirtNumber": 27,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "597",
+              "name": "Aleksandr Hleb",
+              "shirtNumber": 13,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "3562547",
+    "title": "Manchester City vs Chelsea FC",
+    "date": "2021-05-29T19:00:00Z",
+    "competition": {
+      "id": "CL",
+      "name": "UEFA Champions League"
+    },
+    "reason": "2021 Champions League final: Chelsea defeat Manchester City.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/3562547",
+      "https://www.transfermarkt.com/uefa-champions-league/alleEndspiele/pokalwettbewerb/CL"
+    ],
+    "teams": [
+      {
+        "teamId": "281",
+        "name": "Manchester City",
+        "manager": {
+          "id": "5672",
+          "name": "Pep Guardiola"
+        },
+        "formation": "4-3-3 Attacking",
+        "starters": [
+          {
+            "id": "238223",
+            "name": "Ederson",
+            "shirtNumber": 31,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "258004",
+            "name": "Rúben Dias",
+            "shirtNumber": 3,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "186590",
+            "name": "John Stones",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "95424",
+            "name": "Kyle Walker",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "203853",
+            "name": "Oleksandr Zinchenko",
+            "shirtNumber": 11,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "88755",
+            "name": "Kevin De Bruyne",
+            "shirtNumber": 17,
+            "position": "Centre-Forward",
+            "isCaptain": true
+          },
+          {
+            "id": "53622",
+            "name": "İlkay Gündoğan",
+            "shirtNumber": 8,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "241641",
+            "name": "Bernardo Silva",
+            "shirtNumber": 20,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "406635",
+            "name": "Phil Foden",
+            "shirtNumber": 47,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "171424",
+            "name": "Riyad Mahrez",
+            "shirtNumber": 26,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "134425",
+            "name": "Raheem Sterling",
+            "shirtNumber": 7,
+            "position": "Left Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 11,
+          "missing": []
+        }
+      },
+      {
+        "teamId": "631",
+        "name": "Chelsea FC",
+        "manager": {
+          "id": "7471",
+          "name": "Thomas Tuchel"
+        },
+        "formation": "3-4-2-1",
+        "starters": [
+          {
+            "id": "442531",
+            "name": "Edouard Mendy",
+            "shirtNumber": 16,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "57500",
+            "name": "César Azpilicueta",
+            "shirtNumber": 28,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "316125",
+            "name": "Ben Chilwell",
+            "shirtNumber": 21,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "472423",
+            "name": "Reece James",
+            "shirtNumber": 24,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "86202",
+            "name": "Antonio Rüdiger",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "29241",
+            "name": "Thiago Silva",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "309400",
+            "name": "Kai Havertz",
+            "shirtNumber": 29,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "102017",
+            "name": "Jorginho",
+            "shirtNumber": 5,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "225083",
+            "name": "N'Golo Kanté",
+            "shirtNumber": 7,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "346483",
+            "name": "Mason Mount",
+            "shirtNumber": 19,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "170527",
+            "name": "Timo Werner",
+            "shirtNumber": 11,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 8,
+          "missing": [
+            {
+              "id": "442531",
+              "name": "Edouard Mendy",
+              "shirtNumber": 16,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "57500",
+              "name": "César Azpilicueta",
+              "shirtNumber": 28,
+              "position": "Centre-Back",
+              "isCaptain": true
+            },
+            {
+              "id": "316125",
+              "name": "Ben Chilwell",
+              "shirtNumber": 21,
+              "position": "Left Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "4547655",
+    "title": "Paris Saint-Germain vs Inter Milan",
+    "date": "2025-05-31T19:00:00Z",
+    "competition": {
+      "id": "CL",
+      "name": "UEFA Champions League"
+    },
+    "reason": "2025 Champions League final: Paris Saint-Germain's first title.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4547655",
+      "https://www.transfermarkt.com/uefa-champions-league/alleEndspiele/pokalwettbewerb/CL"
+    ],
+    "teams": [
+      {
+        "teamId": "583",
+        "name": "Paris Saint-Germain",
+        "manager": {
+          "id": "6499",
+          "name": "Luis Enrique"
+        },
+        "formation": "4-3-3 Attacking",
+        "starters": [
+          {
+            "id": "315858",
+            "name": "Gianluigi Donnarumma",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "181767",
+            "name": "Marquinhos",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "661171",
+            "name": "Willian Pacho",
+            "shirtNumber": 51,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "616341",
+            "name": "Nuno Mendes",
+            "shirtNumber": 25,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "398073",
+            "name": "Achraf Hakimi",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "487469",
+            "name": "Vitinha",
+            "shirtNumber": 17,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "670681",
+            "name": "João Neves",
+            "shirtNumber": 87,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "350219",
+            "name": "Fabián Ruiz",
+            "shirtNumber": 8,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "502670",
+            "name": "Khvicha Kvaratskhelia",
+            "shirtNumber": 7,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "914562",
+            "name": "Désiré Doué",
+            "shirtNumber": 14,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "288230",
+            "name": "Ousmane Dembélé",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 9,
+          "missing": [
+            {
+              "id": "661171",
+              "name": "Willian Pacho",
+              "shirtNumber": 51,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "350219",
+              "name": "Fabián Ruiz",
+              "shirtNumber": 8,
+              "position": "Central Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "46",
+        "name": "Inter Milan",
+        "manager": {
+          "id": "21624",
+          "name": "Simone Inzaghi"
+        },
+        "formation": "3-5-2 flat",
+        "starters": [
+          {
+            "id": "42205",
+            "name": "Yann Sommer",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "315853",
+            "name": "Alessandro Bastoni",
+            "shirtNumber": 95,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "131075",
+            "name": "Francesco Acerbi",
+            "shirtNumber": 15,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "353366",
+            "name": "Benjamin Pavard",
+            "shirtNumber": 28,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "126414",
+            "name": "Hakan Çalhanoğlu",
+            "shirtNumber": 20,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "55735",
+            "name": "Henrikh Mkhitaryan",
+            "shirtNumber": 22,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "255942",
+            "name": "Nicolò Barella",
+            "shirtNumber": 23,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "321528",
+            "name": "Denzel Dumfries",
+            "shirtNumber": 2,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "198116",
+            "name": "Federico Dimarco",
+            "shirtNumber": 32,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "318528",
+            "name": "Marcus Thuram",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "406625",
+            "name": "Lautaro Martínez",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": true
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 11,
+          "missing": []
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "1029603",
+    "title": "Newcastle United vs Arsenal FC",
+    "date": "2011-02-05T15:00:00Z",
+    "competition": {
+      "id": "GB1",
+      "name": "Premier League"
+    },
+    "reason": "Newcastle recover from 0–4 to draw with Arsenal in 2011; discovered through the comeback table.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/1029603",
+      "https://www.transfermarkt.com/premier-league/aufholjagden/wettbewerb/GB1"
+    ],
+    "teams": [
+      {
+        "teamId": "762",
+        "name": "Newcastle United",
+        "manager": {
+          "id": "1988",
+          "name": "Alan Pardew"
+        },
+        "formation": "4-2-3-1",
+        "starters": [
+          {
+            "id": "3562",
+            "name": "Steve Harper",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "6150",
+            "name": "Fabricio Coloccini",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "35571",
+            "name": "José Enrique",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "37442",
+            "name": "Danny Simpson",
+            "shirtNumber": 12,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "10642",
+            "name": "Mike Williamson",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3292",
+            "name": "Joey Barton",
+            "shirtNumber": 7,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "26443",
+            "name": "Jonás Gutiérrez",
+            "shirtNumber": 18,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3950",
+            "name": "Kevin Nolan",
+            "shirtNumber": 4,
+            "position": "Attacking Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "33478",
+            "name": "Cheik Tioté",
+            "shirtNumber": 24,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "28244",
+            "name": "Leon Best",
+            "shirtNumber": 20,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "9620",
+            "name": "Peter Løvenkrands",
+            "shirtNumber": 11,
+            "position": "Right Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 2,
+          "missing": [
+            {
+              "id": "3562",
+              "name": "Steve Harper",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "6150",
+              "name": "Fabricio Coloccini",
+              "shirtNumber": 2,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "10642",
+              "name": "Mike Williamson",
+              "shirtNumber": 6,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "3292",
+              "name": "Joey Barton",
+              "shirtNumber": 7,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "26443",
+              "name": "Jonás Gutiérrez",
+              "shirtNumber": 18,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3950",
+              "name": "Kevin Nolan",
+              "shirtNumber": 4,
+              "position": "Attacking Midfield",
+              "isCaptain": true
+            },
+            {
+              "id": "33478",
+              "name": "Cheik Tioté",
+              "shirtNumber": 24,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "28244",
+              "name": "Leon Best",
+              "shirtNumber": 20,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "9620",
+              "name": "Peter Løvenkrands",
+              "shirtNumber": 11,
+              "position": "Right Winger",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "11",
+        "name": "Arsenal FC",
+        "manager": {
+          "id": "280",
+          "name": "Arsène Wenger"
+        },
+        "formation": "4-2-3-1",
+        "starters": [
+          {
+            "id": "44058",
+            "name": "Wojciech Szczesny",
+            "shirtNumber": 53,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "7449",
+            "name": "Gaël Clichy",
+            "shirtNumber": 22,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "34561",
+            "name": "Johan Djourou",
+            "shirtNumber": 20,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "76277",
+            "name": "Laurent Koscielny",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "26764",
+            "name": "Bacary Sagna",
+            "shirtNumber": 3,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "26763",
+            "name": "Abou Diaby",
+            "shirtNumber": 2,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "8806",
+            "name": "Cesc Fàbregas",
+            "shirtNumber": 4,
+            "position": "Attacking Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "74223",
+            "name": "Jack Wilshere",
+            "shirtNumber": 19,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "15378",
+            "name": "Andrey Arshavin",
+            "shirtNumber": 23,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "4380",
+            "name": "Robin van Persie",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "33713",
+            "name": "Theo Walcott",
+            "shirtNumber": 14,
+            "position": "Right Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 6,
+          "missing": [
+            {
+              "id": "7449",
+              "name": "Gaël Clichy",
+              "shirtNumber": 22,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "34561",
+              "name": "Johan Djourou",
+              "shirtNumber": 20,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "76277",
+              "name": "Laurent Koscielny",
+              "shirtNumber": 6,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "26764",
+              "name": "Bacary Sagna",
+              "shirtNumber": 3,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "26763",
+              "name": "Abou Diaby",
+              "shirtNumber": 2,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "1000818",
+    "title": "Tottenham Hotspur vs Manchester United",
+    "date": "2001-09-29T14:00:00Z",
+    "competition": {
+      "id": "GB1",
+      "name": "Premier League"
+    },
+    "reason": "United recover from 0–3 to win 5–3 at Tottenham in 2001; discovered through the comeback table.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/1000818",
+      "https://www.transfermarkt.com/premier-league/aufholjagden/wettbewerb/GB1"
+    ],
+    "teams": [
+      {
+        "teamId": "148",
+        "name": "Tottenham Hotspur",
+        "manager": {
+          "id": "459",
+          "name": "Glenn Hoddle"
+        },
+        "formation": "3-5-2 flat",
+        "starters": [
+          {
+            "id": "4045",
+            "name": "Neil Sullivan",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "3360",
+            "name": "Ledley King",
+            "shirtNumber": 26,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "4051",
+            "name": "Chris Perry",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "4050",
+            "name": "Mauricio Taricco",
+            "shirtNumber": 3,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3277",
+            "name": "Darren Anderton",
+            "shirtNumber": 7,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3990",
+            "name": "Steffen Freund",
+            "shirtNumber": 4,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3361",
+            "name": "Gustavo Poyet",
+            "shirtNumber": 14,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "916",
+            "name": "Christian Ziege",
+            "shirtNumber": 23,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3645",
+            "name": "Les Ferdinand",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "3392",
+            "name": "Teddy Sheringham",
+            "shirtNumber": 10,
+            "position": "Second Striker",
+            "isCaptain": true
+          },
+          {
+            "id": "3829",
+            "name": "Dean Richards",
+            "shirtNumber": 36,
+            "position": "Centre-Back",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 4,
+          "missing": [
+            {
+              "id": "4045",
+              "name": "Neil Sullivan",
+              "shirtNumber": 1,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "4051",
+              "name": "Chris Perry",
+              "shirtNumber": 6,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "4050",
+              "name": "Mauricio Taricco",
+              "shirtNumber": 3,
+              "position": "Right Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3277",
+              "name": "Darren Anderton",
+              "shirtNumber": 7,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3990",
+              "name": "Steffen Freund",
+              "shirtNumber": 4,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3361",
+              "name": "Gustavo Poyet",
+              "shirtNumber": 14,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "3829",
+              "name": "Dean Richards",
+              "shirtNumber": 36,
+              "position": "Centre-Back",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "985",
+        "name": "Manchester United",
+        "manager": {
+          "id": "4",
+          "name": "Alex Ferguson"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "3289",
+            "name": "Fabien Barthez",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "3113",
+            "name": "Laurent Blanc",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "4280",
+            "name": "Denis Irwin",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3578",
+            "name": "Ronny Johnsen",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3403",
+            "name": "Gary Neville",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3139",
+            "name": "David Beckham",
+            "shirtNumber": 7,
+            "position": "Right Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "3543",
+            "name": "Nicky Butt",
+            "shirtNumber": 8,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3397",
+            "name": "Paul Scholes",
+            "shirtNumber": 18,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3143",
+            "name": "Juan Sebastián Verón",
+            "shirtNumber": 4,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3238",
+            "name": "Andy Cole",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "3407",
+            "name": "Ruud van Nistelrooy",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 11,
+          "missing": []
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "945554",
+    "title": "Liverpool FC vs West Ham United",
+    "date": "2006-05-13T14:00:00Z",
+    "competition": {
+      "id": "FAC",
+      "name": "FA Cup"
+    },
+    "reason": "2006 FA Cup final: Liverpool's comeback against West Ham and shootout win.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/945554",
+      "https://www.transfermarkt.com/fa-cup/aufholjagden/pokalwettbewerb/FAC",
+      "https://www.transfermarkt.com/fa-cup/elfmeterschiessen/pokalwettbewerb/FAC",
+      "https://www.transfermarkt.com/fa-cup/alleEndspiele/pokalwettbewerb/FAC"
+    ],
+    "teams": [
+      {
+        "teamId": "31",
+        "name": "Liverpool FC",
+        "manager": {
+          "id": "1522",
+          "name": "Rafael Benítez"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "7825",
+            "name": "Pepe Reina",
+            "shirtNumber": 25,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "3597",
+            "name": "Jamie Carragher",
+            "shirtNumber": 23,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "4038",
+            "name": "Steve Finnan",
+            "shirtNumber": 3,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3470",
+            "name": "Sami Hyypiä",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3220",
+            "name": "John Arne Riise",
+            "shirtNumber": 6,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3109",
+            "name": "Steven Gerrard",
+            "shirtNumber": 8,
+            "position": "Right Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "3241",
+            "name": "Harry Kewell",
+            "shirtNumber": 7,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "6119",
+            "name": "Mohamed Sissoko",
+            "shirtNumber": 22,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "3966",
+            "name": "Djibril Cissé",
+            "shirtNumber": 9,
+            "position": "Second Striker",
+            "isCaptain": false
+          },
+          {
+            "id": "4072",
+            "name": "Peter Crouch",
+            "shirtNumber": 15,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "7476",
+            "name": "Xabi Alonso",
+            "shirtNumber": 14,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 11,
+          "missing": []
+        }
+      },
+      {
+        "teamId": "379",
+        "name": "West Ham United",
+        "manager": {
+          "id": "1988",
+          "name": "Alan Pardew"
+        },
+        "formation": "4-4-2 double 6",
+        "starters": [
+          {
+            "id": "4175",
+            "name": "Shaka Hislop",
+            "shirtNumber": 34,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "3698",
+            "name": "Anton Ferdinand",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "12709",
+            "name": "Danny Gabbidon",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "3296",
+            "name": "Paul Konchesky",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "7499",
+            "name": "Lionel Scaloni",
+            "shirtNumber": 2,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "7858",
+            "name": "Yossi Benayoun",
+            "shirtNumber": 15,
+            "position": "Right Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "3788",
+            "name": "Matthew Etherington",
+            "shirtNumber": 11,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "23370",
+            "name": "Carl Fletcher",
+            "shirtNumber": 6,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "14060",
+            "name": "Nigel Reo-Coker",
+            "shirtNumber": 20,
+            "position": "Defensive Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "14168",
+            "name": "Dean Ashton",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "10011",
+            "name": "Marlon Harewood",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 1,
+          "missing": [
+            {
+              "id": "4175",
+              "name": "Shaka Hislop",
+              "shirtNumber": 34,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "3698",
+              "name": "Anton Ferdinand",
+              "shirtNumber": 5,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "12709",
+              "name": "Danny Gabbidon",
+              "shirtNumber": 4,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "3296",
+              "name": "Paul Konchesky",
+              "shirtNumber": 3,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "7499",
+              "name": "Lionel Scaloni",
+              "shirtNumber": 2,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "3788",
+              "name": "Matthew Etherington",
+              "shirtNumber": 11,
+              "position": "Left Winger",
+              "isCaptain": false
+            },
+            {
+              "id": "23370",
+              "name": "Carl Fletcher",
+              "shirtNumber": 6,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "14060",
+              "name": "Nigel Reo-Coker",
+              "shirtNumber": 20,
+              "position": "Defensive Midfield",
+              "isCaptain": true
+            },
+            {
+              "id": "14168",
+              "name": "Dean Ashton",
+              "shirtNumber": 9,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "10011",
+              "name": "Marlon Harewood",
+              "shirtNumber": 10,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "3813442",
+    "title": "Chelsea FC vs Liverpool FC",
+    "date": "2022-05-14T15:45:00Z",
+    "competition": {
+      "id": "FAC",
+      "name": "FA Cup"
+    },
+    "reason": "2022 FA Cup final: Chelsea and Liverpool's goalless final settled by penalties.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/3813442",
+      "https://www.transfermarkt.com/fa-cup/elfmeterschiessen/pokalwettbewerb/FAC",
+      "https://www.transfermarkt.com/fa-cup/alleEndspiele/pokalwettbewerb/FAC"
+    ],
+    "teams": [
+      {
+        "teamId": "631",
+        "name": "Chelsea FC",
+        "manager": {
+          "id": "7471",
+          "name": "Thomas Tuchel"
+        },
+        "formation": "3-4-2-1",
+        "starters": [
+          {
+            "id": "442531",
+            "name": "Edouard Mendy",
+            "shirtNumber": 16,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "112515",
+            "name": "Marcos Alonso",
+            "shirtNumber": 3,
+            "position": "Left Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "346314",
+            "name": "Trevoh Chalobah",
+            "shirtNumber": 14,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "472423",
+            "name": "Reece James",
+            "shirtNumber": 24,
+            "position": "Right Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "86202",
+            "name": "Antonio Rüdiger",
+            "shirtNumber": 2,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "29241",
+            "name": "Thiago Silva",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "102017",
+            "name": "Jorginho",
+            "shirtNumber": 5,
+            "position": "Defensive Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "51471",
+            "name": "Mateo Kovacic",
+            "shirtNumber": 8,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "346483",
+            "name": "Mason Mount",
+            "shirtNumber": 19,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "96341",
+            "name": "Romelu Lukaku",
+            "shirtNumber": 9,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "315779",
+            "name": "Christian Pulisic",
+            "shirtNumber": 10,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 8,
+          "missing": [
+            {
+              "id": "442531",
+              "name": "Edouard Mendy",
+              "shirtNumber": 16,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "112515",
+              "name": "Marcos Alonso",
+              "shirtNumber": 3,
+              "position": "Left Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "346314",
+              "name": "Trevoh Chalobah",
+              "shirtNumber": 14,
+              "position": "Centre-Back",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "31",
+        "name": "Liverpool FC",
+        "manager": {
+          "id": "118",
+          "name": "Jürgen Klopp"
+        },
+        "formation": "4-3-3 Attacking",
+        "starters": [
+          {
+            "id": "105470",
+            "name": "Alisson",
+            "shirtNumber": 1,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "314353",
+            "name": "Trent Alexander-Arnold",
+            "shirtNumber": 66,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "357119",
+            "name": "Ibrahima Konaté",
+            "shirtNumber": 5,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "234803",
+            "name": "Andrew Robertson",
+            "shirtNumber": 26,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "139208",
+            "name": "Virgil van Dijk",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "61651",
+            "name": "Jordan Henderson",
+            "shirtNumber": 14,
+            "position": "Defensive Midfield",
+            "isCaptain": true
+          },
+          {
+            "id": "302215",
+            "name": "Naby Keïta",
+            "shirtNumber": 8,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "60444",
+            "name": "Thiago Alcántara",
+            "shirtNumber": 6,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "480692",
+            "name": "Luis Díaz",
+            "shirtNumber": 23,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "200512",
+            "name": "Sadio Mané",
+            "shirtNumber": 10,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "148455",
+            "name": "Mohamed Salah",
+            "shirtNumber": 11,
+            "position": "Right Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 10,
+          "missing": [
+            {
+              "id": "302215",
+              "name": "Naby Keïta",
+              "shirtNumber": 8,
+              "position": "Central Midfield",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "matchId": "4308543",
+    "title": "Athletic Bilbao vs RCD Mallorca",
+    "date": "2024-04-06T20:00:00Z",
+    "competition": {
+      "id": "CDR",
+      "name": "Copa del Rey"
+    },
+    "reason": "2024 Copa del Rey final: Athletic Club's long-awaited cup win.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4308543",
+      "https://www.transfermarkt.com/copa-del-rey/elfmeterschiessen/pokalwettbewerb/CDR",
+      "https://www.transfermarkt.com/copa-del-rey/alleEndspiele/pokalwettbewerb/CDR"
+    ],
+    "teams": [
+      {
+        "teamId": "621",
+        "name": "Athletic Bilbao",
+        "manager": {
+          "id": "1559",
+          "name": "Ernesto Valverde"
+        },
+        "formation": "4-2-3-1",
+        "starters": [
+          {
+            "id": "625014",
+            "name": "Julen Agirrezabala",
+            "shirtNumber": 13,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "61812",
+            "name": "Yuri Berchiche",
+            "shirtNumber": 17,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "591916",
+            "name": "Aitor Paredes",
+            "shirtNumber": 4,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "524000",
+            "name": "Dani Vivian",
+            "shirtNumber": 3,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "96718",
+            "name": "Óscar de Marcos",
+            "shirtNumber": 18,
+            "position": "Right-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "625047",
+            "name": "Beñat Prados",
+            "shirtNumber": 24,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "126751",
+            "name": "Iñigo Ruiz de Galarreta",
+            "shirtNumber": 16,
+            "position": "Central Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "571020",
+            "name": "Oihan Sancet",
+            "shirtNumber": 8,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "340205",
+            "name": "Gorka Guruzeta",
+            "shirtNumber": 12,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "709187",
+            "name": "Nico Williams",
+            "shirtNumber": 11,
+            "position": "Left Winger",
+            "isCaptain": false
+          },
+          {
+            "id": "255508",
+            "name": "Iñaki Williams",
+            "shirtNumber": 9,
+            "position": "Right Winger",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 2,
+          "missing": [
+            {
+              "id": "625014",
+              "name": "Julen Agirrezabala",
+              "shirtNumber": 13,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "61812",
+              "name": "Yuri Berchiche",
+              "shirtNumber": 17,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "591916",
+              "name": "Aitor Paredes",
+              "shirtNumber": 4,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "524000",
+              "name": "Dani Vivian",
+              "shirtNumber": 3,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "96718",
+              "name": "Óscar de Marcos",
+              "shirtNumber": 18,
+              "position": "Right-Back",
+              "isCaptain": true
+            },
+            {
+              "id": "625047",
+              "name": "Beñat Prados",
+              "shirtNumber": 24,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "126751",
+              "name": "Iñigo Ruiz de Galarreta",
+              "shirtNumber": 16,
+              "position": "Central Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "571020",
+              "name": "Oihan Sancet",
+              "shirtNumber": 8,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "340205",
+              "name": "Gorka Guruzeta",
+              "shirtNumber": 12,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      },
+      {
+        "teamId": "237",
+        "name": "RCD Mallorca",
+        "manager": {
+          "id": "1548",
+          "name": "Javier Aguirre"
+        },
+        "formation": "5-3-2",
+        "starters": [
+          {
+            "id": "316884",
+            "name": "Dominik Greif",
+            "shirtNumber": 13,
+            "position": "Goalkeeper",
+            "isCaptain": false
+          },
+          {
+            "id": "520840",
+            "name": "José Copete",
+            "shirtNumber": 6,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "339699",
+            "name": "Giovanni González",
+            "shirtNumber": 20,
+            "position": "Right-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "320271",
+            "name": "Toni Lato",
+            "shirtNumber": 3,
+            "position": "Left-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "278296",
+            "name": "Antonio Raíllo",
+            "shirtNumber": 21,
+            "position": "Centre-Back",
+            "isCaptain": true
+          },
+          {
+            "id": "277384",
+            "name": "Martin Valjent",
+            "shirtNumber": 24,
+            "position": "Centre-Back",
+            "isCaptain": false
+          },
+          {
+            "id": "657430",
+            "name": "Samú Costa",
+            "shirtNumber": 12,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "142021",
+            "name": "Sergi Darder",
+            "shirtNumber": 10,
+            "position": "Defensive Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "139435",
+            "name": "Dani Rodríguez",
+            "shirtNumber": 14,
+            "position": "Attacking Midfield",
+            "isCaptain": false
+          },
+          {
+            "id": "343463",
+            "name": "Cyle Larin",
+            "shirtNumber": 17,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          },
+          {
+            "id": "256267",
+            "name": "Vedat Muriqi",
+            "shirtNumber": 7,
+            "position": "Centre-Forward",
+            "isCaptain": false
+          }
+        ],
+        "playerPoolCoverage": {
+          "total": 11,
+          "inPlayerPool": 0,
+          "missing": [
+            {
+              "id": "316884",
+              "name": "Dominik Greif",
+              "shirtNumber": 13,
+              "position": "Goalkeeper",
+              "isCaptain": false
+            },
+            {
+              "id": "520840",
+              "name": "José Copete",
+              "shirtNumber": 6,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "339699",
+              "name": "Giovanni González",
+              "shirtNumber": 20,
+              "position": "Right-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "320271",
+              "name": "Toni Lato",
+              "shirtNumber": 3,
+              "position": "Left-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "278296",
+              "name": "Antonio Raíllo",
+              "shirtNumber": 21,
+              "position": "Centre-Back",
+              "isCaptain": true
+            },
+            {
+              "id": "277384",
+              "name": "Martin Valjent",
+              "shirtNumber": 24,
+              "position": "Centre-Back",
+              "isCaptain": false
+            },
+            {
+              "id": "657430",
+              "name": "Samú Costa",
+              "shirtNumber": 12,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "142021",
+              "name": "Sergi Darder",
+              "shirtNumber": 10,
+              "position": "Defensive Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "139435",
+              "name": "Dani Rodríguez",
+              "shirtNumber": 14,
+              "position": "Attacking Midfield",
+              "isCaptain": false
+            },
+            {
+              "id": "343463",
+              "name": "Cyle Larin",
+              "shirtNumber": 17,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            },
+            {
+              "id": "256267",
+              "name": "Vedat Muriqi",
+              "shirtNumber": 7,
+              "position": "Centre-Forward",
+              "isCaptain": false
+            }
+          ]
+        }
+      }
+    ],
+    "status": "needs-editorial-review"
+  }
+]

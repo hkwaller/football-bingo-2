@@ -4,11 +4,12 @@
 // Consult playam-monetization.monetizationBreakReached; no ad SDK or event is invoked here.
 
 
-import { useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useId, useRef } from 'react'
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import { accuracyPct, formatDuration, totalGuesses, type SoloStats } from '@/lib/soloStats'
 import Link from 'next/link'
+import { useModalFocus } from '@/lib/useModalFocus'
 
 interface Props {
   open: boolean
@@ -21,9 +22,11 @@ const FOIL_COLORS = ['#ffd62e', '#ff5b45', '#6fd3f2', '#ffffff']
 
 export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
   const firedRef = useRef(false)
+  const panel = useModalFocus(open, onClose)
+  const titleId = useId()
 
   useEffect(() => {
-    if (!open || firedRef.current) return
+    if (!open || firedRef.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     firedRef.current = true
 
     const fire = (opts: confetti.Options) =>
@@ -31,14 +34,15 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
 
     fire({ particleCount: 120, spread: 80, origin: { y: 0.55 } })
 
-    setTimeout(() => {
+    const sideBurst = setTimeout(() => {
       fire({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0, y: 0.65 } })
       fire({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1, y: 0.65 } })
     }, 250)
 
-    setTimeout(() => {
+    const finalBurst = setTimeout(() => {
       fire({ particleCount: 40, spread: 100, origin: { y: 0.4 }, gravity: 0.6, scalar: 1.2 })
     }, 600)
+    return () => { clearTimeout(sideBurst); clearTimeout(finalBurst) }
   }, [open])
 
   useEffect(() => {
@@ -46,6 +50,7 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
   }, [open])
 
   return (
+    <MotionConfig reducedMotion="user">
     <AnimatePresence>
       {open && (
         <>
@@ -67,7 +72,7 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
             transition={{ duration: 0.5, ease: [0.2, 1.4, 0.4, 1] }}
           >
-            <div className="w-[420px] max-w-full rounded-[14px] bg-surface px-9 pb-7 pt-9 text-center shadow-[0_14px_0_rgba(10,36,23,0.3),0_40px_90px_rgba(10,36,23,0.5)]">
+            <div ref={panel} role="dialog" aria-modal="true" aria-labelledby={titleId} tabIndex={-1} className="max-h-[calc(100dvh-2rem)] overflow-y-auto w-[420px] max-w-full rounded-[14px] bg-surface px-9 pb-7 pt-9 text-center shadow-[0_14px_0_rgba(10,36,23,0.3),0_40px_90px_rgba(10,36,23,0.5)]">
               <motion.span
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -78,6 +83,7 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
               </motion.span>
 
               <motion.h2
+                id={titleId}
                 initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.15 }}
@@ -184,5 +190,6 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
         </>
       )}
     </AnimatePresence>
+    </MotionConfig>
   )
 }

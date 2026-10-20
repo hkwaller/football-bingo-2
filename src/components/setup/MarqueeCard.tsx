@@ -2,6 +2,7 @@
 
 import type { LucideIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
+import { Check } from 'lucide-react'
 
 /** Bright accent tiles for the two unselected marquee cards. */
 export type MarqueeAccent = 'pink' | 'sky'
@@ -24,10 +25,12 @@ export function MarqueeCard({
   selected,
   wide = false,
   compact = false,
+  fixed = false,
   icon: Icon,
   accent,
   index,
   title,
+  mobileTitle,
   blurb,
   decoration,
   tilt,
@@ -38,12 +41,15 @@ export function MarqueeCard({
   wide?: boolean
   /** Icon + title only, shorter - the mobile "other formats" mini-cards. */
   compact?: boolean
+  /** Selection changes appearance only, keeping the card's geometry stable. */
+  fixed?: boolean
   icon: LucideIcon
   /** Accent for the icon tile when unselected. */
   accent: MarqueeAccent
   /** 1-based position, used for the ghost numeral (01 / 02 / 03). */
   index: number
   title: string
+  mobileTitle?: string
   blurb: string
   /** Overrides the ghost numeral (Bingo passes a dot-grid). */
   decoration?: ReactNode
@@ -56,11 +62,15 @@ export function MarqueeCard({
       role="radio"
       aria-checked={selected}
       onClick={onClick}
-      style={{ transform: `rotate(${tilt}deg)${selected ? ' translateY(-3px)' : ''}` }}
-      className={`group relative flex h-full w-full flex-col overflow-hidden rounded-[14px] p-[22px] text-left transition-[box-shadow,transform] duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch active:translate-y-[2px] motion-reduce:transform-none ${
-        compact ? 'min-h-[132px]' : 'min-h-[196px]'
+      style={{ transform: `rotate(${tilt}deg)${selected && !fixed ? ' translateY(-3px)' : ''}` }}
+      className={`group relative flex h-full min-w-0 w-full flex-col overflow-hidden rounded-[14px] text-left duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch motion-reduce:transform-none ${
+        fixed
+          ? 'min-h-[140px] p-3 shadow-[0_6px_0_#0a2417] transition-colors sm:min-h-[196px] sm:p-[22px]'
+          : `p-[22px] transition-[box-shadow,transform] active:translate-y-[2px] ${compact ? 'min-h-[132px]' : 'min-h-[196px]'}`
       } ${
-        selected
+        fixed
+          ? selected ? 'bg-yellow text-ink' : 'bg-surface text-card-ink hover:bg-surface-hi'
+          : selected
           ? 'bg-yellow text-ink shadow-[0_9px_0_#0a2417] active:shadow-[0_3px_0_#0a2417]'
           : 'bg-surface text-card-ink shadow-[0_6px_0_#0a2417] hover:-translate-y-0.5 hover:shadow-[0_8px_0_#0a2417] active:shadow-[0_3px_0_#0a2417]'
       }`}
@@ -80,13 +90,15 @@ export function MarqueeCard({
       {/* Icon + SELECTED chip */}
       <div className="relative flex items-start justify-between gap-2">
         <span
-          className={`flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-[14px] ${
+          className={`flex shrink-0 items-center justify-center rounded-[14px] ${fixed ? 'h-8 w-8 sm:h-[46px] sm:w-[46px]' : 'h-[46px] w-[46px]'} ${
             selected ? 'bg-pitch-deep/[0.16] text-ink' : ACCENT_TILE[accent]
           }`}
         >
-          <Icon size={24} strokeWidth={2.6} />
+          <Icon size={24} strokeWidth={2.6} className={fixed ? 'h-5 w-5 sm:h-6 sm:w-6' : undefined} />
         </span>
-        {selected && (
+        {fixed ? (
+          <Check aria-hidden className={`h-4 w-4 shrink-0 sm:h-5 sm:w-5 ${selected ? 'visible' : 'invisible'}`} strokeWidth={3} />
+        ) : selected && (
           <span className="rounded-lg bg-pitch-deep px-3 py-1.5 font-mono text-[11.5px] font-bold uppercase leading-none text-yellow">
             Selected
           </span>
@@ -96,14 +108,19 @@ export function MarqueeCard({
       {/* Title + blurb */}
       <p
         className={`relative font-display font-black uppercase leading-[0.92] ${
-          compact ? 'mt-auto text-[27px]' : wide ? 'mt-3 text-[36px]' : 'mt-3 text-[34px]'
+          fixed ? 'mt-4 text-[24px] sm:mt-3 sm:text-[34px]' : compact ? 'mt-auto text-[27px]' : wide ? 'mt-3 text-[36px]' : 'mt-3 text-[34px]'
         }`}
       >
-        {title}
+        {mobileTitle ? (
+          <>
+            <span className="sm:hidden">{mobileTitle}</span>
+            <span className="hidden sm:inline">{title}</span>
+          </>
+        ) : title}
       </p>
       {!compact && (
         <p
-          className={`relative mt-2 max-w-[260px] text-[13px] font-semibold leading-[1.35] ${
+          className={`relative mt-2 max-w-[260px] text-[13px] font-semibold leading-[1.35] ${fixed ? 'hidden sm:block' : ''} ${
             selected ? 'text-ink/85' : 'text-card-muted'
           }`}
         >

@@ -1,12 +1,15 @@
-// Downloads club crests and national-team crests from football-logos.cc
+// Downloads club crests from football-logos.cc and country flags from flagcdn.com
 // into public/logos/{clubs,countries}/. Run with: npx tsx scripts/fetchLogos.ts
 //
 // Logo asset URLs on the site are content-hashed, so we scrape each entity's
 // page and pull the 256x256 PNG out of the HTML.
-import { mkdirSync, writeFileSync, existsSync } from 'fs'
+import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 import { clubs } from '../src/data/clubs'
 import { slugify } from '../src/lib/slugify'
+import { clubCrestKey } from '../src/lib/clubCrestKey'
+import { clubCrestInventory } from './clubCrestInventory'
+import overrides from './data/clubCrestOverrides.json'
 
 const SITE = 'https://football-logos.cc'
 const OUT_CLUBS = join(__dirname, '..', 'public', 'logos', 'clubs')
@@ -156,7 +159,7 @@ const FETCH_HEADERS = {
 }
 
 async function fetchLogoUrl(pagePath: string): Promise<string | null> {
-  const res = await fetch(`${SITE}/${pagePath}/`, { headers: FETCH_HEADERS })
+  const res = await fetch(`${SITE}/${pagePath}/`, { headers: FETCH_HEADERS, signal: AbortSignal.timeout(20000) })
   if (!res.ok) return null
   const html = await res.text()
   const entitySlug = pagePath.split('/').pop()!
@@ -172,9 +175,11 @@ async function fetchLogoUrl(pagePath: string): Promise<string | null> {
 }
 
 async function download(url: string, dest: string): Promise<boolean> {
-  const res = await fetch(url, { headers: FETCH_HEADERS })
+  const res = await fetch(url, { headers: FETCH_HEADERS, signal: AbortSignal.timeout(20000) })
   if (!res.ok) return false
-  writeFileSync(dest, Buffer.from(await res.arrayBuffer()))
+  const bytes = Buffer.from(await res.arrayBuffer())
+  if (!bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))) return false
+  writeFileSync(dest, bytes)
   return true
 }
 
@@ -183,17 +188,64 @@ async function main() {
   mkdirSync(OUT_COUNTRIES, { recursive: true })
   const failures: string[] = []
 
-  for (const club of clubs) {
-    const pagePath = clubSlugs[club.id]
-    const dest = join(OUT_CLUBS, `${slugify(club.displayName)}.png`)
-    if (existsSync(dest)) continue
-    const logoUrl = pagePath ? await fetchLogoUrl(pagePath) : null
-    if (!logoUrl || !(await download(logoUrl, dest))) {
-      failures.push(`club: ${club.displayName}`)
-      continue
+  const manifestPath = join(__dirname, '../src/data/clubCrests.json')
+  const manifest: Record<string, string> = JSON.parse(readFileSync(manifestPath, 'utf8'))
+  const sourcePath = join(__dirname, 'data/clubCrestSources.json')
+  const sources: Record<string, string> = existsSync(sourcePath) ? JSON.parse(readFileSync(sourcePath, 'utf8')) : {}
+  const sitemapRes = await fetch(`${SITE}/sitemap-0.xml`, { signal: AbortSignal.timeout(30000) })
+  if (!sitemapRes.ok) throw new Error(`Catalogue HTTP ${sitemapRes.status}`)
+  const xml = await sitemapRes.text()
+  const paths = [...xml.matchAll(/<loc>https:\/\/football-logos\.cc\/([^<]+)<\/loc>/g)]
+    .map(m => m[1].replace(/\/$/, '')).filter(p => p.split('/').length === 2)
+  const simplify = (name: string) => clubCrestKey(name.replace(/\b(fc|cf|afc|sc|ac|as|ca|cd|fk|sk|rc|club|football|calcio)\b/gi, ''))
+  const index = new Map<string, Set<string>>()
+  for (const path of paths) {
+    const slug = path.split('/')[1]
+    for (const key of [clubCrestKey(slug), simplify(slug.replace(/-/g, ' '))]) {
+      const matches = index.get(key) ?? new Set<string>()
+      matches.add(path); index.set(key, matches)
     }
-    console.log(`club ok: ${club.displayName}`)
   }
+  const unresolved: string[][] = []
+  const pending = clubCrestInventory()
+  async function fetchClub(names: string[]) {
+    let file = names.map(n => manifest[clubCrestKey(n)]).find(f => f && existsSync(join(__dirname, '../public', f)))
+    const curated = clubs.find(c => names.includes(c.canonicalName) || names.includes(c.displayName))
+    const existing = curated && `/logos/clubs/${slugify(curated.displayName)}.png`
+    if (!file && existing && existsSync(join(__dirname, '../public', existing))) {
+      file = existing
+      if (curated && clubSlugs[curated.id]) sources[file] = `${SITE}/${clubSlugs[curated.id]}/`
+    }
+    if (file && file === existing && curated && clubSlugs[curated.id]) sources[file] = `${SITE}/${clubSlugs[curated.id]}/`
+    if (!file) {
+      const exact = new Set(names.flatMap(n => [...(index.get(clubCrestKey(n)) ?? [])]))
+      const relaxed = new Set(names.flatMap(n => [...(index.get(simplify(n)) ?? [])]))
+      const candidates = exact.size ? exact : relaxed
+      const overrideMap: Record<string, string> = overrides
+      const pagePath = names.map(n => overrideMap[n]).find(Boolean) || (curated && clubSlugs[curated.id]) || (candidates.size === 1 ? [...candidates][0] : undefined)
+      if (pagePath) {
+        try {
+          const url = await fetchLogoUrl(pagePath)
+          const target = `/logos/clubs/${pagePath.replace('/', '--')}.png`
+          if (url && await download(url, join(__dirname, '../public', target))) {
+            file = target; sources[target] = `${SITE}/${pagePath}/`
+            console.log(`club ok: ${names[0]}`)
+          }
+        } catch (error) { console.error(`club failed: ${names[0]}: ${error}`) }
+      }
+    }
+    if (file) for (const name of names) manifest[clubCrestKey(name)] = file
+    else unresolved.push(names)
+    // Persist progress so interrupted runs resume without losing downloaded work.
+    writeFileSync(manifestPath, JSON.stringify(Object.fromEntries(Object.entries(manifest).sort()), null, 2) + '\n')
+    writeFileSync(sourcePath, JSON.stringify(sources, null, 2) + '\n')
+  }
+  await Promise.all(Array.from({ length: 3 }, async () => {
+    while (pending.length) await fetchClub(pending.shift()!)
+  }))
+  const stillMissing = unresolved.filter(names => !names.every(n => manifest[clubCrestKey(n)]))
+  writeFileSync(join(__dirname, 'data/missingClubCrests.json'), JSON.stringify(stillMissing.sort((a, b) => a[0].localeCompare(b[0])), null, 2) + '\n')
+  failures.push(...stillMissing.map(names => `club: ${names.join(' / ')}`))
 
   for (const [country, code] of Object.entries(countryFlags)) {
     const dest = join(OUT_COUNTRIES, `${slugify(country)}.png`)
@@ -207,7 +259,8 @@ async function main() {
   }
 
   if (failures.length) {
-    console.error('\nFAILED:\n' + failures.join('\n'))
+    console.error(`\n${failures.length} unresolved images. Club details: scripts/data/missingClubCrests.json`)
+    console.error(failures.slice(0, 20).join('\n'))
     process.exit(1)
   }
   console.log('\nAll logos downloaded.')

@@ -52,6 +52,27 @@ export function BingoBoardView({
       {/* faint chalk ring bleeding through the tray */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface/[0.07]" />
       <div
+        role="group"
+        aria-label="Bingo board"
+        onKeyDown={(event) => {
+          if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+          const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End']
+          if (!keys.includes(event.key)) return
+          const buttons = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('button'))
+          const index = buttons.indexOf(event.target as HTMLButtonElement)
+          if (index < 0) return
+          event.preventDefault()
+          const rowStart = Math.floor(index / size) * size
+          const rowEnd = Math.min(rowStart + size, buttons.length) - 1
+          let next = event.key === 'Home' ? rowStart : event.key === 'End' ? rowEnd : index
+          const step = event.key === 'ArrowUp' ? -size : event.key === 'ArrowDown' ? size : event.key === 'ArrowLeft' || event.key === 'End' ? -1 : 1
+          if (event.key !== 'Home' && event.key !== 'End') next += step
+          while (next >= 0 && next < buttons.length) {
+            if (Math.abs(step) === 1 && (next < rowStart || next > rowEnd)) break
+            if (!buttons[next].disabled) { buttons[next].focus(); break }
+            next += step
+          }
+        }}
         className="relative grid gap-[5px] sm:gap-3"
         style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}
       >
@@ -79,6 +100,7 @@ export function BingoBoardView({
             <motion.button
               key={`${boardKey}-${index}`}
               type="button"
+              aria-label={`Row ${Math.floor(index / size) + 1}, column ${index % size + 1}: ${isFree ? 'Free square' : label ?? display}${pick ? `, placed ${pick.name}` : ''}`}
               layout
               initial={false}
               animate={{

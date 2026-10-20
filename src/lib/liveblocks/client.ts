@@ -11,6 +11,7 @@ import type { KickEvent } from '@/components/RoomKickGate'
 import type { CellPick } from '@/lib/cellPick'
 import type { DraftPolicy } from '@/lib/draftPolicy'
 import type { PlayMode } from '@/lib/playMode'
+import type { BoardDifficulty } from '@/lib/boardDifficulty'
 
 export type DraftVote =
   | { type: 'skip' }
@@ -34,6 +35,7 @@ export type GameStorage = {
   categoryAchievements: boolean
   categoryTraits: boolean
   categoryManagers: boolean
+  boardDifficulty?: BoardDifficulty
   minFameScore: number
   boardLayout: 'shared' | 'individual'
   /** Individual boards only: is the drawn player shared by everyone, or does each player draw their own? */
@@ -111,6 +113,7 @@ export type InitialGameConfig = Partial<
     | 'categoryAchievements'
     | 'categoryTraits'
     | 'categoryManagers'
+    | 'boardDifficulty'
     | 'minFameScore'
     | 'boardLayout'
     | 'drawSource'
@@ -134,6 +137,7 @@ export function createInitialGameStorage(config?: InitialGameConfig): GameStorag
     categoryTraits: true,
     categoryManagers: true,
     minFameScore: 0,
+    boardDifficulty: 'easy',
     boardLayout: 'individual',
     drawSource: 'shared',
     singleGuess: false,

@@ -1,0 +1,30 @@
+[
+  {
+    "matchId": "909764",
+    "reviewedAt": "2026-10-13",
+    "sourceUrls": ["https://www.transfermarkt.de/spielbericht/index/spielbericht/909764", "https://www.uefa.com/news-media/news/0254-0d7bdf4fc084-b292f9dfc61a-1000--united-strike-gold-in-shoot-out/"],
+    "note": "Complete kick order transcribed from Transfermarkt's match report. UEFA independently confirms the three failed kicks. The API headline score is the shootout score; match goals were 1–1.",
+    "matchScore": { "home": 1, "away": 1 },
+    "goalsComplete": true,
+    "shootout": {
+      "complete": true,
+      "score": { "home": 6, "away": 5 },
+      "kicks": [
+        { "player": { "id": "4276", "name": "Carlos Tévez" }, "teamId": "985", "outcome": "scored" },
+        { "player": { "id": "63", "name": "Michael Ballack" }, "teamId": "631", "outcome": "scored" },
+        { "player": { "id": "3878", "name": "Michael Carrick" }, "teamId": "985", "outcome": "scored" },
+        { "player": { "id": "7829", "name": "Juliano Belletti" }, "teamId": "631", "outcome": "scored" },
+        { "player": { "id": "8198", "name": "Cristiano Ronaldo" }, "teamId": "985", "outcome": "saved" },
+        { "player": { "id": "3163", "name": "Frank Lampard" }, "teamId": "631", "outcome": "scored" },
+        { "player": { "id": "201", "name": "Owen Hargreaves" }, "teamId": "985", "outcome": "scored" },
+        { "player": { "id": "3182", "name": "Ashley Cole" }, "teamId": "631", "outcome": "scored" },
+        { "player": { "id": "33706", "name": "Nani" }, "teamId": "985", "outcome": "scored" },
+        { "player": { "id": "3160", "name": "John Terry" }, "teamId": "631", "outcome": "missed" },
+        { "player": { "id": "31645", "name": "Anderson" }, "teamId": "985", "outcome": "scored" },
+        { "player": { "id": "7971", "name": "Salomon Kalou" }, "teamId": "631", "outcome": "scored" },
+        { "player": { "id": "3406", "name": "Ryan Giggs" }, "teamId": "985", "outcome": "scored" },
+        { "player": { "id": "3226", "name": "Nicolas Anelka" }, "teamId": "631", "outcome": "saved" }
+      ]
+    }
+  }
+]

@@ -3,7 +3,7 @@ export interface ConnectionsClub {
   /** Transfermarkt club id. */
   id: string
   name: string
-  /** Crest in public/logos/clubs/, for the curated clubs only. */
+  /** Downloaded crest in public/logos/clubs/, when available. */
   logo: string | null
 }
 

@@ -1,0 +1,209 @@
+[
+  {
+    "matchId": "987136",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/987136",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:41.478Z",
+    "title": "Brazil — Italy",
+    "date": "1970-06-21T11:00:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "936193",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/936193",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:43.783Z",
+    "title": "Brazil — Italy",
+    "date": "1994-07-17T19:30:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": false,
+      "reason": "Goals do not reconcile with match score (shootout or incomplete events)"
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "928100",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/928100",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:45.881Z",
+    "title": "Denmark — Germany",
+    "date": "1992-06-26T18:15:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "909764",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/909764",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:48.572Z",
+    "title": "Manchester United — Chelsea FC",
+    "date": "2008-05-21T18:45:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 1,
+    "shootout": "reviewed supplement"
+  },
+  {
+    "matchId": "983044",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/983044",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:51.210Z",
+    "title": "Manchester United — Bayern Munich",
+    "date": "1999-05-26T18:45:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "2208062",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/2208062",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:54.505Z",
+    "title": "Bayern Munich — Chelsea FC",
+    "date": "2012-05-19T18:45:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": false,
+      "reason": "Goals do not reconcile with match score (shootout or incomplete events)"
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "1029603",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/1029603",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:57.113Z",
+    "title": "Newcastle United — Arsenal FC",
+    "date": "2011-02-05T15:00:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 1,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "1000818",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/1000818",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:57:59.214Z",
+    "title": "Tottenham Hotspur — Manchester United",
+    "date": "2001-09-29T14:00:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "4095236",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/4095236",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:58:01.497Z",
+    "title": "AFC Bournemouth — Luton Town",
+    "date": "2024-03-13T19:30:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "3975879",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/3975879",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:58:03.712Z",
+    "title": "Argentina — France",
+    "date": "2022-12-18T15:00:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": false,
+      "reason": "Goals do not reconcile with match score (shootout or incomplete events)"
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "4359342",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/4359342",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:58:05.935Z",
+    "title": "Spain — England",
+    "date": "2024-07-14T19:00:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  },
+  {
+    "matchId": "4547655",
+    "sourceUrl": "https://transfermarkt-api.fly.dev/games/4547655",
+    "providerVersion": "5.0.0",
+    "fetchedAt": "2026-10-13T08:58:08.145Z",
+    "title": "Paris Saint-Germain — Inter Milan",
+    "date": "2025-05-31T19:00:00Z",
+    "starters": [
+      11,
+      11
+    ],
+    "goals": {
+      "complete": true
+    },
+    "unknownCardColours": 0,
+    "shootout": "not exposed by API; unknown unless reviewed"
+  }
+]

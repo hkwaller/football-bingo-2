@@ -1,0 +1,671 @@
+[
+  {
+    "lineupId": "france-wc98-final",
+    "matchId": "936721",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "sweden-wc94-bronze",
+    "matchId": "936234",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "brazil-wc70-final",
+    "matchId": "987136",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-2-4",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "argentina-wc86-final",
+    "matchId": "946179",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "3-5-2",
+      "imported": "3-5-2 Attacking"
+    }
+  },
+  {
+    "lineupId": "italy-wc82-final",
+    "matchId": "965884",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "5-2-3",
+      "imported": "5-3-2"
+    }
+  },
+  {
+    "lineupId": "croatia-wc18-final",
+    "matchId": "3072773",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-2-3-1",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "west-germany-wc74-final",
+    "matchId": "987104",
+    "status": "identity-unresolved",
+    "details": [
+      "Curated starter not resolved in source: Hans-Georg Schwarzenbeck",
+      "Source starter unmatched: Georg Schwarzenbeck (72270)"
+    ],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Sweeper"
+    },
+    "reviewedDispute": {
+      "reviewedAt": "2026-10-13",
+      "conclusion": "Hans-Georg Schwarzenbeck and source name Georg Schwarzenbeck refer to the same starter. Resolve to Transfermarkt ID 72270 in future enrichment; retain the curated name and layout.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/1974_FIFA_World_Cup_final",
+        "https://www.fifa.com/de/tournaments/mens/worldcup/articles/wm-titel-deutschland-ueberblick-ergebnisse-torschuetzen-kader",
+        "https://www.transfermarkt.com/spielbericht/index/spielbericht/987104"
+      ]
+    }
+  },
+  {
+    "lineupId": "denmark-euro92-final",
+    "matchId": "928100",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "3-5-2",
+      "imported": "5-3-2"
+    }
+  },
+  {
+    "lineupId": "greece-euro04-final",
+    "matchId": "21034",
+    "status": "identity-unresolved",
+    "details": [
+      "Curated starter not resolved in source: Giourkas Seitaridis",
+      "Curated starter not resolved in source: Kostas Katsouranis",
+      "Source starter unmatched: Georgios Seitaridis (9841)",
+      "Source starter unmatched: Konstantinos Katsouranis (9852)"
+    ],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    },
+    "reviewedDispute": {
+      "reviewedAt": "2026-10-13",
+      "conclusion": "Giourkas/Georgios Seitaridis (9841) and Kostas/Konstantinos Katsouranis (9852) are name variants of the same starters. UEFA and DFB use these variants. Retain the curated starters; add identity aliases in a future enrichment change.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/UEFA_Euro_2004_final",
+        "https://www.uefa.com/uefaeuro/history/news/0254-0d7b673abd33-d04e3bb2cd62-1000--greece-are-crowned-kings-of-europe/",
+        "https://datencenter.dfb.de/en/data-center/uefa-european-championship/2004-in-portugal/final/portugal-greece-437929",
+        "https://www.transfermarkt.com/spielbericht/index/spielbericht/21034"
+      ]
+    }
+  },
+  {
+    "lineupId": "spain-euro12-final",
+    "matchId": "2232817",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-2-3-1"
+    }
+  },
+  {
+    "lineupId": "portugal-euro16-final",
+    "matchId": "2711570",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-1-3-2"
+    }
+  },
+  {
+    "lineupId": "man-utd-cl-final-1999",
+    "matchId": "983044",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "barcelona-cl-final-2009",
+    "matchId": "946099",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "barcelona-cl-final-2011",
+    "matchId": "1102390",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "real-madrid-cl-final-2014",
+    "matchId": "2456475",
+    "status": "identity-unresolved",
+    "details": [
+      "Curated starter not resolved in source: Dani Carvajal",
+      "Source starter unmatched: Daniel Carvajal (138927)"
+    ],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    },
+    "reviewedDispute": {
+      "reviewedAt": "2026-10-13",
+      "conclusion": "Dani Carvajal and Daniel Carvajal are the same starter (138927). UEFA reproduces the 2014 final XI with Carvajal. Retain the curated starter; resolve the identity through aliases in a future enrichment change.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2014_UEFA_Champions_League_final",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96dfecee9d-dcc7acc2979f-1000--atletico-need-real-madrid-miracle-in-calderon-farewell/",
+        "https://www.transfermarkt.com/spielbericht/index/spielbericht/2456475"
+      ]
+    }
+  },
+  {
+    "lineupId": "liverpool-cl-final-2019",
+    "matchId": "3183105",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "ac-milan-cl-final-1994",
+    "matchId": "983320",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "inter-cl-final-2010",
+    "matchId": "1016825",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "arsenal-invincibles-0304",
+    "status": "season-xi-excluded",
+    "details": []
+  },
+  {
+    "lineupId": "leicester-pl-1516",
+    "status": "season-xi-excluded",
+    "details": []
+  },
+  {
+    "lineupId": "argentina-wc22-final",
+    "matchId": "3975879",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "france-wc18-final",
+    "matchId": "3072773",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "spain-wc10-final",
+    "matchId": "1030710",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-2-3-1",
+      "imported": "4-1-4-1"
+    }
+  },
+  {
+    "lineupId": "brazil-wc02-final",
+    "matchId": "987578",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "3-4-1-2",
+      "imported": "3-4-2-1"
+    }
+  },
+  {
+    "lineupId": "liverpool-cl-final-2005",
+    "matchId": "31195",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "chelsea-cl-final-2012",
+    "matchId": "2208062",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "man-utd-fa-cup-final-2024",
+    "matchId": "4334126",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-2-4",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "man-city-fa-cup-final-2024",
+    "matchId": "4334126",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "barcelona-el-clasico-2024-10",
+    "matchId": "4407518",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "real-madrid-el-clasico-2024-10",
+    "matchId": "4407518",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "italy-wc06-final",
+    "matchId": "53491",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-2-3-1",
+      "imported": "4-4-1-1"
+    }
+  },
+  {
+    "lineupId": "germany-wc14-final",
+    "matchId": "2466308",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "italy-euro20-final",
+    "matchId": "3605575",
+    "status": "identity-unresolved",
+    "details": [
+      "Curated starter not resolved in source: Emerson Palmieri (70)",
+      "Source starter unmatched: Emerson (181778)"
+    ],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    },
+    "reviewedDispute": {
+      "reviewedAt": "2026-10-13",
+      "conclusion": "Emerson Palmieri is the correct starter. UEFA confirms Emerson in the XI. The current enriched slot ID 70 conflicts with the match's Emerson ID 181778; this is an enrichment identity issue, not a starting-player change. No bank correction is applied in this phase.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/UEFA_Euro_2020_final",
+        "https://www.uefa.com/uefaeuro/history/news/0269-1262855338b0-a7a22fe4ebb4-1000--uefaeuro2020-final-italy-vs-england-line-ups-all-the-finalists-sta/",
+        "https://www.transfermarkt.com/spielbericht/index/spielbericht/3605575"
+      ]
+    }
+  },
+  {
+    "lineupId": "man-utd-cl-final-2008",
+    "matchId": "909764",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "chelsea-cl-final-2008",
+    "matchId": "909764",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "bayern-cl-final-2013",
+    "matchId": "2314690",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "real-madrid-cl-final-2022",
+    "matchId": "3812391",
+    "status": "identity-unresolved",
+    "details": [
+      "Curated starter not resolved in source: Dani Carvajal",
+      "Source starter unmatched: Daniel Carvajal (138927)"
+    ],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    },
+    "reviewedDispute": {
+      "reviewedAt": "2026-10-13",
+      "conclusion": "Dani Carvajal and Daniel Carvajal are the same starter (138927). UEFA lists Dani Carvajal. Retain the curated starter; resolve the identity through aliases in a future enrichment change.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2022_UEFA_Champions_League_final",
+        "https://www.uefa.com/newsfiles/UCL/2022/2034586_HR.pdf",
+        "https://www.transfermarkt.com/spielbericht/index/spielbericht/3812391"
+      ]
+    }
+  },
+  {
+    "lineupId": "man-city-cl-final-2023",
+    "matchId": "4077814",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "3-2-4-1",
+      "imported": "3-4-2-1"
+    }
+  },
+  {
+    "lineupId": "spain-euro24-final",
+    "matchId": "4359342",
+    "status": "identity-unresolved",
+    "details": [
+      "Curated starter not resolved in source: Dani Carvajal",
+      "Source starter unmatched: Daniel Carvajal (138927)"
+    ],
+    "formationDifference": {
+      "curated": "4-2-3-1",
+      "imported": "4-3-3 Attacking"
+    },
+    "reviewedDispute": {
+      "reviewedAt": "2026-10-13",
+      "conclusion": "Dani Carvajal and Daniel Carvajal are the same starter (138927). UEFA's final report confirms Carvajal. Retain the curated starter; resolve the identity through aliases in a future enrichment change.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/UEFA_Euro_2024_final",
+        "https://www.uefa.com/uefaeuro/history/news/028f-1b5e5c2b7b67-d5faab9be20b-1000--spain-2-1-england-late-oyarzabal-winner-earns-la-roja-reco/",
+        "https://www.transfermarkt.com/spielbericht/index/spielbericht/4359342"
+      ]
+    }
+  },
+  {
+    "lineupId": "england-euro24-final",
+    "matchId": "4359342",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "3-4-2-1",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "france-wc22-final",
+    "matchId": "3975879",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "liverpool-cl-final-2022",
+    "matchId": "3812391",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "inter-cl-final-2023",
+    "matchId": "4077814",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "3-5-2",
+      "imported": "3-5-2 flat"
+    }
+  },
+  {
+    "lineupId": "england-euro20-final",
+    "matchId": "3605575",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "3-4-3",
+      "imported": "3-4-2-1"
+    }
+  },
+  {
+    "lineupId": "argentina-wc14-final",
+    "matchId": "2466308",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "dortmund-cl-final-2013",
+    "matchId": "2314690",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "bayern-cl-final-2012",
+    "matchId": "2208062",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "ac-milan-cl-final-2005",
+    "matchId": "31195",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "france-wc06-final",
+    "matchId": "53491",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "netherlands-wc10-final",
+    "matchId": "1030710",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "germany-wc02-final",
+    "matchId": "987578",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "bayern-cl-final-2010",
+    "matchId": "1016825",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "tottenham-cl-final-2019",
+    "matchId": "3183105",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "atletico-cl-final-2014",
+    "matchId": "2456475",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "man-utd-cl-final-2011",
+    "matchId": "1102390",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "man-utd-cl-final-2009",
+    "matchId": "946099",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "bayern-cl-final-1999",
+    "matchId": "983044",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "5-2-3",
+      "imported": "5-4-1"
+    }
+  },
+  {
+    "lineupId": "barcelona-cl-final-1994",
+    "matchId": "983320",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "france-euro16-final",
+    "matchId": "2711570",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "italy-euro12-final",
+    "matchId": "2232817",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "portugal-euro04-final",
+    "matchId": "21034",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-2-3-1",
+      "imported": "4-3-3 Attacking"
+    }
+  },
+  {
+    "lineupId": "germany-euro92-final",
+    "matchId": "928100",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "5-3-2",
+      "imported": "3-5-2"
+    }
+  },
+  {
+    "lineupId": "netherlands-wc74-final",
+    "matchId": "987104",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Sweeper"
+    }
+  },
+  {
+    "lineupId": "west-germany-wc82-final",
+    "matchId": "965884",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "5-3-2",
+      "imported": "3-4-3"
+    }
+  },
+  {
+    "lineupId": "west-germany-wc86-final",
+    "matchId": "946179",
+    "status": "matched",
+    "details": []
+  },
+  {
+    "lineupId": "italy-wc70-final",
+    "matchId": "987136",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-3-1-2",
+      "imported": "3-4-1-2"
+    }
+  },
+  {
+    "lineupId": "brazil-wc98-final",
+    "matchId": "936721",
+    "status": "matched",
+    "details": [],
+    "formationDifference": {
+      "curated": "4-4-2",
+      "imported": "4-4-2 double 6"
+    }
+  },
+  {
+    "lineupId": "bulgaria-wc94-bronze",
+    "matchId": "936234",
+    "status": "identity-unresolved",
+    "details": [
+      "Curated starter not resolved in source: Yordan Letchkov",
+      "Source starter unmatched: Yordan Lechkov (83995)"
+    ],
+    "formationDifference": {
+      "curated": "4-3-3",
+      "imported": "4-3-3 Attacking"
+    },
+    "reviewedDispute": {
+      "reviewedAt": "2026-10-13",
+      "conclusion": "Yordan Letchkov/Lechkov (83995) is a transliteration difference. The existing cited knockout-stage report lists Letchkov in the third-place XI; Transfermarkt lists Lechkov. UEFA uses Letchkov in its retrospective of this team. Retain the curated starter; add the identity alias in future enrichment.",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/1994_FIFA_World_Cup_knockout_stage",
+        "https://editorial.uefa.com/resources/0235-0f842c48890f-8f6b37f099c7-1000/uefa_direct_164_10.01.2017_.pdf",
+        "https://www.transfermarkt.com/spielbericht/index/spielbericht/936234"
+      ]
+    }
+  }
+]

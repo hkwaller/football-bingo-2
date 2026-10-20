@@ -1,4 +1,4 @@
-import { DEFAULT_BOARD_CONFIG, parseBoardConfig } from '@/lib/boardConfig'
+import { DEFAULT_BOARD_CONFIG, isBoardConfigViable, parseBoardConfig } from '@/lib/boardConfig'
 import { resolveDraftPlayer } from '@/lib/draftResolve'
 import { parseDraftPolicy } from '@/lib/draftPolicy'
 
@@ -46,6 +46,10 @@ export async function GET(request: Request) {
     } catch {
       return Response.json({ error: 'Invalid boardConfig' }, { status: 400 })
     }
+  }
+
+  if (!isBoardConfigViable(boardConfig)) {
+    return Response.json({ error: 'Not enough categories for board config' }, { status: 400 })
   }
 
   const result = resolveDraftPlayer({

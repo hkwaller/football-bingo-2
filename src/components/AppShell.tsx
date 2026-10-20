@@ -39,10 +39,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   const inner = (
     <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <NativeBoot />
       <TwinkleDots />
       <SiteHeader />
-      <main className="relative z-10">{children}</main>
+      <main id="main-content" tabIndex={-1} className="relative z-10">{children}</main>
       <SiteFooter />
     </>
   )

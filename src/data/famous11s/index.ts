@@ -1,6 +1,7 @@
 import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
 import { famousLineups as rawLineups } from './lineups'
 import enrichment from './enrichment.json'
+import matchReferences from './matchReferences.json'
 import { enrichedFootballPlayers } from '@/data/players'
 import { normalize } from '@/lib/tenable/normalize'
 import type { Famous11sLineup, LineupDifficulty, LineupEra, LineupKind } from './types'
@@ -46,6 +47,7 @@ function resolveImage(name: string, aliases?: string[]): { playerId?: string; im
 
 export const famousLineups: Famous11sLineup[] = rawLineups.map((lineup) => ({
   ...lineup,
+  transfermarkt: lineup.transfermarkt ?? (matchReferences as Record<string, { matchId: string; teamId: string }>)[lineup.id],
   slots: lineup.slots.map((slot) => {
     const key = `${lineup.id}#${slot.slotId}`
     const fromEnrichment = enrichmentMap[key]

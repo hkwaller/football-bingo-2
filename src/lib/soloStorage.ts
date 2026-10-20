@@ -51,7 +51,7 @@ export function loadSolo(): SoloPersisted | null {
     if (v1) {
       return {
         ...v1,
-        boardConfig: DEFAULT_BOARD_CONFIG,
+        boardConfig: { ...DEFAULT_BOARD_CONFIG, difficulty: undefined },
         lineHighlight: true,
         draftPolicy: 'open',
       }

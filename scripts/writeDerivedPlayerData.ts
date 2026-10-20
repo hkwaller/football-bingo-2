@@ -4,6 +4,7 @@
  *
  *   src/data/categoryLabels.generated.ts   — "traits" / "managers" bingo axes
  *   src/data/playerFameScores.generated.ts — every player's fameScore (desc)
+ *   src/data/categoryCoverage.generated.ts — matching fame scores per category
  *
  * Called by writePlayers.ts; can also be run standalone against the current
  * src/data/players.ts: npm run write-derived
@@ -11,6 +12,8 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import type { Player } from '../src/types/player'
+import { getCanonicalName, getClubCanonicalNames } from '../src/data/clubs'
+import { achievements, nationalities } from '../src/data/categories'
 
 const DATA_DIR = path.join(__dirname, '..', 'src', 'data')
 const LABELS_FILE = path.join(DATA_DIR, 'categoryLabels.generated.ts')
@@ -46,7 +49,9 @@ function writeCategoryLabels(players: Player[]) {
   fs.writeFileSync(
     LABELS_FILE,
     `${HEADER}
-// Labels held by >= ${MIN_PER_CATEGORY} of ${players.length} players, sorted by player count (desc).
+// Labels held by >= ${MIN_PER_CATEGORY} of ${
+      players.length
+    } players, sorted by player count (desc).
 ${FOOTER}
 
 export const traits: string[] = ${JSON.stringify(traits)}
@@ -73,9 +78,48 @@ export const playerFameScores: number[] = ${JSON.stringify(scores)}
   console.log(`✓ Wrote ${scores.length} fame scores to ${FAME_FILE}`)
 }
 
+/** Matching fame scores per label, using the same fields as placement validation. */
+function writeCategoryCoverage(players: Player[]) {
+  const allowed = new Set([
+    ...nationalities,
+    ...getClubCanonicalNames(),
+    ...achievements,
+    ...labelsWithMinCount(players, (p) => p.tags, MIN_PER_CATEGORY),
+    ...labelsWithMinCount(players, (p) => p.managers, MIN_PER_CATEGORY),
+  ])
+  const coverage: Record<string, number[]> = {}
+  for (const p of players) {
+    const labels = new Set([
+      p.nationality,
+      ...[...p.clubs, ...p.youthClubs].map(getCanonicalName),
+      ...p.achievements,
+      ...(p.tags ?? []),
+      ...(p.managers ?? []),
+    ])
+    for (const label of labels) {
+      if (allowed.has(label)) (coverage[label] ??= []).push(p.fameScore ?? 0)
+    }
+  }
+  const sorted = Object.fromEntries(
+    Object.entries(coverage)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([label, scores]) => [label, scores.sort((a, b) => b - a)]),
+  )
+  fs.writeFileSync(
+    path.join(DATA_DIR, 'categoryCoverage.generated.ts'),
+    `${HEADER}\n${FOOTER}\n\nexport const categoryFameScores: Record<string, number[]> = ${JSON.stringify(
+      sorted,
+      null,
+      0,
+    )}\n`,
+  )
+  console.log(`✓ Wrote coverage for ${Object.keys(sorted).length} category labels`)
+}
+
 export function writeDerivedPlayerData(players: Player[]) {
   writeCategoryLabels(players)
   writeFameScores(players)
+  writeCategoryCoverage(players)
 }
 
 if (require.main === module) {

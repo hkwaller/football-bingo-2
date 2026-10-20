@@ -19,6 +19,7 @@ import {
 import type { Famous11sSessionState, GuessOutcome } from '@/lib/famous11s/types'
 import { Famous11sHUD, useSoloTimer } from './Famous11sHUD'
 import { PitchBoard } from './PitchBoard'
+import { ContinueButton } from '@/components/ContinueButton'
 import { Famous11sAutocomplete } from './Famous11sAutocomplete'
 import { Famous11sEndScreen } from './Famous11sEndScreen'
 
@@ -140,9 +141,9 @@ export function Famous11sGame() {
         You found {session.foundSlotIds.length} of {totalSlots}.
       </p>
       <div className="flex w-full flex-col gap-2">
-        <button onClick={handleNext} className="btn btn-primary btn-lg w-full">
+        <ContinueButton onClick={handleNext} className="btn btn-primary btn-lg w-full">
           {isLastLineup ? 'See results' : 'Next lineup'}
-        </button>
+        </ContinueButton>
         {!cleared && !revealed && (
           <button
             onClick={() => setRevealed(true)}

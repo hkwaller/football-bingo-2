@@ -86,6 +86,7 @@ function RoomInner({ roomId }: { roomId: string }) {
   const categoryAchievements = useStorage((s) => s.categoryAchievements) ?? true
   const categoryTraits = useStorage((s) => s.categoryTraits) ?? true
   const categoryManagers = useStorage((s) => s.categoryManagers) ?? true
+  const boardDifficulty = useStorage((s) => s.boardDifficulty) ?? undefined
   const minFameScore = useStorage((s) => s.minFameScore) ?? 0
   const boardLayout = useStorage((s) => s.boardLayout) ?? 'individual'
   const drawSource = useStorage((s) => s.drawSource) === 'independent' ? 'independent' : 'shared'
@@ -110,6 +111,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         categoryTraits,
         categoryManagers,
         minFameScore,
+        boardDifficulty,
       }),
     [
       boardSize,
@@ -119,6 +121,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       categoryTraits,
       categoryManagers,
       minFameScore,
+      boardDifficulty,
     ],
   )
 
@@ -1099,6 +1102,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                 <LobbySettingRow label="Draft" value={DRAFT_POLICY_LABEL[effectiveDraftPolicy]} />
               ) : null}
               <LobbySettingRow label="Grid" value={`${boardSize}×${boardSize}`} />
+              <LobbySettingRow label="Board difficulty" value={boardDifficulty ?? 'Classic'} />
               <LobbySettingRow label="Categories" value={categorySummary} />
               <LobbySettingRow
                 label="Star quality"

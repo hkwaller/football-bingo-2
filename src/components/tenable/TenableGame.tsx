@@ -22,6 +22,7 @@ import type { GuessOutcome, TenableSessionState } from '@/lib/tenable/types'
 import { summarizeSession } from '@/lib/tenableStats'
 import { TenableBoard } from './TenableBoard'
 import { TenableHUD } from './TenableHUD'
+import { ContinueButton } from '@/components/ContinueButton'
 import { NameAutocomplete } from './NameAutocomplete'
 import { TenableEndScreen } from './TenableEndScreen'
 import { TenableHints, fetchTenableHint } from './TenableHints'
@@ -155,11 +156,11 @@ export function TenableGame() {
             <p className="text-sm font-semibold text-on-green-soft">
               You found {foundCount} of {totalAnswers}.
             </p>
-            <button onClick={handleNext} className="btn btn-primary btn-lg">
+            <ContinueButton onClick={handleNext} className="btn btn-primary btn-lg">
               {session.currentIndex + 1 >= session.questions.length
                 ? 'See results'
                 : 'Next category'}
-            </button>
+            </ContinueButton>
           </div>
         ) : (
           <>

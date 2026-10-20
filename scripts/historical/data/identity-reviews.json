@@ -1,0 +1,66 @@
+{
+  "west-germany-wc74-final": {
+    "reviewedAt": "2026-10-13",
+    "conclusion": "Hans-Georg Schwarzenbeck and source name Georg Schwarzenbeck refer to the same starter. Resolve to Transfermarkt ID 72270 in future enrichment; retain the curated name and layout.",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/1974_FIFA_World_Cup_final",
+      "https://www.fifa.com/de/tournaments/mens/worldcup/articles/wm-titel-deutschland-ueberblick-ergebnisse-torschuetzen-kader",
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/987104"
+    ]
+  },
+  "greece-euro04-final": {
+    "reviewedAt": "2026-10-13",
+    "conclusion": "Giourkas/Georgios Seitaridis (9841) and Kostas/Konstantinos Katsouranis (9852) are name variants of the same starters. UEFA and DFB use these variants. Retain the curated starters; add identity aliases in a future enrichment change.",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/UEFA_Euro_2004_final",
+      "https://www.uefa.com/uefaeuro/history/news/0254-0d7b673abd33-d04e3bb2cd62-1000--greece-are-crowned-kings-of-europe/",
+      "https://datencenter.dfb.de/en/data-center/uefa-european-championship/2004-in-portugal/final/portugal-greece-437929",
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/21034"
+    ]
+  },
+  "italy-euro20-final": {
+    "reviewedAt": "2026-10-13",
+    "conclusion": "Emerson Palmieri is the correct starter. UEFA confirms Emerson in the XI. The current enriched slot ID 70 conflicts with the match's Emerson ID 181778; this is an enrichment identity issue, not a starting-player change. No bank correction is applied in this phase.",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/UEFA_Euro_2020_final",
+      "https://www.uefa.com/uefaeuro/history/news/0269-1262855338b0-a7a22fe4ebb4-1000--uefaeuro2020-final-italy-vs-england-line-ups-all-the-finalists-sta/",
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/3605575"
+    ]
+  },
+  "real-madrid-cl-final-2022": {
+    "reviewedAt": "2026-10-13",
+    "conclusion": "Dani Carvajal and Daniel Carvajal are the same starter (138927). UEFA lists Dani Carvajal. Retain the curated starter; resolve the identity through aliases in a future enrichment change.",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/2022_UEFA_Champions_League_final",
+      "https://www.uefa.com/newsfiles/UCL/2022/2034586_HR.pdf",
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/3812391"
+    ]
+  },
+  "spain-euro24-final": {
+    "reviewedAt": "2026-10-13",
+    "conclusion": "Dani Carvajal and Daniel Carvajal are the same starter (138927). UEFA's final report confirms Carvajal. Retain the curated starter; resolve the identity through aliases in a future enrichment change.",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/UEFA_Euro_2024_final",
+      "https://www.uefa.com/uefaeuro/history/news/028f-1b5e5c2b7b67-d5faab9be20b-1000--spain-2-1-england-late-oyarzabal-winner-earns-la-roja-reco/",
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4359342"
+    ]
+  },
+  "real-madrid-cl-final-2014": {
+    "reviewedAt": "2026-10-13",
+    "conclusion": "Dani Carvajal and Daniel Carvajal are the same starter (138927). UEFA reproduces the 2014 final XI with Carvajal. Retain the curated starter; resolve the identity through aliases in a future enrichment change.",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/2014_UEFA_Champions_League_final",
+      "https://www.uefa.com/uefachampionsleague/news/0239-0e96dfecee9d-dcc7acc2979f-1000--atletico-need-real-madrid-miracle-in-calderon-farewell/",
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/2456475"
+    ]
+  },
+  "bulgaria-wc94-bronze": {
+    "reviewedAt": "2026-10-13",
+    "conclusion": "Yordan Letchkov/Lechkov (83995) is a transliteration difference. The existing cited knockout-stage report lists Letchkov in the third-place XI; Transfermarkt lists Lechkov. UEFA uses Letchkov in its retrospective of this team. Retain the curated starter; add the identity alias in future enrichment.",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/1994_FIFA_World_Cup_knockout_stage",
+      "https://editorial.uefa.com/resources/0235-0f842c48890f-8f6b37f099c7-1000/uefa_direct_164_10.01.2017_.pdf",
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/936234"
+    ]
+  }
+}

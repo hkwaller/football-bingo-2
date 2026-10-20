@@ -466,3 +466,46 @@ body::before {
 .native-app ::-webkit-scrollbar {
   display: none;
 }
+
+/* Two-tone keyboard focus stays visible on both paper and pitch. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--card-ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--yellow);
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--card-ink);
+}
+
+input, textarea { caret-color: currentColor; }
+
+.skip-link {
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--card-ink);
+  border-radius: 8px;
+  background: var(--yellow);
+  color: var(--card-ink);
+  font-weight: 800;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.shortcuts-dialog { max-height: calc(100dvh - 2rem); overflow-y: auto; }
+.shortcuts-dialog::backdrop { background: rgb(10 36 23 / 75%); }
+.shortcuts-dialog kbd {
+  display: inline-block;
+  min-width: 1.5rem;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--card-muted);
+  border-radius: 4px;
+  background: var(--surface-hi);
+  color: var(--card-ink);
+  font-family: var(--font-mono), monospace;
+  text-align: center;
+}

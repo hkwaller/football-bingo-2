@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-10-13T09:40:39.104Z",
+  "providerUrl": "https://transfermarkt-api.fly.dev",
+  "competitions": [
+    {
+      "id": "FIWC",
+      "name": "World Cup",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "EURO",
+      "name": "Euros",
+      "status": "available",
+      "tables": 9,
+      "available": 9
+    },
+    {
+      "id": "CL",
+      "name": "Champions League",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "EL",
+      "name": "Europa League / UEFA Cup",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "FAC",
+      "name": "FA Cup",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "CDR",
+      "name": "Copa del Rey",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "DFB",
+      "name": "DFB-Pokal",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "CIt",
+      "name": "Coppa Italia",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "FRC",
+      "name": "Coupe de France",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "GB1",
+      "name": "Premier League",
+      "status": "available",
+      "tables": 9,
+      "available": 9
+    },
+    {
+      "id": "ES1",
+      "name": "La Liga",
+      "status": "available",
+      "tables": 10,
+      "available": 10
+    },
+    {
+      "id": "L1",
+      "name": "Bundesliga",
+      "status": "available",
+      "tables": 9,
+      "available": 9
+    },
+    {
+      "id": "IT1",
+      "name": "Serie A",
+      "status": "available",
+      "tables": 9,
+      "available": 9
+    },
+    {
+      "id": "FR1",
+      "name": "Ligue 1",
+      "status": "available",
+      "tables": 9,
+      "available": 9
+    }
+  ],
+  "discoveredMatches": 5674,
+  "fetchedMatches": 61,
+  "failures": [],
+  "audit": {
+    "matched": 59,
+    "identity-unresolved": 7,
+    "season-xi-excluded": 2
+  },
+  "formationDifferences": 44,
+  "reviewedIdentityDisputes": 7,
+  "candidateCounts": {
+    "famous11s": 20,
+    "famousMoments": 30
+  },
+  "limits": [
+    "Discovery covers first pages; pagination and date filters are recorded, not exhausted.",
+    "API omits shootout kicks and goal technique/own-goal flags.",
+    "Manager and formation differences need editorial review.",
+    "Unresolved references are not confirmations."
+  ]
+}

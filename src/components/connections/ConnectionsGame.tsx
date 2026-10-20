@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { haptic } from '@/lib/native'
 import { LivesRow } from '@/components/LivesRow'
+import { ContinueButton } from '@/components/ContinueButton'
 import { NameAutocomplete } from '@/components/tenable/NameAutocomplete'
 import {
   advance,
@@ -188,9 +189,9 @@ export function ConnectionsGame() {
                 Deep cut bonus
               </span>
             )}
-            <button onClick={handleNext} className="btn btn-primary btn-lg">
+            <ContinueButton onClick={handleNext} className="btn btn-primary btn-lg">
               {isLast ? 'See results' : 'Next clubs'}
-            </button>
+            </ContinueButton>
           </motion.div>
         ) : (
           <>

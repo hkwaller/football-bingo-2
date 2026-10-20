@@ -1,0 +1,266 @@
+{
+  "france-wc98-final": {
+    "matchId": "936721",
+    "teamId": "3377"
+  },
+  "sweden-wc94-bronze": {
+    "matchId": "936234",
+    "teamId": "3557"
+  },
+  "brazil-wc70-final": {
+    "matchId": "987136",
+    "teamId": "3439"
+  },
+  "argentina-wc86-final": {
+    "matchId": "946179",
+    "teamId": "3437"
+  },
+  "italy-wc82-final": {
+    "matchId": "965884",
+    "teamId": "3376"
+  },
+  "croatia-wc18-final": {
+    "matchId": "3072773",
+    "teamId": "3556"
+  },
+  "west-germany-wc74-final": {
+    "matchId": "987104",
+    "teamId": "3262"
+  },
+  "denmark-euro92-final": {
+    "matchId": "928100",
+    "teamId": "3436"
+  },
+  "greece-euro04-final": {
+    "matchId": "21034",
+    "teamId": "3378"
+  },
+  "spain-euro12-final": {
+    "matchId": "2232817",
+    "teamId": "3375"
+  },
+  "portugal-euro16-final": {
+    "matchId": "2711570",
+    "teamId": "3300"
+  },
+  "man-utd-cl-final-1999": {
+    "matchId": "983044",
+    "teamId": "985"
+  },
+  "barcelona-cl-final-2009": {
+    "matchId": "946099",
+    "teamId": "131"
+  },
+  "barcelona-cl-final-2011": {
+    "matchId": "1102390",
+    "teamId": "131"
+  },
+  "real-madrid-cl-final-2014": {
+    "matchId": "2456475",
+    "teamId": "418"
+  },
+  "liverpool-cl-final-2019": {
+    "matchId": "3183105",
+    "teamId": "31"
+  },
+  "ac-milan-cl-final-1994": {
+    "matchId": "983320",
+    "teamId": "5"
+  },
+  "inter-cl-final-2010": {
+    "matchId": "1016825",
+    "teamId": "46"
+  },
+  "argentina-wc22-final": {
+    "matchId": "3975879",
+    "teamId": "3437"
+  },
+  "france-wc18-final": {
+    "matchId": "3072773",
+    "teamId": "3377"
+  },
+  "spain-wc10-final": {
+    "matchId": "1030710",
+    "teamId": "3375"
+  },
+  "brazil-wc02-final": {
+    "matchId": "987578",
+    "teamId": "3439"
+  },
+  "liverpool-cl-final-2005": {
+    "matchId": "31195",
+    "teamId": "31"
+  },
+  "chelsea-cl-final-2012": {
+    "matchId": "2208062",
+    "teamId": "631"
+  },
+  "man-utd-fa-cup-final-2024": {
+    "matchId": "4334126",
+    "teamId": "985"
+  },
+  "man-city-fa-cup-final-2024": {
+    "matchId": "4334126",
+    "teamId": "281"
+  },
+  "barcelona-el-clasico-2024-10": {
+    "matchId": "4407518",
+    "teamId": "131"
+  },
+  "real-madrid-el-clasico-2024-10": {
+    "matchId": "4407518",
+    "teamId": "418"
+  },
+  "italy-wc06-final": {
+    "matchId": "53491",
+    "teamId": "3376"
+  },
+  "germany-wc14-final": {
+    "matchId": "2466308",
+    "teamId": "3262"
+  },
+  "italy-euro20-final": {
+    "matchId": "3605575",
+    "teamId": "3376"
+  },
+  "man-utd-cl-final-2008": {
+    "matchId": "909764",
+    "teamId": "985"
+  },
+  "chelsea-cl-final-2008": {
+    "matchId": "909764",
+    "teamId": "631"
+  },
+  "bayern-cl-final-2013": {
+    "matchId": "2314690",
+    "teamId": "27"
+  },
+  "real-madrid-cl-final-2022": {
+    "matchId": "3812391",
+    "teamId": "418"
+  },
+  "man-city-cl-final-2023": {
+    "matchId": "4077814",
+    "teamId": "281"
+  },
+  "spain-euro24-final": {
+    "matchId": "4359342",
+    "teamId": "3375"
+  },
+  "england-euro24-final": {
+    "matchId": "4359342",
+    "teamId": "3299"
+  },
+  "france-wc22-final": {
+    "matchId": "3975879",
+    "teamId": "3377"
+  },
+  "liverpool-cl-final-2022": {
+    "matchId": "3812391",
+    "teamId": "31"
+  },
+  "inter-cl-final-2023": {
+    "matchId": "4077814",
+    "teamId": "46"
+  },
+  "england-euro20-final": {
+    "matchId": "3605575",
+    "teamId": "3299"
+  },
+  "argentina-wc14-final": {
+    "matchId": "2466308",
+    "teamId": "3437"
+  },
+  "dortmund-cl-final-2013": {
+    "matchId": "2314690",
+    "teamId": "16"
+  },
+  "bayern-cl-final-2012": {
+    "matchId": "2208062",
+    "teamId": "27"
+  },
+  "ac-milan-cl-final-2005": {
+    "matchId": "31195",
+    "teamId": "5"
+  },
+  "france-wc06-final": {
+    "matchId": "53491",
+    "teamId": "3377"
+  },
+  "netherlands-wc10-final": {
+    "matchId": "1030710",
+    "teamId": "3379"
+  },
+  "germany-wc02-final": {
+    "matchId": "987578",
+    "teamId": "3262"
+  },
+  "bayern-cl-final-2010": {
+    "matchId": "1016825",
+    "teamId": "27"
+  },
+  "tottenham-cl-final-2019": {
+    "matchId": "3183105",
+    "teamId": "148"
+  },
+  "atletico-cl-final-2014": {
+    "matchId": "2456475",
+    "teamId": "13"
+  },
+  "man-utd-cl-final-2011": {
+    "matchId": "1102390",
+    "teamId": "985"
+  },
+  "man-utd-cl-final-2009": {
+    "matchId": "946099",
+    "teamId": "985"
+  },
+  "bayern-cl-final-1999": {
+    "matchId": "983044",
+    "teamId": "27"
+  },
+  "barcelona-cl-final-1994": {
+    "matchId": "983320",
+    "teamId": "131"
+  },
+  "france-euro16-final": {
+    "matchId": "2711570",
+    "teamId": "3377"
+  },
+  "italy-euro12-final": {
+    "matchId": "2232817",
+    "teamId": "3376"
+  },
+  "portugal-euro04-final": {
+    "matchId": "21034",
+    "teamId": "3300"
+  },
+  "germany-euro92-final": {
+    "matchId": "928100",
+    "teamId": "3262"
+  },
+  "netherlands-wc74-final": {
+    "matchId": "987104",
+    "teamId": "3379"
+  },
+  "west-germany-wc82-final": {
+    "matchId": "965884",
+    "teamId": "3262"
+  },
+  "west-germany-wc86-final": {
+    "matchId": "946179",
+    "teamId": "3262"
+  },
+  "italy-wc70-final": {
+    "matchId": "987136",
+    "teamId": "3376"
+  },
+  "brazil-wc98-final": {
+    "matchId": "936721",
+    "teamId": "3439"
+  },
+  "bulgaria-wc94-bronze": {
+    "matchId": "936234",
+    "teamId": "3394"
+  }
+}
