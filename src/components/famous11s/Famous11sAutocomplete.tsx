@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { normalize } from '@/lib/tenable/normalize'
 import { canAutoFocus } from '@/lib/autoFocus'
 
@@ -30,6 +30,8 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
+  const listId = useId()
+  const listVisible = open && suggestions.length > 0 && suggestionsFor === query.trim()
 
   useEffect(() => {
     if (!disabled && canAutoFocus()) inputRef.current?.focus()
@@ -82,7 +84,7 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
    * raw query. Suggestions fetched for an older query are ignored.
    */
   function bestGuess(): string {
-    if (active >= 0 && suggestions[active]) return suggestions[active]
+    if (listVisible && active >= 0 && suggestions[active]) return suggestions[active]
     const q = query.trim()
     if (suggestionsFor !== q) return query
     const key = normalize(q)
@@ -92,6 +94,7 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
   }
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.nativeEvent.isComposing) return
     if (e.key === 'ArrowDown') {
       e.preventDefault()
       setOpen(true)
@@ -120,11 +123,17 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
     >
       <input
         ref={inputRef}
+          role="combobox"
+          aria-label="Name a player"
+          aria-autocomplete="list"
+          aria-expanded={listVisible}
+          aria-controls={listVisible ? listId : undefined}
+          aria-activedescendant={listVisible && active >= 0 && suggestions[active] ? `${listId}-${active}` : undefined}
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => { setQuery(e.target.value); setActive(-1) }}
         onKeyDown={onKeyDown}
-        onBlur={() => window.setTimeout(() => setOpen(false), 150)}
+        onBlur={() => { setOpen(false); setActive(-1) }}
         disabled={disabled}
         placeholder={placeholder}
         autoComplete="off"
@@ -135,8 +144,9 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
             : 'border-surface/20 bg-surface/15 text-on-green placeholder:text-on-green-dim focus:border-yellow'
         }`}
       />
-      {open && suggestions.length > 0 && (
+      {listVisible && (
         <ul
+          id={listId} role="listbox" aria-label="Player suggestions"
           className={`absolute left-0 right-0 z-20 overflow-hidden rounded-[10px] border bg-ink shadow-[0_8px_0_#0a2417] ${
             isBar
               ? 'bottom-[56px] border-ink/30 shadow-[0_-8px_0_#0a2417]'
@@ -144,11 +154,13 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
           }`}
         >
           {suggestions.map((s, i) => (
-            <li key={s}>
+            <li key={s} id={`${listId}-${i}`} role="option" aria-selected={active === i}>
               <button
                 type="button"
-                onMouseDown={() => submit(s)}
-                className={`w-full px-4 py-2.5 text-left font-display text-[15px] font-black uppercase leading-none transition-colors ${
+                tabIndex={-1}
+                onPointerDown={(e) => e.preventDefault()}
+                onClick={() => submit(s)}
+                className={`min-h-11 w-full px-4 py-2.5 text-left font-display text-[15px] font-black uppercase leading-none transition-colors ${
                   i === active ? 'bg-yellow text-ink' : 'text-on-green hover:bg-surface/10'
                 }`}
               >

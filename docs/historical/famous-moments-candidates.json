@@ -1,0 +1,875 @@
+[
+  {
+    "id": "909764-shootout-miss",
+    "matchId": "909764",
+    "kind": "shootout-miss",
+    "prompt": "Name a player who failed to convert in the shootout in Manchester United vs Chelsea FC on 2008-05-21.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "8198",
+        "name": "Cristiano Ronaldo",
+        "aliases": [
+          "Cristiano Ronaldo",
+          "Ronaldo",
+          "CR7"
+        ]
+      },
+      {
+        "playerId": "3160",
+        "name": "John Terry",
+        "aliases": [
+          "John Terry",
+          "Terry"
+        ]
+      },
+      {
+        "playerId": "3226",
+        "name": "Nicolas Anelka",
+        "aliases": [
+          "Nicolas Anelka"
+        ]
+      }
+    ],
+    "explanation": "Failed kicks: Cristiano Ronaldo (saved), John Terry (missed), Nicolas Anelka (saved).",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/909764",
+      "https://www.transfermarkt.de/spielbericht/index/spielbericht/909764",
+      "https://www.uefa.com/news-media/news/0254-0d7bdf4fc084-b292f9dfc61a-1000--united-strike-gold-in-shoot-out/"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "983044-substitute",
+    "matchId": "983044",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Manchester United vs Bayern Munich on 1999-05-26.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "3392",
+        "name": "Teddy Sheringham",
+        "aliases": [
+          "Teddy Sheringham"
+        ]
+      },
+      {
+        "playerId": "3394",
+        "name": "Ole Gunnar Solskjaer",
+        "aliases": [
+          "Ole Gunnar Solskjaer"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Teddy Sheringham, Ole Gunnar Solskjaer.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/983044"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "4359342-substitute",
+    "matchId": "4359342",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Spain vs England on 2024-07-14.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "568177",
+        "name": "Cole Palmer",
+        "aliases": [
+          "Cole Palmer"
+        ]
+      },
+      {
+        "playerId": "351478",
+        "name": "Mikel Oyarzabal",
+        "aliases": [
+          "Mikel Oyarzabal"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Cole Palmer, Mikel Oyarzabal.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4359342"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "4547655-substitute",
+    "matchId": "4547655",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Paris Saint-Germain vs Inter Milan on 2025-05-31.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "903693",
+        "name": "Senny Mayulu",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Senny Mayulu.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4547655"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "946179-substitute",
+    "matchId": "946179",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Argentina vs Germany on 1986-06-29.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "13775",
+        "name": "Rudi Völler",
+        "aliases": [
+          "Rudi Völler"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Rudi Völler.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/946179"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "965884-substitute",
+    "matchId": "965884",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Italy vs Germany on 1982-07-11.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "116678",
+        "name": "Alessandro Altobelli",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Alessandro Altobelli.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/965884"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "2232817-substitute",
+    "matchId": "2232817",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Spain vs Italy on 2012-07-01.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "7767",
+        "name": "Fernando Torres",
+        "aliases": [
+          "Fernando Torres"
+        ]
+      },
+      {
+        "playerId": "44068",
+        "name": "Juan Mata",
+        "aliases": [
+          "Juan Mata",
+          "Mata"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Fernando Torres, Juan Mata.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/2232817"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "2711570-substitute",
+    "matchId": "2711570",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Portugal vs France on 2016-07-10.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "84481",
+        "name": "Éder",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Éder.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/2711570"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "2456475-substitute",
+    "matchId": "2456475",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Real Madrid vs Atlético de Madrid on 2014-05-24.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "44501",
+        "name": "Marcelo",
+        "aliases": [
+          "Marcelo"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Marcelo.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/2456475"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "3183105-substitute",
+    "matchId": "3183105",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Tottenham Hotspur vs Liverpool FC on 2019-06-01.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "148368",
+        "name": "Divock Origi",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Divock Origi.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/3183105"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "4334126-substitute",
+    "matchId": "4334126",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Manchester City vs Manchester United on 2024-05-25.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "486049",
+        "name": "Jérémy Doku",
+        "aliases": [
+          "Jérémy Doku"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Jérémy Doku.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4334126"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "2208329-substitute",
+    "matchId": "2208329",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Real Madrid vs FC Barcelona on 1997-10-31.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "8014",
+        "name": "Giovanni",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Giovanni.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/2208329"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "2466308-substitute",
+    "matchId": "2466308",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Germany vs Argentina on 2014-07-13.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "74842",
+        "name": "Mario Götze",
+        "aliases": [
+          "Mario Götze"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Mario Götze.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/2466308"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "981173-substitute",
+    "matchId": "981173",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Argentina vs Netherlands on 1978-06-25.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "135642",
+        "name": "Dick Nanninga",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Dick Nanninga.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/981173"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "935961-substitute",
+    "matchId": "935961",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in France vs Italy on 2000-07-02.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "3188",
+        "name": "Sylvain Wiltord",
+        "aliases": [
+          "Sylvain Wiltord"
+        ]
+      },
+      {
+        "playerId": "4146",
+        "name": "David Trezeguet",
+        "aliases": [
+          "David Trezeguet"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Sylvain Wiltord, David Trezeguet.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/935961"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "935930-substitute",
+    "matchId": "935930",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Germany vs Czechia on 1996-06-30.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "56",
+        "name": "Oliver Bierhoff",
+        "aliases": [
+          "Oliver Bierhoff"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Oliver Bierhoff.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/935930"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "1019806-substitute",
+    "matchId": "1019806",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Ajax Amsterdam vs AC Milan on 1995-05-24.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "4385",
+        "name": "Patrick Kluivert",
+        "aliases": [
+          "Patrick Kluivert"
+        ]
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Patrick Kluivert.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/1019806"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "990547-substitute",
+    "matchId": "990547",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in Borussia Dortmund vs Juventus FC on 1997-05-28.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "4289",
+        "name": "Alessandro Del Piero",
+        "aliases": [
+          "Alessandro Del Piero"
+        ]
+      },
+      {
+        "playerId": "131",
+        "name": "Lars Ricken",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Alessandro Del Piero, Lars Ricken.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/990547"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "303-substitute",
+    "matchId": "303",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in AS Monaco vs FC Porto on 2004-05-26.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "9804",
+        "name": "Dmitriy Alenichev",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Dmitriy Alenichev.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/303"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "53463-substitute",
+    "matchId": "53463",
+    "kind": "scoring-substitute",
+    "prompt": "Name a substitute who came on and scored in FC Barcelona vs Arsenal FC on 2006-05-17.",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "7829",
+        "name": "Juliano Belletti",
+        "aliases": []
+      }
+    ],
+    "explanation": "These players have both an entry substitution and a subsequent goal recorded: Juliano Belletti.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/53463"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "987136-scorer",
+    "matchId": "987136",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Brazil vs Italy on 1970-06-21 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "17121",
+        "name": "Pelé",
+        "aliases": [
+          "Pelé",
+          "Pele",
+          "Edson Arantes do Nascimento"
+        ]
+      },
+      {
+        "playerId": "145375",
+        "name": "Roberto Boninsegna",
+        "aliases": []
+      },
+      {
+        "playerId": "229676",
+        "name": "Gérson",
+        "aliases": []
+      },
+      {
+        "playerId": "145510",
+        "name": "Jairzinho",
+        "aliases": [
+          "Jairzinho",
+          "Jair Ventura Filho"
+        ]
+      },
+      {
+        "playerId": "229662",
+        "name": "Carlos Alberto Torres",
+        "aliases": [
+          "Carlos Alberto Torres",
+          "Carlos Alberto"
+        ]
+      }
+    ],
+    "explanation": "Match scorers: Pelé, Roberto Boninsegna, Gérson, Jairzinho, Carlos Alberto Torres. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/987136"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "928100-scorer",
+    "matchId": "928100",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Denmark vs Germany on 1992-06-26 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "92130",
+        "name": "John Jensen",
+        "aliases": []
+      },
+      {
+        "playerId": "101308",
+        "name": "Kim Vilfort",
+        "aliases": []
+      }
+    ],
+    "explanation": "Match scorers: John Jensen, Kim Vilfort. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/928100"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "909764-scorer",
+    "matchId": "909764",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Manchester United vs Chelsea FC on 2008-05-21 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "8198",
+        "name": "Cristiano Ronaldo",
+        "aliases": [
+          "Cristiano Ronaldo",
+          "Ronaldo",
+          "CR7"
+        ]
+      },
+      {
+        "playerId": "3163",
+        "name": "Frank Lampard",
+        "aliases": [
+          "Frank Lampard",
+          "Lampard"
+        ]
+      }
+    ],
+    "explanation": "Match scorers: Cristiano Ronaldo, Frank Lampard. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/909764",
+      "https://www.transfermarkt.de/spielbericht/index/spielbericht/909764",
+      "https://www.uefa.com/news-media/news/0254-0d7bdf4fc084-b292f9dfc61a-1000--united-strike-gold-in-shoot-out/"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "983044-scorer",
+    "matchId": "983044",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Manchester United vs Bayern Munich on 1999-05-26 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "2",
+        "name": "Mario Basler",
+        "aliases": []
+      },
+      {
+        "playerId": "3392",
+        "name": "Teddy Sheringham",
+        "aliases": [
+          "Teddy Sheringham"
+        ]
+      },
+      {
+        "playerId": "3394",
+        "name": "Ole Gunnar Solskjaer",
+        "aliases": [
+          "Ole Gunnar Solskjaer"
+        ]
+      }
+    ],
+    "explanation": "Match scorers: Mario Basler, Teddy Sheringham, Ole Gunnar Solskjaer. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/983044"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "1029603-scorer",
+    "matchId": "1029603",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Newcastle United vs Arsenal FC on 2011-02-05 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "33713",
+        "name": "Theo Walcott",
+        "aliases": [
+          "Theo Walcott"
+        ]
+      },
+      {
+        "playerId": "34561",
+        "name": "Johan Djourou",
+        "aliases": []
+      },
+      {
+        "playerId": "4380",
+        "name": "Robin van Persie",
+        "aliases": [
+          "Robin van Persie",
+          "Van Persie",
+          "RvP"
+        ]
+      },
+      {
+        "playerId": "3292",
+        "name": "Joey Barton",
+        "aliases": []
+      },
+      {
+        "playerId": "28244",
+        "name": "Leon Best",
+        "aliases": []
+      },
+      {
+        "playerId": "33478",
+        "name": "Cheik Tioté",
+        "aliases": []
+      }
+    ],
+    "explanation": "Match scorers: Theo Walcott, Johan Djourou, Robin van Persie, Joey Barton, Leon Best, Cheik Tioté. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/1029603"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "1000818-scorer",
+    "matchId": "1000818",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Tottenham Hotspur vs Manchester United on 2001-09-29 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "3829",
+        "name": "Dean Richards",
+        "aliases": []
+      },
+      {
+        "playerId": "3645",
+        "name": "Les Ferdinand",
+        "aliases": [
+          "Les Ferdinand"
+        ]
+      },
+      {
+        "playerId": "916",
+        "name": "Christian Ziege",
+        "aliases": [
+          "Christian Ziege"
+        ]
+      },
+      {
+        "playerId": "3238",
+        "name": "Andy Cole",
+        "aliases": [
+          "Andy Cole",
+          "Andrew Cole"
+        ]
+      },
+      {
+        "playerId": "3113",
+        "name": "Laurent Blanc",
+        "aliases": [
+          "Laurent Blanc"
+        ]
+      },
+      {
+        "playerId": "3407",
+        "name": "Ruud van Nistelrooy",
+        "aliases": [
+          "Ruud van Nistelrooy"
+        ]
+      },
+      {
+        "playerId": "3143",
+        "name": "Juan Sebastián Verón",
+        "aliases": [
+          "Juan Sebastián Verón"
+        ]
+      },
+      {
+        "playerId": "3139",
+        "name": "David Beckham",
+        "aliases": [
+          "David Beckham",
+          "Beckham"
+        ]
+      }
+    ],
+    "explanation": "Match scorers: Dean Richards, Les Ferdinand, Christian Ziege, Andy Cole, Laurent Blanc, Ruud van Nistelrooy, Juan Sebastián Verón, David Beckham. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/1000818"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "4095236-scorer",
+    "matchId": "4095236",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in AFC Bournemouth vs Luton Town on 2024-03-13 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "344830",
+        "name": "Tahith Chong",
+        "aliases": []
+      },
+      {
+        "playerId": "392591",
+        "name": "Chiedozie Ogbene",
+        "aliases": []
+      },
+      {
+        "playerId": "131978",
+        "name": "Ross Barkley",
+        "aliases": []
+      },
+      {
+        "playerId": "258889",
+        "name": "Dominic Solanke",
+        "aliases": [
+          "Dominic Solanke"
+        ]
+      },
+      {
+        "playerId": "659089",
+        "name": "Ilya Zabarnyi",
+        "aliases": []
+      },
+      {
+        "playerId": "583255",
+        "name": "Antoine Semenyo",
+        "aliases": [
+          "Antoine Semenyo"
+        ]
+      }
+    ],
+    "explanation": "Match scorers: Tahith Chong, Chiedozie Ogbene, Ross Barkley, Dominic Solanke, Ilya Zabarnyi, Antoine Semenyo. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4095236"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "4359342-scorer",
+    "matchId": "4359342",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Spain vs England on 2024-07-14 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "709187",
+        "name": "Nico Williams",
+        "aliases": [
+          "Nico Williams",
+          "Williams",
+          "Nico"
+        ]
+      },
+      {
+        "playerId": "568177",
+        "name": "Cole Palmer",
+        "aliases": [
+          "Cole Palmer"
+        ]
+      },
+      {
+        "playerId": "351478",
+        "name": "Mikel Oyarzabal",
+        "aliases": [
+          "Mikel Oyarzabal"
+        ]
+      }
+    ],
+    "explanation": "Match scorers: Nico Williams, Cole Palmer, Mikel Oyarzabal. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4359342"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "4547655-scorer",
+    "matchId": "4547655",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Paris Saint-Germain vs Inter Milan on 2025-05-31 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "398073",
+        "name": "Achraf Hakimi",
+        "aliases": [
+          "Achraf Hakimi"
+        ]
+      },
+      {
+        "playerId": "914562",
+        "name": "Désiré Doué",
+        "aliases": [
+          "Désiré Doué"
+        ]
+      },
+      {
+        "playerId": "502670",
+        "name": "Khvicha Kvaratskhelia",
+        "aliases": [
+          "Khvicha Kvaratskhelia"
+        ]
+      },
+      {
+        "playerId": "903693",
+        "name": "Senny Mayulu",
+        "aliases": []
+      }
+    ],
+    "explanation": "Match scorers: Achraf Hakimi, Désiré Doué, Khvicha Kvaratskhelia, Senny Mayulu. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/4547655"
+    ],
+    "status": "needs-editorial-review"
+  },
+  {
+    "id": "936721-scorer",
+    "matchId": "936721",
+    "kind": "scorer",
+    "prompt": "Name a player who scored in Brazil vs France on 1998-07-12 (excluding the shootout).",
+    "answerMode": "any-one",
+    "answers": [
+      {
+        "playerId": "3111",
+        "name": "Zinédine Zidane",
+        "aliases": [
+          "Zinédine Zidane",
+          "Zinedine Zidane",
+          "Zidane",
+          "Zizou"
+        ]
+      },
+      {
+        "playerId": "3166",
+        "name": "Emmanuel Petit",
+        "aliases": [
+          "Emmanuel Petit",
+          "Petit"
+        ]
+      }
+    ],
+    "explanation": "Match scorers: Zinédine Zidane, Emmanuel Petit. Shootout kicks are excluded.",
+    "sourceUrls": [
+      "https://www.transfermarkt.com/spielbericht/index/spielbericht/936721"
+    ],
+    "status": "needs-editorial-review"
+  }
+]

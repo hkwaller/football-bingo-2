@@ -4,6 +4,7 @@ import Link from 'next/link'
 import {
   BingoPreview,
   CareersPreview,
+  ConnectionsPreview,
   Famous11sPreview,
   TenablePreview,
   TriviaPreview,
@@ -14,7 +15,7 @@ import { getGamesPreviewData } from '@/lib/gamesPreview'
 export const metadata: Metadata = {
   title: 'Games',
   description:
-    'Bingo, Trivia, Tenable, Famous 11s and Careers - pick a football knowledge game and play solo or against a full room.',
+    'Bingo, Trivia, Tenable, Famous 11s, Careers and Connections - pick a football knowledge game and play solo or against a full room.',
   alternates: { canonical: '/games' },
 }
 
@@ -25,6 +26,7 @@ const ACCENT: Record<GameModeId, { bg: string; border: string }> = {
   tenable: { bg: 'bg-sky', border: 'border-sky' },
   famous11s: { bg: 'bg-green-go', border: 'border-green-go' },
   careers: { bg: 'bg-surface', border: 'border-surface' },
+  connections: { bg: 'bg-green-go', border: 'border-green-go' },
 }
 
 export default function GamesPage() {
@@ -36,6 +38,7 @@ export default function GamesPage() {
     tenable: data.tenable ? <TenablePreview data={data.tenable} /> : null,
     famous11s: data.famous11s ? <Famous11sPreview data={data.famous11s} /> : null,
     careers: data.careers ? <CareersPreview data={data.careers} /> : null,
+    connections: data.connections ? <ConnectionsPreview data={data.connections} /> : null,
   }
 
   return (
@@ -47,7 +50,7 @@ export default function GamesPage() {
       <header className="relative mx-auto max-w-5xl px-6 pt-12 text-center md:px-9">
         <span className="eyebrow">Pick your game</span>
         <h1 className="mt-4 font-display text-[clamp(2.75rem,8vw,80px)] font-black uppercase leading-[0.9] text-on-green">
-          Five ways to play
+          Six ways to play
         </h1>
         <p className="mx-auto mt-4 max-w-[480px] text-[15.5px] font-semibold leading-relaxed text-on-green-soft">
           Go solo to sharpen up, or open a room and send the link to your mates. Every game runs on

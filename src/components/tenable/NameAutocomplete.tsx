@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { normalize } from '@/lib/tenable/normalize'
 import { canAutoFocus } from '@/lib/autoFocus'
 
@@ -43,6 +43,7 @@ export function NameAutocomplete({
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
+  const listId = useId()
 
   useEffect(() => {
     if (!disabled && canAutoFocus()) inputRef.current?.focus()
@@ -54,6 +55,7 @@ export function NameAutocomplete({
     const hidden = new Set([...(exclude ?? []).map(normalize), ...guessed])
     return fetched.filter((n) => !hidden.has(normalize(n))).slice(0, SHOW_LIMIT)
   }, [fetched, exclude, guessed])
+  const listVisible = open && suggestions.length > 0 && suggestionsFor === query.trim()
 
   // Debounced suggestion fetch.
   useEffect(() => {
@@ -106,7 +108,7 @@ export function NameAutocomplete({
    * because it's already used submits as typed, never swapped for a lookalike.
    */
   function bestGuess(): string {
-    if (active >= 0 && suggestions[active]) return suggestions[active]
+    if (listVisible && active >= 0 && suggestions[active]) return suggestions[active]
     const q = query.trim()
     if (suggestionsFor !== q) return query
     const key = normalize(q)
@@ -116,6 +118,7 @@ export function NameAutocomplete({
   }
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.nativeEvent.isComposing) return
     if (e.key === 'ArrowDown') {
       e.preventDefault()
       setOpen(true)
@@ -144,17 +147,23 @@ export function NameAutocomplete({
       <form className="flex gap-2" onSubmit={onSubmit}>
         <input
           ref={inputRef}
+          role="combobox"
+          aria-label="Name a player"
+          aria-autocomplete="list"
+          aria-expanded={listVisible}
+          aria-controls={listVisible ? listId : undefined}
+          aria-activedescendant={listVisible && active >= 0 && suggestions[active] ? `${listId}-${active}` : undefined}
           value={query}
           disabled={disabled}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => { setQuery(e.target.value); setActive(-1) }}
           onKeyDown={onKeyDown}
           onFocus={() => suggestions.length && setOpen(true)}
-          onBlur={() => window.setTimeout(() => setOpen(false), 120)}
+          onBlur={() => { setOpen(false); setActive(-1) }}
           placeholder={placeholder ?? 'Name a player…'}
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
-          className="w-full rounded-[14px] border-2 border-ink bg-surface px-4 py-3.5 font-semibold text-ink outline-none placeholder:text-muted focus:border-green disabled:opacity-50"
+          className="min-w-0 w-full rounded-[14px] border-2 border-ink bg-surface px-4 py-3.5 font-semibold text-ink outline-none placeholder:text-muted focus:border-green disabled:opacity-50"
         />
         <button
           type="submit"
@@ -165,18 +174,16 @@ export function NameAutocomplete({
         </button>
       </form>
 
-      {open && suggestions.length > 0 && (
-        <ul className="absolute z-20 mt-2 max-h-64 w-full overflow-auto rounded-[14px] border-2 border-ink bg-surface py-1 shadow-[0_18px_40px_-18px_rgba(10,36,23,0.5)]">
+      {listVisible && (
+        <ul id={listId} role="listbox" aria-label="Player suggestions" className="absolute z-20 mt-2 max-h-64 w-full overflow-auto rounded-[14px] border-2 border-ink bg-surface py-1 shadow-[0_18px_40px_-18px_rgba(10,36,23,0.5)]">
           {suggestions.map((name, i) => (
-            <li key={`${name}-${i}`}>
+            <li key={`${name}-${i}`} id={`${listId}-${i}`} role="option" aria-selected={active === i}>
               <button
                 type="button"
-                // onMouseDown (not onClick) so it fires before the input's onBlur closes the list.
-                onMouseDown={(e) => {
-                  e.preventDefault()
-                  submit(name)
-                }}
-                className={`w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors ${
+                tabIndex={-1}
+                onPointerDown={(e) => e.preventDefault()}
+                onClick={() => submit(name)}
+                className={`min-h-11 w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors ${
                   i === active ? 'bg-green-go text-ink' : 'text-ink hover:bg-card-tint'
                 }`}
               >

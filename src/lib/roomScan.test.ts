@@ -40,12 +40,13 @@ test('rejects anything else', () => {
   assert.equal(roomPathFromScan('WIFI:S:home;T:WPA;P:secret;;'), null)
 })
 
-test('accepts prefixed room ids (trivia, tenable, famous 11s, careers)', () => {
+test('accepts prefixed room ids (trivia, tenable, famous 11s, careers, connections)', () => {
   for (const path of [
     `/trivia/room/trivia-${id}`,
     `/tenable/room/tenable-${id}`,
     `/famous-11s/room/eleven-${id}`,
     `/careers/room/careers-${id}`,
+    `/connections/room/connections-${id}`,
   ]) {
     assert.equal(roomPathFromScan(`https://bingo.playam.app${path}`), path)
   }

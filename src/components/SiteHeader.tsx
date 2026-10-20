@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { KeyboardShortcuts } from '@/components/KeyboardShortcuts'
 import { Menu } from 'lucide-react'
 
 const clerkOn = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
@@ -31,6 +32,35 @@ const PLAY_HREF = '/games'
 export function SiteHeader() {
   const pathname = usePathname() ?? '/'
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuButton = useRef<HTMLButtonElement>(null)
+  const menuPanel = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    menuPanel.current?.querySelector<HTMLElement>('button, a[href]')?.focus()
+    const close = () => {
+      setMenuOpen(false)
+      menuButton.current?.focus()
+    }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { event.preventDefault(); close() }
+      if (event.key === 'Tab') {
+        const items = [menuButton.current, ...Array.from(menuPanel.current?.querySelectorAll<HTMLElement>('a[href], button, [tabindex="0"]') ?? [])].filter((item): item is HTMLElement => !!item && item.getClientRects().length > 0)
+        const index = items.indexOf(document.activeElement as HTMLElement)
+        if (items.length) {
+          event.preventDefault()
+          items[(index + (event.shiftKey ? -1 : 1) + items.length) % items.length].focus()
+        }
+      }
+    }
+    const onResize = () => { if (window.matchMedia('(min-width: 640px)').matches) close() }
+    document.addEventListener('keydown', onKey)
+    window.addEventListener('resize', onResize)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [menuOpen])
 
   const isActive = (match: string[]) =>
     match.some((m) => pathname === m || pathname.startsWith(`${m}/`))
@@ -38,7 +68,7 @@ export function SiteHeader() {
   return (
     <header className="relative z-30 bg-transparent">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5 md:px-9">
-        <Link href="/" className="flex items-center gap-3.5 transition-opacity hover:opacity-90">
+        <Link href="/" aria-label="Football Bingo home" className="flex items-center gap-3.5 transition-opacity hover:opacity-90">
           <span className="flex h-11 w-11 -rotate-6 items-center justify-center rounded-[10px] border-[2.5px] border-ink bg-yellow shadow-[0_4px_0_#0a2417]">
             <BallMark />
           </span>
@@ -51,8 +81,10 @@ export function SiteHeader() {
           </span> */}
         </Link>
 
+        <KeyboardShortcuts />
+
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 text-[13px] font-extrabold uppercase tracking-[0.06em] sm:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-2 text-[13px] font-extrabold uppercase tracking-[0.06em] sm:flex">
           {clerkOn ? (
             <>
               <SignedOut>
@@ -107,8 +139,9 @@ export function SiteHeader() {
           {clerkOn ? (
             <button
               type="button"
+              ref={menuButton}
               onClick={() => setMenuOpen((v) => !v)}
-              aria-haspopup="menu"
+              aria-controls={menuOpen ? 'account-navigation' : undefined}
               aria-expanded={menuOpen}
               aria-label="Menu"
               className="flex h-11 w-11 items-center justify-center rounded-lg border-[2.5px] border-surface/55 text-on-green transition-colors hover:bg-surface/[0.12]"
@@ -131,6 +164,9 @@ export function SiteHeader() {
               onClick={() => setMenuOpen(false)}
             />
             <motion.nav
+              ref={menuPanel}
+              id="account-navigation"
+              aria-label="Account navigation"
               className="absolute right-6 top-[76px] z-40 flex w-[min(240px,80vw)] flex-col gap-1.5 rounded-[14px] border-[2.5px] border-ink bg-surface p-3 shadow-[0_6px_0_#0a2417] sm:hidden"
               initial={{ opacity: 0, y: -8, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}

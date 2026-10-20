@@ -2,6 +2,8 @@
 
 This directory holds the curated Famous 11s lineup bank.
 
+Historical fixture auditing is available separately via `npm run historical:report` (cached/offline by default). See `scripts/historical/README.md` and `docs/historical/REPORT.md`. `matchReferences.json` contains generated optional fixture/team references; it does not approve or replace curated starting XIs. The existing `famous11s:verify` command enriches player identities and portraits, rather than checking match membership.
+
 ## Files
 
 | File                  | Purpose                                                  |

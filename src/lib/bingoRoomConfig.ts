@@ -67,6 +67,7 @@ export function bingoRoomConfigToStorage(config: BingoRoomConfig): InitialGameCo
     categoryTraits: boardConfig.categoryKinds.traits,
     categoryManagers: boardConfig.categoryKinds.managers,
     minFameScore: boardConfig.minFameScore,
+    boardDifficulty: boardConfig.difficulty,
     boardLayout: config.boardLayout,
     drawSource: config.drawSource,
     singleGuess: config.singleGuess,

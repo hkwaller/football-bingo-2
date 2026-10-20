@@ -51,7 +51,7 @@ export function Scoreboard({
     <div className={`scoreboard px-5 pb-5 pt-3 ${className}`}>
       <div className="scoreboard-bulbs mx-1 mb-3" aria-hidden />
       <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-[#9fc2ac]">Scoreboard</p>
-      <dl className="mt-3 grid grid-cols-3 gap-2">
+      <dl className={`mt-3 grid gap-2 ${items.length === 4 ? 'grid-cols-2' : 'grid-cols-3'}`}>
         {items.map((it) => (
           <div key={it.label} className="scoreboard-well flex flex-col-reverse px-1.5 py-2.5 text-center">
             <dt className="mt-1 text-[10px] uppercase tracking-[0.1em] text-[#9fc2ac]">{it.label}</dt>

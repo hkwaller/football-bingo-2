@@ -3,7 +3,7 @@
  * Bingo room ids are bare uuids; the other modes prefix theirs (`tenable-<uuid>`).
  */
 const ROOM_PATH =
-  /^\/(?:(?:trivia|tenable|famous-11s|careers)\/)?room\/((?:trivia|tenable|eleven|careers)-)?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i
+  /^\/(?:(?:trivia|tenable|famous-11s|careers|connections)\/)?room\/((?:trivia|tenable|eleven|careers|connections)-)?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i
 
 /**
  * The in-app path to open for a scanned QR code, or null when it isn't one of

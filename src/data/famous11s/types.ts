@@ -46,6 +46,8 @@ export type LineupDifficulty = 'easy' | 'medium' | 'hard'
 export type LineupEra = 'classic' | 'big-nights'
 
 export interface Famous11sLineup {
+  /** Optional offline-audited fixture reference; season XIs have none. */
+  transfermarkt?: { matchId: string; teamId: string }
   /** Stable slug, e.g. "france-wc98-final". */
   id: string
   /** Headline shown to the player, e.g. "France 1998 · World Cup Final". */

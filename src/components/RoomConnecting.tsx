@@ -2,7 +2,7 @@
 
 import { useId, type CSSProperties } from 'react'
 
-export type RoomGameMode = 'bingo' | 'trivia' | 'tenable' | 'famous11s' | 'careers'
+export type RoomGameMode = 'bingo' | 'trivia' | 'tenable' | 'famous11s' | 'careers' | 'connections'
 export type RoomConnectingState = 'creating' | 'connecting' | 'reconnecting'
 
 const MODE: Record<RoomGameMode, { name: string; light: string }> = {
@@ -11,6 +11,7 @@ const MODE: Record<RoomGameMode, { name: string; light: string }> = {
   tenable: { name: 'Tenable', light: '#6fd3f2' },
   famous11s: { name: 'Famous 11s', light: '#ffd62e' },
   careers: { name: 'Careers', light: '#f5f0e1' },
+  connections: { name: 'Connections', light: '#3ddc84' },
 }
 
 const COPY: Record<RoomConnectingState, { title: string; status: string }> = {

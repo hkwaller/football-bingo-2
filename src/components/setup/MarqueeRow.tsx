@@ -9,6 +9,7 @@ export type MarqueeItem = {
   icon: LucideIcon
   accent: MarqueeAccent
   title: string
+  mobileTitle?: string
   blurb: string
   /** Custom decoration (Bingo dot-grid); falls back to the ghost numeral. */
   renderDecoration?: (selected: boolean) => ReactNode
@@ -26,10 +27,13 @@ export function MarqueeRow({
   items,
   selectedId,
   onSelect,
+  fixed = false,
 }: {
   items: MarqueeItem[]
   selectedId: string
   onSelect: (id: string) => void
+  /** Keep all options in equal, stationary slots at every screen size. */
+  fixed?: boolean
 }) {
   const card = (item: MarqueeItem, i: number, compact: boolean) => {
     const selected = item.id === selectedId
@@ -37,17 +41,27 @@ export function MarqueeRow({
       <MarqueeCard
         key={item.id}
         selected={selected}
+        fixed={fixed}
         wide={selected}
         compact={compact}
         icon={item.icon}
         accent={item.accent}
         index={i + 1}
         title={item.title}
+        mobileTitle={item.mobileTitle}
         blurb={item.blurb}
         decoration={item.renderDecoration?.(selected)}
-        tilt={selected ? TILT[i] : TILT[i] * 0.5}
+        tilt={fixed ? 0 : selected ? TILT[i] : TILT[i] * 0.5}
         onClick={() => onSelect(item.id)}
       />
+    )
+  }
+
+  if (fixed) {
+    return (
+      <div className="mt-5 grid grid-cols-3 items-stretch gap-2 sm:gap-3.5">
+        {items.map((item, i) => card(item, i, false))}
+      </div>
     )
   }
 

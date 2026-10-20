@@ -30,6 +30,7 @@ type BingoBoardViewProps = {
   showLabels?: boolean
   /** Shared board: who has voted for each square (roundels on the square's edge). */
   cellVoters?: Map<number, { key: string; initial: string; color: string }[]>
+  hintCells?: Set<number> | null
 }
 
 /** Draws a board from resolved squares. BingoBoard wraps this for live games. */
@@ -46,12 +47,34 @@ export function BingoBoardView({
   reduceMotion = false,
   showLabels = false,
   cellVoters,
+  hintCells,
 }: BingoBoardViewProps) {
   return (
     <div className="relative mx-auto w-full max-w-[760px] overflow-hidden rounded-xl border-[2.5px] border-ink bg-pitch-deep/90 p-[7px] shadow-[0_6px_0_#0a2417] sm:rounded-2xl sm:p-[18px] sm:shadow-[0_10px_0_#0a2417]">
       {/* faint chalk ring bleeding through the tray */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface/[0.07]" />
       <div
+        role="group"
+        aria-label="Bingo board"
+        onKeyDown={(event) => {
+          if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+          const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End']
+          if (!keys.includes(event.key)) return
+          const buttons = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('button'))
+          const index = buttons.indexOf(event.target as HTMLButtonElement)
+          if (index < 0) return
+          event.preventDefault()
+          const rowStart = Math.floor(index / size) * size
+          const rowEnd = Math.min(rowStart + size, buttons.length) - 1
+          let next = event.key === 'Home' ? rowStart : event.key === 'End' ? rowEnd : index
+          const step = event.key === 'ArrowUp' ? -size : event.key === 'ArrowDown' ? size : event.key === 'ArrowLeft' || event.key === 'End' ? -1 : 1
+          if (event.key !== 'Home' && event.key !== 'End') next += step
+          while (next >= 0 && next < buttons.length) {
+            if (Math.abs(step) === 1 && (next < rowStart || next > rowEnd)) break
+            if (!buttons[next].disabled) { buttons[next].focus(); break }
+            next += step
+          }
+        }}
         className="relative grid gap-[5px] sm:gap-3"
         style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}
       >
@@ -71,6 +94,7 @@ export function BingoBoardView({
           const isWinLine = winningCells.has(index)
           const voteHi = voteHighlightIndex === index
           const isWrong = wrongCell?.cell === index
+          const isHint = !solvedHere && hintCells?.has(index)
           const restricted =
             draftTargetCells !== null && draftTargetCells.size > 0 && !solvedHere && !isFree
           const allowed = !restricted || draftTargetCells.has(index)
@@ -79,6 +103,7 @@ export function BingoBoardView({
             <motion.button
               key={`${boardKey}-${index}`}
               type="button"
+              aria-label={`Row ${Math.floor(index / size) + 1}, column ${index % size + 1}: ${isFree ? 'Free square' : label ?? display}${pick ? `, placed ${pick.name}` : ''}${isHint ? ', hint: drawn player fits here' : ''}`}
               layout
               initial={false}
               animate={{
@@ -98,11 +123,14 @@ export function BingoBoardView({
                     ? 'border-2 border-ink bg-yellow text-ink shadow-[0_3px_0_#0a2417] sm:shadow-[0_5px_0_#0a2417]'
                     : voteHi
                       ? 'border-2 border-ink bg-surface shadow-[0_3px_0_#0a2417] outline outline-4 outline-offset-2 outline-coral sm:shadow-[0_5px_0_#0a2417]'
+                      : isHint
+                        ? 'border-[3px] border-yellow bg-[#fff3b8] shadow-[inset_0_0_0_2px_#0a2417,0_3px_0_#0a2417] hover:-translate-y-[3px]'
                       : restricted && !allowed
                         ? 'cursor-not-allowed border-2 border-ink/50 bg-surface/40 opacity-40'
                         : 'border-2 border-ink bg-surface shadow-[0_3px_0_#0a2417] hover:-translate-y-[3px] sm:shadow-[0_5px_0_#0a2417]'
               }`}
             >
+              {isHint ? <span aria-hidden className="absolute bottom-1 right-1 z-10 rounded bg-ink px-1 font-mono text-[9px] font-bold uppercase text-yellow sm:text-[11px]">Fits</span> : null}
               {cellVoters?.get(index)?.length ? (
                 <span className="pointer-events-none absolute bottom-[5cqi] right-[5cqi] z-10 flex" aria-hidden>
                   {cellVoters.get(index)!.map((v) => (

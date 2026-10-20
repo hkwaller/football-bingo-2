@@ -10,6 +10,7 @@ import { TenableBoard } from '@/components/tenable/TenableBoard'
 import { Famous11sHUD } from '@/components/famous11s/Famous11sHUD'
 import { PitchBoard } from '@/components/famous11s/PitchBoard'
 import { CareerCard } from '@/components/careers/CareerCard'
+import { AnswerList, ClubsBoard } from '@/components/connections/ClubsBoard'
 import type { CellPick } from '@/lib/cellPick'
 import type { GamesPreviewData } from '@/lib/gamesPreview'
 import { POINTS_PER_ANSWER } from '@/lib/tenable/types'
@@ -275,6 +276,26 @@ export function CareersPreview({ data }: { data: NonNullable<GamesPreviewData['c
         </span>
       </div>
       <CareerCard career={data.career} />
+    </div>
+  )
+}
+
+export function ConnectionsPreview({
+  data,
+}: {
+  data: NonNullable<GamesPreviewData['connections']>
+}) {
+  const answer = data.puzzle.answers.find((a) => a.name === data.guess)
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex items-center justify-between gap-3">
+        <span className="font-display text-[22px] font-black uppercase leading-none text-on-green">
+          Connect them
+        </span>
+        <span className="truncate text-[12px] font-bold text-yellow">✓ {data.guess} +100</span>
+      </div>
+      <ClubsBoard clubs={data.puzzle.clubs} />
+      <AnswerList puzzle={data.puzzle} highlight={answer ? { [answer.id]: 'You' } : {}} limit={3} />
     </div>
   )
 }

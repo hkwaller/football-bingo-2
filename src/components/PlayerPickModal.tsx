@@ -1,8 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useId, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useModalFocus } from '@/lib/useModalFocus'
 
 type SearchPlayer = { playerId: string; name: string; imageUrl?: string }
 
@@ -21,6 +22,8 @@ export function PlayerPickModal({
   onPick,
   cooldownMs = 0,
 }: PlayerPickModalProps) {
+  const panel = useModalFocus(open, onClose)
+  const titleId = useId()
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchPlayer[]>([])
   const [loading, setLoading] = useState(false)
@@ -96,6 +99,11 @@ export function PlayerPickModal({
       role="presentation"
     >
       <motion.div
+        ref={panel}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
         className="panel max-h-[85vh] w-full max-w-md overflow-hidden shadow-[0_24px_60px_-24px_rgba(10,36,23,0.6)]"
         initial={{ scale: 0.97, y: 10 }}
         animate={{ scale: 1, y: 0 }}
@@ -104,7 +112,7 @@ export function PlayerPickModal({
       >
         <div className="border-b-2 border-ink px-5 py-4">
           <p className="eyebrow">Free pick</p>
-          <h2 className="mt-1.5 font-display text-[26px] uppercase leading-none text-green">
+          <h2 id={titleId} className="mt-1.5 font-display text-[26px] uppercase leading-none text-green">
             {title}
           </h2>
           <p className="mt-1.5 text-[13.5px] font-medium text-muted">
@@ -113,7 +121,7 @@ export function PlayerPickModal({
         </div>
         <div className="p-4">
           <input
-            autoFocus
+            aria-label="Search players"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Type a name…"
@@ -163,7 +171,7 @@ export function PlayerPickModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg px-4 py-2 text-xs font-extrabold uppercase tracking-[0.06em] text-card-muted transition-colors hover:bg-card-tint hover:text-card-ink"
+            className="min-h-11 rounded-lg px-4 py-2 text-xs font-extrabold uppercase tracking-[0.06em] text-card-muted transition-colors hover:bg-card-tint hover:text-card-ink"
           >
             Cancel
           </button>

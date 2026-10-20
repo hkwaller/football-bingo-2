@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Grid3x3, LayoutGrid, Grid2x2 } from 'lucide-react'
 import type { BoardConfig } from '@/lib/boardConfig'
+import { BOARD_DIFFICULTIES } from '@/lib/boardDifficulty'
 import {
   categoriesRequired,
   categoryPoolForConfig,
@@ -12,7 +13,6 @@ import {
   isBoardConfigViable,
   MAX_FAME_SCORE,
 } from '@/lib/boardConfig'
-import { achievements, clubs, managers, nationalities, traits } from '@/data/categories'
 import { playerFameScores } from '@/data/playerFameScores.generated'
 import { DRAFT_POLICY_HELP, DRAFT_POLICY_LABEL, type DraftPolicy } from '@/lib/draftPolicy'
 import { randomUUID } from '@/lib/randomUUID'
@@ -29,19 +29,19 @@ import { KickoffBar } from '@/components/setup/KickoffBar'
 import { ControlLabel, SelectRow } from '@/components/setup/primitives'
 
 type KindKey = keyof BoardConfig['categoryKinds']
-type KindDef = { key: KindKey; label: string; pool: readonly string[] }
+type KindDef = { key: KindKey; label: string }
 
 /** On by default. All | None only touches this group. */
 const STANDARD_KINDS: KindDef[] = [
-  { key: 'nationalities', label: 'Nations', pool: nationalities },
-  { key: 'clubs', label: 'Clubs', pool: clubs },
-  { key: 'managers', label: 'Managers', pool: managers },
+  { key: 'nationalities', label: 'Nations' },
+  { key: 'clubs', label: 'Clubs' },
+  { key: 'managers', label: 'Managers' },
 ]
 
 /** Off until the player opts in. */
 const SPECIAL_KINDS: KindDef[] = [
-  { key: 'traits', label: 'Traits', pool: traits },
-  { key: 'achievements', label: 'Honours', pool: achievements },
+  { key: 'traits', label: 'Traits' },
+  { key: 'achievements', label: 'Honours' },
 ]
 
 const KINDS: KindDef[] = [...STANDARD_KINDS, ...SPECIAL_KINDS]
@@ -59,13 +59,7 @@ const CLASSIC_KINDS: BoardConfig['categoryKinds'] = {
 const SETUP_KINDS_KEY = 'football-bingo-setup-kinds-v1'
 
 function isLegacyAllKinds(kinds: BoardConfig['categoryKinds']) {
-  return (
-    kinds.nationalities &&
-    kinds.clubs &&
-    kinds.managers &&
-    kinds.achievements &&
-    kinds.traits
-  )
+  return kinds.nationalities && kinds.clubs && kinds.managers && kinds.achievements && kinds.traits
 }
 
 function parseStoredKinds(raw: string | null): BoardConfig['categoryKinds'] | null {
@@ -92,7 +86,9 @@ function parseStoredKinds(raw: string | null): BoardConfig['categoryKinds'] | nu
  * board that still has every kind on is the old default, so traits and honours
  * start off.
  */
-function kindsForSetup(saved: BoardConfig['categoryKinds'] | undefined): BoardConfig['categoryKinds'] {
+function kindsForSetup(
+  saved: BoardConfig['categoryKinds'] | undefined,
+): BoardConfig['categoryKinds'] {
   const stored = parseStoredKinds(
     typeof window === 'undefined' ? null : localStorage.getItem(SETUP_KINDS_KEY),
   )
@@ -112,6 +108,7 @@ const GRID_ITEMS: MarqueeItem[] = [
     icon: Grid3x3,
     accent: 'sky',
     title: '3×3 · Classic',
+    mobileTitle: '3×3',
     blurb: 'Nine squares, eight clues. A quick game with room to breathe.',
     renderDecoration: (s) => <DotGridDecoration size={3} selected={s} />,
   },
@@ -182,6 +179,7 @@ export function BingoSetup() {
       const c = loadBingoRoomConfig()
       setBoardConfig({
         ...c.boardConfig,
+        difficulty: c.boardConfig.difficulty ?? 'easy',
         freeSquare: true,
         categoryKinds: kindsForSetup(c.boardConfig.categoryKinds),
       })
@@ -197,6 +195,7 @@ export function BingoSetup() {
         const saved = s.boardConfig ?? DEFAULT_BOARD_CONFIG
         setBoardConfig({
           ...saved,
+          difficulty: saved.difficulty ?? 'easy',
           freeSquare: true,
           categoryKinds: kindsForSetup(saved.categoryKinds),
         })
@@ -320,7 +319,19 @@ export function BingoSetup() {
   const toTopic = (k: KindDef): TopicItem => ({
     id: k.key,
     label: k.label,
-    count: `${k.pool.length} clues`,
+    count: `${
+      categoryPoolForConfig({
+        ...boardConfig,
+        categoryKinds: {
+          nationalities: false,
+          clubs: false,
+          achievements: false,
+          traits: false,
+          managers: false,
+          [k.key]: true,
+        },
+      }).length
+    } clues`,
   })
   const topicItems = STANDARD_KINDS.map(toTopic)
   const specialItems = SPECIAL_KINDS.map(toTopic)
@@ -340,10 +351,29 @@ export function BingoSetup() {
   const col1 = (
     <>
       <div>
+        <ControlLabel className="mb-3">Board difficulty</ControlLabel>
+        <div className="flex flex-col gap-2" role="radiogroup" aria-label="Board difficulty">
+          {BOARD_DIFFICULTIES.map((d) => (
+            <SelectRow
+              key={d.value}
+              active={boardConfig.difficulty === d.value}
+              onClick={() => setBoardConfig((c) => ({ ...c, difficulty: d.value }))}
+              name={d.label}
+              explainer={d.description}
+            />
+          ))}
+        </div>
+        <p className="mt-2 text-[11.5px] font-semibold leading-snug text-card-muted">
+          Clues always have matching players at your chosen star quality.
+        </p>
+      </div>
+      <div>
         <div className="flex items-baseline justify-between gap-3">
           <ControlLabel>Star quality</ControlLabel>
           <span
-            className={`font-mono text-[11px] font-bold ${eligiblePlayerCount === 0 ? 'text-live-red' : 'text-card-muted-2'}`}
+            className={`font-mono text-[11px] font-bold ${
+              eligiblePlayerCount === 0 ? 'text-live-red' : 'text-card-muted-2'
+            }`}
           >
             {eligiblePlayerCount} players in play
           </span>
@@ -378,21 +408,25 @@ export function BingoSetup() {
       <div>
         <ControlLabel className="mb-2">Clues needed</ControlLabel>
         <div
-          className={`flex items-center justify-between rounded-[12px] px-[14px] py-[11px] ${configOk ? 'bg-card-tint' : 'bg-live-red/10'}`}
+          className={`flex items-center justify-between rounded-[12px] px-[14px] py-[11px] ${
+            configOk ? 'bg-card-tint' : 'bg-live-red/10'
+          }`}
         >
           <span className="font-sans text-[11.5px] font-extrabold uppercase tracking-[0.12em] text-card-muted-2">
             {needCount} of {poolCount}
           </span>
           <span
-            className={`font-display text-[18px] font-black leading-none ${configOk ? 'text-green-go' : 'text-live-red'}`}
+            className={`font-display text-[18px] font-black leading-none ${
+              configOk ? 'text-green-go' : 'text-live-red'
+            }`}
           >
             {configOk ? '✓' : 'Too few'}
           </span>
         </div>
         {!configOk && (
           <p className="mt-2 text-[12px] font-bold text-live-red">
-            Turn on more kinds - need {needCount} clues for a {boardConfig.size}×{boardConfig.size}{' '}
-            board.
+            Need {needCount} clues for this board. Add category kinds, choose a smaller board, lower
+            star quality or increase board difficulty.
           </p>
         )}
       </div>
@@ -528,7 +562,9 @@ export function BingoSetup() {
                 </span>
                 <span className="min-w-0">
                   <span
-                    className={`block font-display text-[17px] font-black uppercase leading-none ${active ? 'text-card-ink' : 'text-card-muted'}`}
+                    className={`block font-display text-[17px] font-black uppercase leading-none ${
+                      active ? 'text-card-ink' : 'text-card-muted'
+                    }`}
                   >
                     {DRAFT_POLICY_LABEL[p]}
                   </span>
@@ -596,19 +632,21 @@ export function BingoSetup() {
     />
   )
 
+  const difficultyLabel =
+    BOARD_DIFFICULTIES.find((d) => d.value === boardConfig.difficulty)?.label ?? 'Easy'
   const starValue = minFameScore === 0 ? 'Anyone' : `≥ ${minFameScore} · ${eligiblePlayerCount} in`
   const fields = isMultiplayer
     ? [
         { label: 'Mode', value: PLAY_MODE_LABEL[playMode] },
         { label: 'Boards', value: boardLayout === 'shared' ? 'Shared' : 'Individual' },
         { label: 'Board', value: `${boardConfig.size}×${boardConfig.size} · ${needCount} clues` },
-        { label: 'Kinds', value: `${activeKinds.length} of ${TOTAL_KINDS}` },
+        { label: 'Difficulty', value: difficultyLabel },
       ]
     : [
         { label: 'Board', value: `${boardConfig.size}×${boardConfig.size} · ${needCount} clues` },
         { label: 'Star quality', value: starValue },
         { label: 'Draft', value: DRAFT_POLICY_LABEL[draftPolicy] },
-        { label: 'Kinds', value: `${activeKinds.length} of ${TOTAL_KINDS}` },
+        { label: 'Difficulty', value: difficultyLabel },
       ]
 
   return (
@@ -631,6 +669,7 @@ export function BingoSetup() {
         </SetupHeader>
 
         <MarqueeRow
+          fixed
           items={GRID_ITEMS}
           selectedId={String(boardConfig.size)}
           onSelect={(id) => setBoardConfig((c) => ({ ...c, size: Number(id) as 3 | 4 | 5 }))}
@@ -650,8 +689,8 @@ export function BingoSetup() {
         }
         mobileDetail={
           isMultiplayer
-            ? `${boardConfig.size}×${boardConfig.size} · ${activeKinds.length} of ${TOTAL_KINDS} kinds`
-            : `${DRAFT_POLICY_LABEL[draftPolicy]} · ${activeKinds.length} of ${TOTAL_KINDS} kinds`
+            ? `${boardConfig.size}×${boardConfig.size} · ${difficultyLabel}`
+            : `${DRAFT_POLICY_LABEL[draftPolicy]} · ${difficultyLabel}`
         }
         hint={isMultiplayer ? 'Room code comes next' : 'Saving starts a fresh board'}
         ctaLabel={
@@ -660,8 +699,8 @@ export function BingoSetup() {
               ? 'Creating…'
               : 'Launching…'
             : isMultiplayer
-              ? 'Create room'
-              : 'Save & kick off'
+            ? 'Create room'
+            : 'Save & kick off'
         }
         onCta={isMultiplayer ? createRoom : persistAndPlay}
         disabled={!configOk || launching}
@@ -678,8 +717,8 @@ function SpecialCategoryHelp() {
           Traits
         </h3>
         <p className="mt-1.5 text-[12.5px] font-semibold leading-snug text-on-green/90">
-          A fact about the player himself. Not a club, not a country, and not a trophy. If the
-          drawn player fits the fact, he can go on that square.
+          A fact about the player himself. Not a club, not a country, and not a trophy. If the drawn
+          player fits the fact, he can go on that square.
         </p>
         <ExampleLine label="Position" examples={['Centre-Forward', 'Winger', 'Goalkeeper']} />
         <ExampleLine label="Shirt" examples={['Wore #10', 'Wore #7', 'Wore #9']} />
@@ -696,7 +735,12 @@ function SpecialCategoryHelp() {
         </p>
         <ExampleLine
           label="For example"
-          examples={['Premier League winner', 'CL winner', "Ballon d'Or winner", '200+ career goals']}
+          examples={[
+            'Premier League winner',
+            'CL winner',
+            "Ballon d'Or winner",
+            '200+ career goals',
+          ]}
         />
       </section>
     </div>

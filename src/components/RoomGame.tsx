@@ -56,6 +56,9 @@ import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 import { useSpaceToSkip } from '@/lib/useSpaceToSkip'
+import { LiveMap } from '@liveblocks/client'
+import { bingoHintCount, bingoHintKey, bingoPoints, canBuyBingoHint } from '@/lib/bingoHints'
+import { useBingoHint } from '@/lib/useBingoHint'
 import { LobbyNameField } from '@/components/LobbyNameField'
 import { RoomConnecting } from '@/components/RoomConnecting'
 import { RoomKickGate, isKickFor, useLeaveAsRemoved } from '@/components/RoomKickGate'
@@ -86,6 +89,7 @@ function RoomInner({ roomId }: { roomId: string }) {
   const categoryAchievements = useStorage((s) => s.categoryAchievements) ?? true
   const categoryTraits = useStorage((s) => s.categoryTraits) ?? true
   const categoryManagers = useStorage((s) => s.categoryManagers) ?? true
+  const boardDifficulty = useStorage((s) => s.boardDifficulty) ?? undefined
   const minFameScore = useStorage((s) => s.minFameScore) ?? 0
   const boardLayout = useStorage((s) => s.boardLayout) ?? 'individual'
   const drawSource = useStorage((s) => s.drawSource) === 'independent' ? 'independent' : 'shared'
@@ -95,6 +99,7 @@ function RoomInner({ roomId }: { roomId: string }) {
   const draftRound = useStorage((s) => s.draftRound) ?? 0
   const draftVotes = useStorage((s) => s.draftVotes)
   const sharedSolved = useStorage((s) => s.sharedSolved)
+  const hintPurchases = useStorage((s) => s.hintPurchases)
 
   const [presence, updatePresence] = useMyPresence()
   const others = useOthers()
@@ -110,6 +115,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         categoryTraits,
         categoryManagers,
         minFameScore,
+        boardDifficulty,
       }),
     [
       boardSize,
@@ -119,6 +125,7 @@ function RoomInner({ roomId }: { roomId: string }) {
       categoryTraits,
       categoryManagers,
       minFameScore,
+      boardDifficulty,
     ],
   )
 
@@ -182,6 +189,8 @@ function RoomInner({ roomId }: { roomId: string }) {
       storage.set('draftRound', 0)
       liveMapStringKeysClear(storage.get('draftVotes'))
       liveMapStringKeysClear(storage.get('sharedSolved'))
+      const purchases = storage.get('hintPurchases')
+      if (purchases) liveMapStringKeysClear(purchases)
     },
     [],
   )
@@ -349,6 +358,28 @@ function RoomInner({ roomId }: { roomId: string }) {
   }, [solvedForDisplay, boardConfig])
   // Once the game is over, keep the last drawn player instead of drawing another.
   const drawFrozen = boardWon || phase === 'finished'
+  const points = bingoPoints(solvedForDisplay.size, bingoHintCount(hintPurchases?.keys() ?? [], myBoardSeed))
+  const buyHint = useMutation(({ storage }, key: string) => {
+    if (storage.get('phase') !== 'playing' || storage.get('seed') !== activeSeed || myActedThisRound || localBingo) return false
+    let purchases = storage.get('hintPurchases')
+    if (!purchases) {
+      purchases = new LiveMap<string, boolean>()
+      storage.set('hintPurchases', purchases)
+    }
+    if (purchases.has(key)) return true
+    const placed = isIndividual ? localSolved.size : storage.get('sharedSolved').size
+    const balance = bingoPoints(placed, bingoHintCount(purchases.keys(), myBoardSeed))
+    if (!canBuyBingoHint(balance, false)) return false
+    purchases.set(key, true)
+    return true
+  }, [activeSeed, myActedThisRound, localBingo, isIndividual, localSolved.size, myBoardSeed])
+  const hint = useBingoHint({
+    seed: myBoardSeed, round: myRound, playerId: drawn?.playerId, boardConfig,
+    occupiedIndices: occupiedForDraft, points,
+    purchased: hintPurchases?.has(bingoHintKey(myBoardSeed, myRound, drawn?.playerId ?? '')) ?? false,
+    enabled: playMode === 'draft' && phase === 'playing' && !draftLoading && !drawFrozen && !localBingo && !myActedThisRound,
+    buy: buyHint,
+  })
 
   // The draw is keyed on the exact request, so state that doesn't feed it (e.g. my
   // own placements under shared draw) can't refetch and re-animate the same player.
@@ -1099,6 +1130,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                 <LobbySettingRow label="Draft" value={DRAFT_POLICY_LABEL[effectiveDraftPolicy]} />
               ) : null}
               <LobbySettingRow label="Grid" value={`${boardSize}×${boardSize}`} />
+              <LobbySettingRow label="Board difficulty" value={boardDifficulty ?? 'Classic'} />
               <LobbySettingRow label="Categories" value={categorySummary} />
               <LobbySettingRow
                 label="Star quality"
@@ -1180,6 +1212,8 @@ function RoomInner({ roomId }: { roomId: string }) {
                   error={draftError}
                   reduceMotion={reduceMotion}
                   wrongNonce={wrongCell?.nonce ?? null}
+                  hint={hint}
+                  points={points}
                   draftWarning={
                     myActedThisRound && !localBingo
                       ? waitingOn.length
@@ -1235,6 +1269,7 @@ function RoomInner({ roomId }: { roomId: string }) {
                 solved={solvedForDisplay}
                 voteHighlightIndex={isIndividual ? null : voteHighlightIndex}
                 draftTargetCells={null}
+                hintCells={hint.cells}
                 wrongCell={wrongCell}
                 cellVoters={cellVoters}
                 reduceMotion={reduceMotion}

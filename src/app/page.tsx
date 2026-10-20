@@ -83,7 +83,7 @@ export default function HomePage() {
         </div>
         {/* ── Mode cards ───────────────────────────────────────── */}
         <section className="mx-auto w-full max-w-5xl px-5 pb-8 sm:px-6 md:px-9 md:pb-20">
-          <SectionHead eyebrow="Pick your game" tone="pink" title="Five ways to play" />
+          <SectionHead eyebrow="Pick your game" tone="pink" title="Six ways to play" />
           <GameModeGrid />
         </section>
         {/* ── Full-bleed sticker marquee ─────────── */}
@@ -150,7 +150,6 @@ export default function HomePage() {
       </section>
 
       {/* ── Ad (guests only; hidden for ad-free) ─────────────── */}
-
     </div>
   )
 }
@@ -168,8 +167,8 @@ function SectionHead({
     tone === 'sky'
       ? 'eyebrow eyebrow-sky'
       : tone === 'yellow'
-        ? 'eyebrow eyebrow-yellow'
-        : 'eyebrow'
+      ? 'eyebrow eyebrow-yellow'
+      : 'eyebrow'
   return (
     <motion.div
       {...fadeUp}

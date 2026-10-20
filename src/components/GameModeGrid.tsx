@@ -10,6 +10,7 @@ const CARD_COPY: Record<GameModeId, string> = {
   tenable: 'Ten answers, limited lives. Complete the list before you run out.',
   famous11s: 'Rebuild iconic starting XIs, from World Cup finals to club classics.',
   careers: 'Follow the clubs and years. Name the footballer, loans included.',
+  connections: 'Two clubs, one player. Name someone who played for both.',
 }
 
 export function GameModeGrid() {
@@ -22,18 +23,22 @@ export function GameModeGrid() {
           blurb={CARD_COPY[m.id]}
           soloHref={m.soloHref}
           multiHref={m.multiHref}
-          className={
-            i === GAME_MODES.length - 1
-              ? 'sm:col-start-2 lg:col-start-4'
-              : i === GAME_MODES.length - 2
-                ? 'lg:col-start-2'
-                : ''
-          }
+          className={orphanOffset(i, GAME_MODES.length)}
           isNew={m.isNew}
         />
       ))}
     </div>
   )
+}
+
+/** Centres a short last row: 2 columns on sm, 3 on lg (each card spans 2). */
+function orphanOffset(i: number, count: number): string {
+  const classes: string[] = []
+  if (count % 2 === 1 && i === count - 1) classes.push('sm:col-start-2')
+  const lgRemainder = count % 3
+  if (lgRemainder === 1 && i === count - 1) classes.push('lg:col-start-3')
+  if (lgRemainder === 2 && i === count - 2) classes.push('lg:col-start-2')
+  return classes.join(' ')
 }
 
 function ModeCard({

@@ -1,4 +1,5 @@
-import { slugify } from '@/lib/slugify'
+import crestFiles from './clubCrests.json'
+import { clubCrestKey } from '../lib/clubCrestKey'
 
 export interface Club {
   id: string
@@ -273,14 +274,14 @@ export function isKnownClub(name: string): boolean {
 }
 
 /**
- * Crest path in public/logos/clubs/ (from football-logos.cc, named by
- * slugified display name). Regenerate with: npx tsx scripts/fetchLogos.ts
+ * Downloaded football-logos.cc crest, resolved through the generated manifest.
+ * Refresh with: npm run fetch-logos
  * Accepts canonical name, display name, or alias.
  */
 export function getClubLogo(name: string): string | null {
-  const canonical = displayToCanonical.get(name) ?? name
-  if (!canonicalSet.has(canonical)) return null
-  return `/logos/clubs/${slugify(canonicalToDisplay.get(canonical)!)}.png`
+  const files: Record<string, string> = crestFiles
+  const canonical = getCanonicalName(name)
+  return files[clubCrestKey(canonical)] ?? files[clubCrestKey(name)] ?? null
 }
 
 export function getClubCanonicalNames(): string[] {

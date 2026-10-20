@@ -47,7 +47,7 @@ export function SetupHeader({
   return (
     <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
       <div>
-        <span className={`eyebrow ${toneClass}`}>{badge}</span>
+        <span className={`setup-badge eyebrow ${toneClass}`}>{badge}</span>
         <h1 className="mt-2.5 font-display text-[44px] font-black uppercase leading-[0.88] text-on-green md:text-[64px]">
           {title}
         </h1>
