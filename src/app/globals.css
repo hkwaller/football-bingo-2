@@ -509,3 +509,132 @@ input, textarea { caret-color: currentColor; }
   font-family: var(--font-mono), monospace;
   text-align: center;
 }
+
+/* Setup: printed labels and stickers, with immediate, interruptible feedback.
+   Everything is visible at rest; no animation gates a control or navigation. */
+.setup-format,
+.setup-preset,
+.setup-number,
+.setup-topic,
+.setup-rule {
+  transition-property: background-color, color, box-shadow, transform, translate;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.setup-format-icon,
+.setup-kickoff-arrow {
+  display: inline-flex;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .setup-badge {
+    transform-origin: 18% 65%;
+    animation: setup-label-stamp 460ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-format {
+    transform: rotate(var(--setup-tilt, 0deg)) translateY(var(--setup-lift, 0px));
+  }
+
+  .setup-format[aria-checked='true'] {
+    animation: setup-sticker-settle 340ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-format[aria-checked='true'] .setup-format-mark {
+    animation: setup-ink-reveal 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-number[aria-checked='true'] {
+    transform: rotate(-1deg);
+    animation: setup-number-settle 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-preset[aria-pressed='true'] .setup-preset-mark {
+    display: inline-block;
+    animation: setup-preset-stamp 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-topic[aria-checked='true'] .setup-topic-check {
+    display: inline-block;
+    animation: setup-ink-reveal 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-rule[aria-checked='true'] {
+    animation: setup-rule-press 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-readout {
+    animation: setup-score-turn 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .setup-format:active,
+  .setup-number:active,
+  .setup-topic:active,
+  .setup-rule:active,
+  .setup-preset:active {
+    translate: 0 2px;
+  }
+
+  .setup-kickoff:not(:disabled):is(:hover, :focus-visible) .setup-kickoff-arrow {
+    transform: translateX(4px);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .setup-format:hover { translate: 0 -2px; }
+  .setup-format:hover .setup-format-icon { transform: rotate(-7deg); }
+  .setup-format:active { translate: 0 2px; }
+}
+
+@keyframes setup-label-stamp {
+  from { transform: translateY(-6px) rotate(-8deg) scale(1.12); }
+  65% { transform: translateY(1px) rotate(-1deg) scale(0.98); }
+  to { transform: rotate(-1.5deg); }
+}
+
+@keyframes setup-sticker-settle {
+  from { transform: translateY(-7px) rotate(calc(var(--setup-tilt, 0deg) - 1.5deg)) scale(1.015); }
+  65% { transform: translateY(1px) rotate(var(--setup-tilt, 0deg)) scale(0.995); }
+  to { transform: rotate(var(--setup-tilt, 0deg)) translateY(var(--setup-lift, 0px)); }
+}
+
+@keyframes setup-number-settle {
+  from { transform: translateY(-3px) rotate(-3deg); }
+  to { transform: rotate(-1deg); }
+}
+
+@keyframes setup-preset-stamp {
+  from { transform: rotate(-18deg) scale(1.25); }
+  to { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes setup-ink-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0); }
+}
+
+@keyframes setup-rule-press {
+  from { transform: scale(0.985); }
+  to { transform: scale(1); }
+}
+
+@keyframes setup-score-turn {
+  from { transform: translateY(35%); opacity: 0.55; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .setup-format,
+  .setup-number,
+  .setup-topic,
+  .setup-rule,
+  .setup-preset,
+  .setup-kickoff {
+    transform: none !important;
+    translate: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: 100ms;
+  }
+}

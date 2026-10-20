@@ -14,13 +14,14 @@ import { useModalFocus } from '@/lib/useModalFocus'
 interface Props {
   open: boolean
   stats?: SoloStats | null
+  points?: number
   onPlayAgain: () => void
   onClose: () => void
 }
 
 const FOIL_COLORS = ['#ffd62e', '#ff5b45', '#6fd3f2', '#ffffff']
 
-export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
+export function BingoWinModal({ open, stats, points, onPlayAgain, onClose }: Props) {
   const firedRef = useRef(false)
   const panel = useModalFocus(open, onClose)
   const titleId = useId()
@@ -128,6 +129,9 @@ export function BingoWinModal({ open, stats, onPlayAgain, onClose }: Props) {
                   transition={{ delay: 0.32 }}
                   className="mt-6"
                 >
+                  {points !== undefined ? (
+                    <p className="mb-3 font-display text-3xl font-black uppercase text-card-ink">{points} points</p>
+                  ) : null}
                   <div className="grid grid-cols-3 gap-2">
                     {[
                       {

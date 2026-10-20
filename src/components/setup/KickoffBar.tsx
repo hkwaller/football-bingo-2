@@ -45,7 +45,7 @@ export function KickoffBar({
                   {f.label}
                 </p>
                 <p className="mt-1 truncate font-display text-[22px] font-black uppercase leading-none text-on-green">
-                  {f.value}
+                  <span key={f.value} className="setup-readout block truncate">{f.value}</span>
                 </p>
               </div>
             </div>
@@ -55,10 +55,10 @@ export function KickoffBar({
         {/* Compact summary below lg */}
         <div className="min-w-0 flex-1 lg:hidden">
           <p className="truncate font-display text-[17px] font-black uppercase leading-none text-on-green md:text-[20px]">
-            {mobilePrimary}
+            <span key={mobilePrimary} className="setup-readout block truncate">{mobilePrimary}</span>
           </p>
           <p className="mt-1 truncate font-mono text-[11px] text-on-green-dim md:text-[12px]">
-            {mobileDetail}
+            <span key={mobileDetail} className="setup-readout block truncate">{mobileDetail}</span>
           </p>
         </div>
 
@@ -74,14 +74,14 @@ export function KickoffBar({
               type="button"
               onClick={onCta}
               disabled={disabled}
-              className={`inline-flex min-h-[44px] items-center gap-2 whitespace-nowrap rounded-full bg-yellow px-5 py-[13px] font-sans text-[13.5px] font-extrabold uppercase tracking-[0.08em] text-ink transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch-deep md:px-[34px] md:py-[18px] md:text-[17px] ${
+              className={`setup-kickoff inline-flex min-h-[44px] items-center gap-2 whitespace-nowrap rounded-full bg-yellow px-5 py-[13px] font-sans text-[13.5px] font-extrabold uppercase tracking-[0.08em] text-ink transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch-deep md:px-[34px] md:py-[18px] md:text-[17px] ${
                 disabled
                   ? 'cursor-not-allowed opacity-50'
                   : 'shadow-[0_6px_0_#0a2417] hover:-translate-y-0.5 hover:bg-yellow-deep active:translate-y-[3px] active:shadow-[0_2px_0_#0a2417]'
               }`}
             >
               {ctaLabel}
-              <ArrowRight size={19} strokeWidth={3} />
+              <span aria-hidden className="setup-kickoff-arrow"><ArrowRight size={19} strokeWidth={3} /></span>
             </button>
           ) : (
             <span

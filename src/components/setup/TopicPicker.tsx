@@ -123,7 +123,7 @@ function TopicTile({
       role="checkbox"
       aria-checked={active}
       onClick={() => onToggle(item.id)}
-      className={`flex items-center gap-[11px] rounded-[14px] px-[13px] py-3 text-left transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+      className={`setup-topic flex items-center gap-[11px] rounded-[14px] px-[13px] py-3 text-left transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
         active
           ? 'bg-green-go text-ink shadow-[0_4px_0_#0a2417]'
           : 'bg-card-tint/60 text-card-muted hover:-translate-y-px hover:bg-card-tint'
@@ -131,17 +131,17 @@ function TopicTile({
     >
       <span
         className={`flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-[7px] text-[13px] font-black leading-none ${
-          active ? 'bg-black/20 text-on-green' : 'border-2 border-card-ink/[0.28] text-transparent'
+          active ? 'bg-black/20 text-ink' : 'border-2 border-card-ink/[0.28] text-transparent'
         }`}
       >
-        ✓
+        <span aria-hidden className="setup-topic-check">✓</span>
       </span>
       <span className="min-w-0">
         <span className="block truncate font-display text-[19px] font-black uppercase leading-none">
           {item.label}
         </span>
         <span
-          className={`mt-1 block font-mono text-[11px] ${active ? 'text-on-green/80' : 'text-card-muted-2'}`}
+          className={`mt-1 block font-mono text-[11px] ${active ? 'text-ink/80' : 'text-card-muted-2'}`}
         >
           {item.count}
         </span>
@@ -158,7 +158,7 @@ function TopicInfoPopover({ label, children }: { label: string; children: ReactN
         className="flex items-center gap-1 rounded-full px-1.5 py-1 text-card-muted-2 transition-colors hover:bg-card-tint hover:text-card-ink focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white data-[popup-open]:bg-card-tint data-[popup-open]:text-card-ink"
       >
         <CircleHelp size={15} strokeWidth={2.4} />
-        <span className="font-mono text-[11px] font-bold">What's this?</span>
+        <span className="font-mono text-[11px] font-bold">What&apos;s this?</span>
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Positioner

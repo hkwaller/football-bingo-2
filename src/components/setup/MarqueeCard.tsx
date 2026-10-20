@@ -1,7 +1,7 @@
 'use client'
 
 import type { LucideIcon } from 'lucide-react'
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { Check } from 'lucide-react'
 
 /** Bright accent tiles for the two unselected marquee cards. */
@@ -62,8 +62,8 @@ export function MarqueeCard({
       role="radio"
       aria-checked={selected}
       onClick={onClick}
-      style={{ transform: `rotate(${tilt}deg)${selected && !fixed ? ' translateY(-3px)' : ''}` }}
-      className={`group relative flex h-full min-w-0 w-full flex-col overflow-hidden rounded-[14px] text-left duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch motion-reduce:transform-none ${
+      style={{ '--setup-tilt': `${tilt}deg`, '--setup-lift': selected && !fixed ? '-3px' : '0px' } as CSSProperties}
+      className={`setup-format group relative flex h-full min-w-0 w-full flex-col overflow-hidden rounded-[14px] text-left duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-pitch motion-reduce:transform-none ${
         fixed
           ? 'min-h-[140px] p-3 shadow-[0_6px_0_#0a2417] transition-colors sm:min-h-[196px] sm:p-[22px]'
           : `p-[22px] transition-[box-shadow,transform] active:translate-y-[2px] ${compact ? 'min-h-[132px]' : 'min-h-[196px]'}`
@@ -90,16 +90,16 @@ export function MarqueeCard({
       {/* Icon + SELECTED chip */}
       <div className="relative flex items-start justify-between gap-2">
         <span
-          className={`flex shrink-0 items-center justify-center rounded-[14px] ${fixed ? 'h-8 w-8 sm:h-[46px] sm:w-[46px]' : 'h-[46px] w-[46px]'} ${
+          className={`setup-format-icon flex shrink-0 items-center justify-center rounded-[14px] ${fixed ? 'h-8 w-8 sm:h-[46px] sm:w-[46px]' : 'h-[46px] w-[46px]'} ${
             selected ? 'bg-pitch-deep/[0.16] text-ink' : ACCENT_TILE[accent]
           }`}
         >
           <Icon size={24} strokeWidth={2.6} className={fixed ? 'h-5 w-5 sm:h-6 sm:w-6' : undefined} />
         </span>
         {fixed ? (
-          <Check aria-hidden className={`h-4 w-4 shrink-0 sm:h-5 sm:w-5 ${selected ? 'visible' : 'invisible'}`} strokeWidth={3} />
+          <span aria-hidden className={`setup-format-mark ${selected ? 'visible' : 'invisible'}`}><Check className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" strokeWidth={3} /></span>
         ) : selected && (
-          <span className="rounded-lg bg-pitch-deep px-3 py-1.5 font-mono text-[11.5px] font-bold uppercase leading-none text-yellow">
+          <span className="setup-format-mark rounded-lg bg-pitch-deep px-3 py-1.5 font-mono text-[11.5px] font-bold uppercase leading-none text-yellow">
             Selected
           </span>
         )}

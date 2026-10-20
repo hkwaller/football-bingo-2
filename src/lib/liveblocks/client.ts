@@ -46,6 +46,8 @@ export type GameStorage = {
   draftRound: number
   draftVotes: LiveMap<string, DraftVote>
   sharedSolved: LiveMap<string, CellPick>
+  /** Individual board seeds separate wallets; shared boards have one team wallet. */
+  hintPurchases?: LiveMap<string, boolean>
 }
 
 export type GamePresence = {
@@ -146,5 +148,6 @@ export function createInitialGameStorage(config?: InitialGameConfig): GameStorag
     draftRound: 0,
     draftVotes: new LiveMap(),
     sharedSolved: new LiveMap(),
+    hintPurchases: new LiveMap(),
   }
 }

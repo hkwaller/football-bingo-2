@@ -75,7 +75,7 @@ export function SelectRow({
       role={role}
       aria-checked={active}
       onClick={onClick}
-      className={`flex w-full items-center justify-between gap-3 rounded-[12px] px-[13px] py-[11px] text-left transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+      className={`setup-rule flex w-full items-center justify-between gap-3 rounded-[12px] px-[13px] py-[11px] text-left transition-all duration-150 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
         active
           ? 'bg-card-tint shadow-[inset_0_0_0_3px_var(--card-ink)]'
           : 'bg-card-tint/50 hover:-translate-y-px hover:bg-card-tint'

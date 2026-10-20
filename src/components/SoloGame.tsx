@@ -39,6 +39,8 @@ import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import type { SoloStats } from '@/lib/soloStats'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 import { useSpaceToSkip } from '@/lib/useSpaceToSkip'
+import { bingoHintKey, bingoPoints, canBuyBingoHint } from '@/lib/bingoHints'
+import { useBingoHint } from '@/lib/useBingoHint'
 
 
 export function SoloGame() {
@@ -58,6 +60,7 @@ export function SoloGame() {
   const [draftFallbackNote, setDraftFallbackNote] = useState<string | null>(null)
 
   const [drawn, setDrawn] = useState<DrawnPlayer | null>(null)
+  const [hintPurchases, setHintPurchases] = useState<string[]>([])
   const [draftLoading, setDraftLoading] = useState(false)
   const [draftError, setDraftError] = useState<string | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
@@ -97,6 +100,7 @@ export function SoloGame() {
       setBoardConfig(saved.boardConfig ?? DEFAULT_BOARD_CONFIG)
       setLineHighlight(saved.lineHighlight !== false)
       setDraftPolicy(saved.draftPolicy === 'placeable' ? 'placeable' : 'open')
+      setHintPurchases(Array.isArray(saved.hintPurchases) ? saved.hintPurchases.filter((k) => typeof k === 'string') : [])
       if (Array.isArray(saved.drawnPlayerIds)) {
         restoreDrawnPlayerIds(saved.drawnPlayerIds)
       }
@@ -117,8 +121,9 @@ export function SoloGame() {
       lineHighlight,
       draftPolicy,
       drawnPlayerIds,
+      hintPurchases,
     })
-  }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy, drawnPlayerIds])
+  }, [hydrated, seed, solved, playMode, round, boardConfig, lineHighlight, draftPolicy, drawnPlayerIds, hintPurchases])
 
   const occupiedIndices = useMemo(() => [...solved.keys()], [solved])
   const boardCells = useMemo(() => (seed ? generateBoard(seed, boardConfig) : []), [seed, boardConfig])
@@ -144,6 +149,20 @@ export function SoloGame() {
     set.add(freeIndexForConfig(boardConfig))
     return hasBingoForConfig(set, boardConfig)
   }, [solved, boardConfig])
+
+  const points = bingoPoints(solved.size, hintPurchases.length)
+  const hint = useBingoHint({
+    seed, round, playerId: drawn?.playerId, boardConfig, occupiedIndices, points,
+    enabled: hydrated && playMode === 'draft' && !draftLoading && !won,
+    purchased: hintPurchases.includes(bingoHintKey(seed, round, drawn?.playerId ?? '')),
+    buy: (key) => {
+      if (hintPurchases.includes(key)) return true
+      if (!canBuyBingoHint(points, false)) return false
+      setHintPurchases((prev) => prev.includes(key) ? prev : [...prev, key])
+      markStart()
+      return true
+    },
+  })
 
   useEffect(() => {
     if (playMode !== 'draft' || !seed || !hydrated) {
@@ -255,6 +274,7 @@ export function SoloGame() {
   }, [modalCell, seed, boardConfig])
 
   const resetStats = useCallback(() => {
+    setHintPurchases([])
     setWrongCount(0)
     setSkippedCount(0)
     setRecentDraws([])
@@ -444,6 +464,8 @@ export function SoloGame() {
             onSkip={skipDraft}
             skipDisabled={won || draftLoading}
             draftWarning={draftFallbackNote}
+            hint={hint}
+            points={points}
           />
           <RecentDraws draws={recentDraws} className="hidden lg:block" />
         </aside>
@@ -478,6 +500,7 @@ export function SoloGame() {
       {/* Mobile stats line (the scoreboard column is desktop-only) */}
       <div className="mb-2.5 flex items-center justify-between px-1 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-[#cfe3d5] lg:hidden">
         <span className="flex gap-3">
+          <span><span className="text-yellow">{points}</span> pts</span>
           <span>
             <span className="text-yellow">{solved.size}</span> placed
           </span>
@@ -619,7 +642,7 @@ export function SoloGame() {
         document.body,
       )}
 
-      <BingoWinModal open={won} stats={winStats} onPlayAgain={resetBoard} onClose={() => {}} />
+      <BingoWinModal open={won} stats={winStats} points={points} onPlayAgain={resetBoard} onClose={() => {}} />
 
       {seed ? (
         <BingoBoard
@@ -630,6 +653,7 @@ export function SoloGame() {
           reduceMotion={reduceMotion}
           showLabels={showLabels}
           draftTargetCells={null}
+          hintCells={hint.cells}
           wrongCell={wrongCell}
           onCellClick={(i) => {
             if (won || !configOk) return
@@ -644,6 +668,7 @@ export function SoloGame() {
       <aside className="hidden flex-col gap-5 pt-[74px] lg:flex">
         <Scoreboard
           items={[
+            { label: 'Points', value: points, tone: 'yellow' },
             { label: 'Placed', value: solved.size, tone: 'yellow' },
             { label: 'Missed', value: wrongCount, tone: 'coral' },
             ...(playMode === 'draft' ? [{ label: 'Skipped', value: skippedCount }] : []),

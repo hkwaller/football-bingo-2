@@ -3,7 +3,8 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { SkipForward } from 'lucide-react'
+import { Lightbulb, SkipForward } from 'lucide-react'
+import type { useBingoHint } from '@/lib/useBingoHint'
 import { useFitText } from '@/hooks/useFitText'
 import { wikimediaLoader } from '@/lib/playerImage'
 import type { PlayMode } from '@/lib/playMode'
@@ -30,6 +31,8 @@ type DrawnPlayerPanelProps = {
   extraActions?: ReactNode
   draftWarning?: string | null
   reduceMotion?: boolean
+  hint?: ReturnType<typeof useBingoHint>
+  points?: number
 }
 
 /** Cap on how long the sticker waits for its photo before popping in regardless. */
@@ -53,6 +56,8 @@ export function DrawnPlayerPanel({
   extraActions,
   draftWarning,
   reduceMotion = false,
+  hint,
+  points,
 }: DrawnPlayerPanelProps) {
   const attr = player?.imageAttribution
   // Re-mounts the portrait/name (and fires the glow) whenever a new player is drawn.
@@ -80,6 +85,11 @@ export function DrawnPlayerPanel({
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 lg:pointer-events-auto lg:static lg:z-auto">
+      {hint?.message ? (
+        <p role="status" className="pointer-events-auto mx-3 mb-2 rounded-lg border-2 border-ink bg-yellow px-3 py-2 text-center text-[12px] font-bold text-ink lg:mx-0">
+          {hint.message}
+        </p>
+      ) : null}
       <motion.section
         className="pointer-events-auto relative flex w-full items-center gap-3 border-t-[3px] border-ink bg-surface px-3.5 pb-[max(16px,env(safe-area-inset-bottom))] pt-2.5 text-ink shadow-[0_-5px_0_rgba(10,36,23,0.35)] lg:flex-col lg:items-stretch lg:gap-0 lg:rounded-[14px] lg:border-[2.5px] lg:p-5 lg:shadow-[0_6px_0_#0a2417]"
         role="status"
@@ -201,7 +211,7 @@ export function DrawnPlayerPanel({
         {/* Round + name (or error / warning) */}
         <div className="min-w-0 flex-1 lg:order-3 lg:text-center">
           <span className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-coral-ink lg:hidden">
-            Round {round + 1} · Now drawn
+            Round {round + 1} · {points === undefined ? 'Now drawn' : `${points} pts`}
           </span>
           {/* Fixed slot: one line on the bar, two on the card. Names crossfade
               in place so a longer name can't push the button or the board. */}
@@ -235,7 +245,17 @@ export function DrawnPlayerPanel({
         </div>
 
         {/* Actions */}
-        <div className="flex shrink-0 items-center gap-2 lg:order-4 lg:mt-4 lg:[&>*]:flex-1">
+        <div className="flex shrink-0 flex-col items-stretch gap-1.5 sm:flex-row sm:items-center lg:order-4 lg:mt-4 lg:flex-col lg:items-stretch">
+          {points !== undefined ? (
+            <p className="hidden text-center font-mono text-sm font-bold lg:block">{points} pts · +100 per placement</p>
+          ) : null}
+          {hint ? (
+            <button type="button" onClick={() => void hint.reveal()} disabled={hint.disabled}
+              className="btn btn-primary btn-sm min-h-[44px]"
+              title="Reveal every matching empty square. Costs 50 points once per draw; no match is free.">
+              <Lightbulb aria-hidden className="size-4" /> {hint.label}
+            </button>
+          ) : null}
           {onSkip ? (
             <button
               type="button"
