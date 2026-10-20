@@ -3,7 +3,7 @@
  * story. Shared by the home page (mode cards + walkthrough) and /games.
  */
 
-export type GameModeId = 'bingo' | 'trivia' | 'tenable' | 'famous11s' | 'careers'
+export type GameModeId = 'bingo' | 'trivia' | 'tenable' | 'famous11s' | 'careers' | 'connections'
 
 export interface GameMode {
   id: GameModeId
@@ -138,6 +138,31 @@ export const GAME_MODES: GameMode[] = [
       {
         title: 'Fewer clues, more points',
         body: 'A first-guess answer scores 100, and every clue you needed costs 25. In a room you all race the same career, and the first to name him takes a bonus.',
+      },
+    ],
+  },
+  {
+    id: 'connections',
+    title: 'Connections',
+    tagline: 'Who played for both?',
+    blurb:
+      'Two clubs, one player. Name a footballer who played for both - or go hard with three.',
+    soloHref: '/connections/setup?mode=solo',
+    multiHref: '/connections/setup?mode=multiplayer',
+    tags: ['Solo or room', '2 or 3 clubs', 'Deep-cut bonus'],
+    isNew: true,
+    steps: [
+      {
+        title: 'Clubs appear',
+        body: "Two crests, sometimes three. Every pairing comes from real careers, so there's always someone who played for them all - loans count.",
+      },
+      {
+        title: 'Name a link',
+        body: "Any player who fits will do. A wrong name costs a guess and reveals a clue, but a name we don't know is a free go.",
+      },
+      {
+        title: 'Dig deep',
+        body: 'A first-guess link scores 100. Skip the obvious names for a deep-cut bonus, and in a room the first to connect them takes the roar.',
       },
     ],
   },

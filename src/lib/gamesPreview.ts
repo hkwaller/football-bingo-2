@@ -6,6 +6,8 @@
 import { enrichedFootballPlayers } from '@/data/players'
 import { careerPlayers } from '@/data/careers'
 import type { CareerSpell } from '@/lib/careers/types'
+import { buildPuzzle } from '@/data/connections'
+import type { ConnectionsPuzzle } from '@/lib/connections/types'
 import { getLineupById, type Famous11sLineup } from '@/data/famous11s'
 import { getTenableQuestionById, type TenableQuestion } from '@/data/tenable'
 import { DEFAULT_BOARD_CONFIG, freeIndexForConfig, generateBoard } from '@/lib/board'
@@ -31,6 +33,7 @@ export interface GamesPreviewData {
   tenable: { question: TenableQuestion; foundOrder: number[] } | null
   famous11s: { lineup: Famous11sLineup; foundOrder: string[] } | null
   careers: { career: CareerSpell[]; nationality: string; wrongGuess: string } | null
+  connections: { puzzle: ConnectionsPuzzle; guess: string } | null
 }
 
 const byFame = [...enrichedFootballPlayers]
@@ -150,6 +153,13 @@ function buildCareers(): GamesPreviewData['careers'] {
     : null
 }
 
+/** Barcelona + PSV: Ronaldo, Romário, Koeman and more. Barcelona 131, PSV 383. */
+function buildConnections(): GamesPreviewData['connections'] {
+  const puzzle = buildPuzzle(['131', '383'], 'easy')
+  const guess = puzzle.answers[1]?.name ?? puzzle.answers[0]?.name
+  return guess ? { puzzle, guess } : null
+}
+
 export function getGamesPreviewData(): GamesPreviewData {
   return {
     bingo: buildBingo(),
@@ -157,5 +167,6 @@ export function getGamesPreviewData(): GamesPreviewData {
     tenable: buildTenable(),
     famous11s: buildFamous11s(),
     careers: buildCareers(),
+    connections: buildConnections(),
   }
 }

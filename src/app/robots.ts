@@ -24,6 +24,8 @@ export default function robots(): MetadataRoute.Robots {
           '/famous-11s/play',
           '/careers/room/',
           '/careers/play',
+          '/connections/room/',
+          '/connections/play',
         ],
       },
     ],

@@ -23,6 +23,7 @@ const TILE: Record<GameModeId, string> = {
   tenable: 'bg-sky',
   famous11s: 'bg-green-go',
   careers: 'bg-surface',
+  connections: 'bg-green-go',
 }
 
 const byName = (name: string) => DECK.find((p) => p.name === name)
