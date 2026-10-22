@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
+import { publicPageMetadata } from '@/lib/seo'
 import { PublicLegal } from '@/lib/PublicLegal'
-export const metadata: Metadata = {
-  title: 'Terms of use',
-  alternates: { canonical: 'https://bingo.playam.app/terms' },
-}
+export const metadata = publicPageMetadata(
+  'Terms of use',
+  'Terms for playing Football Bingo, using optional accounts and paid features, and contacting Playam for help.',
+  '/terms',
+)
 export default function Page() {
   return (
     <PublicLegal title="Terms of use">
@@ -27,7 +28,7 @@ export default function Page() {
       <p>
         Game content is for entertainment and may contain errors. We may update content or features
         and interrupt access for maintenance or to address abuse. Third-party content remains
-        subject to its owners' rights. These terms do not limit rights you have under applicable
+        subject to its owners&apos; rights. These terms do not limit rights you have under applicable
         consumer law.
       </p>
       <h2>Privacy and contact</h2>

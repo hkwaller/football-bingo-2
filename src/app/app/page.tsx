@@ -4,6 +4,7 @@ import { ScanToJoin } from '@/components/ScanToJoin'
 import { Sticker } from '@/components/Sticker'
 import { GAME_MODES, type GameMode, type GameModeId } from '@/lib/gameModes'
 import { DECK } from '@/lib/stickerDeck'
+import { PRIVATE_METADATA } from '@/lib/seo'
 
 /**
  * Home screen of the native app. The app opens `/`, and `proxy.ts` rewrites
@@ -12,8 +13,8 @@ import { DECK } from '@/lib/stickerDeck'
  * No pitch: the visitor already installed the game, so the games come first.
  */
 export const metadata: Metadata = {
+  ...PRIVATE_METADATA,
   title: 'Play',
-  robots: { index: false, follow: false },
 }
 
 /** Mode colours from DESIGN.md; every one takes ink text. */

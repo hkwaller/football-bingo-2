@@ -12,13 +12,8 @@ function SiteFooter() {
   const native = useIsNativeApp()
   return (
     <footer className="mt-10 border-t border-surface/15 px-6 py-5 text-center text-xs text-on-green-dim">
-      Player photos from{' '}
-      <a href="https://commons.wikimedia.org" className="underline" target="_blank" rel="noreferrer">
-        Wikimedia Commons
-      </a>{' '}
-      ·{' '}
       <Link href="/credits" className="underline">
-        Photo credits
+        Photo and data credits
       </Link>
       {ADS_ENABLED && !native && (
         <>

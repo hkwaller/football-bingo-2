@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
+import { publicPageMetadata } from '@/lib/seo'
 import { PublicLegal, WebAdvertisingPrivacy } from '@/lib/PublicLegal'
-export const metadata: Metadata = {
-  title: 'Privacy policy',
-  alternates: { canonical: 'https://bingo.playam.app/privacy' },
-}
+export const metadata = publicPageMetadata(
+  'Privacy policy',
+  'How Football Bingo handles guest play, optional accounts, saved results and usage analytics. Contact Playam about your data.',
+  '/privacy',
+)
 export default function Page() {
   return (
     <PublicLegal title="Privacy policy">

@@ -25,7 +25,7 @@ export function WebAdvertisingPrivacy() {
         This website does not currently serve advertising. Selected Playam games may introduce web
         advertising in the future. Before that happens, this policy will be updated with the actual
         providers, information used and consent choices. The web version and native apps may use
-        different services; any native app advertising is described separately in the game's privacy
+        different services; any native app advertising is described separately in the game&apos;s privacy
         policy.
       </p>
       <p>

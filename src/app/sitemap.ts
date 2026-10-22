@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Public, indexable pages only. Private rooms, live game runtime and auth
-  // pages are intentionally excluded (and disallowed in robots.ts).
+  // pages are intentionally excluded and carry noindex metadata.
   const routes = ['/privacy', '/terms',
     '/', // home
     '/games', // public rules and previews for every game mode

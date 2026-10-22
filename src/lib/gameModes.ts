@@ -11,6 +11,9 @@ export interface GameMode {
   /** One-line hook, also the "how it plays" heading. */
   tagline: string
   blurb: string
+  /** A concrete example and the room mechanic, also readable without previews. */
+  example: string
+  roomPlay: string
   soloHref: string
   /** Omitted for solo-only modes. */
   multiHref?: string
@@ -24,9 +27,11 @@ export const GAME_MODES: GameMode[] = [
   {
     id: 'bingo',
     title: 'Bingo',
-    tagline: 'Three squares from glory',
+    tagline: 'One line from glory',
     blurb:
       'Fill your board with the players drawn and be first to a full line. The signature mode.',
+    example: 'Draw Lionel Messi? Place him on Argentina or Barcelona if that square is on your board.',
+    roomPlay: 'By default, everyone races on their own board with the same player draws. The host can instead choose a shared board, independent draws or free pick.',
     soloHref: '/play/setup',
     multiHref: '/play/setup?mode=multiplayer',
     tags: ['Solo or room', 'Draft or free pick', 'Custom boards'],
@@ -48,8 +53,10 @@ export const GAME_MODES: GameMode[] = [
   {
     id: 'trivia',
     title: 'Trivia',
-    tagline: 'Ten questions, one winner',
+    tagline: 'Quick questions, quick thinking',
     blurb: 'Quick-fire football questions where the fastest correct answer wins the round.',
+    example: 'A stat duel asks which of two footballers has scored more Champions League goals. Pick your answer before time runs out.',
+    roomPlay: 'Everyone answers the same question at once. Correct answers earn points, with a bonus for speed.',
     soloHref: '/trivia/setup?mode=solo',
     multiHref: '/trivia/setup?mode=multiplayer',
     tags: ['Solo or room', 'Survival, timed or fixed', 'Speed bonus'],
@@ -74,6 +81,8 @@ export const GAME_MODES: GameMode[] = [
     tagline: 'Name the ten',
     blurb:
       'Name the ten. Top scorers, most caps, biggest transfers - fill the list before your lives run out.',
+    example: 'For Premier League goalscorers, try Alan Shearer. Ranked lists have fixed answers; open categories accept any ten eligible names.',
+    roomPlay: 'Take turns in versus or co-op. Versus gives each player their own lives and score; co-op shares lives and one team score.',
     soloHref: '/tenable/setup?mode=solo',
     multiHref: '/tenable/setup?mode=multiplayer',
     tags: ['Solo or room', 'Versus or co-op', 'Hints'],
@@ -84,11 +93,11 @@ export const GAME_MODES: GameMode[] = [
       },
       {
         title: 'Name them, lose lives',
-        body: 'Every correct name flips a slot. Three wrong guesses and the category closes with the rest still hidden.',
+        body: 'Every correct name fills a slot. Wrong guesses cost lives; the category closes when you run out. Choose your lives and hints in setup.',
       },
       {
         title: 'Clear the board',
-        body: 'Each answer scores, and finding all ten lands the clear bonus. In a room you take turns, so one miss hands it over.',
+        body: 'Each answer scores, and finding all ten lands the clear bonus. In a room you take turns in versus or co-op.',
       },
     ],
   },
@@ -98,6 +107,8 @@ export const GAME_MODES: GameMode[] = [
     tagline: 'Name all eleven',
     blurb:
       'Name all eleven from iconic XIs - World Cup finals, Champions League classics and legendary club sides.',
+    example: 'Try naming Barcelona\'s starting XI from the 2011 Champions League final, including Lionel Messi and Xavi.',
+    roomPlay: 'Take turns completing the same lineup in versus or co-op. You can also include the manager in setup.',
     soloHref: '/famous-11s/setup?mode=solo',
     multiHref: '/famous-11s/setup?mode=multiplayer',
     tags: ['Solo or room', 'Versus or co-op', 'Nicknames count'],
@@ -108,7 +119,7 @@ export const GAME_MODES: GameMode[] = [
       },
       {
         title: 'Fill the pitch',
-        body: 'Type any name you remember and it drops into the right position. Surnames and nicknames count.',
+        body: 'Type a player from that starting XI and he drops into the right position. Recognised surnames and nicknames count.',
       },
       {
         title: 'Beat the lineup',
@@ -122,6 +133,8 @@ export const GAME_MODES: GameMode[] = [
     tagline: 'Whose career is it?',
     blurb:
       'Years and clubs, nothing else. Name the footballer from his career path - loans included.',
+    example: 'Spot the path from Sporting CP to Manchester United, Real Madrid and Juventus? That career belongs to Cristiano Ronaldo.',
+    roomPlay: 'Everyone races to name the same footballer. The first correct answer earns a bonus; each player can still solve the career.',
     soloHref: '/careers/setup?mode=solo',
     multiHref: '/careers/setup?mode=multiplayer',
     tags: ['Solo or room', 'Race to name him', 'Clues on a miss'],
@@ -147,6 +160,8 @@ export const GAME_MODES: GameMode[] = [
     tagline: 'Who played for both?',
     blurb:
       'Two clubs, one player. Name a footballer who played for both - or go hard with three.',
+    example: 'Barcelona and PSV have more than one connection: Ronaldo and Romário both fit. Any eligible player in the game\'s bank is accepted.',
+    roomPlay: 'Everyone races to connect the same clubs. The first correct answer earns a bonus, and less obvious names can earn extra points.',
     soloHref: '/connections/setup?mode=solo',
     multiHref: '/connections/setup?mode=multiplayer',
     tags: ['Solo or room', '2 or 3 clubs', 'Deep-cut bonus'],

@@ -1,3 +1,6 @@
+import type { Metadata } from 'next'
+import { GAME_MODES } from '@/lib/gameModes'
+
 /**
  * Canonical site origin for metadata, sitemap, robots and OG images.
  *
@@ -8,5 +11,45 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_APP_URL || 'https://bingo.playa
 
 export const SITE_NAME = 'Football Bingo'
 
+export const SITE_TITLE = `${SITE_NAME} - Football quizzes, solo or with friends`
+export const MODE_NAMES = GAME_MODES.map((mode) => mode.title).join(', ')
 export const SITE_DESCRIPTION =
-  'The football knowledge game. A player is drawn, slap him on the right square - club, nation or honour - and race to a line. Play Bingo, Trivia and Tenable solo or in a full room. No luck, just football knowledge.'
+  `Play ${MODE_NAMES}. Football quizzes and puzzles, solo or with friends in a browser. No sign-up needed to play.`
+
+/** Public pages need their own social URL and copy, as well as a canonical. */
+export function publicPageMetadata(title: string, description: string, path: string): Metadata {
+  // Child openGraph/twitter objects replace the parent objects, including its
+  // file-convention images. Point to the shared generated image explicitly.
+  const image = {
+    url: '/opengraph-image',
+    width: 1200,
+    height: 630,
+    alt: `${SITE_NAME}: ${MODE_NAMES}. Solo or with friends.`,
+  }
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      siteName: SITE_NAME,
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      url: path,
+      images: [image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      images: [image],
+    },
+  }
+}
+
+/** Inherited by setup, runtime, room and account routes, including client pages. */
+export const PRIVATE_METADATA: Metadata = {
+  robots: { index: false, follow: true },
+  alternates: { canonical: null },
+}

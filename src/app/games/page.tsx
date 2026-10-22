@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import {
@@ -11,13 +10,9 @@ import {
 } from '@/components/games/GamePreviews'
 import { GAME_MODES, type GameModeId } from '@/lib/gameModes'
 import { getGamesPreviewData } from '@/lib/gamesPreview'
+import { publicPageMetadata, SITE_DESCRIPTION } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Games',
-  description:
-    'Bingo, Trivia, Tenable, Famous 11s, Careers and Connections - pick a football knowledge game and play solo or against a full room.',
-  alternates: { canonical: '/games' },
-}
+export const metadata = publicPageMetadata('Football quiz games and rules', SITE_DESCRIPTION, '/games')
 
 /** Mode colours from DESIGN.md; every one takes ink text. */
 const ACCENT: Record<GameModeId, { bg: string; border: string }> = {
@@ -53,8 +48,13 @@ export default function GamesPage() {
           Six ways to play
         </h1>
         <p className="mx-auto mt-4 max-w-[480px] text-[15.5px] font-semibold leading-relaxed text-on-green-soft">
-          Go solo to sharpen up, or open a room and send the link to your mates. Every game runs on
-          the same real player data.
+          Football Bingo brings together football quizzes, lineup challenges and player puzzles.
+          All six modes support solo play or a multiplayer room. No sign-up needed to play.
+        </p>
+        <p className="mx-auto mt-4 max-w-[600px] text-[14px] font-semibold leading-relaxed text-on-green-dim">
+          Solo needs one player. For a match with friends, choose Multiplayer, let one player create
+          the room, then share its link or QR code. The host chooses the settings and starts the game;
+          players join in their own browsers. No separate presenter is needed.
         </p>
         <nav aria-label="Jump to a game" className="mt-8 flex flex-wrap justify-center gap-2.5">
           {GAME_MODES.map((m) => (
@@ -128,6 +128,12 @@ export default function GamesPage() {
                 <p className="mt-4 max-w-[460px] text-[16px] font-semibold leading-relaxed text-on-green-soft">
                   {m.blurb}
                 </p>
+                <p className="mt-4 max-w-[460px] text-[14px] font-semibold leading-relaxed text-on-green-dim">
+                  <strong className="text-on-green">For example: </strong>{m.example}
+                </p>
+                <p className="mt-3 max-w-[460px] text-[14px] font-semibold leading-relaxed text-on-green-dim">
+                  <strong className="text-on-green">In a room: </strong>{m.roomPlay}
+                </p>
 
                 <ol className="mt-7 flex flex-col gap-4">
                   {m.steps.map((s, si) => (
@@ -163,10 +169,10 @@ export default function GamesPage() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   {m.multiHref ? (
                     <>
-                      <Link href={m.multiHref} className="btn btn-primary btn-lg">
+                      <Link href={m.multiHref} aria-label={`Play ${m.title} multiplayer`} className="btn btn-primary btn-lg">
                         Multiplayer
                       </Link>
-                      <Link href={m.soloHref} className="btn btn-outline-light btn-lg">
+                      <Link href={m.soloHref} aria-label={`Play ${m.title} solo`} className="btn btn-outline-light btn-lg">
                         Solo
                       </Link>
                     </>
@@ -181,6 +187,10 @@ export default function GamesPage() {
           )
         })}
       </div>
+      <p className="relative mx-auto mt-16 max-w-3xl px-6 text-center text-sm leading-relaxed text-on-green-dim">
+        Want to know where the player data and photographs come from? Read the{' '}
+        <Link href="/credits" className="font-semibold text-yellow underline">photo and data credits</Link>.
+      </p>
     </div>
   )
 }

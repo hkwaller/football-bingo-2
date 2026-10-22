@@ -1,97 +1,92 @@
 import Link from 'next/link'
-import { enrichedFootballPlayers } from '@/data/players'
+import { getPhotoCredits } from '@/lib/photoCredits'
+import { publicPageMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Photo credits',
-  description:
-    'Attribution for every player photo used in Football Bingo - all Wikimedia Commons free-licensed images, credited by author and license.',
-  alternates: { canonical: '/credits' },
-}
-
-type Row = {
-  players: string[]
-  author: string
-  license: string
-  licenseUrl: string
-  source: string
-}
-
-// One row per distinct source photo; list the players that use it.
-function buildRows(): Row[] {
-  const bySource = new Map<string, Row>()
-  for (const p of enrichedFootballPlayers) {
-    const a = p.imageAttribution
-    if (!a) continue
-    const key = a.source || `${a.author}|${a.license}`
-    const row = bySource.get(key)
-    if (row) row.players.push(p.name)
-    else
-      bySource.set(key, {
-        players: [p.name],
-        author: a.author,
-        license: a.license,
-        licenseUrl: a.licenseUrl,
-        source: a.source,
-      })
-  }
-  return [...bySource.values()].sort((a, b) => a.players[0].localeCompare(b.players[0]))
-}
+export const metadata = publicPageMetadata(
+  'Photo and data credits',
+  'Photo authors, licences and additional portrait sources across Football Bingo, plus the sources behind its football facts, career paths and lineups.',
+  '/credits',
+)
 
 export default function CreditsPage() {
-  const rows = buildRows()
+  const rows = getPhotoCredits()
+  const credited = rows.filter((row) => row.attribution)
+  const additional = rows.filter((row) => !row.attribution)
   return (
-    <main className="mx-auto max-w-[860px] px-6 py-10">
+    <div className="mx-auto max-w-[860px] px-6 py-10">
       <span className="eyebrow">Attribution</span>
       <h1 className="mt-2.5 font-display text-[34px] font-black uppercase leading-none text-on-green">
-        Photo credits
+        Photo and data credits
       </h1>
-      <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-on-green-soft">
-        Player photographs are sourced from{' '}
-        <a
-          href="https://commons.wikimedia.org"
-          className="font-semibold text-yellow underline"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Wikimedia Commons
-        </a>{' '}
-        and used under their respective free licences. Each photo, its author and licence, and a
-        link to the source file are listed below. {rows.length} photos credited.
-      </p>
+      <section aria-labelledby="data-sources" className="mt-6 text-[14px] leading-relaxed text-on-green-soft">
+        <h2 id="data-sources" className="font-display text-2xl font-black uppercase text-on-green">Football data</h2>
+        <p className="mt-3">
+          Player profiles, club histories and career paths are derived from{' '}
+          <a href="https://www.transfermarkt.com/" className="text-yellow underline" target="_blank" rel="noreferrer">Transfermarkt</a>.
+          {' '}Tenable lists and Famous 11s lineups are curated, with{' '}
+          <a href="https://en.wikipedia.org/" className="text-yellow underline" target="_blank" rel="noreferrer">Wikipedia</a>
+          {' '}lists and match reports among their references. Connections combines the player and career banks to find shared clubs, including loans.
+        </p>
+        <p className="mt-3">
+          These are game datasets, not live statistics or complete football records. Rankings and
+          careers can change, and some eligible real-world answers may be missing. Club names,
+          crests and third-party content remain subject to their owners&apos; rights.
+        </p>
+      </section>
 
-      <ul className="mt-6 divide-y divide-surface/15">
-        {rows.map((r) => (
-          <li key={r.source || r.author} className="py-3 text-[13px]">
-            <div className="font-semibold text-on-green">{r.players.join(', ')}</div>
-            <div className="mt-0.5 text-on-green-dim">
-              © {r.author} ·{' '}
-              {r.licenseUrl ? (
-                <a href={r.licenseUrl} className="underline" target="_blank" rel="noreferrer">
-                  {r.license}
-                </a>
-              ) : (
-                r.license
-              )}
-              {r.source ? (
-                <>
+      <section aria-labelledby="photo-credits" className="mt-8">
+        <h2 id="photo-credits" className="font-display text-2xl font-black uppercase text-on-green">Photo credits</h2>
+        <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-on-green-soft">
+          Many player photographs come from{' '}
+          <a href="https://commons.wikimedia.org" className="font-semibold text-yellow underline" target="_blank" rel="noreferrer">Wikimedia Commons</a>.
+          {' '}The {credited.length} photographs below have recorded author and licence details.
+          Additional portraits used in individual modes are listed separately.
+        </p>
+        <ul className="mt-6 divide-y divide-surface/15">
+          {credited.map((row) => {
+            const a = row.attribution!
+            return (
+              <li key={a.source || row.imageUrl} className="py-3 text-[13px]">
+                <div className="font-semibold text-on-green">{row.names.join(', ')}</div>
+                <div className="mt-0.5 text-on-green-dim">
+                  {a.author} ·{' '}
+                  {a.licenseUrl ? (
+                    <a href={a.licenseUrl} className="underline" target="_blank" rel="noreferrer">{a.license}</a>
+                  ) : a.license}
                   {' · '}
-                  <a href={r.source} className="underline" target="_blank" rel="noreferrer">
-                    source
-                  </a>
-                </>
-              ) : null}
-            </div>
-          </li>
-        ))}
-      </ul>
+                  <a href={a.source || row.imageUrl} className="underline" target="_blank" rel="noreferrer">source</a>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+
+      {additional.length > 0 && (
+        <section aria-labelledby="additional-portraits" className="mt-8">
+          <h2 id="additional-portraits" className="font-display text-2xl font-black uppercase text-on-green">Additional portrait sources</h2>
+          <p className="mt-3 text-[14px] leading-relaxed text-on-green-soft">
+            These {additional.length} portraits include mode-specific images from Transfermarkt and
+            Wikimedia. Author and licence details are not recorded for these images. Source links
+            identify the images; they do not grant permission to reuse them.
+          </p>
+          <ul className="mt-4 divide-y divide-surface/15">
+            {additional.map((row) => (
+              <li key={row.imageUrl} className="py-3 text-[13px]">
+                <span className="font-semibold text-on-green">{row.names.join(', ')}</span>
+                {' · '}
+                <a href={row.imageUrl} className="text-on-green-dim underline" target="_blank" rel="noreferrer">
+                  Image source ({new URL(row.imageUrl).hostname})
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <div className="mt-8">
-        <Link href="/" className="btn btn-outline-light btn-sm">
-          ← Back
-        </Link>
+        <Link href="/games" className="btn btn-outline-light btn-sm">Explore the games</Link>
       </div>
-
-
-    </main>
+    </div>
   )
 }

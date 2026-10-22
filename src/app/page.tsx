@@ -48,7 +48,8 @@ export default function HomePage() {
             </h1>
             <p className="mt-7 max-w-[460px] text-[17px] font-semibold leading-relaxed text-on-green-soft">
               A player is drawn, the room goes wild. Slap him on the right square - club, nation or
-              honour - and race to a line. No luck, just football knowledge.
+              honour - and race to a line. Play football quizzes and puzzles solo or with friends,
+              from Bingo and Trivia to Tenable, Famous 11s, Careers and Connections.
             </p>
             <ScanToJoin className="mt-7" />
             {/* <div className="mt-8 flex flex-wrap gap-3.5">

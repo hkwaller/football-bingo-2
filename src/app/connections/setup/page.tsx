@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: 'Play Connections',
   description:
     'Two clubs, one player. Name a footballer who played for both - or all three. Solo, or race your mates in a room.',
-  alternates: { canonical: '/connections/setup' },
 }
 
 export default function ConnectionsSetupPage() {

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { AppShell } from '@/components/AppShell'
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/seo'
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from '@/lib/seo'
 import './globals.css'
 
 // Fonts are self-hosted (see src/app/fonts/README.md) so builds never depend on
@@ -40,7 +40,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} - Know football? Prove it.`,
+    default: SITE_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -53,12 +53,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} - Know football? Prove it.`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} - Know football? Prove it.`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   robots: {

@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: 'Play Trivia',
   description:
     'Quick-fire football trivia where the fastest correct answer wins the round. Play solo or against a full room.',
-  alternates: { canonical: '/trivia/setup' },
 }
 
 export default function TriviaSetupPage() {
