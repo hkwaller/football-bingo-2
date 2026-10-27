@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { normalize } from '@/lib/tenable/normalize'
 import { canAutoFocus } from '@/lib/autoFocus'
+import { useAutocompleteTouch } from '@/lib/useAutocompleteTouch'
 
 interface Props {
   /** Called with the chosen/typed name. Return value ignored (parent handles matching). */
@@ -44,6 +45,7 @@ export function NameAutocomplete({
   const [active, setActive] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
   const listId = useId()
+  const touch = useAutocompleteTouch(() => { setOpen(false); setActive(-1) })
 
   useEffect(() => {
     if (!disabled && canAutoFocus()) inputRef.current?.focus()
@@ -158,7 +160,7 @@ export function NameAutocomplete({
           onChange={(e) => { setQuery(e.target.value); setActive(-1) }}
           onKeyDown={onKeyDown}
           onFocus={() => suggestions.length && setOpen(true)}
-          onBlur={() => { setOpen(false); setActive(-1) }}
+          onBlur={touch.onBlur}
           placeholder={placeholder ?? 'Name a player…'}
           autoComplete="off"
           autoCorrect="off"
@@ -181,7 +183,9 @@ export function NameAutocomplete({
               <button
                 type="button"
                 tabIndex={-1}
-                onPointerDown={(e) => e.preventDefault()}
+                onPointerDown={touch.onPointerDown}
+                onPointerUp={(e) => touch.onPointerUp(e, () => submit(name))}
+                onPointerCancel={touch.onPointerCancel}
                 onClick={() => submit(name)}
                 className={`min-h-11 w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors ${
                   i === active ? 'bg-green-go text-ink' : 'text-ink hover:bg-card-tint'

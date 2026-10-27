@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { normalize } from '@/lib/tenable/normalize'
 import { canAutoFocus } from '@/lib/autoFocus'
+import { useAutocompleteTouch } from '@/lib/useAutocompleteTouch'
 
 interface Props {
   onGuess: (name: string) => void
@@ -31,6 +32,7 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
   const [active, setActive] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
   const listId = useId()
+  const touch = useAutocompleteTouch(() => { setOpen(false); setActive(-1) })
   const listVisible = open && suggestions.length > 0 && suggestionsFor === query.trim()
 
   useEffect(() => {
@@ -133,7 +135,7 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
         value={query}
         onChange={(e) => { setQuery(e.target.value); setActive(-1) }}
         onKeyDown={onKeyDown}
-        onBlur={() => { setOpen(false); setActive(-1) }}
+        onBlur={touch.onBlur}
         disabled={disabled}
         placeholder={placeholder}
         autoComplete="off"
@@ -158,7 +160,9 @@ export function Famous11sAutocomplete({ onGuess, disabled, placeholder = 'Name a
               <button
                 type="button"
                 tabIndex={-1}
-                onPointerDown={(e) => e.preventDefault()}
+                onPointerDown={touch.onPointerDown}
+                onPointerUp={(e) => touch.onPointerUp(e, () => submit(s))}
+                onPointerCancel={touch.onPointerCancel}
                 onClick={() => submit(s)}
                 className={`min-h-11 w-full px-4 py-2.5 text-left font-display text-[15px] font-black uppercase leading-none transition-colors ${
                   i === active ? 'bg-yellow text-ink' : 'text-on-green hover:bg-surface/10'
