@@ -1,6 +1,6 @@
-import { randomUUID } from '@/lib/randomUUID'
-import { normalize } from '@/lib/tenable/normalize'
-import { initialsOf } from '@/lib/careers/sessionEngine'
+import { randomUUID } from '../randomUUID'
+import { normalize } from '../tenable/normalize'
+import { initialsOf } from '../careers/sessionEngine'
 import {
   CLUE_COST,
   CLUE_ORDER,

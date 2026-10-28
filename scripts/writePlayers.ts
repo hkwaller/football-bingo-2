@@ -20,7 +20,7 @@ const players: any[] = JSON.parse(fs.readFileSync(RESULT_FILE, 'utf-8'))
 const ts = `// Auto-generated - do not edit by hand.
 // Source: scripts/output/players.json (run "npm run enrich" then "npm run parse" to regenerate)
 // ${players.length} players, last updated ${new Date().toISOString().split('T')[0]}
-import type { Player } from '@/types/player'
+import type { Player } from '../types/player'
 
 export const enrichedFootballPlayers: Player[] = ${JSON.stringify(players, null, 2)}
 `

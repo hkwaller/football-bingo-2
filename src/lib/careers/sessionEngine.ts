@@ -1,5 +1,5 @@
-import { randomUUID } from '@/lib/randomUUID'
-import { normalize } from '@/lib/tenable/normalize'
+import { randomUUID } from '../randomUUID'
+import { normalize } from '../tenable/normalize'
 import {
   CLUE_COST,
   CLUE_ORDER,

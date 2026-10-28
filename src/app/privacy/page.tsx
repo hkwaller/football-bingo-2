@@ -16,7 +16,7 @@ export default function Page() {
       <section>
         <h2>Information and services</h2>
         <p>
-          Game rooms share player names, answers and scores through Liveblocks so everyone can play
+          Game rooms share player names, answers and scores through Cloudflare (PartyServer) so everyone can play
           together. Clerk provides optional sign-in; an account may include your name, email address
           and account identifier. Supabase stores game data where saved results or game content are
           provided. The browser may store guest identity, preferences and progress locally.

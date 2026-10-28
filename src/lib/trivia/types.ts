@@ -1,4 +1,4 @@
-import type { CareerStats } from '@/types/player'
+import type { CareerStats } from '../../types/player'
 
 // ── Config ────────────────────────────────────────────────────────────────────
 

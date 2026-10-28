@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli'
 
 /**
  * Native shell (iOS + Android) around the live site. The app loads the deployed
- * Next.js app instead of a bundled export: the game needs its server (Liveblocks
+ * Next.js app instead of a bundled export: the game needs its server (PartyServer
  * auth, Clerk proxy, API routes), and web deploys reach the app without a
  * store review. See NATIVE.md.
  *

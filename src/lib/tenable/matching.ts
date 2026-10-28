@@ -1,4 +1,4 @@
-import type { TenableQuestion } from '@/data/tenable'
+import type { TenableQuestion } from '../../data/tenable'
 import { normalize } from './normalize'
 import type { GuessOutcome } from './types'
 

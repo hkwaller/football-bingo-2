@@ -1,4 +1,4 @@
-import { slugify } from '@/lib/slugify'
+import { slugify } from '../lib/slugify'
 
 /**
  * Country flags in public/logos/countries/ (from flagcdn, named by slugified

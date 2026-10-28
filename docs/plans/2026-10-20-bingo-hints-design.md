@@ -4,7 +4,7 @@ Approved: each correct placement earns 100 points. In draft mode, Hint costs 50 
 
 Use the existing placement matcher on the server, excluding filled and free squares. Keep player data out of the hint client. Add a persistent hint-purchase ledger to solo saves; derive score from placements minus purchases so reloads cannot restore spent points. Legacy saves start with no purchases. A board reset clears the ledger.
 
-Room games use individual wallets on individual boards and a team wallet on shared boards, with purchases stored in Liveblocks. A shared draw on a shared board needs only one team purchase. Hints never place or restrict a square.
+Room games use individual wallets on individual boards and a team wallet on shared boards, with purchases stored in PartyServer. A shared draw on a shared board needs only one team purchase. Hints never place or restrict a square.
 
 Use the existing paper/yellow visual style, a lightbulb action beside Skip, accessible match labels, a live hint message, and visible points on desktop and mobile. Keep the mobile action area compact.
 

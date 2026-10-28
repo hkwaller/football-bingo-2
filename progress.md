@@ -4,13 +4,13 @@ Approved design: 100 points per correct placement; 50 points once per draw to re
 
 Work in progress: implement helpers, endpoint, shared hook, controls and highlights; then verify with unit and browser checks.
 
-Implemented scoring helpers and a validated server hint endpoint using the placement matcher; reusable hint request handling ignores stale/unmounted responses and deduplicates clicks. Solo purchases persist; room purchases use a Liveblocks ledger with board-scoped wallets. Added hint controls, accessible yellow match markers, responsive points, a balanced four-counter scoreboard and final solo points.
+Implemented scoring helpers and a validated server hint endpoint using the placement matcher; reusable hint request handling ignores stale/unmounted responses and deduplicates clicks. Solo purchases persist; room purchases use a PartyServer ledger with board-scoped wallets. Added hint controls, accessible yellow match markers, responsive points, a balanced four-counter scoreboard and final solo points.
 
 Verification: all 41 unit tests passed, including six new hint/scoring/API/persistence tests. TypeScript passed. Changed hint helpers/components pass lint; SoloGame/RoomGame retain existing React warnings. Browser verified: 0-point disabled hint; correct placement +100; purchase -50; three simultaneous matches; no-match request free; skip/place clears highlights; reload retains spent points and allows free re-show of purchased hint.
 
 Browser tooling: prescribed web-game client cannot run because Playwright is not installed; used the built-in browser for interactions and visual inspection instead. Multiplayer browser verification initially hit an unrelated concurrent Tenable stylesheet build error.
 
-Implemented scoring helpers and a validated server hint endpoint using the placement matcher. Hint requests ignore stale/unmounted responses and deduplicate clicks. Solo purchases persist; room purchases use a Liveblocks ledger with board-scoped wallets. Added hint controls, accessible yellow match markers, responsive points, a balanced four-counter scoreboard and final solo points.
+Implemented scoring helpers and a validated server hint endpoint using the placement matcher. Hint requests ignore stale/unmounted responses and deduplicate clicks. Solo purchases persist; room purchases use a PartyServer ledger with board-scoped wallets. Added hint controls, accessible yellow match markers, responsive points, a balanced four-counter scoreboard and final solo points.
 
 Verification: all 41 unit tests passed, including six new hint/scoring/API/persistence tests. TypeScript passed. Hint helpers/components pass lint; SoloGame/RoomGame retain existing React warnings. Browser verified: 0-point disabled hint; correct placement +100; purchase -50; three simultaneous matches; no-match request free; skip/place clears highlights; reload retains spent points and allows free re-show of a purchased hint.
 

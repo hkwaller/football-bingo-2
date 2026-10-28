@@ -7,7 +7,7 @@ create extension if not exists "pgcrypto";
 create table if not exists public.football_bingo_games (
   id uuid primary key default gen_random_uuid(),
   seed text not null,
-  liveblocks_room_id text,
+  room_id text,
   host_clerk_user_id text,
   settings jsonb not null default '{}'::jsonb,
   started_at timestamptz not null default now(),
@@ -25,7 +25,7 @@ create table if not exists public.football_bingo_game_participants (
 );
 
 create index if not exists football_bingo_game_participants_game_id_idx on public.football_bingo_game_participants (game_id);
-create index if not exists football_bingo_games_liveblocks_room_id_idx on public.football_bingo_games (liveblocks_room_id);
+create index if not exists football_bingo_games_room_id_idx on public.football_bingo_games (room_id);
 
 alter table public.football_bingo_games enable row level security;
 alter table public.football_bingo_game_participants enable row level security;

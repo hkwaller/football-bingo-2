@@ -4,7 +4,7 @@ The App Store and Google Play builds are a Capacitor shell around the live site,
 
 ## How it works
 
-- **Remote URL, not a bundled export.** The app opens `https://bingo.playam.app` in a WKWebView (iOS) or WebView (Android). The game needs its server (Liveblocks auth, Clerk `proxy.ts`, the validate and stats API routes), and a remote URL means every Vercel deploy reaches the app without a store review. The shell only ships the icon, splash, offline page and native plugins.
+- **Remote URL, not a bundled export.** The app opens `https://bingo.playam.app` in a WKWebView (iOS) or WebView (Android). The game needs its server (PartyServer auth, Clerk `proxy.ts`, the validate and stats API routes), and a remote URL means every Vercel deploy reaches the app without a store review. The shell only ships the icon, splash, offline page and native plugins.
 - **One codebase.** Components ask `useIsNativeApp()` or call helpers in `src/lib/native.ts`. In a browser every helper does nothing or falls back to the web API, so the website is unchanged. No game logic knows about Capacitor.
 - **Capacitor 8**, iOS through Swift Package Manager (no CocoaPods), Android through Gradle.
 

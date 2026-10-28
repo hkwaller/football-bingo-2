@@ -67,6 +67,6 @@ Paste the printed `whsec_…` into `STRIPE_WEBHOOK_SECRET`, restart dev. Events 
 
 ## Not yet implemented - host perk (multiplayer)
 
-The skill's "host is ad-free → whole room is ad-free" perk is **not** wired up. Football Bingo has **three separate Liveblocks room configs** (bingo in `src/lib/liveblocks/client.ts`, Tenable in `src/lib/tenable/liveblocksTenable.ts`, Trivia in `src/lib/trivia/liveblocksTrivia.ts`), and multiplayer bingo has no end/results ad spot (the win state is inline during play). Current behavior: ads are gated per device by each viewer's own entitlement - a paying player never sees ads on their own device, but a free guest in a paying host's room still does.
+The skill's "host is ad-free → whole room is ad-free" perk is **not** wired up. Football Bingo has **six PartyServer room configs** (bingo in `src/lib/party/bingo.tsx`, Tenable in `src/lib/party/tenable.tsx`, Trivia in `src/lib/party/trivia.tsx`, plus Famous 11s, Connections and Careers), and multiplayer bingo has no end/results ad spot (the win state is inline during play). Current behavior: ads are gated per device by each viewer's own entitlement - a paying player never sees ads on their own device, but a free guest in a paying host's room still does.
 
 To add the perk later, per mode: add `hostAdFree: boolean` to that mode's room storage, set it from the host's `useAdFree()` in the start mutation (reset on new-game), and pass a `suppressed` prop into `<AdsterraBanner>` / `<AdsterraPopunder>` on the in-room end screens (both already accept it).

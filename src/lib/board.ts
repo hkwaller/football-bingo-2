@@ -1,4 +1,4 @@
-import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
+import { hashSeed, mulberry32, shuffle } from './seeded'
 import {
   type BoardConfig,
   boardConfigKey,
@@ -6,9 +6,9 @@ import {
   categoryPoolForConfig,
   cellCountForConfig,
   DEFAULT_BOARD_CONFIG,
-} from '@/lib/boardConfig'
+} from './boardConfig'
 
-export type { BoardConfig } from '@/lib/boardConfig'
+export type { BoardConfig } from './boardConfig'
 export {
   DEFAULT_BOARD_CONFIG,
   boardConfigKey,
@@ -17,7 +17,7 @@ export {
   categoriesRequired,
   isBoardConfigViable,
   parseBoardConfig,
-} from '@/lib/boardConfig'
+} from './boardConfig'
 
 /** @deprecated use cellCountForConfig */
 export const BOARD_SIZE = 5

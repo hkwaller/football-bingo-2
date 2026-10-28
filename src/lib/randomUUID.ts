@@ -14,7 +14,7 @@ function uuidFromMathRandom(): string {
 
 /** UUID v4 with fallbacks for HTTP, older browsers, and Node without Web Crypto randomUUID. */
 export function randomUUID(): string {
-  const c = globalThis.crypto
+  const c = typeof crypto === 'undefined' ? undefined : crypto
   if (c && typeof c.randomUUID === 'function') {
     return c.randomUUID()
   }

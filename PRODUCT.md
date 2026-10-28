@@ -28,7 +28,7 @@ Two claims a generic football quiz could not truthfully copy:
 
 ## Operating Context
 
-- Played in a browser, solo or in shared real-time rooms (Liveblocks), often on mobile and often socially (matchday, group chat, pub).
+- Played in a browser, solo or in shared real-time rooms (PartyServer), often on mobile and often socially (matchday, group chat, pub).
 - A guest can start playing instantly; signing in is optional upside, not a gate.
 - Rooms are joinable/shareable (QR + room IDs), reinforcing the group-play situation.
 
@@ -38,7 +38,7 @@ Two claims a generic football quiz could not truthfully copy:
   - **Bingo** - the signature mode: build a grid of clubs, nations and honours; real players are drawn one by one; place each on a square he genuinely fits; first to a line (row/column/diagonal) wins.
   - **Trivia** - quick-fire football questions; fastest correct answer wins the round.
   - **Tenable** - name the ten (top scorers, most caps, biggest transfers, etc.) before your lives run out.
-- Built on Next.js (App Router) + React 19; real-time via Liveblocks; auth via Clerk; payments via Stripe; data/enrichment backed by Supabase.
+- Built on Next.js (App Router) + React 19; real-time via PartyServer; auth via Clerk; payments via Stripe; data/enrichment backed by Supabase.
 - Player dataset is a curated set of real footballers (~641) with category metadata (club / nation / honour). Tenable answers are curated and enriched via a Kaggle-CSV pipeline (not sourced live from the transfermarkt-api).
 - Guest-first: core play must not require an account.
 

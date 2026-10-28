@@ -1,6 +1,6 @@
-import { getCanonicalName } from '@/data/clubs'
-import { enrichedFootballPlayers } from '@/data/players'
-import { getCategoryKind } from '@/lib/canonical'
+import { getCanonicalName } from '../data/clubs'
+import { enrichedFootballPlayers } from '../data/players'
+import { getCategoryKind } from './canonical'
 
 export type EnrichedPlayer = (typeof enrichedFootballPlayers)[number]
 

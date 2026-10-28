@@ -5,13 +5,14 @@ import { randomUUID } from '@/lib/randomUUID'
 /**
  * Per-tab identity for turn-based rooms.
  *
- * Liveblocks connectionIds change on every reconnect, and localStorage is shared
+ * Room seats survive reconnects, and localStorage is shared
  * by every tab in a browser (split-screen tabs would collapse into one player).
  * sessionStorage is per tab and survives reloads and back/forward navigation.
  */
 const PLAYER_ID_KEY = 'fb_room_player_id'
 const NAME_KEY = 'fb_display_name'
 const FALLBACK_NAME_KEY = 'fb_fallback_name'
+let fallbackPlayerId = ''
 
 export function getTabPlayerId(): string {
   if (typeof window === 'undefined') return ''
@@ -23,7 +24,7 @@ export function getTabPlayerId(): string {
     }
     return id
   } catch {
-    return ''
+    return (fallbackPlayerId ||= randomUUID())
   }
 }
 

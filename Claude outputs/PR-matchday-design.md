@@ -30,7 +30,7 @@ Replaces Prime Time Green with the Matchday look: a matchday programme on a mown
 ## How it was checked
 - `tsc --noEmit` passes on every commit.
 - Solo, Trivia, Tenable and setup screens rendered in headless Chromium at 1440px and 390px (no horizontal overflow, no console errors).
-- **Not run:** multiplayer rooms (no Liveblocks keys in the test copy) and the home page (needs Clerk). Please try a room with two browsers, especially the same-player and shared-board settings.
+- **Not run:** multiplayer rooms (no PartyServer keys in the test copy) and the home page (needs Clerk). Please try a room with two browsers, especially the same-player and shared-board settings.
 
 ## Not in this PR
 - Home page hero and mode cards from the canvas. The stashed Broadcast work (`stash@{0}`) already rebuilds that page, so it should land on top of it.

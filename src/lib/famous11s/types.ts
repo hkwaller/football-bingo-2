@@ -1,5 +1,5 @@
-import type { Famous11sLineup, LineupDifficulty, LineupEra, LineupKind } from '@/data/famous11s'
-import type { RoomPlayMode } from '@/lib/roomMode'
+import type { Famous11sLineup, LineupDifficulty, LineupEra, LineupKind } from '../../data/famous11s'
+import type { RoomPlayMode } from '../roomMode'
 
 export type { Famous11sLineup }
 

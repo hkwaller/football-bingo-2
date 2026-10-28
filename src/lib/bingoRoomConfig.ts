@@ -3,14 +3,14 @@ import { DEFAULT_BOARD_CONFIG, isBoardConfigViable, parseBoardConfig } from '@/l
 import type { DraftPolicy } from '@/lib/draftPolicy'
 import { parseDraftPolicy } from '@/lib/draftPolicy'
 import type { PlayMode } from '@/lib/playMode'
-import type { InitialGameConfig } from '@/lib/liveblocks/client'
+import type { InitialGameConfig } from '@/lib/party/bingoModel'
 
 const KEY = 'football-bingo-room-config-v1'
 
 /**
  * The full multiplayer-bingo config a host picks on the setup screen, before a
  * room exists. Mirrors trivia/tenable: the setup screen writes this, and the
- * room seeds its Liveblocks storage from it on creation.
+ * room seeds its PartyServer storage from it on creation.
  */
 export type BingoRoomConfig = {
   boardConfig: BoardConfig

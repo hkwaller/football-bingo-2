@@ -4,9 +4,9 @@
  * counts, and the first player to connect the clubs earns FIRST_BONUS. The
  * puzzle closes when every present player is done or the clock runs out.
  *
- * Pure so the Liveblocks mutations stay thin and this stays testable.
+ * Pure so the PartyServer mutations stay thin and this stays testable.
  */
-import { normalize } from '@/lib/tenable/normalize'
+import { normalize } from '../tenable/normalize'
 import { judgeGuess, scoreFor, type KnownNames } from './sessionEngine'
 import { FIRST_BONUS, type ConnectionsPuzzle } from './types'
 

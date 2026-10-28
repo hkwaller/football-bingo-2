@@ -16,13 +16,13 @@ import {
   createInitialTriviaStorage,
   parseQuestionsJson,
   parseConfigJson,
-} from '@/lib/trivia/liveblocksTrivia'
+} from '@/lib/party/trivia'
 import { haptic } from '@/lib/native'
-import { randomUUID } from '@/lib/randomUUID'
+
 import { loadTriviaConfig } from '@/lib/trivia/triviaStorage'
-import { generateQuestions } from '@/lib/trivia/questionGenerators'
+
 import { computePoints } from '@/lib/trivia/sessionEngine'
-import type { TriviaConfig, TriviaQuestion, TriviaPlayerAnswer } from '@/lib/trivia/types'
+import type { TriviaQuestion, TriviaPlayerAnswer } from '@/lib/trivia/types'
 import { TriviaLobby } from './TriviaLobby'
 import { TriviaHUD } from './TriviaHUD'
 import { TriviaQuestion as TriviaQuestionComp } from './TriviaQuestion'
@@ -161,142 +161,25 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   // "unclaimed". The effect below gates on self being ready and re-runs when it
   // becomes available, so the first player in the room reliably wins host. The
   // host also seeds the room with their setup-screen config so the lobby shows it.
-  const claimHost = useTriviaM(
-    (
-      { storage },
-      { id, displayName, config }: { id: number; displayName: string; config: TriviaConfig },
-    ) => {
-      if (storage.get('hostConnectionId') == null) {
-        storage.set('hostConnectionId', id)
-        storage.set('configJson', JSON.stringify(config))
-      }
-      if (displayName) storage.get('playerNames').set(String(id), displayName)
-    },
-    [],
-  )
+  const claimHost = useTriviaM('claimHost')
 
-  const setPlayerName = useTriviaM(
-    ({ storage }, { id, displayName }: { id: number; displayName: string }) => {
-      storage.get('playerNames').set(String(id), displayName)
-    },
-    [],
-  )
+  const setPlayerName = useTriviaM('setPlayerName')
 
   // Plays the config stored in the room (the host's), never the clicker's local one.
-  const startGame = useTriviaM(({ storage }) => {
-    const savedConfig = parseConfigJson(storage.get('configJson') ?? '{}')
-    const newSessionId = randomUUID()
-    const count =
-      savedConfig.sessionType === 'fixed' || savedConfig.sessionType === 'category'
-        ? savedConfig.questionCount
-        : 20
-    const qs = generateQuestions(savedConfig, newSessionId, count)
-    const now = Date.now()
-    storage.set('sessionId', newSessionId)
-    storage.set('questionsJson', JSON.stringify(qs))
-    storage.set('currentQuestionIndex', 0)
-    storage.set('questionStartedAt', now)
-    storage.set('sessionStartedAt', now)
-    storage.set('phase', 'playing')
-    // Turn-based starts with the host (the first player in the room); the host
-    // rotates the turn from here. Harmless for other mechanics, which ignore it.
-    storage.set('currentTurnConnectionId', storage.get('hostConnectionId'))
+  const startGame = useTriviaM('startGame')
 
-    const pa = storage.get('playerAnswers')
-    const rw = storage.get('raceWinner')
-    for (const k of [...pa.keys()]) pa.delete(k)
-    for (const k of [...rw.keys()]) rw.delete(k)
-  }, [])
+  const submitAnswer = useTriviaM('submitAnswer')
 
-  const submitAnswer = useTriviaM(
-    (
-      { storage },
-      {
-        answerValue,
-        correct,
-        questionIndex,
-        questionStartedAt: qsAt,
-        myStreak,
-      }: {
-        answerValue: string
-        correct: boolean
-        questionIndex: number
-        questionStartedAt: number
-        myStreak: number
-      },
-    ) => {
-      if (!self?.connectionId) return
-      const connId = String(self.connectionId)
-      const elapsed = Date.now() - qsAt
-      const points = correct ? computePoints(elapsed, myStreak) : 0
-
-      const answer: TriviaPlayerAnswer = {
-        answeredAt: Date.now(),
-        questionStartedAt: qsAt,
-        correct,
-        pointsEarned: points,
-        answerValue,
-        questionIndex,
-      }
-
-      const existing = storage.get('playerAnswers').get(connId)
-      const prev: TriviaPlayerAnswer[] = existing
-        ? (JSON.parse(existing) as TriviaPlayerAnswer[])
-        : []
-      storage.get('playerAnswers').set(connId, JSON.stringify([...prev, answer]))
-
-      const mechanic = parseConfigJson(storage.get('configJson') ?? '{}').multiplayerMechanic
-      if (mechanic === 'race' && correct) {
-        const key = String(questionIndex)
-        if (!storage.get('raceWinner').get(key)) {
-          storage.get('raceWinner').set(key, connId)
-        }
-      }
-    },
-    [self?.connectionId],
-  )
-
-  const advanceQuestion = useTriviaM(({ storage }) => {
-    const idx = (storage.get('currentQuestionIndex') ?? 0) + 1
-    const cfg = parseConfigJson(storage.get('configJson') ?? '{}')
-    const isOver =
-      cfg.sessionType === 'fixed' || cfg.sessionType === 'category'
-        ? idx >= cfg.questionCount
-        : false
-    if (isOver) {
-      storage.set('phase', 'finished')
-    } else {
-      storage.set('currentQuestionIndex', idx)
-      storage.set('questionStartedAt', Date.now())
-    }
-  }, [])
+  const advanceQuestion = useTriviaM('advanceQuestion')
 
   // Turn-based advance: hand the turn to `nextTurnId` AND move to the next
   // question in one mutation, so a fresh question is drawn for each turn.
-  const advanceTurnAndQuestion = useTriviaM(({ storage }, nextTurnId: number | null) => {
-    storage.set('currentTurnConnectionId', nextTurnId)
-    const idx = (storage.get('currentQuestionIndex') ?? 0) + 1
-    const cfg = parseConfigJson(storage.get('configJson') ?? '{}')
-    const isOver =
-      cfg.sessionType === 'fixed' || cfg.sessionType === 'category'
-        ? idx >= cfg.questionCount
-        : false
-    if (isOver) {
-      storage.set('phase', 'finished')
-    } else {
-      storage.set('currentQuestionIndex', idx)
-      storage.set('questionStartedAt', Date.now())
-    }
-  }, [])
+  const advanceTurnAndQuestion = useTriviaM('advanceTurnAndQuestion')
 
-  const finishGame = useTriviaM(({ storage }) => {
-    storage.set('phase', 'finished')
-  }, [])
+  const finishGame = useTriviaM('finishGame')
 
   // ── Initialization ────────────────────────────────────────────────────────
-  // Gate on phase being non-null - phase comes from useStorage, so it will be
-  // null until Liveblocks storage has fully loaded. Calling a mutation before
-  // storage loads throws "This mutation cannot be used until storage has been loaded".
+  // Wait for the first authoritative room snapshot before registering the player.
 
   // Lobby guests type their own name; nothing is prefilled.
   useEffect(() => {
@@ -319,10 +202,17 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   // Reset local answer when question changes
   useEffect(() => {
-    setLocalAnswer(null)
+    let savedAnswer: TriviaPlayerAnswer | undefined
+    try {
+      const answers = JSON.parse(
+        playerAnswers?.get(String(self?.connectionId)) ?? '[]',
+      ) as TriviaPlayerAnswer[]
+      savedAnswer = answers.find((answer) => answer.questionIndex === currentQuestionIndex)
+    } catch {}
+    setLocalAnswer(savedAnswer?.answerValue ?? null)
     setShowReview(false)
     advanceScheduledRef.current = false
-    updatePresence({ answeredCurrentQuestion: false })
+    updatePresence({ answeredCurrentQuestion: !!savedAnswer })
     if (reviewTimer.current) clearTimeout(reviewTimer.current)
     // Keyed on `phase` too: `startGame` sets currentQuestionIndex to 0, which is
     // already its initial value, so a lobby→playing transition would otherwise
@@ -424,9 +314,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
   useTriviaEventListener(({ event }) => {
     if (isKickFor(event, self?.connectionId)) leaveAsRemoved()
   })
-  const dropPlayer = useTriviaM(({ storage }, id: string) => {
-    storage.get('playerNames').delete(id)
-  }, [])
+  const dropPlayer = useTriviaM('dropPlayer')
   const handleRemovePlayer = useCallback(
     (id: string | number) => {
       dropPlayer(String(id))
@@ -511,7 +399,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
         onRemovePlayer={isHost ? handleRemovePlayer : undefined}
         isHost={isHost}
         config={config}
-        onStart={startGame}
+        onStart={() => startGame()}
         myName={presence.displayName ?? ''}
         onRename={handleRename}
       />
@@ -575,10 +463,10 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
 
   const activeTurnName =
     currentTurnConnectionId != null
-      ? (allPlayerPresences.find((p) => p.connectionId === currentTurnConnectionId)?.presence
+      ? allPlayerPresences.find((p) => p.connectionId === currentTurnConnectionId)?.presence
           ?.displayName ??
         playerNames?.get(String(currentTurnConnectionId)) ??
-        'a player')
+        'a player'
       : 'a player'
 
   // In turn-based, only the active player has a local answer. Spectators derive
@@ -647,7 +535,7 @@ function TriviaRoomInner({ roomId }: { roomId: string }) {
                 ? {
                     correct: localAnswer
                       ? checkCorrect(currentQuestion, localAnswer)
-                      : (activeLastAnswer?.correct ?? false),
+                      : activeLastAnswer?.correct ?? false,
                     correctAnswer: getCorrectAnswerForQuestion(currentQuestion),
                   }
                 : null

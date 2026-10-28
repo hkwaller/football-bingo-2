@@ -4,9 +4,21 @@
     {
       "name": "football-bingo",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "autoPort": true,
       "port": 3000
+    },
+    {
+      "name": "party",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "party:dev"
+      ],
+      "port": 2001
     }
   ]
 }

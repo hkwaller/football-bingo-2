@@ -15,10 +15,9 @@ import {
   useBroadcastEvent,
   useEventListener,
   createInitialGameStorage,
-  liveMapStringKeysClear,
   type DraftVote,
   type InitialGameConfig,
-} from '@/lib/liveblocks/client'
+} from '@/lib/party/bingo'
 import { haptic } from '@/lib/native'
 import { bingoRoomConfigToStorage, loadBingoRoomConfig } from '@/lib/bingoRoomConfig'
 import { BingoBoard } from '@/components/BingoBoard'
@@ -56,8 +55,7 @@ import { PLAY_MODE_LABEL } from '@/lib/playMode'
 import { randomUUID } from '@/lib/randomUUID'
 import { useDrawnPlayerHistory } from '@/lib/useDrawnPlayerHistory'
 import { useSpaceToSkip } from '@/lib/useSpaceToSkip'
-import { LiveMap } from '@liveblocks/client'
-import { bingoHintCount, bingoHintKey, bingoPoints, canBuyBingoHint } from '@/lib/bingoHints'
+import { bingoHintCount, bingoHintKey, bingoPoints } from '@/lib/bingoHints'
 import { useBingoHint } from '@/lib/useBingoHint'
 import { LobbyNameField } from '@/components/LobbyNameField'
 import { RoomConnecting } from '@/components/RoomConnecting'
@@ -72,7 +70,7 @@ function RoomInner({ roomId }: { roomId: string }) {
     const msg = err?.message ?? 'Connection error'
     if (msg.toLowerCase().includes('auth') || msg.includes('503')) {
       setRoomError(
-        'Liveblocks is not configured or auth failed. Set LIVEBLOCKS_SECRET_KEY and use a valid project.',
+        'Room server authorization failed. Check PARTY_SECRET and NEXT_PUBLIC_PARTY_HOST.',
       )
     } else setRoomError(msg)
   })
@@ -165,77 +163,26 @@ function RoomInner({ roomId }: { roomId: string }) {
     hostConnectionId === null ||
     (self?.connectionId != null && self.connectionId === hostConnectionId)
 
-  const claimHost = useMutation(({ storage }, id: number) => {
-    if (storage.get('hostConnectionId') == null) {
-      storage.set('hostConnectionId', id)
-    }
-  }, [])
+  const claimHost = useMutation('claimHost')
 
   useEffect(() => {
     if (phase !== 'lobby' || self?.connectionId == null) return
     claimHost(self.connectionId)
   }, [phase, self?.connectionId, claimHost])
 
-  const advanceDraftRound = useMutation(({ storage }) => {
-    storage.set('draftRound', storage.get('draftRound') + 1)
-  }, [])
+  const advanceDraftRound = useMutation('advanceDraftRound')
 
-  const applyStart = useMutation(
-    ({ storage }, payload: { seed: string; supabaseGameId: string | null }) => {
-      storage.set('phase', 'playing')
-      storage.set('seed', payload.seed)
-      storage.set('startedAt', Date.now())
-      storage.set('supabaseGameId', payload.supabaseGameId)
-      storage.set('draftRound', 0)
-      liveMapStringKeysClear(storage.get('draftVotes'))
-      liveMapStringKeysClear(storage.get('sharedSolved'))
-      const purchases = storage.get('hintPurchases')
-      if (purchases) liveMapStringKeysClear(purchases)
-    },
-    [],
-  )
+  const applyStart = useMutation('applyStart')
 
-  const setFinished = useMutation(({ storage }) => {
-    storage.set('phase', 'finished')
-  }, [])
+  const setFinished = useMutation('setFinished')
 
-  const castDraftVoteWithSelf = useMutation(({ storage, self: s }, vote: DraftVote) => {
-    if (!s) return
-    storage.get('draftVotes').set(String(s.connectionId), vote)
-  }, [])
+  const castDraftVoteWithSelf = useMutation('castDraftVoteWithSelf')
 
-  const clearDraftVotes = useMutation(({ storage }) => {
-    liveMapStringKeysClear(storage.get('draftVotes'))
-  }, [])
+  const clearDraftVotes = useMutation('clearDraftVotes')
 
-  const resolveDraftRound = useMutation(
-    (
-      { storage },
-      payload: {
-        skip: boolean
-        cellIndex?: number
-        pick?: CellPick
-        layout: 'shared' | 'individual'
-      },
-    ) => {
-      liveMapStringKeysClear(storage.get('draftVotes'))
-      const r = storage.get('draftRound')
-      storage.set('draftRound', r + 1)
-      if (!payload.skip && payload.cellIndex !== undefined && payload.pick) {
-        if (payload.layout === 'shared') {
-          storage.get('sharedSolved').set(String(payload.cellIndex), payload.pick)
-        }
-      }
-    },
-    [],
-  )
+  const resolveDraftRound = useMutation('resolveDraftRound')
 
-  const applySharedPick = useMutation(
-    ({ storage }, { cellIndex, pick }: { cellIndex: number; pick: CellPick }) => {
-      storage.get('sharedSolved').set(String(cellIndex), pick)
-    },
-    [],
-  )
+  const applySharedPick = useMutation('applySharedPick')
 
   const [nameDraft, setNameDraft] = useState('')
   // Independent-draw individual boards advance their own draw locally.
@@ -246,6 +193,7 @@ function RoomInner({ roomId }: { roomId: string }) {
   const [modalCell, setModalCell] = useState<number | null>(null)
   const [starting, setStarting] = useState(false)
   const [localBingo, setLocalBingo] = useState(false)
+  const [restoredBoardKey, setRestoredBoardKey] = useState('')
   const bingoRecordedRef = useRef(false)
   const boardLayoutRef = useRef(boardLayout)
   boardLayoutRef.current = boardLayout
@@ -295,24 +243,6 @@ function RoomInner({ roomId }: { roomId: string }) {
     if (n) setNameDraft(n)
   }, [presence?.displayName])
 
-  useEffect(() => {
-    setLocalSolved(new Map())
-    setLocalBingo(false)
-    bingoRecordedRef.current = false
-    setModalCell(null)
-    setDraftError(null)
-    setIndyRound(0)
-    updatePresence({
-      guesses: 0,
-      solvedCount: 0,
-      solvedCells: [],
-      actedRound: null,
-      lastAction: null,
-      lastActionAt: null,
-      bingoAt: null,
-    })
-  }, [seed, updatePresence])
-
   // Drive the transient "skipped" chip so it can expire.
   useEffect(() => {
     if (phase !== 'playing') return
@@ -329,9 +259,39 @@ function RoomInner({ roomId }: { roomId: string }) {
     isIndividual && activeSeed && self?.connectionId != null
       ? `${activeSeed}::${self.connectionId}`
       : activeSeed
+  // Each tab keeps its individual board while room state and its seat live on the server.
+  useEffect(() => {
+    if (!activeSeed || self?.connectionId == null) return
+    let saved: { solved?: [number, CellPick][]; round?: number; bingo?: boolean } = {}
+    try {
+      saved = JSON.parse(sessionStorage.getItem(`fb_board:${myBoardSeed}`) ?? '{}')
+    } catch {}
+    setLocalSolved(new Map(saved.solved ?? []))
+    setIndyRound(saved.round ?? 0)
+    setLocalBingo(saved.bingo ?? false)
+    bingoRecordedRef.current = saved.bingo ?? false
+    setModalCell(null)
+    setDraftError(null)
+    setRestoredBoardKey(myBoardSeed)
+  }, [activeSeed, myBoardSeed, self?.connectionId])
+
+  useEffect(() => {
+    if (!myBoardSeed || restoredBoardKey !== myBoardSeed) return
+    try {
+      sessionStorage.setItem(
+        `fb_board:${myBoardSeed}`,
+        JSON.stringify({ solved: [...localSolved], round: indyRound, bingo: localBingo }),
+      )
+    } catch {}
+  }, [myBoardSeed, restoredBoardKey, localSolved, indyRound, localBingo])
+
   // Independent draw advances a local round; shared draw / shared board use the room round.
   const myRound = isIndividual && !drawShared ? indyRound : draftRound
-  const { drawnPlayerIds, noteDrawnPlayer } = useDrawnPlayerHistory(myRound, activeSeed)
+  const { drawnPlayerIds, noteDrawnPlayer } = useDrawnPlayerHistory(
+    myRound,
+    activeSeed,
+    myBoardSeed,
+  )
   // Shared-draw: once I've placed or skipped this round I wait for the others.
   const myActedThisRound = isIndividual && drawShared && (presence?.actedRound ?? -1) >= draftRound
 
@@ -358,26 +318,27 @@ function RoomInner({ roomId }: { roomId: string }) {
   }, [solvedForDisplay, boardConfig])
   // Once the game is over, keep the last drawn player instead of drawing another.
   const drawFrozen = boardWon || phase === 'finished'
-  const points = bingoPoints(solvedForDisplay.size, bingoHintCount(hintPurchases?.keys() ?? [], myBoardSeed))
-  const buyHint = useMutation(({ storage }, key: string) => {
-    if (storage.get('phase') !== 'playing' || storage.get('seed') !== activeSeed || myActedThisRound || localBingo) return false
-    let purchases = storage.get('hintPurchases')
-    if (!purchases) {
-      purchases = new LiveMap<string, boolean>()
-      storage.set('hintPurchases', purchases)
-    }
-    if (purchases.has(key)) return true
-    const placed = isIndividual ? localSolved.size : storage.get('sharedSolved').size
-    const balance = bingoPoints(placed, bingoHintCount(purchases.keys(), myBoardSeed))
-    if (!canBuyBingoHint(balance, false)) return false
-    purchases.set(key, true)
-    return true
-  }, [activeSeed, myActedThisRound, localBingo, isIndividual, localSolved.size, myBoardSeed])
+  const points = bingoPoints(
+    solvedForDisplay.size,
+    bingoHintCount(hintPurchases?.keys() ?? [], myBoardSeed),
+  )
+  const buyHint = useMutation('buyHint')
   const hint = useBingoHint({
-    seed: myBoardSeed, round: myRound, playerId: drawn?.playerId, boardConfig,
-    occupiedIndices: occupiedForDraft, points,
-    purchased: hintPurchases?.has(bingoHintKey(myBoardSeed, myRound, drawn?.playerId ?? '')) ?? false,
-    enabled: playMode === 'draft' && phase === 'playing' && !draftLoading && !drawFrozen && !localBingo && !myActedThisRound,
+    seed: myBoardSeed,
+    round: myRound,
+    playerId: drawn?.playerId,
+    boardConfig,
+    occupiedIndices: occupiedForDraft,
+    points,
+    purchased:
+      hintPurchases?.has(bingoHintKey(myBoardSeed, myRound, drawn?.playerId ?? '')) ?? false,
+    enabled:
+      playMode === 'draft' &&
+      phase === 'playing' &&
+      !draftLoading &&
+      !drawFrozen &&
+      !localBingo &&
+      !myActedThisRound,
     buy: buyHint,
   })
 
@@ -398,24 +359,24 @@ function RoomInner({ roomId }: { roomId: string }) {
           drawnPlayerIds,
         })
       : isIndividual
-        ? draftApiUrl({
-            seed: myBoardSeed,
-            round: indyRound,
-            policy: 'open',
-            boardConfig,
-            occupiedIndices: occupiedForDraft,
-            placedPlayerIds: placedPlayerIdsForDraft,
-            drawnPlayerIds,
-          })
-        : draftApiUrl({
-            seed: activeSeed,
-            round: draftRound,
-            policy: effectiveDraftPolicy,
-            boardConfig,
-            occupiedIndices: occupiedForDraft,
-            placedPlayerIds: placedPlayerIdsForDraft,
-            drawnPlayerIds,
-          })
+      ? draftApiUrl({
+          seed: myBoardSeed,
+          round: indyRound,
+          policy: 'open',
+          boardConfig,
+          occupiedIndices: occupiedForDraft,
+          placedPlayerIds: placedPlayerIdsForDraft,
+          drawnPlayerIds,
+        })
+      : draftApiUrl({
+          seed: activeSeed,
+          round: draftRound,
+          policy: effectiveDraftPolicy,
+          boardConfig,
+          occupiedIndices: occupiedForDraft,
+          placedPlayerIds: placedPlayerIdsForDraft,
+          drawnPlayerIds,
+        })
   }, [
     playMode,
     activeSeed,
@@ -548,10 +509,10 @@ function RoomInner({ roomId }: { roomId: string }) {
         a === 'correct'
           ? { kind: 'placed' }
           : a === 'wrong'
-            ? { kind: 'missed' }
-            : a === 'skip'
-              ? { kind: 'skipped' }
-              : null
+          ? { kind: 'missed' }
+          : a === 'skip'
+          ? { kind: 'skipped' }
+          : null
       let status: RoomPlayer['status'] = null
       if (phase === 'playing') {
         if (roomMode === 'same') status = acted ? fromAction(pr?.lastAction) : { kind: 'playing' }
@@ -560,11 +521,11 @@ function RoomInner({ roomId }: { roomId: string }) {
           status = !v
             ? { kind: 'novote' }
             : v.type === 'skip'
-              ? { kind: 'vote', label: 'Skip' }
-              : {
-                  kind: 'vote',
-                  label: displayCategory(cellCategory(sharedCells, v.cellIndex) ?? ''),
-                }
+            ? { kind: 'vote', label: 'Skip' }
+            : {
+                kind: 'vote',
+                label: displayCategory(cellCategory(sharedCells, v.cellIndex) ?? ''),
+              }
         } else if (recent) status = fromAction(pr?.lastAction)
       }
       return {
@@ -1025,7 +986,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           seed: newSeed,
-          liveblocksRoomId: roomId,
+          roomId: roomId,
         }),
       })
       const j = (await res.json()) as {
@@ -1034,7 +995,7 @@ function RoomInner({ roomId }: { roomId: string }) {
         error?: string
       }
       if (j.error) return
-      const gid = j.skipped ? null : (j.gameId ?? null)
+      const gid = j.skipped ? null : j.gameId ?? null
       applyStart({ seed: newSeed, supabaseGameId: gid })
     } finally {
       setStarting(false)

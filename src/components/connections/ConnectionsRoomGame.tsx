@@ -5,10 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import {
   ConnectionsRoomProvider,
   createInitialConnectionsStorage,
-  deadlineFor,
   parseConnectionsConfig,
   parseConnectionsPuzzles,
-  parseConnectionsResults,
   useConnectionsErrorListener,
   useConnectionsMutation,
   useConnectionsMyPresence,
@@ -18,24 +16,17 @@ import {
   useConnectionsEventListener,
   useConnectionsStatus,
   useConnectionsStorage,
-  type ConnectionsRoomResult,
-} from '@/lib/connections/liveblocksConnections'
+} from '@/lib/party/connections'
 import {
-  applyGiveUp,
-  applyRaceGuess,
   everyoneDone,
   freshRacer,
   isDone,
   parseRoundStates,
   type RaceGuessOutcome,
 } from '@/lib/connections/roomRound'
-import { pointsAfter, revealedClues, type KnownNames } from '@/lib/connections/sessionEngine'
+import { pointsAfter, revealedClues } from '@/lib/connections/sessionEngine'
 import { loadConnectionsConfig } from '@/lib/connections/storage'
-import {
-  FIRST_BONUS,
-  type ConnectionsConfig,
-  type ConnectionsPuzzle,
-} from '@/lib/connections/types'
+import { FIRST_BONUS } from '@/lib/connections/types'
 import { useKnownNames } from '@/lib/connections/useKnownNames'
 import { haptic } from '@/lib/native'
 import {
@@ -130,111 +121,20 @@ function ConnectionsRoomInner({ roomId }: { roomId: string }) {
   // ── Mutations ──────────────────────────────────────────────────────────────
 
   // The first player in the room becomes host and seeds it with their setup.
-  const claimHost = useConnectionsMutation(
-    ({ storage }, { displayName, config }: { displayName: string; config: ConnectionsConfig }) => {
-      if (myId == null) return
-      if (!storage.get('hostPlayerId')) {
-        storage.set('hostPlayerId', myId)
-        storage.set('configJson', JSON.stringify(config))
-      }
-      if (displayName) storage.get('playerNames').set(myId, displayName)
-      if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
-    },
-    [myId],
-  )
+  const claimHost = useConnectionsMutation('claimHost')
 
-  const setPlayerName = useConnectionsMutation(
-    ({ storage }, displayName: string) => {
-      if (myId != null) storage.get('playerNames').set(myId, displayName)
-    },
-    [myId],
-  )
+  const setPlayerName = useConnectionsMutation('setPlayerName')
 
-  const startGame = useConnectionsMutation(({ storage }, dealt: ConnectionsPuzzle[]) => {
-    if (storage.get('phase') !== 'lobby') return
-    const cfg = parseConnectionsConfig(storage.get('configJson'))
-    storage.set('puzzlesJson', JSON.stringify(dealt))
-    storage.set('currentIndex', 0)
-    storage.set('roundStatesJson', '{}')
-    storage.set('roundClosed', false)
-    storage.set('roundDeadline', deadlineFor(cfg))
-    storage.set('resultsJson', '[]')
-    storage.set('startedAt', Date.now())
-    const scores = storage.get('playerScores')
-    for (const id of scores.keys()) scores.set(id, '0')
-    storage.set('phase', 'playing')
-  }, [])
+  const startGame = useConnectionsMutation('startGame')
 
-  const guessMutation = useConnectionsMutation(
-    (
-      { storage },
-      { guess, ids, known }: { guess: string; ids: string[]; known: KnownNames },
-    ): RaceGuessOutcome => {
-      if (myId == null || storage.get('roundClosed')) return { kind: 'ignored' }
-      const deadline = storage.get('roundDeadline')
-      if (deadline > 0 && Date.now() >= deadline) return { kind: 'ignored' }
-      const list = parseConnectionsPuzzles(storage.get('puzzlesJson'))
-      const current = list[storage.get('currentIndex')]
-      if (!current) return { kind: 'ignored' }
-      const cfg = parseConnectionsConfig(storage.get('configJson'))
-      const { states: next, outcome } = applyRaceGuess(
-        parseRoundStates(storage.get('roundStatesJson')),
-        myId,
-        guess,
-        current,
-        known,
-        cfg.guesses,
-      )
-      if (outcome.kind === 'ignored' || outcome.kind === 'unknown') return outcome
-      storage.set('roundStatesJson', JSON.stringify(next))
-      if (outcome.kind === 'correct') {
-        const prev = Number(storage.get('playerScores').get(myId) ?? '0')
-        storage.get('playerScores').set(myId, String(prev + outcome.points))
-      }
-      if (everyoneDone(next, ids)) storage.set('roundClosed', true)
-      return outcome
-    },
-    [myId],
-  )
+  const guessMutation = useConnectionsMutation('guessMutation')
 
-  const giveUpMutation = useConnectionsMutation(
-    ({ storage }, ids: string[]) => {
-      if (myId == null || storage.get('roundClosed')) return
-      const next = applyGiveUp(parseRoundStates(storage.get('roundStatesJson')), myId)
-      storage.set('roundStatesJson', JSON.stringify(next))
-      if (everyoneDone(next, ids)) storage.set('roundClosed', true)
-    },
-    [myId],
-  )
+  const giveUpMutation = useConnectionsMutation('giveUpMutation')
 
   // Idempotent: only closes the puzzle it was called for.
-  const closeRound = useConnectionsMutation(({ storage }, index: number) => {
-    if (storage.get('currentIndex') === index) storage.set('roundClosed', true)
-  }, [])
+  const closeRound = useConnectionsMutation('closeRound')
 
-  const nextPuzzle = useConnectionsMutation(({ storage }, index: number) => {
-    if (storage.get('currentIndex') !== index || storage.get('phase') !== 'playing') return
-    const list = parseConnectionsPuzzles(storage.get('puzzlesJson'))
-    const done = list[index]
-    if (!done) return
-    const roundStates = parseRoundStates(storage.get('roundStatesJson'))
-    const results = parseConnectionsResults(storage.get('resultsJson'))
-    results.push({
-      puzzleId: done.id,
-      clubs: done.clubs.map((c) => c.name),
-      points: Object.fromEntries(Object.entries(roundStates).map(([id, r]) => [id, r.points])),
-    } satisfies ConnectionsRoomResult)
-    storage.set('resultsJson', JSON.stringify(results))
-    if (index + 1 >= list.length) {
-      storage.set('phase', 'finished')
-      return
-    }
-    const cfg = parseConnectionsConfig(storage.get('configJson'))
-    storage.set('currentIndex', index + 1)
-    storage.set('roundStatesJson', '{}')
-    storage.set('roundClosed', false)
-    storage.set('roundDeadline', deadlineFor(cfg))
-  }, [])
+  const nextPuzzle = useConnectionsMutation('nextPuzzle')
 
   // ── Effects ────────────────────────────────────────────────────────────────
 
@@ -262,10 +162,7 @@ function ConnectionsRoomInner({ roomId }: { roomId: string }) {
   useConnectionsEventListener(({ event }) => {
     if (isKickFor(event, myId)) leaveAsRemoved()
   })
-  const dropPlayer = useConnectionsMutation(({ storage }, id: string) => {
-    storage.get('playerNames').delete(id)
-    storage.get('playerScores').delete(id)
-  }, [])
+  const dropPlayer = useConnectionsMutation('dropPlayer')
   const handleRemovePlayer = useCallback(
     (id: string | number) => {
       dropPlayer(String(id))
@@ -453,8 +350,8 @@ function ConnectionsRoomInner({ roomId }: { roomId: string }) {
                 ? `✓ +${r.points}`
                 : '✓'
               : r?.out
-                ? 'out'
-                : `♥${config.guesses - (r?.wrong.length ?? 0)}`
+              ? 'out'
+              : `♥${config.guesses - (r?.wrong.length ?? 0)}`
             return (
               <span
                 key={p.id}
@@ -495,8 +392,8 @@ function ConnectionsRoomInner({ roomId }: { roomId: string }) {
               {firstSolverId
                 ? `${firstSolverId === myId ? 'You' : nameFor(firstSolverId)} connected them first`
                 : timeUp && !allDone
-                  ? "Time's up"
-                  : 'Nobody connected them'}
+                ? "Time's up"
+                : 'Nobody connected them'}
             </p>
             {canDrive ? (
               <button onClick={() => nextPuzzle(currentIndex)} className="btn btn-primary btn-lg">

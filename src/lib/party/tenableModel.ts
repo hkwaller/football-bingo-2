@@ -1,22 +1,16 @@
-'use client'
-
-import { type BaseUserMeta, createClient, LiveMap } from '@liveblocks/client'
-import { createRoomContext } from '@liveblocks/react'
-import type { KickEvent } from '@/components/RoomKickGate'
-import type { TenableQuestion } from '@/data/tenable'
+import type { TenableQuestion } from '../../data/tenable'
 import {
   DEFAULT_TENABLE_CONFIG,
   type TenableConfig,
   type TenableHint,
   type TenableQuestionResult,
-} from './types'
+} from '../tenable/types'
 
 export type TenableRoomPhase = 'lobby' | 'playing' | 'finished'
 
-/** Liveblocks storage. Complex values are JSON strings to satisfy the LsonObject constraint. */
 export type TenableGameStorage = {
   phase: TenableRoomPhase
-  /** Stable per-tab player id (see roomPlayer.ts) - connection ids change on reconnect. */
+  /** Stable per-tab player id (see roomPlayer.ts) - kept across reconnects. */
   hostPlayerId: string | null
   configJson: string // TenableConfig
   seed: string
@@ -31,44 +25,14 @@ export type TenableGameStorage = {
   resultsJson: string // TenableQuestionResult[]
   lastGuessJson: string // TenableLastGuess - most recent guess, for shared feedback
   startedAt: number
-  playerNames: LiveMap<string, string> // playerId → displayName
-  playerScores: LiveMap<string, string> // playerId → score (number as string)
+  playerNames: Map<string, string> // playerId → displayName
+  playerScores: Map<string, string> // playerId → score (number as string)
 }
 
 export type TenableGamePresence = {
   displayName: string
   playerId: string
 }
-
-const tenableClient = createClient({
-  authEndpoint: async (room) => {
-    const anonId =
-      typeof window !== 'undefined'
-        ? (window.localStorage.getItem('fb_anon_id') ?? undefined)
-        : undefined
-    const res = await fetch('/api/liveblocks-auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ room, anonId }),
-    })
-    return await res.json()
-  },
-})
-
-export const {
-  RoomProvider: TenableRoomProvider,
-  useStorage: useTenableStorage,
-  useMutation: useTenableM,
-  useOthers: useTenableOthers,
-  useMyPresence: useTenableMyPresence,
-  useStatus: useTenableStatus,
-  useErrorListener: useTenableErrorListener,
-  useSelf: useTenableSelf,
-  useBroadcastEvent: useTenableBroadcast,
-  useEventListener: useTenableEventListener,
-} = createRoomContext<TenableGamePresence, TenableGameStorage, BaseUserMeta, KickEvent>(
-  tenableClient,
-)
 
 export function createInitialTenableStorage(): TenableGameStorage {
   return {
@@ -87,8 +51,8 @@ export function createInitialTenableStorage(): TenableGameStorage {
     resultsJson: '[]',
     lastGuessJson: '',
     startedAt: 0,
-    playerNames: new LiveMap(),
-    playerScores: new LiveMap(),
+    playerNames: new Map(),
+    playerScores: new Map(),
   }
 }
 
@@ -117,7 +81,6 @@ export function parseNumberArray(json: string): number[] {
   }
 }
 
-/** Broadcast feedback for the most recent guess so every player sees the outcome. */
 export type TenableLastGuess = {
   /** Monotonic counter so the UI can re-trigger its animation on repeated outcomes. */
   seq: number

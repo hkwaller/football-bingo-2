@@ -1,11 +1,9 @@
-'use client'
-
-import { type BaseUserMeta, createClient, LiveMap } from '@liveblocks/client'
-import { createRoomContext } from '@liveblocks/react'
-import type { KickEvent } from '@/components/RoomKickGate'
-import type { Famous11sLineup } from '@/data/famous11s'
-import { randomUUID } from '@/lib/randomUUID'
-import { DEFAULT_FAMOUS11S_CONFIG, type Famous11sConfig, type LineupResult } from './types'
+import type { Famous11sLineup } from '../../data/famous11s'
+import {
+  DEFAULT_FAMOUS11S_CONFIG,
+  type Famous11sConfig,
+  type LineupResult,
+} from '../famous11s/types'
 
 export type ElevenRoomPhase = 'lobby' | 'playing' | 'finished'
 
@@ -18,10 +16,9 @@ export interface ElevenLastGuess {
   displayName?: string
 }
 
-/** Liveblocks storage - complex values JSON-serialised to satisfy LsonObject. */
 export type ElevenGameStorage = {
   phase: ElevenRoomPhase
-  /** Stable per-tab player ids - connection ids change on every reconnect. */
+  /** Stable per-tab player ids - kept across reconnects. */
   hostPlayerId: string | null
   configJson: string // Famous11sConfig
   seed: string
@@ -35,54 +32,15 @@ export type ElevenGameStorage = {
   lastGuessJson: string // ElevenLastGuess
   turnDeadline: number // epoch ms, 0 = no timer active
   startedAt: number
-  playerNames: LiveMap<string, string> // playerId → display name
-  playerScores: LiveMap<string, string> // playerId → score (number as string)
+  playerNames: Map<string, string> // playerId → display name
+  playerScores: Map<string, string> // playerId → score (number as string)
 }
 
 export type ElevenGamePresence = {
   displayName: string
-  /** Per-tab id (see lib/roomPlayer) - survives reconnects, unlike connectionId. */
+  /** Per-tab id (see lib/roomPlayer) - survives reconnects with the room seat. */
   playerId: string
 }
-
-/** Persist an anon id so guests keep the same Liveblocks user id across reconnects. */
-function ensureAnonId(): string | undefined {
-  try {
-    let id = window.localStorage.getItem('fb_anon_id')
-    if (!id) {
-      id = randomUUID()
-      window.localStorage.setItem('fb_anon_id', id)
-    }
-    return id
-  } catch {
-    return undefined
-  }
-}
-
-const elevenClient = createClient({
-  authEndpoint: async (room) => {
-    const anonId = typeof window !== 'undefined' ? ensureAnonId() : undefined
-    const res = await fetch('/api/liveblocks-auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ room, anonId }),
-    })
-    return await res.json()
-  },
-})
-
-export const {
-  RoomProvider: ElevenRoomProvider,
-  useStorage: useElevenStorage,
-  useMutation: useElevenM,
-  useOthers: useElevenOthers,
-  useMyPresence: useElevenMyPresence,
-  useStatus: useElevenStatus,
-  useErrorListener: useElevenErrorListener,
-  useSelf: useElevenSelf,
-  useBroadcastEvent: useElevenBroadcast,
-  useEventListener: useElevenEventListener,
-} = createRoomContext<ElevenGamePresence, ElevenGameStorage, BaseUserMeta, KickEvent>(elevenClient)
 
 export function createInitialElevenStorage(): ElevenGameStorage {
   return {
@@ -100,12 +58,10 @@ export function createInitialElevenStorage(): ElevenGameStorage {
     lastGuessJson: '',
     turnDeadline: 0,
     startedAt: 0,
-    playerNames: new LiveMap(),
-    playerScores: new LiveMap(),
+    playerNames: new Map(),
+    playerScores: new Map(),
   }
 }
-
-// ── Parse helpers ─────────────────────────────────────────────────────────
 
 export function parseElevenConfig(json: string): Famous11sConfig {
   try {

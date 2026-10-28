@@ -1,9 +1,9 @@
-import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
+import { hashSeed, mulberry32, shuffle } from '../../lib/seeded'
 import { famousLineups as rawLineups } from './lineups'
 import enrichment from './enrichment.json'
 import matchReferences from './matchReferences.json'
-import { enrichedFootballPlayers } from '@/data/players'
-import { normalize } from '@/lib/tenable/normalize'
+import { enrichedFootballPlayers } from '../players'
+import { normalize } from '../../lib/tenable/normalize'
 import type { Famous11sLineup, LineupDifficulty, LineupEra, LineupKind } from './types'
 
 export type {

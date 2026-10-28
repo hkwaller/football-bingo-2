@@ -1,9 +1,9 @@
-import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
-import { nationalities, achievements } from '@/data/categories'
-import { getClubDisplayNames, getKnownClubDisplayNames } from '@/data/clubs'
+import { hashSeed, mulberry32, shuffle } from '../seeded'
+import { nationalities, achievements } from '../../data/categories'
+import { getClubDisplayNames, getKnownClubDisplayNames } from '../../data/clubs'
 
 const clubs = getClubDisplayNames()
-import type { Player } from '@/types/player'
+import type { Player } from '../../types/player'
 import type {
   TriviaConfig,
   TriviaQuestion,

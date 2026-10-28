@@ -10,7 +10,8 @@ import { RoomConnecting, type RoomGameMode } from '@/components/RoomConnecting'
  * RoomProvider and remembers it for this tab, so reopening the link doesn't
  * walk them straight back in. Cooperative, like the rest of the room logic.
  */
-export type KickEvent = { type: 'kick'; id: string }
+export type { KickEvent } from '@/lib/party/types'
+import type { KickEvent } from '@/lib/party/types'
 
 export function isKickFor(event: unknown, myId: string | number | null | undefined): boolean {
   if (myId == null || !event || typeof event !== 'object') return false

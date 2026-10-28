@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     return Response.json({ ok: true, skipped: true as const })
   }
 
-  let body: { seed?: string; liveblocksRoomId?: string }
+  let body: { seed?: string; roomId?: string }
   try {
     body = await request.json()
   } catch {
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     .from(FB_TABLES.games)
     .insert({
       seed: body.seed,
-      liveblocks_room_id: body.liveblocksRoomId ?? null,
+      room_id: body.roomId ?? null,
       host_clerk_user_id: userId ?? null,
     })
     .select('id')

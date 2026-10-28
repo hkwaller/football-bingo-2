@@ -4,9 +4,9 @@
  * next clue to that player only). The first correct answer earns FIRST_BONUS.
  * The career closes when every present player is done or the clock runs out.
  *
- * Pure so the Liveblocks mutations stay thin and this stays testable.
+ * Pure so the PartyServer mutations stay thin and this stays testable.
  */
-import { normalize } from '@/lib/tenable/normalize'
+import { normalize } from '../tenable/normalize'
 import { isMatch, pointsAfter } from './sessionEngine'
 import { FIRST_BONUS, type CareerPlayer } from './types'
 

@@ -1,5 +1,5 @@
-import { enrichedFootballPlayers } from '@/data/players'
-import type { Player } from '@/types/player'
+import { enrichedFootballPlayers } from '../../data/players'
+import type { Player } from '../../types/player'
 import type { TriviaDifficulty } from './types'
 
 const FAME_THRESHOLDS: Record<TriviaDifficulty, number> = {

@@ -1,6 +1,6 @@
-import { hashSeed, mulberry32, shuffle } from '@/lib/seeded'
+import { hashSeed, mulberry32, shuffle } from '../../lib/seeded'
 import { tenableQuestions as rawQuestions } from './questions'
-import { normalize } from '@/lib/tenable/normalize'
+import { normalize } from '../../lib/tenable/normalize'
 import enrichment from './enrichment.json'
 import { withOpenMembers } from './openSets'
 import type { TenableGroup, TenableQuestion } from './types'
@@ -41,7 +41,7 @@ export function getTenableQuestionById(id: string): TenableQuestion | undefined 
 }
 
 // Lives in its own module so the board can use it without bundling the question bank.
-export { tenableTarget } from '@/lib/tenable/target'
+export { tenableTarget } from '../../lib/tenable/target'
 
 /**
  * Deterministically pick `count` questions for a session. Same seed + filters →

@@ -1,6 +1,6 @@
-import { getCanonicalName, getClubLogo, getDisplayName } from '@/data/clubs'
-import { getCountryLogo } from '@/data/countries'
-import { achievements, clubs, managers, nationalities, traits } from '@/data/categories'
+import { getCanonicalName, getClubLogo, getDisplayName } from '../data/clubs'
+import { getCountryLogo } from '../data/countries'
+import { achievements, clubs, managers, nationalities, traits } from '../data/categories'
 
 const nationalitySet = new Set(nationalities)
 const achievementSet = new Set(achievements)

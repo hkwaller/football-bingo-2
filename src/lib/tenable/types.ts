@@ -1,5 +1,5 @@
-import type { TenableGroup, TenableQuestion } from '@/data/tenable'
-import type { RoomPlayMode } from '@/lib/roomMode'
+import type { TenableGroup, TenableQuestion } from '../../data/tenable'
+import type { RoomPlayMode } from '../roomMode'
 
 export type TenableDifficultyFilter = 'easy' | 'medium' | 'hard' | 'mixed'
 export type TenableMultiplayerMechanic = 'turn-based'

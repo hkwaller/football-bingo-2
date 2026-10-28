@@ -5,10 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import {
   CareersRoomProvider,
   createInitialCareersStorage,
-  deadlineFor,
   parseCareerPlayers,
   parseCareersConfig,
-  parseCareersResults,
   useCareersErrorListener,
   useCareersMutation,
   useCareersMyPresence,
@@ -18,11 +16,8 @@ import {
   useCareersEventListener,
   useCareersStatus,
   useCareersStorage,
-  type CareersRoomResult,
-} from '@/lib/careers/liveblocksCareers'
+} from '@/lib/party/careers'
 import {
-  applyGiveUp,
-  applyRaceGuess,
   everyoneDone,
   freshRacer,
   isDone,
@@ -138,107 +133,20 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
   // ── Mutations ──────────────────────────────────────────────────────────────
 
   // The first player in the room becomes host and seeds it with their setup.
-  const claimHost = useCareersMutation(
-    ({ storage }, { displayName, config }: { displayName: string; config: CareersConfig }) => {
-      if (myId == null) return
-      if (!storage.get('hostPlayerId')) {
-        storage.set('hostPlayerId', myId)
-        storage.set('configJson', JSON.stringify(config))
-      }
-      if (displayName) storage.get('playerNames').set(myId, displayName)
-      if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
-    },
-    [myId],
-  )
+  const claimHost = useCareersMutation('claimHost')
 
-  const setPlayerName = useCareersMutation(
-    ({ storage }, displayName: string) => {
-      if (myId != null) storage.get('playerNames').set(myId, displayName)
-    },
-    [myId],
-  )
+  const setPlayerName = useCareersMutation('setPlayerName')
 
-  const startGame = useCareersMutation(({ storage }, dealt: CareerPlayer[]) => {
-    if (storage.get('phase') !== 'lobby') return
-    const cfg = parseCareersConfig(storage.get('configJson'))
-    storage.set('playersJson', JSON.stringify(dealt))
-    storage.set('currentIndex', 0)
-    storage.set('roundStatesJson', '{}')
-    storage.set('roundClosed', false)
-    storage.set('roundDeadline', deadlineFor(cfg))
-    storage.set('resultsJson', '[]')
-    storage.set('startedAt', Date.now())
-    const scores = storage.get('playerScores')
-    for (const id of scores.keys()) scores.set(id, '0')
-    storage.set('phase', 'playing')
-  }, [])
+  const startGame = useCareersMutation('startGame')
 
-  const guessMutation = useCareersMutation(
-    ({ storage }, { guess, ids }: { guess: string; ids: string[] }): RaceGuessOutcome => {
-      if (myId == null || storage.get('roundClosed')) return { kind: 'ignored' }
-      const deadline = storage.get('roundDeadline')
-      if (deadline > 0 && Date.now() >= deadline) return { kind: 'ignored' }
-      const list = parseCareerPlayers(storage.get('playersJson'))
-      const player = list[storage.get('currentIndex')]
-      if (!player) return { kind: 'ignored' }
-      const cfg = parseCareersConfig(storage.get('configJson'))
-      const { states: next, outcome } = applyRaceGuess(
-        parseRoundStates(storage.get('roundStatesJson')),
-        myId,
-        guess,
-        player,
-        cfg.guesses,
-      )
-      if (outcome.kind === 'ignored') return outcome
-      storage.set('roundStatesJson', JSON.stringify(next))
-      if (outcome.kind === 'correct') {
-        const prev = Number(storage.get('playerScores').get(myId) ?? '0')
-        storage.get('playerScores').set(myId, String(prev + outcome.points))
-      }
-      if (everyoneDone(next, ids)) storage.set('roundClosed', true)
-      return outcome
-    },
-    [myId],
-  )
+  const guessMutation = useCareersMutation('guessMutation')
 
-  const giveUpMutation = useCareersMutation(
-    ({ storage }, ids: string[]) => {
-      if (myId == null || storage.get('roundClosed')) return
-      const next = applyGiveUp(parseRoundStates(storage.get('roundStatesJson')), myId)
-      storage.set('roundStatesJson', JSON.stringify(next))
-      if (everyoneDone(next, ids)) storage.set('roundClosed', true)
-    },
-    [myId],
-  )
+  const giveUpMutation = useCareersMutation('giveUpMutation')
 
   // Idempotent: only closes the career it was called for.
-  const closeRound = useCareersMutation(({ storage }, index: number) => {
-    if (storage.get('currentIndex') === index) storage.set('roundClosed', true)
-  }, [])
+  const closeRound = useCareersMutation('closeRound')
 
-  const nextCareer = useCareersMutation(({ storage }, index: number) => {
-    if (storage.get('currentIndex') !== index || storage.get('phase') !== 'playing') return
-    const list = parseCareerPlayers(storage.get('playersJson'))
-    const player = list[index]
-    if (!player) return
-    const roundStates = parseRoundStates(storage.get('roundStatesJson'))
-    const results = parseCareersResults(storage.get('resultsJson'))
-    results.push({
-      playerId: player.id,
-      name: player.name,
-      points: Object.fromEntries(Object.entries(roundStates).map(([id, r]) => [id, r.points])),
-    } satisfies CareersRoomResult)
-    storage.set('resultsJson', JSON.stringify(results))
-    if (index + 1 >= list.length) {
-      storage.set('phase', 'finished')
-      return
-    }
-    const cfg = parseCareersConfig(storage.get('configJson'))
-    storage.set('currentIndex', index + 1)
-    storage.set('roundStatesJson', '{}')
-    storage.set('roundClosed', false)
-    storage.set('roundDeadline', deadlineFor(cfg))
-  }, [])
+  const nextCareer = useCareersMutation('nextCareer')
 
   // ── Effects ────────────────────────────────────────────────────────────────
 
@@ -266,10 +174,7 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
   useCareersEventListener(({ event }) => {
     if (isKickFor(event, myId)) leaveAsRemoved()
   })
-  const dropPlayer = useCareersMutation(({ storage }, id: string) => {
-    storage.get('playerNames').delete(id)
-    storage.get('playerScores').delete(id)
-  }, [])
+  const dropPlayer = useCareersMutation('dropPlayer')
   const handleRemovePlayer = useCallback(
     (id: string | number) => {
       dropPlayer(String(id))
@@ -450,8 +355,8 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
                 ? `✓ +${r.points}`
                 : '✓'
               : r?.out
-                ? 'out'
-                : `♥${config.guesses - (r?.wrong.length ?? 0)}`
+              ? 'out'
+              : `♥${config.guesses - (r?.wrong.length ?? 0)}`
             return (
               <span
                 key={p.id}
@@ -496,8 +401,8 @@ function CareersRoomInner({ roomId }: { roomId: string }) {
                   {firstSolverId
                     ? `${firstSolverId === myId ? 'You' : nameFor(firstSolverId)} named him first`
                     : timeUp && !allDone
-                      ? "Time's up - it was"
-                      : 'Nobody got him - it was'}
+                    ? "Time's up - it was"
+                    : 'Nobody got him - it was'}
                 </p>
                 <p className="font-display text-[28px] font-black uppercase leading-none text-on-green">
                   {career.name}

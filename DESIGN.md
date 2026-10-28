@@ -105,7 +105,7 @@ Unchanged from Prime Time Green: fade-up entrances, spring slap-down when placin
 
 ## Migration
 
-The redesign is styling only: keep all logic, props, handlers, Liveblocks storage, API calls and accessibility attributes untouched (the mini boards are the one flagged exception).
+The redesign is styling only: keep all logic, props, handlers, PartyServer storage, API calls and accessibility attributes untouched (the mini boards are the one flagged exception).
 
 1. **Tokens and fonts** - done: palette, stage, fonts, and the `.btn` / `.card` / `.chip` / `.eyebrow` / `.input` classes.
 2. **Shared components** - done: `Sticker`, `BingoBoard` square (container rule above, category bars, voter roundels), `SiteHeader`, `.scoreboard` / `.halftone` classes. Ticker still lives in the stashed Broadcast work.

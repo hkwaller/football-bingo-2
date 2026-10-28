@@ -1,7 +1,7 @@
 // Auto-generated - do not edit by hand.
 // Source: scripts/output/players.json (run "npm run enrich" then "npm run parse" to regenerate)
 // 954 players, last updated 2026-09-24
-import type { Player } from '@/types/player'
+import type { Player } from '../types/player'
 
 export const enrichedFootballPlayers: Player[] = [
   {

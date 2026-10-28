@@ -2,8 +2,8 @@ import {
   categoryIsEligible,
   parseBoardDifficulty,
   type BoardDifficulty,
-} from '@/lib/boardDifficulty'
-import { achievements, clubs, managers, nationalities, traits } from '@/data/categories'
+} from './boardDifficulty'
+import { achievements, clubs, managers, nationalities, traits } from '../data/categories'
 
 export type BoardCategoryKinds = {
   nationalities: boolean

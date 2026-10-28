@@ -34,7 +34,7 @@ export function poolKey(mode: RoomPlayMode, playerId: string): string {
   return mode === 'coop' ? TEAM_KEY : playerId
 }
 
-/** Pool key → amount used. Stored as a JSON string in Liveblocks storage. */
+/** Pool key → amount used. Stored as a JSON string in PartyServer storage. */
 export type UsedCounts = Record<string, number>
 
 export function parseUsedCounts(json: string | null | undefined): UsedCounts {

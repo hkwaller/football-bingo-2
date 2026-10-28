@@ -1,4 +1,4 @@
-import { normalize } from '@/lib/tenable/normalize'
+import { normalize } from '../../lib/tenable/normalize'
 import openSets from './openSets.json'
 import type { TenableAnswer, TenableQuestion } from './types'
 

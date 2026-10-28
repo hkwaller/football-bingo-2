@@ -38,3 +38,7 @@ scripts/output/
 next-env.d.ts
 .vercel
 .env*
+
+# PartyServer local state and secrets
+.dev.vars
+.wrangler/

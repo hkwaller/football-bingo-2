@@ -3,8 +3,8 @@
  * Uses the same normalize() as Tenable so special characters are handled
  * without typing - "subasic" matches "Subašić".
  */
-import type { Famous11sLineup } from '@/data/famous11s'
-import { normalize } from '@/lib/tenable/normalize'
+import type { Famous11sLineup } from '../../data/famous11s'
+import { normalize } from '../tenable/normalize'
 import type { GuessOutcome } from './types'
 
 export { normalize }

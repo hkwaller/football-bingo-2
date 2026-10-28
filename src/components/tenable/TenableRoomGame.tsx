@@ -20,8 +20,8 @@ import {
   parseLastGuess,
   parseHints,
   type TenableLastGuess,
-} from '@/lib/tenable/liveblocksTenable'
-import { haptic } from '@/lib/native'
+} from '@/lib/party/tenable'
+
 import { loadTenableConfig } from '@/lib/tenable/tenableStorage'
 import {
   getTabDisplayName,
@@ -29,24 +29,22 @@ import {
   roomPlayerIdOf as playerIdOf,
   saveTabDisplayName,
 } from '@/lib/roomPlayer'
-import { selectTenableQuestions, tenableTarget } from '@/data/tenable'
-import { foundAnswerNames, matchAnswer } from '@/lib/tenable/matching'
-import { CLEAR_BONUS, pointsFor, type TenableConfig, type TenableHint } from '@/lib/tenable/types'
-import { randomUUID } from '@/lib/randomUUID'
+import { tenableTarget } from '@/data/tenable'
+import { foundAnswerNames } from '@/lib/tenable/matching'
+
 import { TenableLobby } from './TenableLobby'
 import { TenableBoard } from './TenableBoard'
 import { NameAutocomplete } from './NameAutocomplete'
 import { TenableHints, fetchTenableHint } from './TenableHints'
+import { haptic } from '@/lib/native'
 import { LivesRow } from '@/components/LivesRow'
 import { asOfLabel } from '@/lib/tenable/asOf'
 import { RoomResults } from '@/components/RoomResults'
 import { RoomPlayersStrip } from '@/components/RoomPlayersStrip'
 import {
-  bumpUsed,
   everyoneOutOfLives,
   isOutOfLives,
   leftFor,
-  nextTurnPlayer,
   parseUsedCounts,
   poolKey,
   teamScore,
@@ -81,8 +79,8 @@ function GuessFeedback({
               guess.kind === 'correct'
                 ? 'text-yellow'
                 : guess.kind === 'already-found'
-                  ? 'text-on-green-soft'
-                  : 'text-pink'
+                ? 'text-on-green-soft'
+                : 'text-pink'
             }`}
           >
             {(() => {
@@ -161,181 +159,23 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
 
   // The first player in the room becomes host and seeds the room with the
   // settings they picked on the setup screen. Everyone else only registers a name.
-  const claimHost = useTenableM(
-    ({ storage }, { displayName, config }: { displayName: string; config: TenableConfig }) => {
-      if (myId == null) return
-      if (storage.get('hostPlayerId') == null) {
-        storage.set('hostPlayerId', myId)
-        storage.set('configJson', JSON.stringify(config))
-      }
-      if (displayName) storage.get('playerNames').set(myId, displayName)
-      if (!storage.get('playerScores').get(myId)) storage.get('playerScores').set(myId, '0')
-    },
-    [myId],
-  )
+  const claimHost = useTenableM('claimHost')
 
-  const setPlayerName = useTenableM(
-    ({ storage }, displayName: string) => {
-      if (myId != null) storage.get('playerNames').set(myId, displayName)
-    },
-    [myId],
-  )
+  const setPlayerName = useTenableM('setPlayerName')
 
   // Plays the config stored in the room (the host's), never the clicker's local one.
-  const startGame = useTenableM(({ storage }, ids: string[]) => {
-    const cfg = parseTenableConfig(storage.get('configJson') ?? '{}')
-    const seed = randomUUID()
-    const qs = selectTenableQuestions(seed, cfg.questionCount, {
-      groups: cfg.groups === 'all' ? undefined : cfg.groups,
-      difficulty: cfg.difficulty,
-      selectedId: cfg.selectedQuestionId,
-    })
-    storage.set('seed', seed)
-    storage.set('questionsJson', JSON.stringify(qs))
-    storage.set('currentQuestionIndex', 0)
-    storage.set('foundRanksJson', '[]')
-    storage.set('livesLostJson', '{}')
-    storage.set('hintsUsedJson', '{}')
-    storage.set('hintsJson', '[]')
-    storage.set('resultsJson', '[]')
-    storage.set('lastGuessJson', '')
-    storage.set('startedAt', Date.now())
-    const ring = [...ids].sort()
-    storage.set('turnOrderJson', JSON.stringify(ring))
-    storage.set('currentTurnPlayerId', ring[0] ?? null)
-    storage.set('phase', 'playing')
-  }, [])
+  const startGame = useTenableM('startGame')
 
-  const submitTurnGuess = useTenableM(
-    ({ storage }, { name, ids }: { name: string; ids: string[] }) => {
-      if (myId == null || storage.get('currentTurnPlayerId') !== myId) return
-      const qs = parseTenableQuestions(storage.get('questionsJson') ?? '[]')
-      const idx = storage.get('currentQuestionIndex') ?? 0
-      const q = qs[idx]
-      if (!q) return
-      const found = parseNumberArray(storage.get('foundRanksJson') ?? '[]')
-      const cfg = parseTenableConfig(storage.get('configJson') ?? '{}')
-      const roomMode = cfg.playMode ?? 'versus'
-      let lost = parseUsedCounts(storage.get('livesLostJson'))
-      if (found.length >= tenableTarget(q) || isOutOfLives(roomMode, lost, myId, cfg.lives)) return
-
-      const outcome = matchAnswer(name, q, found)
-      if (outcome.kind === 'correct') haptic('right')
-      else if (outcome.kind === 'wrong') haptic('wrong')
-
-      if (outcome.kind === 'correct') {
-        const nextFound = [...found, outcome.rank]
-        storage.set('foundRanksJson', JSON.stringify(nextFound))
-        const clearedNow = nextFound.length >= tenableTarget(q)
-        const prev = Number(storage.get('playerScores').get(myId) ?? '0')
-        const points = pointsFor(outcome.rank, parseHints(storage.get('hintsJson') ?? '[]'))
-        storage
-          .get('playerScores')
-          .set(myId, String(prev + points + (clearedNow ? CLEAR_BONUS : 0)))
-      } else if (outcome.kind === 'wrong') {
-        lost = bumpUsed(lost, poolKey(roomMode, myId))
-        storage.set('livesLostJson', JSON.stringify(lost))
-      }
-
-      // Broadcast the outcome so every player sees what was guessed - especially
-      // wrong guesses, which otherwise leave no trace beyond a lost life.
-      const prevSeq = parseLastGuess(storage.get('lastGuessJson') ?? '')?.seq ?? 0
-      storage.set(
-        'lastGuessJson',
-        JSON.stringify({
-          seq: prevSeq + 1,
-          by: myId,
-          name,
-          kind: outcome.kind,
-          answer: outcome.kind !== 'wrong' ? outcome.name : undefined,
-        }),
-      )
-
-      // Pass the turn on every real guess (correct or wrong); duplicates don't advance.
-      // Players out of lives (versus) are skipped.
-      if (outcome.kind !== 'already-found') {
-        storage.set(
-          'currentTurnPlayerId',
-          nextTurnPlayer(myId, ids, (id) => !isOutOfLives(roomMode, lost, id, cfg.lives)),
-        )
-      }
-    },
-    [myId],
-  )
+  const submitTurnGuess = useTenableM('submitTurnGuess')
 
   // Hints come from the server, so the mutation only records one already drawn.
   // Using a hint doesn't pass the turn.
-  const addHint = useTenableM(
-    ({ storage }, { questionId, hint }: { questionId: string; hint: TenableHint }) => {
-      if (myId == null || storage.get('currentTurnPlayerId') !== myId) return
-      const qs = parseTenableQuestions(storage.get('questionsJson') ?? '[]')
-      const q = qs[storage.get('currentQuestionIndex') ?? 0]
-      if (!q || q.id !== questionId) return
-      const cfg = parseTenableConfig(storage.get('configJson') ?? '{}')
-      const key = poolKey(cfg.playMode ?? 'versus', myId)
-      const used = parseUsedCounts(storage.get('hintsUsedJson'))
-      const found = parseNumberArray(storage.get('foundRanksJson') ?? '[]')
-      const taken = parseHints(storage.get('hintsJson') ?? '[]')
-      if (
-        leftFor(used, key, cfg.hints) <= 0 ||
-        found.includes(hint.rank) ||
-        taken.some((h) => h.rank === hint.rank)
-      )
-        return
-      storage.set('hintsUsedJson', JSON.stringify(bumpUsed(used, key)))
-      storage.set('hintsJson', JSON.stringify([...taken, { ...hint, by: myId }]))
-    },
-    [myId],
-  )
+  const addHint = useTenableM('addHint')
 
   // Only passes the turn if its holder is still missing (or out of lives) when this runs.
-  const passStuckTurn = useTenableM(({ storage }, ids: string[]) => {
-    const cfg = parseTenableConfig(storage.get('configJson') ?? '{}')
-    const lost = parseUsedCounts(storage.get('livesLostJson'))
-    const canPlay = (id: string) => !isOutOfLives(cfg.playMode ?? 'versus', lost, id, cfg.lives)
-    const current = storage.get('currentTurnPlayerId')
-    if (current != null && ids.includes(current) && canPlay(current)) return
-    storage.set('currentTurnPlayerId', nextTurnPlayer(current, ids, canPlay))
-  }, [])
+  const passStuckTurn = useTenableM('passStuckTurn')
 
-  const advanceCategory = useTenableM(({ storage }) => {
-    const qs = parseTenableQuestions(storage.get('questionsJson') ?? '[]')
-    const idx = storage.get('currentQuestionIndex') ?? 0
-    const q = qs[idx]
-    if (!q) return
-    const found = parseNumberArray(storage.get('foundRanksJson') ?? '[]')
-    const results = (() => {
-      try {
-        return JSON.parse(storage.get('resultsJson') ?? '[]') as unknown[]
-      } catch {
-        return []
-      }
-    })()
-    results.push({
-      questionId: q.id,
-      category: q.category,
-      foundRanks: found,
-      livesUsed: Object.values(parseUsedCounts(storage.get('livesLostJson'))).reduce(
-        (a, b) => a + b,
-        0,
-      ),
-      cleared: found.length >= tenableTarget(q),
-      hintsUsed: parseHints(storage.get('hintsJson') ?? '[]').length,
-    })
-    storage.set('resultsJson', JSON.stringify(results))
-
-    const nextIdx = idx + 1
-    if (nextIdx >= qs.length) {
-      storage.set('phase', 'finished')
-      return
-    }
-    // Lives reset every category; hints last the whole game.
-    storage.set('currentQuestionIndex', nextIdx)
-    storage.set('foundRanksJson', '[]')
-    storage.set('livesLostJson', '{}')
-    storage.set('hintsJson', '[]')
-    storage.set('lastGuessJson', '')
-  }, [])
+  const advanceCategory = useTenableM('advanceCategory')
 
   // ── Stuck turn: holder left, or is out of lives ─────────────────────────
   // Only the lowest present id acts, so clients don't race each other. A missing
@@ -382,10 +222,7 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   useTenableEventListener(({ event }) => {
     if (isKickFor(event, myId)) leaveAsRemoved()
   })
-  const dropPlayer = useTenableM(({ storage }, id: string) => {
-    storage.get('playerNames').delete(id)
-    storage.get('playerScores').delete(id)
-  }, [])
+  const dropPlayer = useTenableM('dropPlayer')
   const handleRemovePlayer = useCallback(
     (id: string | number) => {
       dropPlayer(String(id))
@@ -411,7 +248,9 @@ function TenableRoomInner({ roomId }: { roomId: string }) {
   const handleGuess = useCallback(
     (name: string) => {
       if (!isMyTurn || questionOver) return
-      submitTurnGuess({ name, ids: presentIds })
+      const outcome = submitTurnGuess({ name, ids: presentIds })
+      if (outcome?.kind === 'correct') haptic('right')
+      else if (outcome?.kind === 'wrong') haptic('wrong')
     },
     [isMyTurn, questionOver, submitTurnGuess, presentIds],
   )

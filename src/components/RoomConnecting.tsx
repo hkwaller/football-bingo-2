@@ -28,7 +28,7 @@ const RIB_STATIC_SCALES = [0.3, 0.42, 0.56, 0.72, 0.9]
 
 /**
  * Waiting screen for multiplayer rooms: the players' walk up the tunnel toward
- * the floodlit pitch, lit in the game's colour. The wait is real (Liveblocks
+ * the floodlit pitch, lit in the game's colour. The wait is real (PartyServer
  * connecting), so it only fades in after a beat and never delays the room.
  */
 export function RoomConnecting({

@@ -1,4 +1,4 @@
-import { categoryFameScores } from '@/data/categoryCoverage.generated'
+import { categoryFameScores } from '../data/categoryCoverage.generated'
 
 export type BoardDifficulty = 'easy' | 'medium' | 'hard'
 
