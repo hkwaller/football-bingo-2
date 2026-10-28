@@ -23,8 +23,8 @@ export default function SignInPage() {
 
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center gap-8 px-6 py-12">
-      <h1 className="font-display text-[44px] uppercase leading-none text-green">Sign in</h1>
-      <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" />
+      <h1 className="font-display text-[44px] uppercase leading-none text-green">Continue with email</h1>
+      <SignIn withSignUp routing="path" path="/sign-in" signUpUrl="/sign-in" />
     </div>
   )
 }

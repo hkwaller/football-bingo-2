@@ -198,7 +198,7 @@ function GoAdFree() {
                   {busy === tier.plan ? 'Starting…' : 'Choose'}
                 </button>
               ) : (
-                <SignInButton mode="modal">
+                <SignInButton withSignUp mode="modal">
                   <button className="btn btn-primary mt-5 w-full">Sign in to buy</button>
                 </SignInButton>
               )}

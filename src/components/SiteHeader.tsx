@@ -88,7 +88,7 @@ export function SiteHeader() {
           {clerkOn ? (
             <>
               <SignedOut>
-                <SignInButton mode="modal">
+                <SignInButton withSignUp mode="modal">
                   <button
                     type="button"
                     className="rounded-lg border-[2.5px] border-surface/55 px-4 py-1.5 text-on-green transition-colors hover:bg-surface/[0.12]"
@@ -176,7 +176,7 @@ export function SiteHeader() {
               {clerkOn ? (
                 <>
                   <SignedOut>
-                    <SignInButton mode="modal">
+                    <SignInButton withSignUp mode="modal">
                       <button
                         type="button"
                         onClick={() => setMenuOpen(false)}

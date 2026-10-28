@@ -47,5 +47,5 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     return inner
   }
 
-  return <ClerkProvider publishableKey={pk}>{inner}</ClerkProvider>
+  return <ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-in" publishableKey={pk}>{inner}</ClerkProvider>
 }
